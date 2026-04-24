@@ -4114,7 +4114,7 @@
       <!-- SECTION 1 : Règle de validation compétences -->
       <div class="settings-section">
         <h3 class="settings-section-title">📊 Règle de validation compétences</h3>
-        <p class="settings-info">Définit comment les compétences sont considérées comme acquises selon le nombre d'évaluations.</p>
+        <p class="settings-info">Définit comment une compétence est considérée comme acquise.</p>
 
         <div class="settings-option">
           <label class="settings-option-label">
@@ -4125,22 +4125,18 @@
 
         <div class="settings-option">
           <label class="settings-option-label">
-            <input type="radio" name="competenceRule" value="v32" />
-            V32 (≥ 2 acquis OU en cours, sinon non acquis)
+            <input type="radio" name="competenceRule" value="moniteurs_diff" />
+            Moniteurs différents — acquis si N moniteurs distincts ont validé
           </label>
-        </div>
-
-        <div class="settings-option">
-          <label class="settings-option-label">
-            <input type="radio" name="competenceRule" value="seuils" />
-            Curseur 2 seuils (début/fin saison)
-          </label>
-          <div class="settings-radio-group">
-            <label class="settings-radio">
-              Début saison : <input type="number" id="seuilDebut" min="0" max="100" value="33" style="width:50px;" /> %
-            </label>
-            <label class="settings-radio">
-              Fin saison : <input type="number" id="seuilFin" min="0" max="100" value="67" style="width:50px;" /> %
+          <div class="settings-radio-group" style="margin-top:8px;">
+            <label class="settings-radio" style="display:flex;align-items:center;gap:8px;">
+              Seuil minimum :
+              <select id="seuilMoniteursDiff" style="border-radius:6px;padding:3px 8px;border:1px solid var(--border);background:var(--chip);color:var(--text);">
+                <option value="2">2 moniteurs différents</option>
+                <option value="3">3 moniteurs différents</option>
+                <option value="4">4 moniteurs différents</option>
+                <option value="5">5 moniteurs différents</option>
+              </select>
             </label>
           </div>
         </div>
@@ -5050,8 +5046,9 @@
       const canExport = STATE.rawEleves && STATE.rawMoniteurs;
       $('#btnExportGlobal').disabled = !canExport;
 
-      // Alimente la variable partagée pour que l'index CR soit disponible
-      // AVANT le premier render de la vue Élèves
+      // Exposer SETTINGS immédiatement (sans condition) pour que
+      // computeAggOnSessions y accède dès le premier render élèves
+      // Alimente les variables partagées pour les renderers
       if (STATE.rawMoniteurs) {
         window._rscc_RAW_MONITEURS = STATE.rawMoniteurs;
         window._rscc_RAW_CR_SEANCE = STATE.rawCRSeance || [];
@@ -5425,11 +5422,37 @@
       return { ratio: 0, color: '#64748b' };
     }
 
-    /** Règle de validation v32 (fidèle). Phase 4 ajoutera la règle proportionnelle configurable. */
+    /**
+     * Règle de validation des compétences — applique le réglage SETTINGS.
+     *
+     * Mode 'proportionnelle' : acquis si >= 50% des évaluations = Acquis
+     * Mode 'moniteurs_diff'  : acquis si N moniteurs DISTINCTS ont validé Acquis
+     *   (N = SETTINGS.data.seuilMoniteursDiff, défaut 2)
+     */
     function computeAggOnSessions(sessions) {
-      const acqCount = sessions.filter(x => pickMajor(x.statut) === 'Acquis').length;
-      if (acqCount >= 2) return 'Acquis';
-      if (sessions.some(x => pickMajor(x.statut) === "En cours d'acquisition")) return "En cours d'acquisition";
+      const _s   = (window._rscc && window._rscc.SETTINGS && window._rscc.SETTINGS.data) || {};
+      const rule = _s.competenceRule || 'proportionnelle';
+
+      const acqSessions   = sessions.filter(x => pickMajor(x.statut) === 'Acquis');
+      const enCoursSessions = sessions.filter(x => pickMajor(x.statut) === "En cours d'acquisition");
+
+      if (rule === 'moniteurs_diff') {
+        // Compter les moniteurs DISTINCTS ayant validé Acquis
+        const seuil = _s.seuilMoniteursDiff || 2;
+        const moniteursDiff = new Set(acqSessions.map(x => (x.moniteur || '').trim().toLowerCase())
+          .filter(m => m && m !== 'n/a'));
+        if (moniteursDiff.size >= seuil) return 'Acquis';
+        if (enCoursSessions.length > 0) return "En cours d'acquisition";
+        if (acqSessions.length > 0)     return "En cours d'acquisition"; // 1 seul moniteur → en cours
+        if (sessions.some(x => pickMajor(x.statut) === 'Non acquis')) return 'Non acquis';
+        return 'Non évalué';
+      }
+
+      // Mode proportionnelle (défaut)
+      const total = sessions.filter(x => pickMajor(x.statut) !== 'Non évalué').length;
+      if (total === 0) return 'Non évalué';
+      if (acqSessions.length / total >= 0.5) return 'Acquis';
+      if (enCoursSessions.length > 0) return "En cours d'acquisition";
       if (sessions.some(x => pickMajor(x.statut) === 'Non acquis')) return 'Non acquis';
       return 'Non évalué';
     }
@@ -7930,9 +7953,8 @@
     const SETTINGS_CONFIG = {
       LS_SETTINGS: 'rscc_settings_v1',
       DEFAULTS: {
-        competenceRule: 'proportionnelle',     // 'proportionnelle' | 'v32' | 'seuils'
-        seuilDebut: 33,                        // pour mode 'seuils'
-        seuilFin: 67,                          // pour mode 'seuils'
+        competenceRule: 'proportionnelle',     // 'proportionnelle' | 'moniteurs_diff'
+        seuilMoniteursDiff: 2,                 // pour mode 'moniteurs_diff' : nb moniteurs différents requis
         heatmapGroup: 'seance',                // 'seance' | 'semaine'
         maxSessions: 12,                       // 4|8|12|16|20
         silentThreshold: 30,                   // 10-50%
@@ -8016,8 +8038,8 @@
       ruleRadios.forEach(function(r) {
         r.checked = r.value === SETTINGS.data.competenceRule;
       });
-      document.getElementById('seuilDebut').value = SETTINGS.data.seuilDebut;
-      document.getElementById('seuilFin').value = SETTINGS.data.seuilFin;
+      const selMD = document.getElementById('seuilMoniteursDiff');
+      if (selMD) selMD.value = SETTINGS.data.seuilMoniteursDiff || 2;
 
       // Heatmap
       const heatmapRadios = document.querySelectorAll('input[name="heatmapGroup"]');
@@ -8053,17 +8075,16 @@
         });
       });
 
-      document.getElementById('seuilDebut').addEventListener('change', function() {
-        SETTINGS.data.seuilDebut = parseInt(this.value);
-        saveSettings();
-        triggerReRenders();
-      });
 
-      document.getElementById('seuilFin').addEventListener('change', function() {
-        SETTINGS.data.seuilFin = parseInt(this.value);
-        saveSettings();
-        triggerReRenders();
-      });
+      const selMDEl = document.getElementById('seuilMoniteursDiff');
+      if (selMDEl) {
+        selMDEl.addEventListener('change', function() {
+          SETTINGS.data.seuilMoniteursDiff = parseInt(this.value);
+          saveSettings();
+          triggerReRenders();
+        });
+      }
+
 
       // Heatmap
       document.querySelectorAll('input[name="heatmapGroup"]').forEach(function(r) {
