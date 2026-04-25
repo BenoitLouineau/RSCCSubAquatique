@@ -141,18 +141,5 @@
       "date": "2026-03-31",
       "moniteur": "Carlos"
     }
-  },
-  {
-    "eleve": "Synthèse Présence",
-    "theorie": {
-      "valide": true,
-      "date": null,
-      "moniteur": "13"
-    },
-    "pratique": {
-      "valide": true,
-      "date": null,
-      "moniteur": "13"
-    }
   }
 ]
