@@ -4114,7 +4114,7 @@
       <!-- SECTION 1 : Règle de validation compétences -->
       <div class="settings-section">
         <h3 class="settings-section-title">📊 Règle de validation compétences</h3>
-        <p class="settings-info">Définit comment une compétence est considérée comme acquise.</p>
+        <p class="settings-info">Définit comment les compétences sont considérées comme acquises selon le nombre d'évaluations.</p>
 
         <div class="settings-option">
           <label class="settings-option-label">
@@ -4125,18 +4125,22 @@
 
         <div class="settings-option">
           <label class="settings-option-label">
-            <input type="radio" name="competenceRule" value="moniteurs_diff" />
-            Moniteurs différents — acquis si N moniteurs distincts ont validé
+            <input type="radio" name="competenceRule" value="v32" />
+            V32 (≥ 2 acquis OU en cours, sinon non acquis)
           </label>
-          <div class="settings-radio-group" style="margin-top:8px;">
-            <label class="settings-radio" style="display:flex;align-items:center;gap:8px;">
-              Seuil minimum :
-              <select id="seuilMoniteursDiff" style="border-radius:6px;padding:3px 8px;border:1px solid var(--border);background:var(--chip);color:var(--text);">
-                <option value="2">2 moniteurs différents</option>
-                <option value="3">3 moniteurs différents</option>
-                <option value="4">4 moniteurs différents</option>
-                <option value="5">5 moniteurs différents</option>
-              </select>
+        </div>
+
+        <div class="settings-option">
+          <label class="settings-option-label">
+            <input type="radio" name="competenceRule" value="seuils" />
+            Curseur 2 seuils (début/fin saison)
+          </label>
+          <div class="settings-radio-group">
+            <label class="settings-radio">
+              Début saison : <input type="number" id="seuilDebut" min="0" max="100" value="33" style="width:50px;" /> %
+            </label>
+            <label class="settings-radio">
+              Fin saison : <input type="number" id="seuilFin" min="0" max="100" value="67" style="width:50px;" /> %
             </label>
           </div>
         </div>
@@ -4255,22 +4259,19 @@
     // URLs GitHub Raw — repo BenoitLouineau/RSCCSubAquatique
     // Aucun CORS, accès public direct, mis à jour par le script Python
     //
-    // URL_ELEVES    → donnees_eleves.json       (compétences + CR injectés)
-    // URL_MONITEURS → donnees_moniteur_CR.json   (DP + Encadrants avec CR rédigés)
-    // URL_CR_SEANCE → donnees_CR_seance.json     (toutes séances y compris CR vides)
-    //                  → source de vérité pour les alertes "CR manquant"
+    // URL_ELEVES    → donnees_eleves.json      (compétences par élève)
+    // URL_MONITEURS → donnees_moniteur_CR.json  (moniteurs + CR fusionnés)
+    //                 ⚠️ C'est le fichier "final" du script, PAS donnees_moniteurs.json
     // =====================================================================
     CONFIG.URL_ELEVES    = 'https://raw.githubusercontent.com/BenoitLouineau/RSCCSubAquatique/main/2025-2026/groupe1/donnees_eleves.json';
     CONFIG.URL_MONITEURS = 'https://raw.githubusercontent.com/BenoitLouineau/RSCCSubAquatique/main/2025-2026/groupe1/donnees_moniteur_CR.json';
-    CONFIG.URL_CR_SEANCE = 'https://raw.githubusercontent.com/BenoitLouineau/RSCCSubAquatique/main/2025-2026/groupe1/donnees_CR_seance.json';
 
     // =====================================================================
     // 2. ÉTAT GLOBAL
     // =====================================================================
     const STATE = {
-      rawEleves: null,       // JSON source 1 : [{eleve, genre, categorie, competence, date, moniteur, presence, statut, cr}]
-      rawMoniteurs: null,    // JSON source 2 : [{Moniteur, Date, Eleve, Role, CR}] — CR remplis uniquement
-      rawCRSeance: null,     // JSON source 3 : [{Moniteur, Date, Eleve, CR}] — toutes séances (alertes CR manquant)
+      rawEleves: null,       // JSON source 1 : [{eleve, genre, categorie, competence, date, moniteur, presence, statut}]
+      rawMoniteurs: null,    // JSON source 2 : [{Moniteur, Date, Eleve, Role, CR}]
       loadStatusEleves: 'pending',    // 'pending' | 'loading' | 'ok' | 'ko'
       loadStatusMoniteurs: 'pending',
       excludedEleves: [],    // liste normalisée (lowercase) des élèves à filtrer
@@ -4761,10 +4762,8 @@
 
       /** Charge un fichier JSON depuis GitHub Raw */
       async function loadOne(which) {
-        const urlMap = { eleves: CONFIG.URL_ELEVES, moniteurs: CONFIG.URL_MONITEURS, crseance: CONFIG.URL_CR_SEANCE };
-        const labelMap = { eleves: 'Eleves', moniteurs: 'Moniteurs', crseance: 'CR Séances' };
-        const url   = urlMap[which];
-        const label = labelMap[which] || which;
+        const url   = which === 'eleves' ? CONFIG.URL_ELEVES : CONFIG.URL_MONITEURS;
+        const label = which === 'eleves' ? 'Eleves' : 'Moniteurs';
         setStatus(which, 'loading', label + ' : connexion GitHub...');
         try {
           const txt = await tryFetch(url);
@@ -4807,8 +4806,7 @@
 
         const results = await Promise.allSettled([
           loadOne('eleves'),
-          loadOne('moniteurs'),
-          loadOne('crseance')
+          loadOne('moniteurs')
         ]);
 
         if (results[0].status === 'fulfilled') {
@@ -4825,14 +4823,7 @@
           showErrorBanner('moniteurs', true);
         }
 
-        if (results[2].status === 'fulfilled') {
-          STATE.rawCRSeance = results[2].value;
-          console.log('[CR Séance] ' + STATE.rawCRSeance.length + ' entrées chargées');
-        } else {
-          console.warn('[CR Séance] Echec chargement — alertes CR manquant indisponibles');
-        }
-
-        const anyFailed = results[0].status === 'rejected' || results[1].status === 'rejected';
+        const anyFailed = results.some(function(r) { return r.status === 'rejected'; });
         if (anyFailed) {
           $('#importFallback').classList.add('visible');
         }
@@ -5020,18 +5011,6 @@
         }
       }
 
-      if (STATE.rawCRSeance) {
-        var beforeCR = STATE.rawCRSeance.length;
-        STATE.rawCRSeance = STATE.rawCRSeance.filter(function(r) {
-          var d = parseDate(r.Date);
-          return d && d <= _today;
-        });
-        var filteredCR = beforeCR - STATE.rawCRSeance.length;
-        if (filteredCR > 0) {
-          console.log('[Filtre date] CR Séance : ' + filteredCR + ' entrées futures ignorées');
-        }
-      }
-
       // Mise à jour du panneau "Sources de données" avec infos UX (après filtrage)
       if (STATE.rawEleves) dataLoader.setStatusSummary('eleves', STATE.rawEleves);
       if (STATE.rawMoniteurs) dataLoader.setStatusSummary('moniteurs', STATE.rawMoniteurs);
@@ -5046,12 +5025,10 @@
       const canExport = STATE.rawEleves && STATE.rawMoniteurs;
       $('#btnExportGlobal').disabled = !canExport;
 
-      // Exposer SETTINGS immédiatement (sans condition) pour que
-      // computeAggOnSessions y accède dès le premier render élèves
-      // Alimente les variables partagées pour les renderers
+      // Alimente la variable partagée pour que l'index CR soit disponible
+      // AVANT le premier render de la vue Élèves
       if (STATE.rawMoniteurs) {
         window._rscc_RAW_MONITEURS = STATE.rawMoniteurs;
-        window._rscc_RAW_CR_SEANCE = STATE.rawCRSeance || [];
       }
 
       // Appeler les renderers des phases suivantes (hook extensible)
@@ -5422,37 +5399,11 @@
       return { ratio: 0, color: '#64748b' };
     }
 
-    /**
-     * Règle de validation des compétences — applique le réglage SETTINGS.
-     *
-     * Mode 'proportionnelle' : acquis si >= 50% des évaluations = Acquis
-     * Mode 'moniteurs_diff'  : acquis si N moniteurs DISTINCTS ont validé Acquis
-     *   (N = SETTINGS.data.seuilMoniteursDiff, défaut 2)
-     */
+    /** Règle de validation v32 (fidèle). Phase 4 ajoutera la règle proportionnelle configurable. */
     function computeAggOnSessions(sessions) {
-      const _s   = (window._rscc && window._rscc.SETTINGS && window._rscc.SETTINGS.data) || {};
-      const rule = _s.competenceRule || 'proportionnelle';
-
-      const acqSessions   = sessions.filter(x => pickMajor(x.statut) === 'Acquis');
-      const enCoursSessions = sessions.filter(x => pickMajor(x.statut) === "En cours d'acquisition");
-
-      if (rule === 'moniteurs_diff') {
-        // Compter les moniteurs DISTINCTS ayant validé Acquis
-        const seuil = _s.seuilMoniteursDiff || 2;
-        const moniteursDiff = new Set(acqSessions.map(x => (x.moniteur || '').trim().toLowerCase())
-          .filter(m => m && m !== 'n/a'));
-        if (moniteursDiff.size >= seuil) return 'Acquis';
-        if (enCoursSessions.length > 0) return "En cours d'acquisition";
-        if (acqSessions.length > 0)     return "En cours d'acquisition"; // 1 seul moniteur → en cours
-        if (sessions.some(x => pickMajor(x.statut) === 'Non acquis')) return 'Non acquis';
-        return 'Non évalué';
-      }
-
-      // Mode proportionnelle (défaut)
-      const total = sessions.filter(x => pickMajor(x.statut) !== 'Non évalué').length;
-      if (total === 0) return 'Non évalué';
-      if (acqSessions.length / total >= 0.5) return 'Acquis';
-      if (enCoursSessions.length > 0) return "En cours d'acquisition";
+      const acqCount = sessions.filter(x => pickMajor(x.statut) === 'Acquis').length;
+      if (acqCount >= 2) return 'Acquis';
+      if (sessions.some(x => pickMajor(x.statut) === "En cours d'acquisition")) return "En cours d'acquisition";
       if (sessions.some(x => pickMajor(x.statut) === 'Non acquis')) return 'Non acquis';
       return 'Non évalué';
     }
@@ -7865,37 +7816,7 @@
       if (!rawMoniteurs || rawMoniteurs.length === 0) return;
 
       MonState.rawData = rawMoniteurs;
-
-      // Fusion O(n) avec un Set de clés :
-      // rawMoniteurs  = DP + Encadrants avec CR rédigés (affichage)
-      // rawCRSeance   = toutes séances encadrant+élève  (alertes CR manquant)
-      var rawCRSeance = window._rscc_RAW_CR_SEANCE || [];
-
-      // Index des entrées déjà dans rawMoniteurs (clé = moniteur|date|eleve|role)
-      var monSet = new Set();
-      rawMoniteurs.forEach(function(m) {
-        monSet.add(m.Moniteur + '|' + m.Date + '|' + m.Eleve + '|Encadrant');
-      });
-
-      // N'ajouter que les séances absentes (CR vides non encore dans rawMoniteurs)
-      var extras = [];
-      rawCRSeance.forEach(function(r) {
-        var mon = String(r.Moniteur || '').trim();
-        var dat = String(r.Date     || '').trim();
-        var elv = String(r.Eleve    || '').trim();
-        if (!mon || !dat) return;
-        var key = mon + '|' + dat + '|' + elv + '|Encadrant';
-        if (!monSet.has(key)) {
-          extras.push({ Moniteur: mon, Date: dat, Eleve: elv, Role: 'Encadrant', CR: '' });
-          monSet.add(key); // éviter les doublons dans rawCRSeance lui-même
-        }
-      });
-
-      var rawMerged = rawMoniteurs.concat(extras);
-      console.log('[Moniteurs] rawMoniteurs=' + rawMoniteurs.length +
-                  ' + extras CR séance=' + extras.length +
-                  ' = total=' + rawMerged.length);
-      MonState.model = computeMoniteursModel(rawMerged);
+      MonState.model = computeMoniteursModel(rawMoniteurs);
 
       // Détruire anciens charts (si re-render)
       destroyDonuts();
@@ -7953,8 +7874,9 @@
     const SETTINGS_CONFIG = {
       LS_SETTINGS: 'rscc_settings_v1',
       DEFAULTS: {
-        competenceRule: 'proportionnelle',     // 'proportionnelle' | 'moniteurs_diff'
-        seuilMoniteursDiff: 2,                 // pour mode 'moniteurs_diff' : nb moniteurs différents requis
+        competenceRule: 'proportionnelle',     // 'proportionnelle' | 'v32' | 'seuils'
+        seuilDebut: 33,                        // pour mode 'seuils'
+        seuilFin: 67,                          // pour mode 'seuils'
         heatmapGroup: 'seance',                // 'seance' | 'semaine'
         maxSessions: 12,                       // 4|8|12|16|20
         silentThreshold: 30,                   // 10-50%
@@ -8038,8 +7960,8 @@
       ruleRadios.forEach(function(r) {
         r.checked = r.value === SETTINGS.data.competenceRule;
       });
-      const selMD = document.getElementById('seuilMoniteursDiff');
-      if (selMD) selMD.value = SETTINGS.data.seuilMoniteursDiff || 2;
+      document.getElementById('seuilDebut').value = SETTINGS.data.seuilDebut;
+      document.getElementById('seuilFin').value = SETTINGS.data.seuilFin;
 
       // Heatmap
       const heatmapRadios = document.querySelectorAll('input[name="heatmapGroup"]');
@@ -8075,16 +7997,17 @@
         });
       });
 
+      document.getElementById('seuilDebut').addEventListener('change', function() {
+        SETTINGS.data.seuilDebut = parseInt(this.value);
+        saveSettings();
+        triggerReRenders();
+      });
 
-      const selMDEl = document.getElementById('seuilMoniteursDiff');
-      if (selMDEl) {
-        selMDEl.addEventListener('change', function() {
-          SETTINGS.data.seuilMoniteursDiff = parseInt(this.value);
-          saveSettings();
-          triggerReRenders();
-        });
-      }
-
+      document.getElementById('seuilFin').addEventListener('change', function() {
+        SETTINGS.data.seuilFin = parseInt(this.value);
+        saveSettings();
+        triggerReRenders();
+      });
 
       // Heatmap
       document.querySelectorAll('input[name="heatmapGroup"]').forEach(function(r) {
