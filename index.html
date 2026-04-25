@@ -1351,6 +1351,290 @@
       }
     }
 
+    /* =====================================================================
+       EXAMENS DE VALIDATION N1 — PANEL
+       ===================================================================== */
+    .examen-stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 768px) { .examen-stats-row { grid-template-columns: repeat(2, 1fr); } }
+
+    .examen-stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      text-align: center;
+    }
+
+    .examen-stat-value {
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.1;
+    }
+
+    .examen-stat-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    .examen-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 14px;
+    }
+
+    .examen-eleve-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+    }
+
+    .examen-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      gap: 8px;
+    }
+
+    .examen-card-name {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .examen-global-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .examen-global-badge.ok      { background: rgba(34,197,94,0.15); color: var(--ok); }
+    .examen-global-badge.pending { background: var(--chip); color: var(--muted); }
+
+    .examen-card-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .examen-card-icon { font-size: 18px; flex-shrink: 0; }
+
+    .examen-card-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .examen-card-status { font-size: 13px; font-weight: 700; }
+    .examen-card-status.valide  { color: var(--ok); }
+    .examen-card-status.pending { color: var(--muted); }
+    .examen-card-meta { font-size: 11px; color: var(--muted); }
+
+    /* Groupe title */
+    .examen-group-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    /* Couleur card selon état */
+    .examen-eleve-card.n1ok   { border-color: rgba(34,197,94,0.4); }
+    .examen-eleve-card.partial { border-color: rgba(234,179,8,0.4); }
+    .examen-eleve-card.waiting { border-color: var(--border); opacity: 0.85; }
+
+    /* Badge partiel */
+    .examen-global-badge.partial { background: rgba(234,179,8,0.15); color: #b45309; }
+
+    /* 2 colonnes pour partiels */
+    .examen-partial-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+    }
+    .examen-partial-col { border-right: 1px solid var(--border); padding-right: 8px; }
+    .examen-partial-col:last-child { border-right: none; padding-right: 0; padding-left: 8px; }
+
+    /* KPI block dans card */
+    .examen-kpi-block {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .examen-kpi-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    .examen-kpi-icon  { flex-shrink: 0; }
+    .examen-kpi-label { color: var(--muted); flex: 1; }
+    .examen-kpi-value { font-weight: 700; color: var(--text); }
+
+    /* =====================================================================
+       EXAMENS DE VALIDATION N1 — (anciens styles conservés)
+       ===================================================================== */
+    .examen-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      margin-bottom: 14px;
+    }
+
+    .examen-section-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .examen-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .examen-row:last-child { border-bottom: none; }
+
+    .examen-badge {
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .examen-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      min-width: 80px;
+    }
+
+    .examen-status {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      flex: 1;
+    }
+
+    .examen-status-line {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .examen-status-line.valide  { color: var(--ok); }
+    .examen-status-line.pending { color: var(--muted); }
+
+    .examen-meta {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* Tableau synthèse sidebar */
+    .examen-synthese-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+      margin-top: 6px;
+    }
+
+    .examen-synthese-table th {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--muted);
+      text-align: left;
+      padding: 3px 4px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .examen-synthese-table td {
+      padding: 4px 4px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    .examen-synthese-table tr:last-child td { border-bottom: none; }
+
+    .examen-dot {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      font-size: 10px;
+      text-align: center;
+      line-height: 16px;
+    }
+
+    .examen-dot.valide  { background: var(--ok);   color: #fff; }
+    .examen-dot.pending { background: var(--chip);  color: var(--muted); border: 1px solid var(--border); }
+
+    /* Ligne dans la synthèse globale élèves */
+    .examen-synthese-global {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      margin-bottom: 16px;
+    }
+
+    .examen-synthese-global table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    .examen-synthese-global th {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+      text-align: left;
+      padding: 4px 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .examen-synthese-global td {
+      padding: 6px 8px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    .examen-synthese-global tr:last-child td { border-bottom: none; }
+
+    .examen-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .examen-pill.valide  { background: rgba(34,197,94,0.15); color: var(--ok); }
+    .examen-pill.pending { background: var(--chip); color: var(--muted); }
+
     /* Helper hidden */
     .hidden { display: none !important; }
 
@@ -3086,6 +3370,22 @@
       padding: 10px 12px;
     }
 
+    /* La cr-enrich-grid aligne les 2 cards à hauteur égale */
+    .cr-enrich-grid {
+      align-items: stretch;
+    }
+
+    /* La sparkline-container s'étire et distribue l'espace au SVG */
+    .sparkline-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sparkline-svg {
+      flex: 1;
+      min-height: 60px;
+    }
+
     .sparkline-header {
       display: flex;
       justify-content: space-between;
@@ -3112,7 +3412,7 @@
 
     .sparkline-svg {
       width: 100%;
-      height: 60px;
+      height: 60px; /* fallback si pas dans sparkline-container */
       display: block;
     }
 
@@ -3946,6 +4246,9 @@
         <button class="tab" role="tab" aria-selected="false" aria-controls="panel-moniteurs" data-tab="moniteurs">
           👑 Moniteurs <span class="tab-count" id="countMoniteurs">—</span>
         </button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-examens" data-tab="examens" id="tab-examens">
+          🎓 Examens <span class="tab-count" id="countExamens">—</span>
+        </button>
       </nav>
     </div>
   </header>
@@ -4088,6 +4391,17 @@
         </div>
       </section>
 
+      <!-- TAB 3 : Examens -->
+      <section class="tab-panel" id="panel-examens" role="tabpanel" aria-labelledby="tab-examens">
+        <div id="examensMainContent">
+          <div class="empty-state">
+            <div class="icon">🎓</div>
+            <h2>Examens de validation N1</h2>
+            <p class="muted">Les résultats d'examens apparaîtront ici dès que les données seront chargées.</p>
+          </div>
+        </div>
+      </section>
+
     </main>
   </div>
 
@@ -4114,7 +4428,7 @@
       <!-- SECTION 1 : Règle de validation compétences -->
       <div class="settings-section">
         <h3 class="settings-section-title">📊 Règle de validation compétences</h3>
-        <p class="settings-info">Définit comment les compétences sont considérées comme acquises selon le nombre d'évaluations.</p>
+        <p class="settings-info">Définit comment une compétence est considérée comme acquise.</p>
 
         <div class="settings-option">
           <label class="settings-option-label">
@@ -4125,22 +4439,18 @@
 
         <div class="settings-option">
           <label class="settings-option-label">
-            <input type="radio" name="competenceRule" value="v32" />
-            V32 (≥ 2 acquis OU en cours, sinon non acquis)
+            <input type="radio" name="competenceRule" value="moniteurs_diff" />
+            Moniteurs différents — acquis si N moniteurs distincts ont validé
           </label>
-        </div>
-
-        <div class="settings-option">
-          <label class="settings-option-label">
-            <input type="radio" name="competenceRule" value="seuils" />
-            Curseur 2 seuils (début/fin saison)
-          </label>
-          <div class="settings-radio-group">
-            <label class="settings-radio">
-              Début saison : <input type="number" id="seuilDebut" min="0" max="100" value="33" style="width:50px;" /> %
-            </label>
-            <label class="settings-radio">
-              Fin saison : <input type="number" id="seuilFin" min="0" max="100" value="67" style="width:50px;" /> %
+          <div class="settings-radio-group" style="margin-top:8px;">
+            <label class="settings-radio" style="display:flex;align-items:center;gap:8px;">
+              Seuil minimum :
+              <select id="seuilMoniteursDiff" style="border-radius:6px;padding:3px 8px;border:1px solid var(--border);background:var(--chip);color:var(--text);">
+                <option value="2">2 moniteurs différents</option>
+                <option value="3">3 moniteurs différents</option>
+                <option value="4">4 moniteurs différents</option>
+                <option value="5">5 moniteurs différents</option>
+              </select>
             </label>
           </div>
         </div>
@@ -4259,19 +4569,24 @@
     // URLs GitHub Raw — repo BenoitLouineau/RSCCSubAquatique
     // Aucun CORS, accès public direct, mis à jour par le script Python
     //
-    // URL_ELEVES    → donnees_eleves.json      (compétences par élève)
-    // URL_MONITEURS → donnees_moniteur_CR.json  (moniteurs + CR fusionnés)
-    //                 ⚠️ C'est le fichier "final" du script, PAS donnees_moniteurs.json
+    // URL_ELEVES    → donnees_eleves.json       (compétences + CR injectés)
+    // URL_MONITEURS → donnees_moniteur_CR.json   (DP + Encadrants avec CR rédigés)
+    // URL_CR_SEANCE → donnees_CR_seance.json     (toutes séances y compris CR vides)
+    //                  → source de vérité pour les alertes "CR manquant"
     // =====================================================================
     CONFIG.URL_ELEVES    = 'https://raw.githubusercontent.com/BenoitLouineau/RSCCSubAquatique/main/2025-2026/groupe1/donnees_eleves.json';
     CONFIG.URL_MONITEURS = 'https://raw.githubusercontent.com/BenoitLouineau/RSCCSubAquatique/main/2025-2026/groupe1/donnees_moniteur_CR.json';
+    CONFIG.URL_CR_SEANCE = 'https://raw.githubusercontent.com/BenoitLouineau/RSCCSubAquatique/main/2025-2026/groupe1/donnees_CR_seance.json';
+    CONFIG.URL_EXAMENS   = 'https://raw.githubusercontent.com/BenoitLouineau/RSCCSubAquatique/main/2025-2026/groupe1/donnees_examens.json';
 
     // =====================================================================
     // 2. ÉTAT GLOBAL
     // =====================================================================
     const STATE = {
-      rawEleves: null,       // JSON source 1 : [{eleve, genre, categorie, competence, date, moniteur, presence, statut}]
-      rawMoniteurs: null,    // JSON source 2 : [{Moniteur, Date, Eleve, Role, CR}]
+      rawEleves: null,       // JSON source 1 : [{eleve, genre, categorie, competence, date, moniteur, presence, statut, cr}]
+      rawMoniteurs: null,    // JSON source 2 : [{Moniteur, Date, Eleve, Role, CR}] — CR remplis uniquement
+      rawCRSeance: null,     // JSON source 3 : [{Moniteur, Date, Eleve, CR}] — toutes séances (alertes CR manquant)
+      rawExamens: null,      // JSON source 4 : [{eleve, theorie:{valide,date,moniteur}, pratique:{valide,date,moniteur}}]
       loadStatusEleves: 'pending',    // 'pending' | 'loading' | 'ok' | 'ko'
       loadStatusMoniteurs: 'pending',
       excludedEleves: [],    // liste normalisée (lowercase) des élèves à filtrer
@@ -4762,8 +5077,10 @@
 
       /** Charge un fichier JSON depuis GitHub Raw */
       async function loadOne(which) {
-        const url   = which === 'eleves' ? CONFIG.URL_ELEVES : CONFIG.URL_MONITEURS;
-        const label = which === 'eleves' ? 'Eleves' : 'Moniteurs';
+        const urlMap   = { eleves: CONFIG.URL_ELEVES, moniteurs: CONFIG.URL_MONITEURS, crseance: CONFIG.URL_CR_SEANCE, examens: CONFIG.URL_EXAMENS };
+        const labelMap = { eleves: 'Eleves', moniteurs: 'Moniteurs', crseance: 'CR Séances', examens: 'Examens' };
+        const url   = urlMap[which];
+        const label = labelMap[which] || which;
         setStatus(which, 'loading', label + ' : connexion GitHub...');
         try {
           const txt = await tryFetch(url);
@@ -4806,7 +5123,9 @@
 
         const results = await Promise.allSettled([
           loadOne('eleves'),
-          loadOne('moniteurs')
+          loadOne('moniteurs'),
+          loadOne('crseance'),
+          loadOne('examens')
         ]);
 
         if (results[0].status === 'fulfilled') {
@@ -4823,7 +5142,21 @@
           showErrorBanner('moniteurs', true);
         }
 
-        const anyFailed = results.some(function(r) { return r.status === 'rejected'; });
+        if (results[2].status === 'fulfilled') {
+          STATE.rawCRSeance = results[2].value;
+          console.log('[CR Séance] ' + STATE.rawCRSeance.length + ' entrées chargées');
+        } else {
+          console.warn('[CR Séance] Echec chargement — alertes CR manquant indisponibles');
+        }
+
+        if (results[3].status === 'fulfilled') {
+          STATE.rawExamens = results[3].value;
+          console.log('[Examens] ' + STATE.rawExamens.length + ' élèves chargés');
+        } else {
+          console.warn('[Examens] Echec chargement — données examens indisponibles');
+        }
+
+        const anyFailed = results[0].status === 'rejected' || results[1].status === 'rejected';
         if (anyFailed) {
           $('#importFallback').classList.add('visible');
         }
@@ -5011,6 +5344,18 @@
         }
       }
 
+      if (STATE.rawCRSeance) {
+        var beforeCR = STATE.rawCRSeance.length;
+        STATE.rawCRSeance = STATE.rawCRSeance.filter(function(r) {
+          var d = parseDate(r.Date);
+          return d && d <= _today;
+        });
+        var filteredCR = beforeCR - STATE.rawCRSeance.length;
+        if (filteredCR > 0) {
+          console.log('[Filtre date] CR Séance : ' + filteredCR + ' entrées futures ignorées');
+        }
+      }
+
       // Mise à jour du panneau "Sources de données" avec infos UX (après filtrage)
       if (STATE.rawEleves) dataLoader.setStatusSummary('eleves', STATE.rawEleves);
       if (STATE.rawMoniteurs) dataLoader.setStatusSummary('moniteurs', STATE.rawMoniteurs);
@@ -5025,10 +5370,15 @@
       const canExport = STATE.rawEleves && STATE.rawMoniteurs;
       $('#btnExportGlobal').disabled = !canExport;
 
-      // Alimente la variable partagée pour que l'index CR soit disponible
-      // AVANT le premier render de la vue Élèves
+      // Exposer SETTINGS immédiatement (sans condition) pour que
+      // computeAggOnSessions y accède dès le premier render élèves
+      // Alimente les variables partagées pour les renderers
+      // Exposer les données brutes pour les re-renders déclenchés par les réglages
+      if (STATE.rawEleves)    window._rscc_RAW_ELEVES    = STATE.rawEleves;
+      if (STATE.rawExamens)   window._rscc_RAW_EXAMENS   = STATE.rawExamens;
       if (STATE.rawMoniteurs) {
         window._rscc_RAW_MONITEURS = STATE.rawMoniteurs;
+        window._rscc_RAW_CR_SEANCE = STATE.rawCRSeance || [];
       }
 
       // Appeler les renderers des phases suivantes (hook extensible)
@@ -5037,6 +5387,10 @@
       }
       if (window._rscc.renderMoniteurs && STATE.rawMoniteurs) {
         try { window._rscc.renderMoniteurs(STATE.rawMoniteurs); } catch(e) { console.error(e); }
+      }
+
+      if (window._rscc.renderExamens && STATE.rawExamens) {
+        try { window._rscc.renderExamens(STATE.rawExamens); } catch(e) { console.error('Erreur renderExamens:', e); }
       }
       if (window._rscc.renderCroisee && STATE.rawEleves && STATE.rawMoniteurs) {
         try { window._rscc.renderCroisee(STATE.rawEleves, STATE.rawMoniteurs); } catch(e) { console.error(e); }
@@ -5399,11 +5753,47 @@
       return { ratio: 0, color: '#64748b' };
     }
 
-    /** Règle de validation v32 (fidèle). Phase 4 ajoutera la règle proportionnelle configurable. */
+    /**
+     * Règle de validation des compétences — applique le réglage SETTINGS.
+     *
+     * Mode 'proportionnelle' : acquis si >= 50% des évaluations = Acquis
+     * Mode 'moniteurs_diff'  : acquis si N moniteurs DISTINCTS ont validé Acquis
+     *   (N = SETTINGS.data.seuilMoniteursDiff, défaut 2)
+     */
     function computeAggOnSessions(sessions) {
-      const acqCount = sessions.filter(x => pickMajor(x.statut) === 'Acquis').length;
-      if (acqCount >= 2) return 'Acquis';
-      if (sessions.some(x => pickMajor(x.statut) === "En cours d'acquisition")) return "En cours d'acquisition";
+      // Lire les réglages directement depuis localStorage pour éviter
+      // les problèmes de timing entre les phases (Phase 4b chargée après Phase 2)
+      let _s = {};
+      try {
+        const stored = localStorage.getItem('rscc_settings_v1');
+        if (stored) _s = JSON.parse(stored);
+      } catch(e) {}
+      // Fallback sur window._rscc.SETTINGS si disponible
+      if (!_s.competenceRule && window._rscc && window._rscc.SETTINGS) {
+        _s = window._rscc.SETTINGS.data || {};
+      }
+      const rule = _s.competenceRule || 'proportionnelle';
+
+      const acqSessions   = sessions.filter(x => pickMajor(x.statut) === 'Acquis');
+      const enCoursSessions = sessions.filter(x => pickMajor(x.statut) === "En cours d'acquisition");
+
+      if (rule === 'moniteurs_diff') {
+        // Compter les moniteurs DISTINCTS ayant validé Acquis
+        const seuil = _s.seuilMoniteursDiff || 2;
+        const moniteursDiff = new Set(acqSessions.map(x => (x.moniteur || '').trim().toLowerCase())
+          .filter(m => m && m !== 'n/a'));
+        if (moniteursDiff.size >= seuil) return 'Acquis';
+        if (enCoursSessions.length > 0) return "En cours d'acquisition";
+        if (acqSessions.length > 0)     return "En cours d'acquisition"; // 1 seul moniteur → en cours
+        if (sessions.some(x => pickMajor(x.statut) === 'Non acquis')) return 'Non acquis';
+        return 'Non évalué';
+      }
+
+      // Mode proportionnelle (défaut)
+      const total = sessions.filter(x => pickMajor(x.statut) !== 'Non évalué').length;
+      if (total === 0) return 'Non évalué';
+      if (acqSessions.length / total >= 0.5) return 'Acquis';
+      if (enCoursSessions.length > 0) return "En cours d'acquisition";
       if (sessions.some(x => pickMajor(x.statut) === 'Non acquis')) return 'Non acquis';
       return 'Non évalué';
     }
@@ -5744,7 +6134,7 @@
     function buildStudentCards(students) {
       return students.map(function(s) {
         return '<div class="student-card" data-target="' + idOfEleve(s.eleve) + '">' +
-                 '<div class="name">🏊 ' + escapeHtml(s.eleve) + '</div>' +
+                 '<div class="name">🏊 ' + escapeHtml(s.eleve) + isEleveN1Valide(s.eleve) + '</div>' +
                  '<div class="meta">' + escapeHtml(s.genre || '') +
                  ' • ' + (s.present || 0) + '/' + ((s.present || 0) + (s.absent || 0)) + ' présences</div>' +
                '</div>';
@@ -5773,6 +6163,125 @@
     // =====================================================================
     // TIMELINE ENRICHIE (Phase 2 - avec badges CR)
     // =====================================================================
+    /** Retourne 🎖️ si l'élève a validé les 2 examens, sinon '' */
+    function isEleveN1Valide(eleveName) {
+      const examens = window._rscc_RAW_EXAMENS || [];
+      const exam = examens.find(function(e) {
+        return e.eleve && e.eleve.toLowerCase() === eleveName.toLowerCase();
+      });
+      if (exam && exam.theorie && exam.theorie.valide && exam.pratique && exam.pratique.valide) {
+        return ' <span title="N1 validé — Théorie &amp; Pratique réussies" style="font-size:20px;vertical-align:middle;margin-left:4px;">🎖️</span>';
+      }
+      return '';
+    }
+
+    /** Construit la section examens de validation pour une fiche élève */
+    function buildExamenSection(eleveName) {
+      const examens = window._rscc_RAW_EXAMENS || [];
+      const exam = examens.find(function(e) {
+        return e.eleve && e.eleve.toLowerCase() === eleveName.toLowerCase();
+      });
+      if (!exam) return ''; // pas de données examens pour cet élève
+
+      function buildRow(key, label, icon) {
+        const e = exam[key] || {};
+        if (e.valide) {
+          const dateStr = e.date ? formatDateFR(e.date) : '—';
+          const monStr  = e.moniteur ? ' · par ' + escapeHtml(e.moniteur) : '';
+          return '<div class="examen-row">' +
+            '<span class="examen-badge">' + icon + '</span>' +
+            '<span class="examen-label">' + label + '</span>' +
+            '<div class="examen-status">' +
+              '<span class="examen-status-line valide">✅ Validé le ' + dateStr + '</span>' +
+              '<span class="examen-meta">' + monStr + '</span>' +
+            '</div>' +
+          '</div>';
+        } else {
+          return '<div class="examen-row">' +
+            '<span class="examen-badge">' + icon + '</span>' +
+            '<span class="examen-label">' + label + '</span>' +
+            '<div class="examen-status">' +
+              '<span class="examen-status-line pending">⏳ Non encore validé</span>' +
+            '</div>' +
+          '</div>';
+        }
+      }
+
+      return '<div class="examen-section">' +
+        '<div class="examen-section-title">🎓 Examens de validation N1</div>' +
+        buildRow('theorie',  'Théorie',  '📝') +
+        buildRow('pratique', 'Pratique', '🤿') +
+      '</div>';
+    }
+
+    /** Construit le widget synthèse examens pour la sidebar */
+    function buildExamenSyntheseSidebar() {
+      const examens = window._rscc_RAW_EXAMENS || [];
+      if (!examens.length) return '';
+      const rows = examens
+        .filter(function(e) { return e.eleve; })
+        .sort(function(a, b) { return a.eleve.localeCompare(b.eleve); })
+        .map(function(e) {
+          const t = e.theorie  && e.theorie.valide  ? '<span class="examen-dot valide">✓</span>'  : '<span class="examen-dot pending">·</span>';
+          const p = e.pratique && e.pratique.valide ? '<span class="examen-dot valide">✓</span>'  : '<span class="examen-dot pending">·</span>';
+          return '<tr><td style="font-size:11px;font-weight:600;">' + escapeHtml(e.eleve) + '</td>' +
+            '<td style="text-align:center;">' + t + '</td>' +
+            '<td style="text-align:center;">' + p + '</td></tr>';
+        }).join('');
+
+      const nbT = examens.filter(function(e) { return e.theorie  && e.theorie.valide;  }).length;
+      const nbP = examens.filter(function(e) { return e.pratique && e.pratique.valide; }).length;
+      const total = examens.length;
+
+      return '<div class="sidebar-section">' +
+        '<div class="sidebar-section-title">🎓 Examens N1</div>' +
+        '<div style="font-size:11px; color:var(--muted); margin-bottom:6px;">' +
+          'Théorie : <strong>' + nbT + '/' + total + '</strong> · Pratique : <strong>' + nbP + '/' + total + '</strong>' +
+        '</div>' +
+        '<table class="examen-synthese-table">' +
+          '<thead><tr><th>Élève</th><th style="text-align:center;">📝</th><th style="text-align:center;">🤿</th></tr></thead>' +
+          '<tbody>' + rows + '</tbody>' +
+        '</table>' +
+      '</div>';
+    }
+
+    /** Construit le tableau synthèse examens global (vue Élèves) */
+    function buildExamenSyntheseGlobal() {
+      const examens = window._rscc_RAW_EXAMENS || [];
+      if (!examens.length) return '';
+
+      const rows = examens
+        .filter(function(e) { return e.eleve; })
+        .sort(function(a, b) { return a.eleve.localeCompare(b.eleve); })
+        .map(function(e) {
+          function pill(ex) {
+            if (!ex) return '<span class="examen-pill pending">⏳ —</span>';
+            if (ex.valide) {
+              const d = ex.date ? formatDateFR(ex.date) : '';
+              return '<span class="examen-pill valide">✅ ' + d + '</span>';
+            }
+            return '<span class="examen-pill pending">⏳ —</span>';
+          }
+          return '<tr>' +
+            '<td style="font-weight:700;">' + escapeHtml(e.eleve) + '</td>' +
+            '<td>' + pill(e.theorie)  + (e.theorie  && e.theorie.valide  && e.theorie.moniteur  ? '<br><span style="font-size:10px;color:var(--muted);">par ' + escapeHtml(e.theorie.moniteur)  + '</span>' : '') + '</td>' +
+            '<td>' + pill(e.pratique) + (e.pratique && e.pratique.valide && e.pratique.moniteur ? '<br><span style="font-size:10px;color:var(--muted);">par ' + escapeHtml(e.pratique.moniteur) + '</span>' : '') + '</td>' +
+          '</tr>';
+        }).join('');
+
+      return '<div class="examen-synthese-global">' +
+        '<div style="font-size:13px;font-weight:800;margin-bottom:10px;">🎓 Synthèse examens de validation N1</div>' +
+        '<table>' +
+          '<thead><tr>' +
+            '<th>Élève</th>' +
+            '<th>📝 Théorie</th>' +
+            '<th>🤿 Pratique</th>' +
+          '</tr></thead>' +
+          '<tbody>' + rows + '</tbody>' +
+        '</table>' +
+      '</div>';
+    }
+
     function buildTimeline(sessions, eleveName) {
       if (!sessions || sessions.length === 0) {
         return '<div class="timeline-container"><p class="muted">Aucune séance enregistrée.</p></div>';
@@ -5964,7 +6473,7 @@
       return '<section id="' + eleveId + '" class="eleve-section mode-categorie" data-eleve="' + escapeHtml(s.eleve) + '">' +
         '<div class="eleve-card">' +
           '<div class="eleve-header">' +
-            '<h2>🏊 ' + escapeHtml(s.eleve) + '</h2>' +
+            '<h2>🏊 ' + escapeHtml(s.eleve) + isEleveN1Valide(s.eleve) + '</h2>' +
             '<span class="anchor">/ ' + escapeHtml(s.genre || '') + '</span>' +
             '<div class="export-buttons">' +
               '<button class="btn export-png" data-eleve="' + eleveId + '">📸 PNG</button>' +
@@ -5999,6 +6508,8 @@
               buildTimeline(s.lastSessions, s.eleve) +
               buildCompetencesChart(s.lastSessions) +
             '</div>' +
+
+
 
             // Mode d'affichage
             '<div class="info-card">' +
@@ -6543,6 +7054,10 @@
     }
 
     // =====================================================================
+    // =====================================================================
+    // EXAMENS — RENDU DU PANEL
+    // =====================================================================
+
     // POINT D'ENTRÉE : exposé à la Phase 1 via window._rscc.renderEleves
     // =====================================================================
     function renderEleves(rawEleves) {
@@ -6577,6 +7092,9 @@
     window._rscc.renderEleves = function(rawEleves) {
       renderEleves(rawEleves);
     };
+
+    // Exposer isEleveN1Valide pour que Phase 3 (moniteurs) puisse l'utiliser
+    window._rscc_isEleveN1Valide = isEleveN1Valide;
 
     // Hook additionnel : quand les moniteurs arrivent, on reconstruit l'index CR
     // et on re-render les timelines (sans tout casser)
@@ -6809,7 +7327,14 @@
       });
 
       // Tri alphabétique
-      moniteurs.sort(function(a, b) { return a.nom.localeCompare(b.nom, 'fr'); });
+      // Tri : moniteurs groupe 1 en premier (alpha), puis moniteurs Grp2 en fin (alpha)
+      moniteurs.sort(function(a, b) {
+        const aGrp2 = a.nom.indexOf('Grp2') >= 0 || a.nom.indexOf('E2 Grp2') >= 0;
+        const bGrp2 = b.nom.indexOf('Grp2') >= 0 || b.nom.indexOf('E2 Grp2') >= 0;
+        if (aGrp2 && !bGrp2) return 1;
+        if (!aGrp2 && bGrp2) return -1;
+        return a.nom.localeCompare(b.nom, 'fr');
+      });
 
       return {
         moniteurs: moniteurs,
@@ -7397,7 +7922,8 @@
           const chips = eleves.length > 0
             ? eleves.map(function(e) {
                 if (!e || !e.trim()) return '<span class="mon-chip">Rôle DP</span>';
-                return '<span class="mon-chip">🏊 ' + escapeHtml(e) + '</span>';
+                var _medal = window._rscc_isEleveN1Valide ? window._rscc_isEleveN1Valide(e) : '';
+                return '<span class="mon-chip">🏊 ' + escapeHtml(e) + _medal + '</span>';
               }).join('')
             : '<span class="muted-sm">Aucun élève</span>';
           return '<div class="mon-session-item">' +
@@ -7422,7 +7948,7 @@
         }).join('');
         return '<div class="mon-student-card" data-open="false">' +
           '<div class="mon-student-head">' +
-            '<span class="mon-student-name">🏊 ' + escapeHtml(eleve) +
+            '<span class="mon-student-name">🏊 ' + escapeHtml(eleve) + (window._rscc_isEleveN1Valide ? window._rscc_isEleveN1Valide(eleve) : '') +
               ' <span class="muted" style="font-size:10px;">· ' + formatSeances(dates.length) + '</span>' +
             '</span>' +
             '<button class="mon-toggle-btn" aria-controls="' + sid + '" aria-expanded="false" title="Déplier">+</button>' +
@@ -7816,7 +8342,37 @@
       if (!rawMoniteurs || rawMoniteurs.length === 0) return;
 
       MonState.rawData = rawMoniteurs;
-      MonState.model = computeMoniteursModel(rawMoniteurs);
+
+      // Fusion O(n) avec un Set de clés :
+      // rawMoniteurs  = DP + Encadrants avec CR rédigés (affichage)
+      // rawCRSeance   = toutes séances encadrant+élève  (alertes CR manquant)
+      var rawCRSeance = window._rscc_RAW_CR_SEANCE || [];
+
+      // Index des entrées déjà dans rawMoniteurs (clé = moniteur|date|eleve|role)
+      var monSet = new Set();
+      rawMoniteurs.forEach(function(m) {
+        monSet.add(m.Moniteur + '|' + m.Date + '|' + m.Eleve + '|Encadrant');
+      });
+
+      // N'ajouter que les séances absentes (CR vides non encore dans rawMoniteurs)
+      var extras = [];
+      rawCRSeance.forEach(function(r) {
+        var mon = String(r.Moniteur || '').trim();
+        var dat = String(r.Date     || '').trim();
+        var elv = String(r.Eleve    || '').trim();
+        if (!mon || !dat) return;
+        var key = mon + '|' + dat + '|' + elv + '|Encadrant';
+        if (!monSet.has(key)) {
+          extras.push({ Moniteur: mon, Date: dat, Eleve: elv, Role: 'Encadrant', CR: '' });
+          monSet.add(key); // éviter les doublons dans rawCRSeance lui-même
+        }
+      });
+
+      var rawMerged = rawMoniteurs.concat(extras);
+      console.log('[Moniteurs] rawMoniteurs=' + rawMoniteurs.length +
+                  ' + extras CR séance=' + extras.length +
+                  ' = total=' + rawMerged.length);
+      MonState.model = computeMoniteursModel(rawMerged);
 
       // Détruire anciens charts (si re-render)
       destroyDonuts();
@@ -7851,8 +8407,189 @@
     // =====================================================================
     // Expose à la Phase 1
     // =====================================================================
+
+    /** Calcule le nb de séances entre la 1ère séance élève et la date donnée */
+    function nbSeancesAvant(eleveName, dateCible) {
+      const rawE = window._rscc_RAW_ELEVES || [];
+      if (!dateCible) return null;
+      const dates = new Set();
+      rawE.forEach(function(r) {
+        if (!r.eleve || r.eleve.toLowerCase() !== eleveName.toLowerCase()) return;
+        if (!r.date) return;
+        const d = typeof r.date === 'string' ? r.date : toISO(r.date);
+        if (d <= dateCible) dates.add(d);
+      });
+      return dates.size || null;
+    }
+
+    /** Calcule nb semaines entre 2 dates ISO */
+    function nbSemainesEntre(d1, d2) {
+      if (!d1 || !d2) return null;
+      const diff = Math.abs(new Date(d2) - new Date(d1));
+      return Math.round(diff / (7 * 24 * 3600 * 1000));
+    }
+
+    /** Rendu complet du panel Examens (onglet 3) — v2 */
+    function renderExamens(rawExamens) {
+      if (!rawExamens || !rawExamens.length) return;
+
+      const all = rawExamens.filter(function(e) { return e.eleve; });
+
+      // Groupes
+      const n1ok    = all.filter(function(e) { return e.theorie && e.theorie.valide && e.pratique && e.pratique.valide; });
+      const theoOnly = all.filter(function(e) { return e.theorie && e.theorie.valide && !(e.pratique && e.pratique.valide); });
+      const pratOnly = all.filter(function(e) { return e.pratique && e.pratique.valide && !(e.theorie && e.theorie.valide); });
+      const enAttente = all.filter(function(e) { return !(e.theorie && e.theorie.valide) && !(e.pratique && e.pratique.valide); });
+
+      const total = all.length;
+      const nbT   = all.filter(function(e) { return e.theorie  && e.theorie.valide;  }).length;
+      const nbP   = all.filter(function(e) { return e.pratique && e.pratique.valide; }).length;
+
+      // Compteur onglet
+      const countEl = document.getElementById('countExamens');
+      if (countEl) countEl.textContent = n1ok.length + '/' + total;
+
+      // -------------------------------------------------------
+      // KPI stats
+      // -------------------------------------------------------
+      const stats = '<div class="examen-stats-row">' +
+        kpiCard(n1ok.length + '<span style="font-size:16px;color:var(--muted);">/' + total + '</span>', '🎖️ N1 validés', 'var(--ok)') +
+        kpiCard(nbT + '<span style="font-size:16px;color:var(--muted);">/' + total + '</span>', '📝 Théorie validée', 'var(--accent)') +
+        kpiCard(nbP + '<span style="font-size:16px;color:var(--muted);">/' + total + '</span>', '🤿 Pratique validée', 'var(--accent)') +
+        kpiCard(enAttente.length, '⏳ En attente', 'var(--warn)') +
+      '</div>';
+
+      function kpiCard(val, label, color) {
+        return '<div class="examen-stat-card">' +
+          '<div class="examen-stat-value" style="color:' + color + ';">' + val + '</div>' +
+          '<div class="examen-stat-label">' + label + '</div>' +
+        '</div>';
+      }
+
+      // -------------------------------------------------------
+      // Helpers
+      // -------------------------------------------------------
+      function examRow(key, label, icon, e) {
+        const ex = e[key] || {};
+        if (ex.valide) {
+          const d   = ex.date ? formatDateFR(ex.date) : '—';
+          const mon = ex.moniteur ? ' par ' + escapeHtml(ex.moniteur) : '';
+          return '<div class="examen-card-row">' +
+            '<span class="examen-card-icon">' + icon + '</span>' +
+            '<div class="examen-card-detail">' +
+              '<span class="examen-card-status valide">✅ Validé</span>' +
+              '<span class="examen-card-meta">le ' + d + mon + '</span>' +
+            '</div></div>';
+        }
+        return '<div class="examen-card-row">' +
+          '<span class="examen-card-icon">' + icon + '</span>' +
+          '<div class="examen-card-detail">' +
+            '<span class="examen-card-status pending">⏳ Non encore validé</span>' +
+          '</div></div>';
+      }
+
+      function kpiRow(icon, label, value) {
+        if (value === null || value === undefined) return '';
+        return '<div class="examen-kpi-row"><span class="examen-kpi-icon">' + icon + '</span>' +
+          '<span class="examen-kpi-label">' + label + '</span>' +
+          '<span class="examen-kpi-value">' + value + '</span></div>';
+      }
+
+      // -------------------------------------------------------
+      // Card N1 validés — triés par date pratique décroissante
+      // -------------------------------------------------------
+      function buildN1Card(e) {
+        const bothOk = true;
+        const datePrat = e.pratique && e.pratique.date ? e.pratique.date : null;
+        const dateTheo = e.theorie  && e.theorie.date  ? e.theorie.date  : null;
+        const nb = nbSeancesAvant(e.eleve, datePrat);
+        const sem = nbSemainesEntre(dateTheo, datePrat);
+        return '<div class="examen-eleve-card n1ok">' +
+          '<div class="examen-card-header">' +
+            '<span class="examen-card-name">🏊 ' + escapeHtml(e.eleve) + ' <span style="font-size:18px;vertical-align:middle;">🎖️</span></span>' +
+            '<span class="examen-global-badge ok">🏆 Validé N1</span>' +
+          '</div>' +
+          examRow('theorie',  'Théorie',  '📝', e) +
+          examRow('pratique', 'Pratique', '🤿', e) +
+          '<div class="examen-kpi-block">' +
+            kpiRow('📅', 'Séances pour le N1', nb !== null ? nb + ' séances' : '—') +
+            kpiRow('⏱️', 'Théorie → Pratique', sem !== null ? sem + ' semaines' : '—') +
+          '</div>' +
+        '</div>';
+      }
+
+      const n1Sorted = n1ok.slice().sort(function(a, b) {
+        const da = a.pratique && a.pratique.date ? a.pratique.date : '';
+        const db = b.pratique && b.pratique.date ? b.pratique.date : '';
+        return db.localeCompare(da); // décroissant
+      });
+
+      // -------------------------------------------------------
+      // Card partielle — 1 card, 2 colonnes
+      // -------------------------------------------------------
+      function buildPartialCard(e) {
+        const nb = nbSeancesAvant(e.eleve, (e.pratique && e.pratique.date) || (e.theorie && e.theorie.date));
+        return '<div class="examen-eleve-card partial">' +
+          '<div class="examen-card-header">' +
+            '<span class="examen-card-name">🏊 ' + escapeHtml(e.eleve) + '</span>' +
+            '<span class="examen-global-badge partial">📋 Partiel</span>' +
+          '</div>' +
+          '<div class="examen-partial-cols">' +
+            '<div class="examen-partial-col">' + examRow('theorie',  'Théorie',  '📝', e) + '</div>' +
+            '<div class="examen-partial-col">' + examRow('pratique', 'Pratique', '🤿', e) + '</div>' +
+          '</div>' +
+          (nb !== null ? '<div class="examen-kpi-block">' + kpiRow('📅', 'Séances effectuées', nb + ' séances') + '</div>' : '') +
+        '</div>';
+      }
+
+      // -------------------------------------------------------
+      // Card en attente
+      // -------------------------------------------------------
+      function buildWaitCard(e) {
+        const nb = nbSeancesAvant(e.eleve, null);
+        return '<div class="examen-eleve-card waiting">' +
+          '<div class="examen-card-header">' +
+            '<span class="examen-card-name">🏊 ' + escapeHtml(e.eleve) + '</span>' +
+            '<span class="examen-global-badge pending">⏳ En attente</span>' +
+          '</div>' +
+          examRow('theorie',  'Théorie',  '📝', e) +
+          examRow('pratique', 'Pratique', '🤿', e) +
+        '</div>';
+      }
+
+      // -------------------------------------------------------
+      // Assemblage final
+      // -------------------------------------------------------
+      const partials = theoOnly.concat(pratOnly).sort(function(a, b) { return a.eleve.localeCompare(b.eleve); });
+
+      let html = stats;
+
+      if (n1Sorted.length) {
+        html += '<div class="examen-group-title">🎖️ N1 Validés — ' + n1Sorted.length + ' élève' + (n1Sorted.length > 1 ? 's' : '') + '</div>';
+        html += '<div class="examen-cards-grid">' + n1Sorted.map(buildN1Card).join('') + '</div>';
+      }
+
+      if (partials.length) {
+        html += '<div class="examen-group-title" style="margin-top:24px;">📋 Partiellement validés — ' + partials.length + ' élève' + (partials.length > 1 ? 's' : '') + '</div>';
+        html += '<div class="examen-cards-grid">' + partials.map(buildPartialCard).join('') + '</div>';
+      }
+
+      if (enAttente.length) {
+        html += '<div class="examen-group-title" style="margin-top:24px;">⏳ En attente — ' + enAttente.length + ' élève' + (enAttente.length > 1 ? 's' : '') + '</div>';
+        html += '<div class="examen-cards-grid">' + enAttente.map(buildWaitCard).join('') + '</div>';
+      }
+
+      const container = document.getElementById('examensMainContent');
+      if (container) container.innerHTML = html;
+    }
+
+
     window._rscc.renderMoniteurs = function(rawMoniteurs) {
       renderMoniteurs(rawMoniteurs);
+    };
+
+    window._rscc.renderExamens = function(rawExamens) {
+      renderExamens(rawExamens);
     };
 
   })();
@@ -7874,9 +8611,8 @@
     const SETTINGS_CONFIG = {
       LS_SETTINGS: 'rscc_settings_v1',
       DEFAULTS: {
-        competenceRule: 'proportionnelle',     // 'proportionnelle' | 'v32' | 'seuils'
-        seuilDebut: 33,                        // pour mode 'seuils'
-        seuilFin: 67,                          // pour mode 'seuils'
+        competenceRule: 'proportionnelle',     // 'proportionnelle' | 'moniteurs_diff'
+        seuilMoniteursDiff: 2,                 // pour mode 'moniteurs_diff' : nb moniteurs différents requis
         heatmapGroup: 'seance',                // 'seance' | 'semaine'
         maxSessions: 12,                       // 4|8|12|16|20
         silentThreshold: 30,                   // 10-50%
@@ -7960,8 +8696,8 @@
       ruleRadios.forEach(function(r) {
         r.checked = r.value === SETTINGS.data.competenceRule;
       });
-      document.getElementById('seuilDebut').value = SETTINGS.data.seuilDebut;
-      document.getElementById('seuilFin').value = SETTINGS.data.seuilFin;
+      const selMD = document.getElementById('seuilMoniteursDiff');
+      if (selMD) selMD.value = SETTINGS.data.seuilMoniteursDiff || 2;
 
       // Heatmap
       const heatmapRadios = document.querySelectorAll('input[name="heatmapGroup"]');
@@ -7997,17 +8733,16 @@
         });
       });
 
-      document.getElementById('seuilDebut').addEventListener('change', function() {
-        SETTINGS.data.seuilDebut = parseInt(this.value);
-        saveSettings();
-        triggerReRenders();
-      });
 
-      document.getElementById('seuilFin').addEventListener('change', function() {
-        SETTINGS.data.seuilFin = parseInt(this.value);
-        saveSettings();
-        triggerReRenders();
-      });
+      const selMDEl = document.getElementById('seuilMoniteursDiff');
+      if (selMDEl) {
+        selMDEl.addEventListener('change', function() {
+          SETTINGS.data.seuilMoniteursDiff = parseInt(this.value);
+          saveSettings();
+          triggerReRenders();
+        });
+      }
+
 
       // Heatmap
       document.querySelectorAll('input[name="heatmapGroup"]').forEach(function(r) {
@@ -8059,22 +8794,28 @@
     // =====================================================================
     function triggerReRenders() {
       console.log('[Settings] Re-render triggered:', SETTINGS.data);
-      
-      // Re-render moniteurs si maxSessions a changé
-      if (window._rscc && window._rscc.renderMoniteurs && window._rscc_RAW_MONITEURS) {
-        try { 
-          window._rscc.renderMoniteurs(window._rscc_RAW_MONITEURS);
-          console.log('[Settings] ✅ Re-render moniteurs appliqué (MAX_LAST_SESSIONS=' + SETTINGS.data.maxSessions + ')');
-        } catch(e) { 
-          console.error('[Settings] Erreur re-render moniteurs:', e); 
+
+      // Re-render élèves : recalcul du modèle (règle compétences, tri synthèse)
+      // On passe par window._rscc_RAW_ELEVES exposé par Phase 1
+      const rawE = window._rscc_RAW_ELEVES;
+      if (window._rscc && window._rscc.renderEleves && rawE) {
+        try {
+          window._rscc.renderEleves(rawE);
+          console.log('[Settings] ✅ Re-render élèves appliqué (rule=' + SETTINGS.data.competenceRule + ')');
+        } catch(e) {
+          console.error('[Settings] Erreur re-render élèves:', e);
         }
       }
-      
-      // TODO : autres re-renders
-      // - competenceRule change → re-render élèves (recalc model)
-      // - silentThreshold change → re-render moniteurs (widget CR + badges)
-      // - heatmapGroup change → re-render widget CR (heatmap)
-      // - synthesisSort change → re-render élèves (synthèse)
+
+      // Re-render moniteurs (maxSessions, silentThreshold, heatmapGroup)
+      if (window._rscc && window._rscc.renderMoniteurs && window._rscc_RAW_MONITEURS) {
+        try {
+          window._rscc.renderMoniteurs(window._rscc_RAW_MONITEURS);
+          console.log('[Settings] ✅ Re-render moniteurs appliqué');
+        } catch(e) {
+          console.error('[Settings] Erreur re-render moniteurs:', e);
+        }
+      }
     }
 
     // =====================================================================
@@ -8100,10 +8841,8 @@
     window._rscc.openSettings = openSettings;
     window._rscc.SETTINGS = SETTINGS;
 
-    // Initialiser après un léger délai pour s'assurer que le DOM est prêt
-    setTimeout(function() {
-      try { init(); } catch(e) { console.error('Erreur init Réglages:', e); }
-    }, 50);
+    // Initialiser immédiatement (SETTINGS doit être prêt avant renderEleves)
+    try { init(); } catch(e) { console.error('Erreur init Réglages:', e); }
 
   })();
   </script>
