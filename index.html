@@ -1086,7 +1086,7 @@
 
     .synthese-cols-overlay {
       position: fixed;
-      inset: 0;
+      top: 0; right: 0; bottom: 0; left: 0;
       background: rgba(0,0,0,0.3);
       z-index: 499;
     }
@@ -1997,6 +1997,228 @@
 
     .examen-pill.valide  { background: rgba(34,197,94,0.15); color: var(--ok); }
     .examen-pill.pending { background: var(--chip); color: var(--muted); }
+
+    /* =====================================================================
+       ONGLET ANALYSE
+       ===================================================================== */
+    .analyse-section {
+      margin-bottom: 24px;
+    }
+
+    .analyse-section-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Sélecteur de période */
+    .analyse-periode {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .analyse-periode-btn {
+      padding: 6px 16px;
+      border-radius: 999px;
+      border: 1.5px solid var(--border);
+      background: var(--chip);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .analyse-periode-btn.active,
+    .analyse-periode-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(6,182,212,0.1);
+    }
+
+    /* KPI cards groupe */
+    .analyse-kpi-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 600px) { .analyse-kpi-row { grid-template-columns: 1fr; } }
+
+    .analyse-kpi-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .analyse-kpi-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .analyse-kpi-value {
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.1;
+    }
+
+    .analyse-kpi-sub {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* Graphique progression */
+    .analyse-chart-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+      margin-bottom: 24px;
+    }
+
+    .analyse-chart-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .analyse-chart-title {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .analyse-eleve-toggles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .analyse-eleve-toggle {
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1.5px solid var(--border);
+      background: var(--chip);
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+      color: var(--muted);
+    }
+
+    .analyse-eleve-toggle.active {
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .analyse-chart-wrap {
+      position: relative;
+      height: 240px;
+    }
+
+    /* Alertes */
+    .analyse-alertes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .analyse-alerte-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+    }
+
+    .analyse-alerte-title {
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .analyse-alerte-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 12px;
+    }
+
+    .analyse-alerte-item:last-child { border-bottom: none; }
+    .analyse-alerte-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* Zoom élève */
+    .analyse-zoom-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+    }
+
+    .analyse-zoom-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .analyse-zoom-select {
+      flex: 1;
+      min-width: 160px;
+      max-width: 260px;
+      padding: 7px 12px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--border);
+      background: var(--chip);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .analyse-zoom-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    @media (max-width: 700px) { .analyse-zoom-content { grid-template-columns: 1fr; } }
+
+    .analyse-zoom-stat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      font-size: 12px;
+    }
+
+    .analyse-zoom-stat-label { color: var(--muted); margin-bottom: 4px; }
+    .analyse-zoom-stat-value { font-size: 20px; font-weight: 800; }
 
     /* Helper hidden */
     .hidden { display: none !important; }
@@ -4582,6 +4804,9 @@
         <button class="tab" role="tab" aria-selected="false" aria-controls="panel-examens" data-tab="examens" id="tab-examens">
           🎓 Examens <span class="tab-count" id="countExamens">—</span>
         </button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-analyse" data-tab="analyse" id="tab-analyse">
+          📈 Analyse
+        </button>
       </nav>
 
       <!-- Barre de chips sticky (élèves ou moniteurs selon l'onglet actif) -->
@@ -4767,6 +4992,17 @@
         </div>
       </section>
 
+      <!-- TAB 4 : Analyse -->
+      <section class="tab-panel" id="panel-analyse" role="tabpanel" aria-labelledby="tab-analyse">
+        <div id="analyseMainContent">
+          <div class="empty-state">
+            <div class="icon">📈</div>
+            <h2>Chargement de l'analyse…</h2>
+            <p class="muted">Les données apparaîtront ici dès que les données seront chargées.</p>
+          </div>
+        </div>
+      </section>
+
     </main>
   </div>
 
@@ -4791,6 +5027,25 @@
 
     <div class="settings-body">
       <!-- SECTION 1 : Règle de validation compétences -->
+      <div class="settings-section">
+        <h3 class="settings-section-title">⚠️ Seuils alertes absences</h3>
+        <p class="settings-info">Définit les seuils de taux d'absence déclenchant les alertes dans l'onglet Analyse.</p>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px;">
+          <label style="font-size:13px;display:flex;align-items:center;gap:10px;">
+            <span style="min-width:160px;color:var(--muted);">🟠 Préoccupant si ></span>
+            <input type="number" id="seuilPreoccupant" min="10" max="90" value="50" style="width:60px;padding:4px 8px;border-radius:6px;border:1px solid var(--border);background:var(--chip);color:var(--text);"> %
+          </label>
+          <label style="font-size:13px;display:flex;align-items:center;gap:10px;">
+            <span style="min-width:160px;color:var(--muted);">🔴 N1 compromis si ></span>
+            <input type="number" id="seuilCritique" min="10" max="95" value="70" style="width:60px;padding:4px 8px;border-radius:6px;border:1px solid var(--border);background:var(--chip);color:var(--text);"> %
+          </label>
+          <label style="font-size:13px;display:flex;align-items:center;gap:10px;">
+            <span style="min-width:160px;color:var(--muted);">⛔ N1 non atteignable si ></span>
+            <input type="number" id="seuilBloquant" min="10" max="99" value="85" style="width:60px;padding:4px 8px;border-radius:6px;border:1px solid var(--border);background:var(--chip);color:var(--text);"> %
+          </label>
+        </div>
+      </div>
+
       <div class="settings-section">
         <h3 class="settings-section-title">📊 Règle de validation compétences</h3>
         <p class="settings-info">Définit comment une compétence est considérée comme acquise.</p>
@@ -5576,10 +5831,12 @@
           setTimeout(updateBtns, 120);
         }).observe(track, { childList: true, subtree: true });
 
-        // ResizeObserver pour recalculer si la fenêtre change de taille
-        if (window.ResizeObserver) {
-          new ResizeObserver(function() { setTimeout(updateBtns, 80); }).observe(track);
-        }
+        // ResizeObserver pour recalculer si la fenêtre change de taille (iOS 13.4+)
+        try {
+          if (window.ResizeObserver) {
+            new ResizeObserver(function() { setTimeout(updateBtns, 80); }).observe(track);
+          }
+        } catch(e) { /* ResizeObserver non supporté */ }
 
         updateBtns();
       });
@@ -5828,6 +6085,11 @@
 
       if (window._rscc.renderExamens && STATE.rawExamens) {
         try { window._rscc.renderExamens(STATE.rawExamens); } catch(e) { console.error('Erreur renderExamens:', e); }
+      }
+
+      if (window._rscc.renderAnalyse) {
+        try { window._rscc.renderAnalyse({ eleves: STATE.rawEleves, moniteurs: STATE.rawMoniteurs, crSeance: STATE.rawCRSeance }); }
+        catch(e) { console.error('Erreur renderAnalyse:', e); }
       }
       if (window._rscc.renderCroisee && STATE.rawEleves && STATE.rawMoniteurs) {
         try { window._rscc.renderCroisee(STATE.rawEleves, STATE.rawMoniteurs); } catch(e) { console.error(e); }
@@ -9246,6 +9508,427 @@
   })();
   </script>
 
+
+  <!-- =====================================================================
+       PHASE 3b - MODULE ANALYSE & ALERTES
+       ===================================================================== -->
+  <script>
+  (function() {
+    'use strict';
+
+    var ELEVE_COLORS = [
+      '#06b6d4','#a855f7','#22c55e','#f59e0b','#ef4444',
+      '#3b82f6','#ec4899','#14b8a6','#f97316','#8b5cf6','#84cc16'
+    ];
+
+    var AnalyseState = { periode: 'saison', eleveActif: null, eleveVisibles: {}, chart: null };
+
+    // ── Helpers ──────────────────────────────────────────────────────────
+
+    function isoToDate(iso) {
+      if (!iso) return null;
+      var d = new Date(String(iso) + 'T00:00:00');
+      return isNaN(d.getTime()) ? null : d;
+    }
+
+    function dateFR(iso) {
+      var d = isoToDate(iso);
+      if (!d) return iso || '—';
+      return d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' });
+    }
+
+    function joursDepuis(iso) {
+      var d = isoToDate(iso);
+      if (!d) return null;
+      var today = new Date(); today.setHours(0,0,0,0);
+      return Math.round((today - d) / 86400000);
+    }
+
+    /**
+     * Construit un modèle propre depuis rawEleves.
+     * rawEleves : [{eleve, competence, date, statut, presence, moniteur}]
+     * Une compétence peut avoir plusieurs lignes (une par séance évaluée).
+     *
+     * Règle acquis : une compétence est acquise si au moins 1 ligne a statut=Acquis
+     * Présence : on compte les dates DISTINCTES où présence=Présent
+     */
+    function buildElevesModel(rawEleves) {
+      var model = {};
+      rawEleves.forEach(function(r) {
+        if (!r.eleve || !r.competence) return;
+        var e = r.eleve;
+        if (!model[e]) model[e] = {
+          acquis: new Set(),
+          seancesPresent: new Set(),
+          seancesTotal: new Set(),
+          lastDate: null
+        };
+        if (r.date) {
+          model[e].seancesTotal.add(r.date);
+          if (r.presence === 'Présent') model[e].seancesPresent.add(r.date);
+          if (!model[e].lastDate || r.date > model[e].lastDate) model[e].lastDate = r.date;
+        }
+        if (r.statut === 'Acquis') model[e].acquis.add(r.competence);
+      });
+      return model;
+    }
+
+    /**
+     * Courbe : pour chaque date, % compétences acquises cumulatif.
+     * On utilise la première date où statut=Acquis pour chaque compétence.
+     */
+    function buildProgressionData(rawEleves) {
+      var TOTAL_COMP = 53;
+      // Première date d'acquisition par (eleve, competence)
+      var premiereAcquis = {};
+      rawEleves.forEach(function(r) {
+        if (r.statut !== 'Acquis' || !r.eleve || !r.competence || !r.date) return;
+        if (!premiereAcquis[r.eleve]) premiereAcquis[r.eleve] = {};
+        var actuelle = premiereAcquis[r.eleve][r.competence];
+        if (!actuelle || r.date < actuelle) premiereAcquis[r.eleve][r.competence] = r.date;
+      });
+
+      var datesSet = new Set();
+      rawEleves.forEach(function(r) { if (r.date) datesSet.add(r.date); });
+      var dates = Array.from(datesSet).sort();
+
+      var elevesNoms = Object.keys(premiereAcquis).sort();
+      var pctByEleveDate = {};
+      elevesNoms.forEach(function(e) {
+        var comps = Object.values(premiereAcquis[e]);
+        pctByEleveDate[e] = dates.map(function(d) {
+          var count = comps.filter(function(dateAcq) { return dateAcq <= d; }).length;
+          return Math.round(count / TOTAL_COMP * 100);
+        });
+      });
+
+      return { dates: dates, pctByEleveDate: pctByEleveDate, elevesNoms: elevesNoms };
+    }
+
+    // ── KPI Groupe ───────────────────────────────────────────────────────
+
+    function buildKPIGroupe(rawEleves) {
+      var model = buildElevesModel(rawEleves);
+      var eleves = Object.keys(model);
+      var TOTAL_COMP = 53;
+
+      var moyAcquis = eleves.length
+        ? Math.round(eleves.reduce(function(s, e) { return s + model[e].acquis.size / TOTAL_COMP * 100; }, 0) / eleves.length)
+        : 0;
+      var moyPresence = eleves.length
+        ? Math.round(eleves.reduce(function(s, e) {
+            var tot = model[e].seancesTotal.size;
+            return s + (tot ? model[e].seancesPresent.size / tot * 100 : 0);
+          }, 0) / eleves.length)
+        : 0;
+      var nbSeances = new Set(rawEleves.map(function(r) { return r.date; }).filter(Boolean)).size;
+
+      return '<div class="analyse-kpi-row">' +
+        kpiCard('📊 Moy. acquis groupe', moyAcquis + '%', eleves.length + ' élèves analysés', '#06b6d4') +
+        kpiCard('📅 Séances saison', nbSeances, 'séances au total', '#a855f7') +
+        kpiCard('👥 Présence moy.', moyPresence + '%', 'toutes séances confondues', '#22c55e') +
+      '</div>';
+    }
+
+    function kpiCard(label, value, sub, color) {
+      return '<div class="analyse-kpi-card">' +
+        '<div class="analyse-kpi-label">' + label + '</div>' +
+        '<div class="analyse-kpi-value" style="color:' + color + ';">' + value + '</div>' +
+        '<div class="analyse-kpi-sub">' + sub + '</div>' +
+      '</div>';
+    }
+
+    // ── Courbe progression ────────────────────────────────────────────────
+
+    function buildCourbeProgression(rawEleves) {
+      var elevesNoms = Array.from(new Set(rawEleves.map(function(r){return r.eleve;}).filter(Boolean))).sort();
+      elevesNoms.forEach(function(e) {
+        if (AnalyseState.eleveVisibles[e] === undefined) AnalyseState.eleveVisibles[e] = false;
+      });
+
+      var togglesHtml = elevesNoms.map(function(e, i) {
+        var active = AnalyseState.eleveVisibles[e];
+        var color = ELEVE_COLORS[i % ELEVE_COLORS.length];
+        var style = active ? 'background:' + color + ';border-color:' + color + ';' : '';
+        return '<button class="analyse-eleve-toggle' + (active ? ' active' : '') + '" data-eleve="' + e + '" style="' + style + '">' + e + '</button>';
+      }).join('');
+
+      return '<div class="analyse-chart-card">' +
+        '<div class="analyse-chart-header">' +
+          '<span class="analyse-chart-title">📈 Progression des compétences acquises</span>' +
+          '<span style="font-size:11px;color:var(--muted);">— Moyenne groupe · Activez un élève pour superposer</span>' +
+        '</div>' +
+        '<div class="analyse-eleve-toggles" id="analyseToggleEleves">' + togglesHtml + '</div>' +
+        '<div class="analyse-chart-wrap"><canvas id="analyseChartCanvas"></canvas></div>' +
+      '</div>';
+    }
+
+    function renderChart(rawEleves) {
+      var canvas = document.getElementById('analyseChartCanvas');
+      if (!canvas) return;
+      if (AnalyseState.chart) { AnalyseState.chart.destroy(); AnalyseState.chart = null; }
+
+      var prog = buildProgressionData(rawEleves);
+      var dates = prog.dates;
+      var pctByEleveDate = prog.pctByEleveDate;
+      var elevesNoms = prog.elevesNoms;
+
+      var moyenneData = dates.map(function(d, di) {
+        var vals = elevesNoms.map(function(e) { return pctByEleveDate[e] ? pctByEleveDate[e][di] : 0; });
+        return vals.length ? Math.round(vals.reduce(function(a,b){return a+b;},0) / vals.length) : 0;
+      });
+
+      var datasets = [{
+        label: 'Moyenne groupe',
+        data: moyenneData,
+        borderColor: '#ffffff',
+        backgroundColor: 'rgba(255,255,255,0.08)',
+        borderWidth: 3,
+        borderDash: [6,3],
+        pointRadius: 3,
+        tension: 0.3,
+        fill: false
+      }];
+
+      elevesNoms.forEach(function(e, i) {
+        if (!AnalyseState.eleveVisibles[e]) return;
+        var color = ELEVE_COLORS[i % ELEVE_COLORS.length];
+        datasets.push({
+          label: e,
+          data: pctByEleveDate[e],
+          borderColor: color,
+          backgroundColor: color + '22',
+          borderWidth: 2,
+          pointRadius: 2,
+          tension: 0.3,
+          fill: false
+        });
+      });
+
+      AnalyseState.chart = new Chart(canvas, {
+        type: 'line',
+        data: {
+          labels: dates.map(function(d) {
+            var dt = new Date(d + 'T00:00:00');
+            return dt.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' });
+          }),
+          datasets: datasets
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: { labels: { color: '#e2e8f0', font: { size: 11 } } },
+            tooltip: { callbacks: { label: function(ctx) { return ctx.dataset.label + ' : ' + ctx.raw + '%'; } } }
+          },
+          scales: {
+            x: { ticks: { color: '#94a3b8', font: { size: 10 }, maxRotation: 45 }, grid: { color: 'rgba(148,163,184,0.1)' } },
+            y: { min: 0, max: 100, ticks: { color: '#94a3b8', callback: function(v) { return v + '%'; } }, grid: { color: 'rgba(148,163,184,0.1)' } }
+          }
+        }
+      });
+    }
+
+    // ── Alertes ───────────────────────────────────────────────────────────
+
+    // Seuils d'absence (configurables via Réglages)
+    var SEUIL_PREOCCUPANT = 50;  // % absences → préoccupant
+    var SEUIL_CRITIQUE    = 70;  // % absences → N1 compromis
+    var SEUIL_BLOQUANT    = 85;  // % absences → N1 non atteignable
+    var SEUIL_EXCL_BLOQ   = 50;  // % présence min pour figurer dans compétences bloquées
+
+    function buildAlertes(rawEleves) {
+      var model = buildElevesModel(rawEleves);
+
+      // ── Analyse absences par élève ────────────────────────────────────
+      function tauxPresence(e) {
+        var m = model[e];
+        if (!m || !m.seancesTotal.size) return 100;
+        return Math.round(m.seancesPresent.size / m.seancesTotal.size * 100);
+      }
+
+      function tauxAbsence(e) { return 100 - tauxPresence(e); }
+
+      function niveauAlerte(e) {
+        var abs = tauxAbsence(e);
+        if (abs >= SEUIL_BLOQUANT)    return 3; // ⛔ N1 non atteignable
+        if (abs >= SEUIL_CRITIQUE)    return 2; // 🔴 N1 compromis
+        if (abs >= SEUIL_PREOCCUPANT) return 1; // 🟠 Préoccupant
+        return 0;
+      }
+
+      function messageNiveau(e) {
+        var n = niveauAlerte(e);
+        if (n === 3) return '<span style="color:#ef4444;font-weight:700;">⛔ N1 non atteignable cette saison</span>';
+        if (n === 2) return '<span style="color:#f97316;font-weight:700;">🔴 N1 compromis — trop peu de séances</span>';
+        if (n === 1) return '<span style="color:#f59e0b;font-weight:700;">🟠 Suivi recommandé</span>';
+        return '';
+      }
+
+      // Élèves avec au moins un niveau d'alerte (inactifs OU trop absents)
+      var elevesEnAlerte = Object.keys(model).filter(function(e) {
+        return joursDepuis(model[e].lastDate) > 21 || niveauAlerte(e) > 0;
+      }).sort(function(a, b) {
+        // Tri : niveau d'alerte décroissant, puis inactivité décroissante
+        var diff = niveauAlerte(b) - niveauAlerte(a);
+        if (diff !== 0) return diff;
+        return (joursDepuis(model[b].lastDate) || 0) - (joursDepuis(model[a].lastDate) || 0);
+      });
+
+      // ── Compétences bloquées (élèves présents >= 50% exclus des absents) ──
+      var enCours = {};
+      rawEleves.forEach(function(r) {
+        if (!r.eleve || !r.competence || !r.date) return;
+        if (tauxPresence(r.eleve) < SEUIL_EXCL_BLOQ) return; // exclure les grands absents
+        var key = r.eleve + '||' + r.competence;
+        if (!enCours[key]) enCours[key] = { eleve: r.eleve, comp: r.competence, dates: new Set(), hasAcquis: false };
+        if (r.statut === "En cours d'acquisition") enCours[key].dates.add(r.date);
+        if (r.statut === 'Acquis') enCours[key].hasAcquis = true;
+      });
+      var bloques = Object.values(enCours)
+        .filter(function(x) { return !x.hasAcquis && x.dates.size >= 3; })
+        .sort(function(a,b) { return b.dates.size - a.dates.size; })
+        .slice(0, 8);
+
+      // ── Builders HTML ─────────────────────────────────────────────────
+      function alerteCard(icon, title, color, body) {
+        return '<div class="analyse-alerte-card">' +
+          '<div class="analyse-alerte-title" style="color:' + color + ';">' + icon + ' ' + title + '</div>' +
+          (body || '<div style="font-size:12px;color:var(--ok);padding:6px 0;">✅ Aucune alerte</div>') +
+        '</div>';
+      }
+
+      // Card absences enrichie
+      var absenceItems = elevesEnAlerte.map(function(e) {
+        var m = model[e];
+        var abs = tauxAbsence(e);
+        var pres = tauxPresence(e);
+        var nbPres = m.seancesPresent.size;
+        var nbTot  = m.seancesTotal.size;
+        var inact  = joursDepuis(m.lastDate);
+        var inactStr = inact !== null ? ', dernier cours il y a ' + inact + ' j' : '';
+        var dotColor = niveauAlerte(e) >= 2 ? '#ef4444' : niveauAlerte(e) === 1 ? '#f59e0b' : '#94a3b8';
+
+        return '<div class="analyse-alerte-item" style="flex-direction:column;align-items:flex-start;gap:4px;padding:8px 0;">' +
+          '<div style="display:flex;align-items:center;gap:8px;">' +
+            '<span class="analyse-alerte-dot" style="background:' + dotColor + ';"></span>' +
+            '<strong>' + e + '</strong>' +
+            '<span style="font-size:11px;color:var(--muted);">' + nbPres + '/' + nbTot + ' séances · ' + pres + '% présence' + inactStr + '</span>' +
+          '</div>' +
+          (messageNiveau(e) ? '<div style="padding-left:16px;font-size:12px;">' + messageNiveau(e) + '</div>' : '') +
+        '</div>';
+      }).join('');
+
+      var bloquesItems = bloques.length
+        ? bloques.map(function(x) {
+            return '<div class="analyse-alerte-item"><span class="analyse-alerte-dot" style="background:#f59e0b;"></span>' +
+              '<span><strong>' + x.eleve + '</strong> — ' + x.comp + ' <span style="color:var(--muted);font-size:11px;">(en cours : ' + x.dates.size + ' séances)</span></span></div>';
+          }).join('')
+        : '';
+
+      return '<div class="analyse-alertes-grid">' +
+        alerteCard('🔴', 'Absences & inactivité', '#ef4444', absenceItems || null) +
+        alerteCard('🟡', 'Compétences bloquées (>= 3 séances · élèves présents)', '#f59e0b', bloquesItems || null) +
+      '</div>';
+    }
+
+    // ── Zoom élève ────────────────────────────────────────────────────────
+
+    function buildZoomEleve(rawEleves) {
+      var model = buildElevesModel(rawEleves);
+      var elevesNoms = Object.keys(model).sort();
+      if (!AnalyseState.eleveActif && elevesNoms.length) AnalyseState.eleveActif = elevesNoms[0];
+      var actif = AnalyseState.eleveActif;
+      var m = model[actif] || { acquis: new Set(), seancesPresent: new Set(), seancesTotal: new Set(), lastDate: null };
+      var TOTAL_COMP = 53;
+
+      var pctAcq  = Math.round(m.acquis.size / TOTAL_COMP * 100);
+      var pctPres = m.seancesTotal.size ? Math.round(m.seancesPresent.size / m.seancesTotal.size * 100) : 0;
+      var inact   = joursDepuis(m.lastDate);
+      var colorInact = inact === null ? 'var(--muted)' : inact <= 7 ? 'var(--ok)' : inact <= 21 ? 'var(--warn)' : 'var(--bad)';
+
+      var options = elevesNoms.map(function(e) {
+        return '<option value="' + e + '"' + (e === actif ? ' selected' : '') + '>' + e + '</option>';
+      }).join('');
+
+      return '<div class="analyse-zoom-card">' +
+        '<div class="analyse-zoom-header">' +
+          '<span style="font-size:13px;font-weight:700;">Zoom élève</span>' +
+          '<select class="analyse-zoom-select" id="analyseZoomSelect">' + options + '</select>' +
+        '</div>' +
+        '<div class="analyse-zoom-content">' +
+          zoomStat('Compétences acquises', m.acquis.size + '/' + TOTAL_COMP, 'var(--accent)') +
+          zoomStat('% acquis', pctAcq + '%', pctAcq >= 70 ? 'var(--ok)' : pctAcq >= 40 ? 'var(--warn)' : 'var(--bad)') +
+          zoomStat('Présence', pctPres + '% (' + m.seancesPresent.size + '/' + m.seancesTotal.size + ' séances)', 'var(--text)') +
+          zoomStat('Inactivité', inact !== null ? 'Il y a ' + inact + ' j' : '—', colorInact) +
+        '</div>' +
+      '</div>';
+    }
+
+    function zoomStat(label, value, color) {
+      return '<div class="analyse-zoom-stat">' +
+        '<div class="analyse-zoom-stat-label">' + label + '</div>' +
+        '<div class="analyse-zoom-stat-value" style="color:' + color + ';">' + value + '</div>' +
+      '</div>';
+    }
+
+    // ── Render principal ──────────────────────────────────────────────────
+
+    function renderAnalyse(data) {
+      var rawEleves = data.eleves || [];
+      // Synchroniser les seuils depuis les Réglages si disponibles
+      var _s = (window._rscc && window._rscc.SETTINGS && window._rscc.SETTINGS.data) || {};
+      if (_s.seuilPreoccupant) SEUIL_PREOCCUPANT = _s.seuilPreoccupant;
+      if (_s.seuilCritique)    SEUIL_CRITIQUE    = _s.seuilCritique;
+      if (_s.seuilBloquant)    SEUIL_BLOQUANT    = _s.seuilBloquant;
+
+      var html =
+        '<div class="analyse-periode">' +
+          ['30j','3m','saison'].map(function(p) {
+            var label = p === '30j' ? '30 jours' : p === '3m' ? '3 mois' : 'Saison';
+            return '<button class="analyse-periode-btn' + (AnalyseState.periode === p ? ' active' : '') + '" data-periode="' + p + '">' + label + '</button>';
+          }).join('') +
+        '</div>' +
+        '<div class="analyse-section"><div class="analyse-section-title">📊 Indicateurs groupe</div>' + buildKPIGroupe(rawEleves) + '</div>' +
+        '<div class="analyse-section"><div class="analyse-section-title">📈 Progression des compétences</div>' + buildCourbeProgression(rawEleves) + '</div>' +
+        '<div class="analyse-section"><div class="analyse-section-title">⚠️ Alertes intelligentes</div>' + buildAlertes(rawEleves) + '</div>' +
+        '<div class="analyse-section"><div class="analyse-section-title">🔍 Zoom élève</div>' + buildZoomEleve(rawEleves) + '</div>';
+
+      var container = document.getElementById('analyseMainContent');
+      if (!container) return;
+      container.innerHTML = html;
+
+      requestAnimationFrame(function() { renderChart(rawEleves); });
+
+      container.querySelectorAll('.analyse-periode-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() { AnalyseState.periode = btn.dataset.periode; renderAnalyse(data); });
+      });
+      container.querySelectorAll('.analyse-eleve-toggle').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          AnalyseState.eleveVisibles[btn.dataset.eleve] = !AnalyseState.eleveVisibles[btn.dataset.eleve];
+          renderAnalyse(data);
+        });
+      });
+      var zoomSel = document.getElementById('analyseZoomSelect');
+      if (zoomSel) zoomSel.addEventListener('change', function() { AnalyseState.eleveActif = this.value; renderAnalyse(data); });
+    }
+
+    window._rscc.renderAnalyse = function(data) { renderAnalyse(data); };
+
+    // Permet aux Réglages de mettre à jour les seuils sans rechargement
+    window._rscc._setAnalyseSeuils = function(preoccupant, critique, bloquant) {
+      SEUIL_PREOCCUPANT = preoccupant;
+      SEUIL_CRITIQUE    = critique;
+      SEUIL_BLOQUANT    = bloquant;
+      // Re-render si des données sont disponibles
+      var rawE = window._rscc_RAW_ELEVES;
+      if (rawE) renderAnalyse({ eleves: rawE, crSeance: window._rscc_RAW_CR_SEANCE || [] });
+    };
+
+  })();
+  </script>
+
+
   <!-- =====================================================================
        PHASE 4b - MODULE MENU ⚙️ RÉGLAGES (localStorage + re-render)
        5 options configurables : règle compétences, heatmap, MAX_SESSIONS,
@@ -9349,6 +10032,13 @@
       });
       const selMD = document.getElementById('seuilMoniteursDiff');
       if (selMD) selMD.value = SETTINGS.data.seuilMoniteursDiff || 2;
+        // Seuils absences
+        var spEl = document.getElementById('seuilPreoccupant');
+        var scEl = document.getElementById('seuilCritique');
+        var sbEl = document.getElementById('seuilBloquant');
+        if (spEl) spEl.value = SETTINGS.data.seuilPreoccupant || 50;
+        if (scEl) scEl.value = SETTINGS.data.seuilCritique    || 70;
+        if (sbEl) sbEl.value = SETTINGS.data.seuilBloquant    || 85;
 
       // Heatmap
       const heatmapRadios = document.querySelectorAll('input[name="heatmapGroup"]');
@@ -9393,6 +10083,24 @@
           triggerReRenders();
         });
       }
+
+      // Seuils absences → re-render analyse
+      ['seuilPreoccupant','seuilCritique','seuilBloquant'].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        el.addEventListener('change', function() {
+          SETTINGS.data[id] = parseInt(this.value);
+          saveSettings();
+          // Propager les seuils au module Analyse
+          if (window._rscc && window._rscc._setAnalyseSeuils) {
+            window._rscc._setAnalyseSeuils(
+              SETTINGS.data.seuilPreoccupant || 50,
+              SETTINGS.data.seuilCritique    || 70,
+              SETTINGS.data.seuilBloquant    || 85
+            );
+          }
+        });
+      });
 
 
       // Heatmap
