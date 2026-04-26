@@ -957,6 +957,140 @@
       min-width: 0;
     }
 
+    /* ── Gestionnaire colonnes synthèse ── */
+    .synthese-cols-btn-wrap {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 8px;
+    }
+
+    .synthese-cols-btn {
+      font-size: 12px;
+      padding: 5px 12px;
+      background: var(--chip);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .synthese-cols-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    .synthese-cols-panel {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      z-index: 500;
+      width: 320px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    .synthese-cols-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .synthese-cols-panel-title {
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .synthese-cols-close {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 18px;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .synthese-cols-close:hover { color: var(--bad); }
+
+    .synthese-cols-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 14px;
+    }
+
+    .synthese-col-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      cursor: grab;
+      user-select: none;
+      transition: background var(--transition);
+    }
+
+    .synthese-col-item:active { cursor: grabbing; }
+    .synthese-col-item.dragging { opacity: 0.4; }
+    .synthese-col-item.drag-over { border-color: var(--accent); background: rgba(6,182,212,0.08); }
+
+    .synthese-col-drag-handle {
+      color: var(--muted);
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .synthese-col-label {
+      flex: 1;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .synthese-col-toggle {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--accent);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .synthese-cols-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .synthese-cols-reset {
+      font-size: 12px;
+      padding: 5px 10px;
+      background: var(--chip);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--muted);
+      cursor: pointer;
+    }
+    .synthese-cols-reset:hover { border-color: var(--warn); color: var(--warn); }
+
+    .synthese-cols-apply {
+      flex: 1;
+      font-size: 13px;
+      padding: 7px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      color: #00333f;
+      font-weight: 700;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+    }
+
+    .synthese-cols-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+      z-index: 499;
+    }
+
     /* Titre de card */
     .info-card-title {
       font-size: 11px;
@@ -6705,57 +6839,128 @@
     // =====================================================================
     // TABLEAU DE SYNTHÈSE (avec tri)
     // =====================================================================
+    // =====================================================================
+    // CONFIGURATION COLONNES TABLEAU SYNTHÈSE
+    // Persistée en localStorage par utilisateur
+    // =====================================================================
+    var SYNTHESE_COLS_DEFAULT = [
+      { id: 'eleve',    label: 'Élève',            sortable: true,  visible: true },
+      { id: 'genre',    label: 'Genre',             sortable: true,  visible: true },
+      { id: 'acquis',   label: 'Acquises',          sortable: true,  visible: true },
+      { id: 'taux',     label: '% acquis',          sortable: true,  visible: true },
+      { id: 'presence', label: '% présence',        sortable: true,  visible: true },
+      { id: 'inactivite', label: '🕐 Dernier cours', sortable: true, visible: true },
+      { id: 'encadrant',label: 'Dernier moniteur',  sortable: true,  visible: true },
+      { id: 'derniere', label: '📅 Date séance',    sortable: true,  visible: true },
+    ];
+
+    var LS_SYNTHESE_COLS = 'rscc_synthese_cols_v1';
+
+    function getSyntheseCols() {
+      try {
+        var stored = localStorage.getItem(LS_SYNTHESE_COLS);
+        if (!stored) return SYNTHESE_COLS_DEFAULT.map(function(c) { return Object.assign({}, c); });
+        var parsed = JSON.parse(stored);
+        // Fusionner avec les défauts (nouvelles colonnes ajoutées)
+        var result = SYNTHESE_COLS_DEFAULT.map(function(def) {
+          var saved = parsed.find(function(p) { return p.id === def.id; });
+          return saved ? Object.assign({}, def, { visible: saved.visible }) : Object.assign({}, def);
+        });
+        // Respecter l'ordre sauvegardé
+        var order = parsed.map(function(p) { return p.id; });
+        result.sort(function(a, b) {
+          var ia = order.indexOf(a.id), ib = order.indexOf(b.id);
+          if (ia === -1) return 1; if (ib === -1) return -1;
+          return ia - ib;
+        });
+        return result;
+      } catch(e) { return SYNTHESE_COLS_DEFAULT.map(function(c) { return Object.assign({}, c); }); }
+    }
+
+    function saveSyntheseCols(cols) {
+      try { localStorage.setItem(LS_SYNTHESE_COLS, JSON.stringify(cols.map(function(c) { return { id: c.id, visible: c.visible }; }))); } catch(e) {}
+    }
+
     function buildSyntheseTable(students) {
-      const sortedStudents = students.slice().sort(function(a, b) {
-        let valA, valB;
-        switch (EleveState.syntheseSort.column) {
-          case 'eleve':   valA = a.eleve.toLowerCase(); valB = b.eleve.toLowerCase(); break;
-          case 'genre':   valA = (a.genre || '').toLowerCase(); valB = (b.genre || '').toLowerCase(); break;
-          case 'total':   valA = a.total_comp || 0; valB = b.total_comp || 0; break;
-          case 'acquis':  valA = a.total_acquis10 || 0; valB = b.total_acquis10 || 0; break;
-          case 'taux':    valA = (a.total_acquis10 / Math.max(a.total_comp, 1)) * 100; valB = (b.total_acquis10 / Math.max(b.total_comp, 1)) * 100; break;
-          case 'encadrant': valA = (a.last_moniteur || '').toLowerCase(); valB = (b.last_moniteur || '').toLowerCase(); break;
-          case 'derniere': valA = a.last_date || ''; valB = b.last_date || ''; break;
-          default: valA = a.eleve.toLowerCase(); valB = b.eleve.toLowerCase();
+      var cols = getSyntheseCols().filter(function(c) { return c.visible; });
+      var today = new Date(); today.setHours(0,0,0,0);
+
+      var sortVal = function(s, col) {
+        var total = (s.present||0) + (s.absent||0);
+        switch(col) {
+          case 'eleve':     return s.eleve.toLowerCase();
+          case 'genre':     return (s.genre||'').toLowerCase();
+          case 'acquis':    return s.total_acquis10 || 0;
+          case 'taux':      return (s.total_acquis10 / Math.max(s.total_comp,1)) * 100;
+          case 'presence':  return total ? (s.present||0) / total : 0;
+          case 'inactivite':
+            if (!s.last_date) return 9999;
+            return Math.round((today - new Date(s.last_date)) / 86400000);
+          case 'encadrant': return (s.last_moniteur||'').toLowerCase();
+          case 'derniere':  return s.last_date || '';
+          default:          return s.eleve.toLowerCase();
         }
+      };
+
+      var sortedStudents = students.slice().sort(function(a, b) {
+        var valA = sortVal(a, EleveState.syntheseSort.column);
+        var valB = sortVal(b, EleveState.syntheseSort.column);
         if (valA < valB) return EleveState.syntheseSort.order === 'asc' ? -1 : 1;
         if (valA > valB) return EleveState.syntheseSort.order === 'asc' ? 1 : -1;
         return 0;
       });
 
-      const rows = sortedStudents.map(function(s) {
-        const pctAcq  = Math.round(100 * (s.total_acquis10 / Math.max(s.total_comp, 1)));
-        const color   = stoplightColor(pctAcq);
-        const n1Medal = isEleveN1Valide(s.eleve);
-        const trStyle = n1Medal ? ' style="background:rgba(34,197,94,0.06);"' : '';
+      var rows = sortedStudents.map(function(s) {
+        var pctAcq   = Math.round(100 * (s.total_acquis10 / Math.max(s.total_comp,1)));
+        var total    = (s.present||0) + (s.absent||0);
+        var pctPres  = total ? Math.round(100 * (s.present||0) / total) : 0;
+        var colorAcq = stoplightColor(pctAcq);
+        var colorPres= stoplightColor(pctPres);
+        var n1Medal  = isEleveN1Valide(s.eleve);
+        var trStyle  = n1Medal ? ' style="background:rgba(34,197,94,0.06);"' : '';
+
+        // Calcul inactivité
+        var inactiviteTd = '—';
+        if (s.last_date) {
+          var lastD = new Date(s.last_date); lastD.setHours(0,0,0,0);
+          var diff = Math.round((today - lastD) / 86400000);
+          var label = diff === 0 ? "Aujourd'hui" : diff === 1 ? 'Hier' : 'Il y a ' + diff + ' j';
+          var col = diff <= 7 ? 'var(--ok)' : diff <= 21 ? 'var(--warn)' : 'var(--bad)';
+          inactiviteTd = '<span style="font-weight:700;color:' + col + ';">' + label + '</span>';
+        }
+
+        var cellMap = {
+          eleve:     '<td><strong>' + escapeHtml(s.eleve) + n1Medal + '</strong></td>',
+          genre:     '<td>' + escapeHtml(s.genre||'—') + '</td>',
+          acquis:    '<td><strong>' + (s.total_acquis10||0) + '</strong>/<span style="opacity:0.7;">' + (s.total_comp||53) + '</span></td>',
+          taux:      '<td><div class="synthese-progress" title="' + pctAcq + '% acquis"><div class="synthese-progress-inner" style="width:' + pctAcq + '%;background:' + colorAcq + ';"></div></div><span style="font-size:11px;color:var(--muted);">' + pctAcq + '%</span></td>',
+          presence:  '<td><div class="synthese-progress" title="' + pctPres + '% présence (' + (s.present||0) + '/' + total + ')"><div class="synthese-progress-inner" style="width:' + pctPres + '%;background:' + colorPres + ';"></div></div><span style="font-size:11px;color:var(--muted);">' + pctPres + '%</span></td>',
+          inactivite:'<td>' + inactiviteTd + '</td>',
+          encadrant: '<td>' + escapeHtml(s.last_moniteur||'—') + '</td>',
+          derniere:  '<td>' + (s.last_date ? (function(iso) {
+            var d = new Date(String(iso) + 'T00:00:00');
+            return isNaN(d.getTime()) ? iso : d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' });
+          })(s.last_date) : '—') + '</td>',
+        };
+
         return '<tr class="clickable" data-target="' + idOfEleve(s.eleve) + '"' + trStyle + '>' +
-          '<td><strong>' + escapeHtml(s.eleve) + n1Medal + '</strong></td>' +
-          '<td>' + escapeHtml(s.genre || '—') + '</td>' +
-          '<td><strong>' + (s.total_acquis10 || 0) + '</strong>/<span style="opacity:0.7;">53</span></td>' +
-          '<td>' +
-            '<div class="synthese-progress" title="' + pctAcq + '% de compétences acquises">' +
-              '<div class="synthese-progress-inner" style="width:' + pctAcq + '%; background:' + color + ';"></div>' +
-            '</div>' +
-            '<span style="font-size:11px;color:var(--muted);">' + pctAcq + '%</span>' +
-          '</td>' +
-          '<td>' + escapeHtml(s.last_moniteur || '—') + '</td>' +
-          '<td>' + escapeHtml(s.last_date || '—') + '</td>' +
+          cols.map(function(c) { return cellMap[c.id] || '<td>—</td>'; }).join('') +
         '</tr>';
       }).join('');
 
-      const s = EleveState.syntheseSort;
-      const sortCls = function(col) { return s.column === col ? 'sort-' + s.order : ''; };
+      var s = EleveState.syntheseSort;
+      var sortCls = function(col) { return s.column === col ? 'sort-' + s.order : ''; };
+
+      var headers = cols.map(function(c) {
+        return '<th class="sortable ' + sortCls(c.id) + '" data-column="' + c.id + '">' + c.label + '</th>';
+      }).join('');
 
       return '<div class="synthese-table-container">' +
+        '<div class="synthese-cols-btn-wrap">' +
+          '<button class="btn synthese-cols-btn" id="btnSyntheseCols" title="Gérer les colonnes">⚙️ Colonnes</button>' +
+        '</div>' +
         '<table class="synthese-table">' +
-          '<thead><tr>' +
-            '<th class="sortable ' + sortCls('eleve') + '" data-column="eleve">Élève</th>' +
-            '<th class="sortable ' + sortCls('genre') + '" data-column="genre">Genre</th>' +
-            '<th class="sortable ' + sortCls('acquis') + '" data-column="acquis">Acquises</th>' +
-            '<th class="sortable ' + sortCls('taux') + '" data-column="taux">% acquis</th>' +
-            '<th class="sortable ' + sortCls('encadrant') + '" data-column="encadrant">Dernier moniteur</th>' +
-            '<th class="sortable ' + sortCls('derniere') + '" data-column="derniere">📅 Dernière séance</th>' +
-          '</tr></thead>' +
+          '<thead><tr>' + headers + '</tr></thead>' +
           '<tbody>' + rows + '</tbody>' +
         '</table>' +
       '</div>';
@@ -6963,6 +7168,126 @@
     // =====================================================================
     // INTERACTIONS
     // =====================================================================
+    /** Ouvre le panneau de gestion des colonnes du tableau synthèse */
+    function openSyntheseColsPanel() {
+      // Supprimer un éventuel panneau existant
+      var existing = document.getElementById('syntheseColsOverlay');
+      if (existing) existing.remove();
+
+      var cols = getSyntheseCols();
+      var dragSrcIdx = null;
+
+      // Construire les items
+      var itemsHtml = cols.map(function(col, idx) {
+        var checked = col.visible ? 'checked' : '';
+        // Colonne élève toujours visible
+        var disabled = col.id === 'eleve' ? 'disabled' : '';
+        return '<div class="synthese-col-item" draggable="true" data-idx="' + idx + '">' +
+          '<span class="synthese-col-drag-handle">⠿</span>' +
+          '<span class="synthese-col-label">' + escapeHtml(col.label) + '</span>' +
+          '<input type="checkbox" class="synthese-col-toggle" ' + checked + ' ' + disabled + ' data-id="' + col.id + '">' +
+        '</div>';
+      }).join('');
+
+      var overlay = document.createElement('div');
+      overlay.id = 'syntheseColsOverlay';
+      overlay.className = 'synthese-cols-overlay';
+
+      var panel = document.createElement('div');
+      panel.className = 'synthese-cols-panel';
+      panel.innerHTML =
+        '<div class="synthese-cols-panel-header">' +
+          '<span class="synthese-cols-panel-title">⚙️ Colonnes du tableau</span>' +
+          '<button class="synthese-cols-close" id="syntheseColsClose">✕</button>' +
+        '</div>' +
+        '<p style="font-size:12px;color:var(--muted);margin-bottom:10px;">Glissez pour réordonner · Cochez pour afficher</p>' +
+        '<div class="synthese-cols-list" id="syntheseColsList">' + itemsHtml + '</div>' +
+        '<div class="synthese-cols-actions">' +
+          '<button class="synthese-cols-reset" id="syntheseColsReset">↺ Réinitialiser</button>' +
+          '<button class="synthese-cols-apply" id="syntheseColsApply">✓ Appliquer</button>' +
+        '</div>';
+
+      document.body.appendChild(overlay);
+      document.body.appendChild(panel);
+
+      // Drag & drop
+      var list = panel.querySelector('#syntheseColsList');
+      list.addEventListener('dragstart', function(e) {
+        dragSrcIdx = parseInt(e.target.closest('.synthese-col-item').dataset.idx);
+        e.target.closest('.synthese-col-item').classList.add('dragging');
+        e.dataTransfer.effectAllowed = 'move';
+      });
+      list.addEventListener('dragend', function(e) {
+        e.target.closest('.synthese-col-item').classList.remove('dragging');
+        list.querySelectorAll('.synthese-col-item').forEach(function(el) { el.classList.remove('drag-over'); });
+      });
+      list.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        var target = e.target.closest('.synthese-col-item');
+        if (!target) return;
+        list.querySelectorAll('.synthese-col-item').forEach(function(el) { el.classList.remove('drag-over'); });
+        target.classList.add('drag-over');
+      });
+      list.addEventListener('drop', function(e) {
+        e.preventDefault();
+        var target = e.target.closest('.synthese-col-item');
+        if (!target || dragSrcIdx === null) return;
+        var destIdx = parseInt(target.dataset.idx);
+        if (dragSrcIdx === destIdx) return;
+        var moved = cols.splice(dragSrcIdx, 1)[0];
+        cols.splice(destIdx, 0, moved);
+        // Rebuild items
+        var newHtml = cols.map(function(col, idx) {
+          var checked = col.visible ? 'checked' : '';
+          var disabled = col.id === 'eleve' ? 'disabled' : '';
+          return '<div class="synthese-col-item" draggable="true" data-idx="' + idx + '">' +
+            '<span class="synthese-col-drag-handle">⠿</span>' +
+            '<span class="synthese-col-label">' + escapeHtml(col.label) + '</span>' +
+            '<input type="checkbox" class="synthese-col-toggle" ' + checked + ' ' + disabled + ' data-id="' + col.id + '">' +
+          '</div>';
+        }).join('');
+        list.innerHTML = newHtml;
+        dragSrcIdx = null;
+      });
+
+      // Fermer
+      function closePanel() {
+        overlay.remove();
+        panel.remove();
+      }
+      overlay.addEventListener('click', closePanel);
+      panel.querySelector('#syntheseColsClose').addEventListener('click', closePanel);
+
+      // Réinitialiser
+      panel.querySelector('#syntheseColsReset').addEventListener('click', function() {
+        localStorage.removeItem(LS_SYNTHESE_COLS);
+        closePanel();
+        // Re-render
+        var main = document.getElementById('elevesMainContent');
+        if (main && EleveState.model) {
+          main.innerHTML = buildMainContent(EleveState.model.students);
+          attachInteractions();
+        }
+      });
+
+      // Appliquer
+      panel.querySelector('#syntheseColsApply').addEventListener('click', function() {
+        // Lire les checkboxes
+        panel.querySelectorAll('.synthese-col-toggle').forEach(function(cb) {
+          var col = cols.find(function(c) { return c.id === cb.dataset.id; });
+          if (col && col.id !== 'eleve') col.visible = cb.checked;
+        });
+        saveSyntheseCols(cols);
+        closePanel();
+        // Re-render
+        var main = document.getElementById('elevesMainContent');
+        if (main && EleveState.model) {
+          main.innerHTML = buildMainContent(EleveState.model.students);
+          attachInteractions();
+        }
+      });
+    }
+
     function attachInteractions() {
       const mainContainer = document.getElementById('elevesMainContent');
       if (!mainContainer) return;
@@ -7151,6 +7476,12 @@
       });
 
       // Bouton "Voir synthèse" dans sidebar
+      // ── Gestionnaire colonnes tableau synthèse ──
+      var colsBtnEl = document.getElementById('btnSyntheseCols');
+      if (colsBtnEl) {
+        colsBtnEl.addEventListener('click', function() { openSyntheseColsPanel(); });
+      }
+
       const btnScrollToSynthese = document.getElementById('btnScrollToSynthese');
       if (btnScrollToSynthese) {
         btnScrollToSynthese.addEventListener('click', function() {
