@@ -6419,10 +6419,12 @@
       });
 
       const rows = sortedStudents.map(function(s) {
-        const pctAcq = Math.round(100 * (s.total_acquis10 / Math.max(s.total_comp, 1)));
-        const color = stoplightColor(pctAcq);
-        return '<tr class="clickable" data-target="' + idOfEleve(s.eleve) + '">' +
-          '<td><strong>' + escapeHtml(s.eleve) + '</strong></td>' +
+        const pctAcq  = Math.round(100 * (s.total_acquis10 / Math.max(s.total_comp, 1)));
+        const color   = stoplightColor(pctAcq);
+        const n1Medal = isEleveN1Valide(s.eleve);
+        const trStyle = n1Medal ? ' style="background:rgba(34,197,94,0.06);"' : '';
+        return '<tr class="clickable" data-target="' + idOfEleve(s.eleve) + '"' + trStyle + '>' +
+          '<td><strong>' + escapeHtml(s.eleve) + n1Medal + '</strong></td>' +
           '<td>' + escapeHtml(s.genre || '—') + '</td>' +
           '<td><strong>' + (s.total_acquis10 || 0) + '</strong>/<span style="opacity:0.7;">53</span></td>' +
           '<td>' +
