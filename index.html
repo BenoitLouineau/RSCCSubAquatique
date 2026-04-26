@@ -48,7 +48,7 @@
       --radius: 16px;
       --radius-sm: 8px;
       --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-      --header-h: 140px;
+      --header-h: 204px; /* titre ~50px + tabs ~44px + chips ~64px + padding */
       --sidebar-w: 280px;
       --drawer-w: 480px;
       --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -107,10 +107,10 @@
     .header-inner {
       max-width: 1400px;
       margin: 0 auto;
-      padding: 12px 20px;
+      padding: 12px 20px 0;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 0;
       height: 100%;
     }
 
@@ -119,6 +119,7 @@
       align-items: center;
       gap: 12px;
       flex-wrap: wrap;
+      padding-bottom: 8px;
     }
 
     .app-title {
@@ -191,9 +192,10 @@
     .tabs {
       display: flex;
       gap: 4px;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 2px solid var(--border);
       overflow-x: auto;
       scrollbar-width: none;
+      margin-bottom: 0;
     }
 
     .tabs::-webkit-scrollbar { display: none; }
@@ -500,7 +502,7 @@
     }
 
     @media (max-width: 768px) {
-      :root { --header-h: 160px; }
+      :root { --header-h: 224px; }
 
       .app-layout {
         flex-direction: column;
@@ -529,44 +531,177 @@
        ===================================================================== */
 
     /* Cartes élèves dans la sidebar */
-    .student-scroll {
+    /* ── Barre de chips sticky dans le header ── */
+    .sticky-chips-bar {
       display: flex;
-      flex-direction: column;
-      gap: 8px;
-      overflow-y: auto;
-      max-height: 500px;
-      padding: 4px;
+      align-items: center;
+      height: 64px;
+      margin: 0 -20px;
+      padding: 16px 20px 6px; /* 16px au-dessus = espace net sous le trait */
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
-    .student-card {
-      background: linear-gradient(180deg, rgba(6, 182, 212, 0.12), rgba(6, 182, 212, 0.05));
-      border: 1px solid rgba(6, 182, 212, 0.25);
+    .sticky-chips-panel {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .sticky-chips-panel.hidden { display: none; }
+
+    /* ── Barre de navigation horizontale (élèves & moniteurs) ── */
+    .hscroll-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0 6px;
+      position: relative;
+    }
+
+    .hscroll-track {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hscroll-inner {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none;
+      padding: 4px 2px;
+    }
+    .hscroll-inner::-webkit-scrollbar { display: none; }
+
+    /* Boutons gauche / droite */
+    .hscroll-btn {
+      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      transition: all var(--transition);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+
+    .hscroll-btn:hover {
+      background: var(--accent);
+      color: #00333f;
+      border-color: var(--accent);
+      transform: scale(1.08);
+      box-shadow: 0 4px 14px rgba(6,182,212,0.3);
+    }
+
+    .hscroll-btn:disabled {
+      opacity: 0.25;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* Fondu gauche/droite quand scrollable */
+    .hscroll-track::before,
+    .hscroll-track::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 24px;
+      z-index: 1;
+      pointer-events: none;
+      transition: opacity 200ms;
+    }
+    .hscroll-track::before {
+      left: 0;
+      background: linear-gradient(to right, var(--bg), transparent);
+    }
+    .hscroll-track::after {
+      right: 0;
+      background: linear-gradient(to left, var(--bg), transparent);
+    }
+
+    /* Chips dans la barre — hauteur fixe pour homogénéité élèves/moniteurs */
+    .student-card,
+    .mon-mini-card {
+      flex-shrink: 0;
       border-radius: 12px;
-      padding: 10px 12px;
+      padding: 7px 14px;
       cursor: pointer;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 2px;
       transition: all var(--transition);
+      white-space: nowrap;
+      min-width: 0;
+      min-height: 52px;        /* hauteur minimale identique pour les deux */
+      justify-content: center;
+    }
+
+    .student-card {
+      background: linear-gradient(135deg, rgba(6,182,212,0.12), rgba(6,182,212,0.04));
+      border: 1.5px solid rgba(6,182,212,0.25);
     }
 
     .student-card:hover {
-      transform: translateY(-1px);
       border-color: var(--accent);
-      box-shadow: 0 4px 12px rgba(6, 182, 212, 0.2);
+      background: linear-gradient(135deg, rgba(6,182,212,0.22), rgba(6,182,212,0.08));
+      box-shadow: 0 3px 12px rgba(6,182,212,0.25);
+      transform: translateY(-2px);
+    }
+
+    .student-card.active {
+      border-color: var(--accent);
+      background: linear-gradient(135deg, rgba(6,182,212,0.28), rgba(6,182,212,0.12));
+      box-shadow: 0 0 0 2px rgba(6,182,212,0.3);
     }
 
     .student-card .name {
       font-weight: 700;
-      font-size: 13px;
+      font-size: 12px;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
+      color: var(--text);
     }
 
     .student-card .meta {
-      font-size: 11px;
+      font-size: 10px;
       color: var(--muted);
+    }
+
+    /* Variante violette pour les chips moniteurs — même forme que élèves */
+    .student-card.mon-chip {
+      background: linear-gradient(135deg, rgba(168,85,247,0.12), rgba(168,85,247,0.04));
+      border-color: rgba(168,85,247,0.28);
+      border-radius: 12px; /* identique à student-card */
+    }
+
+    .student-card.mon-chip:hover {
+      border-color: rgba(168,85,247,0.7);
+      background: linear-gradient(135deg, rgba(168,85,247,0.22), rgba(168,85,247,0.1));
+      box-shadow: 0 3px 12px rgba(168,85,247,0.25);
+    }
+
+    .student-card.mon-chip.has-missing-cr {
+      border-color: rgba(220,38,38,0.4);
+      background: linear-gradient(135deg, rgba(220,38,38,0.08), rgba(220,38,38,0.03));
+    }
+
+    /* Ancien scroll vertical — conservé pour compatibilité mobile */
+    .student-scroll {
+      display: none; /* remplacé par hscroll-bar */
     }
 
     /* Stats card + bouton "Voir synthèse" */
@@ -589,6 +724,10 @@
     .stats-card .btn-synthese:hover { opacity: 0.9; }
 
     /* Tableau de synthèse */
+    #syntheseContainer {
+      scroll-margin-top: calc(var(--header-h) + 16px);
+    }
+
     .synthese-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -596,6 +735,7 @@
       padding: 20px;
       box-shadow: var(--shadow);
       margin-bottom: 24px;
+      scroll-margin-top: calc(var(--header-h) + 16px);
     }
 
     .synthese-header {
@@ -695,14 +835,16 @@
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 16px;
+      padding: 0;           /* padding géré par les sous-éléments */
       box-shadow: var(--shadow);
+      overflow: hidden;     /* respect du border-radius sur les enfants */
     }
 
     .eleve-header {
       display: flex;
       align-items: center;
       gap: 10px;
+      padding: 16px 16px 12px;
       flex-wrap: wrap;
       margin-bottom: 16px;
       padding-bottom: 12px;
@@ -733,9 +875,96 @@
     /* Grille info haute */
     .info-row {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 12px;
-      margin-bottom: 16px;
+      grid-template-columns: 180px minmax(0, 1fr);
+      grid-template-rows: auto auto;
+      gap: 0;
+      margin-bottom: 0;
+      overflow: hidden;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* S'assurer que eleve-card et ses parents ne contraignent pas la largeur */
+    .eleve-card {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+
+    /* Dans la card élève, les info-cards sont flush (pas de gap, pas de border-radius) */
+    .info-row .info-card {
+      border-radius: 0;
+      border: none;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-row .info-card:last-child {
+      border-right: none;
+    }
+
+    .info-row .card-cours {
+      border-top: none;
+    }
+
+    .info-row .card-donut,
+    .info-row .card-suivi {
+      border-bottom: none;
+    }
+
+    .info-row .card-presence {
+      border-left: none;
+    }
+
+    /* Colonne gauche : les 2 donuts empilés */
+    .info-card.card-presence {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .info-card.card-donut {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    /* Colonne droite : cours (haut) + suivi (bas) */
+    .info-card.card-cours {
+      grid-column: 2;
+      grid-row: 1;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .info-card.card-suivi {
+      grid-column: 2;
+      grid-row: 2;
+      min-width: 0;
+    }
+
+
+    /* Contraindre les éléments graphiques dans la card-cours */
+    .card-cours canvas,
+    .card-cours svg,
+    .card-cours .chart-container,
+    .card-cours .timeline-scroll {
+      max-width: 100% !important;
+      width: 100% !important;
+    }
+
+    /* La card eleve-card elle-même ne doit pas déborder */
+    .eleve-card {
+      overflow: hidden;
+      min-width: 0;
+    }
+
+    /* Titre de card */
+    .info-card-title {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 10px;
     }
 
     .info-card {
@@ -1765,7 +1994,8 @@
        PHASE 2 - STYLES SPÉCIFIQUES À L'ONGLET ÉLÈVES
        ===================================================================== */
 
-    /* Sidebar - Liste des élèves */
+    /* Sidebar - Liste des élèves (Phase 2) */
+    /* .student-card est défini dans Phase 1 CSS — pas de redéfinition ici */
     .students-list {
       display: flex;
       flex-direction: column;
@@ -1773,36 +2003,6 @@
       max-height: 40vh;
       overflow-y: auto;
       padding: 4px;
-    }
-
-    .student-card {
-      background: linear-gradient(180deg, rgba(6, 182, 212, 0.12), rgba(6, 182, 212, 0.05));
-      border: 1px solid rgba(6, 182, 212, 0.25);
-      border-radius: 12px;
-      padding: 10px;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      transition: all var(--transition);
-    }
-
-    .student-card:hover {
-      border-color: var(--accent);
-      transform: translateX(2px);
-    }
-
-    .student-card .name {
-      font-weight: 700;
-      font-size: 13px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .student-card .meta {
-      font-size: 11px;
-      color: var(--muted);
     }
 
     .stats-card-sidebar {
@@ -1831,6 +2031,10 @@
 
     /* ===== Synthèse =========================================== */
     .synthese-container { margin-bottom: 24px; }
+
+    #syntheseContainer {
+      scroll-margin-top: calc(var(--header-h) + 16px);
+    }
 
     .synthese-card {
       background: var(--card);
@@ -2234,12 +2438,13 @@
       scroll-margin-top: calc(var(--header-h) + 20px);
     }
 
-    .eleve-card { padding: 16px; }
+    /* eleve-card padding supprimé — géré par eleve-header */
 
     .eleve-header {
       display: flex;
       align-items: center;
       gap: 10px;
+      padding: 16px 16px 12px;
       flex-wrap: wrap;
       margin-bottom: 12px;
     }
@@ -2268,9 +2473,13 @@
 
     .info-row {
       display: grid;
-      grid-template-columns: 160px 1fr 1fr 180px;
-      gap: 12px;
-      margin-bottom: 12px;
+      grid-template-columns: 180px minmax(0, 1fr);
+      grid-template-rows: auto auto;
+      gap: 0;
+      margin-bottom: 0;
+      overflow: hidden;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .info-card {
@@ -3146,6 +3355,7 @@
       padding: 16px 18px;
       margin-bottom: 20px;
       box-shadow: var(--shadow);
+      scroll-margin-top: calc(var(--header-h) + 16px);
     }
 
     .cr-widget-header {
@@ -3647,32 +3857,23 @@
     /* ===== Mini-cards moniteurs (sidebar) ===== */
     .monitors-mini {
       display: flex;
-      flex-direction: column;
-      gap: 6px;
-      max-height: 50vh;
-      overflow-y: auto;
-      padding: 4px;
+      gap: 8px;
+      /* Le scroll est géré par hscroll-inner */
     }
 
     .mon-mini-card {
-      background: linear-gradient(180deg, rgba(6, 182, 212, 0.12), rgba(6, 182, 212, 0.05));
-      border: 1px solid rgba(6, 182, 212, 0.25);
-      border-radius: 12px;
-      padding: 10px;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      transition: all var(--transition);
-      text-align: left;
-      width: 100%;
+      /* Hérite de la règle commune .student-card, .mon-mini-card */
+      background: linear-gradient(135deg, rgba(168,85,247,0.12), rgba(168,85,247,0.04));
+      border: 1.5px solid rgba(168,85,247,0.28);
       font-family: inherit;
-      position: relative;
+      text-align: left;
     }
 
     .mon-mini-card:hover {
-      border-color: var(--accent);
-      transform: translateX(2px);
+      border-color: rgba(168,85,247,0.7);
+      background: linear-gradient(135deg, rgba(168,85,247,0.22), rgba(168,85,247,0.08));
+      box-shadow: 0 3px 12px rgba(168,85,247,0.25);
+      transform: translateY(-2px);
     }
 
     .mon-mini-card.has-missing-cr {
@@ -3682,27 +3883,25 @@
 
     .mon-mini-name {
       font-weight: 700;
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 130px;
     }
 
     .mon-mini-meta {
-      font-size: 11px;
+      font-size: 10px;
       color: var(--muted);
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .mon-mini-meta .tag {
-      font-size: 10px;
-      padding: 1px 6px;
-      background: var(--chip);
-      border-radius: 999px;
+      display: none; /* masqué dans la chip — visible dans la fiche déployée */
     }
+
 
     .mon-mini-badge {
       position: absolute;
@@ -4250,6 +4449,38 @@
           🎓 Examens <span class="tab-count" id="countExamens">—</span>
         </button>
       </nav>
+
+      <!-- Barre de chips sticky (élèves ou moniteurs selon l'onglet actif) -->
+      <div class="sticky-chips-bar" id="stickyChipsBar">
+        <!-- Élèves -->
+        <div class="sticky-chips-panel" id="stickyChipsEleves">
+          <button class="hscroll-btn" id="elevesScrollLeft" aria-label="Précédent" disabled>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="hscroll-track">
+            <div class="hscroll-inner" id="studentScroll">
+              <span class="muted" style="font-size:12px;padding:4px 8px;">Chargement…</span>
+            </div>
+          </div>
+          <button class="hscroll-btn" id="elevesScrollRight" aria-label="Suivant" disabled>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <!-- Moniteurs -->
+        <div class="sticky-chips-panel hidden" id="stickyChipsMoniteurs">
+          <button class="hscroll-btn" id="moniteursScrollLeft" aria-label="Précédent" disabled>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="hscroll-track">
+            <div class="hscroll-inner" id="monitorsMini">
+              <span class="muted" style="font-size:12px;padding:4px 8px;">Chargement…</span>
+            </div>
+          </div>
+          <button class="hscroll-btn" id="moniteursScrollRight" aria-label="Suivant" disabled>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -4290,12 +4521,6 @@
 
       <!-- Contenu spécifique à chaque tab (placeholders Phase 1) -->
       <div id="sidebar-eleves" class="sidebar-content">
-        <div class="card">
-          <h3>🏊 Liste des élèves</h3>
-          <div class="student-scroll" id="studentScroll">
-            <div class="muted">Chargement…</div>
-          </div>
-        </div>
         <div class="card stats-card">
           <h3>📊 Statistiques</h3>
           <div class="muted" style="font-size:12px;margin-bottom:8px;">
@@ -4311,11 +4536,17 @@
       </div>
 
       <div id="sidebar-moniteurs" class="sidebar-content hidden">
-        <div class="card">
-          <h3>👑 Moniteurs du groupe</h3>
-          <div class="monitors-mini" id="monitorsMini">
-            <span class="muted">Chargement en cours…</span>
+        <div class="card stats-card">
+          <h3>📊 Statistiques</h3>
+          <div class="muted" style="font-size:12px;margin-bottom:8px;">
+            Consulter l'activité CR et les séances du groupe.
           </div>
+          <button class="btn-synthese" id="btnScrollToCRWidget">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 16l-6-6 1.41-1.41L11 13.17V4h2v9.17l3.59-3.58L18 10l-6 6z" fill="currentColor"/>
+            </svg>
+            Voir le suivi des CR
+          </button>
         </div>
       </div>
 
@@ -4740,6 +4971,12 @@
         if (history.replaceState) {
           history.replaceState(null, '', '#' + tabId);
         }
+
+        // Switcher le panel de chips sticky selon l'onglet actif
+        var chipsEleves    = document.getElementById('stickyChipsEleves');
+        var chipsMoniteurs = document.getElementById('stickyChipsMoniteurs');
+        if (chipsEleves)    chipsEleves.classList.toggle('hidden',    tabId !== 'eleves');
+        if (chipsMoniteurs) chipsMoniteurs.classList.toggle('hidden', tabId !== 'moniteurs');
       }
 
       function init() {
@@ -5166,6 +5403,72 @@
 
       return { loadAll, readLocalJsonFile, setStatus, setStatusSummary, parseToArray, showErrorBanner, _loadOne: loadOne };
     })();
+
+    /** Branche les boutons ◀ ▶ sur toutes les barres hscroll */
+    function setupHScrollBars() {
+      [
+        { left: 'elevesScrollLeft',    right: 'elevesScrollRight',    track: 'studentScroll' },
+        { left: 'moniteursScrollLeft', right: 'moniteursScrollRight', track: 'monitorsMini'  }
+      ].forEach(function(cfg) {
+        const btnL  = document.getElementById(cfg.left);
+        const btnR  = document.getElementById(cfg.right);
+        const track = document.getElementById(cfg.track);
+        if (!btnL || !btnR || !track) return;
+
+        const STEP = 240;
+
+        function updateBtns() {
+          const canScrollLeft  = track.scrollLeft > 2;
+          const canScrollRight = track.scrollLeft + track.clientWidth < track.scrollWidth - 2;
+          btnL.disabled = !canScrollLeft;
+          btnR.disabled = !canScrollRight;
+          // Masquer seulement les boutons si inutiles — jamais la barre entière
+          btnL.style.visibility = canScrollLeft  ? 'visible' : 'hidden';
+          btnR.style.visibility = canScrollRight ? 'visible' : 'hidden';
+        }
+
+        btnL.addEventListener('click', function() {
+          track.scrollBy({ left: -STEP, behavior: 'smooth' });
+          setTimeout(updateBtns, 350);
+        });
+        btnR.addEventListener('click', function() {
+          track.scrollBy({ left: STEP, behavior: 'smooth' });
+          setTimeout(updateBtns, 350);
+        });
+        track.addEventListener('scroll', updateBtns, { passive: true });
+
+        // Observer les changements de contenu (données chargées après init)
+        new MutationObserver(function() {
+          setTimeout(updateBtns, 120);
+        }).observe(track, { childList: true, subtree: true });
+
+        // ResizeObserver pour recalculer si la fenêtre change de taille
+        if (window.ResizeObserver) {
+          new ResizeObserver(function() { setTimeout(updateBtns, 80); }).observe(track);
+        }
+
+        updateBtns();
+      });
+    }
+
+    /** Appelé après chaque render pour rafraîchir les boutons hscroll */
+    function refreshHScrollBars() {
+      ['studentScroll', 'monitorsMini'].forEach(function(id) {
+        var track = document.getElementById(id);
+        if (!track) return;
+        var bar = track.closest('.hscroll-bar');
+        if (!bar) return;
+        var btnL = bar.querySelector('.hscroll-btn:first-child');
+        var btnR = bar.querySelector('.hscroll-btn:last-child');
+        if (!btnL || !btnR) return;
+        var canL = track.scrollLeft > 2;
+        var canR = track.scrollLeft + track.clientWidth < track.scrollWidth - 2;
+        btnL.disabled = !canL;
+        btnR.disabled = !canR;
+        btnL.style.visibility = canL ? 'visible' : 'hidden';
+        btnR.style.visibility = canR ? 'visible' : 'hidden';
+      });
+    }
 
     // Branchement des inputs de fallback manuel
     function setupManualImports() {
@@ -5673,6 +5976,7 @@
       tabsModule.init();
       drawerModule.init();
       setupManualImports();
+      setupHScrollBars();
       setupIncoherencesPanel();
       setupExportGlobal();
 
@@ -6287,9 +6591,9 @@
         return '<div class="timeline-container"><p class="muted">Aucune séance enregistrée.</p></div>';
       }
 
-      // Les sessions arrivent déjà de la plus récente à la plus ancienne.
-      // On conserve cet ordre : la séance la plus récente en premier (à gauche).
-      const ordered = sessions.slice();
+      // Inverser : du plus ancien (gauche) au plus récent (droite)
+      // Le scroll auto amènera l'utilisateur sur les dernières séances
+      const ordered = sessions.slice().reverse();
 
       const items = ordered.map(function(session) {
         const date = new Date(session.date);
@@ -6337,9 +6641,10 @@
                '</div>';
       }).join('');
 
+      const tlId = 'tl-' + eleveName.replace(/[^a-z0-9]/gi, '');
       return '<div class="timeline-container">' +
                '<h4>📅 Historique des séances</h4>' +
-               '<div class="timeline">' + items + '</div>' +
+               '<div class="timeline" id="' + tlId + '" data-autoscroll="true">' + items + '</div>' +
              '</div>';
     }
 
@@ -6482,11 +6787,11 @@
               '<button class="btn export-pdf" data-eleve="' + eleveId + '">📄 PDF</button>' +
             '</div>' +
           '</div>' +
-
           '<div class="info-row">' +
-            // Présence
-            '<div class="info-card centered">' +
-              '<div style="font-size:12px;color:var(--muted);font-weight:600;">PRÉSENCE</div>' +
+
+            // Card 1 — Présence (col gauche, ligne 1)
+            '<div class="info-card centered card-presence">' +
+              '<div class="info-card-title">Présence</div>' +
               '<div class="gauge" style="--p:' + pct + '%">' +
                 '<div class="label">' + pct + '%</div>' +
               '</div>' +
@@ -6496,9 +6801,22 @@
               '</div>' +
             '</div>' +
 
-            // Timeline + graphique
-            '<div class="info-card" style="min-width:320px;">' +
-              '<div class="kpi"><span class="kpi-label">Cours</span>' +
+            // Card 4 — Donut progression (col gauche, ligne 2)
+            '<div class="info-card centered card-donut">' +
+              '<div class="donut-container">' +
+                '<div class="donut-legend">Progression<br>(' + acq + ' / ' + (s.total_comp || 0) + ')</div>' +
+                donutHtml +
+                '<div class="progress-legend">' +
+                  '<div class="progress-legend-item progress-legend-acquis">Acquis</div>' +
+                  '<div class="progress-legend-item progress-legend-non-acquis">Autres</div>' +
+                '</div>' +
+              '</div>' +
+            '</div>' +
+
+            // Card 2 — Cours + Historique (col droite, ligne 1)
+            '<div class="info-card card-cours">' +
+              '<div class="info-card-title">Cours</div>' +
+              '<div class="kpi">' +
                 '<span class="kpi-value">' + (s.present || 0) + ' présent • ' + (s.absent || 0) + ' absent</span>' +
                 '<span class="kpi-sub">Total (dates) : ' + total + '</span>' +
               '</div>' +
@@ -6511,21 +6829,15 @@
               buildCompetencesChart(s.lastSessions) +
             '</div>' +
 
-
-
-            // Mode d'affichage
-            '<div class="info-card">' +
-              '<div class="kpi">' +
-                '<span class="kpi-label">Élève</span>' +
-                '<span class="kpi-value">' + escapeHtml(s.eleve) + '</span>' +
-                '<span class="kpi-sub">Genre : ' + escapeHtml(s.genre || '—') + '</span>' +
-              '</div>' +
-              '<div class="view-mode" title="Mode d\'affichage des compétences">' +
+            // Card 3 — Suivi pédagogique (col droite, ligne 2)
+            '<div class="info-card card-suivi">' +
+              '<div class="info-card-title">📋 Suivi pédagogique</div>' +
+              '<div class="view-mode" title="Mode affichage competences">' +
                 '<button class="vm-btn active" data-mode="categorie">Catégories</button>' +
                 '<button class="vm-btn" data-mode="competence">Barres</button>' +
                 '<button class="vm-btn" data-mode="detail">Détaillé</button>' +
               '</div>' +
-              '<div class="summary-progress" title="Règle : ≥2 Acquis sur toute la saison ⇒ compétence considérée acquise">' +
+              '<div class="summary-progress" title="Règle compétences">' +
                 '<div class="row">' +
                   '<div class="bar"><span style="width:' + pctAll + '%; background:' + color + ';"></span></div>' +
                 '</div>' +
@@ -6534,27 +6846,13 @@
                   ' • En cours ' + enc + ' • Non acquis ' + non + ' • Non évalué ' + ne +
                 '</div>' +
               '</div>' +
-
-              // Toggle Cahier de bord
               '<div class="cahier-toggle">' +
                 '<button class="btn active" data-view="competences">📊 Compétences</button>' +
                 '<button class="btn" data-view="cahier">📖 Cahier de bord</button>' +
               '</div>' +
             '</div>' +
 
-            // Donut progression
-            '<div class="info-card centered">' +
-              '<div class="donut-container">' +
-                '<div class="donut-legend">Progression des compétences<br>(' + acq + ' / ' + (s.total_comp || 0) + ')</div>' +
-                donutHtml +
-                '<div class="progress-legend">' +
-                  '<div class="progress-legend-item progress-legend-acquis">Acquis</div>' +
-                  '<div class="progress-legend-item progress-legend-non-acquis">Autres</div>' +
-                '</div>' +
-              '</div>' +
-            '</div>' +
           '</div>' +
-
           // Contenu : compétences par catégorie (enveloppé dans une card scrollable)
           '<div class="competences-content">' +
             '<div class="competences-wrapper">' +
@@ -6860,6 +7158,16 @@
           if (syn) syn.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
       }
+
+      // Bouton "Voir le suivi des CR" (sidebar moniteurs)
+      const btnScrollToCR = document.getElementById('btnScrollToCRWidget');
+      if (btnScrollToCR) {
+        btnScrollToCR.addEventListener('click', function() {
+          const crWidget = document.getElementById('crWidget') ||
+                           document.querySelector('.cr-widget');
+          if (crWidget) crWidget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      }
     }
 
     function scrollToStudent(targetId) {
@@ -7081,7 +7389,15 @@
 
       // Remplir main content
       const main = document.getElementById('elevesMainContent');
-      if (main) main.innerHTML = buildMainContent(EleveState.model.students);
+      if (main) {
+        main.innerHTML = buildMainContent(EleveState.model.students);
+        // Scroll auto sur les timelines → afficher les séances les plus récentes (droite)
+        requestAnimationFrame(function() {
+          main.querySelectorAll('.timeline[data-autoscroll]').forEach(function(tl) {
+            tl.scrollLeft = tl.scrollWidth;
+          });
+        });
+      }
 
       // Attacher interactions
       attachInteractions();
@@ -7109,7 +7425,14 @@
         if (scroll) scroll.innerHTML = buildStudentCards(EleveState.model.students);
         destroyCharts();
         const main = document.getElementById('elevesMainContent');
-        if (main) main.innerHTML = buildMainContent(EleveState.model.students);
+        if (main) {
+          main.innerHTML = buildMainContent(EleveState.model.students);
+          requestAnimationFrame(function() {
+            main.querySelectorAll('.timeline[data-autoscroll]').forEach(function(tl) {
+              tl.scrollLeft = tl.scrollWidth;
+            });
+          });
+        }
         attachInteractions();
       }
     };
@@ -7886,23 +8209,18 @@
     function buildMonitorMiniCards(model, crMissingByMon) {
       return model.moniteurs.map(function(m) {
         const id = monIdOf(m.nom);
-        // Badge rouge si des CR sont en attente sur la période courante
         const missingCount = crMissingByMon && crMissingByMon[m.nom]
           ? (crMissingByMon[m.nom].total - crMissingByMon[m.nom].remplis)
           : 0;
-        const badge = missingCount > 0
-          ? '<span class="mon-mini-badge" title="' + missingCount + ' CR manquant(s)">🔴 ' + missingCount + '</span>'
+        const crBadge = missingCount > 0
+          ? ' <span style="color:var(--bad);font-size:10px;" title="' + missingCount + ' CR manquant(s)">🔴</span>'
           : '';
         const extraClass = missingCount > 0 ? ' has-missing-cr' : '';
-        return '<button type="button" class="mon-mini-card' + extraClass + '" data-target="' + id + '">' +
-          badge +
-          '<span class="mon-mini-name">🥽 ' + escapeHtml(m.nom) + '</span>' +
-          '<span class="mon-mini-meta">' +
-            '<span class="tag">' + m.nbDates + ' séance' + (m.nbDates > 1 ? 's' : '') + '</span>' +
-            '<span class="tag">' + m.nbEleves + ' élève' + (m.nbEleves > 1 ? 's' : '') + '</span>' +
-          '</span>' +
-          '<span class="mon-mini-meta" style="font-size:10px; opacity:0.8;">Dernière : ' + formatDateShort(m.latest) + '</span>' +
-        '</button>';
+        // Même structure que student-card pour homogénéité UX
+        return '<div class="student-card mon-chip' + extraClass + '" data-target="' + id + '">' +
+          '<div class="name">👑 ' + escapeHtml(m.nom) + crBadge + '</div>' +
+          '<div class="meta">' + m.nbDates + '/' + (model.totalDates || '?') + ' séances</div>' +
+        '</div>';
       }).join('');
     }
 
@@ -8180,7 +8498,7 @@
       const miniList = document.getElementById('monitorsMini');
       if (miniList) {
         miniList.addEventListener('click', function(e) {
-          const card = e.target.closest('.mon-mini-card');
+          const card = e.target.closest('.mon-chip');
           if (!card) return;
           const id = card.getAttribute('data-target');
           const target = document.getElementById(id);
