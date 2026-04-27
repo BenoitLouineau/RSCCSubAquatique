@@ -2811,6 +2811,95 @@
       margin-left: auto;
     }
 
+    /* ── Prédiction N1 ── */
+    .prediction-n1 {
+      margin-top: 10px;
+      padding: 10px 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+    }
+    .prediction-n1-title {
+      font-weight: 700; font-size: 11px;
+      color: var(--muted); text-transform: uppercase;
+      letter-spacing: 0.5px; margin-bottom: 6px;
+    }
+    .prediction-n1-value { font-size: 15px; font-weight: 800; }
+    .prediction-n1-sub   { color: var(--muted); font-size: 11px; margin-top: 2px; }
+
+    /* ── Défi du mois ── */
+    .defi-card {
+      background: linear-gradient(135deg, rgba(6,182,212,0.1), rgba(168,85,247,0.08));
+      border: 1.5px solid rgba(6,182,212,0.3);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      margin-bottom: 10px;
+    }
+    .defi-title {
+      font-size: 13px; font-weight: 800;
+      margin-bottom: 6px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .defi-progress-bar {
+      height: 10px; background: var(--chip);
+      border-radius: 999px; overflow: hidden; margin: 6px 0;
+    }
+    .defi-progress-inner {
+      height: 100%; border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), #a855f7);
+      transition: width 0.8s ease;
+    }
+    .defi-stats { font-size: 11px; color: var(--muted); }
+
+    /* ── Fiche de séance ── */
+    .fiche-seance-modal {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      width: 100%; max-width: 700px;
+      max-height: 90vh; overflow-y: auto;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.4);
+    }
+    .fiche-seance-header {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px 12px;
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0;
+      background: var(--card); z-index: 1;
+    }
+    .fiche-seance-body { padding: 16px 20px; }
+    .fiche-seance-moniteur-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px; margin-bottom: 14px;
+    }
+    .fiche-seance-mon-title {
+      font-size: 14px; font-weight: 800;
+      color: var(--accent); margin-bottom: 10px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .fiche-seance-eleve-row {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .fiche-seance-eleve-row:last-child { border-bottom: none; }
+    .fiche-seance-eleve-name {
+      font-weight: 700; font-size: 13px; margin-bottom: 4px;
+    }
+    .fiche-seance-comps {
+      display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px;
+    }
+    .fiche-seance-comp-tag {
+      font-size: 10px; padding: 2px 7px;
+      border-radius: 999px; font-weight: 600;
+      background: rgba(234,179,8,0.15);
+      border: 1px solid rgba(234,179,8,0.4);
+      color: #b45309;
+    }
+
     /* Helper hidden */
     .hidden { display: none !important; }
 
@@ -5474,6 +5563,7 @@
 
       <!-- Contenu spécifique à chaque tab (placeholders Phase 1) -->
       <div id="sidebar-eleves" class="sidebar-content">
+        <div id="defiDuMoisWidget"></div>
         <div class="card stats-card">
           <h3>📊 Statistiques</h3>
           <div class="muted" style="font-size:12px;margin-bottom:8px;">
@@ -5507,6 +5597,10 @@
           <button class="btn-synthese" id="btnOpenPalanquees" onclick="if(window._rscc&&window._rscc._openPalanquees)window._rscc._openPalanquees()">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="pointer-events:none;"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z" fill="currentColor"/></svg>
             Générer les palanquées
+          </button>
+          <button class="btn-synthese" style="margin-top:6px;" onclick="if(window._rscc&&window._rscc._openFicheSeance)window._rscc._openFicheSeance()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="pointer-events:none;"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13z" fill="currentColor"/></svg>
+            Voir la fiche séance
           </button>
         </div>
       </div>
@@ -5674,6 +5768,25 @@
 
     <div class="settings-body">
       <!-- SECTION 1 : Règle de validation compétences -->
+      <div class="settings-section">
+        <h3 class="settings-section-title">🎯 Prédiction N1</h3>
+        <p class="settings-info">Nombre de dernières séances de présence utilisées pour calculer le rythme d'acquisition.</p>
+        <div style="display:flex;align-items:center;gap:10px;margin-top:8px;">
+          <label style="font-size:13px;color:var(--muted);">Fenêtre d'analyse :</label>
+          <select id="fenetrePrediction" style="padding:4px 10px;border-radius:6px;border:1px solid var(--border);background:var(--chip);color:var(--text);font-size:13px;">
+            <option value="3">3 séances</option>
+            <option value="4">4 séances</option>
+            <option value="5" selected>5 séances (défaut)</option>
+            <option value="6">6 séances</option>
+            <option value="7">7 séances</option>
+            <option value="8">8 séances</option>
+            <option value="9">9 séances</option>
+            <option value="10">10 séances</option>
+          </select>
+        </div>
+        <p style="font-size:11px;color:var(--muted);margin-top:6px;">ℹ️ Les X dernières dates distinctes où l'élève était présent (pas forcément consécutives)</p>
+      </div>
+
       <div class="settings-section">
         <h3 class="settings-section-title">⚠️ Seuils alertes absences</h3>
         <p class="settings-info">Définit les seuils de taux d'absence déclenchant les alertes dans l'onglet Analyse.</p>
@@ -7665,6 +7778,71 @@
       '</div>';
     }
 
+    /**
+     * Prédiction N1 pour la fiche élève (Phase 2)
+     * Calcule le rythme d'acquisition et estime quand l'élève atteindra 53/53
+     */
+    function buildPredictionN1(s) {
+      if (!s || !s.lastSessions) return '';
+      var TOTAL_COMP = 53;
+      var acq = s.total_acquis10 || 0;
+      var restant = TOTAL_COMP - acq;
+
+      // Déjà validé
+      if (restant <= 0) return '<div class="prediction-n1">' +
+        '<div class="prediction-n1-title">🎯 Prédiction N1</div>' +
+        '<div class="prediction-n1-value" style="color:var(--ok);">✅ Toutes les compétences acquises !</div>' +
+      '</div>';
+
+      // Filtrer sur les séances où l'élève était PRÉSENT uniquement
+      var sessions = (s.lastSessions || []).filter(function(r) {
+        return r.presence === 'Présent' || r.presence === 'présent';
+      });
+
+      // Lire la fenêtre configurée dans les Réglages (défaut 5)
+      var fenetre = 5;
+      try {
+        var _s = window._rscc && window._rscc.SETTINGS && window._rscc.SETTINGS.data;
+        if (_s && _s['fenetrePrediction']) fenetre = parseInt(_s['fenetrePrediction']);
+        else {
+          var stored = localStorage.getItem('rscc_settings_v1');
+          if (stored) { var parsed = JSON.parse(stored); if (parsed['fenetrePrediction']) fenetre = parseInt(parsed['fenetrePrediction']); }
+        }
+      } catch(e) {}
+
+      // Trouver les X dernières dates distinctes de présence (pas forcément consécutives)
+      var datesPresentes = Array.from(new Set(sessions.map(function(r){return r.date;}))).sort().slice(-fenetre);
+
+      // Compétences acquises lors de ces X séances présentes
+      var acqRecentes = 0;
+      sessions.forEach(function(sess) {
+        if (sess.statut === 'Acquis' && datesPresentes.indexOf(sess.date) >= 0) acqRecentes++;
+      });
+
+      var nbSeancesRecentes = datesPresentes.length || 1;
+      var rythmePar = acqRecentes / nbSeancesRecentes;
+
+      if (rythmePar <= 0) {
+        return '<div class="prediction-n1">' +
+          '<div class="prediction-n1-title">🎯 Prédiction N1</div>' +
+          '<div class="prediction-n1-value" style="color:var(--warn);">⏸ Pas de progression récente</div>' +
+          '<div class="prediction-n1-sub">Aucune nouvelle compétence acquise sur les ' + nbSeancesRecentes + ' dernière' + (nbSeancesRecentes > 1 ? 's' : '') + ' séance' + (nbSeancesRecentes > 1 ? 's' : '') + ' de présence</div>' +
+        '</div>';
+      }
+
+      var seancesNecessaires = Math.ceil(restant / rythmePar);
+      var color = seancesNecessaires <= 5 ? 'var(--ok)' : seancesNecessaires <= 10 ? 'var(--warn)' : 'var(--bad)';
+      var msg = seancesNecessaires <= 5 ? '🟢 Objectif très proche !'
+              : seancesNecessaires <= 10 ? '🟡 Objectif atteignable cette saison'
+              : '🔴 Rythme insuffisant pour finir la saison';
+
+      return '<div class="prediction-n1">' +
+        '<div class="prediction-n1-title">🎯 Prédiction N1</div>' +
+        '<div class="prediction-n1-value" style="color:' + color + ';">~' + seancesNecessaires + ' séance' + (seancesNecessaires > 1 ? 's' : '') + ' pour valider</div>' +
+        '<div class="prediction-n1-sub">' + msg + ' · ' + restant + ' compétences restantes · rythme : ' + rythmePar.toFixed(1) + '/séance</div>' +
+      '</div>';
+    }
+
     function buildTimeline(sessions, eleveName) {
       if (!sessions || sessions.length === 0) {
         return '<div class="timeline-container"><p class="muted">Aucune séance enregistrée.</p></div>';
@@ -7946,8 +8124,8 @@
                 '<div class="label">' + pct + '%</div>' +
               '</div>' +
               '<div class="presence-legend">' +
-                '<div class="presence-legend-item presence-legend-present">' + s.present + ' présent</div>' +
-                '<div class="presence-legend-item presence-legend-absent">' + s.absent + ' absent</div>' +
+                '<div class="presence-legend-item presence-legend-present">' + s.present + ' présent' + (s.present > 1 ? 's' : '') + '</div>' +
+                '<div class="presence-legend-item presence-legend-absent">' + s.absent + ' absent' + (s.absent > 1 ? 's' : '') + '</div>' +
               '</div>' +
             '</div>' +
 
@@ -7967,7 +8145,7 @@
             '<div class="info-card card-cours">' +
               '<div class="info-card-title">Cours</div>' +
               '<div class="kpi">' +
-                '<span class="kpi-value">' + (s.present || 0) + ' présent • ' + (s.absent || 0) + ' absent</span>' +
+                '<span class="kpi-value">' + (s.present || 0) + ' présent' + ((s.present||0) > 1 ? 's' : '') + ' • ' + (s.absent || 0) + ' absent' + ((s.absent||0) > 1 ? 's' : '') + '</span>' +
                 '<span class="kpi-sub">Total (dates) : ' + total + '</span>' +
               '</div>' +
               '<div class="kpi" style="margin-top:8px;">' +
@@ -7982,6 +8160,7 @@
             // Card 3 — Suivi pédagogique (col droite, ligne 2)
             '<div class="info-card card-suivi">' +
               '<div class="info-card-title">📋 Suivi pédagogique</div>' +
+              buildPredictionN1(s) +
               '<div class="view-mode" title="Mode affichage competences">' +
                 '<button class="vm-btn active" data-mode="categorie">Catégories</button>' +
                 '<button class="vm-btn" data-mode="competence">Barres</button>' +
@@ -8668,10 +8847,57 @@
     // EXAMENS — RENDU DU PANEL
     // =====================================================================
 
+    /** Défi du mois — nb nouvelles compétences acquises dans le groupe ce mois */
+    function renderDefiDuMois(rawEleves) {
+      var widget = document.getElementById('defiDuMoisWidget');
+      if (!widget) return;
+
+      var today = new Date(); today.setHours(23,59,59,999);
+      var debut = new Date(today); debut.setDate(1); debut.setHours(0,0,0,0);
+      var debutISO = debut.toISOString().slice(0,10);
+      var moisLabel = today.toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' });
+
+      // Compétences acquises ce mois : première acquisition ce mois (pas de doublon)
+      var premiereAcquis = {};
+      rawEleves.forEach(function(r) {
+        if (r.statut !== 'Acquis' || !r.eleve || !r.competence || !r.date) return;
+        var key = r.eleve + '|' + r.competence;
+        if (!premiereAcquis[key] || r.date < premiereAcquis[key]) premiereAcquis[key] = r.date;
+      });
+
+      var acqCeMois = Object.values(premiereAcquis).filter(function(d) { return d >= debutISO; }).length;
+
+      // Objectif : 10% du total théorique (nb élèves × 53 × 10%)
+      var nbEleves = new Set(rawEleves.map(function(r){return r.eleve;}).filter(Boolean)).size;
+      var objectif = Math.max(5, Math.round(nbEleves * 53 * 0.05)); // 5% des compétences groupe
+      var pct = Math.min(100, Math.round(acqCeMois / objectif * 100));
+      var atteint = acqCeMois >= objectif;
+      var color = atteint ? 'var(--ok)' : pct >= 60 ? 'var(--warn)' : 'var(--accent)';
+
+      widget.innerHTML =
+        '<div class="defi-card">' +
+          '<div class="defi-title">' +
+            (atteint ? '🏆' : '🎯') + ' Défi du mois · ' + moisLabel +
+          '</div>' +
+          '<div style="font-size:12px;color:var(--muted);margin-bottom:6px;">' +
+            acqCeMois + ' / ' + objectif + ' nouvelle' + (acqCeMois > 1 ? 's' : '') + ' compétence' + (acqCeMois > 1 ? 's' : '') + ' acquise' + (acqCeMois > 1 ? 's' : '') +
+          '</div>' +
+          '<div class="defi-progress-bar">' +
+            '<div class="defi-progress-inner" style="width:' + pct + '%;"></div>' +
+          '</div>' +
+          '<div class="defi-stats">' +
+            (atteint ? '✅ Objectif atteint ! Bravo au groupe 🎉' : pct + '% · encore ' + (objectif - acqCeMois) + ' comp&eacute;tences pour atteindre l\'objectif') +
+          '</div>' +
+        '</div>';
+    }
+
     // POINT D'ENTRÉE : exposé à la Phase 1 via window._rscc.renderEleves
     // =====================================================================
     function renderEleves(rawEleves) {
       if (!rawEleves || rawEleves.length === 0) return;
+      // Défi du mois (sidebar)
+      renderDefiDuMois(rawEleves);
+
 
       // Construire l'index CR (peut être appelé avant le chargement Moniteurs)
       const rawMoniteurs = window._rscc_RAW_MONITEURS || null;
@@ -10132,8 +10358,8 @@
           examRow('theorie',  'Théorie',  '📝', e) +
           examRow('pratique', 'Pratique', '🤿', e) +
           '<div class="examen-kpi-block">' +
-            kpiRow('📅', 'Séances pour le N1', nb !== null ? nb + ' séances' : '—') +
-            kpiRow('⏱️', 'Théorie → Pratique', sem !== null ? sem + ' semaines' : '—') +
+            kpiRow('📅', 'Séances pour le N1', nb !== null ? nb + ' séance' + (nb > 1 ? 's' : '') : '—') +
+            kpiRow('⏱️', 'Théorie → Pratique', sem !== null ? sem + ' semaine' + (sem > 1 ? 's' : '') : '—') +
           '</div>' +
         '</div>';
       }
@@ -10599,9 +10825,12 @@
         return '<option value="' + e + '"' + (e === actif ? ' selected' : '') + '>' + e + n1 + '</option>';
       }).join('');
 
+      // Prédiction N1
+      var predHtml = buildPredictionAnalyse(actif, m, rawEleves);
+
       return '<div class="analyse-zoom-card">' +
         '<div class="analyse-zoom-header">' +
-          '<span style="font-size:13px;font-weight:700;">Zoom élève</span>' +
+          '<span style="font-size:13px;font-weight:700;">🔍 Zoom élève</span>' +
           '<select class="analyse-zoom-select" id="analyseZoomSelect">' + options + '</select>' +
         '</div>' +
         '<div class="analyse-zoom-content">' +
@@ -10610,6 +10839,7 @@
           zoomStat('Présence', pctPres + '% (' + m.seancesPresent.size + '/' + m.seancesTotal.size + ' séances)', 'var(--text)') +
           zoomStat('Inactivité', inact !== null ? 'Il y a ' + inact + ' j' : '—', colorInact) +
         '</div>' +
+        predHtml +
       '</div>';
     }
 
@@ -10621,6 +10851,56 @@
     }
 
     // ── Render principal ──────────────────────────────────────────────────
+
+    /** Prédiction N1 pour le zoom élève dans l'onglet Analyse */
+    function buildPredictionAnalyse(eleveName, model, rawEleves) {
+      var TOTAL_COMP = 53;
+      var acq = model.acquis.size;
+      var restant = TOTAL_COMP - acq;
+      if (restant <= 0) return '<div class="prediction-n1" style="margin-top:10px;">' +
+        '<div class="prediction-n1-title">🎯 Prédiction N1</div>' +
+        '<div class="prediction-n1-value" style="color:var(--ok);">✅ Toutes compétences acquises !</div>' +
+      '</div>';
+
+      // Calcul rythme sur les 8 dernières séances où l'élève était PRÉSENT uniquement
+      var eleveRows = rawEleves.filter(function(r){return r.eleve === eleveName && r.date;});
+      var rowsPresent = eleveRows.filter(function(r){
+        return r.presence === 'Présent' || r.presence === 'présent';
+      });
+      // Fenêtre configurable depuis les Réglages
+      var fenetreA = 5;
+      try {
+        var _sA = window._rscc && window._rscc.SETTINGS && window._rscc.SETTINGS.data;
+        if (_sA && _sA['fenetrePrediction']) fenetreA = parseInt(_sA['fenetrePrediction']);
+        else {
+          var storedA = localStorage.getItem('rscc_settings_v1');
+          if (storedA) { var parsedA = JSON.parse(storedA); if (parsedA['fenetrePrediction']) fenetreA = parseInt(parsedA['fenetrePrediction']); }
+        }
+      } catch(e) {}
+      var dates = Array.from(new Set(rowsPresent.map(function(r){return r.date;}))).sort().slice(-fenetreA);
+      var acqParDate = {};
+      eleveRows.forEach(function(r) {
+        if (r.statut !== 'Acquis' || !dates.includes(r.date)) return;
+        if (!acqParDate[r.date]) acqParDate[r.date] = new Set();
+        acqParDate[r.date].add(r.competence);
+      });
+      var totalAcqRecent = Object.values(acqParDate).reduce(function(s,v){return s+v.size;},0);
+      var rythme = dates.length ? totalAcqRecent / dates.length : 0;
+
+      if (rythme <= 0) return '<div class="prediction-n1" style="margin-top:10px;">' +
+        '<div class="prediction-n1-title">🎯 Prédiction N1</div>' +
+        '<div class="prediction-n1-value" style="color:var(--warn);">⏸ Pas de progression récente</div>' +
+      '</div>';
+
+      var seances = Math.ceil(restant / rythme);
+      var color = seances <= 5 ? 'var(--ok)' : seances <= 10 ? 'var(--warn)' : 'var(--bad)';
+
+      return '<div class="prediction-n1" style="margin-top:10px;">' +
+        '<div class="prediction-n1-title">🎯 Prédiction N1</div>' +
+        '<div class="prediction-n1-value" style="color:' + color + ';">~' + seances + ' séance' + (seances > 1 ? 's' : '') + ' pour valider</div>' +
+        '<div class="prediction-n1-sub">' + restant + ' compétences restantes · rythme récent : ' + rythme.toFixed(1) + '/séance</div>' +
+      '</div>';
+    }
 
     function renderAnalyse(data) {
       var rawEleves = data.eleves || [];
@@ -11177,12 +11457,13 @@
     'use strict';
 
     var PalanqueeState = {
-      critere: 'diversite',  // 'diversite' | 'eviter' | 'competences'
+      critere: 'diversite',
       maxParPalanquee: 'auto',
       palanquees: [],
       dragSrc: null,
       dragSrcCard: null
     };
+    window._PalanqueeState = PalanqueeState; // exposé pour openFicheSeance depuis sidebar
 
     // ── Calcul du score d'association (nb fois moniteur × élève ensemble) ──
     function buildHistorique(rawEleves) {
@@ -11320,6 +11601,101 @@
       return lines.join('\n');
     }
 
+    // ── Fiche de séance ──────────────────────────────────────────────────
+    function openFicheSeance(palanquees, rawEleves) {
+      var existing = document.getElementById('ficheSeanceOverlay');
+      if (existing) existing.remove();
+
+      var date = new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' });
+
+      // Compétences prioritaires par élève (en cours depuis le plus longtemps)
+      var enCoursByEleve = {};
+      rawEleves.forEach(function(r) {
+        if (r.statut !== "En cours d'acquisition" || !r.eleve || !r.competence || !r.date) return;
+        if (!enCoursByEleve[r.eleve]) enCoursByEleve[r.eleve] = {};
+        var ec = enCoursByEleve[r.eleve];
+        if (!ec[r.competence] || r.date < ec[r.competence].firstDate) {
+          ec[r.competence] = { comp: r.competence, firstDate: r.date, count: 0 };
+        }
+        ec[r.competence].count++;
+      });
+
+      // Pour chaque élève : top 3 compétences prioritaires (les plus anciennes "en cours")
+      function getPriorites(eleveName) {
+        var ec = enCoursByEleve[eleveName] || {};
+        return Object.values(ec)
+          .sort(function(a,b) { return a.firstDate.localeCompare(b.firstDate); })
+          .slice(0, 3)
+          .map(function(x) { return x.comp; });
+      }
+
+      var blocksHtml = palanquees.map(function(p) {
+        var elevesHtml = p.eleves.map(function(e) {
+          var prios = getPriorites(e);
+          var tagsHtml = prios.map(function(c) {
+            return '<span class="fiche-seance-comp-tag">' + c + '</span>';
+          }).join('');
+          var medal = (window._rscc_isEleveN1Valide && window._rscc_isEleveN1Valide(e)) || '';
+          return '<div class="fiche-seance-eleve-row">' +
+            '<div class="fiche-seance-eleve-name">🏊 ' + e + medal + '</div>' +
+            (prios.length
+              ? '<div class="fiche-seance-comps">🎯 À travailler : ' + tagsHtml + '</div>'
+              : '<div style="font-size:11px;color:var(--ok);">✅ Toutes compétences acquises ou non évaluées</div>') +
+          '</div>';
+        }).join('');
+
+        return '<div class="fiche-seance-moniteur-block">' +
+          '<div class="fiche-seance-mon-title">🥽 ' + p.moniteur + '</div>' +
+          elevesHtml +
+        '</div>';
+      }).join('');
+
+      var overlay = document.createElement('div');
+      overlay.className = 'palanquee-overlay';
+      overlay.id = 'ficheSeanceOverlay';
+
+      overlay.innerHTML =
+        '<div class="fiche-seance-modal">' +
+          '<div class="fiche-seance-header">' +
+            '<div>' +
+              '<div style="font-size:15px;font-weight:800;">📋 Fiche de séance</div>' +
+              '<div style="font-size:12px;color:var(--muted);">' + date + '</div>' +
+            '</div>' +
+            '<div style="display:flex;gap:8px;align-items:center;">' +
+              '<button class="palanquee-action-btn" id="ficheImprimerBtn">🖨️ Imprimer</button>' +
+              '<button class="palanquee-modal-close" id="ficheClose">✕</button>' +
+            '</div>' +
+          '</div>' +
+          '<div class="fiche-seance-body">' +
+            '<p style="font-size:12px;color:var(--muted);margin-bottom:14px;">Compétences prioritaires = en cours depuis le plus longtemps (top 3 par élève)</p>' +
+            blocksHtml +
+          '</div>' +
+        '</div>';
+
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.remove(); });
+      overlay.querySelector('#ficheClose').addEventListener('click', function() { overlay.remove(); });
+      overlay.querySelector('#ficheImprimerBtn').addEventListener('click', function() {
+        var content = overlay.querySelector('.fiche-seance-modal').innerHTML;
+        var win = window.open('', '_blank');
+        win.document.write('<html><head><title>Fiche séance</title><style>body{font-family:sans-serif;padding:20px;} .fiche-seance-comp-tag{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:2px 8px;font-size:11px;margin:2px;display:inline-block;} .fiche-seance-mon-title{color:#0891b2;font-weight:800;font-size:14px;margin-bottom:8px;} .fiche-seance-eleve-name{font-weight:700;} .fiche-seance-moniteur-block{border:1px solid #e2e8f0;border-radius:8px;padding:12px;margin-bottom:12px;} .fiche-seance-eleve-row{padding:6px 0;border-bottom:1px solid #f1f5f9;}</style></head><body>' + content + '</body></html>');
+        win.document.close();
+        win.print();
+      });
+    }
+
+    // Exposer openFicheSeance pour le bouton sidebar
+    window._rscc._openFicheSeance = function() {
+      var rawEleves = window._rscc_RAW_ELEVES || [];
+      // Si des palanquées ont été générées, les utiliser
+      if (window._PalanqueeState && window._PalanqueeState.palanquees && window._PalanqueeState.palanquees.length) {
+        openFicheSeance(window._PalanqueeState.palanquees, rawEleves);
+      } else {
+        alert('Générez d\'abord des palanquées pour créer la fiche de séance.');
+      }
+    };
+
     // ── Ouverture de la modale ────────────────────────────────────────────
     window._rscc._openPalanquees = function() {
       var rawEleves = window._rscc_RAW_ELEVES || [];
@@ -11434,7 +11810,8 @@
                 '<div class="palanquee-result-title" id="palResultTitle"></div>' +
                 '<div class="palanquee-result-actions">' +
                   '<button class="palanquee-action-btn" id="palRegenerer">🎲 Regénérer</button>' +
-                  '<button class="palanquee-action-btn" id="palCopier">📋 Copier</button>' +
+                  '<button class="palanquee-action-btn" id="palFicheSeance">📋 Fiche séance</button>' +
+                  '<button class="palanquee-action-btn" id="palCopier">📤 Copier</button>' +
                   '<button class="palanquee-action-btn" id="palImprimer">🖨️ Imprimer</button>' +
                 '</div>' +
               '</div>' +
@@ -11517,6 +11894,11 @@
         win.document.close();
         win.print();
       });
+
+      // ── Fiche de séance ──
+      overlay.querySelector('#palFicheSeance').addEventListener('click', function() {
+        openFicheSeance(PalanqueeState.palanquees, rawEleves);
+      });
     };
 
     // ── Drag & Drop ───────────────────────────────────────────────────────
@@ -11592,6 +11974,7 @@
       DEFAULTS: {
         competenceRule: 'proportionnelle',     // 'proportionnelle' | 'moniteurs_diff'
         seuilMoniteursDiff: 2,                 // pour mode 'moniteurs_diff' : nb moniteurs différents requis
+        fenetrePrediction: 5,                  // nb de séances de présence pour la prédiction N1
         heatmapGroup: 'seance',                // 'seance' | 'semaine'
         maxSessions: 12,                       // 4|8|12|16|20
         silentThreshold: 30,                   // 10-50%
@@ -11677,6 +12060,10 @@
       });
       const selMD = document.getElementById('seuilMoniteursDiff');
       if (selMD) selMD.value = SETTINGS.data.seuilMoniteursDiff || 2;
+        // Fenêtre prédiction N1
+        var fpEl = document.getElementById('fenetrePrediction');
+        if (fpEl) fpEl.value = SETTINGS.data['fenetrePrediction'] || 5;
+
         // Seuils absences
         var spEl = document.getElementById('seuilPreoccupant');
         var scEl = document.getElementById('seuilCritique');
@@ -11726,6 +12113,16 @@
           SETTINGS.data.seuilMoniteursDiff = parseInt(this.value);
           saveSettings();
           triggerReRenders();
+        });
+      }
+
+      // Fenêtre prédiction N1
+      var fpEl2 = document.getElementById('fenetrePrediction');
+      if (fpEl2) {
+        fpEl2.addEventListener('change', function() {
+          SETTINGS.data['fenetrePrediction'] = parseInt(this.value);
+          saveSettings();
+          triggerReRenders(); // re-render élèves pour recalculer les prédictions
         });
       }
 
