@@ -534,9 +534,9 @@
     .sticky-chips-bar {
       display: flex;
       align-items: center;
-      height: 64px;
+      height: 56px;
       margin: 0 -20px;
-      padding: 16px 20px 6px; /* 16px au-dessus = espace net sous le trait */
+      padding: 8px 20px 6px;
       background: var(--glass);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
@@ -635,16 +635,16 @@
     .student-card,
     .mon-mini-card {
       flex-shrink: 0;
-      border-radius: 12px;
-      padding: 7px 14px;
+      border-radius: 10px;
+      padding: 5px 12px;
       cursor: pointer;
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 1px;
       transition: all var(--transition);
       white-space: nowrap;
       min-width: 0;
-      min-height: 52px;        /* hauteur minimale identique pour les deux */
+      height: 40px;            /* hauteur fixe compacte */
       justify-content: center;
     }
 
@@ -668,16 +668,18 @@
 
     .student-card .name {
       font-weight: 700;
-      font-size: 12px;
+      font-size: 11px;
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 4px;
       color: var(--text);
+      line-height: 1.2;
     }
 
     .student-card .meta {
-      font-size: 10px;
+      font-size: 9px;
       color: var(--muted);
+      line-height: 1.2;
     }
 
     /* Variante violette pour les chips moniteurs — même forme que élèves */
@@ -2517,6 +2519,297 @@
 
     /* Décaler le contenu pour ne pas être masqué par le footer */
     body { padding-bottom: 28px; }
+
+    /* ── Générateur de palanquées ── */
+    .palanquee-overlay {
+      position: fixed;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .palanquee-modal {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      width: 100%;
+      max-width: 820px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.4);
+    }
+
+    .palanquee-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 20px 14px;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: var(--card);
+      z-index: 1;
+    }
+
+    .palanquee-modal-title {
+      font-size: 16px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .palanquee-modal-close {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 20px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px;
+    }
+    .palanquee-modal-close:hover { color: var(--bad); }
+
+    .palanquee-modal-body { padding: 18px 20px; }
+
+    /* Grilles de sélection */
+    .palanquee-selection-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 600px) { .palanquee-selection-grid { grid-template-columns: 1fr; } }
+
+    .palanquee-selection-group {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+    }
+
+    .palanquee-selection-title {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .palanquee-checkboxes {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-height: 180px;
+      overflow-y: auto;
+    }
+
+    .palanquee-check-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 4px 6px;
+      border-radius: 6px;
+      transition: background var(--transition);
+    }
+    .palanquee-check-label:hover { background: var(--chip); }
+    .palanquee-check-label input { accent-color: var(--accent); cursor: pointer; }
+
+    /* Options */
+    .palanquee-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 16px;
+      padding: 12px 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+
+    .palanquee-option-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .palanquee-option-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .palanquee-radio-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .palanquee-radio-label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1.5px solid var(--border);
+      background: var(--chip);
+      color: var(--muted);
+      transition: all var(--transition);
+    }
+    .palanquee-radio-label:has(input:checked) {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(6,182,212,0.1);
+    }
+    .palanquee-radio-label input { display: none; }
+
+    .palanquee-size-btns {
+      display: flex;
+      gap: 6px;
+    }
+
+    .palanquee-size-btn {
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1.5px solid var(--border);
+      background: var(--chip);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .palanquee-size-btn.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(6,182,212,0.1);
+    }
+
+    /* Bouton générer */
+    .palanquee-generate-btn {
+      width: 100%;
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      border: none;
+      background: linear-gradient(90deg, var(--accent), var(--accent2, #0ea5e9));
+      color: #00333f;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all var(--transition);
+      margin-bottom: 20px;
+    }
+    .palanquee-generate-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* Résultat */
+    .palanquee-result-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .palanquee-result-title {
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .palanquee-result-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .palanquee-action-btn {
+      padding: 5px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--chip);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .palanquee-action-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    .palanquee-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    .palanquee-card {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      transition: all var(--transition);
+    }
+
+    .palanquee-card.drag-over {
+      border-color: var(--accent);
+      background: rgba(6,182,212,0.08);
+    }
+
+    .palanquee-card-mon {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+      color: var(--accent);
+    }
+
+    .palanquee-card-eleves {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      min-height: 30px;
+    }
+
+    .palanquee-eleve-chip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 8px;
+      background: var(--chip);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      cursor: grab;
+      transition: all var(--transition);
+    }
+    .palanquee-eleve-chip:active { cursor: grabbing; }
+    .palanquee-eleve-chip.dragging { opacity: 0.4; }
+    .palanquee-eleve-chip:hover { border-color: var(--accent); }
+
+    .palanquee-dejavu {
+      font-size: 9px;
+      color: var(--warn);
+      margin-left: auto;
+    }
 
     /* Helper hidden */
     .hidden { display: none !important; }
@@ -5202,10 +5495,18 @@
             Consulter l'activité CR et les séances du groupe.
           </div>
           <button class="btn-synthese" id="btnScrollToCRWidget">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 16l-6-6 1.41-1.41L11 13.17V4h2v9.17l3.59-3.58L18 10l-6 6z" fill="currentColor"/>
-            </svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 16l-6-6 1.41-1.41L11 13.17V4h2v9.17l3.59-3.58L18 10l-6 6z" fill="currentColor"/></svg>
             Voir le suivi des CR
+          </button>
+        </div>
+        <div class="card" style="margin-top:10px;">
+          <h3>🤿 Palanquées</h3>
+          <div class="muted" style="font-size:12px;margin-bottom:8px;">
+            Générer les associations élèves/moniteurs pour la prochaine séance.
+          </div>
+          <button class="btn-synthese" id="btnOpenPalanquees" onclick="if(window._rscc&&window._rscc._openPalanquees)window._rscc._openPalanquees()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="pointer-events:none;"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z" fill="currentColor"/></svg>
+            Générer les palanquées
           </button>
         </div>
       </div>
@@ -9985,7 +10286,10 @@
      */
     function buildProgressionData(rawEleves) {
       var TOTAL_COMP = 53;
-      // Première date d'acquisition par (eleve, competence)
+      var debut = getDateDebut();
+
+      // Première date d'acquisition par (eleve, competence) — sur TOUTES les données
+      // (pour calculer le % de départ au début de la période)
       var premiereAcquis = {};
       rawEleves.forEach(function(r) {
         if (r.statut !== 'Acquis' || !r.eleve || !r.competence || !r.date) return;
@@ -9994,8 +10298,11 @@
         if (!actuelle || r.date < actuelle) premiereAcquis[r.eleve][r.competence] = r.date;
       });
 
+      // Dates de séances dans la période sélectionnée uniquement
       var datesSet = new Set();
-      rawEleves.forEach(function(r) { if (r.date) datesSet.add(r.date); });
+      rawEleves.forEach(function(r) {
+        if (r.date && r.date >= debut) datesSet.add(r.date);
+      });
       var dates = Array.from(datesSet).sort();
 
       var elevesNoms = Object.keys(premiereAcquis).sort();
@@ -10003,6 +10310,7 @@
       elevesNoms.forEach(function(e) {
         var comps = Object.values(premiereAcquis[e]);
         pctByEleveDate[e] = dates.map(function(d) {
+          // Compétences acquises jusqu'à cette date (cumulatif depuis le début de saison)
           var count = comps.filter(function(dateAcq) { return dateAcq <= d; }).length;
           return Math.round(count / TOTAL_COMP * 100);
         });
@@ -10011,10 +10319,36 @@
       return { dates: dates, pctByEleveDate: pctByEleveDate, elevesNoms: elevesNoms };
     }
 
+    // ── Filtrage par période ─────────────────────────────────────────────
+
+    function getDateDebut() {
+      var today = new Date(); today.setHours(23,59,59,999);
+      if (AnalyseState.periode === '30j') {
+        var d = new Date(today); d.setDate(d.getDate() - 30); return d.toISOString().slice(0,10);
+      }
+      if (AnalyseState.periode === '3m') {
+        var d = new Date(today); d.setMonth(d.getMonth() - 3); return d.toISOString().slice(0,10);
+      }
+      return '2025-09-01'; // saison complète
+    }
+
+    function filtrerPeriode(rawEleves) {
+      var debut = getDateDebut();
+      return rawEleves.filter(function(r) { return r.date && r.date >= debut; });
+    }
+
+    function labelPeriode() {
+      if (AnalyseState.periode === '30j') return '30 derniers jours';
+      if (AnalyseState.periode === '3m')  return '3 derniers mois';
+      return 'saison complète';
+    }
+
     // ── KPI Groupe ───────────────────────────────────────────────────────
 
     function buildKPIGroupe(rawEleves) {
-      var model = buildElevesModel(rawEleves);
+      // Filtrer les données selon la période sélectionnée
+      var filtered = filtrerPeriode(rawEleves);
+      var model = buildElevesModel(filtered);
       var eleves = Object.keys(model);
       var TOTAL_COMP = 53;
 
@@ -10027,12 +10361,12 @@
             return s + (tot ? model[e].seancesPresent.size / tot * 100 : 0);
           }, 0) / eleves.length)
         : 0;
-      var nbSeances = new Set(rawEleves.map(function(r) { return r.date; }).filter(Boolean)).size;
+      var nbSeances = new Set(filtered.map(function(r) { return r.date; }).filter(Boolean)).size;
 
       return '<div class="analyse-kpi-row">' +
-        kpiCard('📊 Moy. acquis groupe', moyAcquis + '%', eleves.length + ' élèves analysés', '#06b6d4') +
-        kpiCard('📅 Séances saison', nbSeances, 'séances au total', '#a855f7') +
-        kpiCard('👥 Présence moy.', moyPresence + '%', 'toutes séances confondues', '#22c55e') +
+        kpiCard('📊 Moy. acquis groupe', moyAcquis + '%', eleves.length + ' élèves · ' + labelPeriode(), '#06b6d4') +
+        kpiCard('📅 Séances', nbSeances, 'séances sur ' + labelPeriode(), '#a855f7') +
+        kpiCard('👥 Présence moy.', moyPresence + '%', 'sur ' + labelPeriode(), '#22c55e') +
       '</div>';
     }
 
@@ -10085,11 +10419,17 @@
         return vals.length ? Math.round(vals.reduce(function(a,b){return a+b;},0) / vals.length) : 0;
       });
 
+      // Couleur adaptative : cyan en mode sombre, bleu foncé en mode clair
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark' ||
+                   (!document.documentElement.getAttribute('data-theme') &&
+                    window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      var avgColor = isDark ? '#e2e8f0' : '#1e3a5f';
+
       var datasets = [{
         label: 'Moyenne groupe',
         data: moyenneData,
-        borderColor: '#ffffff',
-        backgroundColor: 'rgba(255,255,255,0.08)',
+        borderColor: avgColor,
+        backgroundColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(30,58,95,0.08)',
         borderWidth: 3,
         borderDash: [6,3],
         pointRadius: 3,
@@ -10824,6 +11164,411 @@
       overlay.addEventListener('click', close);
       drawer.querySelector('#badgeGuideClose').addEventListener('click', close);
     };
+
+  })();
+  </script>
+
+
+  <!-- =====================================================================
+       MODULE GÉNÉRATEUR DE PALANQUÉES
+       ===================================================================== -->
+  <script>
+  (function() {
+    'use strict';
+
+    var PalanqueeState = {
+      critere: 'diversite',  // 'diversite' | 'eviter' | 'competences'
+      maxParPalanquee: 'auto',
+      palanquees: [],
+      dragSrc: null,
+      dragSrcCard: null
+    };
+
+    // ── Calcul du score d'association (nb fois moniteur × élève ensemble) ──
+    function buildHistorique(rawEleves) {
+      var histo = {}; // { 'eleve||moniteur': nb séances }
+      var seancesParEleve = {}; // { 'eleve||moniteur': Set<date> }
+      var _isRealMon = (window._rscc && window._rscc.isRealMoniteur) || function(m){return !!m;};
+      rawEleves.forEach(function(r) {
+        if (!r.eleve || !r.moniteur || !r.date || r.presence !== 'Présent') return;
+        if (!_isRealMon(r.moniteur)) return;
+        var key = r.eleve + '||' + r.moniteur;
+        if (!seancesParEleve[key]) seancesParEleve[key] = new Set();
+        seancesParEleve[key].add(r.date);
+      });
+      Object.keys(seancesParEleve).forEach(function(k) {
+        histo[k] = seancesParEleve[k].size;
+      });
+      return histo;
+    }
+
+    function getScore(eleve, moniteur, histo) {
+      return histo[eleve + '||' + moniteur] || 0;
+    }
+
+    // Dernière séance d'un élève avec un moniteur
+    function buildDerniereAssoc(rawEleves) {
+      var last = {};
+      var _isRealMon2 = (window._rscc && window._rscc.isRealMoniteur) || function(m){return !!m;};
+      rawEleves.forEach(function(r) {
+        if (!r.eleve || !r.moniteur || !r.date || r.presence !== 'Présent') return;
+        if (!_isRealMon2(r.moniteur)) return;
+        var key = r.eleve + '||' + r.moniteur;
+        if (!last[key] || r.date > last[key]) last[key] = r.date;
+      });
+      return last;
+    }
+
+    // ── Algorithme de génération ──────────────────────────────────────────
+    function generer(elevesSelec, moniteurSelec, histo, derniereAssoc, critere, maxParPalanquee) {
+      if (!elevesSelec.length || !moniteurSelec.length) return [];
+
+      // Calcul nb élèves par palanquée
+      var nbMon = moniteurSelec.length;
+      var nbElv = elevesSelec.length;
+      var maxPal = maxParPalanquee === 'auto'
+        ? Math.ceil(nbElv / nbMon)
+        : parseInt(maxParPalanquee);
+
+      // Copie pour ne pas modifier l'original
+      var elevesRestants = elevesSelec.slice();
+
+      // Score pour chaque paire (eleve, moniteur) selon le critère
+      function scorePaire(eleve, moniteur) {
+        var nbEnsemble = getScore(eleve, moniteur, histo);
+        if (critere === 'diversite') return nbEnsemble;       // minimiser
+        if (critere === 'eviter') {
+          var lastDate = derniereAssoc[eleve + '||' + moniteur] || '';
+          // Pénalité si ensemble récemment
+          var joursDepuis = lastDate
+            ? Math.round((new Date() - new Date(lastDate + 'T00:00:00')) / 86400000)
+            : 9999;
+          return joursDepuis < 14 ? 1000 : nbEnsemble;        // minimiser
+        }
+        if (critere === 'competences') return nbEnsemble;     // minimiser (moins vu = prioritaire)
+        return nbEnsemble;
+      }
+
+      // Algorithme glouton avec un peu d'aléatoire pour éviter toujours le même résultat
+      // Pour chaque moniteur, choisir les élèves avec le score le plus bas (moins vus ensemble)
+      var result = moniteurSelec.map(function(mon) {
+        return { moniteur: mon, eleves: [] };
+      });
+
+      // Mélange léger des moniteurs pour varier l'ordre de sélection
+      var monOrdre = moniteurSelec.slice().sort(function() { return Math.random() - 0.5; });
+
+      // Distribuer les élèves
+      var iteration = 0;
+      while (elevesRestants.length > 0 && iteration < 1000) {
+        iteration++;
+        var mon = monOrdre[iteration % monOrdre.length];
+        var palanquee = result.find(function(p) { return p.moniteur === mon; });
+        if (!palanquee || palanquee.eleves.length >= maxPal) continue;
+
+        // Trouver l'élève avec le score le plus bas pour ce moniteur
+        elevesRestants.sort(function(a, b) {
+          return scorePaire(a, mon) - scorePaire(b, mon);
+        });
+
+        // Ajouter un peu d'aléatoire parmi les meilleurs candidats
+        var pool = elevesRestants.slice(0, Math.max(2, Math.ceil(elevesRestants.length * 0.4)));
+        var choisi = pool[Math.floor(Math.random() * pool.length)];
+        palanquee.eleves.push(choisi);
+        elevesRestants.splice(elevesRestants.indexOf(choisi), 1);
+      }
+
+      // Si des élèves restent (plus de places), les répartir en overflow
+      elevesRestants.forEach(function(e, i) {
+        result[i % result.length].eleves.push(e);
+      });
+
+      return result;
+    }
+
+    // ── Rendu HTML des palanquées ─────────────────────────────────────────
+    function renderPalanqueeCards(palanquees, histo) {
+      return palanquees.map(function(p, pi) {
+        var elevesHtml = p.eleves.map(function(e) {
+          var nb = getScore(e, p.moniteur, histo);
+          var dejaVu = nb > 0 ? '<span class="palanquee-dejavu">' + nb + '× ensemble</span>' : '';
+          var medal = (window._rscc_isEleveN1Valide && window._rscc_isEleveN1Valide(e)) || '';
+          return '<div class="palanquee-eleve-chip" draggable="true" data-eleve="' + e + '" data-card="' + pi + '">' +
+            '🏊 ' + e + medal + dejaVu +
+          '</div>';
+        }).join('');
+
+        var monMedal = '';
+        return '<div class="palanquee-card" data-card-idx="' + pi + '">' +
+          '<div class="palanquee-card-mon">🥽 ' + p.moniteur + '</div>' +
+          '<div class="palanquee-card-eleves" data-card="' + pi + '">' +
+            (elevesHtml || '<span style="font-size:11px;color:var(--muted);">Aucun élève</span>') +
+          '</div>' +
+        '</div>';
+      }).join('');
+    }
+
+    // ── Texte pour copier ─────────────────────────────────────────────────
+    function buildTexte(palanquees) {
+      var date = new Date().toLocaleDateString('fr-FR');
+      var lines = ['🤿 Palanquées RSCC — ' + date, ''];
+      palanquees.forEach(function(p, i) {
+        lines.push('Palanquée ' + (i+1) + ' — 🥽 ' + p.moniteur);
+        p.eleves.forEach(function(e) { lines.push('  🏊 ' + e); });
+        lines.push('');
+      });
+      return lines.join('\n');
+    }
+
+    // ── Ouverture de la modale ────────────────────────────────────────────
+    window._rscc._openPalanquees = function() {
+      var rawEleves = window._rscc_RAW_ELEVES || [];
+      var rawMon    = window._rscc_RAW_MONITEURS || [];
+
+      if (!rawEleves.length || !rawMon.length) {
+        alert('Données non chargées. Attendez le chargement complet du rapport.');
+        return;
+      }
+
+      var histo        = buildHistorique(rawEleves);
+      var derniereAssoc= buildDerniereAssoc(rawEleves);
+
+      // Listes uniques
+      var elevesUniques = Array.from(new Set(rawEleves.map(function(r){return r.eleve;}).filter(Boolean))).sort();
+      // Utiliser isRealMoniteur (déjà exposée) pour exclure Piscine fermée, Théorie, etc.
+      var _isReal = (window._rscc && window._rscc.isRealMoniteur) || function(m) {
+        if (!m) return false;
+        var v = m.trim().toLowerCase();
+        return v && v !== 'n/a' && v !== 'absent' && v !== 'piscine fermee'
+          && v !== 'piscine fermée' && v !== 'theorie' && v !== 'théorie' && v !== 'recap';
+      };
+      var moniteurUniques = Array.from(new Set(rawEleves.map(function(r){return r.moniteur;}).filter(_isReal))).sort();
+
+      // Supprimer une modale existante
+      var existing = document.getElementById('palanqueeOverlay');
+      if (existing) existing.remove();
+
+      var overlay = document.createElement('div');
+      overlay.className = 'palanquee-overlay';
+      overlay.id = 'palanqueeOverlay';
+
+      // ── HTML de la modale ──
+      var elevesCheckboxes = elevesUniques.map(function(e) {
+        var medal = (window._rscc_isEleveN1Valide && window._rscc_isEleveN1Valide(e)) || '';
+        return '<label class="palanquee-check-label">' +
+          '<input type="checkbox" class="pal-eleve-cb" value="' + e + '" checked>' +
+          '🏊 ' + e + medal +
+        '</label>';
+      }).join('');
+
+      var moniteurCheckboxes = moniteurUniques.map(function(m) {
+        return '<label class="palanquee-check-label">' +
+          '<input type="checkbox" class="pal-mon-cb" value="' + m + '" checked>' +
+          '🥽 ' + m +
+        '</label>';
+      }).join('');
+
+      overlay.innerHTML =
+        '<div class="palanquee-modal">' +
+
+          // Header
+          '<div class="palanquee-modal-header">' +
+            '<div class="palanquee-modal-title">🤿 Générateur de palanquées</div>' +
+            '<button class="palanquee-modal-close" id="palClose">✕</button>' +
+          '</div>' +
+
+          '<div class="palanquee-modal-body">' +
+
+            // Sélection élèves + moniteurs
+            '<div class="palanquee-selection-grid">' +
+              '<div class="palanquee-selection-group">' +
+                '<div class="palanquee-selection-title">' +
+                  '<span>🏊 Élèves présents</span>' +
+                  '<div style="display:flex;gap:6px;">' +
+                    '<button style="font-size:10px;padding:2px 6px;border-radius:4px;border:1px solid var(--border);background:var(--chip);cursor:pointer;" id="palEleveTout">Tous</button>' +
+                    '<button style="font-size:10px;padding:2px 6px;border-radius:4px;border:1px solid var(--border);background:var(--chip);cursor:pointer;" id="palEleveAucun">Aucun</button>' +
+                  '</div>' +
+                '</div>' +
+                '<div class="palanquee-checkboxes">' + elevesCheckboxes + '</div>' +
+              '</div>' +
+              '<div class="palanquee-selection-group">' +
+                '<div class="palanquee-selection-title">' +
+                  '<span>🥽 Moniteurs présents</span>' +
+                  '<div style="display:flex;gap:6px;">' +
+                    '<button style="font-size:10px;padding:2px 6px;border-radius:4px;border:1px solid var(--border);background:var(--chip);cursor:pointer;" id="palMonTout">Tous</button>' +
+                    '<button style="font-size:10px;padding:2px 6px;border-radius:4px;border:1px solid var(--border);background:var(--chip);cursor:pointer;" id="palMonAucun">Aucun</button>' +
+                  '</div>' +
+                '</div>' +
+                '<div class="palanquee-checkboxes">' + moniteurCheckboxes + '</div>' +
+              '</div>' +
+            '</div>' +
+
+            // Options
+            '<div class="palanquee-options">' +
+              '<div class="palanquee-option-group">' +
+                '<div class="palanquee-option-title">⚙️ Critère d\'association</div>' +
+                '<div class="palanquee-radio-row">' +
+                  '<label class="palanquee-radio-label"><input type="radio" name="palCritere" value="diversite" checked> 🔀 Diversité max</label>' +
+                  '<label class="palanquee-radio-label"><input type="radio" name="palCritere" value="eviter"> ⏪ Éviter répétitions récentes</label>' +
+                  '<label class="palanquee-radio-label"><input type="radio" name="palCritere" value="competences"> 🎯 Priorité compétences</label>' +
+                '</div>' +
+              '</div>' +
+              '<div class="palanquee-option-group">' +
+                '<div class="palanquee-option-title">👥 Max élèves / palanquée</div>' +
+                '<div class="palanquee-size-btns" id="palSizeBtns">' +
+                  '<button class="palanquee-size-btn active" data-size="auto">Auto</button>' +
+                  '<button class="palanquee-size-btn" data-size="1">1</button>' +
+                  '<button class="palanquee-size-btn" data-size="2">2</button>' +
+                  '<button class="palanquee-size-btn" data-size="3">3</button>' +
+                  '<button class="palanquee-size-btn" data-size="4">4</button>' +
+                '</div>' +
+              '</div>' +
+            '</div>' +
+
+            // Bouton générer
+            '<button class="palanquee-generate-btn" id="palGenerer">🎲 Générer les palanquées</button>' +
+
+            // Résultat
+            '<div id="palResult" style="display:none;">' +
+              '<div class="palanquee-result-header">' +
+                '<div class="palanquee-result-title" id="palResultTitle"></div>' +
+                '<div class="palanquee-result-actions">' +
+                  '<button class="palanquee-action-btn" id="palRegenerer">🎲 Regénérer</button>' +
+                  '<button class="palanquee-action-btn" id="palCopier">📋 Copier</button>' +
+                  '<button class="palanquee-action-btn" id="palImprimer">🖨️ Imprimer</button>' +
+                '</div>' +
+              '</div>' +
+              '<div class="palanquee-cards-grid" id="palCardsGrid"></div>' +
+            '</div>' +
+
+          '</div>' +
+        '</div>';
+
+      document.body.appendChild(overlay);
+
+      // ── Fermer ──
+      function close() { overlay.remove(); }
+      overlay.addEventListener('click', function(e) { if (e.target === overlay) close(); });
+      overlay.querySelector('#palClose').addEventListener('click', close);
+
+      // ── Tout / Aucun ──
+      overlay.querySelector('#palEleveTout').addEventListener('click',  function() { overlay.querySelectorAll('.pal-eleve-cb').forEach(function(c){c.checked=true;}); });
+      overlay.querySelector('#palEleveAucun').addEventListener('click', function() { overlay.querySelectorAll('.pal-eleve-cb').forEach(function(c){c.checked=false;}); });
+      overlay.querySelector('#palMonTout').addEventListener('click',    function() { overlay.querySelectorAll('.pal-mon-cb').forEach(function(c){c.checked=true;}); });
+      overlay.querySelector('#palMonAucun').addEventListener('click',   function() { overlay.querySelectorAll('.pal-mon-cb').forEach(function(c){c.checked=false;}); });
+
+      // ── Taille palanquée ──
+      overlay.querySelector('#palSizeBtns').addEventListener('click', function(e) {
+        var btn = e.target.closest('.palanquee-size-btn');
+        if (!btn) return;
+        overlay.querySelectorAll('.palanquee-size-btn').forEach(function(b){b.classList.remove('active');});
+        btn.classList.add('active');
+        PalanqueeState.maxParPalanquee = btn.dataset.size;
+      });
+
+      // ── Générer ──
+      function doGenerer() {
+        var elevesSelec   = Array.from(overlay.querySelectorAll('.pal-eleve-cb:checked')).map(function(c){return c.value;});
+        var moniteurSelec = Array.from(overlay.querySelectorAll('.pal-mon-cb:checked')).map(function(c){return c.value;});
+        var critere       = overlay.querySelector('input[name="palCritere"]:checked').value;
+
+        if (!elevesSelec.length || !moniteurSelec.length) {
+          alert('Sélectionnez au moins 1 élève et 1 moniteur.');
+          return;
+        }
+
+        PalanqueeState.palanquees = generer(elevesSelec, moniteurSelec, histo, derniereAssoc, critere, PalanqueeState.maxParPalanquee);
+        PalanqueeState.histo = histo;
+
+        var result  = overlay.querySelector('#palResult');
+        var grid    = overlay.querySelector('#palCardsGrid');
+        var title   = overlay.querySelector('#palResultTitle');
+
+        result.style.display = '';
+        title.textContent = PalanqueeState.palanquees.length + ' palanquée' + (PalanqueeState.palanquees.length > 1 ? 's' : '') + ' générée' + (PalanqueeState.palanquees.length > 1 ? 's' : '') + ' — ' + elevesSelec.length + ' élève' + (elevesSelec.length > 1 ? 's' : '');
+        grid.innerHTML = renderPalanqueeCards(PalanqueeState.palanquees, histo);
+
+        // Drag & drop entre palanquées
+        setupDragDrop(grid);
+
+        result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      overlay.querySelector('#palGenerer').addEventListener('click', doGenerer);
+      overlay.querySelector('#palRegenerer').addEventListener('click', doGenerer);
+
+      // ── Copier ──
+      overlay.querySelector('#palCopier').addEventListener('click', function() {
+        var txt = buildTexte(PalanqueeState.palanquees);
+        navigator.clipboard.writeText(txt).then(function() {
+          var btn = overlay.querySelector('#palCopier');
+          btn.textContent = '✅ Copié !';
+          setTimeout(function() { btn.textContent = '📋 Copier'; }, 2000);
+        }).catch(function() {
+          prompt('Copiez ce texte :', buildTexte(PalanqueeState.palanquees));
+        });
+      });
+
+      // ── Imprimer ──
+      overlay.querySelector('#palImprimer').addEventListener('click', function() {
+        var txt = buildTexte(PalanqueeState.palanquees);
+        var win = window.open('', '_blank');
+        win.document.write('<pre style="font-family:sans-serif;font-size:14px;padding:20px;">' + txt + '</pre>');
+        win.document.close();
+        win.print();
+      });
+    };
+
+    // ── Drag & Drop ───────────────────────────────────────────────────────
+    function setupDragDrop(grid) {
+      var dragChip = null;
+      var dragFromCardIdx = null;
+
+      grid.addEventListener('dragstart', function(e) {
+        var chip = e.target.closest('.palanquee-eleve-chip');
+        if (!chip) return;
+        dragChip       = chip;
+        dragFromCardIdx= parseInt(chip.dataset.card);
+        chip.classList.add('dragging');
+        e.dataTransfer.effectAllowed = 'move';
+      });
+
+      grid.addEventListener('dragend', function() {
+        grid.querySelectorAll('.palanquee-eleve-chip').forEach(function(c){c.classList.remove('dragging');});
+        grid.querySelectorAll('.palanquee-card').forEach(function(c){c.classList.remove('drag-over');});
+        dragChip = null;
+      });
+
+      grid.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        var card = e.target.closest('.palanquee-card');
+        if (!card) return;
+        grid.querySelectorAll('.palanquee-card').forEach(function(c){c.classList.remove('drag-over');});
+        card.classList.add('drag-over');
+      });
+
+      grid.addEventListener('drop', function(e) {
+        e.preventDefault();
+        if (!dragChip) return;
+        var targetCard = e.target.closest('.palanquee-card');
+        if (!targetCard) return;
+        var toIdx   = parseInt(targetCard.dataset.cardIdx);
+        var fromIdx = dragFromCardIdx;
+        if (toIdx === fromIdx) return;
+
+        var eleveNom = dragChip.dataset.eleve;
+
+        // Mettre à jour PalanqueeState.palanquees
+        var fromPal = PalanqueeState.palanquees[fromIdx];
+        var toPal   = PalanqueeState.palanquees[toIdx];
+        fromPal.eleves = fromPal.eleves.filter(function(e){return e !== eleveNom;});
+        toPal.eleves.push(eleveNom);
+
+        // Re-render
+        grid.innerHTML = renderPalanqueeCards(PalanqueeState.palanquees, PalanqueeState.histo);
+        setupDragDrop(grid);
+      });
+    }
 
   })();
   </script>
