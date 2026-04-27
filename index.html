@@ -957,6 +957,55 @@
       min-width: 0;
     }
 
+    /* ── Drawer guide badges ── */
+    .badge-guide-drawer {
+      position: fixed;
+      top: 0; right: -380px; bottom: 0;
+      width: 360px;
+      background: var(--card);
+      border-left: 1px solid var(--border);
+      z-index: 300;
+      transition: right 0.3s ease;
+      overflow-y: auto;
+      padding: 20px;
+      box-shadow: -8px 0 32px rgba(0,0,0,0.3);
+    }
+    .badge-guide-drawer.open { right: 0; }
+
+    .badge-guide-overlay {
+      position: fixed; top: 0; right: 0; bottom: 0; left: 0;
+      background: rgba(0,0,0,0.3);
+      z-index: 299;
+      display: none;
+    }
+    .badge-guide-overlay.open { display: block; }
+
+    .badge-guide-header {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .badge-guide-title { font-size: 15px; font-weight: 800; }
+    .badge-guide-close {
+      background: none; border: none; color: var(--muted);
+      font-size: 20px; cursor: pointer; line-height: 1;
+    }
+    .badge-guide-close:hover { color: var(--bad); }
+
+    .badge-guide-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .badge-guide-item:last-child { border-bottom: none; }
+    .badge-guide-emoji { font-size: 28px; flex-shrink: 0; }
+    .badge-guide-info { flex: 1; }
+    .badge-guide-name { font-size: 13px; font-weight: 800; margin-bottom: 3px; }
+    .badge-guide-desc { font-size: 12px; color: var(--muted); }
+
+    /* Tooltip badge enrichi */
+    .palmares-badge[title] { cursor: help; }
+
     /* ── Gestionnaire colonnes synthèse ── */
     .synthese-cols-btn-wrap {
       display: flex;
@@ -2219,6 +2268,256 @@
 
     .analyse-zoom-stat-label { color: var(--muted); margin-bottom: 4px; }
     .analyse-zoom-stat-value { font-size: 20px; font-weight: 800; }
+
+    /* =====================================================================
+       ONGLET PALMARÈS
+       ===================================================================== */
+
+    /* Badges */
+    .palmares-eleve-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .palmares-eleve-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .palmares-eleve-name {
+      font-size: 15px;
+      font-weight: 800;
+      flex: 1;
+    }
+
+    .palmares-badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .palmares-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      border: 1.5px solid transparent;
+      transition: transform var(--transition);
+    }
+
+    .palmares-badge:hover { transform: scale(1.05); }
+    .palmares-badge.earned { background: rgba(6,182,212,0.15); border-color: var(--accent); color: var(--accent); }
+    .palmares-badge.n1     { background: rgba(34,197,94,0.15); border-color: var(--ok); color: var(--ok); }
+    .palmares-badge.locked { background: var(--chip); border-color: var(--border); color: var(--muted); opacity: 0.5; }
+
+    /* Bingo */
+    .bingo-container { margin-top: 10px; }
+
+    .bingo-tabs {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .bingo-tab-btn {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--chip);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .bingo-tab-btn.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(6,182,212,0.1);
+    }
+
+    .bingo-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .bingo-cell {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      cursor: default;
+      border: 1.5px solid var(--border);
+      background: var(--chip);
+      color: var(--muted);
+      position: relative;
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+
+    .bingo-cell.acquis {
+      background: rgba(34,197,94,0.2);
+      border-color: var(--ok);
+      color: var(--ok);
+    }
+
+    .bingo-cell.en-cours {
+      background: rgba(234,179,8,0.15);
+      border-color: #f59e0b;
+      color: #f59e0b;
+    }
+
+    @keyframes bingo-pop {
+      0%   { transform: scale(0.5); opacity: 0; }
+      60%  { transform: scale(1.2); }
+      100% { transform: scale(1);   opacity: 1; }
+    }
+
+    .bingo-cell.pop { animation: bingo-pop 0.4s ease-out forwards; }
+
+    .bingo-cat-section { margin-bottom: 12px; }
+    .bingo-cat-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Classement */
+    .palmares-classement {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      margin-bottom: 16px;
+      scroll-margin-top: calc(var(--header-h) + 16px);
+    }
+
+    .palmares-rank-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .palmares-rank-row:last-child { border-bottom: none; }
+
+    .palmares-rank-num {
+      font-size: 18px;
+      font-weight: 900;
+      min-width: 32px;
+      text-align: center;
+    }
+
+    .palmares-rank-name { flex: 1; font-weight: 700; font-size: 13px; }
+
+    .palmares-rank-bar {
+      flex: 2;
+      height: 8px;
+      background: var(--chip);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .palmares-rank-bar-inner {
+      height: 100%;
+      border-radius: 999px;
+      background: var(--ok); /* couleur overridée par JS selon le % */
+      transition: width 0.6s ease;
+    }
+
+    .palmares-rank-pct {
+      font-size: 12px;
+      font-weight: 700;
+      min-width: 40px;
+      text-align: right;
+      color: var(--accent);
+    }
+
+    /* Coordination moniteurs */
+    .coord-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+    }
+
+    .coord-table th {
+      padding: 6px 8px;
+      background: var(--chip);
+      border: 1px solid var(--border);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .coord-table td {
+      padding: 5px 8px;
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .coord-cell-0  { background: var(--chip); color: var(--muted); }
+    .coord-cell-lo { background: rgba(6,182,212,0.08); }
+    .coord-cell-md { background: rgba(6,182,212,0.2); font-weight: 700; }
+    .coord-cell-hi { background: rgba(6,182,212,0.4); font-weight: 800; color: var(--accent); }
+
+    .coord-alerte {
+      background: rgba(239,68,68,0.1);
+      border: 1px solid rgba(239,68,68,0.3);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+
+    /* ── Footer copyright ── */
+    .app-footer {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--glass);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+      color: var(--muted);
+      z-index: 50;
+      gap: 6px;
+      letter-spacing: 0.2px;
+    }
+
+    .app-footer a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    .app-footer a:hover { color: var(--accent); }
+
+    /* Décaler le contenu principal pour ne pas être masqué par le footer */
+    body { padding-bottom: 28px; }
 
     /* Helper hidden */
     .hidden { display: none !important; }
@@ -4796,16 +5095,19 @@
       <!-- TABS -->
       <nav class="tabs" role="tablist" aria-label="Navigation principale">
         <button class="tab" role="tab" aria-selected="true" aria-controls="panel-eleves" data-tab="eleves">
-          🥽 Élèves <span class="tab-count" id="countEleves">—</span>
+          🏊 Élèves <span class="tab-count" id="countEleves">—</span>
         </button>
         <button class="tab" role="tab" aria-selected="false" aria-controls="panel-moniteurs" data-tab="moniteurs">
-          👑 Moniteurs <span class="tab-count" id="countMoniteurs">—</span>
+          🥽 Moniteurs <span class="tab-count" id="countMoniteurs">—</span>
         </button>
         <button class="tab" role="tab" aria-selected="false" aria-controls="panel-examens" data-tab="examens" id="tab-examens">
           🎓 Examens <span class="tab-count" id="countExamens">—</span>
         </button>
         <button class="tab" role="tab" aria-selected="false" aria-controls="panel-analyse" data-tab="analyse" id="tab-analyse">
           📈 Analyse
+        </button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-palmares" data-tab="palmares" id="tab-palmares">
+          🏆 Palmarès
         </button>
       </nav>
 
@@ -4854,11 +5156,11 @@
         <div class="load-status">
           <div class="load-item loading" id="status-eleves">
             <span class="dot"></span>
-            <span class="label">Élèves : connexion GitHub…</span>
+            <span class="label">Données élèves…</span>
           </div>
           <div class="load-item loading" id="status-moniteurs">
             <span class="dot"></span>
-            <span class="label">Moniteurs : connexion GitHub…</span>
+            <span class="label">Données moniteurs…</span>
           </div>
         </div>
 
@@ -4915,6 +5217,40 @@
           <div class="muted">Disponible une fois les données chargées.</div>
         </div>
       </div>
+
+      <div id="sidebar-analyse" class="sidebar-content hidden">
+        <div class="card stats-card">
+          <h3>📈 Analyse</h3>
+          <div class="muted" style="font-size:12px;margin-bottom:8px;">
+            Progression, alertes et zoom par élève.
+          </div>
+        </div>
+      </div>
+
+      <div id="sidebar-palmares" class="sidebar-content hidden">
+        <div class="card stats-card">
+          <h3>🏆 Palmarès</h3>
+          <div class="muted" style="font-size:12px;margin-bottom:8px;">
+            Classement, badges et bingo des compétences acquises.
+          </div>
+          <button class="btn-synthese" id="btnScrollToClassement">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 16l-6-6 1.41-1.41L11 13.17V4h2v9.17l3.59-3.58L18 10l-6 6z" fill="currentColor"/></svg>
+            Voir le classement
+          </button>
+        </div>
+
+        <div class="card" style="margin-top:10px;">
+          <h3>🎖️ Guide des badges</h3>
+          <div class="muted" style="font-size:12px;margin-bottom:8px;">
+            Survolez un badge pour en savoir plus, ou consultez le guide complet.
+          </div>
+          <button class="btn-synthese" id="btnOpenBadgeGuide" onclick="if(window._rscc&&window._rscc._openBadgeGuide)window._rscc._openBadgeGuide()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="pointer-events:none;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" fill="currentColor"/></svg>
+            Voir le guide des badges
+          </button>
+        </div>
+      </div>
+
     </aside>
 
     <!-- MAIN CONTENT (tabs panels) -->
@@ -4943,7 +5279,7 @@
 
         <div id="elevesMainContent">
           <div class="empty-state">
-            <div class="icon">🥽</div>
+            <div class="icon">🏊</div>
             <h2>Chargement de la vue Élèves…</h2>
             <p class="muted">Les fiches élèves apparaîtront ici dès que les données seront chargées.</p>
           </div>
@@ -4974,7 +5310,7 @@
 
         <div id="monitorsMainContent">
           <div class="empty-state">
-            <div class="icon">👑</div>
+            <div class="icon">🥽</div>
             <h2>Chargement de la vue Moniteurs…</h2>
             <p class="muted">Les fiches moniteurs apparaîtront ici dès que les données seront chargées.</p>
           </div>
@@ -4999,6 +5335,17 @@
             <div class="icon">📈</div>
             <h2>Chargement de l'analyse…</h2>
             <p class="muted">Les données apparaîtront ici dès que les données seront chargées.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 5 : Palmarès -->
+      <section class="tab-panel" id="panel-palmares" role="tabpanel" aria-labelledby="tab-palmares">
+        <div id="palmaresMainContent">
+          <div class="empty-state">
+            <div class="icon">🏆</div>
+            <h2>Chargement du Palmarès…</h2>
+            <p class="muted">Les badges et bingo apparaîtront ici dès que les données seront chargées.</p>
           </div>
         </div>
       </section>
@@ -5366,6 +5713,12 @@
         var chipsMoniteurs = document.getElementById('stickyChipsMoniteurs');
         if (chipsEleves)    chipsEleves.classList.toggle('hidden',    tabId !== 'eleves');
         if (chipsMoniteurs) chipsMoniteurs.classList.toggle('hidden', tabId !== 'moniteurs');
+
+        // Switcher sidebar selon l'onglet actif
+        ['sidebar-eleves','sidebar-moniteurs','sidebar-analyse','sidebar-palmares','sidebar-croisee'].forEach(function(id) {
+          var el = document.getElementById(id);
+          if (el) el.classList.toggle('hidden', id !== 'sidebar-' + tabId);
+        });
       }
 
       function init() {
@@ -5634,7 +5987,7 @@
           nbSeances = sorted.length;
           lastDateISO = sorted[sorted.length - 1] || '';
           nbEntities = mons.size;
-          emojiMain = '👑';
+          emojiMain = '🥽';
           labelEntity = 'moniteur' + (nbEntities > 1 ? 's' : '');
         }
 
@@ -5707,7 +6060,7 @@
         const labelMap = { eleves: 'Eleves', moniteurs: 'Moniteurs', crseance: 'CR Séances', examens: 'Examens' };
         const url   = urlMap[which];
         const label = labelMap[which] || which;
-        setStatus(which, 'loading', label + ' : connexion GitHub...');
+        setStatus(which, 'loading', 'Chargement ' + label.toLowerCase() + '…');
         try {
           const txt = await tryFetch(url);
           if (!txt.trim().startsWith('[') && !txt.trim().startsWith('{')) {
@@ -6090,6 +6443,11 @@
       if (window._rscc.renderAnalyse) {
         try { window._rscc.renderAnalyse({ eleves: STATE.rawEleves, moniteurs: STATE.rawMoniteurs, crSeance: STATE.rawCRSeance }); }
         catch(e) { console.error('Erreur renderAnalyse:', e); }
+      }
+
+      if (window._rscc.renderPalmares) {
+        try { window._rscc.renderPalmares({ eleves: STATE.rawEleves, examens: STATE.rawExamens, moniteurs: STATE.rawMoniteurs }); }
+        catch(e) { console.error('Erreur renderPalmares:', e); }
       }
       if (window._rscc.renderCroisee && STATE.rawEleves && STATE.rawMoniteurs) {
         try { window._rscc.renderCroisee(STATE.rawEleves, STATE.rawMoniteurs); } catch(e) { console.error(e); }
@@ -7752,6 +8110,30 @@
         });
       }
 
+      // Bouton "Voir le classement" (sidebar palmarès)
+      var btnClassement = document.getElementById('btnScrollToClassement');
+      if (btnClassement) {
+        btnClassement.addEventListener('click', function() {
+          var el = document.querySelector('.palmares-classement') || document.querySelector('#palmaresMainContent');
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      }
+
+      // Bouton "Voir le guide des badges" — délégation globale sur document
+      // _openBadgeGuide est exposé par le module Palmarès (chargé après postLoadProcess)
+      // On utilise une délégation qui résout la fonction au moment du clic, pas au branchement
+      // Bouton guide badges — onclick inline pour éviter les problèmes de scope/timing
+      var _badgeBtn = document.getElementById('btnOpenBadgeGuide');
+      if (_badgeBtn) {
+        _badgeBtn.onclick = function() {
+          var fn = window._rscc && window._rscc._openBadgeGuide;
+          if (fn) fn();
+        };
+      }
+
+      // Drawer guide badges
+      // btnOpenBadgeGuide branché dans postLoadProcess (voir Phase 1)
+
       // Bouton "Voir le suivi des CR" (sidebar moniteurs)
       const btnScrollToCR = document.getElementById('btnScrollToCRWidget');
       if (btnScrollToCR) {
@@ -8811,7 +9193,7 @@
         const extraClass = missingCount > 0 ? ' has-missing-cr' : '';
         // Même structure que student-card pour homogénéité UX
         return '<div class="student-card mon-chip' + extraClass + '" data-target="' + id + '">' +
-          '<div class="name">👑 ' + escapeHtml(m.nom) + crBadge + '</div>' +
+          '<div class="name">🥽 ' + escapeHtml(m.nom) + crBadge + '</div>' +
           '<div class="meta">' + m.nbDates + '/' + (model.totalDates || '?') + ' séances</div>' +
         '</div>';
       }).join('');
@@ -9648,9 +10030,10 @@
 
       var togglesHtml = elevesNoms.map(function(e, i) {
         var active = AnalyseState.eleveVisibles[e];
-        var color = ELEVE_COLORS[i % ELEVE_COLORS.length];
-        var style = active ? 'background:' + color + ';border-color:' + color + ';' : '';
-        return '<button class="analyse-eleve-toggle' + (active ? ' active' : '') + '" data-eleve="' + e + '" style="' + style + '">' + e + '</button>';
+        var color  = ELEVE_COLORS[i % ELEVE_COLORS.length];
+        var style  = active ? 'background:' + color + ';border-color:' + color + ';' : '';
+        var medal  = (window._rscc_isEleveN1Valide && window._rscc_isEleveN1Valide(e)) || '';
+        return '<button class="analyse-eleve-toggle' + (active ? ' active' : '') + '" data-eleve="' + e + '" style="' + style + '">' + e + medal + '</button>';
       }).join('');
 
       return '<div class="analyse-chart-card">' +
@@ -9848,7 +10231,8 @@
       var colorInact = inact === null ? 'var(--muted)' : inact <= 7 ? 'var(--ok)' : inact <= 21 ? 'var(--warn)' : 'var(--bad)';
 
       var options = elevesNoms.map(function(e) {
-        return '<option value="' + e + '"' + (e === actif ? ' selected' : '') + '>' + e + '</option>';
+        var n1 = (window._rscc_isEleveN1Valide && window._rscc_isEleveN1Valide(e)) ? ' 🎖️' : '';
+        return '<option value="' + e + '"' + (e === actif ? ' selected' : '') + '>' + e + n1 + '</option>';
       }).join('');
 
       return '<div class="analyse-zoom-card">' +
@@ -9923,6 +10307,498 @@
       // Re-render si des données sont disponibles
       var rawE = window._rscc_RAW_ELEVES;
       if (rawE) renderAnalyse({ eleves: rawE, crSeance: window._rscc_RAW_CR_SEANCE || [] });
+    };
+
+  })();
+  </script>
+
+
+  <!-- =====================================================================
+       PHASE 3c - MODULE PALMARÈS (Badges, Bingo, Classement, Coordination)
+       ===================================================================== -->
+  <script>
+  (function() {
+    'use strict';
+
+    // ── Définition des badges ─────────────────────────────────────────────
+    var BADGES = [
+      {
+        id: 'n1', icon: '🎖️', label: 'N1 FFESSM',
+        desc: 'Théorie ET Pratique validées',
+        cls: 'n1',
+        test: function(m, exam) {
+          return exam && exam.theorie && exam.theorie.valide && exam.pratique && exam.pratique.valide;
+        }
+      },
+      {
+        id: 'aquatique', icon: '🌊', label: 'Aquatique',
+        desc: 'Toutes compétences "Évoluer dans l\'eau" acquises',
+        cls: 'earned',
+        test: function(m) {
+          var cats = ['Evoluer dans l\'eau', 'Evoluer dans l\'eau - S\'équilibrer',
+                      'Evoluer dans l\'eau - S\'immerger', 'Evoluer dans l\'eau - Se propulser'];
+          return cats.every(function(c) { return m.parCat[c] && m.parCat[c].pct >= 100; });
+        }
+      },
+      {
+        id: 'ventilation', icon: '🫁', label: 'Ventilation',
+        desc: 'Catégorie Ventilation complète',
+        cls: 'earned',
+        test: function(m) {
+          var k = Object.keys(m.parCat).find(function(c) { return c.toLowerCase().includes('ventil'); });
+          return k && m.parCat[k].pct >= 100;
+        }
+      },
+      {
+        id: 'communication', icon: '🤙', label: 'Communication',
+        desc: 'Catégorie Communication complète',
+        cls: 'earned',
+        test: function(m) {
+          var k = Object.keys(m.parCat).find(function(c) { return c.toLowerCase().includes('communic'); });
+          return k && m.parCat[k].pct >= 100;
+        }
+      },
+      {
+        id: 'presque', icon: '🤿', label: 'Presque N1',
+        desc: '80%+ de compétences acquises',
+        cls: 'earned',
+        test: function(m) { return m.pctAcquis >= 80; }
+      },
+      {
+        id: 'assidu', icon: '⭐', label: 'Assidu',
+        desc: '80%+ de présence sur la saison',
+        cls: 'earned',
+        test: function(m) { return m.pctPresence >= 80; }
+      },
+      {
+        id: 'feu', icon: '🔥', label: 'En feu',
+        desc: '5+ nouvelles compétences acquises en 30 jours',
+        cls: 'earned',
+        test: function(m) {
+          var cutoff = new Date(); cutoff.setDate(cutoff.getDate() - 30);
+          var cutoffISO = cutoff.toISOString().slice(0,10);
+          return m.nouvellesAcquis30j >= 5;
+        }
+      },
+      {
+        id: 'fidele', icon: '💙', label: 'Fidèle',
+        desc: 'Présent à 100% des séances du dernier mois',
+        cls: 'earned',
+        test: function(m) { return m.presenceDernierMois >= 100; }
+      }
+    ];
+
+    // ── Construction du modèle élève pour les badges ──────────────────────
+    function buildModel(rawEleves, exam) {
+      var TOTAL_COMP = 53;
+      var parCat = {};
+      var acquis = new Set();
+      var enCours = new Set();
+      var seancesPresent = new Set();
+      var seancesTotal = new Set();
+      var premiereAcquis = {};   // competence -> date
+      var today = new Date(); today.setHours(0,0,0,0);
+      var cutoff30 = new Date(today); cutoff30.setDate(cutoff30.getDate() - 30);
+
+      rawEleves.forEach(function(r) {
+        if (!r.competence) return;
+        var cat = r.categorie || 'Autre';
+        if (!parCat[cat]) parCat[cat] = { total: new Set(), acquis: new Set() };
+        parCat[cat].total.add(r.competence);
+        if (r.date) {
+          seancesTotal.add(r.date);
+          if (r.presence === 'Présent') seancesPresent.add(r.date);
+        }
+        if (r.statut === 'Acquis') {
+          acquis.add(r.competence);
+          parCat[cat].acquis.add(r.competence);
+          if (!premiereAcquis[r.competence] || r.date < premiereAcquis[r.competence])
+            premiereAcquis[r.competence] = r.date;
+        }
+        if (r.statut === "En cours d'acquisition") enCours.add(r.competence);
+      });
+
+      // Compétences acquises dans les 30 derniers jours
+      var nouvellesAcquis30j = Object.values(premiereAcquis).filter(function(d) {
+        return d && d >= cutoff30.toISOString().slice(0,10);
+      }).length;
+
+      // Présence dernier mois
+      var seancesTotalMois = 0, seancesPresentMois = 0;
+      rawEleves.forEach(function(r) {
+        if (!r.date || r.date < cutoff30.toISOString().slice(0,10)) return;
+        if (!seancesTotalMois) {
+          // compter uniquement les dates distinctes
+        }
+      });
+      var datesMois = Array.from(seancesTotal).filter(function(d) { return d >= cutoff30.toISOString().slice(0,10); });
+      var datesPresentMois = Array.from(seancesPresent).filter(function(d) { return d >= cutoff30.toISOString().slice(0,10); });
+      var presenceDernierMois = datesMois.length ? Math.round(datesPresentMois.length / datesMois.length * 100) : 0;
+
+      var catModel = {};
+      Object.keys(parCat).forEach(function(c) {
+        catModel[c] = {
+          total: parCat[c].total.size,
+          acquis: parCat[c].acquis.size,
+          pct: parCat[c].total.size ? Math.round(parCat[c].acquis.size / parCat[c].total.size * 100) : 0
+        };
+      });
+
+      return {
+        acquis: acquis,
+        enCours: enCours,
+        parCat: catModel,
+        premiereAcquis: premiereAcquis,
+        pctAcquis: Math.round(acquis.size / TOTAL_COMP * 100),
+        pctPresence: seancesTotal.size ? Math.round(seancesPresent.size / seancesTotal.size * 100) : 0,
+        nbSeances: seancesTotal.size,
+        nouvellesAcquis30j: nouvellesAcquis30j,
+        presenceDernierMois: presenceDernierMois,
+        exam: exam
+      };
+    }
+
+    // ── BADGES ────────────────────────────────────────────────────────────
+    function buildBadgesHtml(model) {
+      return BADGES.map(function(b) {
+        var earned = b.test(model, model.exam);
+        var cls = earned ? b.cls : 'locked';
+        return '<span class="palmares-badge ' + cls + '" title="' + b.desc + '">' +
+          b.icon + ' ' + b.label +
+        '</span>';
+      }).join('');
+    }
+
+    // ── BINGO ─────────────────────────────────────────────────────────────
+    function buildBingo(model, eleveName) {
+      var TOTAL_COMP = 53;
+      var acq = model.acquis;
+      var enc = model.enCours;
+
+      // Vue globale : cases numérotées 1-53
+      var allComps = [];
+      Object.keys(model.parCat).forEach(function(cat) {
+        // on ne peut reconstituer que les compétences de la fiche
+      });
+
+      // Récupérer les compétences depuis rawEleves via window
+      var rawE = (window._rscc_RAW_ELEVES || []).filter(function(r) { return r.eleve === eleveName; });
+      var compSet = new Set();
+      var catMap = {};
+      rawE.forEach(function(r) {
+        if (!r.competence) return;
+        compSet.add(r.competence);
+        catMap[r.competence] = r.categorie || 'Autre';
+      });
+
+      var comps = Array.from(compSet);
+      var cats = {};
+      comps.forEach(function(c) {
+        var cat = catMap[c] || 'Autre';
+        if (!cats[cat]) cats[cat] = [];
+        cats[cat].push(c);
+      });
+
+      function cell(comp, idx) {
+        var statut = acq.has(comp) ? 'acquis' : enc.has(comp) ? 'en-cours' : '';
+        var title = comp + (statut === 'acquis' ? ' ✅' : statut === 'en-cours' ? ' 🔄' : ' ⬜');
+        return '<div class="bingo-cell ' + statut + '" title="' + comp.replace(/"/g,'&quot;') + '" ' +
+          'data-comp="' + (idx+1) + '">' +
+          (statut === 'acquis' ? '✓' : statut === 'en-cours' ? '~' : idx+1) +
+        '</div>';
+      }
+
+      // Vue globale
+      var globalGrid = '<div class="bingo-grid" id="bingo-global-' + eleveName.replace(/\s/g,'_') + '">' +
+        comps.map(function(c, i) { return cell(c, i); }).join('') +
+      '</div>';
+
+      // Vue par catégorie
+      var catGrid = Object.keys(cats).map(function(cat) {
+        var catComps = cats[cat];
+        var nbAcq = catComps.filter(function(c) { return acq.has(c); }).length;
+        return '<div class="bingo-cat-section">' +
+          '<div class="bingo-cat-title">' +
+            '<span>📁 ' + cat + '</span>' +
+            '<span style="font-size:10px;color:var(--accent);">' + nbAcq + '/' + catComps.length + '</span>' +
+          '</div>' +
+          '<div class="bingo-grid">' +
+            catComps.map(function(c, i) { return cell(c, i); }).join('') +
+          '</div>' +
+        '</div>';
+      }).join('');
+
+      var bingoId = 'bingo-' + eleveName.replace(/\s/g,'_');
+      return '<div class="bingo-container">' +
+        '<div class="bingo-tabs">' +
+          '<button class="bingo-tab-btn active" data-bingo="' + bingoId + '" data-view="global">🎯 Vue globale (' + acq.size + '/53)</button>' +
+          '<button class="bingo-tab-btn" data-bingo="' + bingoId + '" data-view="cat">📁 Par catégorie</button>' +
+        '</div>' +
+        '<div id="' + bingoId + '-global">' + globalGrid + '</div>' +
+        '<div id="' + bingoId + '-cat" style="display:none;">' + catGrid + '</div>' +
+      '</div>';
+    }
+
+    // ── CLASSEMENT ────────────────────────────────────────────────────────
+    function buildClassement(allModels) {
+      var TOTAL_COMP = 53;
+      var ranked = Object.keys(allModels)
+        .map(function(e) {
+          return { eleve: e, pct: allModels[e].pctAcquis, acquis: allModels[e].acquis.size };
+        })
+        .sort(function(a,b) { return b.pct - a.pct; });
+
+      // Même palette que stoplightColor utilisée dans les autres onglets
+      function rankColor(pct) {
+        if (pct >= 80) return '#22c55e'; // vert
+        if (pct >= 60) return '#84cc16'; // vert-jaune
+        if (pct >= 40) return '#f59e0b'; // orange
+        if (pct >= 20) return '#f97316'; // orange-rouge
+        return '#ef4444';                // rouge
+      }
+
+      var medals = ['🥇','🥈','🥉'];
+      var rows = ranked.map(function(r, i) {
+        var medal    = window._rscc_isEleveN1Valide && window._rscc_isEleveN1Valide(r.eleve) ? ' 🎖️' : '';
+        var barColor = rankColor(r.pct);
+        var numColor = i === 0 ? '#f59e0b' : i === 1 ? '#94a3b8' : i === 2 ? '#b45309' : 'var(--muted)';
+        return '<div class="palmares-rank-row">' +
+          '<div class="palmares-rank-num" style="color:' + numColor + ';">' + (medals[i] || (i+1)) + '</div>' +
+          '<div class="palmares-rank-name">' + r.eleve + medal + '</div>' +
+          '<div class="palmares-rank-bar">' +
+            '<div class="palmares-rank-bar-inner" style="width:' + r.pct + '%;background:' + barColor + ';"></div>' +
+          '</div>' +
+          '<div class="palmares-rank-pct" style="color:' + barColor + ';">' + r.pct + '%</div>' +
+        '</div>';
+      }).join('');
+
+      return '<div class="palmares-classement">' +
+        '<div style="font-size:13px;font-weight:800;margin-bottom:12px;">🏆 Classement progression — ' + TOTAL_COMP + ' compétences</div>' +
+        rows +
+      '</div>';
+    }
+
+    // ── COORDINATION MONITEURS ────────────────────────────────────────────
+    function buildCoordination(rawEleves, rawMoniteurs) {
+      // Matrice élève × moniteur : nb de séances
+      var matrix = {};
+      var elevesSet = new Set();
+      var moniteurSet = new Set();
+
+      rawEleves.forEach(function(r) {
+        if (!r.eleve || !r.moniteur || r.moniteur === 'n/a' || !r.date) return;
+        if (r.presence !== 'Présent') return;
+        elevesSet.add(r.eleve);
+        moniteurSet.add(r.moniteur);
+        if (!matrix[r.eleve]) matrix[r.eleve] = {};
+        if (!matrix[r.eleve][r.moniteur]) matrix[r.eleve][r.moniteur] = new Set();
+        matrix[r.eleve][r.moniteur].add(r.date);
+      });
+
+      var eleves = Array.from(elevesSet).sort();
+      var moniteurs = Array.from(moniteurSet).sort();
+
+      // Header
+      var header = '<tr><th style="text-align:left;">Élève</th>' +
+        moniteurs.map(function(m) {
+          // Afficher "Prénom Initiale." ex: "Benoit L." reste "Benoit L."
+          // Pour les noms courts (1 mot) on garde tel quel
+          var parts = m.trim().split(/\s+/);
+          var display = parts.length === 1 ? parts[0] :
+                        parts[1].length <= 2 ? parts[0] + ' ' + parts[1] : // déjà "Benoit L."
+                        parts[0] + ' ' + parts[1][0] + '.';
+          return '<th title="' + m + '">' + display + '</th>';
+        }).join('') +
+        '</tr>';
+
+      // Rows
+      var maxVal = 0;
+      eleves.forEach(function(e) {
+        moniteurs.forEach(function(m) {
+          var v = (matrix[e] && matrix[e][m]) ? matrix[e][m].size : 0;
+          if (v > maxVal) maxVal = v;
+        });
+      });
+
+      var rows = eleves.map(function(e) {
+        var medal = (window._rscc_isEleveN1Valide && window._rscc_isEleveN1Valide(e)) ? ' 🎖️' : '';
+        var cells = moniteurs.map(function(m) {
+          var v = (matrix[e] && matrix[e][m]) ? matrix[e][m].size : 0;
+          var cls = v === 0 ? 'coord-cell-0' : v < maxVal * 0.3 ? 'coord-cell-lo' : v < maxVal * 0.6 ? 'coord-cell-md' : 'coord-cell-hi';
+          return '<td class="' + cls + '">' + (v || '—') + '</td>';
+        }).join('');
+        return '<tr><td style="font-weight:700;white-space:nowrap;text-align:left;">' + e + medal + '</td>' + cells + '</tr>';
+      }).join('');
+
+      // Alertes : même moniteur >= 4 séances consécutives avec même élève
+      var alertes = [];
+      eleves.forEach(function(e) {
+        moniteurs.forEach(function(m) {
+          if (!matrix[e] || !matrix[e][m]) return;
+          var dates = Array.from(matrix[e][m]).sort();
+          // Chercher séquences consécutives (séances dans l'ordre)
+          var allDates = Array.from(new Set(rawEleves
+            .filter(function(r) { return r.eleve === e && r.presence === 'Présent' && r.date; })
+            .map(function(r) { return r.date; }))).sort();
+
+          var streak = 0, maxStreak = 0;
+          allDates.forEach(function(d) {
+            if (dates.indexOf(d) >= 0) { streak++; maxStreak = Math.max(maxStreak, streak); }
+            else streak = 0;
+          });
+          if (maxStreak >= 4) alertes.push({ eleve: e, moniteur: m, streak: maxStreak });
+        });
+      });
+
+      var alertesHtml = alertes.length
+        ? alertes.map(function(a) {
+            return '<div class="coord-alerte">⚠️ <strong>' + a.eleve + '</strong> encadré par <strong>' + a.moniteur + '</strong> lors de ' + a.streak + ' séances consécutives — diversification recommandée</div>';
+          }).join('')
+        : '<div style="font-size:12px;color:var(--ok);padding:6px 0;">✅ Bonne rotation des moniteurs</div>';
+
+      return '<div style="margin-bottom:20px;">' +
+        '<div style="font-size:13px;font-weight:800;margin-bottom:10px;">🔄 Matrice élève × moniteur (nb séances)</div>' +
+        '<div style="overflow-x:auto;"><table class="coord-table"><thead>' + header + '</thead><tbody>' + rows + '</tbody></table></div>' +
+        '<div style="margin-top:10px;">' + alertesHtml + '</div>' +
+      '</div>';
+    }
+
+    // ── RENDER PRINCIPAL ──────────────────────────────────────────────────
+    function renderPalmares(data) {
+      var rawEleves = data.eleves || [];
+      var examens   = data.examens || [];
+      var rawMon    = data.moniteurs || [];
+
+      // Grouper rawEleves par élève
+      var byEleve = {};
+      rawEleves.forEach(function(r) {
+        if (!r.eleve) return;
+        if (!byEleve[r.eleve]) byEleve[r.eleve] = [];
+        byEleve[r.eleve].push(r);
+      });
+
+      var allModels = {};
+      Object.keys(byEleve).forEach(function(e) {
+        var exam = examens.find(function(x) { return x.eleve && x.eleve.toLowerCase() === e.toLowerCase(); });
+        allModels[e] = buildModel(byEleve[e], exam);
+      });
+
+      var html = '';
+
+      // Classement
+      html += '<div style="margin-bottom:24px;">';
+      html += '<div style="font-size:14px;font-weight:800;padding-bottom:8px;border-bottom:2px solid var(--border);margin-bottom:14px;">🏆 Classement du groupe</div>';
+      html += buildClassement(allModels);
+      html += '</div>';
+
+      // Coordination moniteurs
+      html += '<div style="margin-bottom:24px;">';
+      html += '<div style="font-size:14px;font-weight:800;padding-bottom:8px;border-bottom:2px solid var(--border);margin-bottom:14px;">🔄 Coordination moniteurs</div>';
+      html += buildCoordination(rawEleves, rawMon);
+      html += '</div>';
+
+      // Fiches badges + bingo par élève
+      html += '<div style="font-size:14px;font-weight:800;padding-bottom:8px;border-bottom:2px solid var(--border);margin-bottom:14px;">🎖️ Badges & Bingo par élève</div>';
+
+      Object.keys(allModels).sort().forEach(function(e) {
+        var model = allModels[e];
+        var medal = (window._rscc_isEleveN1Valide && window._rscc_isEleveN1Valide(e)) || '';
+        var earnedCount = BADGES.filter(function(b) { return b.test(model, model.exam); }).length;
+
+        html += '<div class="palmares-eleve-card">' +
+          '<div class="palmares-eleve-header">' +
+            '<span class="palmares-eleve-name">🏊 ' + e + medal + '</span>' +
+            '<span style="font-size:11px;color:var(--muted);">' + earnedCount + '/' + BADGES.length + ' badges · ' + model.pctAcquis + '% acquis · ' + model.pctPresence + '% présence</span>' +
+          '</div>' +
+          '<div class="palmares-badges-row">' + buildBadgesHtml(model) + '</div>' +
+          buildBingo(model, e) +
+        '</div>';
+      });
+
+      var container = document.getElementById('palmaresMainContent');
+      if (!container) return;
+      container.innerHTML = html;
+
+      // Brancher les onglets bingo (global / par catégorie)
+      container.querySelectorAll('.bingo-tab-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var bingoId = btn.dataset.bingo;
+          var view    = btn.dataset.view;
+          var parent  = btn.closest('.bingo-container');
+          parent.querySelectorAll('.bingo-tab-btn').forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          var globalEl = document.getElementById(bingoId + '-global');
+          var catEl    = document.getElementById(bingoId + '-cat');
+          if (globalEl) globalEl.style.display = view === 'global' ? '' : 'none';
+          if (catEl)    catEl.style.display    = view === 'cat'    ? '' : 'none';
+        });
+      });
+
+      // Animation pop sur les cases acquises
+      requestAnimationFrame(function() {
+        container.querySelectorAll('.bingo-cell.acquis').forEach(function(cell, i) {
+          setTimeout(function() { cell.classList.add('pop'); }, i * 20);
+        });
+      });
+    }
+
+    window._rscc.renderPalmares = function(data) { renderPalmares(data); };
+
+    // Drawer guide des badges
+    window._rscc._openBadgeGuide = function() {
+      // Supprimer un éventuel drawer existant
+      var existing = document.getElementById('badgeGuideDrawer');
+      if (existing) { existing.remove(); document.getElementById('badgeGuideOverlay') && document.getElementById('badgeGuideOverlay').remove(); return; }
+
+      var overlay = document.createElement('div');
+      overlay.className = 'badge-guide-overlay open';
+      overlay.id = 'badgeGuideOverlay';
+
+      var drawer = document.createElement('div');
+      drawer.className = 'badge-guide-drawer open';
+      drawer.id = 'badgeGuideDrawer';
+
+      // Badges définis en dur (pas de dépendance IIFE)
+      var GUIDE_BADGES = [
+        { icon: '🎖️', label: 'N1 FFESSM',       desc: 'Théorie ET Pratique validées par le chef de groupe' },
+        { icon: '🌊', label: 'Aquatique',         desc: 'Toutes les comp&eacute;tences Evoluer dans l\'eau acquises' },
+        { icon: '🫁', label: 'Ventilation',       desc: 'Catégorie Ventilation entièrement acquise' },
+        { icon: '🤙', label: 'Communication',     desc: 'Catégorie Communication entièrement acquise' },
+        { icon: '🤿', label: 'Presque N1',        desc: '80% ou plus de compétences acquises' },
+        { icon: '⭐', label: 'Assidu',            desc: '80% ou plus de présence sur la saison' },
+        { icon: '🔥', label: 'En feu',            desc: '5 nouvelles compétences ou plus acquises en 30 jours' },
+        { icon: '💙', label: 'Fidèle',            desc: 'Présent à 100% des séances du dernier mois' }
+      ];
+
+      var items = GUIDE_BADGES.map(function(b) {
+        return '<div class="badge-guide-item">' +
+          '<span class="badge-guide-emoji">' + b.icon + '</span>' +
+          '<div class="badge-guide-info">' +
+            '<div class="badge-guide-name">' + b.label + '</div>' +
+            '<div class="badge-guide-desc">' + b.desc + '</div>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+
+      drawer.innerHTML =
+        '<div class="badge-guide-header">' +
+          '<span class="badge-guide-title">🎖️ Guide des badges N1</span>' +
+          '<button class="badge-guide-close" id="badgeGuideClose">✕</button>' +
+        '</div>' +
+        '<p style="font-size:12px;color:var(--muted);margin-bottom:12px;">Les badges sont attribués automatiquement selon votre progression.</p>' +
+        items;
+
+      document.body.appendChild(overlay);
+      document.body.appendChild(drawer);
+
+      function close() {
+        drawer.classList.remove('open');
+        overlay.classList.remove('open');
+        setTimeout(function() { drawer.remove(); overlay.remove(); }, 300);
+      }
+
+      overlay.addEventListener('click', close);
+      drawer.querySelector('#badgeGuideClose').addEventListener('click', close);
     };
 
   })();
@@ -10205,5 +11081,16 @@
 
   })();
   </script>
+  <!-- Footer copyright -->
+  <footer class="app-footer">
+    <span>© 2025/2026</span>
+    <span>·</span>
+    <span>Benoit Louineau</span>
+    <span>·</span>
+    <span>RSCC SubAquatique</span>
+    <span>·</span>
+    <span>Généré avec Claude AI 🤖</span>
+  </footer>
+
 </body>
 </html>
