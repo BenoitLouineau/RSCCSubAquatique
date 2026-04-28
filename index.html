@@ -2900,6 +2900,167 @@
       color: #b45309;
     }
 
+    /* ── Onglet News ── */
+    .news-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .news-header-title {
+      font-size: 15px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .news-source-badge {
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(6,182,212,0.15);
+      border: 1px solid rgba(6,182,212,0.3);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+    }
+
+    .news-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all var(--transition);
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .news-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    .news-card-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      background: var(--chip);
+    }
+
+    .news-card-img-placeholder {
+      width: 100%;
+      height: 120px;
+      background: linear-gradient(135deg, rgba(6,182,212,0.1), rgba(168,85,247,0.08));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+    }
+
+    .news-card-body {
+      padding: 14px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .news-card-cat {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--accent);
+    }
+
+    .news-card-title {
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .news-card-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .news-card-footer {
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: auto;
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .news-error {
+      background: rgba(239,68,68,0.08);
+      border: 1px solid rgba(239,68,68,0.2);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      font-size: 13px;
+      color: var(--bad);
+    }
+
+    .news-loading {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      padding: 20px 0;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .news-spinner {
+      width: 18px; height: 18px;
+      border: 2px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      flex-shrink: 0;
+    }
+
+    .news-setup-info {
+      background: rgba(6,182,212,0.06);
+      border: 1px solid rgba(6,182,212,0.2);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .news-setup-info h3 { font-size: 14px; font-weight: 800; margin-bottom: 10px; }
+    .news-setup-info ol { padding-left: 18px; color: var(--muted); }
+    .news-setup-info li { margin-bottom: 6px; }
+    .news-setup-info a { color: var(--accent); }
+    .news-setup-info code {
+      background: var(--chip);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-family: monospace;
+    }
+
     /* Helper hidden */
     .hidden { display: none !important; }
 
@@ -5490,6 +5651,9 @@
         <button class="tab" role="tab" aria-selected="false" aria-controls="panel-palmares" data-tab="palmares" id="tab-palmares">
           🏆 Palmarès
         </button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-news" data-tab="news" id="tab-news">
+          📰 News
+        </button>
       </nav>
 
       <!-- Barre de chips sticky (élèves ou moniteurs selon l'onglet actif) -->
@@ -5621,6 +5785,39 @@
         </div>
       </div>
 
+      <div id="sidebar-news" class="sidebar-content hidden">
+        <div class="card stats-card">
+          <h3>📰 Actualités</h3>
+          <div class="muted" style="font-size:12px;margin-bottom:8px;">
+            Flux RSS FFESSM et CODEPs configurables.
+          </div>
+          <button class="btn-synthese" id="btnRefreshNews" onclick="if(window._rscc&&window._rscc._refreshNews)window._rscc._refreshNews()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="pointer-events:none;"><path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" fill="currentColor"/></svg>
+            Actualiser
+          </button>
+        </div>
+        <div class="card" style="margin-top:10px;">
+          <h3>⚙️ Source</h3>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">Sélectionnez ou configurez votre source RSS.</div>
+          <select id="newsSourceSelect" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--border);background:var(--chip);color:var(--text);font-size:12px;margin-bottom:8px;">
+            <option value="ffessm_nat">🇫🇷 FFESSM nationale</option>
+            <option value="subaqua">🤿 Subaqua magazine</option>
+            <option value="ffessm_idf">🗺️ FFESSM Île-de-France</option>
+            <option value="codep94" selected>📍 CODEP 94 (défaut)</option>
+            <option value="codep77">📍 CODEP 77</option>
+            <option value="codep75">📍 CODEP 75</option>
+            <option value="codep93">📍 CODEP 93</option>
+            <option value="custom">🔗 URL personnalisée</option>
+          </select>
+          <div id="newsCustomUrlWrap" style="display:none;">
+            <input type="text" id="newsCustomUrl" placeholder="https://rss.app/feeds/..." style="width:100%;box-sizing:border-box;padding:6px 8px;border-radius:6px;border:1px solid var(--border);background:var(--chip);color:var(--text);font-size:11px;margin-bottom:6px;">
+          </div>
+          <button class="btn-synthese" id="btnApplyNewsSource" onclick="if(window._rscc&&window._rscc._refreshNews)window._rscc._refreshNews()">
+            Appliquer
+          </button>
+        </div>
+      </div>
+
       <div id="sidebar-palmares" class="sidebar-content hidden">
         <div class="card stats-card">
           <h3>🏆 Palmarès</h3>
@@ -5740,6 +5937,16 @@
             <div class="icon">🏆</div>
             <h2>Chargement du Palmarès…</h2>
             <p class="muted">Les badges et bingo apparaîtront ici dès que les données seront chargées.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 6 : News -->
+      <section class="tab-panel" id="panel-news" role="tabpanel" aria-labelledby="tab-news">
+        <div id="newsMainContent">
+          <div class="empty-state">
+            <div class="icon">📰</div>
+            <h2>Chargement des actualités…</h2>
           </div>
         </div>
       </section>
@@ -6128,7 +6335,7 @@
         if (chipsMoniteurs) chipsMoniteurs.classList.toggle('hidden', tabId !== 'moniteurs');
 
         // Switcher sidebar selon l'onglet actif
-        ['sidebar-eleves','sidebar-moniteurs','sidebar-analyse','sidebar-palmares','sidebar-croisee'].forEach(function(id) {
+        ['sidebar-eleves','sidebar-moniteurs','sidebar-analyse','sidebar-palmares','sidebar-news','sidebar-croisee'].forEach(function(id) {
           var el = document.getElementById(id);
           if (el) el.classList.toggle('hidden', id !== 'sidebar-' + tabId);
         });
@@ -7794,39 +8001,38 @@
         '<div class="prediction-n1-value" style="color:var(--ok);">✅ Toutes les compétences acquises !</div>' +
       '</div>';
 
-      // Filtrer sur les séances où l'élève était PRÉSENT uniquement
-      var sessions = (s.lastSessions || []).filter(function(r) {
-        return r.presence === 'Présent' || r.presence === 'présent';
-      });
-
       // Lire la fenêtre configurée dans les Réglages (défaut 5)
       var fenetre = 5;
       try {
-        var _s = window._rscc && window._rscc.SETTINGS && window._rscc.SETTINGS.data;
-        if (_s && _s['fenetrePrediction']) fenetre = parseInt(_s['fenetrePrediction']);
-        else {
-          var stored = localStorage.getItem('rscc_settings_v1');
-          if (stored) { var parsed = JSON.parse(stored); if (parsed['fenetrePrediction']) fenetre = parseInt(parsed['fenetrePrediction']); }
-        }
+        var stored = localStorage.getItem('rscc_settings_v1');
+        if (stored) { var parsed = JSON.parse(stored); if (parsed['fenetrePrediction']) fenetre = parseInt(parsed['fenetrePrediction']); }
       } catch(e) {}
 
-      // Trouver les X dernières dates distinctes de présence (pas forcément consécutives)
-      var datesPresentes = Array.from(new Set(sessions.map(function(r){return r.date;}))).sort().slice(-fenetre);
+      // Utiliser rawEleves (source de vérité) au lieu de lastSessions
+      // lastSessions n'a pas les champs presence/competence nécessaires
+      var rawE = window._rscc_RAW_ELEVES || [];
+      var rowsEleve = rawE.filter(function(r) {
+        return r.eleve === s.eleve && r.date && (r.presence === 'Présent' || r.presence === 'présent');
+      });
 
-      // Compétences acquises lors de ces X séances présentes
-      var acqRecentes = 0;
-      sessions.forEach(function(sess) {
-        if (sess.statut === 'Acquis' && datesPresentes.indexOf(sess.date) >= 0) acqRecentes++;
+      // Trouver les X dernières dates distinctes de présence (pas forcément consécutives)
+      var datesPresentes = Array.from(new Set(rowsEleve.map(function(r){return r.date;}))).sort().slice(-fenetre);
+
+      // Compétences DISTINCTES acquises lors de ces X séances présentes
+      var compsAcquisesRecentes = new Set();
+      rowsEleve.forEach(function(r) {
+        if (r.statut === 'Acquis' && r.competence && datesPresentes.indexOf(r.date) >= 0)
+          compsAcquisesRecentes.add(r.competence);
       });
 
       var nbSeancesRecentes = datesPresentes.length || 1;
-      var rythmePar = acqRecentes / nbSeancesRecentes;
+      var rythmePar = compsAcquisesRecentes.size / nbSeancesRecentes;
 
       if (rythmePar <= 0) {
         return '<div class="prediction-n1">' +
           '<div class="prediction-n1-title">🎯 Prédiction N1</div>' +
           '<div class="prediction-n1-value" style="color:var(--warn);">⏸ Pas de progression récente</div>' +
-          '<div class="prediction-n1-sub">Aucune nouvelle compétence acquise sur les ' + nbSeancesRecentes + ' dernière' + (nbSeancesRecentes > 1 ? 's' : '') + ' séance' + (nbSeancesRecentes > 1 ? 's' : '') + ' de présence</div>' +
+          '<div class="prediction-n1-sub">Aucune nouvelle compétence acquise sur les ' + nbSeancesRecentes + ' dernière' + (nbSeancesRecentes > 1 ? 's' : '') + ' séance' + (nbSeancesRecentes > 1 ? 's' : '') + ' de présence (fenêtre : ' + fenetre + ')</div>' +
         '</div>';
       }
 
@@ -11951,6 +12157,327 @@
         setupDragDrop(grid);
       });
     }
+
+  })();
+  </script>
+
+
+  <!-- =====================================================================
+       MODULE NEWS — Flux RSS FFESSM via rss2json proxy
+       ===================================================================== -->
+  <script>
+  (function() {
+    'use strict';
+
+    var LS_NEWS_SOURCE = 'rscc_news_source';
+    var LS_NEWS_CUSTOM = 'rscc_news_custom_url';
+
+    // ── Sources prédéfinies ───────────────────────────────────────────────
+    // Toutes passent par rss2json.com (proxy CORS gratuit, 1000 req/jour)
+    // Les URLs RSS.app sont des exemples — à remplacer par vos propres flux créés sur rss.app
+    var SOURCES = {
+      ffessm_nat: {
+        label: '🇫🇷 FFESSM nationale',
+        // ffessm.fr n'a pas de RSS natif → utiliser rss.app proxy
+        // URL à créer sur https://rss.app à partir de https://ffessm.fr/actualites
+        rssUrl: 'https://rss.app/feeds/_placeholder_ffessm_nat.xml',
+        fallback: 'https://ffessm.fr/actualites',
+        note: 'Créer un flux sur rss.app à partir de ffessm.fr/actualites'
+      },
+      subaqua: {
+        label: '🤿 Subaqua magazine',
+        // Subaqua n'a pas de RSS natif → rss.app
+        rssUrl: 'https://rss.app/feeds/_placeholder_subaqua.xml',
+        fallback: 'https://subaqua.ffessm.fr/categorie/actu',
+        note: 'Créer un flux sur rss.app à partir de subaqua.ffessm.fr/categorie/actu'
+      },
+      ffessm_idf: {
+        label: '🗺️ FFESSM Île-de-France',
+        rssUrl: 'https://rss.app/feeds/_placeholder_idf.xml',
+        fallback: 'https://ffessm-idf.fr',
+        note: 'Créer un flux sur rss.app à partir de ffessm-idf.fr'
+      },
+      codep94: {
+        label: '📍 CODEP 94',
+        rssUrl: 'https://rss.app/feeds/_placeholder_94.xml',
+        fallback: 'https://ffessm-idf.fr',
+        note: 'Créer un flux sur rss.app à partir du site CODEP 94'
+      },
+      codep77: {
+        label: '📍 CODEP 77',
+        rssUrl: 'https://rss.app/feeds/_placeholder_77.xml',
+        fallback: 'http://www.ffessm77.fr',
+        note: 'Créer un flux sur rss.app à partir de ffessm77.fr'
+      },
+      codep75: {
+        label: '📍 CODEP 75 Paris',
+        rssUrl: 'https://rss.app/feeds/_placeholder_75.xml',
+        fallback: 'https://www.ffessm-cd75.org',
+        note: 'Créer un flux sur rss.app à partir de ffessm-cd75.org'
+      },
+      codep93: {
+        label: '📍 CODEP 93',
+        rssUrl: 'https://rss.app/feeds/_placeholder_93.xml',
+        fallback: 'https://ffessm-idf.fr',
+        note: 'Créer un flux sur rss.app à partir du site CODEP 93'
+      },
+    };
+
+    // ── Proxy rss2json ────────────────────────────────────────────────────
+    var RSS2JSON = 'https://api.rss2json.com/v1/api.json?rss_url=';
+    var RSS2JSON_KEY = ''; // optionnel — clé API rss2json pour plus de requêtes
+
+    function getRssUrl() {
+      try {
+        var stored = localStorage.getItem(LS_NEWS_SOURCE);
+        return stored || 'codep94';
+      } catch(e) { return 'codep94'; }
+    }
+
+    function getCustomUrl() {
+      try { return localStorage.getItem(LS_NEWS_CUSTOM) || ''; } catch(e) { return ''; }
+    }
+
+    function getCurrentSource() {
+      var key = getRssUrl();
+      if (key === 'custom') {
+        var url = getCustomUrl();
+        return { label: '🔗 URL personnalisée', rssUrl: url, fallback: url, note: null };
+      }
+      return SOURCES[key] || SOURCES['codep94'];
+    }
+
+    function isPlaceholder(url) {
+      return !url || url.indexOf('_placeholder_') >= 0 || url === '';
+    }
+
+    // ── Formater la date ──────────────────────────────────────────────────
+    function formatNewsDate(dateStr) {
+      if (!dateStr) return '';
+      try {
+        var d = new Date(dateStr);
+        if (isNaN(d.getTime())) return dateStr;
+        var now = new Date();
+        var diff = Math.round((now - d) / 86400000);
+        if (diff === 0) return "Aujourd'hui";
+        if (diff === 1) return 'Hier';
+        if (diff < 7) return 'Il y a ' + diff + ' jours';
+        return d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' });
+      } catch(e) { return dateStr; }
+    }
+
+    // ── Nettoyer le HTML ──────────────────────────────────────────────────
+    function stripHtml(html) {
+      if (!html) return '';
+      return html.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&')
+        .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').trim();
+    }
+
+    // ── Builder HTML d'une news card ──────────────────────────────────────
+    function buildNewsCard(item) {
+      var title   = item.title || 'Sans titre';
+      var desc    = stripHtml(item.description || item.content || '');
+      var link    = item.link || '#';
+      var date    = formatNewsDate(item.pubDate);
+      var imgUrl  = item.enclosure && item.enclosure.link ? item.enclosure.link
+                  : item.thumbnail || null;
+      var cat     = (item.categories && item.categories.length) ? item.categories[0] : '';
+
+      var imgHtml = imgUrl
+        ? '<img class="news-card-img" src="' + imgUrl + '" alt="" loading="lazy" onerror="this.parentNode.innerHTML=\'<div class=&quot;news-card-img-placeholder&quot;>🤿</div>\'">'
+        : '<div class="news-card-img-placeholder">🤿</div>';
+
+      return '<a class="news-card" href="' + link + '" target="_blank" rel="noopener">' +
+        imgHtml +
+        '<div class="news-card-body">' +
+          (cat ? '<div class="news-card-cat">' + cat + '</div>' : '') +
+          '<div class="news-card-title">' + title + '</div>' +
+          (desc ? '<div class="news-card-desc">' + desc.slice(0, 180) + (desc.length > 180 ? '…' : '') + '</div>' : '') +
+          '<div class="news-card-footer">' +
+            '<span>' + date + '</span>' +
+            '<span style="color:var(--accent);font-size:10px;font-weight:700;">Lire →</span>' +
+          '</div>' +
+        '</div>' +
+      '</a>';
+    }
+
+    // ── Rendu guide de configuration ──────────────────────────────────────
+    function buildSetupGuide(source) {
+      return '<div class="news-setup-info">' +
+        '<h3>⚙️ Configuration requise</h3>' +
+        '<p style="color:var(--muted);margin-bottom:12px;">Les sites FFESSM ne proposent pas de flux RSS natifs. Il faut créer un proxy RSS en 3 étapes :</p>' +
+        '<ol>' +
+          '<li>Aller sur <a href="https://rss.app" target="_blank" rel="noopener"><strong>rss.app</strong></a> (gratuit, 3 flux max)</li>' +
+          '<li>Coller cette URL : <code>' + source.fallback + '</code></li>' +
+          '<li>Copier l\'URL du flux généré (format <code>https://rss.app/feeds/xxx.xml</code>)</li>' +
+          '<li>Dans la sidebar → Source → <strong>URL personnalisée</strong> → coller l\'URL</li>' +
+        '</ol>' +
+        '<p style="margin-top:12px;font-size:11px;color:var(--muted);">Alternative gratuite : <a href="https://fetchrss.com" target="_blank" rel="noopener">fetchrss.com</a> ou <a href="https://www.feedfry.com" target="_blank" rel="noopener">feedfry.com</a></p>' +
+      '</div>';
+    }
+
+    // ── Chargement et rendu ───────────────────────────────────────────────
+    function refreshNews() {
+      var container = document.getElementById('newsMainContent');
+      if (!container) return;
+
+      var source = getCurrentSource();
+
+      // Afficher le spinner
+      container.innerHTML = '<div class="news-loading"><div class="news-spinner"></div> Chargement des actualités ' + source.label + '…</div>';
+
+      // Si placeholder → afficher le guide de config
+      if (isPlaceholder(source.rssUrl)) {
+        container.innerHTML =
+          '<div class="news-header">' +
+            '<div class="news-header-title">📰 Actualités <span class="news-source-badge">' + source.label + '</span></div>' +
+          '</div>' +
+          buildSetupGuide(source);
+        return;
+      }
+
+      var rssUrl = source.rssUrl;
+
+      // Détecter file:// — fetch() bloqué, impossible de charger le RSS
+      if (window.location.protocol === 'file:') {
+        container.innerHTML =
+          '<div class="news-header"><div class="news-header-title">📰 Actualités <span class="news-source-badge">' + source.label + '</span></div></div>' +
+          '<div class="news-error" style="margin-bottom:16px;">' +
+            '⚠️ Le chargement des actualités nécessite une connexion HTTPS.<br>' +
+            '<span style="font-size:11px;">Ouvrez le rapport depuis <strong>GitHub Pages</strong> pour accéder au flux RSS.</span><br>' +
+            '<span style="font-size:11px;margin-top:6px;display:block;">URL : <a href="https://benoitlouineau.github.io/RSCCSubAquatique/" target="_blank" style="color:var(--accent);">benoitlouineau.github.io/RSCCSubAquatique/</a></span>' +
+          '</div>' +
+          buildSetupGuide(source);
+        return;
+      }
+
+      // Proxy allorigins (CORS universel, gratuit)
+      var CORS_PROXY = 'https://api.allorigins.win/get?url=';
+
+      // Tentative 1 : fetch direct (marche si rss.app envoie les bons headers CORS)
+      // Tentative 2 : via allorigins proxy
+      fetch(rssUrl, { mode: 'cors' })
+        .then(function(r) {
+          if (!r.ok) throw new Error('direct-' + r.status);
+          return r.text();
+        })
+        .catch(function() {
+          return fetch(CORS_PROXY + encodeURIComponent(rssUrl))
+            .then(function(r) { if (!r.ok) throw new Error('proxy-' + r.status); return r.json(); })
+            .then(function(d) { return d.contents; });
+        })
+        .then(function(xmlText) {
+          var parser = new DOMParser();
+          var xml = parser.parseFromString(xmlText, 'application/xml');
+
+          // Détecter les erreurs de parsing
+          var parseErr = xml.querySelector('parsererror');
+          if (parseErr) throw new Error('XML invalide');
+
+          // Extraire les items (RSS 2.0 ou Atom)
+          var items = Array.from(xml.querySelectorAll('item, entry'));
+          if (!items.length) throw new Error('Flux vide ou format non reconnu');
+
+          var feedTitle = (xml.querySelector('channel > title, feed > title') || {}).textContent || source.label;
+
+          var parsed = items.slice(0, 12).map(function(item) {
+            var get = function(sel) {
+              var el = item.querySelector(sel);
+              return el ? el.textContent.trim() : '';
+            };
+            var getAttr = function(sel, attr) {
+              var el = item.querySelector(sel);
+              return el ? (el.getAttribute(attr) || '') : '';
+            };
+
+            // Date
+            var pubDate = get('pubDate') || get('published') || get('updated') || '';
+
+            // Image : chercher dans media:content, enclosure, ou img dans description
+            var img = getAttr('enclosure[type^="image"]', 'url') ||
+                      getAttr('media\:content', 'url') ||
+                      getAttr('media\:thumbnail', 'url') || null;
+            if (!img) {
+              // Chercher une image dans le contenu HTML
+              var desc = get('description') || get('content') || get('content\:encoded') || '';
+              var imgMatch = desc.match(/<img[^>]+src=["']([^"']+)["']/i);
+              if (imgMatch) img = imgMatch[1];
+            }
+
+            // Catégorie
+            var cat = get('category') || '';
+
+            return {
+              title: get('title'),
+              link: get('link') || getAttr('link', 'href'),
+              description: get('description') || get('summary') || get('content'),
+              pubDate: pubDate,
+              thumbnail: img,
+              enclosure: img ? { link: img } : null,
+              categories: cat ? [cat] : []
+            };
+          });
+
+          var cards = parsed.map(buildNewsCard).join('');
+          container.innerHTML =
+            '<div class="news-header">' +
+              '<div class="news-header-title">📰 ' + feedTitle + ' <span class="news-source-badge">' + source.label + '</span></div>' +
+              '<span style="font-size:11px;color:var(--muted);">' + parsed.length + ' article' + (parsed.length > 1 ? 's' : '') + '</span>' +
+            '</div>' +
+            '<div class="news-grid">' + cards + '</div>';
+        })
+        .catch(function(err) {
+          container.innerHTML =
+            '<div class="news-header">' +
+              '<div class="news-header-title">📰 Actualités <span class="news-source-badge">' + source.label + '</span></div>' +
+            '</div>' +
+            '<div class="news-error" style="margin-bottom:16px;">⚠️ Impossible de charger le flux RSS : ' + err.message + '<br><span style="font-size:11px;">Vérifiez l'URL du flux et votre connexion internet (requis : GitHub Pages, pas file://).</span></div>' +
+            buildSetupGuide(source);
+        });
+    }
+
+    // ── Exposer ───────────────────────────────────────────────────────────
+    window._rscc = window._rscc || {};
+    window._rscc._refreshNews = refreshNews;
+
+    // Charger automatiquement quand on clique sur l'onglet News
+    document.addEventListener('click', function(e) {
+      var tab = e.target.closest('[data-tab="news"]');
+      if (tab) {
+        // Petit délai pour laisser le panel s'afficher
+        setTimeout(refreshNews, 50);
+      }
+    });
+
+    // Gestion sélecteur source dans la sidebar
+    document.addEventListener('change', function(e) {
+      if (e.target && e.target.id === 'newsSourceSelect') {
+        var val = e.target.value;
+        try { localStorage.setItem(LS_NEWS_SOURCE, val); } catch(err) {}
+        var wrap = document.getElementById('newsCustomUrlWrap');
+        if (wrap) wrap.style.display = val === 'custom' ? '' : 'none';
+      }
+    });
+
+    // Sauvegarder l'URL custom
+    document.addEventListener('input', function(e) {
+      if (e.target && e.target.id === 'newsCustomUrl') {
+        try { localStorage.setItem(LS_NEWS_CUSTOM, e.target.value); } catch(err) {}
+      }
+    });
+
+    // Restaurer la sélection depuis localStorage au chargement
+    document.addEventListener('DOMContentLoaded', function() {
+      var sel = document.getElementById('newsSourceSelect');
+      if (sel) {
+        var stored = getRssUrl();
+        sel.value = stored;
+        var wrap = document.getElementById('newsCustomUrlWrap');
+        if (wrap) wrap.style.display = stored === 'custom' ? '' : 'none';
+        var custInput = document.getElementById('newsCustomUrl');
+        if (custInput) custInput.value = getCustomUrl();
+      }
+    });
 
   })();
   </script>
