@@ -5972,6 +5972,16 @@
     <div class="settings-body">
       <!-- SECTION 1 : Règle de validation compétences -->
       <div class="settings-section">
+        <h3 class="settings-section-title">📰 Source News par défaut</h3>
+        <p class="settings-info">Flux chargé automatiquement à l'ouverture de l'onglet News.</p>
+        <select id="newsDefaultSource" style="width:100%;padding:6px 10px;border-radius:6px;border:1px solid var(--border);background:var(--chip);color:var(--text);font-size:13px;margin-top:6px;">
+          <option value="ffessm_nat">🇫🇷 FFESSM nationale</option>
+          <option value="subaqua">🤿 Subaqua magazine</option>
+          <option value="ffessm_idf">🗺️ FFESSM Île-de-France</option>
+        </select>
+      </div>
+
+      <div class="settings-section">
         <h3 class="settings-section-title">🎯 Prédiction N1</h3>
         <p class="settings-info">Nombre de dernières séances de présence utilisées pour calculer le rythme d'acquisition.</p>
         <div style="display:flex;align-items:center;gap:10px;margin-top:8px;">
@@ -12193,9 +12203,18 @@
 
     function getRssUrl() {
       try {
-        var stored = localStorage.getItem(LS_NEWS_SOURCE);
-        return stored || 'ffessm_nat';
-      } catch(e) { return 'ffessm_nat'; }
+        // Priorité 1 : choix manuel de la session (sidebar)
+        var manual = localStorage.getItem(LS_NEWS_SOURCE);
+        if (manual) return manual;
+        // Priorité 2 : source par défaut configurée dans les Réglages
+        var stored = localStorage.getItem('rscc_settings_v1');
+        if (stored) {
+          var parsed = JSON.parse(stored);
+          if (parsed && parsed['newsDefaultSource']) return parsed['newsDefaultSource'];
+        }
+      } catch(e) {}
+      // Priorité 3 : FFESSM nationale
+      return 'ffessm_nat';
     }
 
     function getCustomUrl() {
@@ -12441,10 +12460,10 @@
     document.addEventListener('DOMContentLoaded', function() {
       var sel = document.getElementById('newsSourceSelect');
       if (sel) {
-        var stored = getRssUrl();
-        sel.value = stored;
+        var current = getRssUrl();
+        sel.value = current;
         var wrap = document.getElementById('newsCustomUrlWrap');
-        if (wrap) wrap.style.display = stored === 'custom' ? '' : 'none';
+        if (wrap) wrap.style.display = current === 'custom' ? '' : 'none';
         var custInput = document.getElementById('newsCustomUrl');
         if (custInput) custInput.value = getCustomUrl();
       }
@@ -12558,6 +12577,10 @@
       });
       const selMD = document.getElementById('seuilMoniteursDiff');
       if (selMD) selMD.value = SETTINGS.data.seuilMoniteursDiff || 2;
+        // Source news par défaut
+        var ndsEl = document.getElementById('newsDefaultSource');
+        if (ndsEl) ndsEl.value = SETTINGS.data['newsDefaultSource'] || 'ffessm_nat';
+
         // Fenêtre prédiction N1
         var fpEl = document.getElementById('fenetrePrediction');
         if (fpEl) fpEl.value = SETTINGS.data['fenetrePrediction'] || 5;
@@ -12611,6 +12634,19 @@
           SETTINGS.data.seuilMoniteursDiff = parseInt(this.value);
           saveSettings();
           triggerReRenders();
+        });
+      }
+
+      // Source news par défaut
+      var ndsEl2 = document.getElementById('newsDefaultSource');
+      if (ndsEl2) {
+        ndsEl2.addEventListener('change', function() {
+          SETTINGS.data['newsDefaultSource'] = this.value;
+          saveSettings();
+          // Synchroniser le sélecteur dans la sidebar News
+          var sidebar = document.getElementById('newsSourceSelect');
+          if (sidebar) sidebar.value = this.value;
+          try { localStorage.setItem('rscc_news_source', this.value); } catch(e) {}
         });
       }
 
