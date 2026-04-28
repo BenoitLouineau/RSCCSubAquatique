@@ -12382,34 +12382,47 @@
 
           var parsed = items.slice(0, 12).map(function(item) {
             var get = function(sel) {
-              var el = item.querySelector(sel);
-              return el ? el.textContent.trim() : '';
+              try { var el = item.querySelector(sel); return el ? el.textContent.trim() : ''; }
+              catch(e) { return ''; }
             };
             var getAttr = function(sel, attr) {
-              var el = item.querySelector(sel);
-              return el ? (el.getAttribute(attr) || '') : '';
+              try { var el = item.querySelector(sel); return el ? (el.getAttribute(attr) || '') : ''; }
+              catch(e) { return ''; }
             };
 
-            // Date
             var pubDate = get('pubDate') || get('published') || get('updated') || '';
 
-            // Image : chercher dans media:content, enclosure, ou img dans description
-            var img = getAttr('enclosure[type^="image"]', 'url') ||
-                      getAttr('media\:content', 'url') ||
-                      getAttr('media\:thumbnail', 'url') || null;
+            // Image via getElementsByTagNameNS (namespace-safe, évite le bug querySelector)
+            var img = null;
+            try {
+              var mediaNS = 'http://search.yahoo.com/mrss/';
+              var mc = item.getElementsByTagNameNS(mediaNS, 'content');
+              if (mc && mc.length) img = mc[0].getAttribute('url');
+              if (!img) {
+                var mt = item.getElementsByTagNameNS(mediaNS, 'thumbnail');
+                if (mt && mt.length) img = mt[0].getAttribute('url');
+              }
+            } catch(e) {}
+            if (!img) img = getAttr('enclosure', 'url') || null;
             if (!img) {
-              // Chercher une image dans le contenu HTML
-              var desc = get('description') || get('content') || get('content\:encoded') || '';
-              var imgMatch = desc.match(/<img[^>]+src=["']([^"']+)["']/i);
-              if (imgMatch) img = imgMatch[1];
+              var rawDesc = get('description') || get('content') || '';
+              var m = rawDesc.match(/<img[^>]+src=["']([^"']+)["']/i);
+              if (m) img = m[1];
             }
 
-            // Catégorie
             var cat = get('category') || '';
+            var link = '';
+            try {
+              link = get('link');
+              if (!link) {
+                var lel = item.querySelector('link');
+                if (lel) link = lel.getAttribute('href') || lel.textContent.trim();
+              }
+            } catch(e) {}
 
             return {
               title: get('title'),
-              link: get('link') || getAttr('link', 'href'),
+              link: link || '#',
               description: get('description') || get('summary') || get('content'),
               pubDate: pubDate,
               thumbnail: img,
