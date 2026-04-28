@@ -9745,22 +9745,25 @@
       silentMoniteurs.sort(function(a, b) { return a.taux - b.taux; });
 
       // Série temporelle : pour chaque date globale, taux CR (= pour sparkline)
-      const timeSeries = model.allDates.map(function(d) {
-        let tot = 0, rem = 0;
-        model.rawRows.forEach(function(r) {
-          if (r.Date !== d) return;
-          if (!isRealMoniteur(r.Moniteur)) return;
-          if (r.Role !== 'Encadrant' || !r.Eleve) return;
-          tot++;
-          if (r.CR && r.CR.trim()) rem++;
+      // timeSeries filtrée sur la période sélectionnée (filterDates)
+      const timeSeries = model.allDates
+        .filter(function(d) { return filterDates.has(d); })
+        .map(function(d) {
+          let tot = 0, rem = 0;
+          model.rawRows.forEach(function(r) {
+            if (r.Date !== d) return;
+            if (!isRealMoniteur(r.Moniteur)) return;
+            if (r.Role !== 'Encadrant' || !r.Eleve) return;
+            tot++;
+            if (r.CR && r.CR.trim()) rem++;
+          });
+          return {
+            date: d,
+            total: tot,
+            remplis: rem,
+            ratio: tot > 0 ? Math.round((rem / tot) * 100) : 100
+          };
         });
-        return {
-          date: d,
-          total: tot,
-          remplis: rem,
-          ratio: tot > 0 ? Math.round((rem / tot) * 100) : 100 // si aucun encadrement ce jour = 100% par convention
-        };
-      });
 
       // Heatmap : pour chaque date, % CR et nb encadrements (taille de cellule)
       // C'est la même donnée que timeSeries, on la réutilise
@@ -10000,7 +10003,7 @@
       // Libellé de période
       let periodLabel = '';
       if (MonState.periode === 'last-seance') periodLabel = 'dernière séance (' + latestFormatted + ')';
-      else if (MonState.periode === 'month') periodLabel = 'dernières 30 jours';
+      else if (MonState.periode === 'month') periodLabel = 'mois en cours';
       else periodLabel = 'toute la saison';
 
       // Stats
@@ -10084,12 +10087,11 @@
         '</div>' +
       '</div>';
 
-      // Les enrichissements sont toujours calculés sur TOUTE LA SAISON (pour être pertinents)
-      // On force donc un recalcul avec période "season"
+      // Sparkline et heatmap filtrées par la période sélectionnée
+      const sparklineHtml = buildSparkline(crs.timeSeries);
+      const heatmapHtml = buildHeatmap(crs.timeSeries);
+      // Moniteurs silencieux et répartition des rôles toujours sur la saison entière
       const crsSeason = (MonState.periode === 'season') ? crs : computeCRMissing(model, 'season');
-
-      const sparklineHtml = buildSparkline(crsSeason.timeSeries);
-      const heatmapHtml = buildHeatmap(crsSeason.timeSeries);
       const silentHtml = buildSilentMoniteurs(crsSeason.silentMoniteurs);
       const roleSplitHtml = buildRoleSplit(crs);
 
@@ -10098,8 +10100,8 @@
           '<h3 class="cr-widget-title">📮 Suivi des CR <small>— ' + periodLabel + '</small></h3>' +
           '<div class="cr-widget-period">' +
             '<button class="chip-btn' + (MonState.periode === 'last-seance' ? ' active' : '') + '" data-periode="last-seance">Dernière séance</button>' +
-            '<button class="chip-btn' + (MonState.periode === 'month' ? ' active' : '') + '" data-periode="month">30 jours</button>' +
-            '<button class="chip-btn' + (MonState.periode === 'season' ? ' active' : '') + '" data-periode="season">Saison</button>' +
+            '<button class="chip-btn' + (MonState.periode === 'month' ? ' active' : '') + '" data-periode="month">Mois en cours</button>' +
+            '<button class="chip-btn' + (MonState.periode === 'season' ? ' active' : '') + '" data-periode="season">Sur la saison</button>' +
           '</div>' +
         '</div>' +
 
