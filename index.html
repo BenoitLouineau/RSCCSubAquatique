@@ -5800,13 +5800,9 @@
           <h3>⚙️ Source</h3>
           <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">Sélectionnez ou configurez votre source RSS.</div>
           <select id="newsSourceSelect" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--border);background:var(--chip);color:var(--text);font-size:12px;margin-bottom:8px;">
-            <option value="ffessm_nat">🇫🇷 FFESSM nationale</option>
+            <option value="ffessm_nat" selected>🇫🇷 FFESSM nationale</option>
             <option value="subaqua">🤿 Subaqua magazine</option>
             <option value="ffessm_idf">🗺️ FFESSM Île-de-France</option>
-            <option value="codep94" selected>📍 CODEP 94 (défaut)</option>
-            <option value="codep77">📍 CODEP 77</option>
-            <option value="codep75">📍 CODEP 75</option>
-            <option value="codep93">📍 CODEP 93</option>
             <option value="custom">🔗 URL personnalisée</option>
           </select>
           <div id="newsCustomUrlWrap" style="display:none;">
@@ -12172,54 +12168,22 @@
     var LS_NEWS_SOURCE = 'rscc_news_source';
     var LS_NEWS_CUSTOM = 'rscc_news_custom_url';
 
-    // ── Sources prédéfinies ───────────────────────────────────────────────
-    // Toutes passent par rss2json.com (proxy CORS gratuit, 1000 req/jour)
-    // Les URLs RSS.app sont des exemples — à remplacer par vos propres flux créés sur rss.app
+    // ── Sources RSS (flux rss.app — mise à jour automatique) ────────────
     var SOURCES = {
       ffessm_nat: {
         label: '🇫🇷 FFESSM nationale',
-        // ffessm.fr n'a pas de RSS natif → utiliser rss.app proxy
-        // URL à créer sur https://rss.app à partir de https://ffessm.fr/actualites
-        rssUrl: 'https://rss.app/feeds/_placeholder_ffessm_nat.xml',
-        fallback: 'https://ffessm.fr/actualites',
-        note: 'Créer un flux sur rss.app à partir de ffessm.fr/actualites'
+        rssUrl: 'https://rss.app/feeds/9fcJcv6LV6oDq5Lo.xml',
+        fallback: 'https://ffessm.fr/actualites'
       },
       subaqua: {
         label: '🤿 Subaqua magazine',
-        // Subaqua n'a pas de RSS natif → rss.app
-        rssUrl: 'https://rss.app/feeds/_placeholder_subaqua.xml',
-        fallback: 'https://subaqua.ffessm.fr/categorie/actu',
-        note: 'Créer un flux sur rss.app à partir de subaqua.ffessm.fr/categorie/actu'
+        rssUrl: 'https://rss.app/feeds/bo5ZUfMbxLlfAtZG.xml',
+        fallback: 'https://subaqua.ffessm.fr/categorie/actu'
       },
       ffessm_idf: {
         label: '🗺️ FFESSM Île-de-France',
-        rssUrl: 'https://rss.app/feeds/_placeholder_idf.xml',
-        fallback: 'https://ffessm-idf.fr',
-        note: 'Créer un flux sur rss.app à partir de ffessm-idf.fr'
-      },
-      codep94: {
-        label: '📍 CODEP 94',
-        rssUrl: 'https://rss.app/feeds/_placeholder_94.xml',
-        fallback: 'https://ffessm-idf.fr',
-        note: 'Créer un flux sur rss.app à partir du site CODEP 94'
-      },
-      codep77: {
-        label: '📍 CODEP 77',
-        rssUrl: 'https://rss.app/feeds/_placeholder_77.xml',
-        fallback: 'http://www.ffessm77.fr',
-        note: 'Créer un flux sur rss.app à partir de ffessm77.fr'
-      },
-      codep75: {
-        label: '📍 CODEP 75 Paris',
-        rssUrl: 'https://rss.app/feeds/_placeholder_75.xml',
-        fallback: 'https://www.ffessm-cd75.org',
-        note: 'Créer un flux sur rss.app à partir de ffessm-cd75.org'
-      },
-      codep93: {
-        label: '📍 CODEP 93',
-        rssUrl: 'https://rss.app/feeds/_placeholder_93.xml',
-        fallback: 'https://ffessm-idf.fr',
-        note: 'Créer un flux sur rss.app à partir du site CODEP 93'
+        rssUrl: 'https://rss.app/feeds/Cm1ORKiKFV6PVTOL.xml',
+        fallback: 'https://ffessm-idf.fr'
       },
     };
 
@@ -12230,8 +12194,8 @@
     function getRssUrl() {
       try {
         var stored = localStorage.getItem(LS_NEWS_SOURCE);
-        return stored || 'codep94';
-      } catch(e) { return 'codep94'; }
+        return stored || 'ffessm_nat';
+      } catch(e) { return 'ffessm_nat'; }
     }
 
     function getCustomUrl() {
@@ -12304,15 +12268,9 @@
     // ── Rendu guide de configuration ──────────────────────────────────────
     function buildSetupGuide(source) {
       return '<div class="news-setup-info">' +
-        '<h3>⚙️ Configuration requise</h3>' +
-        '<p style="color:var(--muted);margin-bottom:12px;">Les sites FFESSM ne proposent pas de flux RSS natifs. Il faut créer un proxy RSS en 3 étapes :</p>' +
-        '<ol>' +
-          '<li>Aller sur <a href="https://rss.app" target="_blank" rel="noopener"><strong>rss.app</strong></a> (gratuit, 3 flux max)</li>' +
-          '<li>Coller cette URL : <code>' + source.fallback + '</code></li>' +
-          '<li>Copier l\'URL du flux généré (format <code>https://rss.app/feeds/xxx.xml</code>)</li>' +
-          '<li>Dans la sidebar → Source → <strong>URL personnalisée</strong> → coller l\'URL</li>' +
-        '</ol>' +
-        '<p style="margin-top:12px;font-size:11px;color:var(--muted);">Alternative gratuite : <a href="https://fetchrss.com" target="_blank" rel="noopener">fetchrss.com</a> ou <a href="https://www.feedfry.com" target="_blank" rel="noopener">feedfry.com</a></p>' +
+        '<h3>🔗 Source personnalisée</h3>' +
+        '<p style="color:var(--muted);margin-bottom:10px;">Pour ajouter une source, créez un flux sur <a href="https://rss.app" target="_blank" rel="noopener">rss.app</a> puis collez l\'URL dans la sidebar.</p>' +
+        '<p style="font-size:11px;color:var(--muted);">Format : <code>https://rss.app/feeds/xxx.xml</code></p>' +
       '</div>';
     }
 
