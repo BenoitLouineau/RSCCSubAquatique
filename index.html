@@ -204,8 +204,8 @@
       border: none;
       color: var(--muted);
       padding: 10px 16px;
-      font-size: 14px;
-      font-weight: 600;
+      font-size: 15px;
+      font-weight: 500;
       border-bottom: 3px solid transparent;
       white-space: nowrap;
       display: inline-flex;
@@ -5803,6 +5803,7 @@
             <option value="ffessm_nat" selected>🇫🇷 FFESSM nationale</option>
             <option value="subaqua">🤿 Subaqua magazine</option>
             <option value="ffessm_idf">🗺️ FFESSM Île-de-France</option>
+            <option value="codep75">📍 CODEP 75 Paris</option>
             <option value="custom">🔗 URL personnalisée</option>
           </select>
           <div id="newsCustomUrlWrap" style="display:none;">
@@ -5978,6 +5979,7 @@
           <option value="ffessm_nat">🇫🇷 FFESSM nationale</option>
           <option value="subaqua">🤿 Subaqua magazine</option>
           <option value="ffessm_idf">🗺️ FFESSM Île-de-France</option>
+          <option value="codep75">📍 CODEP 75 Paris</option>
         </select>
       </div>
 
@@ -12194,6 +12196,11 @@
         label: '🗺️ FFESSM Île-de-France',
         rssUrl: 'https://rss.app/feeds/Cm1ORKiKFV6PVTOL.xml',
         fallback: 'https://ffessm-idf.fr'
+      },
+      codep75: {
+        label: '📍 CODEP 75 Paris',
+        rssUrl: 'https://rss.app/feeds/AYkEAQAwVq24KthY.xml',
+        fallback: 'https://www.ffessm-cd75.org/index.php'
       },
     };
 
