@@ -434,6 +434,20 @@
     "CR": "Gros atelier ce soir avec un passage en revue de quasiment toutes les compétences\nSaut droit équipé OK, Lamage surface puis canard équipé OK\nSignes et LRE/DBN/VDM validé\nSeul signe pas testé ce soir c'était essoufflement car j'ai oublié\n\nPuis passage en activité équilibrée :\nSignes/ communication OK\nReste en point a continuer : stabilisation maintenu plus de 2 minutes\nDès qu'un évènement vient le perturber, il a tendance à reprendre une ventilation importante et cela vient perturber son équilibrage,\nPalmage entre 2 eaux avec séquence de signes aléatoires = toutes les réponses sont bonnes et quasi immédiates\nEnfin la REC avec un palier pui 360 et signe en surface ==> OK pour moi\nGréage/Dégréage complet désormais bien autonome ==> Ok pour moi"
   },
   {
+    "Moniteur": "Benoit L.",
+    "Date": "2026-04-21",
+    "Eleve": "JEREMIE",
+    "Role": "Encadrant",
+    "CR": "2eme partie \nAtelier et jeux de poids pour la stabilisation \nPour Robin et Jérémie avec +1 ou -1 kilo de plomb c'est géré sans trop de variation, pour 2 kilos c'est un peu plus compliqué....\nRobin est à mon sens un peu trop oblique voir vertical alors que l'attendu est une position horizontale."
+  },
+  {
+    "Moniteur": "Benoit L.",
+    "Date": "2026-04-28",
+    "Eleve": "JEREMIE",
+    "Role": "Encadrant",
+    "CR": "Séance encadrée par Vero et Ben's pour ce soir avec Jérémie. Exercices multiples et variés pour la statbilisation. Cage / arceaux, lestage simple a complexe, gestion d'accessoires a prendre et transporté. Chaque exercice a été bien traité par Jérémie."
+  },
+  {
     "Moniteur": "Carine",
     "Date": "2025-10-21",
     "Eleve": "TIMEO",
@@ -684,6 +698,13 @@
     "Eleve": "ROBIN",
     "Role": "Encadrant",
     "CR": "Bonjour, pour Robin\nLRE sur expiration et inspiration ok\nPanne d'air avec Octopus receveur et donneur ok\nOn a fait panne d'air avec échange d'embout simulé ok.\nTout cela en statique. \nVidage de masque, il le fait spontanément. \nDonne sa conso.\nJe l'ai un peu sollicité pour répondre à la question ok, mais ok. \nÉquilibrage. Se débrouille bien surtout s'il y fait bien attention sur consigne. Sinon se laisse un peu porter.\nGréage à l'envers, il a commencé par le détendeur. Pas encore très automatique.\nBien à l'aise malgré tout et plus d'écoute et de respect des consignes."
+  },
+  {
+    "Moniteur": "Véronique",
+    "Date": "2026-04-21",
+    "Eleve": "ROBIN",
+    "Role": "Encadrant",
+    "CR": "Première partie, examen de théorie avec Robin, veuillez excuser Benoît qui était enrhubé! Mais qui a tout dit. Robin s'est débrouillé comme un chef, je ne l'ai pas reconnu !"
   },
   {
     "Moniteur": "Hervé",
@@ -1127,25 +1148,11 @@
     "CR": "Victor : Timéo \n\nHello Eddy. On a plongé 30min . Fin de plongée à 90bars pour Timeo. RAS sur les exos. Bonnes réactions aux signes panne d'air/ consommation. LRE VDM ok. Bonne stabilité même à la remontée. Il ne s'est pas laissé emporter vers la surface. Bonne gestion de la stab et du  PB. J'ai aperçu qu'il avait froid à la fin (tremblement ) mais il dit que ça va. C'est peut être le point de vigilance a avoir pour les sorties mer. C'était une très belle première plongée à 20m. Bien formé !"
   },
   {
-    "Moniteur": "Véronique",
-    "Date": "2026-04-21",
-    "Eleve": "ROBIN",
-    "Role": "Encadrant",
-    "CR": "Première partie, examen de théorie avec Robin, veuillez excuser Benoît qui était enrhubé! Mais qui a tout dit. Robin s'est débrouillé comme un chef, je ne l'ai pas reconnu !"
-  },
-  {
     "Moniteur": "Benoit L.",
     "Date": "2026-04-21",
     "Eleve": "ROBIN",
     "Role": "Encadrant",
     "CR": "Première partie, examen de théorie avec Robin, veuillez excuser Benoît qui était enrhubé! Mais qui a tout dit. Robin s'est débrouillé comme un chef, je ne l'ai pas reconnu ! \nDeuxième jeu d'équilibrage avec plombs comme l'a expliqué Benoît."
-  },
-  {
-    "Moniteur": "Benoit L.",
-    "Date": "2026-04-21",
-    "Eleve": "JEREMIE",
-    "Role": "Encadrant",
-    "CR": "2eme partie \nAtelier et jeux de poids pour la stabilisation \nPour Robin et Jérémie avec +1 ou -1 kilo de plomb c'est géré sans trop de variation, pour 2 kilos c'est un peu plus compliqué....\nRobin est à mon sens un peu trop oblique voir vertical alors que l'attendu est une position horizontale."
   },
   {
     "Moniteur": "Benoit P.",
@@ -1160,12 +1167,5 @@
     "Eleve": "JUDICAËL",
     "Role": "Encadrant",
     "CR": "Deuxième jeu d'équilibrage avec plombs comme l'a expliqué Benoît. \nJudicaël n'est pas encore au top. Il n'arrête pas de gonfler, dégonfler et fait du yoyo sans arrêt. Il faudrait lui enlever 😂. \nDonc pas d'expérimentation avec les poids. \nStéphane a réussi à compenser. C'est ok."
-  },
-  {
-    "Moniteur": "Benoit L.",
-    "Date": "2026-04-28",
-    "Eleve": "JEREMIE",
-    "Role": "Encadrant",
-    "CR": "Séance encadrée par Vero et Ben's pour ce soir avec Jérémie. Exercices multiples et variés pour la statbilisation. Cage / arceaux, lestage simple a complexe, gestion d'accessoires a prendre et transporté. Chaque exercice a été bien traité par Jérémie."
   }
 ]
