@@ -787,6 +787,21 @@
       position: relative;
     }
 
+    /* Colonne Élève figée sur mobile */
+    .synthese-table th:first-child,
+    .synthese-table td:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 2;
+      background: var(--card);
+      box-shadow: 2px 0 6px rgba(0,0,0,0.08);
+    }
+
+    .synthese-table th:first-child {
+      background: var(--card);
+      z-index: 3;
+    }
+
     .synthese-table th.sortable {
       cursor: pointer;
       user-select: none;
@@ -2477,6 +2492,22 @@
       text-align: center;
     }
 
+    /* Colonne Élève figée sur mobile */
+    .coord-table th:first-child,
+    .coord-table td:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 2;
+      background: var(--card);
+      box-shadow: 2px 0 6px rgba(0,0,0,0.08);
+      text-align: left;
+    }
+
+    .coord-table th:first-child {
+      background: var(--chip);
+      z-index: 3;
+    }
+
     .coord-cell-0  { background: var(--chip); color: var(--muted); }
     .coord-cell-lo { background: rgba(6,182,212,0.08); }
     .coord-cell-md { background: rgba(6,182,212,0.2); font-weight: 700; }
@@ -3162,6 +3193,104 @@
     .cache-indicator.cached  .cache-dot { background: var(--warn); }
     .cache-indicator.offline .cache-dot { background: var(--bad); }
 
+    /* ── Radar chart ── */
+    .radar-section {
+      margin-top: 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+    }
+
+    .radar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .radar-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .radar-tabs {
+      display: flex;
+      gap: 4px;
+    }
+
+    .radar-tab-btn {
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--chip);
+      color: var(--muted);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .radar-tab-btn.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(6,182,212,0.1);
+    }
+
+    .radar-cat-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+
+    .radar-cat-btn {
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--chip);
+      color: var(--muted);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .radar-cat-btn.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(6,182,212,0.1);
+    }
+
+    .radar-wrap {
+      position: relative;
+      height: 280px;
+    }
+
+    .radar-legend {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      margin-top: 6px;
+      font-size: 11px;
+      flex-wrap: wrap;
+    }
+
+    .radar-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .radar-legend-dot {
+      width: 10px;
+      height: 3px;
+      border-radius: 2px;
+    }
+
     /* Helper hidden */
     .hidden { display: none !important; }
 
@@ -3389,6 +3518,18 @@
       user-select: none;
     }
 
+    .synthese-table th:first-child,
+    .synthese-table td:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 2;
+      background: var(--card);
+      box-shadow: 2px 0 6px rgba(0,0,0,0.08);
+    }
+
+    .synthese-table th:first-child { z-index: 3; }
+
+
     .synthese-table th.sortable:hover { color: var(--accent); }
     .synthese-table th.sort-asc::after  { content: ' ↑'; color: var(--accent); }
     .synthese-table th.sort-desc::after { content: ' ↓'; color: var(--accent); }
@@ -3418,7 +3559,7 @@
     /* =====================================================================
        BOUTON FLOTTANT "Remonter en haut" (commun aux 3 onglets)
        Apparaît uniquement après 400px de scroll, position fixe bas-droite.
-       Contextuel : cible l'élément pertinent selon l'onglet actif
+       Contextuel : cible l'élément pertinent selon l\'onglet actif
        (synthèse Élèves, widget CR Moniteurs, tableau Croisée).
        ===================================================================== */
     .back-to-top {
@@ -6080,7 +6221,7 @@
       <!-- SECTION 1 : Règle de validation compétences -->
       <div class="settings-section">
         <h3 class="settings-section-title">📰 Source News par défaut</h3>
-        <p class="settings-info">Flux chargé automatiquement à l'ouverture de l'onglet News.</p>
+        <p class="settings-info">Flux chargé automatiquement à l'ouverture de l\'onglet News.</p>
         <select id="newsDefaultSource" style="width:100%;padding:6px 10px;border-radius:6px;border:1px solid var(--border);background:var(--chip);color:var(--text);font-size:13px;margin-top:6px;">
           <option value="ffessm_nat">🇫🇷 FFESSM nationale</option>
           <option value="subaqua">🤿 Subaqua magazine</option>
@@ -6111,7 +6252,7 @@
 
       <div class="settings-section">
         <h3 class="settings-section-title">⚠️ Seuils alertes absences</h3>
-        <p class="settings-info">Définit les seuils de taux d'absence déclenchant les alertes dans l'onglet Analyse.</p>
+        <p class="settings-info">Définit les seuils de taux d'absence déclenchant les alertes dans l\'onglet Analyse.</p>
         <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px;">
           <label style="font-size:13px;display:flex;align-items:center;gap:10px;">
             <span style="min-width:160px;color:var(--muted);">🟠 Préoccupant si ></span>
@@ -6381,12 +6522,28 @@
           iconSun.classList.remove('hidden');
           iconMoon.classList.add('hidden');
         }
-        // Re-rendre les charts moniteurs pour mettre à jour la couleur du texte central
+        // Re-rendre charts moniteurs (donuts)
         setTimeout(function() {
           (window._rscc_monCharts || []).forEach(function(c) {
             try { c.update('none'); } catch(e) {}
           });
         }, 30);
+
+        // Re-render radars (Analyse + Moniteurs) avec nouvelles couleurs
+        setTimeout(function() {
+          // Radar Analyse élève
+          var rawE = window._rscc_RAW_ELEVES || [];
+          if (rawE.length && window.AnalyseState && window.AnalyseState.eleveActif) {
+            try { renderRadarChart(window.AnalyseState.eleveActif, rawE); } catch(e) {}
+          }
+          // Radars moniteurs
+          if (window._rscc_MonState && window._rscc_MonState.model && window._rscc_MonState.model.moniteurs) {
+            window._rscc_MonState.model.moniteurs.forEach(function(m) {
+              var id = m.nom.replace(/[^a-z0-9]/gi, '');
+              try { renderMonRadar(m.nom, id); } catch(e) {}
+            });
+          }
+        }, 50);
       }
 
       function getEffective() {
@@ -7257,7 +7414,11 @@
       // computeAggOnSessions y accède dès le premier render élèves
       // Alimente les variables partagées pour les renderers
       // Exposer les données brutes pour les re-renders déclenchés par les réglages
-      if (STATE.rawEleves)    window._rscc_RAW_ELEVES    = STATE.rawEleves;
+      if (STATE.rawEleves) {
+        window._rscc_RAW_ELEVES = STATE.rawEleves;
+        // Mettre à jour MonState pour le radar moniteur
+        if (window._rscc_MonState) window._rscc_MonState.rawEleves = STATE.rawEleves;
+      }
       if (STATE.rawExamens)   window._rscc_RAW_EXAMENS   = STATE.rawExamens;
       if (STATE.rawMoniteurs) {
         window._rscc_RAW_MONITEURS = STATE.rawMoniteurs;
@@ -7269,7 +7430,7 @@
         try { window._rscc.renderEleves(STATE.rawEleves); } catch(e) { console.error(e); }
       }
       if (window._rscc.renderMoniteurs && STATE.rawMoniteurs) {
-        try { window._rscc.renderMoniteurs(STATE.rawMoniteurs); } catch(e) { console.error(e); }
+        try { window._rscc.renderMoniteurs(STATE.rawMoniteurs, STATE.rawEleves); } catch(e) { console.error(e); }
       }
 
       if (window._rscc.renderExamens && STATE.rawExamens) {
@@ -8193,7 +8354,7 @@
 
     /**
      * Prédiction N1 pour la fiche élève (Phase 2)
-     * Calcule le rythme d'acquisition et estime quand l'élève atteindra 53/53
+     * Calcule le rythme d'acquisition et estime quand l\'élève atteindra 53/53
      */
     function buildPredictionN1(s) {
       if (!s || !s.lastSessions) return '';
@@ -9354,7 +9515,7 @@
 
     // Hook additionnel : quand les moniteurs arrivent, on reconstruit l'index CR
     // et on re-render les timelines (sans tout casser)
-    window._rscc.refreshElevesCR = function(rawMoniteurs) {
+    window._rscc.refreshElevesCR = function(rawMoniteurs, rawEleves) {
       window._rscc_RAW_MONITEURS = rawMoniteurs;
       if (EleveState.model) {
         EleveState.crIndex = buildCRIndex(rawMoniteurs);
@@ -10276,6 +10437,8 @@
           '<div class="mon-sessions-grid">' + lastSessionsHtml + '</div>' +
         '</div>' +
 
+        buildMonRadarHtml(m.nom, id) +
+
         '<div class="mon-groups">' +
           '<div class="mon-group">' +
             '<div class="mon-group-title">Élèves suivis <span class="count">(' + m.suivis.length + ')</span></div>' +
@@ -10290,6 +10453,175 @@
         '</div>' +
 
       '</section>';
+    }
+
+    // =====================================================================
+    // RADAR MONITEUR
+    // =====================================================================
+    var MonRadarState = {}; // { monId: { mode, activeCat, chart } }
+
+    function buildMonRadarHtml(monNom, monId) {
+      var state = MonRadarState[monId] || { mode: 'categories', activeCat: null };
+      MonRadarState[monId] = state;
+      var rawE = (MonState.rawEleves && MonState.rawEleves.length)
+        ? MonState.rawEleves
+        : (window._rscc_RAW_ELEVES || []);
+
+      // Catégories disponibles
+      var cats = {};
+      rawE.forEach(function(r) {
+        if (!r.categorie || !r.competence) return;
+        if (!cats[r.categorie]) cats[r.categorie] = new Set();
+        cats[r.categorie].add(r.competence);
+      });
+      var catNames = Object.keys(cats).sort();
+
+      // Élèves encadrés par ce moniteur
+      var elevesEncadres = Array.from(new Set(
+        rawE.filter(function(r) { return r.moniteur === monNom && r.presence === 'Présent'; })
+            .map(function(r) { return r.eleve; }).filter(Boolean)
+      )).sort();
+
+      var tabsHtml =
+        '<button class="radar-tab-btn' + (state.mode === 'categories' ? ' active' : '') +
+          '" data-mon-radar-mode="categories" data-mon-id="' + monId + '">Par catégorie</button>' +
+        '<button class="radar-tab-btn' + (state.mode === 'eleves' ? ' active' : '') +
+          '" data-mon-radar-mode="eleves" data-mon-id="' + monId + '">Par élève</button>';
+
+      // Boutons catégories pour zoom (mode catégories)
+      var catBtnsHtml = state.mode === 'categories' && catNames.length
+        ? '<div class="radar-cat-btns">' +
+            catNames.map(function(c) {
+              var short = c.replace('Evoluer dans l\'eau - ', '').replace('Evoluer dans l\'eau', 'Evoluer').substring(0, 18);
+              return '<button class="radar-cat-btn' + (state.activeCat === c ? ' active' : '') +
+                '" data-mon-cat="' + c.replace(/"/g, '&quot;') + '" data-mon-id="' + monId + '">' + short + '</button>';
+            }).join('') +
+          '</div>'
+        : '';
+
+      return '<div class="radar-section" id="monRadar-' + monId + '" style="margin-top:14px;">' +
+        '<div class="radar-header">' +
+          '<span class="radar-title">🕸️ Radar pédagogique</span>' +
+          '<div class="radar-tabs">' + tabsHtml + '</div>' +
+        '</div>' +
+        catBtnsHtml +
+        '<div class="radar-wrap"><canvas id="monRadarCanvas-' + monId + '"></canvas></div>' +
+        '<div class="radar-legend">' +
+          '<div class="radar-legend-item"><div class="radar-legend-dot" style="background:rgba(168,85,247,0.8);"></div>' +
+            '<span>🥽 ' + monNom + '</span></div>' +
+          (state.mode === 'categories'
+            ? '<div class="radar-legend-item"><div class="radar-legend-dot" style="' +
+                (document.documentElement.getAttribute('data-theme') === 'light'
+                  ? 'background:rgba(100,116,139,0.6);'
+                  : 'background:rgba(255,255,255,0.4);border:1px dashed rgba(255,255,255,0.4);') +
+              '"></div><span>Moyenne groupe</span></div>'
+            : '') +
+        '</div>' +
+      '</div>';
+    }
+
+    function renderMonRadar(monNom, monId) {
+      var canvas = document.getElementById('monRadarCanvas-' + monId);
+      if (!canvas) return;
+      var state = MonRadarState[monId] || { mode: 'categories', activeCat: null };
+      var rawE = (MonState.rawEleves && MonState.rawEleves.length)
+        ? MonState.rawEleves
+        : (window._rscc_RAW_ELEVES || []);
+      if (!rawE.length) return;
+      var C = getRadarColors();
+      var isLight = C.isLight;
+      var gridColor = C.grid;
+      var tickColor = C.tick;
+
+      // Détruire chart existant
+      if (state.chart) { try { state.chart.destroy(); } catch(e) {} state.chart = null; }
+
+      var labels, monData, groupData;
+
+      if (state.mode === 'categories') {
+        // Vue par catégorie — % compétences acquises lors des séances de ce moniteur
+        var cats = {};
+        rawE.forEach(function(r) {
+          if (!r.categorie || !r.competence) return;
+          if (!cats[r.categorie]) cats[r.categorie] = { monAcquis: new Set(), monTotal: new Set(), grpAcquis: new Set(), grpTotal: new Set() };
+          cats[r.categorie].grpTotal.add(r.eleve + '|' + r.competence);
+          if (r.statut === 'Acquis') cats[r.categorie].grpAcquis.add(r.eleve + '|' + r.competence);
+          if (r.moniteur === monNom && r.presence === 'Présent') {
+            cats[r.categorie].monTotal.add(r.eleve + '|' + r.competence);
+            if (r.statut === 'Acquis') cats[r.categorie].monAcquis.add(r.eleve + '|' + r.competence);
+          }
+        });
+        var catNames = Object.keys(cats).sort();
+        labels = catNames.map(function(c) { return c.replace('Evoluer dans l\'eau - ', '').replace('Evoluer dans l\'eau', 'Evoluer'); });
+        monData = catNames.map(function(c) {
+          var v = cats[c];
+          return v.monTotal.size ? Math.round(v.monAcquis.size / v.monTotal.size * 100) : 0;
+        });
+        groupData = catNames.map(function(c) {
+          var v = cats[c];
+          return v.grpTotal.size ? Math.round(v.grpAcquis.size / v.grpTotal.size * 100) : 0;
+        });
+
+      } else {
+        // Vue par élève — % compétences acquises par cet élève sous ce moniteur
+        var elevesMap = {};
+        rawE.forEach(function(r) {
+          if (r.moniteur !== monNom || r.presence !== 'Présent' || !r.eleve || !r.competence) return;
+          if (!elevesMap[r.eleve]) elevesMap[r.eleve] = { acquis: new Set(), total: new Set() };
+          elevesMap[r.eleve].total.add(r.competence);
+          if (r.statut === 'Acquis') elevesMap[r.eleve].acquis.add(r.competence);
+        });
+        labels = Object.keys(elevesMap).sort();
+        monData = labels.map(function(e) {
+          var v = elevesMap[e];
+          return v.total.size ? Math.round(v.acquis.size / v.total.size * 100) : 0;
+        });
+        groupData = null; // pas de comparaison en vue élèves
+      }
+
+      var datasets = [{
+        label: monNom,
+        data: monData,
+        borderColor: 'rgba(168,85,247,0.9)',
+        backgroundColor: 'rgba(168,85,247,0.15)',
+        borderWidth: 2,
+        pointRadius: 3,
+        pointBackgroundColor: 'rgba(168,85,247,1)'
+      }];
+
+      if (groupData) {
+        datasets.push({
+          label: 'Moyenne groupe',
+          data: groupData,
+          borderColor: C.groupLine,
+          backgroundColor: C.groupFill,
+          borderWidth: 1.5,
+          borderDash: [4, 3],
+          pointRadius: 2,
+          pointBackgroundColor: C.groupLine
+        });
+      }
+
+      state.chart = new Chart(canvas, {
+        type: 'radar',
+        data: { labels: labels, datasets: datasets },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: function(ctx) { return ctx.dataset.label + ' : ' + ctx.raw + '%'; } } }
+          },
+          scales: {
+            r: {
+              min: 0, max: 100,
+              ticks: { stepSize: 25, color: C.tick, font: { size: 9 }, backdropColor: 'transparent', callback: function(v) { return v + '%'; } },
+              grid: { color: C.grid },
+              angleLines: { color: C.angleLine },
+              pointLabels: { color: C.label, font: { size: 10 } }
+            }
+          }
+        }
+      });
     }
 
     // =====================================================================
@@ -10447,6 +10779,37 @@
       }
 
       main.addEventListener('click', function(e) {
+
+        // Radar moniteur — toggle mode
+        var monRadarMode = e.target.closest('[data-mon-radar-mode]');
+        if (monRadarMode) {
+          var monId = monRadarMode.dataset.monId;
+          if (!MonRadarState[monId]) MonRadarState[monId] = { mode: 'categories', activeCat: null };
+          MonRadarState[monId].mode = monRadarMode.dataset.monRadarMode;
+          MonRadarState[monId].activeCat = null;
+          // Rebuilder juste la section radar
+          var section = document.getElementById('monRadar-' + monId);
+          var mon = MonState.model.moniteurs.find(function(m) { return m.nom.replace(/[^a-z0-9]/gi,'') === monId; });
+          if (section && mon) {
+            section.outerHTML = buildMonRadarHtml(mon.nom, monId);
+            requestAnimationFrame(function() { renderMonRadar(mon.nom, monId); });
+          }
+          return;
+        }
+
+        // Radar moniteur — zoom catégorie
+        var monCatBtn = e.target.closest('[data-mon-cat]');
+        if (monCatBtn) {
+          var monId2 = monCatBtn.dataset.monId;
+          if (!MonRadarState[monId2]) MonRadarState[monId2] = { mode: 'categories', activeCat: null };
+          MonRadarState[monId2].activeCat = monCatBtn.dataset.monCat;
+          var mon2 = MonState.model.moniteurs.find(function(m) { return m.nom.replace(/[^a-z0-9]/gi,'') === monId2; });
+          if (mon2) renderMonRadar(mon2.nom, monId2);
+          main.querySelectorAll('[data-mon-cat][data-mon-id="' + monId2 + '"]').forEach(function(b) { b.classList.remove('active'); });
+          monCatBtn.classList.add('active');
+          return;
+        }
+
         // Période widget CR
         const periodBtn = e.target.closest('.cr-widget-period .chip-btn');
         if (periodBtn) {
@@ -10598,10 +10961,12 @@
     // =====================================================================
     // POINT D'ENTRÉE
     // =====================================================================
-    function renderMoniteurs(rawMoniteurs) {
+    function renderMoniteurs(rawMoniteurs, rawElevesParam) {
       if (!rawMoniteurs || rawMoniteurs.length === 0) return;
 
       MonState.rawData = rawMoniteurs;
+      // Stocker rawEleves — priorité au paramètre direct, fallback window global
+      MonState.rawEleves = rawElevesParam || window._rscc_RAW_ELEVES || [];
 
       // Fusion O(n) avec un Set de clés :
       // rawMoniteurs  = DP + Encadrants avec CR rédigés (affichage)
@@ -10655,6 +11020,15 @@
 
         // Créer les donuts après insertion DOM
         setTimeout(function() { createDonuts(MonState.model); }, 50);
+        // Radars moniteurs — rendu après injection DOM
+        requestAnimationFrame(function() {
+          if (MonState.model && MonState.model.moniteurs) {
+            MonState.model.moniteurs.forEach(function(m) {
+              var id = m.nom.replace(/[^a-z0-9]/gi, '');
+              renderMonRadar(m.nom, id);
+            });
+          }
+        });
       }
 
       // Attacher interactions (une seule fois normalement)
@@ -10844,8 +11218,11 @@
     }
 
 
-    window._rscc.renderMoniteurs = function(rawMoniteurs) {
-      renderMoniteurs(rawMoniteurs);
+    window._rscc_MonState = MonState; // exposé pour postLoadProcess
+    window.renderMonRadar = renderMonRadar;  // exposé pour toggle thème
+
+    window._rscc.renderMoniteurs = function(rawMoniteurs, rawEleves) {
+      renderMoniteurs(rawMoniteurs, rawEleves);
     };
 
     window._rscc.renderExamens = function(rawExamens) {
@@ -10912,8 +11289,11 @@
         };
         if (r.date) {
           model[e].seancesTotal.add(r.date);
-          if (r.presence === 'Présent') model[e].seancesPresent.add(r.date);
-          if (!model[e].lastDate || r.date > model[e].lastDate) model[e].lastDate = r.date;
+          if (r.presence === 'Présent') {
+            model[e].seancesPresent.add(r.date);
+            // lastDate = dernière séance où l'élève était PRÉSENT (pas juste inscrit)
+            if (!model[e].lastDate || r.date > model[e].lastDate) model[e].lastDate = r.date;
+          }
         }
         if (r.statut === 'Acquis') model[e].acquis.add(r.competence);
       });
@@ -11221,6 +11601,200 @@
 
     // ── Zoom élève ────────────────────────────────────────────────────────
 
+    // ── Radar State ─────────────────────────────────────────────────────
+    var RadarState = {
+      mode: 'categories',   // 'categories' | 'zoom-cat'
+      activeCat: null,      // catégorie zoomée
+      chart: null
+    };
+
+    /** Construit le radar chart par catégorie ou par compétences d'une catégorie */
+    function buildRadarChart(eleveName, rawEleves) {
+      // Construire modèle élève et groupe
+      var cats = {};
+      var groupCats = {};
+
+      rawEleves.forEach(function(r) {
+        if (!r.categorie || !r.competence) return;
+        var cat = r.categorie;
+        if (!cats[cat]) cats[cat] = { total: new Set(), acquis: new Set() };
+        if (!groupCats[cat]) groupCats[cat] = {};
+        if (!groupCats[cat][r.competence]) groupCats[cat][r.competence] = { total: new Set(), acquis: new Set() };
+        cats[cat].total.add(r.competence);
+        groupCats[cat][r.competence].total.add(r.eleve);
+        if (r.eleve === eleveName && r.statut === 'Acquis') cats[cat].acquis.add(r.competence);
+        if (r.statut === 'Acquis') groupCats[cat][r.competence].acquis.add(r.eleve);
+      });
+
+      var catNames = Object.keys(cats).sort();
+
+      // Boutons catégories pour le zoom
+      var catBtnsHtml = catNames.map(function(c) {
+        var short = c.replace('Evoluer dans l\'eau - ', '').replace('Evoluer dans l\'eau', 'Evoluer').substring(0, 18);
+        return '<button class="radar-cat-btn' + (RadarState.activeCat === c ? ' active' : '') +
+          '" data-cat="' + c.replace(/"/g, '&quot;') + '">' + short + '</button>';
+      }).join('');
+
+      var radarCanvasId = 'radarCanvas_' + eleveName.replace(/[^a-z0-9]/gi, '');
+
+      return '<div class="radar-section">' +
+        '<div class="radar-header">' +
+          '<span class="radar-title">🕸️ Radar des compétences</span>' +
+          '<div class="radar-tabs">' +
+            '<button class="radar-tab-btn' + (RadarState.mode === 'categories' ? ' active' : '') + '" data-radar-mode="categories">Par catégorie</button>' +
+            '<button class="radar-tab-btn' + (RadarState.mode === 'zoom-cat' ? ' active' : '') + '" data-radar-mode="zoom-cat">Zoom catégorie</button>' +
+          '</div>' +
+        '</div>' +
+        (RadarState.mode === 'zoom-cat'
+          ? '<div class="radar-cat-btns" id="radarCatBtns">' + catBtnsHtml + '</div>'
+          : '') +
+        '<div class="radar-wrap"><canvas id="' + radarCanvasId + '"></canvas></div>' +
+        '<div class="radar-legend">' +
+          '<div class="radar-legend-item"><div class="radar-legend-dot" style="background:rgba(6,182,212,0.8);"></div><span>🏊 ' + eleveName + '</span></div>' +
+          '<div class="radar-legend-item"><div class="radar-legend-dot" style="' +
+            (document.documentElement.getAttribute('data-theme') === 'light'
+              ? 'background:rgba(100,116,139,0.6);'
+              : 'background:rgba(255,255,255,0.4);border:1px dashed rgba(255,255,255,0.4);') +
+          '"></div><span>Moyenne groupe</span></div>' +
+        '</div>' +
+      '</div>';
+    }
+
+    /** Dessine le radar après insertion dans le DOM */
+    function getRadarColors() {
+      var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      return {
+        isLight:    isLight,
+        grid:       isLight ? 'rgba(0,0,0,0.12)'   : 'rgba(255,255,255,0.12)',
+        tick:       isLight ? '#475569'             : '#94a3b8',
+        label:      isLight ? '#1e293b'             : '#cbd5e1',
+        angleLine:  isLight ? 'rgba(0,0,0,0.12)'   : 'rgba(255,255,255,0.12)',
+        groupLine:  isLight ? 'rgba(71,85,105,0.7)' : 'rgba(255,255,255,0.5)',
+        groupFill:  isLight ? 'rgba(71,85,105,0.08)': 'rgba(255,255,255,0.06)',
+      };
+    }
+
+    function renderRadarChart(eleveName, rawEleves) {
+      var cats = {};
+      var groupCats = {};
+      var allEleves = new Set(rawEleves.map(function(r){return r.eleve;}).filter(Boolean));
+
+      rawEleves.forEach(function(r) {
+        if (!r.categorie || !r.competence) return;
+        var cat = r.categorie;
+        if (!cats[cat]) cats[cat] = { comps: {}, compList: [] };
+        if (!cats[cat].comps[r.competence]) {
+          cats[cat].comps[r.competence] = { eleveAcquis: false, groupAcquis: new Set(), groupTotal: new Set() };
+          cats[cat].compList.push(r.competence);
+        }
+        cats[cat].comps[r.competence].groupTotal.add(r.eleve);
+        if (r.eleve === eleveName && r.statut === 'Acquis') cats[cat].comps[r.competence].eleveAcquis = true;
+        if (r.statut === 'Acquis') cats[cat].comps[r.competence].groupAcquis.add(r.eleve);
+      });
+
+      var catNames = Object.keys(cats).sort();
+      var radarCanvasId = 'radarCanvas_' + eleveName.replace(/[^a-z0-9]/gi, '');
+      var canvas = document.getElementById(radarCanvasId);
+      if (!canvas) return;
+
+      if (RadarState.chart) { RadarState.chart.destroy(); RadarState.chart = null; }
+
+      var labels, eleveData, groupData;
+      var C = getRadarColors();
+      var isLight = C.isLight;
+      var gridColor = C.grid;
+      var tickColor = C.tick;
+
+      if (RadarState.mode === 'categories') {
+        // Vue par catégorie — % acquis par catégorie
+        labels = catNames.map(function(c) {
+          return c.replace('Evoluer dans l\'eau - ', '').replace('Evoluer dans l\'eau', 'Evoluer');
+        });
+        eleveData = catNames.map(function(c) {
+          var comps = cats[c].compList;
+          var acq = comps.filter(function(cp) { return cats[c].comps[cp].eleveAcquis; }).length;
+          return comps.length ? Math.round(acq / comps.length * 100) : 0;
+        });
+        groupData = catNames.map(function(c) {
+          var comps = cats[c].compList;
+          var avg = comps.reduce(function(s, cp) {
+            var v = cats[c].comps[cp];
+            return s + (v.groupTotal.size ? v.groupAcquis.size / v.groupTotal.size * 100 : 0);
+          }, 0);
+          return comps.length ? Math.round(avg / comps.length) : 0;
+        });
+      } else {
+        // Vue zoom catégorie
+        var cat = RadarState.activeCat || catNames[0];
+        RadarState.activeCat = cat;
+        var comps = cats[cat] ? cats[cat].compList : [];
+        labels = comps.map(function(c) { return c.length > 22 ? c.substring(0, 20) + '…' : c; });
+        eleveData = comps.map(function(cp) { return cats[cat].comps[cp].eleveAcquis ? 100 : 0; });
+        groupData = comps.map(function(cp) {
+          var v = cats[cat].comps[cp];
+          return v.groupTotal.size ? Math.round(v.groupAcquis.size / v.groupTotal.size * 100) : 0;
+        });
+      }
+
+      RadarState.chart = new Chart(canvas, {
+        type: 'radar',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: eleveName,
+              data: eleveData,
+              borderColor: 'rgba(6,182,212,0.9)',
+              backgroundColor: 'rgba(6,182,212,0.15)',
+              borderWidth: 2,
+              pointRadius: 3,
+              pointBackgroundColor: 'rgba(6,182,212,1)'
+            },
+            {
+              label: 'Moyenne groupe',
+              data: groupData,
+              borderColor: C.groupLine,
+              backgroundColor: C.groupFill,
+              borderWidth: 1.5,
+              borderDash: [4, 3],
+              pointRadius: 2,
+              pointBackgroundColor: C.groupLine
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: function(ctx) { return ctx.dataset.label + ' : ' + ctx.raw + '%'; }
+              }
+            }
+          },
+          scales: {
+            r: {
+              min: 0, max: 100,
+              ticks: {
+                stepSize: 25,
+                color: C.tick,
+                font: { size: 9 },
+                backdropColor: 'transparent',
+                callback: function(v) { return v + '%'; }
+              },
+              grid: { color: C.grid },
+              angleLines: { color: C.angleLine },
+              pointLabels: {
+                color: C.label,
+                font: { size: 10 }
+              }
+            }
+          }
+        }
+      });
+    }
+
     function buildZoomEleve(rawEleves) {
       var model = buildElevesModel(rawEleves);
       var elevesNoms = Object.keys(model).sort();
@@ -11242,6 +11816,9 @@
       // Prédiction N1
       var predHtml = buildPredictionAnalyse(actif, m, rawEleves);
 
+      // Radar par catégorie
+      var radarHtml = buildRadarChart(actif, rawEleves);
+
       return '<div class="analyse-zoom-card">' +
         '<div class="analyse-zoom-header">' +
           '<span style="font-size:13px;font-weight:700;">🔍 Zoom élève</span>' +
@@ -11254,6 +11831,7 @@
           zoomStat('Inactivité', inact !== null ? 'Il y a ' + inact + ' j' : '—', colorInact) +
         '</div>' +
         predHtml +
+        radarHtml +
       '</div>';
     }
 
@@ -11454,9 +12032,35 @@
       });
       var zoomSel = document.getElementById('analyseZoomSelect');
       if (zoomSel) zoomSel.addEventListener('change', function() { AnalyseState.eleveActif = this.value; renderAnalyse(data); });
+
+      // Radar : dessiner après insertion DOM
+      requestAnimationFrame(function() {
+        renderRadarChart(AnalyseState.eleveActif || Object.keys(buildElevesModel(rawEleves))[0], rawEleves);
+      });
+
+      // Radar : onglets mode
+      container.querySelectorAll('.radar-tab-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          RadarState.mode = btn.dataset.radarMode;
+          if (RadarState.mode === 'zoom-cat') RadarState.activeCat = null;
+          renderAnalyse(data);
+        });
+      });
+
+      // Radar : zoom catégorie
+      container.addEventListener('click', function(e) {
+        var catBtn = e.target.closest('.radar-cat-btn');
+        if (!catBtn) return;
+        RadarState.activeCat = catBtn.dataset.cat;
+        container.querySelectorAll('.radar-cat-btn').forEach(function(b) { b.classList.remove('active'); });
+        catBtn.classList.add('active');
+        renderRadarChart(AnalyseState.eleveActif || Object.keys(buildElevesModel(rawEleves))[0], rawEleves);
+      });
     }
 
     window._rscc.renderAnalyse = function(data) { renderAnalyse(data); };
+    window.AnalyseState = AnalyseState;  // exposé pour re-render au toggle thème
+    window.renderRadarChart = renderRadarChart;  // exposé pour toggle thème
 
     // Permet aux Réglages de mettre à jour les seuils sans rechargement
     window._rscc._setAnalyseSeuils = function(preoccupant, critique, bloquant) {
