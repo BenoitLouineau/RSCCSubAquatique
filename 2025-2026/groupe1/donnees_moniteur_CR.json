@@ -707,6 +707,13 @@
     "CR": "Bonjour, pour Robin\nLRE sur expiration et inspiration ok\nPanne d'air avec Octopus receveur et donneur ok\nOn a fait panne d'air avec échange d'embout simulé ok.\nTout cela en statique. \nVidage de masque, il le fait spontanément. \nDonne sa conso.\nJe l'ai un peu sollicité pour répondre à la question ok, mais ok. \nÉquilibrage. Se débrouille bien surtout s'il y fait bien attention sur consigne. Sinon se laisse un peu porter.\nGréage à l'envers, il a commencé par le détendeur. Pas encore très automatique.\nBien à l'aise malgré tout et plus d'écoute et de respect des consignes."
   },
   {
+    "Moniteur": "Véronique",
+    "Date": "2026-04-21",
+    "Eleve": "ROBIN",
+    "Role": "Encadrant",
+    "CR": "Première partie, examen de théorie avec Robin, veuillez excuser Benoît qui était enrhubé! Mais qui a tout dit. Robin s'est débrouillé comme un chef, je ne l'ai pas reconnu !"
+  },
+  {
     "Moniteur": "Hervé",
     "Date": "2025-11-25",
     "Eleve": "FLORENT",
@@ -959,13 +966,6 @@
     "CR": "Uniquement en 1ère partie car Robin était malade pour la seconde partie pratique en Fosse"
   },
   {
-    "Moniteur": "Benoit L.",
-    "Date": "2026-04-21",
-    "Eleve": "ROBIN",
-    "Role": "Encadrant",
-    "CR": "Première partie, examen de théorie avec Robin, veuillez excuser Benoît qui était enrhubé! Mais qui a tout dit. Robin s'est débrouillé comme un chef, je ne l'ai pas reconnu ! \nDeuxième jeu d'équilibrage avec plombs comme l'a expliqué Benoît."
-  },
-  {
     "Moniteur": "Eddy",
     "Date": "2026-03-10",
     "Eleve": "JUDICAËL",
@@ -1148,11 +1148,11 @@
     "CR": "Victor : Timéo \n\nHello Eddy. On a plongé 30min . Fin de plongée à 90bars pour Timeo. RAS sur les exos. Bonnes réactions aux signes panne d'air/ consommation. LRE VDM ok. Bonne stabilité même à la remontée. Il ne s'est pas laissé emporter vers la surface. Bonne gestion de la stab et du  PB. J'ai aperçu qu'il avait froid à la fin (tremblement ) mais il dit que ça va. C'est peut être le point de vigilance a avoir pour les sorties mer. C'était une très belle première plongée à 20m. Bien formé !"
   },
   {
-    "Moniteur": "Véronique",
+    "Moniteur": "Benoit L.",
     "Date": "2026-04-21",
     "Eleve": "ROBIN",
     "Role": "Encadrant",
-    "CR": "Première partie, examen de théorie avec Robin, veuillez excuser Benoît qui était enrhubé! Mais qui a tout dit. Robin s'est débrouillé comme un chef, je ne l'ai pas reconnu !"
+    "CR": "Première partie, examen de théorie avec Robin, veuillez excuser Benoît qui était enrhubé! Mais qui a tout dit. Robin s'est débrouillé comme un chef, je ne l'ai pas reconnu ! \nDeuxième jeu d'équilibrage avec plombs comme l'a expliqué Benoît."
   },
   {
     "Moniteur": "Benoit P.",
