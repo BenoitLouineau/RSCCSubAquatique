@@ -3092,6 +3092,50 @@
       font-family: monospace;
     }
 
+    /* ── Bilan IA ── */
+    .bilan-ia-section {
+      margin-top: 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+    }
+    .bilan-ia-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .bilan-ia-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .bilan-ia-btn {
+      font-size: 12px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: rgba(6,182,212,0.1);
+      color: var(--accent);
+      cursor: pointer;
+      font-weight: 600;
+      transition: all var(--transition);
+    }
+    .bilan-ia-btn:hover { background: rgba(6,182,212,0.2); }
+    .bilan-ia-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .bilan-ia-placeholder { font-size: 12px; color: var(--muted); font-style: italic; margin: 0; }
+    .bilan-ia-loading { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--muted); }
+    .bilan-ia-spinner { width: 16px; height: 16px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; flex-shrink: 0; }
+    .bilan-ia-result { font-size: 13px; line-height: 1.7; }
+    .bilan-ia-section-title { font-size: 12px; font-weight: 700; color: var(--accent); margin: 12px 0 6px; text-transform: uppercase; letter-spacing: 0.4px; }
+    .bilan-ia-text { color: var(--text); margin: 0 0 8px; }
+    .bilan-ia-tag { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 999px; background: rgba(6,182,212,0.1); border: 1px solid rgba(6,182,212,0.25); color: var(--accent); margin: 2px; }
+    .bilan-ia-tag.warn { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.25); color: var(--warn); }
+    .bilan-ia-error { font-size: 12px; color: var(--bad); padding: 8px; background: rgba(239,68,68,0.08); border-radius: 6px; }
+
     /* ── Heatmap calendrier Analyse (classes cal-* pour ne pas entrer en conflit avec CR) ── */
     .heatmap-section { margin-bottom: 24px; }
 
@@ -11954,6 +11998,7 @@
         '</div>' +
         predHtml +
         radarHtml +
+        buildBilanIA(actif) +
       '</div>';
     }
 
@@ -11965,6 +12010,22 @@
     }
 
     // ── Render principal ──────────────────────────────────────────────────
+
+    /** Bilan IA — HTML du widget avec bouton déclencheur */
+    function buildBilanIA(eleveName) {
+      var safeId = eleveName.replace(/[^a-z0-9]/gi, '').toLowerCase();
+      return '<div class="bilan-ia-section" id="bilanIA-' + safeId + '">' +
+        '<div class="bilan-ia-header">' +
+          '<span class="bilan-ia-title">🤖 Bilan IA de la saison</span>' +
+          '<button class="bilan-ia-btn" data-eleve="' + eleveName.replace(/"/g, '&quot;') + '">' +
+            '✨ Générer le bilan' +
+          '</button>' +
+        '</div>' +
+        '<div class="bilan-ia-content" id="bilanIAContent-' + safeId + '">' +
+          '<p class="bilan-ia-placeholder">Cliquez sur « Générer le bilan » pour obtenir une synthèse IA des comptes-rendus de la saison.</p>' +
+        '</div>' +
+      '</div>';
+    }
 
     /** Heatmap GitHub-style des séances du groupe */
     function buildHeatmap(rawEleves) {
@@ -13839,6 +13900,134 @@
     <span>·</span>
     <span>Généré avec Claude AI 🤖</span>
   </footer>
+
+  <!-- =====================================================================
+       MODULE BILAN IA — Synthèse des CR par élève via API Anthropic
+       ===================================================================== -->
+  <script>
+  (function() {
+    'use strict';
+
+    window._rscc = window._rscc || {};
+
+    // Listener pour les boutons bilan IA (data-eleve au lieu de onclick)
+    document.addEventListener('click', function(e) {
+      var btn = e.target.closest('.bilan-ia-btn[data-eleve]');
+      if (btn && window._rscc._generateBilanIA) {
+        window._rscc._generateBilanIA(btn.getAttribute('data-eleve'));
+      }
+    });
+
+    window._rscc._generateBilanIA = async function(eleveName) {
+      var safeId = eleveName.replace(/[^a-z0-9]/gi, '').toLowerCase();
+      var container = document.getElementById('bilanIAContent-' + safeId);
+      var btn = document.querySelector('#bilanIA-' + safeId + ' .bilan-ia-btn');
+      if (!container) return;
+
+      // Spinner
+      container.innerHTML = '<div class="bilan-ia-loading"><div class="bilan-ia-spinner"></div>Analyse des comptes-rendus en cours…</div>';
+      if (btn) btn.disabled = true;
+
+      // Collecter les données de l'élève
+      var rawE = window._rscc_RAW_ELEVES || [];
+      var rowsEleve = rawE.filter(function(r) { return r.eleve === eleveName; });
+
+      if (!rowsEleve.length) {
+        container.innerHTML = '<div class="bilan-ia-error">Aucune donnée disponible pour ' + eleveName + '.</div>';
+        if (btn) btn.disabled = false;
+        return;
+      }
+
+      // Extraire les CR (textes uniques non vides)
+      var crs = [];
+      var crSeen = new Set();
+      rowsEleve.forEach(function(r) {
+        if (r.cr && r.cr.trim() && !crSeen.has(r.cr.trim())) {
+          crSeen.add(r.cr.trim());
+          crs.push({ date: r.date, moniteur: r.moniteur, texte: r.cr.trim() });
+        }
+      });
+
+      // Stats élève
+      var datesPresent = Array.from(new Set(rowsEleve.filter(function(r) { return r.presence === 'Présent'; }).map(function(r) { return r.date; }))).sort();
+      var datesTotal   = Array.from(new Set(rowsEleve.map(function(r) { return r.date; }))).sort();
+      var acquis = new Set(rowsEleve.filter(function(r) { return r.statut === 'Acquis'; }).map(function(r) { return r.competence; }));
+      var total  = new Set(rowsEleve.map(function(r) { return r.competence; }));
+      var moniteurs = Array.from(new Set(rowsEleve.filter(function(r) { return r.moniteur && r.moniteur !== 'n/a'; }).map(function(r) { return r.moniteur; })));
+
+      // Construire le prompt
+      var crTexte = crs.length
+        ? crs.map(function(c) { return '- ' + c.date + ' (' + c.moniteur + ') : ' + c.texte; }).join('\n')
+        : 'Aucun compte-rendu disponible.';
+
+      var nl = '\n';
+      var prompt = 'Tu es un assistant pédagogique pour un club de plongée FFESSM. ' +
+        'Voici les données de la saison 2025/2026 pour l\'élève ' + eleveName + ' en formation N1.' + nl + nl +
+        'STATISTIQUES :' + nl +
+        '- Présence : ' + datesPresent.length + '/' + datesTotal.length + ' séances' + nl +
+        '- Compétences acquises : ' + acquis.size + '/53' + nl +
+        '- Moniteurs encadrants : ' + moniteurs.join(', ') + nl + nl +
+        'COMPTES-RENDUS (' + crs.length + ' CR) :' + nl + crTexte + nl + nl +
+        'Génère un bilan en JSON valide (sans markdown), 2 clés exactes :' + nl +
+        '{"pedagogique":{"points_forts":["..."],"axes_amelioration":["..."],"progression":"..."},' +
+        '"factuel":{"resume":"...","competences_travaillees":["..."],"moniteurs_principaux":["..."]}}' + nl +
+        'Sois concis, bienveillant et constructif.';
+
+      try {
+        var response = await fetch('https://api.anthropic.com/v1/messages', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            model: 'claude-sonnet-4-20250514',
+            max_tokens: 1000,
+            messages: [{ role: 'user', content: prompt }]
+          })
+        });
+
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        var data = await response.json();
+        var text = (data.content || []).map(function(c) { return c.text || ''; }).join('');
+
+        // Parser le JSON - retirer les balises markdown si présentes
+        var bilan;
+        try {
+          var mdbk = String.fromCharCode(96);
+          var reClean = new RegExp(mdbk + '{3}json|' + mdbk + '{3}', 'g');
+          var cleaned = text.replace(reClean, '').trim();
+          bilan = JSON.parse(cleaned);
+        } catch(e) {
+          throw new Error('Réponse non parseable : ' + text.substring(0, 100));
+        }
+
+        // Rendu HTML
+        var ped = bilan.pedagogique || {};
+        var fac = bilan.factuel || {};
+
+        var ptsForts = (ped.points_forts || []).map(function(p) { return '<span class="bilan-ia-tag">✅ ' + p + '</span>'; }).join('');
+        var axes = (ped.axes_amelioration || []).map(function(p) { return '<span class="bilan-ia-tag warn">📈 ' + p + '</span>'; }).join('');
+        var comps = (fac.competences_travaillees || []).map(function(p) { return '<span class="bilan-ia-tag">🎯 ' + p + '</span>'; }).join('');
+
+        container.innerHTML =
+          '<div class="bilan-ia-result">' +
+            '<div class="bilan-ia-section-title">📚 Synthèse pédagogique</div>' +
+            (ped.progression ? '<p class="bilan-ia-text">' + ped.progression + '</p>' : '') +
+            (ptsForts ? '<div style="margin-bottom:6px;"><strong style="font-size:11px;color:var(--ok);">Points forts</strong><br>' + ptsForts + '</div>' : '') +
+            (axes ? '<div><strong style="font-size:11px;color:var(--warn);">Axes d\'amélioration</strong><br>' + axes + '</div>' : '') +
+            '<div class="bilan-ia-section-title" style="margin-top:14px;">📊 Bilan factuel</div>' +
+            (fac.resume ? '<p class="bilan-ia-text">' + fac.resume + '</p>' : '') +
+            (comps ? '<div style="margin-bottom:6px;"><strong style="font-size:11px;color:var(--muted);">Catégories travaillées</strong><br>' + comps + '</div>' : '') +
+          '</div>';
+
+        if (btn) { btn.disabled = false; btn.textContent = '🔄 Régénérer'; }
+
+      } catch(err) {
+        container.innerHTML = '<div class="bilan-ia-error">⚠️ Erreur lors de la génération : ' + err.message + '</div>';
+        if (btn) btn.disabled = false;
+      }
+    };
+
+  })();
+  </script>
 
 </body>
 </html>
