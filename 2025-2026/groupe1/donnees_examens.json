@@ -80,9 +80,9 @@
   {
     "eleve": "SACHA",
     "theorie": {
-      "valide": false,
-      "date": null,
-      "moniteur": null
+      "valide": true,
+      "date": "2026-04-07",
+      "moniteur": "Eddy"
     },
     "pratique": {
       "valide": false,
@@ -93,9 +93,9 @@
   {
     "eleve": "SAMY",
     "theorie": {
-      "valide": false,
-      "date": null,
-      "moniteur": null
+      "valide": true,
+      "date": "2026-04-07",
+      "moniteur": "Eddy"
     },
     "pratique": {
       "valide": false,
