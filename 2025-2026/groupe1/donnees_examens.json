@@ -67,9 +67,9 @@
   {
     "eleve": "ROBIN",
     "theorie": {
-      "valide": false,
-      "date": null,
-      "moniteur": null
+      "valide": true,
+      "date": "2026-05-05",
+      "moniteur": "Eddy"
     },
     "pratique": {
       "valide": true,
