@@ -13376,6 +13376,29 @@
 
     window._rscc_news = { loadNews, renderNews, initNews };
 
+    // ── APPEL initNews AU DÉMARRAGE ─────────────────────────────────
+    (function() {
+      'use strict';
+      
+      function callInitNews() {
+        if (window._rscc_news && typeof window._rscc_news.initNews === 'function') {
+          console.log('[News] Initialisation...');
+          try {
+            window._rscc_news.initNews();
+          } catch(e) {
+            console.error('[News] Init error:', e);
+          }
+        }
+      }
+      
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', callInitNews);
+      } else {
+        callInitNews();
+      }
+    })();
+
+
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', initNews);
     } else {
