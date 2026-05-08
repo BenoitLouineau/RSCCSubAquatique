@@ -6048,8 +6048,13 @@
       <div id="sidebar-news" class="sidebar-content hidden">
         <div class="card stats-card">
           <h3>📰 Actualités</h3>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">Actualités de plongée FFESSM et CODEPs.</div>
-      <div id="newsStatusBadge" style="padding:8px;background:var(--chip);border-radius:6px;margin-bottom:8px;font-size:12px;color:var(--accent);text-align:center;">✅ JSON intégré</div>
+          <div class="muted" style="font-size:12px;margin-bottom:8px;">
+            Flux RSS FFESSM et CODEPs configurables.
+          </div>
+          <button class="btn-synthese" id="btnRefreshNews" onclick="if(window._rscc&&window._rscc._refreshNews)window._rscc._refreshNews()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="pointer-events:none;"><path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" fill="currentColor"/></svg>
+            Actualiser
+          </button>
         </div>
         <div class="card" style="margin-top:10px;">
           <h3>⚙️ Source</h3>
@@ -6196,10 +6201,30 @@
 
       <!-- TAB 6 : News -->
       <section class="tab-panel" id="panel-news" role="tabpanel" aria-labelledby="tab-news">
-        <div id="newsMainContent">
-          <div class="empty-state">
-            <div class="icon">📰</div>
-            <h2>Chargement des actualités…</h2>
+                <div id="newsMainContent">
+          <!-- Contrôles -->
+          <div style="display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; align-items: center;">
+            <select id="newsSourceSelect" style="padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border); background: var(--chip); color: var(--text);">
+              <option value="ffessm_nat">🇫🇷 FFESSM nationale</option>
+              <option value="codep94">📍 CODEP 94 (Val de Marne)</option>
+              <option value="ffessm_idf">🗺️ FFESSM Île-de-France</option>
+              <option value="subaqua">🤿 Subaqua Magazine</option>
+            </select>
+            
+            <input type="text" id="newsFilterInput" placeholder="Filtrer..." 
+              style="flex: 1; min-width: 200px; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border); background: var(--chip); color: var(--text);">
+            
+            <select id="newsSortSelect" style="padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border); background: var(--chip); color: var(--text);">
+              <option value="desc">Plus récents</option>
+              <option value="asc">Plus anciens</option>
+            </select>
+          </div>
+          
+          <!-- Articles -->
+          <div id="newsContainer" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px;">
+            <div style="grid-column: 1/-1; padding: 40px; text-align: center;">
+              <p>⏳ Chargement des actualités...</p>
+            </div>
           </div>
         </div>
       </section>
@@ -6397,85 +6422,6 @@
 
   <!-- ======================= SCRIPTS ======================= -->
   <script>
-
-    // ════════════════════════════════════════════════════════════════════════════
-    // SAFE STORAGE WRAPPER — Évite les erreurs localStorage en mode fichier local
-    // ════════════════════════════════════════════════════════════════════════════
-    (function() {
-      'use strict';
-      
-      // Wrapper pour localStorage qui gère les erreurs silencieusement
-      var SafeStorage = {
-        getItem: function(key) {
-          try {
-            return localStorage.getItem(key);
-          } catch (e) {
-            console.debug('[SafeStorage] getItem bloqué:', key);
-            return null;
-          }
-        },
-        setItem: function(key, value) {
-          try {
-            localStorage.setItem(key, value);
-          } catch (e) {
-            console.debug('[SafeStorage] setItem bloqué:', key);
-          }
-        },
-        removeItem: function(key) {
-          try {
-            localStorage.removeItem(key);
-          } catch (e) {
-            console.debug('[SafeStorage] removeItem bloqué:', key);
-          }
-        },
-        clear: function() {
-          try {
-            localStorage.clear();
-          } catch (e) {
-            console.debug('[SafeStorage] clear bloqué');
-          }
-        }
-      };
-      
-      // Exposer le wrapper global
-      window._safeLS = SafeStorage;
-
-    // ════════════════════════════════════════════════════════════════════════════
-    // HASH NAVIGATION FIX — Gère les changements d'URL sans erreur de sécurité
-    // ════════════════════════════════════════════════════════════════════════════
-    (function() {
-      'use strict';
-      
-      // Remplacer les changements de hash problématiques
-      window.addEventListener('hashchange', function(e) {
-        e.preventDefault();
-        var hash = window.location.hash.slice(1);
-        if (hash) {
-          // Naviguer vers l'onglet sans modifier l'URL
-          var tab = document.querySelector('[data-tab="' + hash + '"]');
-          if (tab) {
-            tab.click();
-          }
-        }
-      }, false);
-      
-      // Intercepter les clics sur les liens d'ancre
-      document.addEventListener('click', function(e) {
-        if (e.target.tagName === 'A' && e.target.href && e.target.href.includes('#')) {
-          e.preventDefault();
-          var hash = e.target.href.split('#')[1];
-          if (hash) {
-            var tab = document.querySelector('[data-tab="' + hash + '"]');
-            if (tab) {
-              tab.click();
-            }
-          }
-        }
-      }, false);
-    })();
-
-    })();
-
   (function() {
     'use strict';
 
@@ -6599,7 +6545,7 @@
       const iconSun = $('#iconSun');
       const iconMoon = $('#iconMoon');
       const mql = window.matchMedia('(prefers-color-scheme: dark)');
-      let userOverride = window._safeLS.getItem(CONFIG.LS_THEME);
+      let userOverride = localStorage.getItem(CONFIG.LS_THEME);
 
       function apply(theme) {
         document.documentElement.setAttribute('data-theme', theme);
@@ -6656,7 +6602,7 @@
       function toggle() {
         const next = getEffective() === 'dark' ? 'light' : 'dark';
         userOverride = next;
-        window._safeLS.setItem(CONFIG.LS_THEME, next);
+        localStorage.setItem(CONFIG.LS_THEME, next);
         apply(next);
       }
 
@@ -6701,7 +6647,7 @@
         });
 
         STATE.currentTab = tabId;
-        window._safeLS.setItem(CONFIG.LS_TAB, tabId);
+        localStorage.setItem(CONFIG.LS_TAB, tabId);
         // Hash URL (sans scroll)
         if (history.replaceState) {
           history.replaceState(null, '', '#' + tabId);
@@ -6728,7 +6674,7 @@
         // Restaurer depuis hash ou localStorage
         const fromHash = (location.hash || '').replace('#', '');
         const validTabs = ['eleves', 'moniteurs', 'croisee'];
-        const saved = window._safeLS.getItem(CONFIG.LS_TAB);
+        const saved = localStorage.getItem(CONFIG.LS_TAB);
         const initial = validTabs.indexOf(fromHash) >= 0 ? fromHash
                      : validTabs.indexOf(saved) >= 0 ? saved
                      : 'eleves';
@@ -7060,15 +7006,15 @@
 
       function saveCacheItem(key, data) {
         try {
-          window._safeLS.setItem(LS_CACHE_PREFIX + key, JSON.stringify(data));
-          window._safeLS.setItem(LS_CACHE_DATE + key, new Date().toISOString());
+          localStorage.setItem(LS_CACHE_PREFIX + key, JSON.stringify(data));
+          localStorage.setItem(LS_CACHE_DATE + key, new Date().toISOString());
         } catch(e) {}
       }
 
       function loadCacheItem(key) {
         try {
-          var raw = window._safeLS.getItem(LS_CACHE_PREFIX + key);
-          var dt  = window._safeLS.getItem(LS_CACHE_DATE + key);
+          var raw = localStorage.getItem(LS_CACHE_PREFIX + key);
+          var dt  = localStorage.getItem(LS_CACHE_DATE + key);
           if (!raw) return null;
           return { data: JSON.parse(raw), date: dt };
         } catch(e) { return null; }
@@ -7434,7 +7380,7 @@
       // Charger la liste d'exclusion depuis localStorage (ou valeurs par défaut)
       let excluded;
       try {
-        const stored = window._safeLS.getItem(CONFIG.LS_EXCLUDED);
+        const stored = localStorage.getItem(CONFIG.LS_EXCLUDED);
         excluded = stored ? JSON.parse(stored) : CONFIG.DEFAULT_EXCLUDED;
       } catch (e) {
         excluded = CONFIG.DEFAULT_EXCLUDED;
@@ -7543,7 +7489,7 @@
       if (window.renderCacheIndicator) window.renderCacheIndicator('fresh', window.formatCacheDate(new Date().toISOString()));
       else {
         // Appel direct si pas encore exposé globalement
-        var cached = window._safeLS.getItem('rscc_cache_date_eleves');
+        var cached = localStorage.getItem('rscc_cache_date_eleves');
         var el = document.getElementById('cacheIndicator');
         if (el) {
           el.className = 'cache-indicator fresh';
@@ -7937,7 +7883,7 @@
       // les problèmes de timing entre les phases (Phase 4b chargée après Phase 2)
       let _s = {};
       try {
-        const stored = window._safeLS.getItem('rscc_settings_v1');
+        const stored = localStorage.getItem('rscc_settings_v1');
         if (stored) _s = JSON.parse(stored);
       } catch(e) {}
       // Fallback sur window._rscc.SETTINGS si disponible
@@ -8473,7 +8419,7 @@
       // Lire la fenêtre configurée dans les Réglages (défaut 5)
       var fenetre = 5;
       try {
-        var stored = window._safeLS.getItem('rscc_settings_v1');
+        var stored = localStorage.getItem('rscc_settings_v1');
         if (stored) { var parsed = JSON.parse(stored); if (parsed['fenetrePrediction']) fenetre = parseInt(parsed['fenetrePrediction']); }
       } catch(e) {}
 
@@ -8656,7 +8602,7 @@
 
     function getSyntheseCols() {
       try {
-        var stored = window._safeLS.getItem(LS_SYNTHESE_COLS);
+        var stored = localStorage.getItem(LS_SYNTHESE_COLS);
         if (!stored) return SYNTHESE_COLS_DEFAULT.map(function(c) { return Object.assign({}, c); });
         var parsed = JSON.parse(stored);
         // Fusionner avec les défauts (nouvelles colonnes ajoutées)
@@ -8676,7 +8622,7 @@
     }
 
     function saveSyntheseCols(cols) {
-      try { window._safeLS.setItem(LS_SYNTHESE_COLS, JSON.stringify(cols.map(function(c) { return { id: c.id, visible: c.visible }; }))); } catch(e) {}
+      try { localStorage.setItem(LS_SYNTHESE_COLS, JSON.stringify(cols.map(function(c) { return { id: c.id, visible: c.visible }; }))); } catch(e) {}
     }
 
     function buildSyntheseTable(students) {
@@ -9059,7 +9005,7 @@
 
       // Réinitialiser
       panel.querySelector('#syntheseColsReset').addEventListener('click', function() {
-        window._safeLS.removeItem(LS_SYNTHESE_COLS);
+        localStorage.removeItem(LS_SYNTHESE_COLS);
         closePanel();
         // Re-render
         var main = document.getElementById('elevesMainContent');
@@ -12161,7 +12107,7 @@
         var _sA = window._rscc && window._rscc.SETTINGS && window._rscc.SETTINGS.data;
         if (_sA && _sA['fenetrePrediction']) fenetreA = parseInt(_sA['fenetrePrediction']);
         else {
-          var storedA = window._safeLS.getItem('rscc_settings_v1');
+          var storedA = localStorage.getItem('rscc_settings_v1');
           if (storedA) { var parsedA = JSON.parse(storedA); if (parsedA['fenetrePrediction']) fenetreA = parseInt(parsedA['fenetrePrediction']); }
         }
       } catch(e) {}
@@ -13282,49 +13228,33 @@
 
 
   <!-- =====================================================================
-       MODULE NEWS — Données JSON intégrées (remplace rss.app payant)
+  <!-- =====================================================================
+       MODULE NEWS — JSON intégré (remplace rss.app payant)
        ===================================================================== -->
   <script>
   (function() {
     'use strict';
 
     var LS_NEWS_SOURCE = 'rscc_news_source';
-
-    // ── DONNÉES NEWS INTÉGRÉES DEPUIS GITHUB ────────────────────────────────────
     var NEWS_DATA_EMBEDDED = {"metadata": {"generated_at": "2026-05-08T00:03:55.737700", "total_articles": 54}, "sources": {"FFESSM National": {"name": "FFESSM National", "count": 8, "articles": [{"title": "Saint-Mandrier recrute ses réservistes moniteurs", "url": "https://ffessm.fr/actualites/saint-mandrier-recrute-ses-reservistes-moniteurs", "description": "", "date": "30/04/2026", "category": "Actualité", "image": null}, {"title": "CMAS: La France, épicentre mondial des activités subaquatiques", "url": "https://ffessm.fr/actualites/cmas-la-france-epicentre-mondial-des-activites-subaquatiques", "description": "", "date": "27/04/2026", "category": "Actualité", "image": null}, {"title": "FFESSM × Andromède Océanologie : protégeons la Méditerranée", "url": "https://ffessm.fr/actualites/ffessm-andromede-oceanologie-protegeons-la-mediterranee", "description": "", "date": "23/04/2026", "category": "Actualité", "image": null}, {"title": "Sogod Bay : l'âme sauvage des Philippines", "url": "https://ffessm.fr/actualites/sogod-bay-l-ame-sauvage-des-philippines", "description": "", "date": "15/04/2026", "category": "Actualité", "image": null}, {"title": "La France, la FFESSM au Sommet de la Plongée Mondiale à Bordeaux", "url": "https://ffessm.fr/actualites/la-france-la-ffessm-au-sommet-de-la-plongee-mondiale-a-bordeaux", "description": "", "date": "09/04/2026", "category": "Actualité", "image": null}, {"title": "Le cap des 250 000 activités est franchi", "url": "https://ffessm.fr/actualites/le-cap-des-250-000-activites-est-franchi", "description": "", "date": "08/04/2026", "category": "Actualité", "image": null}, {"title": "HandiGuide 2025 : la FFESSM dans le top 3 national 🤿", "url": "https://ffessm.fr/actualites/handiguide-2025-la-ffessm-dans-le-top-3-national", "description": "", "date": "07/05/2026", "category": "Actualité", "image": null}, {"title": "Oxygénothérapie en club : la FFESSM vous facilite l'accès", "url": "https://ffessm.fr/actualites/oxygenotherapie-en-club-la-ffessm-vous-facilite-l-acces", "description": "", "date": "02/05/2026", "category": "Actualité", "image": null}]}, "CODEP 94 (Val de Marne)": {"name": "CODEP 94 (Val de Marne)", "count": 5, "articles": [{"title": "La plongée comme thérapie", "url": "https://ffessm-codep94.vpdive.com/f/news/detail/actualites/1/puLbcW_vepTfQ93iZYKcvQotj2CF951DF5ZvpFHPeik", "description": "Conférence Paris Sorbonne", "date": "29/05/2026", "category": "Événement", "image": null}, {"title": "Championnat de France", "url": "https://ffessm-codep94.vpdive.com/f/news/detail/actualites/1/ErgqZja6ijo8kp8xIwLNpZUEOvFMs4nSzeBJ-pj3pZ4", "description": "Limoges du 22 au 25 mai 2026", "date": "22/05/2026", "category": "Événement", "image": null}, {"title": "Photo", "url": "https://ffessm-codep94.vpdive.com/f/news/detail/actualites/1/wpkFzat0pZXb7jk8umIORJzfwMzIbnfUl-St3-9YZ3Y", "description": "Aquarium Porte Dorée", "date": "22/03/2026", "category": "Événement", "image": null}, {"title": "LICENCE COMPÉTITION", "url": "https://ffessm-codep94.vpdive.com/f/news/detail/actualites/1/YxL2Sz_CWizv_1FYTabkbWsFznC0OPtlvg816BYV2MY", "description": "F. Di Meglio (Coin des Présidents)", "date": "12/04/2026", "category": "Événement", "image": null}, {"title": "Colloque Sport-Santé", "url": "https://ffessm-codep94.vpdive.com/f/news/detail/actualites/1/ESTfoonegB0ZYgKf4xGhQKDWZDh82kOroWlfylykM2o", "description": "Activité physique et santé mentale", "date": "09/04/2026", "category": "Événement", "image": null}]}, "Subaqua Magazine": {"name": "Subaqua Magazine", "count": 8, "articles": [{"title": "La Marine nationale recrute des moniteurs de plongée !", "url": "https://subaqua.ffessm.fr/article/marine-nationale-recrute-moniteur-plongee", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Coupe de France 2026 d'apnée en piscine, étape d'Aix-en-Provence", "url": "https://subaqua.ffessm.fr/article/coupe-france-2026-apnee-piscine-etape-aix-provence", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Escale Sète 2026 - Archéologie sous-marine", "url": "https://subaqua.ffessm.fr/article/escale-sete-2026-archeologie-sous-marine-presente", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Finales du championnat de Normandie", "url": "https://subaqua.ffessm.fr/article/nev-finales-du-championnat-de-normandie-de-course-en-ligne-et-du-trophee-de-l-eure", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Nouveau détendeur Scubapro C370", "url": "https://subaqua.ffessm.fr/article/nouveau-detendeur-scubapro-c370", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Espèces fondatrices : un rôle majeur dans la biodiversité côtière", "url": "https://subaqua.ffessm.fr/article/especes-fondatrices-un-role-majeur-dans-la-biodiversite-cotiere", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "NAP : Coupe du Monde des clubs 2026 à Aix-en-Provence", "url": "https://subaqua.ffessm.fr/article/nap-coupe-monde-clubs-2026-aix-provence", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Tunisie : les sports subaquatiques, vecteurs d'inclusion et de conscience écologique", "url": "https://subaqua.ffessm.fr/article/tunisie-sports-subaquatiques-vecteur-inclusion-conscience-ecologique", "description": "", "date": "N/A", "category": "Magazine", "image": null}]}}};
 
-    // ── Sources NEWS (depuis JSON local) ────────────────────────────────────────
     var SOURCES = {
-      ffessm_nat: {
-        label: '🇫🇷 FFESSM nationale',
-        source: 'FFESSM National'
-      },
-      codep94: {
-        label: '📍 CODEP 94 (Val de Marne)',
-        source: 'CODEP 94 (Val de Marne)'
-      },
-      ffessm_idf: {
-        label: '🗺️ FFESSM Île-de-France',
-        source: 'FFESSM Île-de-France'
-      },
-      subaqua: {
-        label: '🤿 Subaqua Magazine',
-        source: 'Subaqua Magazine'
-      }
+      ffessm_nat: { label: '🇫🇷 FFESSM nationale', source: 'FFESSM National' },
+      codep94: { label: '📍 CODEP 94', source: 'CODEP 94 (Val de Marne)' },
+      ffessm_idf: { label: '🗺️ FFESSM Île-de-France', source: 'FFESSM Île-de-France' },
+      subaqua: { label: '🤿 Subaqua', source: 'Subaqua Magazine' }
     };
 
-    // ── Variables globales ────────────────────────────────────────────────────────
-    var currentSource = window._safeLS.getItem(LS_NEWS_SOURCE) || 'ffessm_nat';
+    var currentSource = localStorage.getItem(LS_NEWS_SOURCE) || 'ffessm_nat';
     var currentArticles = [];
     var newsFilter = null;
     var newsSortOrder = 'desc';
 
-    // ── Fonction pour charger depuis JSON intégré ────────────────────────────────
     function loadNewsFromJSON(sourceName) {
       return new Promise((resolve, reject) => {
         try {
           if (!NEWS_DATA_EMBEDDED.sources[sourceName]) {
-            reject(new Error('Source not found: ' + sourceName));
+            reject(new Error('Source: ' + sourceName));
             return;
           }
           
@@ -13335,16 +13265,12 @@
             description: article.description || '',
             pubDate: article.date,
             image: article.image,
-            category: article.category || 'Information'
+            category: article.category || 'Info'
           }));
           
           resolve({
             status: 'ok',
-            feed: {
-              title: sourceData.name,
-              url: 'local-json-embedded',
-              link: 'https://github.com'
-            },
+            feed: { title: sourceData.name },
             items: articles
           });
         } catch(e) {
@@ -13353,47 +13279,37 @@
       });
     }
 
-    // ── Fonction de formatage de date ────────────────────────────────────────────
     function formatDate(dateStr) {
-      if (!dateStr || dateStr === 'N/A') return '';
+      if (!dateStr) return '';
+      if (dateStr.includes('/')) return dateStr;
       try {
-        if (dateStr.includes('/')) {
-          return dateStr;
-        }
-        const d = new Date(dateStr);
-        return d.toLocaleDateString('fr-FR');
+        return new Date(dateStr).toLocaleDateString('fr-FR');
       } catch(e) {
         return dateStr;
       }
     }
 
-    // ── Fonction principale de chargement ────────────────────────────────────────
     function loadNews(source) {
       const sourceConfig = SOURCES[source];
-      if (!sourceConfig) {
-        showNewsError('Source non trouvée');
-        return;
-      }
-
-      showNewsLoading();
+      if (!sourceConfig) return;
+      
+      const container = document.getElementById('newsContainer');
+      if (container) container.innerHTML = '<div style="grid-column: 1/-1; padding: 40px; text-align: center;"><p>⏳ Chargement...</p></div>';
       
       loadNewsFromJSON(sourceConfig.source)
         .then(response => {
           if (response.status === 'ok' && Array.isArray(response.items)) {
             currentArticles = response.items;
             renderNews();
-            updateNewsSource(source, response.feed.title);
-          } else {
-            showNewsError('Format de réponse invalide');
+            try { localStorage.setItem(LS_NEWS_SOURCE, source); } catch(e) {}
           }
         })
         .catch(error => {
-          console.error('[NEWS] Erreur:', error);
-          showNewsError('Impossible de charger les actualités');
+          console.error('[NEWS]', error);
+          if (container) container.innerHTML = '<div style="grid-column: 1/-1; padding: 40px; text-align: center;"><p>⚠️ Erreur</p></div>';
         });
     }
 
-    // ── Rendu des articles ───────────────────────────────────────────────────────
     function renderNews() {
       const container = document.getElementById('newsContainer');
       if (!container) return;
@@ -13406,71 +13322,38 @@
         );
       }
 
-      if (newsSortOrder === 'asc') {
-        filtered = filtered.slice().reverse();
-      }
+      if (newsSortOrder === 'asc') filtered = filtered.slice().reverse();
 
       if (filtered.length === 0) {
-        container.innerHTML = '<div class="news-card" style="grid-column: 1/-1; text-align: center; padding: 40px;"><p style="color: var(--muted);">Aucun article trouvé</p></div>';
+        container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px;"><p>Aucun article</p></div>';
         return;
       }
 
-      container.innerHTML = filtered.map((article, i) => `
-        <a href="${article.link}" target="_blank" rel="noopener" class="news-card">
-          ${article.image ? `<div class="news-card-img"><img src="${article.image}" alt="${article.title}" loading="lazy"></div>` : '<div class="news-card-img-placeholder">📰</div>'}
-          <div class="news-card-body">
-            ${article.category ? `<span class="news-card-cat">${article.category}</span>` : ''}
-            <h3 class="news-card-title">${article.title}</h3>
-            ${article.description ? `<p class="news-card-desc">${article.description}</p>` : ''}
-          </div>
-          <div class="news-card-footer">
-            <span>${formatDate(article.pubDate)}</span>
-            <span style="margin-left: auto;">→</span>
+      container.innerHTML = filtered.map(article => `
+        <a href="${article.link}" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">
+          <div style="border: 1px solid var(--border); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; height: 100%; background: var(--card); transition: all 0.2s;">
+            ${article.image ? `<div style="width: 100%; height: 150px; background: var(--surface); overflow: hidden;"><img src="${article.image}" alt="" style="width: 100%; height: 100%; object-fit: cover;"></div>` : '<div style="width: 100%; height: 150px; background: var(--surface); display: flex; align-items: center; justify-content: center; font-size: 40px;">📰</div>'}
+            <div style="padding: 12px; flex: 1; display: flex; flex-direction: column;">
+              ${article.category ? `<span style="font-size: 11px; color: var(--accent); font-weight: 600; margin-bottom: 6px;">${article.category}</span>` : ''}
+              <h3 style="margin: 0 0 6px 0; font-size: 14px; font-weight: 600; line-height: 1.3;">${article.title}</h3>
+              ${article.description ? `<p style="margin: 0; font-size: 12px; color: var(--muted); flex: 1;">${article.description}</p>` : ''}
+              <div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted);">${formatDate(article.pubDate)}</div>
+            </div>
           </div>
         </a>
       `).join('');
     }
 
-    // ── Utilitaires ──────────────────────────────────────────────────────────────
-    function showNewsLoading() {
-      const container = document.getElementById('newsContainer');
-      if (container) {
-        container.innerHTML = '<div class="news-loading" style="grid-column: 1/-1;"><div class="news-spinner"></div><p style="color:var(--accent);">⏳ Chargement des actualités...</p></div>';
-      }
-    }
-
-    function showNewsError(msg) {
-      const container = document.getElementById('newsContainer');
-      if (container) {
-        container.innerHTML = `<div class="news-error" style="grid-column: 1/-1;"><p>⚠️ ${msg}</p></div>`;
-      }
-    }
-
-    function updateNewsSource(sourceId, sourceName) {
-      window._safeLS.setItem(LS_NEWS_SOURCE, sourceId);
-      const badge = document.getElementById('newsSourceBadge');
-      if (badge) {
-        badge.textContent = sourceName;
-      }
-      const btn = document.querySelector('[data-news-source="' + sourceId + '"]');
-      if (btn) {
-        document.querySelectorAll('[data-news-source]').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-      }
-    }
-
-    // ── Initialisation ───────────────────────────────────────────────────────────
     function initNews() {
-      // Boutons de source
-      document.querySelectorAll('[data-news-source]').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-          e.preventDefault();
-          currentSource = this.dataset.newsSource;
+      const select = document.getElementById('newsSourceSelect');
+      if (select) {
+        select.value = currentSource;
+        select.addEventListener('change', function() {
+          currentSource = this.value;
           loadNews(currentSource);
         });
-      });
+      }
 
-      // Champ de filtre
       const filterInput = document.getElementById('newsFilterInput');
       if (filterInput) {
         filterInput.addEventListener('keyup', function() {
@@ -13479,7 +13362,6 @@
         });
       }
 
-      // Tri
       const sortSelect = document.getElementById('newsSortSelect');
       if (sortSelect) {
         sortSelect.addEventListener('change', function() {
@@ -13488,56 +13370,19 @@
         });
       }
 
-      // Charger les actualités au démarrage
+      // Charger la première source
       loadNews(currentSource);
     }
 
-    // Exposer à window
-    window._rscc_news = {
-      loadNews: loadNews,
-      renderNews: renderNews,
-      initNews: initNews
-    };
+    window._rscc_news = { loadNews, renderNews, initNews };
 
-    // Initialiser au chargement du DOM
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', initNews);
     } else {
       initNews();
     }
-  })();
-
-    
-    
-
-    // ════════════════════════════════════════════════════════════════
-    // AUTO-LOAD NEWS - Appel direct après initialisation
-    // ════════════════════════════════════════════════════════════════
-    (function() {
-      'use strict';
-      
-      // Attendre un tick pour que tout soit prêt
-      window.addEventListener('load', function() {
-        console.log('[News] Window load event - Auto-loading...');
-        if (typeof loadNews === 'function' && typeof currentSource !== 'undefined') {
-          try {
-            loadNews(currentSource);
-            console.log('[News] Auto-loaded source:', currentSource);
-          } catch(e) {
-            console.error('[News] Auto-load error:', e);
-          }
-        }
-      });
-      
-      // Fallback: essayer aussi au DOMContentLoaded
-      if (document.readyState !== 'loading') {
-        document.addEventListener('load', function() {
-          // Déjà géré ci-dessus
-        }, { once: true });
-      }
-    })();</script>
-
-
+  });
+  </script>
 
   <!-- =====================================================================
        PHASE 4b - MODULE MENU ⚙️ RÉGLAGES (localStorage + re-render)
@@ -13576,7 +13421,7 @@
     // Charger depuis localStorage au démarrage
     function loadSettings() {
       try {
-        const stored = window._safeLS.getItem(SETTINGS_CONFIG.LS_SETTINGS);
+        const stored = localStorage.getItem(SETTINGS_CONFIG.LS_SETTINGS);
         SETTINGS.data = stored ? JSON.parse(stored) : { ...SETTINGS_CONFIG.DEFAULTS };
       } catch (e) {
         SETTINGS.data = { ...SETTINGS_CONFIG.DEFAULTS };
@@ -13590,7 +13435,7 @@
     // Sauvegarder
     function saveSettings() {
       try {
-        window._safeLS.setItem(SETTINGS_CONFIG.LS_SETTINGS, JSON.stringify(SETTINGS.data));
+        localStorage.setItem(SETTINGS_CONFIG.LS_SETTINGS, JSON.stringify(SETTINGS.data));
       } catch (e) {
         console.error('Erreur sauvegarde réglages:', e);
       }
@@ -13712,7 +13557,7 @@
           // Synchroniser le sélecteur dans la sidebar News
           var sidebar = document.getElementById('newsSourceSelect');
           if (sidebar) sidebar.value = this.value;
-          try { window._safeLS.setItem('rscc_news_source', this.value); } catch(e) {}
+          try { localStorage.setItem('rscc_news_source', this.value); } catch(e) {}
         });
       }
 
@@ -13845,60 +13690,7 @@
     // Initialiser immédiatement (SETTINGS doit être prêt avant renderEleves)
     try { init(); } catch(e) { console.error('Erreur init Réglages:', e); }
 
-  
-
-    console.log('%c🤿 RSCC Rapport v2.0 - Chargé avec succès!', 'font-size:16px;font-weight:bold;color:#06b6d4;');
-    console.log('%c✅ Système de News JSON intégré (autonome & hors ligne)', 'color:#16a34a;');
-    console.log('%c📊 Données: 54 articles de plongée préchargés', 'color:#38bdf8;');
-    console.log('%cℹ️ Les messages localStorage sont normaux en mode fichier local', 'color:#f59e0b;font-size:12px;');
-
-})();
-  
-    // ────────────────────────────────────────────────────────────────────────
-    // AUTO-LOAD NEWS AU BOOT (SÉCURISÉ)
-    // ────────────────────────────────────────────────────────────────────────
-    (function() {
-      'use strict';
-      
-      var autoLoadDone = false;
-      
-      function autoLoadNews() {
-        if (autoLoadDone) return;
-        
-        // Vérifier que tout est prêt
-        if (typeof loadNews !== 'function') {
-          console.warn('[News AutoLoad] loadNews pas encore disponible');
-          return;
-        }
-        
-        if (typeof currentSource === 'undefined') {
-          console.warn('[News AutoLoad] currentSource pas défini');
-          return;
-        }
-        
-        autoLoadDone = true;
-        console.log('[News AutoLoad] Chargement source:', currentSource);
-        
-        try {
-          loadNews(currentSource);
-        } catch(e) {
-          console.error('[News AutoLoad] Erreur:', e);
-        }
-      }
-      
-      // Attendre que le DOM soit chargé
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function() {
-          setTimeout(autoLoadNews, 100);
-        });
-      } else {
-        setTimeout(autoLoadNews, 100);
-      }
-      
-      // Double-check après 500ms
-      setTimeout(autoLoadNews, 500);
-    })();
-
+  })();
   </script>
   <footer class="app-footer">
     <span>© 2025/2026</span>
