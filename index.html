@@ -6402,6 +6402,85 @@
 
   <!-- ======================= SCRIPTS ======================= -->
   <script>
+
+    // ════════════════════════════════════════════════════════════════════════════
+    // SAFE STORAGE WRAPPER — Évite les erreurs localStorage en mode fichier local
+    // ════════════════════════════════════════════════════════════════════════════
+    (function() {
+      'use strict';
+      
+      // Wrapper pour localStorage qui gère les erreurs silencieusement
+      var SafeStorage = {
+        getItem: function(key) {
+          try {
+            return localStorage.getItem(key);
+          } catch (e) {
+            console.debug('[SafeStorage] getItem bloqué:', key);
+            return null;
+          }
+        },
+        setItem: function(key, value) {
+          try {
+            localStorage.setItem(key, value);
+          } catch (e) {
+            console.debug('[SafeStorage] setItem bloqué:', key);
+          }
+        },
+        removeItem: function(key) {
+          try {
+            localStorage.removeItem(key);
+          } catch (e) {
+            console.debug('[SafeStorage] removeItem bloqué:', key);
+          }
+        },
+        clear: function() {
+          try {
+            localStorage.clear();
+          } catch (e) {
+            console.debug('[SafeStorage] clear bloqué');
+          }
+        }
+      };
+      
+      // Exposer le wrapper global
+      window._safeLS = SafeStorage;
+
+    // ════════════════════════════════════════════════════════════════════════════
+    // HASH NAVIGATION FIX — Gère les changements d'URL sans erreur de sécurité
+    // ════════════════════════════════════════════════════════════════════════════
+    (function() {
+      'use strict';
+      
+      // Remplacer les changements de hash problématiques
+      window.addEventListener('hashchange', function(e) {
+        e.preventDefault();
+        var hash = window.location.hash.slice(1);
+        if (hash) {
+          // Naviguer vers l'onglet sans modifier l'URL
+          var tab = document.querySelector('[data-tab="' + hash + '"]');
+          if (tab) {
+            tab.click();
+          }
+        }
+      }, false);
+      
+      // Intercepter les clics sur les liens d'ancre
+      document.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A' && e.target.href && e.target.href.includes('#')) {
+          e.preventDefault();
+          var hash = e.target.href.split('#')[1];
+          if (hash) {
+            var tab = document.querySelector('[data-tab="' + hash + '"]');
+            if (tab) {
+              tab.click();
+            }
+          }
+        }
+      }, false);
+    })();
+
+    })();
+
   (function() {
     'use strict';
 
@@ -6525,7 +6604,7 @@
       const iconSun = $('#iconSun');
       const iconMoon = $('#iconMoon');
       const mql = window.matchMedia('(prefers-color-scheme: dark)');
-      let userOverride = localStorage.getItem(CONFIG.LS_THEME);
+      let userOverride = window._safeLS.getItem(CONFIG.LS_THEME);
 
       function apply(theme) {
         document.documentElement.setAttribute('data-theme', theme);
@@ -6582,7 +6661,7 @@
       function toggle() {
         const next = getEffective() === 'dark' ? 'light' : 'dark';
         userOverride = next;
-        localStorage.setItem(CONFIG.LS_THEME, next);
+        window._safeLS.setItem(CONFIG.LS_THEME, next);
         apply(next);
       }
 
@@ -6627,7 +6706,7 @@
         });
 
         STATE.currentTab = tabId;
-        localStorage.setItem(CONFIG.LS_TAB, tabId);
+        window._safeLS.setItem(CONFIG.LS_TAB, tabId);
         // Hash URL (sans scroll)
         if (history.replaceState) {
           history.replaceState(null, '', '#' + tabId);
@@ -6654,7 +6733,7 @@
         // Restaurer depuis hash ou localStorage
         const fromHash = (location.hash || '').replace('#', '');
         const validTabs = ['eleves', 'moniteurs', 'croisee'];
-        const saved = localStorage.getItem(CONFIG.LS_TAB);
+        const saved = window._safeLS.getItem(CONFIG.LS_TAB);
         const initial = validTabs.indexOf(fromHash) >= 0 ? fromHash
                      : validTabs.indexOf(saved) >= 0 ? saved
                      : 'eleves';
@@ -6986,15 +7065,15 @@
 
       function saveCacheItem(key, data) {
         try {
-          localStorage.setItem(LS_CACHE_PREFIX + key, JSON.stringify(data));
-          localStorage.setItem(LS_CACHE_DATE + key, new Date().toISOString());
+          window._safeLS.setItem(LS_CACHE_PREFIX + key, JSON.stringify(data));
+          window._safeLS.setItem(LS_CACHE_DATE + key, new Date().toISOString());
         } catch(e) {}
       }
 
       function loadCacheItem(key) {
         try {
-          var raw = localStorage.getItem(LS_CACHE_PREFIX + key);
-          var dt  = localStorage.getItem(LS_CACHE_DATE + key);
+          var raw = window._safeLS.getItem(LS_CACHE_PREFIX + key);
+          var dt  = window._safeLS.getItem(LS_CACHE_DATE + key);
           if (!raw) return null;
           return { data: JSON.parse(raw), date: dt };
         } catch(e) { return null; }
@@ -7360,7 +7439,7 @@
       // Charger la liste d'exclusion depuis localStorage (ou valeurs par défaut)
       let excluded;
       try {
-        const stored = localStorage.getItem(CONFIG.LS_EXCLUDED);
+        const stored = window._safeLS.getItem(CONFIG.LS_EXCLUDED);
         excluded = stored ? JSON.parse(stored) : CONFIG.DEFAULT_EXCLUDED;
       } catch (e) {
         excluded = CONFIG.DEFAULT_EXCLUDED;
@@ -7469,7 +7548,7 @@
       if (window.renderCacheIndicator) window.renderCacheIndicator('fresh', window.formatCacheDate(new Date().toISOString()));
       else {
         // Appel direct si pas encore exposé globalement
-        var cached = localStorage.getItem('rscc_cache_date_eleves');
+        var cached = window._safeLS.getItem('rscc_cache_date_eleves');
         var el = document.getElementById('cacheIndicator');
         if (el) {
           el.className = 'cache-indicator fresh';
@@ -7863,7 +7942,7 @@
       // les problèmes de timing entre les phases (Phase 4b chargée après Phase 2)
       let _s = {};
       try {
-        const stored = localStorage.getItem('rscc_settings_v1');
+        const stored = window._safeLS.getItem('rscc_settings_v1');
         if (stored) _s = JSON.parse(stored);
       } catch(e) {}
       // Fallback sur window._rscc.SETTINGS si disponible
@@ -8399,7 +8478,7 @@
       // Lire la fenêtre configurée dans les Réglages (défaut 5)
       var fenetre = 5;
       try {
-        var stored = localStorage.getItem('rscc_settings_v1');
+        var stored = window._safeLS.getItem('rscc_settings_v1');
         if (stored) { var parsed = JSON.parse(stored); if (parsed['fenetrePrediction']) fenetre = parseInt(parsed['fenetrePrediction']); }
       } catch(e) {}
 
@@ -8582,7 +8661,7 @@
 
     function getSyntheseCols() {
       try {
-        var stored = localStorage.getItem(LS_SYNTHESE_COLS);
+        var stored = window._safeLS.getItem(LS_SYNTHESE_COLS);
         if (!stored) return SYNTHESE_COLS_DEFAULT.map(function(c) { return Object.assign({}, c); });
         var parsed = JSON.parse(stored);
         // Fusionner avec les défauts (nouvelles colonnes ajoutées)
@@ -8602,7 +8681,7 @@
     }
 
     function saveSyntheseCols(cols) {
-      try { localStorage.setItem(LS_SYNTHESE_COLS, JSON.stringify(cols.map(function(c) { return { id: c.id, visible: c.visible }; }))); } catch(e) {}
+      try { window._safeLS.setItem(LS_SYNTHESE_COLS, JSON.stringify(cols.map(function(c) { return { id: c.id, visible: c.visible }; }))); } catch(e) {}
     }
 
     function buildSyntheseTable(students) {
@@ -8985,7 +9064,7 @@
 
       // Réinitialiser
       panel.querySelector('#syntheseColsReset').addEventListener('click', function() {
-        localStorage.removeItem(LS_SYNTHESE_COLS);
+        window._safeLS.removeItem(LS_SYNTHESE_COLS);
         closePanel();
         // Re-render
         var main = document.getElementById('elevesMainContent');
@@ -12087,7 +12166,7 @@
         var _sA = window._rscc && window._rscc.SETTINGS && window._rscc.SETTINGS.data;
         if (_sA && _sA['fenetrePrediction']) fenetreA = parseInt(_sA['fenetrePrediction']);
         else {
-          var storedA = localStorage.getItem('rscc_settings_v1');
+          var storedA = window._safeLS.getItem('rscc_settings_v1');
           if (storedA) { var parsedA = JSON.parse(storedA); if (parsedA['fenetrePrediction']) fenetreA = parseInt(parsedA['fenetrePrediction']); }
         }
       } catch(e) {}
@@ -13240,7 +13319,7 @@
     };
 
     // ── Variables globales ────────────────────────────────────────────────────────
-    var currentSource = localStorage.getItem(LS_NEWS_SOURCE) || 'ffessm_nat';
+    var currentSource = window._safeLS.getItem(LS_NEWS_SOURCE) || 'ffessm_nat';
     var currentArticles = [];
     var newsFilter = null;
     var newsSortOrder = 'desc';
@@ -13373,7 +13452,7 @@
     }
 
     function updateNewsSource(sourceId, sourceName) {
-      localStorage.setItem(LS_NEWS_SOURCE, sourceId);
+      window._safeLS.setItem(LS_NEWS_SOURCE, sourceId);
       const badge = document.getElementById('newsSourceBadge');
       if (badge) {
         badge.textContent = sourceName;
@@ -13473,7 +13552,7 @@
     // Charger depuis localStorage au démarrage
     function loadSettings() {
       try {
-        const stored = localStorage.getItem(SETTINGS_CONFIG.LS_SETTINGS);
+        const stored = window._safeLS.getItem(SETTINGS_CONFIG.LS_SETTINGS);
         SETTINGS.data = stored ? JSON.parse(stored) : { ...SETTINGS_CONFIG.DEFAULTS };
       } catch (e) {
         SETTINGS.data = { ...SETTINGS_CONFIG.DEFAULTS };
@@ -13487,7 +13566,7 @@
     // Sauvegarder
     function saveSettings() {
       try {
-        localStorage.setItem(SETTINGS_CONFIG.LS_SETTINGS, JSON.stringify(SETTINGS.data));
+        window._safeLS.setItem(SETTINGS_CONFIG.LS_SETTINGS, JSON.stringify(SETTINGS.data));
       } catch (e) {
         console.error('Erreur sauvegarde réglages:', e);
       }
@@ -13609,7 +13688,7 @@
           // Synchroniser le sélecteur dans la sidebar News
           var sidebar = document.getElementById('newsSourceSelect');
           if (sidebar) sidebar.value = this.value;
-          try { localStorage.setItem('rscc_news_source', this.value); } catch(e) {}
+          try { window._safeLS.setItem('rscc_news_source', this.value); } catch(e) {}
         });
       }
 
@@ -13742,7 +13821,14 @@
     // Initialiser immédiatement (SETTINGS doit être prêt avant renderEleves)
     try { init(); } catch(e) { console.error('Erreur init Réglages:', e); }
 
-  })();
+  
+
+    console.log('%c🤿 RSCC Rapport v2.0 - Chargé avec succès!', 'font-size:16px;font-weight:bold;color:#06b6d4;');
+    console.log('%c✅ Système de News JSON intégré (autonome & hors ligne)', 'color:#16a34a;');
+    console.log('%c📊 Données: 54 articles de plongée préchargés', 'color:#38bdf8;');
+    console.log('%cℹ️ Les messages localStorage sont normaux en mode fichier local', 'color:#f59e0b;font-size:12px;');
+
+})();
   </script>
   <footer class="app-footer">
     <span>© 2025/2026</span>
