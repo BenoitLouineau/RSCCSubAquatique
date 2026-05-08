@@ -6048,13 +6048,8 @@
       <div id="sidebar-news" class="sidebar-content hidden">
         <div class="card stats-card">
           <h3>📰 Actualités</h3>
-          <div class="muted" style="font-size:12px;margin-bottom:8px;">
-            Flux RSS FFESSM et CODEPs configurables.
-          </div>
-          <button class="btn-synthese" id="btnRefreshNews" onclick="if(window._rscc&&window._rscc._refreshNews)window._rscc._refreshNews()">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="pointer-events:none;"><path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" fill="currentColor"/></svg>
-            Actualiser
-          </button>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">Actualités de plongée FFESSM et CODEPs.</div>
+      <div id="newsStatusBadge" style="padding:8px;background:var(--chip);border-radius:6px;margin-bottom:8px;font-size:12px;color:var(--accent);text-align:center;">✅ JSON intégré</div>
         </div>
         <div class="card" style="margin-top:10px;">
           <h3>⚙️ Source</h3>
@@ -13440,7 +13435,7 @@
     function showNewsLoading() {
       const container = document.getElementById('newsContainer');
       if (container) {
-        container.innerHTML = '<div class="news-loading" style="grid-column: 1/-1;"><div class="news-spinner"></div><p>Chargement des actualités...</p></div>';
+        container.innerHTML = '<div class="news-loading" style="grid-column: 1/-1;"><div class="news-spinner"></div><p style="color:var(--accent);">⏳ Chargement des actualités...</p></div>';
       }
     }
 
@@ -13511,6 +13506,20 @@
       initNews();
     }
   })();
+
+    // AUTO-LOAD NEWS AU DÉMARRAGE
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+          loadNews(currentSource);
+        }, 100);
+      });
+    } else {
+      setTimeout(function() {
+        loadNews(currentSource);
+      }, 100);
+    }
+
   </script>
 
 
