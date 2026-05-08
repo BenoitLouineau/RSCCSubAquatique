@@ -6202,9 +6202,11 @@
       <!-- TAB 6 : News -->
       <section class="tab-panel" id="panel-news" role="tabpanel" aria-labelledby="tab-news">
         <div id="newsMainContent">
-          <div class="empty-state">
-            <div class="icon">📰</div>
-            <h2>Chargement des actualités…</h2>
+          <!-- JUSTE la grille - pas de contrôles (combobox, filtre, tri sont en sidebar) -->
+          <div id="newsContainer" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px;">
+            <div style="grid-column: 1/-1; padding: 40px; text-align: center;">
+              <p>⏳ Chargement...</p>
+            </div>
           </div>
         </div>
       </section>
@@ -6237,9 +6239,9 @@
         <h3 class="settings-section-title">📰 Source News par défaut</h3>
         <p class="settings-info">Flux chargé automatiquement à l'ouverture de l\'onglet News.</p>
         <select id="newsDefaultSource" style="width:100%;padding:6px 10px;border-radius:6px;border:1px solid var(--border);background:var(--chip);color:var(--text);font-size:13px;margin-top:6px;">
-          <option value="ffessm_national">🇫🇷 FFESSM National</option>
-          <option value="codep_94_val_de_marne">📍 CODEP 94 (Val de Marne)</option>
-          <option value="subaqua_magazine">🤿 Subaqua Magazine</option>
+          <option value="FFESSM National">🇫🇷 FFESSM National</option>
+          <option value="CODEP 94 (Val de Marne)">📍 CODEP 94 (Val de Marne)</option>
+          <option value="Subaqua Magazine">🤿 Subaqua Magazine</option>
         </select>
       </div>
 
@@ -13355,7 +13357,7 @@
         maxSessions: 12,                       // 4|8|12|16|20
         silentThreshold: 30,                   // 10-50%
         synthesisSort: 'alpha',                // 'alpha' | 'seances' | 'acquisition'
-        newsDefaultSource: 'ffessm_national'   // Source NEWS par défaut
+        newsDefaultSource: 'FFESSM National'   // Clé JSON exacte comme source par défaut
       }
     };
 
