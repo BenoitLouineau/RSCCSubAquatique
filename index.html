@@ -6048,38 +6048,31 @@
       <div id="sidebar-news" class="sidebar-content hidden">
         <div class="card stats-card">
           <h3>📰 Actualités</h3>
-          
-          <!-- INDICATEUR SOURCE ACTIVE -->
-          <div style="padding: 10px; background: var(--surface); border-radius: 6px; margin-bottom: 12px; border-left: 4px solid #38bdf8;">
-            <div style="font-size: 11px; color: var(--muted); margin-bottom: 4px;">Source active:</div>
-            <div id="newsSourceIndicator" style="font-size: 13px; font-weight: 600; color: var(--text);">🇫🇷 FFESSM National</div>
+          <div class="muted" style="font-size:12px;margin-bottom:8px;">
+            Flux RSS FFESSM et CODEPs configurables.
           </div>
-          
-          <!-- NAVIGATION SOURCES - BOUTONS PILLS -->
-          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;">
-            <button id="newsSourceBtn-FFESSM National" class="news-source-btn news-source-active" onclick="if(window._rscc_news) window._rscc_news.loadNews('FFESSM National')" style="padding: 8px 12px; border-radius: 20px; border: 2px solid #38bdf8; background: #38bdf8; color: white; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;">
-              🇫🇷 FFESSM
-            </button>
-            <button id="newsSourceBtn-CODEP 94 (Val de Marne)" class="news-source-btn" onclick="if(window._rscc_news) window._rscc_news.loadNews('CODEP 94 (Val de Marne)')" style="padding: 8px 12px; border-radius: 20px; border: 2px solid var(--border); background: var(--surface); color: var(--text); font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;">
-              📍 CODEP 94
-            </button>
-            <button id="newsSourceBtn-FFESSM Île-de-France" class="news-source-btn" onclick="if(window._rscc_news) window._rscc_news.loadNews('FFESSM Île-de-France')" style="padding: 8px 12px; border-radius: 20px; border: 2px solid var(--border); background: var(--surface); color: var(--text); font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;">
-              🗺️ IDF
-            </button>
-            <button id="newsSourceBtn-Subaqua Magazine" class="news-source-btn" onclick="if(window._rscc_news) window._rscc_news.loadNews('Subaqua Magazine')" style="padding: 8px 12px; border-radius: 20px; border: 2px solid var(--border); background: var(--surface); color: var(--text); font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;">
-              🤿 Subaqua
-            </button>
+          <button class="btn-synthese" id="btnRefreshNews" onclick="if(window._rscc&&window._rscc._refreshNews)window._rscc._refreshNews()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="pointer-events:none;"><path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" fill="currentColor"/></svg>
+            Actualiser
+          </button>
+        </div>
+        <div class="card" style="margin-top:10px;">
+          <h3>⚙️ Source</h3>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">Sélectionnez ou configurez votre source RSS.</div>
+          <select id="newsSourceSelect" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--border);background:var(--chip);color:var(--text);font-size:12px;margin-bottom:8px;">
+            <option value="ffessm_nat" selected>🇫🇷 FFESSM nationale</option>
+            <option value="subaqua">🤿 Subaqua magazine</option>
+            <option value="ffessm_idf">🗺️ FFESSM Île-de-France</option>
+            <option value="codep75">📍 CODEP 75 Paris</option>
+            <option value="codep94">📍 CODEP 94</option>
+            <option value="custom">🔗 URL personnalisée</option>
+          </select>
+          <div id="newsCustomUrlWrap" style="display:none;">
+            <input type="text" id="newsCustomUrl" placeholder="https://rss.app/feeds/..." style="width:100%;box-sizing:border-box;padding:6px 8px;border-radius:6px;border:1px solid var(--border);background:var(--chip);color:var(--text);font-size:11px;margin-bottom:6px;">
           </div>
-          
-          <div style="padding: 8px; background: var(--surface); border-radius: 6px; font-size: 11px;">
-            <strong>Sources disponibles:</strong>
-            <ul style="margin: 8px 0; padding-left: 16px;">
-              <li>🇫🇷 FFESSM National (8)</li>
-              <li>📍 CODEP 94 (5)</li>
-              <li>🗺️ FFESSM Île-de-France (33)</li>
-              <li>🤿 Subaqua Magazine (8)</li>
-            </ul>
-          </div>
+          <button class="btn-synthese" id="btnApplyNewsSource" onclick="if(window._rscc&&window._rscc._refreshNews)window._rscc._refreshNews()">
+            Appliquer
+          </button>
         </div>
       </div>
 
@@ -6209,11 +6202,9 @@
       <!-- TAB 6 : News -->
       <section class="tab-panel" id="panel-news" role="tabpanel" aria-labelledby="tab-news">
         <div id="newsMainContent">
-          <!-- JUSTE la grille - pas de contrôles (combobox, filtre, tri sont en sidebar) -->
-          <div id="newsContainer" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px;">
-            <div style="grid-column: 1/-1; padding: 40px; text-align: center;">
-              <p>⏳ Chargement...</p>
-            </div>
+          <div class="empty-state">
+            <div class="icon">📰</div>
+            <h2>Chargement des actualités…</h2>
           </div>
         </div>
       </section>
@@ -6246,10 +6237,11 @@
         <h3 class="settings-section-title">📰 Source News par défaut</h3>
         <p class="settings-info">Flux chargé automatiquement à l'ouverture de l\'onglet News.</p>
         <select id="newsDefaultSource" style="width:100%;padding:6px 10px;border-radius:6px;border:1px solid var(--border);background:var(--chip);color:var(--text);font-size:13px;margin-top:6px;">
-          <option value="FFESSM National">🇫🇷 FFESSM National</option>
-          <option value="CODEP 94 (Val de Marne)">📍 CODEP 94 (Val de Marne)</option>
-          <option value="FFESSM Île-de-France">🗺️ FFESSM Île-de-France</option>
-          <option value="Subaqua Magazine">🤿 Subaqua Magazine</option>
+          <option value="ffessm_nat">🇫🇷 FFESSM nationale</option>
+          <option value="subaqua">🤿 Subaqua magazine</option>
+          <option value="ffessm_idf">🗺️ FFESSM Île-de-France</option>
+          <option value="codep75">📍 CODEP 75 Paris</option>
+          <option value="codep94">📍 CODEP 94</option>
         </select>
       </div>
 
@@ -13217,335 +13209,318 @@
 
 
   <!-- =====================================================================
-       MODULE NEWS — Charge depuis GitHub (CONFIG.URL_NEWS)
-       Même pattern que élèves/moniteurs
+       MODULE NEWS — Flux RSS FFESSM via rss2json proxy
        ===================================================================== -->
   <script>
   (function() {
     'use strict';
 
-    var NEWS_DATA_EMBEDDED = null;  // Sera chargé depuis GitHub
-    var currentSource = null;
-    var currentArticles = [];
+    var LS_NEWS_SOURCE = 'rscc_news_source';
+    var LS_NEWS_CUSTOM = 'rscc_news_custom_url';
 
-    // Mapping des sources avec emojis
-    var sourceEmojis = {
-      'FFESSM National': '🇫🇷',
-      'CODEP 94 (Val de Marne)': '📍',
-      'FFESSM Île-de-France': '🗺️',
-      'Subaqua Magazine': '🤿'
-    }; {"name": "FFESSM National", "count": 8, "articles": [{"title": "Saint-Mandrier recrute ses réservistes moniteurs", "url": "https://ffessm.fr/actualites/saint-mandrier-recrute-ses-reservistes-moniteurs", "description": "", "date": "30/04/2026", "category": "Actualité", "image": null}, {"title": "CMAS: La France, épicentre mondial des activités subaquatiques", "url": "https://ffessm.fr/actualites/cmas-la-france-epicentre-mondial-des-activites-subaquatiques", "description": "", "date": "27/04/2026", "category": "Actualité", "image": null}, {"title": "FFESSM × Andromède Océanologie : protégeons la Méditerranée", "url": "https://ffessm.fr/actualites/ffessm-andromede-oceanologie-protegeons-la-mediterranee", "description": "", "date": "23/04/2026", "category": "Actualité", "image": null}, {"title": "Sogod Bay : l’âme sauvage des Philippines", "url": "https://ffessm.fr/actualites/sogod-bay-l-ame-sauvage-des-philippines", "description": "", "date": "15/04/2026", "category": "Actualité", "image": null}, {"title": "La France, la FFESSM au Sommet de la Plongée Mondiale  à Bordeaux", "url": "https://ffessm.fr/actualites/la-france-la-ffessm-au-sommet-de-la-plongee-mondiale-a-bordeaux", "description": "", "date": "09/04/2026", "category": "Actualité", "image": null}, {"title": "Plongée et bien-être mental : une étude internationale  confirme", "url": "https://ffessm.fr/actualites/plongee-et-bien-etre-mental-une-etude-internationale-confirme", "description": "", "date": "08/05/2026", "category": "Actualité", "image": null}, {"title": "HandiGuide 2025 : la FFESSM dans le top 3 national 🤿", "url": "https://ffessm.fr/actualites/handiguide-2025-la-ffessm-dans-le-top-3-national", "description": "", "date": "07/05/2026", "category": "Actualité", "image": null}, {"title": "Oxygénothérapie en club : la FFESSM vous facilite l'accès", "url": "https://ffessm.fr/actualites/oxygenotherapie-en-club-la-ffessm-vous-facilite-l-acces", "description": "", "date": "02/05/2026", "category": "Actualité", "image": null}]}, "CODEP 94 (Val de Marne)": {"name": "CODEP 94 (Val de Marne)", "count": 5, "articles": [{"title": "La plongée comme thérapie", "url": "https://ffessm-codep94.vpdive.com/f/news/detail/actualites/1/puLbcW_vepTfQ93iZYKcvQotj2CF951DF5ZvpFHPeik", "description": "Conférence Paris Sorbonne", "date": "29/05/2026", "category": "Événement", "image": null}, {"title": "Championnat de France", "url": "https://ffessm-codep94.vpdive.com/f/news/detail/actualites/1/ErgqZja6ijo8kp8xIwLNpZUEOvFMs4nSzeBJ-pj3pZ4", "description": "Limoges du 22 au 25 mai 2026", "date": "22/05/2026", "category": "Événement", "image": null}, {"title": "Photo", "url": "https://ffessm-codep94.vpdive.com/f/news/detail/actualites/1/wpkFzat0pZXb7jk8umIORJzfwMzIbnfUl-St3-9YZ3Y", "description": "Aquarium Porte Dorée", "date": "22/03/2026", "category": "Événement", "image": null}, {"title": "LICENCE COMPÉTITION", "url": "https://ffessm-codep94.vpdive.com/f/news/detail/actualites/1/YxL2Sz_CWizv_1FYTabkbWsFznC0OPtlvg816BYV2MY", "description": "F. Di Meglio (Coin des Présidents)", "date": "12/04/2026", "category": "Événement", "image": null}, {"title": "Colloque Sport-Santé", "url": "https://ffessm-codep94.vpdive.com/f/news/detail/actualites/1/ESTfoonegB0ZYgKf4xGhQKDWZDh82kOroWlfylykM2o", "description": "Activité physique et santé mentale", "date": "09/04/2026", "category": "Événement", "image": null}]}, "FFESSM Île-de-France": {"name": "FFESSM Île-de-France", "count": 33, "articles": [{"title": "Actualités", "url": "https://ffessm-idf.fr/actualites/", "description": "", "date": "N/A", "category": "Information", "image": null}, {"title": "Télécharger", "url": "https://ffessm-idf.fr/wp-content/uploads/2026/03/20260303-Restitution-LR-enquete-expression-besoins.pdf", "description": "", "date": "N/A", "category": "Information", "image": null}, {"title": "Télécharger", "url": "https://ffessm-idf.fr/wp-content/uploads/2025/05/Inscription-oxyjeunes-IDF_2025-2.xlsx", "description": "", "date": "N/A", "category": "Information", "image": null}, {"title": "plan d’action LAC 2020 projet PUBLIE", "url": "https://ffessm-idf.fr/actualites/plan-daction-lac-2020-projet-publie/", "description": "URGENT: INFORMATION BEAUMONT", "date": "N/A", "category": "Information", "image": null}, {"title": "Communiqué N° 10", "url": "https://ffessm-idf.fr/actualites/communique-n-10/", "description": "Chères présidentes, chers présidents,", "date": "N/A", "category": "Information", "image": null}, {"title": "Mesure de déconfinement Beaumont (à compter du 13 06)", "url": "https://ffessm-idf.fr/actualites/mesure-de-deconfinement-beaumont-a-compter-du-13-06/", "description": "Chères présidentes, chers présidents,", "date": "N/A", "category": "Information", "image": null}, {"title": "auto- questionnaire reprise", "url": "https://ffessm-idf.fr/actualites/auto-questionnaire-reprise/", "description": "Chères présidentes, chers présidents,", "date": "N/A", "category": "Information", "image": null}, {"title": "Stratégie Nationale de Déconfinement Plongée", "url": "https://ffessm-idf.fr/actualites/strategie-nationale-de-deconfinement-plongee/", "description": "Chères présidentes, chers présidents,", "date": "N/A", "category": "Information", "image": null}, {"title": "Présentation Le corail rouge de Méditerranée par Chantal Delcausse", "url": "https://ffessm-idf.fr/wp-content/uploads/2018/12/Présentation-Le-corail-rouge-de-Méditerranée-par-Chantal-Delcausse-3.pdf", "description": "Présentation Le corail rouge de Méditerranée par Chantal Delcausse", "date": "N/A", "category": "Information", "image": null}, {"title": "Dossier Presse-projet-SOS Epaves en danger-", "url": "https://ffessm-idf.fr/actualites/dossier-presse-projet-sos-epaves-en-danger/", "description": "Les épaves sont l’un des trésors de nos mers", "date": "30/11/2020", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2020/11/Affiche-operation-10-Euros-ELEAU_page-0001-212x300.jpg"}, {"title": "Sport et éthique prévention", "url": "https://ffessm-idf.fr/actualites/sport-et-ethique-prevention/", "description": "Chères Présidentes, Chers Présidents,", "date": "28/10/2021", "category": "Information", "image": null}, {"title": "Affiche-400-ans-de-la-Marine", "url": "https://ffessm-idf.fr/wp-content/uploads/2026/05/Affiche-400-ans-de-la-Marine.png", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "Presentation-PSF-PWP", "url": "https://ffessm-idf.fr/wp-content/uploads/2026/03/2026-Presentation-PSF-PWP.pdf", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "Projet-note-de-cadrage-PSF-PT", "url": "https://ffessm-idf.fr/wp-content/uploads/2026/03/2026-Projet-note-de-cadrage-PSF-PT.pdf", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "VADE-MECUM-POUR-LES-STRUCTURES-BENEFICIAIRES", "url": "https://ffessm-idf.fr/wp-content/uploads/2026/03/2026-VADE-MECUM-POUR-LES-STRUCTURES-BENEFICIAIRES.pdf", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "ACTIONS-REMARQUABLES-2025.pdf", "url": "https://ffessm-idf.fr/wp-content/uploads/2026/03/ACTIONS-REMARQUABLES-2025.pdf", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "Annexe-3-Codes-subvention-PSF.pdf", "url": "https://ffessm-idf.fr/wp-content/uploads/2026/03/Annexe-3-Codes-subvention-PSF.pdf", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "Note-de-cadrage-2026-250326.pdf", "url": "https://ffessm-idf.fr/wp-content/uploads/2026/03/Note-de-cadrage-2026-250326.pdf", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "https://ffessm.fr/actualites/obligation-d-affichage-a-venir", "url": "https://ffessm.fr/actualites/obligation-d-affichage-a-venir", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "https://ffessm-idf.fr/wp-content/uploads/2025/02/BILAN-A-4-MOIS.pdf", "url": "https://ffessm-idf.fr/wp-content/uploads/2025/02/BILAN-A-4-MOIS.pdf", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "https://ffessm-idf.fr/wp-content/uploads/2025/02/Photos-piscine-au-Salon-de-la-plongee-2025-V4.mp4", "url": "https://ffessm-idf.fr/wp-content/uploads/2025/02/Photos-piscine-au-Salon-de-la-plongee-2025-V4.mp4", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "https://ffessm-idf.fr/wp-content/uploads/2025/02/compte-rendu-2025-1.pdf", "url": "https://ffessm-idf.fr/wp-content/uploads/2025/02/compte-rendu-2025-1.pdf", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "Compte-rendu-bassin-Salon-2023", "url": "https://ffessm-idf.fr/wp-content/uploads/2023/01/Compte-rendu-bassin-Salon-2023.pdf", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "2022 FFESSM Codes subventions", "url": "https://ffessm-idf.fr/actualites/2022-ffessm-codes-subventions/", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "2022 Note de cadrage", "url": "https://ffessm-idf.fr/actualites/2022-note-de-cadrage/", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "Ouvrages Pescadere et Jubelin", "url": "https://ffessm-idf.fr/actualites/ouvrages-pescadere-et-jubelin/", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "Flyers BPJEPS LTP 21 22", "url": "https://ffessm-idf.fr/actualites/flyers-bpjeps-ltp-21-22/", "description": "Cher Présidents, Chères Présidentes,", "date": "16/09/2021", "category": "Information", "image": null}, {"title": "AIDE INSCRIPTION 4ème BPJEPS plongée", "url": "https://ffessm-idf.fr/actualites/aide-inscription-4eme-bpjeps-plongee/", "description": "Cher Présidents, Chères Présidentes,", "date": "16/09/2021", "category": "Information", "image": null}, {"title": "Bulles d’évasion pour nos soldats blessés en opération", "url": "https://ffessm-idf.fr/actualites/bapteme-codep-49/", "description": "Depuis plusieurs années, le service des armées prend en charge l’accompagnement de soins de nos soldats blessés sur les différents théâtres d’opérations.Dans ce cadre-là, le ministère des armées a souhaité qu’il soit organisé des sessions multi sport", "date": "13/10/2020", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2020/10/bapteme-codep-49-300x142.jpg"}, {"title": "Baptemes armée", "url": "https://ffessm-idf.fr/actualites/baptemes-armee/", "description": "Depuis plusieurs années, le service des armées prend en charge l’accompagnement de soins de nos soldats blessés sur les différents théâtres d’opérations.Dans ce cadre-là, le ministère des armées a souhaité qu’il soit organisé des sessions multi sport", "date": "13/10/2020", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2020/10/bapteme-codep-49-300x142.jpg"}, {"title": "FCPAEPS", "url": "https://ffessm-idf.fr/wp-content/uploads/2018/09/IDF-Ficheinscription-FCPAEPSC-ou-FCPAEPS-.pdf", "description": "Formation de Pédagogie initiale Commune de Formateur (PICF) : les 7 oct, 20, 21 et 22 oct 2018Formation de Pédagogie Appliquée à l’Emploi de Formateur en Prévention et Secours Civiques (PAE PSC) : 31 oct, 1er, 2, 3 et 4 novembre 2018.Formation de Péd", "date": "04/11/2018", "category": "Information", "image": null}, {"title": "IDF Ficheinscription PAEPS", "url": "https://ffessm-idf.fr/wp-content/uploads/2018/09/IDF-Ficheinscription-PAEPS.pdf", "description": "Formation de Pédagogie initiale Commune de Formateur (PICF) : les 7 oct, 20, 21 et 22 oct 2018Formation de Pédagogie Appliquée à l’Emploi de Formateur en Prévention et Secours Civiques (PAE PSC) : 31 oct, 1er, 2, 3 et 4 novembre 2018.Formation de Péd", "date": "04/11/2018", "category": "Information", "image": null}, {"title": "IDF Ficheinscription PAEPSC", "url": "https://ffessm-idf.fr/wp-content/uploads/2018/09/IDF-Ficheinscription-PAEPSC.pdf", "description": "Formation de Pédagogie initiale Commune de Formateur (PICF) : les 7 oct, 20, 21 et 22 oct 2018Formation de Pédagogie Appliquée à l’Emploi de Formateur en Prévention et Secours Civiques (PAE PSC) : 31 oct, 1er, 2, 3 et 4 novembre 2018.Formation de Péd", "date": "04/11/2018", "category": "Information", "image": null}]}, "Subaqua Magazine": {"name": "Subaqua Magazine", "count": 8, "articles": [{"title": "La Marine nationale recrute des moniteurs de plongée !", "url": "https://subaqua.ffessm.fr/article/marine-nationale-recrute-moniteur-plongee", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Coupe de France 2026 d'apnée en piscine, étape d'Aix-en-Provence", "url": "https://subaqua.ffessm.fr/article/coupe-france-2026-apnee-piscine-etape-aix-provence", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Lire la suite", "url": "https://subaqua.ffessm.fr/article/escale-sete-2026-archeologie-sous-marine-presente", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Lire la suite", "url": "https://subaqua.ffessm.fr/article/nev-finales-du-championnat-de-normandie-de-course-en-ligne-et-du-trophee-de-l-eure", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Lire la suite", "url": "https://subaqua.ffessm.fr/article/nouveau-detendeur-scubapro-c370", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Lire la suite", "url": "https://subaqua.ffessm.fr/article/especes-fondatrices-un-role-majeur-dans-la-biodiversite-cotiere", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "NAP : Coupe du Monde des clubs 2026 à Aix-en-Provence", "url": "https://subaqua.ffessm.fr/article/nap-coupe-monde-clubs-2026-aix-provence", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Tunisie : les sports subaquatiques, vecteurs d’inclusion et de conscience écologique", "url": "https://subaqua.ffessm.fr/article/tunisie-sports-subaquatiques-vecteur-inclusion-conscience-ecologique", "description": "", "date": "N/A", "category": "Magazine", "image": null}]}}};
-    var SOURCES = {};
+    // ── Sources RSS (flux rss.app — mise à jour automatique) ────────────
+    var SOURCES = {
+      ffessm_nat: {
+        label: '🇫🇷 FFESSM nationale',
+        rssUrl: 'https://rss.app/feeds/9fcJcv6LV6oDq5Lo.xml',
+        fallback: 'https://ffessm.fr/actualites'
+      },
+      subaqua: {
+        label: '🤿 Subaqua magazine',
+        rssUrl: 'https://rss.app/feeds/bo5ZUfMbxLlfAtZG.xml',
+        fallback: 'https://subaqua.ffessm.fr/categorie/actu'
+      },
+      ffessm_idf: {
+        label: '🗺️ FFESSM Île-de-France',
+        rssUrl: 'https://rss.app/feeds/Cm1ORKiKFV6PVTOL.xml',
+        fallback: 'https://ffessm-idf.fr'
+      },
+      codep75: {
+        label: '📍 CODEP 75 Paris',
+        rssUrl: 'https://rss.app/feeds/AYkEAQAwVq24KthY.xml',
+        fallback: 'https://www.ffessm-cd75.org/index.php'
+      },
+      codep94: {
+        label: '📍 CODEP 94',
+        rssUrl: 'https://rss.app/feeds/E47pv4KgfC0GZOFW.xml',
+        fallback: 'https://ffessm-codep94.vpdive.com/w/actualites'
+      },
+    };
 
-    function loadNewsFromJSON(jsonKey) {
-      console.log('[NEWS] Chargement:', jsonKey);
-      return new Promise((resolve, reject) => {
-        try {
-          if (!NEWS_DATA_EMBEDDED || !NEWS_DATA_EMBEDDED.sources[jsonKey]) {
-            reject(new Error('Source not found: ' + jsonKey));
-            return;
-          }
-          var sourceData = NEWS_DATA_EMBEDDED.sources[jsonKey];
-          var articles = (sourceData.articles || []).map(function(article) {
-            return {
-              title: article.title,
-              link: article.url,
-              description: article.description || '',
-              pubDate: article.date,
-              category: article.category || 'Info'
-            };
-          });
-          console.log('[NEWS] ' + articles.length + ' articles');
-          resolve({status: 'ok', items: articles});
-        } catch(e) {
-          console.error('[NEWS] Erreur:', e);
-          reject(e);
-        }
-      });
-    }
+    // ── Proxy rss2json ────────────────────────────────────────────────────
+    var RSS2JSON = 'https://api.rss2json.com/v1/api.json?rss_url=';
+    var RSS2JSON_KEY = ''; // optionnel — clé API rss2json pour plus de requêtes
 
-    function formatDate(dateStr) {
-      if (!dateStr || dateStr === 'N/A') return '';
-      if (dateStr.indexOf('/') > -1) return dateStr;
+    function getRssUrl() {
       try {
-        return new Date(dateStr).toLocaleDateString('fr-FR');
-      } catch(e) {
-        return dateStr;
-      }
+        // Priorité 1 : choix manuel de la session (sidebar)
+        var manual = localStorage.getItem(LS_NEWS_SOURCE);
+        if (manual) return manual;
+        // Priorité 2 : source par défaut configurée dans les Réglages
+        var stored = localStorage.getItem('rscc_settings_v1');
+        if (stored) {
+          var parsed = JSON.parse(stored);
+          if (parsed && parsed['newsDefaultSource']) return parsed['newsDefaultSource'];
+        }
+      } catch(e) {}
+      // Priorité 3 : FFESSM nationale
+      return 'ffessm_nat';
     }
 
-    function loadNews(sourceSlug) {
-      console.log('[NEWS] Changement source:', sourceSlug);
-      
-      if (!NEWS_DATA_EMBEDDED || !NEWS_DATA_EMBEDDED.sources[sourceSlug]) {
-        console.error('[NEWS] Source non trouvée:', sourceSlug);
+    function getCustomUrl() {
+      try { return localStorage.getItem(LS_NEWS_CUSTOM) || ''; } catch(e) { return ''; }
+    }
+
+    function getCurrentSource() {
+      var key = getRssUrl();
+      if (key === 'custom') {
+        var url = getCustomUrl();
+        return { label: '🔗 URL personnalisée', rssUrl: url, fallback: url, note: null };
+      }
+      return SOURCES[key] || SOURCES['codep94'];
+    }
+
+    function isPlaceholder(url) {
+      return !url || url.indexOf('_placeholder_') >= 0 || url === '';
+    }
+
+    // ── Formater la date ──────────────────────────────────────────────────
+    function formatNewsDate(dateStr) {
+      if (!dateStr) return '';
+      try {
+        var d = new Date(dateStr);
+        if (isNaN(d.getTime())) return dateStr;
+        var now = new Date();
+        var diff = Math.round((now - d) / 86400000);
+        if (diff === 0) return "Aujourd'hui";
+        if (diff === 1) return 'Hier';
+        if (diff < 7) return 'Il y a ' + diff + ' jours';
+        return d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' });
+      } catch(e) { return dateStr; }
+    }
+
+    // ── Nettoyer le HTML ──────────────────────────────────────────────────
+    function stripHtml(html) {
+      if (!html) return '';
+      return html.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&')
+        .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').trim();
+    }
+
+    // ── Builder HTML d'une news card ──────────────────────────────────────
+    function buildNewsCard(item) {
+      var title   = item.title || 'Sans titre';
+      var desc    = stripHtml(item.description || item.content || '');
+      var link    = item.link || '#';
+      var date    = formatNewsDate(item.pubDate);
+      var imgUrl  = item.enclosure && item.enclosure.link ? item.enclosure.link
+                  : item.thumbnail || null;
+      var cat     = (item.categories && item.categories.length) ? item.categories[0] : '';
+
+      var imgHtml = imgUrl
+        ? '<img class="news-card-img" src="' + imgUrl + '" alt="" loading="lazy" onerror="this.parentNode.innerHTML=\'<div class=&quot;news-card-img-placeholder&quot;>🤿</div>\'">'
+        : '<div class="news-card-img-placeholder">🤿</div>';
+
+      return '<a class="news-card" href="' + link + '" target="_blank" rel="noopener">' +
+        imgHtml +
+        '<div class="news-card-body">' +
+          (cat ? '<div class="news-card-cat">' + cat + '</div>' : '') +
+          '<div class="news-card-title">' + title + '</div>' +
+          (desc ? '<div class="news-card-desc">' + desc.slice(0, 180) + (desc.length > 180 ? '…' : '') + '</div>' : '') +
+          '<div class="news-card-footer">' +
+            '<span>' + date + '</span>' +
+            '<span style="color:var(--accent);font-size:10px;font-weight:700;">Lire →</span>' +
+          '</div>' +
+        '</div>' +
+      '</a>';
+    }
+
+    // ── Rendu guide de configuration ──────────────────────────────────────
+    function buildSetupGuide(source) {
+      return '<div class="news-setup-info">' +
+        '<h3>🔗 Source personnalisée</h3>' +
+        '<p style="color:var(--muted);margin-bottom:10px;">Pour ajouter une source, créez un flux sur <a href="https://rss.app" target="_blank" rel="noopener">rss.app</a> puis collez l\'URL dans la sidebar.</p>' +
+        '<p style="font-size:11px;color:var(--muted);">Format : <code>https://rss.app/feeds/xxx.xml</code></p>' +
+      '</div>';
+    }
+
+    // ── Chargement et rendu ───────────────────────────────────────────────
+    function refreshNews() {
+      var container = document.getElementById('newsMainContent');
+      if (!container) return;
+
+      var source = getCurrentSource();
+
+      // Afficher le spinner
+      container.innerHTML = '<div class="news-loading"><div class="news-spinner"></div> Chargement des actualités ' + source.label + '…</div>';
+
+      // Si placeholder → afficher le guide de config
+      if (isPlaceholder(source.rssUrl)) {
+        container.innerHTML =
+          '<div class="news-header">' +
+            '<div class="news-header-title">📰 Actualités <span class="news-source-badge">' + source.label + '</span></div>' +
+          '</div>' +
+          buildSetupGuide(source);
         return;
       }
-      
-      currentSource = sourceSlug;
-      
-      // Mettre à jour l'indicateur UX
-      var indicator = document.getElementById('newsSourceIndicator');
-      if (indicator) {
-        var emoji = sourceEmojis[sourceSlug] || '📰';
-        indicator.textContent = emoji + ' ' + sourceSlug;
-      }
-      
-      // Mettre à jour les boutons
-      var allButtons = document.querySelectorAll('.news-source-btn');
-      allButtons.forEach(function(btn) {
-        btn.classList.remove('news-source-active');
-        btn.style.background = 'var(--surface)';
-        btn.style.borderColor = 'var(--border)';
-        btn.style.color = 'var(--text)';
-      });
-      var activeBtn = document.getElementById('newsSourceBtn-' + sourceSlug);
-      if (activeBtn) {
-        activeBtn.classList.add('news-source-active');
-        activeBtn.style.background = '#38bdf8';
-        activeBtn.style.borderColor = '#38bdf8';
-        activeBtn.style.color = 'white';
-      }
-      
-      var container = document.getElementById('newsContainer');
-      if (container) container.innerHTML = '<div style="grid-column: 1/-1; padding: 40px; text-align: center;"><p>⏳ Chargement...</p></div>';
-      
-      loadNewsFromJSON(sourceSlug).then(function(response) {
-        if (response.status === 'ok') {
-          currentArticles = response.items;
-          renderNews();
-        }
-      }).catch(function(error) {
-        console.error('[NEWS] Erreur:', error);
-        if (container) container.innerHTML = '<div style="grid-column: 1/-1; padding: 40px;"><p>⚠️ Erreur</p></div>';
-      });
-    }
 
-    function renderNews() {
-      var container = document.getElementById('newsContainer');
-      if (!container || !currentArticles.length) return;
-      
-      var sourceColor = {
-        'FFESSM National': '#38bdf8',
-        'CODEP 94 (Val de Marne)': '#16a34a',
-        'FFESSM Île-de-France': '#8b5cf6',
-        'Subaqua Magazine': '#f97316'
-      };
-      var color = sourceColor[currentSource] || '#38bdf8';
-      
-      container.innerHTML = currentArticles.map(function(article) {
-        return '<a href="' + article.link + '" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">' +
-          '<div style="border: 1px solid var(--border); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; height: 100%; background: var(--card); transition: all 0.2s; cursor: pointer;" ' +
-            'onmouseover="this.style.boxShadow='0 8px 24px rgba(0,0,0,0.3)'; this.style.transform='translateY(-2px)';" ' +
-            'onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">' +
-            '<div style="width: 100%; height: 8px; background: ' + color + ';"></div>' +
-            '<div style="padding: 12px; flex: 1; display: flex; flex-direction: column;">' +
-              '<span style="font-size: 11px; color: var(--accent); font-weight: 600; margin-bottom: 6px;">' + article.category + '</span>' +
-              '<h3 style="margin: 0 0 8px 0; font-size: 14px; font-weight: 600; line-height: 1.4;">' + article.title + '</h3>' +
-              (article.description ? '<p style="margin: 0 0 8px 0; font-size: 12px; color: var(--muted); flex: 1;">' + article.description + '</p>' : '') +
-              '<div style="margin-top: auto; padding-top: 8px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted);">' + formatDate(article.pubDate) + '</div>' +
-            '</div>' +
+      var rssUrl = source.rssUrl;
+
+      // Détecter file:// — fetch() bloqué, impossible de charger le RSS
+      if (window.location.protocol === 'file:') {
+        container.innerHTML =
+          '<div class="news-header"><div class="news-header-title">📰 Actualités <span class="news-source-badge">' + source.label + '</span></div></div>' +
+          '<div class="news-error" style="margin-bottom:16px;">' +
+            '⚠️ Le chargement des actualités nécessite une connexion HTTPS.<br>' +
+            '<span style="font-size:11px;">Ouvrez le rapport depuis <strong>GitHub Pages</strong> pour accéder au flux RSS.</span><br>' +
+            '<span style="font-size:11px;margin-top:6px;display:block;">URL : <a href="https://benoitlouineau.github.io/RSCCSubAquatique/" target="_blank" style="color:var(--accent);">benoitlouineau.github.io/RSCCSubAquatique/</a></span>' +
           '</div>' +
-        '</a>';
-      }).join('');
-    }
-
-    function initNews() {
-      console.log('[NEWS] Initialisation');
-      
-      // Déterminer la source par défaut depuis SETTINGS
-      if (typeof SETTINGS !== 'undefined' && SETTINGS.data && SETTINGS.data.newsDefaultSource) {
-        currentSource = SETTINGS.data.newsDefaultSource;
-      } else {
-        // Fallback: 1ère source disponible du JSON
-        currentSource = NEWS_DATA_EMBEDDED ? Object.keys(NEWS_DATA_EMBEDDED.sources)[0] : 'FFESSM National';
+          buildSetupGuide(source);
+        return;
       }
-      
-      console.log('[NEWS] Source défaut:', currentSource);
-      loadNews(currentSource);
-    }
 
-    // Charger le JSON depuis GitHub
-    function loadNewsDataFromGitHub() {
-      console.log('[NEWS] Chargement JSON depuis GitHub:', CONFIG.URL_NEWS);
-      
-      fetch(CONFIG.URL_NEWS, { method: 'GET' })
-        .then(function(resp) {
-          if (!resp.ok) throw new Error('HTTP ' + resp.status);
-          return resp.json();
+      // Proxy allorigins (CORS universel, gratuit)
+      var CORS_PROXY = 'https://api.allorigins.win/get?url=';
+
+      // Tentative 1 : fetch direct (marche si rss.app envoie les bons headers CORS)
+      // Tentative 2 : via allorigins proxy
+      fetch(rssUrl, { mode: 'cors' })
+        .then(function(r) {
+          if (!r.ok) throw new Error('direct-' + r.status);
+          return r.text();
         })
-        .then(function(data) {
-          NEWS_DATA_EMBEDDED = data;
-          console.log('[NEWS] JSON chargé - ' + Object.keys(data.sources).length + ' sources');
-          initNews();
+        .catch(function() {
+          return fetch(CORS_PROXY + encodeURIComponent(rssUrl))
+            .then(function(r) { if (!r.ok) throw new Error('proxy-' + r.status); return r.json(); })
+            .then(function(d) { return d.contents; });
+        })
+        .then(function(xmlText) {
+          var parser = new DOMParser();
+          var xml = parser.parseFromString(xmlText, 'application/xml');
+
+          // Détecter les erreurs de parsing
+          var parseErr = xml.querySelector('parsererror');
+          if (parseErr) throw new Error('XML invalide');
+
+          // Extraire les items (RSS 2.0 ou Atom)
+          var items = Array.from(xml.querySelectorAll('item, entry'));
+          if (!items.length) throw new Error('Flux vide ou format non reconnu');
+
+          var feedTitle = (xml.querySelector('channel > title, feed > title') || {}).textContent || source.label;
+
+          var parsed = items.slice(0, 12).map(function(item) {
+            var get = function(sel) {
+              try { var el = item.querySelector(sel); return el ? el.textContent.trim() : ''; }
+              catch(e) { return ''; }
+            };
+            var getAttr = function(sel, attr) {
+              try { var el = item.querySelector(sel); return el ? (el.getAttribute(attr) || '') : ''; }
+              catch(e) { return ''; }
+            };
+
+            var pubDate = get('pubDate') || get('published') || get('updated') || '';
+
+            // Image via getElementsByTagNameNS (namespace-safe, évite le bug querySelector)
+            var img = null;
+            try {
+              var mediaNS = 'http://search.yahoo.com/mrss/';
+              var mc = item.getElementsByTagNameNS(mediaNS, 'content');
+              if (mc && mc.length) img = mc[0].getAttribute('url');
+              if (!img) {
+                var mt = item.getElementsByTagNameNS(mediaNS, 'thumbnail');
+                if (mt && mt.length) img = mt[0].getAttribute('url');
+              }
+            } catch(e) {}
+            if (!img) img = getAttr('enclosure', 'url') || null;
+            if (!img) {
+              var rawDesc = get('description') || get('content') || '';
+              var m = rawDesc.match(/<img[^>]+src=["']([^"']+)["']/i);
+              if (m) img = m[1];
+            }
+
+            var cat = get('category') || '';
+            var link = '';
+            try {
+              link = get('link');
+              if (!link) {
+                var lel = item.querySelector('link');
+                if (lel) link = lel.getAttribute('href') || lel.textContent.trim();
+              }
+            } catch(e) {}
+
+            return {
+              title: get('title'),
+              link: link || '#',
+              description: get('description') || get('summary') || get('content'),
+              pubDate: pubDate,
+              thumbnail: img,
+              enclosure: img ? { link: img } : null,
+              categories: cat ? [cat] : []
+            };
+          });
+
+          var cards = parsed.map(buildNewsCard).join('');
+          container.innerHTML =
+            '<div class="news-header">' +
+              '<div class="news-header-title">📰 ' + feedTitle + ' <span class="news-source-badge">' + source.label + '</span></div>' +
+              '<span style="font-size:11px;color:var(--muted);">' + parsed.length + ' article' + (parsed.length > 1 ? 's' : '') + '</span>' +
+            '</div>' +
+            '<div class="news-grid">' + cards + '</div>';
         })
         .catch(function(err) {
-          console.error('[NEWS] Erreur chargement JSON:', err);
-          var container = document.getElementById('newsContainer');
-          if (container) container.innerHTML = '<div style="grid-column: 1/-1; padding: 40px;"><p>⚠️ Erreur chargement données</p></div>';
+          container.innerHTML =
+            '<div class="news-header">' +
+              '<div class="news-header-title">📰 Actualités <span class="news-source-badge">' + source.label + '</span></div>' +
+            '</div>' +
+            '<div class="news-error" style="margin-bottom:16px;">⚠️ Impossible de charger le flux RSS : ' + err.message + '<br><span style="font-size:11px;">Vérifiez l\'URL du flux et votre connexion internet (requis : GitHub Pages, pas file://).</span></div>' +
+            buildSetupGuide(source);
         });
     }
 
-    // Exposer au global
-    window._rscc_news = {
-      loadNews: loadNews,
-      renderNews: renderNews,
-      initNews: initNews,
-      loadNewsDataFromGitHub: loadNewsDataFromGitHub
-    };
+    // ── Exposer ───────────────────────────────────────────────────────────
+    window._rscc = window._rscc || {};
+    window._rscc._refreshNews = refreshNews;
 
-    // Charger au démarrage
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', loadNewsDataFromGitHub);
-    } else {
-      loadNewsDataFromGitHub();
-    }
-  });
-  </script>
-
-
-  <!-- ===================================================================== MODULE RÉGLAGES(function(jsonKey) {
-      var emoji = sourceEmojis[jsonKey] || '📰';
-      SOURCES[jsonKey] = {
-        label: emoji + ' ' + jsonKey,
-        jsonKey: jsonKey,
-        emoji: emoji
-      };
+    // Charger automatiquement quand on clique sur l'onglet News
+    document.addEventListener('click', function(e) {
+      var tab = e.target.closest('[data-tab="news"]');
+      if (tab) {
+        // Petit délai pour laisser le panel s'afficher
+        setTimeout(refreshNews, 50);
+      }
     });
 
-    var currentSource = null;
-    var currentArticles = [];
-
-    function loadNewsFromJSON(jsonKey) {
-      console.log('[NEWS] Chargement:', jsonKey);
-      return new Promise((resolve, reject) => {
-        try {
-          if (!NEWS_DATA_EMBEDDED.sources[jsonKey]) {
-            reject(new Error('Source not found'));
-            return;
-          }
-          var sourceData = NEWS_DATA_EMBEDDED.sources[jsonKey];
-          var articles = (sourceData.articles || []).map(function(article) {
-            return {
-              title: article.title,
-              link: article.url,
-              description: article.description || '',
-              pubDate: article.date,
-              category: article.category || 'Info'
-            };
-          });
-          console.log('[NEWS] ' + articles.length + ' articles chargés');
-          resolve({status: 'ok', items: articles});
-        } catch(e) {
-          console.error('[NEWS] Erreur:', e);
-          reject(e);
-        }
-      });
-    }
-
-    function formatDate(dateStr) {
-      if (!dateStr || dateStr === 'N/A') return '';
-      if (dateStr.indexOf('/') > -1) return dateStr;
-      try {
-        return new Date(dateStr).toLocaleDateString('fr-FR');
-      } catch(e) {
-        return dateStr;
+    // Gestion sélecteur source dans la sidebar
+    document.addEventListener('change', function(e) {
+      if (e.target && e.target.id === 'newsSourceSelect') {
+        var val = e.target.value;
+        try { localStorage.setItem(LS_NEWS_SOURCE, val); } catch(err) {}
+        var wrap = document.getElementById('newsCustomUrlWrap');
+        if (wrap) wrap.style.display = val === 'custom' ? '' : 'none';
       }
-    }
+    });
 
-    function loadNews(sourceSlug) {
-      console.log('[NEWS] Changement source:', sourceSlug);
-      var sourceConfig = SOURCES[sourceSlug];
-      if (!sourceConfig) return;
-      
-      currentSource = sourceSlug;
-      
-      // MISE À JOUR UX - Afficher la source active
-      var indicator = document.getElementById('newsSourceIndicator');
-      if (indicator) {
-        indicator.textContent = sourceConfig.label;
+    // Sauvegarder l'URL custom
+    document.addEventListener('input', function(e) {
+      if (e.target && e.target.id === 'newsCustomUrl') {
+        try { localStorage.setItem(LS_NEWS_CUSTOM, e.target.value); } catch(err) {}
       }
-      
-      // MISE À JOUR BOUTONS PILLS - styling active
-      var allButtons = document.querySelectorAll('.news-source-btn');
-      allButtons.forEach(function(btn) {
-        btn.classList.remove('news-source-active');
-        btn.style.background = 'var(--surface)';
-        btn.style.borderColor = 'var(--border)';
-        btn.style.color = 'var(--text)';
-      });
-      var activeBtn = document.getElementById('newsSourceBtn-' + sourceSlug);
-      if (activeBtn) {
-        activeBtn.classList.add('news-source-active');
-        activeBtn.style.background = '#38bdf8';
-        activeBtn.style.borderColor = '#38bdf8';
-        activeBtn.style.color = 'white';
+    });
+
+    // Restaurer la sélection depuis localStorage au chargement
+    document.addEventListener('DOMContentLoaded', function() {
+      var sel = document.getElementById('newsSourceSelect');
+      if (sel) {
+        var current = getRssUrl();
+        sel.value = current;
+        var wrap = document.getElementById('newsCustomUrlWrap');
+        if (wrap) wrap.style.display = current === 'custom' ? '' : 'none';
+        var custInput = document.getElementById('newsCustomUrl');
+        if (custInput) custInput.value = getCustomUrl();
       }
-      
-      var container = document.getElementById('newsContainer');
-      if (container) container.innerHTML = '<div style="grid-column: 1/-1; padding: 40px; text-align: center;"><p>⏳ Chargement...</p></div>';
-      
-      loadNewsFromJSON(sourceConfig.jsonKey).then(function(response) {
-        if (response.status === 'ok') {
-          currentArticles = response.items;
-          renderNews();
-        }
-      }).catch(function(error) {
-        console.error('[NEWS] Erreur:', error);
-        if (container) container.innerHTML = '<div style="grid-column: 1/-1; padding: 40px;"><p>⚠️ Erreur</p></div>';
-      });
-    }
+    });
 
-    function renderNews() {
-      var container = document.getElementById('newsContainer');
-      if (!container || !currentArticles.length) return;
-      
-      var sourceColor = {
-        'FFESSM National': '#38bdf8',
-        'CODEP 94 (Val de Marne)': '#16a34a',
-        'FFESSM Île-de-France': '#8b5cf6',
-        'Subaqua Magazine': '#f97316'
-      };
-      var color = sourceColor[currentSource] || '#38bdf8';
-      
-      container.innerHTML = currentArticles.map(function(article) {
-        return '<a href="' + article.link + '" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">' +
-          '<div style="border: 1px solid var(--border); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; height: 100%; background: var(--card); transition: all 0.2s; cursor: pointer;" ' +
-            'onmouseover="this.style.boxShadow=\'0 8px 24px rgba(0,0,0,0.3)\'; this.style.transform=\'translateY(-2px)\';" ' +
-            'onmouseout="this.style.boxShadow=\'none\'; this.style.transform=\'translateY(0)\';">' +
-            '<div style="width: 100%; height: 8px; background: ' + color + ';"></div>' +
-            '<div style="padding: 12px; flex: 1; display: flex; flex-direction: column;">' +
-              '<span style="font-size: 11px; color: var(--accent); font-weight: 600; margin-bottom: 6px;">' + article.category + '</span>' +
-              '<h3 style="margin: 0 0 8px 0; font-size: 14px; font-weight: 600; line-height: 1.4;">' + article.title + '</h3>' +
-              (article.description ? '<p style="margin: 0 0 8px 0; font-size: 12px; color: var(--muted); flex: 1;">' + article.description + '</p>' : '') +
-              '<div style="margin-top: auto; padding-top: 8px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted);">' + formatDate(article.pubDate) + '</div>' +
-            '</div>' +
-          '</div>' +
-        '</a>';
-      }).join('');
-    }
-
-    function initNews() {
-      console.log('[NEWS] Initialisation');
-      if (typeof SETTINGS !== 'undefined' && SETTINGS.data && SETTINGS.data.newsDefaultSource) {
-        currentSource = SETTINGS.data.newsDefaultSource;
-      } else {
-        currentSource = Object.keys(SOURCES)[0];
-      }
-      console.log('[NEWS] Source:', currentSource);
-      loadNews(currentSource);
-    }
-
-    window._rscc_news = {loadNews: loadNews, renderNews: renderNews, initNews: initNews, SOURCES: SOURCES};
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initNews);
-    } else {
-      initNews();
-    }
   })();
   </script>
-
 
 
   <!-- =====================================================================
@@ -13657,23 +13632,7 @@
         var ndsEl = document.getElementById('newsDefaultSource');
         if (ndsEl) ndsEl.value = SETTINGS.data['newsDefaultSource'] || 'ffessm_nat';
 
-        
-      // News Default Source
-      var ndsEl = document.getElementById('newsDefaultSource');
-      if (ndsEl) ndsEl.value = SETTINGS.data['newsDefaultSource'] || 'ffessm_national';
-      
-      var ndsEl2 = document.getElementById('newsDefaultSource');
-      if (ndsEl2) {
-        ndsEl2.addEventListener('change', function() {
-          SETTINGS.data['newsDefaultSource'] = this.value;
-          saveSettings();
-          if (window._rscc_news && typeof window._rscc_news.loadNews === 'function') {
-            window._rscc_news.loadNews(this.value);
-          }
-        });
-      }
-
-      // Fenêtre prédiction N1
+        // Fenêtre prédiction N1
         var fpEl = document.getElementById('fenetrePrediction');
         if (fpEl) fpEl.value = SETTINGS.data['fenetrePrediction'] || 5;
 
