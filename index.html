@@ -6201,30 +6201,22 @@
 
       <!-- TAB 6 : News -->
       <section class="tab-panel" id="panel-news" role="tabpanel" aria-labelledby="tab-news">
-                <div id="newsMainContent">
-          <!-- Contrôles -->
-          <div style="display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; align-items: center;">
+        <div id="newsMainContent">
+          <div style="display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;">
             <select id="newsSourceSelect" style="padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border); background: var(--chip); color: var(--text);">
               <option value="ffessm_nat">🇫🇷 FFESSM nationale</option>
-              <option value="codep94">📍 CODEP 94 (Val de Marne)</option>
+              <option value="codep94">📍 CODEP 94</option>
               <option value="ffessm_idf">🗺️ FFESSM Île-de-France</option>
-              <option value="subaqua">🤿 Subaqua Magazine</option>
+              <option value="subaqua">🤿 Subaqua</option>
             </select>
-            
-            <input type="text" id="newsFilterInput" placeholder="Filtrer..." 
-              style="flex: 1; min-width: 200px; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border); background: var(--chip); color: var(--text);">
-            
+            <input type="text" id="newsFilterInput" placeholder="Filtrer..." style="flex: 1; min-width: 200px; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border); background: var(--chip); color: var(--text);">
             <select id="newsSortSelect" style="padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border); background: var(--chip); color: var(--text);">
               <option value="desc">Plus récents</option>
               <option value="asc">Plus anciens</option>
             </select>
           </div>
-          
-          <!-- Articles -->
           <div id="newsContainer" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px;">
-            <div style="grid-column: 1/-1; padding: 40px; text-align: center;">
-              <p>⏳ Chargement des actualités...</p>
-            </div>
+            <div style="grid-column: 1/-1; padding: 40px; text-align: center;"><p>⏳ Chargement...</p></div>
           </div>
         </div>
       </section>
@@ -13228,15 +13220,14 @@
 
 
   <!-- =====================================================================
-  <!-- =====================================================================
-       MODULE NEWS — JSON intégré (remplace rss.app payant)
+       MODULE NEWS — JSON intégré (remplace RSS.app payant)
        ===================================================================== -->
   <script>
   (function() {
     'use strict';
 
     var LS_NEWS_SOURCE = 'rscc_news_source';
-    var NEWS_DATA_EMBEDDED = {"metadata": {"generated_at": "2026-05-08T18:57:20.417730", "total_articles": 54}, "sources": {"FFESSM National": {"name": "FFESSM National", "count": 8, "articles": [{"title": "Saint-Mandrier recrute ses réservistes moniteurs", "url": "https://ffessm.fr/actualites/saint-mandrier-recrute-ses-reservistes-moniteurs", "description": "", "date": "30/04/2026", "category": "Actualité", "image": null}, {"title": "CMAS: La France, épicentre mondial des activités subaquatiques", "url": "https://ffessm.fr/actualites/cmas-la-france-epicentre-mondial-des-activites-subaquatiques", "description": "", "date": "27/04/2026", "category": "Actualité", "image": null}, {"title": "FFESSM × Andromède Océanologie : protégeons la Méditerranée", "url": "https://ffessm.fr/actualites/ffessm-andromede-oceanologie-protegeons-la-mediterranee", "description": "", "date": "23/04/2026", "category": "Actualité", "image": null}, {"title": "Sogod Bay : l'âme sauvage des Philippines", "url": "https://ffessm.fr/actualites/sogod-bay-l-ame-sauvage-des-philippines", "description": "", "date": "15/04/2026", "category": "Actualité", "image": null}, {"title": "La France, la FFESSM au Sommet de la Plongée Mondiale  à Bordeaux", "url": "https://ffessm.fr/actualites/la-france-la-ffessm-au-sommet-de-la-plongee-mondiale-a-bordeaux", "description": "", "date": "09/04/2026", "category": "Actualité", "image": null}, {"title": "Plongée et bien-être mental : une étude internationale  confirme", "url": "https://ffessm.fr/actualites/plongee-et-bien-etre-mental-une-etude-internationale-confirme", "description": "", "date": "08/05/2026", "category": "Actualité", "image": null}, {"title": "HandiGuide 2025 : la FFESSM dans le top 3 national 🤿", "url": "https://ffessm.fr/actualites/handiguide-2025-la-ffessm-dans-le-top-3-national", "description": "", "date": "07/05/2026", "category": "Actualité", "image": null}, {"title": "Oxygénothérapie en club : la FFESSM vous facilite l'accès", "url": "https://ffessm.fr/actualites/oxygenotherapie-en-club-la-ffessm-vous-facilite-l-acces", "description": "", "date": "02/05/2026", "category": "Actualité", "image": null}]}, "CODEP 94 (Val de Marne)": {"name": "CODEP 94 (Val de Marne)", "count": 5, "articles": [{"title": "La plongée comme thérapie", "url": "https://ffessm-codep94.vpdive.com/f/news/detail/actualites/1/puLbcW_vepTfQ93iZYKcvQotj2CF951DF5ZvpFHPeik", "description": "Conférence Paris Sorbonne", "date": "29/05/2026", "category": "Événement", "image": null}, {"title": "Championnat de France", "url": "https://ffessm-codep94.vpdive.com/f/news/detail/actualites/1/ErgqZja6ijo8kp8xIwLNpZUEOvFMs4nSzeBJ-pj3pZ4", "description": "Limoges du 22 au 25 mai 2026", "date": "22/05/2026", "category": "Événement", "image": null}, {"title": "Photo", "url": "https://ffessm-codep94.vpdive.com/f/news/detail/actualites/1/wpkFzat0pZXb7jk8umIORJzfwMzIbnfUl-St3-9YZ3Y", "description": "Aquarium Porte Dorée", "date": "22/03/2026", "category": "Événement", "image": null}, {"title": "LICENCE COMPÉTITION", "url": "https://ffessm-codep94.vpdive.com/f/news/detail/actualites/1/YxL2Sz_CWizv_1FYTabkbWsFznC0OPtlvg816BYV2MY", "description": "F. Di Meglio (Coin des Présidents)", "date": "12/04/2026", "category": "Événement", "image": null}, {"title": "Colloque Sport-Santé", "url": "https://ffessm-codep94.vpdive.com/f/news/detail/actualites/1/ESTfoonegB0ZYgKf4xGhQKDWZDh82kOroWlfylykM2o", "description": "Activité physique et santé mentale", "date": "09/04/2026", "category": "Événement", "image": null}]}, "FFESSM Île-de-France": {"name": "FFESSM Île-de-France", "count": 33, "articles": [{"title": "Actualités", "url": "https://ffessm-idf.fr/actualites/", "description": "", "date": "N/A", "category": "Information", "image": null}, {"title": "Télécharger", "url": "https://ffessm-idf.fr/wp-content/uploads/2026/03/20260303-Restitution-LR-enquete-expression-besoins.pdf", "description": "", "date": "N/A", "category": "Information", "image": null}, {"title": "Télécharger", "url": "https://ffessm-idf.fr/wp-content/uploads/2025/05/Inscription-oxyjeunes-IDF_2025-2.xlsx", "description": "", "date": "N/A", "category": "Information", "image": null}, {"title": "plan d'action LAC 2020 projet PUBLIE", "url": "https://ffessm-idf.fr/actualites/plan-daction-lac-2020-projet-publie/", "description": "URGENT: INFORMATION BEAUMONT", "date": "N/A", "category": "Information", "image": null}, {"title": "Communiqué N° 10", "url": "https://ffessm-idf.fr/actualites/communique-n-10/", "description": "Chères présidentes, chers présidents,", "date": "N/A", "category": "Information", "image": null}, {"title": "Mesure de déconfinement Beaumont (à compter du 13 06)", "url": "https://ffessm-idf.fr/actualites/mesure-de-deconfinement-beaumont-a-compter-du-13-06/", "description": "Chères présidentes, chers présidents,", "date": "N/A", "category": "Information", "image": null}, {"title": "auto- questionnaire reprise", "url": "https://ffessm-idf.fr/actualites/auto-questionnaire-reprise/", "description": "Chères présidentes, chers présidents,", "date": "N/A", "category": "Information", "image": null}, {"title": "Stratégie Nationale de Déconfinement Plongée", "url": "https://ffessm-idf.fr/actualites/strategie-nationale-de-deconfinement-plongee/", "description": "Chères présidentes, chers présidents,", "date": "N/A", "category": "Information", "image": null}, {"title": "Présentation Le corail rouge de Méditerranée par Chantal Delcausse", "url": "https://ffessm-idf.fr/wp-content/uploads/2018/12/Présentation-Le-corail-rouge-de-Méditerranée-par-Chantal-Delcausse-3.pdf", "description": "Présentation Le corail rouge de Méditerranée par Chantal Delcausse", "date": "N/A", "category": "Information", "image": null}, {"title": "Dossier Presse-projet-SOS Epaves en danger-", "url": "https://ffessm-idf.fr/actualites/dossier-presse-projet-sos-epaves-en-danger/", "description": "Les épaves sont l'un des trésors de nos mers", "date": "30/11/2020", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2020/11/Affiche-operation-10-Euros-ELEAU_page-0001-212x300.jpg"}, {"title": "Sport et éthique prévention", "url": "https://ffessm-idf.fr/actualites/sport-et-ethique-prevention/", "description": "Chères Présidentes, Chers Présidents,", "date": "28/10/2021", "category": "Information", "image": null}, {"title": "Affiche-400-ans-de-la-Marine", "url": "https://ffessm-idf.fr/wp-content/uploads/2026/05/Affiche-400-ans-de-la-Marine.png", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "Presentation-PSF-PWP", "url": "https://ffessm-idf.fr/wp-content/uploads/2026/03/2026-Presentation-PSF-PWP.pdf", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "Projet-note-de-cadrage-PSF-PT", "url": "https://ffessm-idf.fr/wp-content/uploads/2026/03/2026-Projet-note-de-cadrage-PSF-PT.pdf", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "VADE-MECUM-POUR-LES-STRUCTURES-BENEFICIAIRES", "url": "https://ffessm-idf.fr/wp-content/uploads/2026/03/2026-VADE-MECUM-POUR-LES-STRUCTURES-BENEFICIAIRES.pdf", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "ACTIONS-REMARQUABLES-2025.pdf", "url": "https://ffessm-idf.fr/wp-content/uploads/2026/03/ACTIONS-REMARQUABLES-2025.pdf", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "Annexe-3-Codes-subvention-PSF.pdf", "url": "https://ffessm-idf.fr/wp-content/uploads/2026/03/Annexe-3-Codes-subvention-PSF.pdf", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "Note-de-cadrage-2026-250326.pdf", "url": "https://ffessm-idf.fr/wp-content/uploads/2026/03/Note-de-cadrage-2026-250326.pdf", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "https://ffessm.fr/actualites/obligation-d-affichage-a-venir", "url": "https://ffessm.fr/actualites/obligation-d-affichage-a-venir", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "https://ffessm-idf.fr/wp-content/uploads/2025/02/BILAN-A-4-MOIS.pdf", "url": "https://ffessm-idf.fr/wp-content/uploads/2025/02/BILAN-A-4-MOIS.pdf", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "https://ffessm-idf.fr/wp-content/uploads/2025/02/Photos-piscine-au-Salon-de-la-plongee-2025-V4.mp4", "url": "https://ffessm-idf.fr/wp-content/uploads/2025/02/Photos-piscine-au-Salon-de-la-plongee-2025-V4.mp4", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "https://ffessm-idf.fr/wp-content/uploads/2025/02/compte-rendu-2025-1.pdf", "url": "https://ffessm-idf.fr/wp-content/uploads/2025/02/compte-rendu-2025-1.pdf", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "Compte-rendu-bassin-Salon-2023", "url": "https://ffessm-idf.fr/wp-content/uploads/2023/01/Compte-rendu-bassin-Salon-2023.pdf", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "2022 FFESSM Codes subventions", "url": "https://ffessm-idf.fr/actualites/2022-ffessm-codes-subventions/", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "2022 Note de cadrage", "url": "https://ffessm-idf.fr/actualites/2022-note-de-cadrage/", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "Ouvrages Pescadere et Jubelin", "url": "https://ffessm-idf.fr/actualites/ouvrages-pescadere-et-jubelin/", "description": "Affiche-400-ans-de-la-Marine", "date": "20/05/2025", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2026/03/image.png"}, {"title": "Flyers BPJEPS LTP 21 22", "url": "https://ffessm-idf.fr/actualites/flyers-bpjeps-ltp-21-22/", "description": "Cher Présidents, Chères Présidentes,", "date": "16/09/2021", "category": "Information", "image": null}, {"title": "AIDE INSCRIPTION 4ème BPJEPS plongée", "url": "https://ffessm-idf.fr/actualites/aide-inscription-4eme-bpjeps-plongee/", "description": "Cher Présidents, Chères Présidentes,", "date": "16/09/2021", "category": "Information", "image": null}, {"title": "Bulles d'évasion pour nos soldats blessés en opération", "url": "https://ffessm-idf.fr/actualites/bapteme-codep-49/", "description": "Depuis plusieurs années, le service des armées prend en charge l'accompagnement de soins de nos soldats blessés sur les différents théâtres d'opérations.Dans ce cadre-là, le ministère des armées a souhaité qu'il soit organisé des sessions multi sport", "date": "13/10/2020", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2020/10/bapteme-codep-49-300x142.jpg"}, {"title": "Baptemes armée", "url": "https://ffessm-idf.fr/actualites/baptemes-armee/", "description": "Depuis plusieurs années, le service des armées prend en charge l'accompagnement de soins de nos soldats blessés sur les différents théâtres d'opérations.Dans ce cadre-là, le ministère des armées a souhaité qu'il soit organisé des sessions multi sport", "date": "13/10/2020", "category": "Information", "image": "https://ffessm-idf.fr/wp-content/uploads/2020/10/bapteme-codep-49-300x142.jpg"}, {"title": "FCPAEPS", "url": "https://ffessm-idf.fr/wp-content/uploads/2018/09/IDF-Ficheinscription-FCPAEPSC-ou-FCPAEPS-.pdf", "description": "Formation de Pédagogie initiale Commune de Formateur (PICF) : les 7 oct, 20, 21 et 22 oct 2018Formation de Pédagogie Appliquée à l'Emploi de Formateur en Prévention et Secours Civiques (PAE PSC) : 31 oct, 1er, 2, 3 et 4 novembre 2018.Formation de Péd", "date": "04/11/2018", "category": "Information", "image": null}, {"title": "IDF Ficheinscription PAEPS", "url": "https://ffessm-idf.fr/wp-content/uploads/2018/09/IDF-Ficheinscription-PAEPS.pdf", "description": "Formation de Pédagogie initiale Commune de Formateur (PICF) : les 7 oct, 20, 21 et 22 oct 2018Formation de Pédagogie Appliquée à l'Emploi de Formateur en Prévention et Secours Civiques (PAE PSC) : 31 oct, 1er, 2, 3 et 4 novembre 2018.Formation de Péd", "date": "04/11/2018", "category": "Information", "image": null}, {"title": "IDF Ficheinscription PAEPSC", "url": "https://ffessm-idf.fr/wp-content/uploads/2018/09/IDF-Ficheinscription-PAEPSC.pdf", "description": "Formation de Pédagogie initiale Commune de Formateur (PICF) : les 7 oct, 20, 21 et 22 oct 2018Formation de Pédagogie Appliquée à l'Emploi de Formateur en Prévention et Secours Civiques (PAE PSC) : 31 oct, 1er, 2, 3 et 4 novembre 2018.Formation de Péd", "date": "04/11/2018", "category": "Information", "image": null}]}, "Subaqua Magazine": {"name": "Subaqua Magazine", "count": 8, "articles": [{"title": "La Marine nationale recrute des moniteurs de plongée !", "url": "https://subaqua.ffessm.fr/article/marine-nationale-recrute-moniteur-plongee", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Coupe de France 2026 d'apnée en piscine, étape d'Aix-en-Provence", "url": "https://subaqua.ffessm.fr/article/coupe-france-2026-apnee-piscine-etape-aix-provence", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Lire la suite", "url": "https://subaqua.ffessm.fr/article/escale-sete-2026-archeologie-sous-marine-presente", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Lire la suite", "url": "https://subaqua.ffessm.fr/article/nev-finales-du-championnat-de-normandie-de-course-en-ligne-et-du-trophee-de-l-eure", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Lire la suite", "url": "https://subaqua.ffessm.fr/article/nouveau-detendeur-scubapro-c370", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Lire la suite", "url": "https://subaqua.ffessm.fr/article/especes-fondatrices-un-role-majeur-dans-la-biodiversite-cotiere", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "NAP : Coupe du Monde des clubs 2026 à Aix-en-Provence", "url": "https://subaqua.ffessm.fr/article/nap-coupe-monde-clubs-2026-aix-provence", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Tunisie : les sports subaquatiques, vecteurs d'inclusion et de conscience écologique", "url": "https://subaqua.ffessm.fr/article/tunisie-sports-subaquatiques-vecteur-inclusion-conscience-ecologique", "description": "", "date": "N/A", "category": "Magazine", "image": null}]}}};
+    var NEWS_DATA_EMBEDDED = {"metadata": {"generated_at": "2026-05-08T00:03:55.737700", "total_articles": 54}, "sources": {"FFESSM National": {"name": "FFESSM National", "count": 8, "articles": [{"title": "Saint-Mandrier recrute ses réservistes moniteurs", "url": "https://ffessm.fr/actualites/saint-mandrier-recrute-ses-reservistes-moniteurs", "description": "", "date": "30/04/2026", "category": "Actualité", "image": null}, {"title": "CMAS: La France, épicentre mondial des activités subaquatiques", "url": "https://ffessm.fr/actualites/cmas-la-france-epicentre-mondial-des-activites-subaquatiques", "description": "", "date": "27/04/2026", "category": "Actualité", "image": null}, {"title": "FFESSM × Andromède Océanologie : protégeons la Méditerranée", "url": "https://ffessm.fr/actualites/ffessm-andromede-oceanologie-protegeons-la-mediterranee", "description": "", "date": "23/04/2026", "category": "Actualité", "image": null}, {"title": "Sogod Bay : l'âme sauvage des Philippines", "url": "https://ffessm.fr/actualites/sogod-bay-l-ame-sauvage-des-philippines", "description": "", "date": "15/04/2026", "category": "Actualité", "image": null}, {"title": "La France, la FFESSM au Sommet de la Plongée Mondiale à Bordeaux", "url": "https://ffessm.fr/actualites/la-france-la-ffessm-au-sommet-de-la-plongee-mondiale-a-bordeaux", "description": "", "date": "09/04/2026", "category": "Actualité", "image": null}, {"title": "Le cap des 250 000 activités est franchi", "url": "https://ffessm.fr/actualites/le-cap-des-250-000-activites-est-franchi", "description": "", "date": "08/04/2026", "category": "Actualité", "image": null}, {"title": "HandiGuide 2025 : la FFESSM dans le top 3 national 🤿", "url": "https://ffessm.fr/actualites/handiguide-2025-la-ffessm-dans-le-top-3-national", "description": "", "date": "07/05/2026", "category": "Actualité", "image": null}, {"title": "Oxygénothérapie en club : la FFESSM vous facilite l'accès", "url": "https://ffessm.fr/actualites/oxygenotherapie-en-club-la-ffessm-vous-facilite-l-acces", "description": "", "date": "02/05/2026", "category": "Actualité", "image": null}]}, "CODEP 94 (Val de Marne)": {"name": "CODEP 94 (Val de Marne)", "count": 5, "articles": [{"title": "La plongée comme thérapie", "url": "https://ffessm-codep94.vpdive.com/f/news/detail/actualites/1/puLbcW_vepTfQ93iZYKcvQotj2CF951DF5ZvpFHPeik", "description": "Conférence Paris Sorbonne", "date": "29/05/2026", "category": "Événement", "image": null}, {"title": "Championnat de France", "url": "https://ffessm-codep94.vpdive.com/f/news/detail/actualites/1/ErgqZja6ijo8kp8xIwLNpZUEOvFMs4nSzeBJ-pj3pZ4", "description": "Limoges du 22 au 25 mai 2026", "date": "22/05/2026", "category": "Événement", "image": null}, {"title": "Photo", "url": "https://ffessm-codep94.vpdive.com/f/news/detail/actualites/1/wpkFzat0pZXb7jk8umIORJzfwMzIbnfUl-St3-9YZ3Y", "description": "Aquarium Porte Dorée", "date": "22/03/2026", "category": "Événement", "image": null}, {"title": "LICENCE COMPÉTITION", "url": "https://ffessm-codep94.vpdive.com/f/news/detail/actualites/1/YxL2Sz_CWizv_1FYTabkbWsFznC0OPtlvg816BYV2MY", "description": "F. Di Meglio (Coin des Présidents)", "date": "12/04/2026", "category": "Événement", "image": null}, {"title": "Colloque Sport-Santé", "url": "https://ffessm-codep94.vpdive.com/f/news/detail/actualites/1/ESTfoonegB0ZYgKf4xGhQKDWZDh82kOroWlfylykM2o", "description": "Activité physique et santé mentale", "date": "09/04/2026", "category": "Événement", "image": null}]}, "Subaqua Magazine": {"name": "Subaqua Magazine", "count": 8, "articles": [{"title": "La Marine nationale recrute des moniteurs de plongée !", "url": "https://subaqua.ffessm.fr/article/marine-nationale-recrute-moniteur-plongee", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Coupe de France 2026 d'apnée en piscine, étape d'Aix-en-Provence", "url": "https://subaqua.ffessm.fr/article/coupe-france-2026-apnee-piscine-etape-aix-provence", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Escale Sète 2026 - Archéologie sous-marine", "url": "https://subaqua.ffessm.fr/article/escale-sete-2026-archeologie-sous-marine-presente", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Finales du championnat de Normandie", "url": "https://subaqua.ffessm.fr/article/nev-finales-du-championnat-de-normandie-de-course-en-ligne-et-du-trophee-de-l-eure", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Nouveau détendeur Scubapro C370", "url": "https://subaqua.ffessm.fr/article/nouveau-detendeur-scubapro-c370", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Espèces fondatrices : un rôle majeur dans la biodiversité côtière", "url": "https://subaqua.ffessm.fr/article/especes-fondatrices-un-role-majeur-dans-la-biodiversite-cotiere", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "NAP : Coupe du Monde des clubs 2026 à Aix-en-Provence", "url": "https://subaqua.ffessm.fr/article/nap-coupe-monde-clubs-2026-aix-provence", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Tunisie : les sports subaquatiques, vecteurs d'inclusion et de conscience écologique", "url": "https://subaqua.ffessm.fr/article/tunisie-sports-subaquatiques-vecteur-inclusion-conscience-ecologique", "description": "", "date": "N/A", "category": "Magazine", "image": null}]}}};
 
     var SOURCES = {
       ffessm_nat: { label: '🇫🇷 FFESSM nationale', source: 'FFESSM National' },
@@ -13254,20 +13245,20 @@
       return new Promise((resolve, reject) => {
         try {
           if (!NEWS_DATA_EMBEDDED.sources[sourceName]) {
-            reject(new Error('Source: ' + sourceName));
+            reject(new Error('Source not found'));
             return;
           }
-          
-          const sourceData = NEWS_DATA_EMBEDDED.sources[sourceName];
-          const articles = (sourceData.articles || []).map(article => ({
-            title: article.title,
-            link: article.url,
-            description: article.description || '',
-            pubDate: article.date,
-            image: article.image,
-            category: article.category || 'Info'
-          }));
-          
+          var sourceData = NEWS_DATA_EMBEDDED.sources[sourceName];
+          var articles = (sourceData.articles || []).map(function(article) {
+            return {
+              title: article.title,
+              link: article.url,
+              description: article.description || '',
+              pubDate: article.date,
+              image: article.image,
+              category: article.category || 'Info'
+            };
+          });
           resolve({
             status: 'ok',
             feed: { title: sourceData.name },
@@ -13280,8 +13271,8 @@
     }
 
     function formatDate(dateStr) {
-      if (!dateStr) return '';
-      if (dateStr.includes('/')) return dateStr;
+      if (!dateStr || dateStr === 'N/A') return '';
+      if (dateStr.indexOf('/') > -1) return dateStr;
       try {
         return new Date(dateStr).toLocaleDateString('fr-FR');
       } catch(e) {
@@ -13290,62 +13281,46 @@
     }
 
     function loadNews(source) {
-      const sourceConfig = SOURCES[source];
+      var sourceConfig = SOURCES[source];
       if (!sourceConfig) return;
-      
-      const container = document.getElementById('newsContainer');
+      var container = document.getElementById('newsContainer');
       if (container) container.innerHTML = '<div style="grid-column: 1/-1; padding: 40px; text-align: center;"><p>⏳ Chargement...</p></div>';
       
-      loadNewsFromJSON(sourceConfig.source)
-        .then(response => {
-          if (response.status === 'ok' && Array.isArray(response.items)) {
-            currentArticles = response.items;
-            renderNews();
-            try { localStorage.setItem(LS_NEWS_SOURCE, source); } catch(e) {}
-          }
-        })
-        .catch(error => {
-          console.error('[NEWS]', error);
-          if (container) container.innerHTML = '<div style="grid-column: 1/-1; padding: 40px; text-align: center;"><p>⚠️ Erreur</p></div>';
-        });
+      loadNewsFromJSON(sourceConfig.source).then(function(response) {
+        if (response.status === 'ok' && Array.isArray(response.items)) {
+          currentArticles = response.items;
+          renderNews();
+          try { localStorage.setItem(LS_NEWS_SOURCE, source); } catch(e) {}
+        }
+      }).catch(function(error) {
+        console.error('[NEWS]', error);
+        if (container) container.innerHTML = '<div style="grid-column: 1/-1; padding: 40px; text-align: center;"><p>⚠️ Erreur</p></div>';
+      });
     }
 
     function renderNews() {
-      const container = document.getElementById('newsContainer');
+      var container = document.getElementById('newsContainer');
       if (!container) return;
-
-      let filtered = currentArticles;
+      var filtered = currentArticles;
       if (newsFilter) {
-        filtered = filtered.filter(a => 
-          a.category.toLowerCase().includes(newsFilter.toLowerCase()) ||
-          a.title.toLowerCase().includes(newsFilter.toLowerCase())
-        );
+        filtered = filtered.filter(function(a) {
+          return a.category.toLowerCase().indexOf(newsFilter.toLowerCase()) > -1 ||
+                 a.title.toLowerCase().indexOf(newsFilter.toLowerCase()) > -1;
+        });
       }
-
       if (newsSortOrder === 'asc') filtered = filtered.slice().reverse();
-
       if (filtered.length === 0) {
         container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px;"><p>Aucun article</p></div>';
         return;
       }
-
-      container.innerHTML = filtered.map(article => `
-        <a href="${article.link}" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">
-          <div style="border: 1px solid var(--border); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; height: 100%; background: var(--card); transition: all 0.2s;">
-            ${article.image ? `<div style="width: 100%; height: 150px; background: var(--surface); overflow: hidden;"><img src="${article.image}" alt="" style="width: 100%; height: 100%; object-fit: cover;"></div>` : '<div style="width: 100%; height: 150px; background: var(--surface); display: flex; align-items: center; justify-content: center; font-size: 40px;">📰</div>'}
-            <div style="padding: 12px; flex: 1; display: flex; flex-direction: column;">
-              ${article.category ? `<span style="font-size: 11px; color: var(--accent); font-weight: 600; margin-bottom: 6px;">${article.category}</span>` : ''}
-              <h3 style="margin: 0 0 6px 0; font-size: 14px; font-weight: 600; line-height: 1.3;">${article.title}</h3>
-              ${article.description ? `<p style="margin: 0; font-size: 12px; color: var(--muted); flex: 1;">${article.description}</p>` : ''}
-              <div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted);">${formatDate(article.pubDate)}</div>
-            </div>
-          </div>
-        </a>
-      `).join('');
+      container.innerHTML = filtered.map(function(article) {
+        return '<a href="' + article.link + '" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;"><div style="border: 1px solid var(--border); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; height: 100%; background: var(--card);"><div style="width: 100%; height: 150px; background: var(--surface); display: flex; align-items: center; justify-content: center; font-size: 40px;">📰</div><div style="padding: 12px; flex: 1; display: flex; flex-direction: column;"><h3 style="margin: 0 0 6px 0; font-size: 14px; font-weight: 600;">' + article.title + '</h3><p style="margin: 0; font-size: 12px; color: var(--muted); flex: 1;">' + (article.description || '') + '</p><div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted);">' + formatDate(article.pubDate) + '</div></div></div></a>';
+      }).join('');
     }
 
     function initNews() {
-      const select = document.getElementById('newsSourceSelect');
+      console.log('[News] Initialisation...');
+      var select = document.getElementById('newsSourceSelect');
       if (select) {
         select.value = currentSource;
         select.addEventListener('change', function() {
@@ -13353,52 +13328,36 @@
           loadNews(currentSource);
         });
       }
-
-      const filterInput = document.getElementById('newsFilterInput');
+      var filterInput = document.getElementById('newsFilterInput');
       if (filterInput) {
         filterInput.addEventListener('keyup', function() {
           newsFilter = this.value.trim();
           renderNews();
         });
       }
-
-      const sortSelect = document.getElementById('newsSortSelect');
+      var sortSelect = document.getElementById('newsSortSelect');
       if (sortSelect) {
         sortSelect.addEventListener('change', function() {
           newsSortOrder = this.value;
           renderNews();
         });
       }
-
-      // Charger la première source
       loadNews(currentSource);
     }
 
-    window._rscc_news = { loadNews, renderNews, initNews };
+    window._rscc_news = { loadNews: loadNews, renderNews: renderNews, initNews: initNews };
 
-    // ── APPEL initNews AU DÉMARRAGE ─────────────────────────────────
-    (function() {
-      'use strict';
-      
-      function callInitNews() {
-        if (window._rscc_news && typeof window._rscc_news.initNews === 'function') {
-          console.log('[News] Initialisation...');
-          try {
-            window._rscc_news.initNews();
-          } catch(e) {
-            console.error('[News] Init error:', e);
-          }
-        }
-      }
-      
-      // Appeler au chargement du DOM
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', callInitNews);
-      } else {
-        callInitNews();
-      }
-    })();
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initNews);
+    } else {
+      initNews();
+    }
+  });
   </script>
+
+
+  </script>
+
 
   <!-- =====================================================================
        PHASE 4b - MODULE MENU ⚙️ RÉGLAGES (localStorage + re-render)
