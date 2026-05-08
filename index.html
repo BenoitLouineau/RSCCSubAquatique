@@ -13242,13 +13242,22 @@
     var newsSortOrder = 'desc';
 
     function loadNewsFromJSON(sourceName) {
+      console.log('[NEWS-JSON] loadNewsFromJSON appelée avec sourceName:', sourceName);
+      console.log('[NEWS-JSON] NEWS_DATA_EMBEDDED.sources keys:', Object.keys(NEWS_DATA_EMBEDDED.sources));
+      
       return new Promise((resolve, reject) => {
         try {
+          console.log('[NEWS-JSON] Vérification source:', sourceName, 'dans', NEWS_DATA_EMBEDDED.sources[sourceName] ? 'TROUVÉE' : 'MANQUANTE');
+          
           if (!NEWS_DATA_EMBEDDED.sources[sourceName]) {
-            reject(new Error('Source not found'));
+            console.error('[NEWS-JSON] Source NOT found:', sourceName);
+            reject(new Error('Source not found: ' + sourceName));
             return;
           }
+          
           var sourceData = NEWS_DATA_EMBEDDED.sources[sourceName];
+          console.log('[NEWS-JSON] sourceData articles count:', sourceData.articles.length);
+          
           var articles = (sourceData.articles || []).map(function(article) {
             return {
               title: article.title,
@@ -13259,12 +13268,16 @@
               category: article.category || 'Info'
             };
           });
+          
+          console.log('[NEWS-JSON] Articles mappés:', articles.length);
+          
           resolve({
             status: 'ok',
             feed: { title: sourceData.name },
             items: articles
           });
         } catch(e) {
+          console.error('[NEWS-JSON] Exception:', e);
           reject(e);
         }
       });
@@ -13281,67 +13294,123 @@
     }
 
     function loadNews(source) {
+      console.log('[NEWS-LOAD] source reçue:', source);
       var sourceConfig = SOURCES[source];
-      if (!sourceConfig) return;
+      console.log('[NEWS-LOAD] sourceConfig:', sourceConfig);
+      
+      if (!sourceConfig) {
+        console.error('[NEWS-LOAD] Source config non trouvée pour:', source);
+        return;
+      }
+      
       var container = document.getElementById('newsContainer');
-      if (container) container.innerHTML = '<div style="grid-column: 1/-1; padding: 40px; text-align: center;"><p>⏳ Chargement...</p></div>';
+      console.log('[NEWS-LOAD] newsContainer trouvé:', !!container);
+      
+      if (container) {
+        container.innerHTML = '<div style="grid-column: 1/-1; padding: 40px; text-align: center;"><p>⏳ Chargement...</p></div>';
+        console.log('[NEWS-LOAD] Message "Chargement..." affiché');
+      }
+      
+      console.log('[NEWS-LOAD] Appel loadNewsFromJSON avec:', sourceConfig.source);
       
       loadNewsFromJSON(sourceConfig.source).then(function(response) {
+        console.log('[NEWS-LOAD] Promise résolue, response:', response);
         if (response.status === 'ok' && Array.isArray(response.items)) {
+          console.log('[NEWS-LOAD] Status OK, articles:', response.items.length);
           currentArticles = response.items;
+          console.log('[NEWS-LOAD] Appel renderNews()');
           renderNews();
           try { localStorage.setItem(LS_NEWS_SOURCE, source); } catch(e) {}
+        } else {
+          console.error('[NEWS-LOAD] Status non-OK ou items pas array');
         }
       }).catch(function(error) {
-        console.error('[NEWS]', error);
+        console.error('[NEWS-LOAD] Promise rejetée:', error);
         if (container) container.innerHTML = '<div style="grid-column: 1/-1; padding: 40px; text-align: center;"><p>⚠️ Erreur</p></div>';
       });
     }
 
     function renderNews() {
+      console.log('[NEWS-RENDER] renderNews() appelée');
       var container = document.getElementById('newsContainer');
-      if (!container) return;
+      console.log('[NEWS-RENDER] newsContainer trouvé:', !!container);
+      
+      if (!container) {
+        console.error('[NEWS-RENDER] newsContainer NOT trouvé!');
+        return;
+      }
+      
+      console.log('[NEWS-RENDER] currentArticles avant filtre:', currentArticles.length);
+      
       var filtered = currentArticles;
       if (newsFilter) {
         filtered = filtered.filter(function(a) {
           return a.category.toLowerCase().indexOf(newsFilter.toLowerCase()) > -1 ||
                  a.title.toLowerCase().indexOf(newsFilter.toLowerCase()) > -1;
         });
+        console.log('[NEWS-RENDER] Après filtre:', filtered.length);
       }
-      if (newsSortOrder === 'asc') filtered = filtered.slice().reverse();
+      
+      if (newsSortOrder === 'asc') {
+        filtered = filtered.slice().reverse();
+        console.log('[NEWS-RENDER] Après tri (asc):', filtered.length);
+      }
+      
       if (filtered.length === 0) {
+        console.log('[NEWS-RENDER] Aucun article, affichage message vide');
         container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px;"><p>Aucun article</p></div>';
         return;
       }
-      container.innerHTML = filtered.map(function(article) {
+      
+      console.log('[NEWS-RENDER] Création HTML pour', filtered.length, 'articles');
+      var html = filtered.map(function(article) {
         return '<a href="' + article.link + '" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;"><div style="border: 1px solid var(--border); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; height: 100%; background: var(--card);"><div style="width: 100%; height: 150px; background: var(--surface); display: flex; align-items: center; justify-content: center; font-size: 40px;">📰</div><div style="padding: 12px; flex: 1; display: flex; flex-direction: column;"><h3 style="margin: 0 0 6px 0; font-size: 14px; font-weight: 600;">' + article.title + '</h3><p style="margin: 0; font-size: 12px; color: var(--muted); flex: 1;">' + (article.description || '') + '</p><div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted);">' + formatDate(article.pubDate) + '</div></div></div></a>';
       }).join('');
+      
+      console.log('[NEWS-RENDER] HTML généré, taille:', html.length, 'caractères');
+      container.innerHTML = html;
+      console.log('[NEWS-RENDER] innerHTML assigné, affichage complété');
     }
 
     function initNews() {
-      console.log('[News] Initialisation...');
+      console.log('[NEWS-INIT] initNews() appelée');
+      console.log('[NEWS-INIT] currentSource:', currentSource);
+      console.log('[NEWS-INIT] SOURCES disponibles:', Object.keys(SOURCES));
+      
       var select = document.getElementById('newsSourceSelect');
+      console.log('[NEWS-INIT] newsSourceSelect trouvé:', !!select);
+      
       if (select) {
         select.value = currentSource;
+        console.log('[NEWS-INIT] Valeur combobox définie à:', currentSource);
         select.addEventListener('change', function() {
+          console.log('[NEWS-INIT] Changement source à:', this.value);
           currentSource = this.value;
           loadNews(currentSource);
         });
       }
+      
       var filterInput = document.getElementById('newsFilterInput');
+      console.log('[NEWS-INIT] newsFilterInput trouvé:', !!filterInput);
+      
       if (filterInput) {
         filterInput.addEventListener('keyup', function() {
           newsFilter = this.value.trim();
           renderNews();
         });
       }
+      
       var sortSelect = document.getElementById('newsSortSelect');
+      console.log('[NEWS-INIT] newsSortSelect trouvé:', !!sortSelect);
+      
       if (sortSelect) {
         sortSelect.addEventListener('change', function() {
           newsSortOrder = this.value;
           renderNews();
         });
       }
+      
+      console.log('[NEWS-INIT] Appel loadNews(currentSource)');
       loadNews(currentSource);
     }
 
@@ -13352,7 +13421,7 @@
     } else {
       initNews();
     }
-  });
+  })();
   </script>
 
 
