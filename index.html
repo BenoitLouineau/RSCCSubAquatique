@@ -6051,6 +6051,13 @@
           <div style="font-size:12px;color:var(--muted);margin-bottom:12px;">
             Sélectionnez une source dans les Réglages (⚙️) pour charger les actualités.
           </div>
+          
+          <!-- INDICATEUR UX - Source active actuelle -->
+          <div style="padding: 12px; background: var(--surface); border-radius: 6px; margin-bottom: 12px; border-left: 4px solid #38bdf8;">
+            <div style="font-size: 11px; color: var(--muted); margin-bottom: 4px;">Source active:</div>
+            <div id="newsSourceIndicator" style="font-size: 13px; font-weight: 600; color: var(--text);">🇫🇷 FFESSM National</div>
+          </div>
+          
           <div style="padding: 8px; background: var(--surface); border-radius: 6px; font-size: 11px;">
             <strong>Sources disponibles:</strong>
             <ul style="margin: 8px 0; padding-left: 16px;">
@@ -13261,6 +13268,13 @@
       if (!sourceConfig) return;
       
       currentSource = sourceSlug;
+      
+      // MISE À JOUR UX - Afficher la source active
+      var indicator = document.getElementById('newsSourceIndicator');
+      if (indicator) {
+        indicator.textContent = sourceConfig.label;
+      }
+      
       var container = document.getElementById('newsContainer');
       if (container) container.innerHTML = '<div style="grid-column: 1/-1; padding: 40px; text-align: center;"><p>⏳ Chargement...</p></div>';
       
@@ -13279,7 +13293,12 @@
       var container = document.getElementById('newsContainer');
       if (!container || !currentArticles.length) return;
       
-      var sourceColor = {'ffessm_national': '#38bdf8', 'codep_94_val_de_marne': '#16a34a', 'subaqua_magazine': '#f97316'};
+      var sourceColor = {
+        'FFESSM National': '#38bdf8',
+        'CODEP 94 (Val de Marne)': '#16a34a',
+        'FFESSM Île-de-France': '#8b5cf6',
+        'Subaqua Magazine': '#f97316'
+      };
       var color = sourceColor[currentSource] || '#38bdf8';
       
       container.innerHTML = currentArticles.map(function(article) {
@@ -13345,7 +13364,7 @@
         maxSessions: 12,                       // 4|8|12|16|20
         silentThreshold: 30,                   // 10-50%
         synthesisSort: 'alpha',                // 'alpha' | 'seances' | 'acquisition'
-        newsDefaultSource: 'FFESSM National'   // Clé JSON exacte comme source par défaut
+        newsDefaultSource: 'FFESSM National'   // 1ère source du JSON par défaut
       }
     };
 
