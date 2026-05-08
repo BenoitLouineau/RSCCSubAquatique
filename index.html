@@ -6048,14 +6048,27 @@
       <div id="sidebar-news" class="sidebar-content hidden">
         <div class="card stats-card">
           <h3>📰 Actualités</h3>
-          <div style="font-size:12px;color:var(--muted);margin-bottom:12px;">
-            Sélectionnez une source dans les Réglages (⚙️) pour charger les actualités.
-          </div>
           
-          <!-- INDICATEUR UX - Source active actuelle -->
-          <div style="padding: 12px; background: var(--surface); border-radius: 6px; margin-bottom: 12px; border-left: 4px solid #38bdf8;">
+          <!-- INDICATEUR SOURCE ACTIVE -->
+          <div style="padding: 10px; background: var(--surface); border-radius: 6px; margin-bottom: 12px; border-left: 4px solid #38bdf8;">
             <div style="font-size: 11px; color: var(--muted); margin-bottom: 4px;">Source active:</div>
             <div id="newsSourceIndicator" style="font-size: 13px; font-weight: 600; color: var(--text);">🇫🇷 FFESSM National</div>
+          </div>
+          
+          <!-- NAVIGATION SOURCES - BOUTONS PILLS -->
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;">
+            <button id="newsSourceBtn-FFESSM National" class="news-source-btn news-source-active" onclick="if(window._rscc_news) window._rscc_news.loadNews('FFESSM National')" style="padding: 8px 12px; border-radius: 20px; border: 2px solid #38bdf8; background: #38bdf8; color: white; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;">
+              🇫🇷 FFESSM
+            </button>
+            <button id="newsSourceBtn-CODEP 94 (Val de Marne)" class="news-source-btn" onclick="if(window._rscc_news) window._rscc_news.loadNews('CODEP 94 (Val de Marne)')" style="padding: 8px 12px; border-radius: 20px; border: 2px solid var(--border); background: var(--surface); color: var(--text); font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;">
+              📍 CODEP 94
+            </button>
+            <button id="newsSourceBtn-FFESSM Île-de-France" class="news-source-btn" onclick="if(window._rscc_news) window._rscc_news.loadNews('FFESSM Île-de-France')" style="padding: 8px 12px; border-radius: 20px; border: 2px solid var(--border); background: var(--surface); color: var(--text); font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;">
+              🗺️ IDF
+            </button>
+            <button id="newsSourceBtn-Subaqua Magazine" class="news-source-btn" onclick="if(window._rscc_news) window._rscc_news.loadNews('Subaqua Magazine')" style="padding: 8px 12px; border-radius: 20px; border: 2px solid var(--border); background: var(--surface); color: var(--text); font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;">
+              🤿 Subaqua
+            </button>
           </div>
           
           <div style="padding: 8px; background: var(--surface); border-radius: 6px; font-size: 11px;">
@@ -13273,6 +13286,22 @@
       var indicator = document.getElementById('newsSourceIndicator');
       if (indicator) {
         indicator.textContent = sourceConfig.label;
+      }
+      
+      // MISE À JOUR BOUTONS PILLS - styling active
+      var allButtons = document.querySelectorAll('.news-source-btn');
+      allButtons.forEach(function(btn) {
+        btn.classList.remove('news-source-active');
+        btn.style.background = 'var(--surface)';
+        btn.style.borderColor = 'var(--border)';
+        btn.style.color = 'var(--text)';
+      });
+      var activeBtn = document.getElementById('newsSourceBtn-' + sourceSlug);
+      if (activeBtn) {
+        activeBtn.classList.add('news-source-active');
+        activeBtn.style.background = '#38bdf8';
+        activeBtn.style.borderColor = '#38bdf8';
+        activeBtn.style.color = 'white';
       }
       
       var container = document.getElementById('newsContainer');
