@@ -13391,6 +13391,13 @@
         }
       }
       
+      // Appeler au chargement du DOM
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', callInitNews);
+      } else {
+        callInitNews();
+      }
+    })();
   </script>
 
   <!-- =====================================================================
