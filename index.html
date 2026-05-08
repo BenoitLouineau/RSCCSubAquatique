@@ -6202,21 +6202,9 @@
       <!-- TAB 6 : News -->
       <section class="tab-panel" id="panel-news" role="tabpanel" aria-labelledby="tab-news">
         <div id="newsMainContent">
-          <div style="display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;">
-            <select id="newsSourceSelect" style="padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border); background: var(--chip); color: var(--text);">
-              <option value="ffessm_nat">🇫🇷 FFESSM nationale</option>
-              <option value="codep94">📍 CODEP 94</option>
-              <option value="ffessm_idf">🗺️ FFESSM Île-de-France</option>
-              <option value="subaqua">🤿 Subaqua</option>
-            </select>
-            <input type="text" id="newsFilterInput" placeholder="Filtrer..." style="flex: 1; min-width: 200px; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border); background: var(--chip); color: var(--text);">
-            <select id="newsSortSelect" style="padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border); background: var(--chip); color: var(--text);">
-              <option value="desc">Plus récents</option>
-              <option value="asc">Plus anciens</option>
-            </select>
-          </div>
-          <div id="newsContainer" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px;">
-            <div style="grid-column: 1/-1; padding: 40px; text-align: center;"><p>⏳ Chargement...</p></div>
+          <div class="empty-state">
+            <div class="icon">📰</div>
+            <h2>Chargement des actualités…</h2>
           </div>
         </div>
       </section>
@@ -6249,11 +6237,9 @@
         <h3 class="settings-section-title">📰 Source News par défaut</h3>
         <p class="settings-info">Flux chargé automatiquement à l'ouverture de l\'onglet News.</p>
         <select id="newsDefaultSource" style="width:100%;padding:6px 10px;border-radius:6px;border:1px solid var(--border);background:var(--chip);color:var(--text);font-size:13px;margin-top:6px;">
-          <option value="ffessm_nat">🇫🇷 FFESSM nationale</option>
-          <option value="subaqua">🤿 Subaqua magazine</option>
-          <option value="ffessm_idf">🗺️ FFESSM Île-de-France</option>
-          <option value="codep75">📍 CODEP 75 Paris</option>
-          <option value="codep94">📍 CODEP 94</option>
+          <option value="ffessm_national">🇫🇷 FFESSM National</option>
+          <option value="codep_94_val_de_marne">📍 CODEP 94 (Val de Marne)</option>
+          <option value="subaqua_magazine">🤿 Subaqua Magazine</option>
         </select>
       </div>
 
@@ -13220,64 +13206,50 @@
 
 
   <!-- =====================================================================
-       MODULE NEWS — JSON intégré (remplace RSS.app payant)
+       MODULE NEWS — JSON est source de vérité, sources dynamiques
        ===================================================================== -->
   <script>
   (function() {
     'use strict';
 
-    var LS_NEWS_SOURCE = 'rscc_news_source';
     var NEWS_DATA_EMBEDDED = {"metadata": {"generated_at": "2026-05-08T00:03:55.737700", "total_articles": 54}, "sources": {"FFESSM National": {"name": "FFESSM National", "count": 8, "articles": [{"title": "Saint-Mandrier recrute ses réservistes moniteurs", "url": "https://ffessm.fr/actualites/saint-mandrier-recrute-ses-reservistes-moniteurs", "description": "", "date": "30/04/2026", "category": "Actualité", "image": null}, {"title": "CMAS: La France, épicentre mondial des activités subaquatiques", "url": "https://ffessm.fr/actualites/cmas-la-france-epicentre-mondial-des-activites-subaquatiques", "description": "", "date": "27/04/2026", "category": "Actualité", "image": null}, {"title": "FFESSM × Andromède Océanologie : protégeons la Méditerranée", "url": "https://ffessm.fr/actualites/ffessm-andromede-oceanologie-protegeons-la-mediterranee", "description": "", "date": "23/04/2026", "category": "Actualité", "image": null}, {"title": "Sogod Bay : l'âme sauvage des Philippines", "url": "https://ffessm.fr/actualites/sogod-bay-l-ame-sauvage-des-philippines", "description": "", "date": "15/04/2026", "category": "Actualité", "image": null}, {"title": "La France, la FFESSM au Sommet de la Plongée Mondiale à Bordeaux", "url": "https://ffessm.fr/actualites/la-france-la-ffessm-au-sommet-de-la-plongee-mondiale-a-bordeaux", "description": "", "date": "09/04/2026", "category": "Actualité", "image": null}, {"title": "Le cap des 250 000 activités est franchi", "url": "https://ffessm.fr/actualites/le-cap-des-250-000-activites-est-franchi", "description": "", "date": "08/04/2026", "category": "Actualité", "image": null}, {"title": "HandiGuide 2025 : la FFESSM dans le top 3 national 🤿", "url": "https://ffessm.fr/actualites/handiguide-2025-la-ffessm-dans-le-top-3-national", "description": "", "date": "07/05/2026", "category": "Actualité", "image": null}, {"title": "Oxygénothérapie en club : la FFESSM vous facilite l'accès", "url": "https://ffessm.fr/actualites/oxygenotherapie-en-club-la-ffessm-vous-facilite-l-acces", "description": "", "date": "02/05/2026", "category": "Actualité", "image": null}]}, "CODEP 94 (Val de Marne)": {"name": "CODEP 94 (Val de Marne)", "count": 5, "articles": [{"title": "La plongée comme thérapie", "url": "https://ffessm-codep94.vpdive.com/f/news/detail/actualites/1/puLbcW_vepTfQ93iZYKcvQotj2CF951DF5ZvpFHPeik", "description": "Conférence Paris Sorbonne", "date": "29/05/2026", "category": "Événement", "image": null}, {"title": "Championnat de France", "url": "https://ffessm-codep94.vpdive.com/f/news/detail/actualites/1/ErgqZja6ijo8kp8xIwLNpZUEOvFMs4nSzeBJ-pj3pZ4", "description": "Limoges du 22 au 25 mai 2026", "date": "22/05/2026", "category": "Événement", "image": null}, {"title": "Photo", "url": "https://ffessm-codep94.vpdive.com/f/news/detail/actualites/1/wpkFzat0pZXb7jk8umIORJzfwMzIbnfUl-St3-9YZ3Y", "description": "Aquarium Porte Dorée", "date": "22/03/2026", "category": "Événement", "image": null}, {"title": "LICENCE COMPÉTITION", "url": "https://ffessm-codep94.vpdive.com/f/news/detail/actualites/1/YxL2Sz_CWizv_1FYTabkbWsFznC0OPtlvg816BYV2MY", "description": "F. Di Meglio (Coin des Présidents)", "date": "12/04/2026", "category": "Événement", "image": null}, {"title": "Colloque Sport-Santé", "url": "https://ffessm-codep94.vpdive.com/f/news/detail/actualites/1/ESTfoonegB0ZYgKf4xGhQKDWZDh82kOroWlfylykM2o", "description": "Activité physique et santé mentale", "date": "09/04/2026", "category": "Événement", "image": null}]}, "Subaqua Magazine": {"name": "Subaqua Magazine", "count": 8, "articles": [{"title": "La Marine nationale recrute des moniteurs de plongée !", "url": "https://subaqua.ffessm.fr/article/marine-nationale-recrute-moniteur-plongee", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Coupe de France 2026 d'apnée en piscine, étape d'Aix-en-Provence", "url": "https://subaqua.ffessm.fr/article/coupe-france-2026-apnee-piscine-etape-aix-provence", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Escale Sète 2026 - Archéologie sous-marine", "url": "https://subaqua.ffessm.fr/article/escale-sete-2026-archeologie-sous-marine-presente", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Finales du championnat de Normandie", "url": "https://subaqua.ffessm.fr/article/nev-finales-du-championnat-de-normandie-de-course-en-ligne-et-du-trophee-de-l-eure", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Nouveau détendeur Scubapro C370", "url": "https://subaqua.ffessm.fr/article/nouveau-detendeur-scubapro-c370", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Espèces fondatrices : un rôle majeur dans la biodiversité côtière", "url": "https://subaqua.ffessm.fr/article/especes-fondatrices-un-role-majeur-dans-la-biodiversite-cotiere", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "NAP : Coupe du Monde des clubs 2026 à Aix-en-Provence", "url": "https://subaqua.ffessm.fr/article/nap-coupe-monde-clubs-2026-aix-provence", "description": "", "date": "N/A", "category": "Magazine", "image": null}, {"title": "Tunisie : les sports subaquatiques, vecteurs d'inclusion et de conscience écologique", "url": "https://subaqua.ffessm.fr/article/tunisie-sports-subaquatiques-vecteur-inclusion-conscience-ecologique", "description": "", "date": "N/A", "category": "Magazine", "image": null}]}}};
+    var SOURCE_MAPPING = {"ffessm_national": {"json_key": "FFESSM National", "emoji": "\ud83c\uddeb\ud83c\uddf7"}, "codep_94_val_de_marne": {"json_key": "CODEP 94 (Val de Marne)", "emoji": "\ud83d\udccd"}, "subaqua_magazine": {"json_key": "Subaqua Magazine", "emoji": "\ud83e\udd3f"}};
 
-    var SOURCES = {
-      ffessm_nat: { label: '🇫🇷 FFESSM nationale', source: 'FFESSM National' },
-      codep94: { label: '📍 CODEP 94', source: 'CODEP 94 (Val de Marne)' },
-      ffessm_idf: { label: '🗺️ FFESSM Île-de-France', source: 'FFESSM Île-de-France' },
-      subaqua: { label: '🤿 Subaqua', source: 'Subaqua Magazine' }
-    };
+    var SOURCES = {};
+    Object.keys(SOURCE_MAPPING).forEach(function(slug) {
+      var cfg = SOURCE_MAPPING[slug];
+      SOURCES[slug] = {
+        label: cfg.emoji + ' ' + NEWS_DATA_EMBEDDED.sources[cfg.json_key].name,
+        jsonKey: cfg.json_key,
+        emoji: cfg.emoji
+      };
+    });
 
-    var currentSource = localStorage.getItem(LS_NEWS_SOURCE) || 'ffessm_nat';
+    var currentSource = null;
     var currentArticles = [];
-    var newsFilter = null;
-    var newsSortOrder = 'desc';
 
-    function loadNewsFromJSON(sourceName) {
-      console.log('[NEWS-JSON] loadNewsFromJSON appelée avec sourceName:', sourceName);
-      console.log('[NEWS-JSON] NEWS_DATA_EMBEDDED.sources keys:', Object.keys(NEWS_DATA_EMBEDDED.sources));
-      
+    function loadNewsFromJSON(jsonKey) {
+      console.log('[NEWS] Chargement:', jsonKey);
       return new Promise((resolve, reject) => {
         try {
-          console.log('[NEWS-JSON] Vérification source:', sourceName, 'dans', NEWS_DATA_EMBEDDED.sources[sourceName] ? 'TROUVÉE' : 'MANQUANTE');
-          
-          if (!NEWS_DATA_EMBEDDED.sources[sourceName]) {
-            console.error('[NEWS-JSON] Source NOT found:', sourceName);
-            reject(new Error('Source not found: ' + sourceName));
+          if (!NEWS_DATA_EMBEDDED.sources[jsonKey]) {
+            reject(new Error('Source not found'));
             return;
           }
-          
-          var sourceData = NEWS_DATA_EMBEDDED.sources[sourceName];
-          console.log('[NEWS-JSON] sourceData articles count:', sourceData.articles.length);
-          
+          var sourceData = NEWS_DATA_EMBEDDED.sources[jsonKey];
           var articles = (sourceData.articles || []).map(function(article) {
             return {
               title: article.title,
               link: article.url,
               description: article.description || '',
               pubDate: article.date,
-              image: article.image,
               category: article.category || 'Info'
             };
           });
-          
-          console.log('[NEWS-JSON] Articles mappés:', articles.length);
-          
-          resolve({
-            status: 'ok',
-            feed: { title: sourceData.name },
-            items: articles
-          });
+          console.log('[NEWS] ' + articles.length + ' articles chargés');
+          resolve({status: 'ok', items: articles});
         } catch(e) {
-          console.error('[NEWS-JSON] Exception:', e);
+          console.error('[NEWS] Erreur:', e);
           reject(e);
         }
       });
@@ -13293,139 +13265,71 @@
       }
     }
 
-    function loadNews(source) {
-      console.log('[NEWS-LOAD] source reçue:', source);
-      var sourceConfig = SOURCES[source];
-      console.log('[NEWS-LOAD] sourceConfig:', sourceConfig);
+    function loadNews(sourceSlug) {
+      console.log('[NEWS] Changement source:', sourceSlug);
+      var sourceConfig = SOURCES[sourceSlug];
+      if (!sourceConfig) return;
       
-      if (!sourceConfig) {
-        console.error('[NEWS-LOAD] Source config non trouvée pour:', source);
-        return;
-      }
-      
+      currentSource = sourceSlug;
       var container = document.getElementById('newsContainer');
-      console.log('[NEWS-LOAD] newsContainer trouvé:', !!container);
+      if (container) container.innerHTML = '<div style="grid-column: 1/-1; padding: 40px; text-align: center;"><p>⏳ Chargement...</p></div>';
       
-      if (container) {
-        container.innerHTML = '<div style="grid-column: 1/-1; padding: 40px; text-align: center;"><p>⏳ Chargement...</p></div>';
-        console.log('[NEWS-LOAD] Message "Chargement..." affiché');
-      }
-      
-      console.log('[NEWS-LOAD] Appel loadNewsFromJSON avec:', sourceConfig.source);
-      
-      loadNewsFromJSON(sourceConfig.source).then(function(response) {
-        console.log('[NEWS-LOAD] Promise résolue, response:', response);
-        if (response.status === 'ok' && Array.isArray(response.items)) {
-          console.log('[NEWS-LOAD] Status OK, articles:', response.items.length);
+      loadNewsFromJSON(sourceConfig.jsonKey).then(function(response) {
+        if (response.status === 'ok') {
           currentArticles = response.items;
-          console.log('[NEWS-LOAD] Appel renderNews()');
           renderNews();
-          try { localStorage.setItem(LS_NEWS_SOURCE, source); } catch(e) {}
-        } else {
-          console.error('[NEWS-LOAD] Status non-OK ou items pas array');
         }
       }).catch(function(error) {
-        console.error('[NEWS-LOAD] Promise rejetée:', error);
-        if (container) container.innerHTML = '<div style="grid-column: 1/-1; padding: 40px; text-align: center;"><p>⚠️ Erreur</p></div>';
+        console.error('[NEWS] Erreur:', error);
+        if (container) container.innerHTML = '<div style="grid-column: 1/-1; padding: 40px;"><p>⚠️ Erreur</p></div>';
       });
     }
 
     function renderNews() {
-      console.log('[NEWS-RENDER] renderNews() appelée');
       var container = document.getElementById('newsContainer');
-      console.log('[NEWS-RENDER] newsContainer trouvé:', !!container);
+      if (!container || !currentArticles.length) return;
       
-      if (!container) {
-        console.error('[NEWS-RENDER] newsContainer NOT trouvé!');
-        return;
-      }
+      var sourceColor = {'ffessm_national': '#38bdf8', 'codep_94_val_de_marne': '#16a34a', 'subaqua_magazine': '#f97316'};
+      var color = sourceColor[currentSource] || '#38bdf8';
       
-      console.log('[NEWS-RENDER] currentArticles avant filtre:', currentArticles.length);
-      
-      var filtered = currentArticles;
-      if (newsFilter) {
-        filtered = filtered.filter(function(a) {
-          return a.category.toLowerCase().indexOf(newsFilter.toLowerCase()) > -1 ||
-                 a.title.toLowerCase().indexOf(newsFilter.toLowerCase()) > -1;
-        });
-        console.log('[NEWS-RENDER] Après filtre:', filtered.length);
-      }
-      
-      if (newsSortOrder === 'asc') {
-        filtered = filtered.slice().reverse();
-        console.log('[NEWS-RENDER] Après tri (asc):', filtered.length);
-      }
-      
-      if (filtered.length === 0) {
-        console.log('[NEWS-RENDER] Aucun article, affichage message vide');
-        container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px;"><p>Aucun article</p></div>';
-        return;
-      }
-      
-      console.log('[NEWS-RENDER] Création HTML pour', filtered.length, 'articles');
-      var html = filtered.map(function(article) {
-        return '<a href="' + article.link + '" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;"><div style="border: 1px solid var(--border); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; height: 100%; background: var(--card);"><div style="width: 100%; height: 150px; background: var(--surface); display: flex; align-items: center; justify-content: center; font-size: 40px;">📰</div><div style="padding: 12px; flex: 1; display: flex; flex-direction: column;"><h3 style="margin: 0 0 6px 0; font-size: 14px; font-weight: 600;">' + article.title + '</h3><p style="margin: 0; font-size: 12px; color: var(--muted); flex: 1;">' + (article.description || '') + '</p><div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted);">' + formatDate(article.pubDate) + '</div></div></div></a>';
+      container.innerHTML = currentArticles.map(function(article) {
+        return '<a href="' + article.link + '" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">' +
+          '<div style="border: 1px solid var(--border); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; height: 100%; background: var(--card); transition: all 0.2s; cursor: pointer;" ' +
+            'onmouseover="this.style.boxShadow=\'0 8px 24px rgba(0,0,0,0.3)\'; this.style.transform=\'translateY(-2px)\';" ' +
+            'onmouseout="this.style.boxShadow=\'none\'; this.style.transform=\'translateY(0)\';">' +
+            '<div style="width: 100%; height: 8px; background: ' + color + ';"></div>' +
+            '<div style="padding: 12px; flex: 1; display: flex; flex-direction: column;">' +
+              '<span style="font-size: 11px; color: var(--accent); font-weight: 600; margin-bottom: 6px;">' + article.category + '</span>' +
+              '<h3 style="margin: 0 0 8px 0; font-size: 14px; font-weight: 600; line-height: 1.4;">' + article.title + '</h3>' +
+              (article.description ? '<p style="margin: 0 0 8px 0; font-size: 12px; color: var(--muted); flex: 1;">' + article.description + '</p>' : '') +
+              '<div style="margin-top: auto; padding-top: 8px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted);">' + formatDate(article.pubDate) + '</div>' +
+            '</div>' +
+          '</div>' +
+        '</a>';
       }).join('');
-      
-      console.log('[NEWS-RENDER] HTML généré, taille:', html.length, 'caractères');
-      container.innerHTML = html;
-      console.log('[NEWS-RENDER] innerHTML assigné, affichage complété');
     }
 
     function initNews() {
-      console.log('[NEWS-INIT] initNews() appelée');
-      console.log('[NEWS-INIT] currentSource:', currentSource);
-      console.log('[NEWS-INIT] SOURCES disponibles:', Object.keys(SOURCES));
-      
-      var select = document.getElementById('newsSourceSelect');
-      console.log('[NEWS-INIT] newsSourceSelect trouvé:', !!select);
-      
-      if (select) {
-        select.value = currentSource;
-        console.log('[NEWS-INIT] Valeur combobox définie à:', currentSource);
-        select.addEventListener('change', function() {
-          console.log('[NEWS-INIT] Changement source à:', this.value);
-          currentSource = this.value;
-          loadNews(currentSource);
-        });
+      console.log('[NEWS] Initialisation');
+      if (typeof SETTINGS !== 'undefined' && SETTINGS.data && SETTINGS.data.newsDefaultSource) {
+        currentSource = SETTINGS.data.newsDefaultSource;
+      } else {
+        currentSource = Object.keys(SOURCES)[0];
       }
-      
-      var filterInput = document.getElementById('newsFilterInput');
-      console.log('[NEWS-INIT] newsFilterInput trouvé:', !!filterInput);
-      
-      if (filterInput) {
-        filterInput.addEventListener('keyup', function() {
-          newsFilter = this.value.trim();
-          renderNews();
-        });
-      }
-      
-      var sortSelect = document.getElementById('newsSortSelect');
-      console.log('[NEWS-INIT] newsSortSelect trouvé:', !!sortSelect);
-      
-      if (sortSelect) {
-        sortSelect.addEventListener('change', function() {
-          newsSortOrder = this.value;
-          renderNews();
-        });
-      }
-      
-      console.log('[NEWS-INIT] Appel loadNews(currentSource)');
+      console.log('[NEWS] Source:', currentSource);
       loadNews(currentSource);
     }
 
-    window._rscc_news = { loadNews: loadNews, renderNews: renderNews, initNews: initNews };
+    window._rscc_news = {loadNews: loadNews, renderNews: renderNews, initNews: initNews, SOURCES: SOURCES};
 
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', initNews);
     } else {
       initNews();
     }
-  })();
+  });
   </script>
 
-
-  </script>
 
 
   <!-- =====================================================================
@@ -13450,7 +13354,8 @@
         heatmapGroup: 'seance',                // 'seance' | 'semaine'
         maxSessions: 12,                       // 4|8|12|16|20
         silentThreshold: 30,                   // 10-50%
-        synthesisSort: 'alpha'                 // 'alpha' | 'seances' | 'acquisition'
+        synthesisSort: 'alpha',                // 'alpha' | 'seances' | 'acquisition'
+        newsDefaultSource: 'ffessm_national'   // Source NEWS par défaut
       }
     };
 
@@ -13536,7 +13441,23 @@
         var ndsEl = document.getElementById('newsDefaultSource');
         if (ndsEl) ndsEl.value = SETTINGS.data['newsDefaultSource'] || 'ffessm_nat';
 
-        // Fenêtre prédiction N1
+        
+      // News Default Source
+      var ndsEl = document.getElementById('newsDefaultSource');
+      if (ndsEl) ndsEl.value = SETTINGS.data['newsDefaultSource'] || 'ffessm_national';
+      
+      var ndsEl2 = document.getElementById('newsDefaultSource');
+      if (ndsEl2) {
+        ndsEl2.addEventListener('change', function() {
+          SETTINGS.data['newsDefaultSource'] = this.value;
+          saveSettings();
+          if (window._rscc_news && typeof window._rscc_news.loadNews === 'function') {
+            window._rscc_news.loadNews(this.value);
+          }
+        });
+      }
+
+      // Fenêtre prédiction N1
         var fpEl = document.getElementById('fenetrePrediction');
         if (fpEl) fpEl.value = SETTINGS.data['fenetrePrediction'] || 5;
 
