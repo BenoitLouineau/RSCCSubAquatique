@@ -13209,318 +13209,185 @@
 
 
   <!-- =====================================================================
-       MODULE NEWS — Flux RSS FFESSM via rss2json proxy
+       MODULE NEWS — Charge depuis GitHub (CONFIG.URL_NEWS)
+       Même pattern que élèves/moniteurs/examens
        ===================================================================== -->
   <script>
   (function() {
     'use strict';
 
-    var LS_NEWS_SOURCE = 'rscc_news_source';
-    var LS_NEWS_CUSTOM = 'rscc_news_custom_url';
+    var NEWS_DATA_EMBEDDED = null;  // Sera chargé depuis GitHub
+    var currentSource = null;
+    var currentArticles = [];
 
-    // ── Sources RSS (flux rss.app — mise à jour automatique) ────────────
-    var SOURCES = {
-      ffessm_nat: {
-        label: '🇫🇷 FFESSM nationale',
-        rssUrl: 'https://rss.app/feeds/9fcJcv6LV6oDq5Lo.xml',
-        fallback: 'https://ffessm.fr/actualites'
-      },
-      subaqua: {
-        label: '🤿 Subaqua magazine',
-        rssUrl: 'https://rss.app/feeds/bo5ZUfMbxLlfAtZG.xml',
-        fallback: 'https://subaqua.ffessm.fr/categorie/actu'
-      },
-      ffessm_idf: {
-        label: '🗺️ FFESSM Île-de-France',
-        rssUrl: 'https://rss.app/feeds/Cm1ORKiKFV6PVTOL.xml',
-        fallback: 'https://ffessm-idf.fr'
-      },
-      codep75: {
-        label: '📍 CODEP 75 Paris',
-        rssUrl: 'https://rss.app/feeds/AYkEAQAwVq24KthY.xml',
-        fallback: 'https://www.ffessm-cd75.org/index.php'
-      },
-      codep94: {
-        label: '📍 CODEP 94',
-        rssUrl: 'https://rss.app/feeds/E47pv4KgfC0GZOFW.xml',
-        fallback: 'https://ffessm-codep94.vpdive.com/w/actualites'
-      },
+    // Mapping des sources avec emojis
+    var sourceEmojis = {
+      'FFESSM National': '🇫🇷',
+      'CODEP 94 (Val de Marne)': '📍',
+      'FFESSM Île-de-France': '🗺️',
+      'Subaqua Magazine': '🤿'
     };
 
-    // ── Proxy rss2json ────────────────────────────────────────────────────
-    var RSS2JSON = 'https://api.rss2json.com/v1/api.json?rss_url=';
-    var RSS2JSON_KEY = ''; // optionnel — clé API rss2json pour plus de requêtes
-
-    function getRssUrl() {
-      try {
-        // Priorité 1 : choix manuel de la session (sidebar)
-        var manual = localStorage.getItem(LS_NEWS_SOURCE);
-        if (manual) return manual;
-        // Priorité 2 : source par défaut configurée dans les Réglages
-        var stored = localStorage.getItem('rscc_settings_v1');
-        if (stored) {
-          var parsed = JSON.parse(stored);
-          if (parsed && parsed['newsDefaultSource']) return parsed['newsDefaultSource'];
-        }
-      } catch(e) {}
-      // Priorité 3 : FFESSM nationale
-      return 'ffessm_nat';
-    }
-
-    function getCustomUrl() {
-      try { return localStorage.getItem(LS_NEWS_CUSTOM) || ''; } catch(e) { return ''; }
-    }
-
-    function getCurrentSource() {
-      var key = getRssUrl();
-      if (key === 'custom') {
-        var url = getCustomUrl();
-        return { label: '🔗 URL personnalisée', rssUrl: url, fallback: url, note: null };
-      }
-      return SOURCES[key] || SOURCES['codep94'];
-    }
-
-    function isPlaceholder(url) {
-      return !url || url.indexOf('_placeholder_') >= 0 || url === '';
-    }
-
-    // ── Formater la date ──────────────────────────────────────────────────
-    function formatNewsDate(dateStr) {
-      if (!dateStr) return '';
-      try {
-        var d = new Date(dateStr);
-        if (isNaN(d.getTime())) return dateStr;
-        var now = new Date();
-        var diff = Math.round((now - d) / 86400000);
-        if (diff === 0) return "Aujourd'hui";
-        if (diff === 1) return 'Hier';
-        if (diff < 7) return 'Il y a ' + diff + ' jours';
-        return d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' });
-      } catch(e) { return dateStr; }
-    }
-
-    // ── Nettoyer le HTML ──────────────────────────────────────────────────
-    function stripHtml(html) {
-      if (!html) return '';
-      return html.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&')
-        .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').trim();
-    }
-
-    // ── Builder HTML d'une news card ──────────────────────────────────────
-    function buildNewsCard(item) {
-      var title   = item.title || 'Sans titre';
-      var desc    = stripHtml(item.description || item.content || '');
-      var link    = item.link || '#';
-      var date    = formatNewsDate(item.pubDate);
-      var imgUrl  = item.enclosure && item.enclosure.link ? item.enclosure.link
-                  : item.thumbnail || null;
-      var cat     = (item.categories && item.categories.length) ? item.categories[0] : '';
-
-      var imgHtml = imgUrl
-        ? '<img class="news-card-img" src="' + imgUrl + '" alt="" loading="lazy" onerror="this.parentNode.innerHTML=\'<div class=&quot;news-card-img-placeholder&quot;>🤿</div>\'">'
-        : '<div class="news-card-img-placeholder">🤿</div>';
-
-      return '<a class="news-card" href="' + link + '" target="_blank" rel="noopener">' +
-        imgHtml +
-        '<div class="news-card-body">' +
-          (cat ? '<div class="news-card-cat">' + cat + '</div>' : '') +
-          '<div class="news-card-title">' + title + '</div>' +
-          (desc ? '<div class="news-card-desc">' + desc.slice(0, 180) + (desc.length > 180 ? '…' : '') + '</div>' : '') +
-          '<div class="news-card-footer">' +
-            '<span>' + date + '</span>' +
-            '<span style="color:var(--accent);font-size:10px;font-weight:700;">Lire →</span>' +
-          '</div>' +
-        '</div>' +
-      '</a>';
-    }
-
-    // ── Rendu guide de configuration ──────────────────────────────────────
-    function buildSetupGuide(source) {
-      return '<div class="news-setup-info">' +
-        '<h3>🔗 Source personnalisée</h3>' +
-        '<p style="color:var(--muted);margin-bottom:10px;">Pour ajouter une source, créez un flux sur <a href="https://rss.app" target="_blank" rel="noopener">rss.app</a> puis collez l\'URL dans la sidebar.</p>' +
-        '<p style="font-size:11px;color:var(--muted);">Format : <code>https://rss.app/feeds/xxx.xml</code></p>' +
-      '</div>';
-    }
-
-    // ── Chargement et rendu ───────────────────────────────────────────────
-    function refreshNews() {
-      var container = document.getElementById('newsMainContent');
-      if (!container) return;
-
-      var source = getCurrentSource();
-
-      // Afficher le spinner
-      container.innerHTML = '<div class="news-loading"><div class="news-spinner"></div> Chargement des actualités ' + source.label + '…</div>';
-
-      // Si placeholder → afficher le guide de config
-      if (isPlaceholder(source.rssUrl)) {
-        container.innerHTML =
-          '<div class="news-header">' +
-            '<div class="news-header-title">📰 Actualités <span class="news-source-badge">' + source.label + '</span></div>' +
-          '</div>' +
-          buildSetupGuide(source);
-        return;
-      }
-
-      var rssUrl = source.rssUrl;
-
-      // Détecter file:// — fetch() bloqué, impossible de charger le RSS
-      if (window.location.protocol === 'file:') {
-        container.innerHTML =
-          '<div class="news-header"><div class="news-header-title">📰 Actualités <span class="news-source-badge">' + source.label + '</span></div></div>' +
-          '<div class="news-error" style="margin-bottom:16px;">' +
-            '⚠️ Le chargement des actualités nécessite une connexion HTTPS.<br>' +
-            '<span style="font-size:11px;">Ouvrez le rapport depuis <strong>GitHub Pages</strong> pour accéder au flux RSS.</span><br>' +
-            '<span style="font-size:11px;margin-top:6px;display:block;">URL : <a href="https://benoitlouineau.github.io/RSCCSubAquatique/" target="_blank" style="color:var(--accent);">benoitlouineau.github.io/RSCCSubAquatique/</a></span>' +
-          '</div>' +
-          buildSetupGuide(source);
-        return;
-      }
-
-      // Proxy allorigins (CORS universel, gratuit)
-      var CORS_PROXY = 'https://api.allorigins.win/get?url=';
-
-      // Tentative 1 : fetch direct (marche si rss.app envoie les bons headers CORS)
-      // Tentative 2 : via allorigins proxy
-      fetch(rssUrl, { mode: 'cors' })
-        .then(function(r) {
-          if (!r.ok) throw new Error('direct-' + r.status);
-          return r.text();
-        })
-        .catch(function() {
-          return fetch(CORS_PROXY + encodeURIComponent(rssUrl))
-            .then(function(r) { if (!r.ok) throw new Error('proxy-' + r.status); return r.json(); })
-            .then(function(d) { return d.contents; });
-        })
-        .then(function(xmlText) {
-          var parser = new DOMParser();
-          var xml = parser.parseFromString(xmlText, 'application/xml');
-
-          // Détecter les erreurs de parsing
-          var parseErr = xml.querySelector('parsererror');
-          if (parseErr) throw new Error('XML invalide');
-
-          // Extraire les items (RSS 2.0 ou Atom)
-          var items = Array.from(xml.querySelectorAll('item, entry'));
-          if (!items.length) throw new Error('Flux vide ou format non reconnu');
-
-          var feedTitle = (xml.querySelector('channel > title, feed > title') || {}).textContent || source.label;
-
-          var parsed = items.slice(0, 12).map(function(item) {
-            var get = function(sel) {
-              try { var el = item.querySelector(sel); return el ? el.textContent.trim() : ''; }
-              catch(e) { return ''; }
-            };
-            var getAttr = function(sel, attr) {
-              try { var el = item.querySelector(sel); return el ? (el.getAttribute(attr) || '') : ''; }
-              catch(e) { return ''; }
-            };
-
-            var pubDate = get('pubDate') || get('published') || get('updated') || '';
-
-            // Image via getElementsByTagNameNS (namespace-safe, évite le bug querySelector)
-            var img = null;
-            try {
-              var mediaNS = 'http://search.yahoo.com/mrss/';
-              var mc = item.getElementsByTagNameNS(mediaNS, 'content');
-              if (mc && mc.length) img = mc[0].getAttribute('url');
-              if (!img) {
-                var mt = item.getElementsByTagNameNS(mediaNS, 'thumbnail');
-                if (mt && mt.length) img = mt[0].getAttribute('url');
-              }
-            } catch(e) {}
-            if (!img) img = getAttr('enclosure', 'url') || null;
-            if (!img) {
-              var rawDesc = get('description') || get('content') || '';
-              var m = rawDesc.match(/<img[^>]+src=["']([^"']+)["']/i);
-              if (m) img = m[1];
-            }
-
-            var cat = get('category') || '';
-            var link = '';
-            try {
-              link = get('link');
-              if (!link) {
-                var lel = item.querySelector('link');
-                if (lel) link = lel.getAttribute('href') || lel.textContent.trim();
-              }
-            } catch(e) {}
-
+    function loadNewsFromJSON(jsonKey) {
+      console.log('[NEWS] Chargement source:', jsonKey);
+      return new Promise((resolve, reject) => {
+        try {
+          if (!NEWS_DATA_EMBEDDED || !NEWS_DATA_EMBEDDED.sources[jsonKey]) {
+            reject(new Error('Source not found: ' + jsonKey));
+            return;
+          }
+          var sourceData = NEWS_DATA_EMBEDDED.sources[jsonKey];
+          var articles = (sourceData.articles || []).map(function(article) {
             return {
-              title: get('title'),
-              link: link || '#',
-              description: get('description') || get('summary') || get('content'),
-              pubDate: pubDate,
-              thumbnail: img,
-              enclosure: img ? { link: img } : null,
-              categories: cat ? [cat] : []
+              title: article.title,
+              link: article.url,
+              description: article.description || '',
+              pubDate: article.date,
+              category: article.category || 'Info'
             };
           });
+          console.log('[NEWS] ' + articles.length + ' articles chargés');
+          resolve({status: 'ok', items: articles});
+        } catch(e) {
+          console.error('[NEWS] Exception:', e);
+          reject(e);
+        }
+      });
+    }
 
-          var cards = parsed.map(buildNewsCard).join('');
-          container.innerHTML =
-            '<div class="news-header">' +
-              '<div class="news-header-title">📰 ' + feedTitle + ' <span class="news-source-badge">' + source.label + '</span></div>' +
-              '<span style="font-size:11px;color:var(--muted);">' + parsed.length + ' article' + (parsed.length > 1 ? 's' : '') + '</span>' +
+    function formatDate(dateStr) {
+      if (!dateStr || dateStr === 'N/A') return '';
+      if (dateStr.indexOf('/') > -1) return dateStr;
+      try {
+        return new Date(dateStr).toLocaleDateString('fr-FR');
+      } catch(e) {
+        return dateStr;
+      }
+    }
+
+    function loadNews(sourceKey) {
+      console.log('[NEWS] Changement source:', sourceKey);
+      
+      if (!NEWS_DATA_EMBEDDED || !NEWS_DATA_EMBEDDED.sources[sourceKey]) {
+        console.error('[NEWS] Source invalide:', sourceKey);
+        return;
+      }
+      
+      currentSource = sourceKey;
+      
+      // Mettre à jour l'indicateur UX
+      var indicator = document.getElementById('newsSourceIndicator');
+      if (indicator) {
+        var emoji = sourceEmojis[sourceKey] || '📰';
+        indicator.textContent = emoji + ' ' + sourceKey;
+      }
+      
+      // Mettre à jour les boutons pills
+      var allButtons = document.querySelectorAll('.news-source-btn');
+      allButtons.forEach(function(btn) {
+        btn.classList.remove('news-source-active');
+        btn.style.background = 'var(--surface)';
+        btn.style.borderColor = 'var(--border)';
+        btn.style.color = 'var(--text)';
+      });
+      var activeBtn = document.getElementById('newsSourceBtn-' + sourceKey);
+      if (activeBtn) {
+        activeBtn.classList.add('news-source-active');
+        activeBtn.style.background = '#38bdf8';
+        activeBtn.style.borderColor = '#38bdf8';
+        activeBtn.style.color = 'white';
+      }
+      
+      var container = document.getElementById('newsContainer');
+      if (container) container.innerHTML = '<div style="grid-column: 1/-1; padding: 40px; text-align: center;"><p>⏳ Chargement...</p></div>';
+      
+      loadNewsFromJSON(sourceKey).then(function(response) {
+        if (response.status === 'ok') {
+          currentArticles = response.items;
+          renderNews();
+        }
+      }).catch(function(error) {
+        console.error('[NEWS] Erreur chargement:', error);
+        if (container) container.innerHTML = '<div style="grid-column: 1/-1; padding: 40px;"><p>⚠️ Erreur</p></div>';
+      });
+    }
+
+    function renderNews() {
+      var container = document.getElementById('newsContainer');
+      if (!container || !currentArticles.length) return;
+      
+      var sourceColor = {
+        'FFESSM National': '#38bdf8',
+        'CODEP 94 (Val de Marne)': '#16a34a',
+        'FFESSM Île-de-France': '#8b5cf6',
+        'Subaqua Magazine': '#f97316'
+      };
+      var color = sourceColor[currentSource] || '#38bdf8';
+      
+      container.innerHTML = currentArticles.map(function(article) {
+        return '<a href="' + article.link + '" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">' +
+          '<div style="border: 1px solid var(--border); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; height: 100%; background: var(--card); transition: all 0.2s; cursor: pointer;" ' +
+            'onmouseover="this.style.boxShadow=\\'0 8px 24px rgba(0,0,0,0.3)\\'; this.style.transform=\\'translateY(-2px)\\';" ' +
+            'onmouseout="this.style.boxShadow=\\'none\\'; this.style.transform=\\'translateY(0)\\';">' +
+            '<div style="width: 100%; height: 8px; background: ' + color + ';"></div>' +
+            '<div style="padding: 12px; flex: 1; display: flex; flex-direction: column;">' +
+              '<span style="font-size: 11px; color: var(--accent); font-weight: 600; margin-bottom: 6px;">' + article.category + '</span>' +
+              '<h3 style="margin: 0 0 8px 0; font-size: 14px; font-weight: 600; line-height: 1.4;">' + article.title + '</h3>' +
+              (article.description ? '<p style="margin: 0 0 8px 0; font-size: 12px; color: var(--muted); flex: 1;">' + article.description + '</p>' : '') +
+              '<div style="margin-top: auto; padding-top: 8px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted);">' + formatDate(article.pubDate) + '</div>' +
             '</div>' +
-            '<div class="news-grid">' + cards + '</div>';
+          '</div>' +
+        '</a>';
+      }).join('');
+    }
+
+    function initNews() {
+      console.log('[NEWS] Initialisation');
+      if (typeof SETTINGS !== 'undefined' && SETTINGS.data && SETTINGS.data.newsDefaultSource) {
+        currentSource = SETTINGS.data.newsDefaultSource;
+      } else {
+        currentSource = NEWS_DATA_EMBEDDED ? Object.keys(NEWS_DATA_EMBEDDED.sources)[0] : 'FFESSM National';
+      }
+      console.log('[NEWS] Source par défaut:', currentSource);
+      loadNews(currentSource);
+    }
+
+    function loadNewsDataFromGitHub() {
+      console.log('[NEWS] Chargement JSON depuis GitHub:', CONFIG.URL_NEWS);
+      fetch(CONFIG.URL_NEWS, { method: 'GET' })
+        .then(function(resp) {
+          if (!resp.ok) throw new Error('HTTP ' + resp.status);
+          return resp.json();
+        })
+        .then(function(data) {
+          NEWS_DATA_EMBEDDED = data;
+          console.log('[NEWS] JSON chargé - ' + Object.keys(data.sources).length + ' sources');
+          initNews();
         })
         .catch(function(err) {
-          container.innerHTML =
-            '<div class="news-header">' +
-              '<div class="news-header-title">📰 Actualités <span class="news-source-badge">' + source.label + '</span></div>' +
-            '</div>' +
-            '<div class="news-error" style="margin-bottom:16px;">⚠️ Impossible de charger le flux RSS : ' + err.message + '<br><span style="font-size:11px;">Vérifiez l\'URL du flux et votre connexion internet (requis : GitHub Pages, pas file://).</span></div>' +
-            buildSetupGuide(source);
+          console.error('[NEWS] Erreur chargement JSON:', err);
+          var container = document.getElementById('newsContainer');
+          if (container) container.innerHTML = '<div style="grid-column: 1/-1; padding: 40px;"><p>⚠️ Erreur chargement données</p></div>';
         });
     }
 
-    // ── Exposer ───────────────────────────────────────────────────────────
-    window._rscc = window._rscc || {};
-    window._rscc._refreshNews = refreshNews;
+    // Exposer au global
+    window._rscc_news = {
+      loadNews: loadNews,
+      renderNews: renderNews,
+      initNews: initNews,
+      loadNewsDataFromGitHub: loadNewsDataFromGitHub
+    };
 
-    // Charger automatiquement quand on clique sur l'onglet News
-    document.addEventListener('click', function(e) {
-      var tab = e.target.closest('[data-tab="news"]');
-      if (tab) {
-        // Petit délai pour laisser le panel s'afficher
-        setTimeout(refreshNews, 50);
-      }
-    });
-
-    // Gestion sélecteur source dans la sidebar
-    document.addEventListener('change', function(e) {
-      if (e.target && e.target.id === 'newsSourceSelect') {
-        var val = e.target.value;
-        try { localStorage.setItem(LS_NEWS_SOURCE, val); } catch(err) {}
-        var wrap = document.getElementById('newsCustomUrlWrap');
-        if (wrap) wrap.style.display = val === 'custom' ? '' : 'none';
-      }
-    });
-
-    // Sauvegarder l'URL custom
-    document.addEventListener('input', function(e) {
-      if (e.target && e.target.id === 'newsCustomUrl') {
-        try { localStorage.setItem(LS_NEWS_CUSTOM, e.target.value); } catch(err) {}
-      }
-    });
-
-    // Restaurer la sélection depuis localStorage au chargement
-    document.addEventListener('DOMContentLoaded', function() {
-      var sel = document.getElementById('newsSourceSelect');
-      if (sel) {
-        var current = getRssUrl();
-        sel.value = current;
-        var wrap = document.getElementById('newsCustomUrlWrap');
-        if (wrap) wrap.style.display = current === 'custom' ? '' : 'none';
-        var custInput = document.getElementById('newsCustomUrl');
-        if (custInput) custInput.value = getCustomUrl();
-      }
-    });
-
+    // Charger au démarrage
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', loadNewsDataFromGitHub);
+    } else {
+      loadNewsDataFromGitHub();
+    }
   })();
   </script>
+
 
 
   <!-- =====================================================================
