@@ -13507,20 +13507,35 @@
     }
   })();
 
-    // AUTO-LOAD NEWS AU DÉMARRAGE
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(function() {
-          loadNews(currentSource);
-        }, 100);
-      });
-    } else {
-      setTimeout(function() {
-        loadNews(currentSource);
-      }, 100);
-    }
+    
+    
 
-  </script>
+    // ════════════════════════════════════════════════════════════════
+    // AUTO-LOAD NEWS - Appel direct après initialisation
+    // ════════════════════════════════════════════════════════════════
+    (function() {
+      'use strict';
+      
+      // Attendre un tick pour que tout soit prêt
+      window.addEventListener('load', function() {
+        console.log('[News] Window load event - Auto-loading...');
+        if (typeof loadNews === 'function' && typeof currentSource !== 'undefined') {
+          try {
+            loadNews(currentSource);
+            console.log('[News] Auto-loaded source:', currentSource);
+          } catch(e) {
+            console.error('[News] Auto-load error:', e);
+          }
+        }
+      });
+      
+      // Fallback: essayer aussi au DOMContentLoaded
+      if (document.readyState !== 'loading') {
+        document.addEventListener('load', function() {
+          // Déjà géré ci-dessus
+        }, { once: true });
+      }
+    })();</script>
 
 
 
@@ -13838,6 +13853,52 @@
     console.log('%cℹ️ Les messages localStorage sont normaux en mode fichier local', 'color:#f59e0b;font-size:12px;');
 
 })();
+  
+    // ────────────────────────────────────────────────────────────────────────
+    // AUTO-LOAD NEWS AU BOOT (SÉCURISÉ)
+    // ────────────────────────────────────────────────────────────────────────
+    (function() {
+      'use strict';
+      
+      var autoLoadDone = false;
+      
+      function autoLoadNews() {
+        if (autoLoadDone) return;
+        
+        // Vérifier que tout est prêt
+        if (typeof loadNews !== 'function') {
+          console.warn('[News AutoLoad] loadNews pas encore disponible');
+          return;
+        }
+        
+        if (typeof currentSource === 'undefined') {
+          console.warn('[News AutoLoad] currentSource pas défini');
+          return;
+        }
+        
+        autoLoadDone = true;
+        console.log('[News AutoLoad] Chargement source:', currentSource);
+        
+        try {
+          loadNews(currentSource);
+        } catch(e) {
+          console.error('[News AutoLoad] Erreur:', e);
+        }
+      }
+      
+      // Attendre que le DOM soit chargé
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+          setTimeout(autoLoadNews, 100);
+        });
+      } else {
+        setTimeout(autoLoadNews, 100);
+      }
+      
+      // Double-check après 500ms
+      setTimeout(autoLoadNews, 500);
+    })();
+
   </script>
   <footer class="app-footer">
     <span>© 2025/2026</span>
