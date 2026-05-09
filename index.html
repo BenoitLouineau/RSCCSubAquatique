@@ -5909,9 +5909,6 @@
         <button class="tab" role="tab" aria-selected="false" aria-controls="panel-palmares" data-tab="palmares" id="tab-palmares">
           🏆 Palmarès
         </button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-news" data-tab="news" id="tab-news">
-          📰 News
-        </button>
       </nav>
 
       <!-- Barre de chips sticky (élèves ou moniteurs selon l'onglet actif) -->
@@ -6047,6 +6044,29 @@
         </div>
       </div>
 
+      <div id="sidebar-news" class="sidebar-content hidden">
+        <div class="card stats-card">
+          <h3>📰 Actualités</h3>
+          <div class="muted" style="font-size:12px;margin-bottom:8px;">
+            Flux RSS FFESSM et CODEPs configurables.
+          </div>
+        </div>
+        <div class="card" style="margin-top:10px;">
+          <h3>⚙️ Source</h3>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">Sélectionnez ou configurez votre source RSS.</div>
+          <select id="newsSourceSelect" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid var(--border);background:var(--chip);color:var(--text);font-size:12px;margin-bottom:8px;">
+            <option value="ffessm_nat" selected>🇫🇷 FFESSM nationale</option>
+            <option value="subaqua">🤿 Subaqua magazine</option>
+            <option value="ffessm_idf">🗺️ FFESSM Île-de-France</option>
+            <option value="codep75">📍 CODEP 75 Paris</option>
+            <option value="codep94">📍 CODEP 94</option>
+            <option value="custom">🔗 URL personnalisée</option>
+          </select>
+          <div id="newsCustomUrlWrap" style="display:none;">
+            <input type="text" id="newsCustomUrl" placeholder="https://rss.app/feeds/..." style="width:100%;box-sizing:border-box;padding:6px 8px;border-radius:6px;border:1px solid var(--border);background:var(--chip);color:var(--text);font-size:11px;margin-bottom:6px;">
+          </div>
+      </div>
+
       <div id="sidebar-palmares" class="sidebar-content hidden">
         <div class="card stats-card">
           <h3>🏆 Palmarès</h3>
@@ -6170,14 +6190,6 @@
         </div>
       </section>
 
-      <section class="tab-panel" id="panel-news" role="tabpanel" aria-labelledby="tab-news">
-        <div id="newsContainer" style="padding: 20px;">
-          <div style="text-align: center; color: var(--muted); padding: 40px;">
-            <span style="font-size: 18px; margin-bottom: 10px; display: block;">📰</span>
-            <p>Chargement des actualités...</p>
-          </div>
-        </div>
-      </section>
 
     </main>
   </div>
@@ -6204,6 +6216,16 @@
     <div class="settings-body">
       <!-- SECTION 1 : Règle de validation compétences -->
       <div class="settings-section">
+        <h3 class="settings-section-title">📰 Source News par défaut</h3>
+        <p class="settings-info">Flux chargé automatiquement à l'ouverture de l\'onglet News.</p>
+        <select id="newsDefaultSource" style="width:100%;padding:6px 10px;border-radius:6px;border:1px solid var(--border);background:var(--chip);color:var(--text);font-size:13px;margin-top:6px;">
+          <option value="ffessm_nat">🇫🇷 FFESSM nationale</option>
+          <option value="subaqua">🤿 Subaqua magazine</option>
+          <option value="ffessm_idf">🗺️ FFESSM Île-de-France</option>
+          <option value="codep75">📍 CODEP 75 Paris</option>
+          <option value="codep94">📍 CODEP 94</option>
+        </select>
+      </div>
 
       <div class="settings-section">
         <h3 class="settings-section-title">🎯 Prédiction N1</h3>
@@ -6395,7 +6417,6 @@
     CONFIG.URL_MONITEURS = 'https://raw.githubusercontent.com/BenoitLouineau/RSCCSubAquatique/main/2025-2026/groupe1/donnees_moniteur_CR.json';
     CONFIG.URL_CR_SEANCE = 'https://raw.githubusercontent.com/BenoitLouineau/RSCCSubAquatique/main/2025-2026/groupe1/donnees_CR_seance.json';
     CONFIG.URL_EXAMENS   = 'https://raw.githubusercontent.com/BenoitLouineau/RSCCSubAquatique/main/2025-2026/groupe1/donnees_examens.json';
-    CONFIG.URL_NEWS      = 'https://raw.githubusercontent.com/BenoitLouineau/RSCCSubAquatique/main/2025-2026/groupe1/donnees_news_plongee.json';
 
     // =====================================================================
     // 2. ÉTAT GLOBAL
@@ -6404,8 +6425,7 @@
       rawEleves: null,       // JSON source 1 : [{eleve, genre, categorie, competence, date, moniteur, presence, statut, cr}]
       rawMoniteurs: null,    // JSON source 2 : [{Moniteur, Date, Eleve, Role, CR}] — CR remplis uniquement
       rawCRSeance: null,     // JSON source 3 : [{Moniteur, Date, Eleve, CR}] — toutes séances (alertes CR manquant)
-      rawExamens: null,      // JSON source 4
-      rawNews: null, : [{eleve, theorie:{valide,date,moniteur}, pratique:{valide,date,moniteur}}]
+      rawExamens: null,      // JSON source 4 : [{eleve, theorie:{valide,date,moniteur}, pratique:{valide,date,moniteur}}]
       loadStatusEleves: 'pending',    // 'pending' | 'loading' | 'ok' | 'ko'
       loadStatusMoniteurs: 'pending',
       excludedEleves: [],    // liste normalisée (lowercase) des élèves à filtrer
@@ -6602,7 +6622,7 @@
         if (chipsMoniteurs) chipsMoniteurs.classList.toggle('hidden', tabId !== 'moniteurs');
 
         // Switcher sidebar selon l'onglet actif
-        ['sidebar-eleves','sidebar-moniteurs','sidebar-analyse','sidebar-palmares','sidebar-croisee'].forEach(function(id) {
+        ['sidebar-eleves','sidebar-moniteurs','sidebar-analyse','sidebar-palmares','sidebar-news','sidebar-croisee'].forEach(function(id) {
           var el = document.getElementById(id);
           if (el) el.classList.toggle('hidden', id !== 'sidebar-' + tabId);
         });
@@ -6985,8 +7005,8 @@
       }
 
       async function loadOne(which) {
-        const urlMap   = { eleves: CONFIG.URL_ELEVES, moniteurs: CONFIG.URL_MONITEURS, crseance: CONFIG.URL_CR_SEANCE, examens: CONFIG.URL_EXAMENS, news: CONFIG.URL_NEWS };
-        const labelMap = { eleves: 'Eleves', moniteurs: 'Moniteurs', crseance: 'CR Séances', examens: 'Examens', news: 'News' };
+        const urlMap   = { eleves: CONFIG.URL_ELEVES, moniteurs: CONFIG.URL_MONITEURS, crseance: CONFIG.URL_CR_SEANCE, examens: CONFIG.URL_EXAMENS };
+        const labelMap = { eleves: 'Eleves', moniteurs: 'Moniteurs', crseance: 'CR Séances', examens: 'Examens' };
         const url   = urlMap[which];
         const label = labelMap[which] || which;
         setStatus(which, 'loading', 'Chargement ' + label.toLowerCase() + '…');
@@ -7015,8 +7035,8 @@
         }
       }
       async function loadOne(which) {
-        const urlMap   = { eleves: CONFIG.URL_ELEVES, moniteurs: CONFIG.URL_MONITEURS, crseance: CONFIG.URL_CR_SEANCE, examens: CONFIG.URL_EXAMENS, news: CONFIG.URL_NEWS };
-        const labelMap = { eleves: 'Eleves', moniteurs: 'Moniteurs', crseance: 'CR Séances', examens: 'Examens', news: 'News' };
+        const urlMap   = { eleves: CONFIG.URL_ELEVES, moniteurs: CONFIG.URL_MONITEURS, crseance: CONFIG.URL_CR_SEANCE, examens: CONFIG.URL_EXAMENS };
+        const labelMap = { eleves: 'Eleves', moniteurs: 'Moniteurs', crseance: 'CR Séances', examens: 'Examens' };
         const url   = urlMap[which];
         const label = labelMap[which] || which;
         setStatus(which, 'loading', 'Chargement ' + label.toLowerCase() + '…');
@@ -7063,8 +7083,7 @@
           loadOne('eleves'),
           loadOne('moniteurs'),
           loadOne('crseance'),
-          loadOne('examens'),
-          loadOne('news')
+          loadOne('examens')
         ]);
 
         if (results[0].status === 'fulfilled') {
@@ -7090,7 +7109,6 @@
 
         if (results[3].status === 'fulfilled') {
           STATE.rawExamens = results[3].value;
-          STATE.rawNews = results[4].value;
           console.log('[Examens] ' + STATE.rawExamens.length + ' élèves chargés');
         } else {
           console.warn('[Examens] Echec chargement — données examens indisponibles');
@@ -7320,26 +7338,6 @@
     //    - Comptage pour les badges de tabs
     //    - Appel des futurs renderers (Phase 2+)
     // =====================================================================
-    window._rscc.renderNews = function(rawNews) {
-      if (!rawNews || !rawNews.sources) return;
-      var c = document.getElementById('newsContainer');
-      if (!c) return;
-      var articles = [];
-      Object.keys(rawNews.sources).forEach(function(k) {
-        var src = rawNews.sources[k];
-        if (src.articles && Array.isArray(src.articles)) {
-          src.articles.forEach(function(a) {
-            articles.push({title:a.title,url:a.url,desc:a.description,date:a.date,cat:a.category,src:src.name});
-          });
-        }
-      });
-      articles.sort(function(a,b){var da=a.date!='N/A'?new Date(a.date.split('/').reverse().join('-')):new Date(0);var db=b.date!='N/A'?new Date(b.date.split('/').reverse().join('-')):new Date(0);return db-da;});
-      var h='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;">';
-      articles.forEach(function(a){h+='<div style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:12px;display:flex;flex-direction:column;height:100%;">'+'<div style="font-size:10px;color:var(--muted);margin-bottom:6px;"><strong style="color:#06b6d4;">'+a.src+'</strong> · '+a.date+'</div>'+'<h3 style="margin:0 0 8px;font-size:13px;font-weight:700;line-height:1.3;">'+a.title.substring(0,60)+'</h3>'+(a.desc?'<p style="margin:0 0 10px;font-size:11px;color:var(--muted);line-height:1.4;flex-grow:1;">'+a.desc.substring(0,80)+'</p>':'')+'<div style="margin-top:auto;padding-top:10px;border-top:1px solid var(--border);">'+'<span style="display:inline-block;background:rgba(6,182,212,0.1);border:1px solid rgba(6,182,212,0.3);color:#06b6d4;padding:2px 6px;border-radius:3px;font-size:9px;font-weight:600;margin-right:8px;">'+a.cat+'</span>'+'<a href="'+a.url+'" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-size:11px;font-weight:600;">Lire →</a>'+'</div></div>';});
-      h+='</div>';
-      c.innerHTML=h;
-    };
-
     function postLoadProcess() {
       // Charger la liste d'exclusion depuis localStorage (ou valeurs par défaut)
       let excluded;
@@ -13355,6 +13353,19 @@
           SETTINGS.data.seuilMoniteursDiff = parseInt(this.value);
           saveSettings();
           triggerReRenders();
+        });
+      }
+
+      // Source news par défaut
+      var ndsEl2 = document.getElementById('newsDefaultSource');
+      if (ndsEl2) {
+        ndsEl2.addEventListener('change', function() {
+          SETTINGS.data['newsDefaultSource'] = this.value;
+          saveSettings();
+          // Synchroniser le sélecteur dans la sidebar News
+          var sidebar = document.getElementById('newsSourceSelect');
+          if (sidebar) sidebar.value = this.value;
+          try { localStorage.setItem('rscc_news_source', this.value); } catch(e) {}
         });
       }
 
