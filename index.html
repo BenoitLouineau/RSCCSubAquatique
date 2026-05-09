@@ -7024,8 +7024,8 @@
       }
 
       async function loadOne(which) {
-        const urlMap   = { eleves: CONFIG.URL_ELEVES, moniteurs: CONFIG.URL_MONITEURS, crseance: CONFIG.URL_CR_SEANCE, examens: CONFIG.URL_EXAMENS };
-        const labelMap = { eleves: 'Eleves', moniteurs: 'Moniteurs', crseance: 'CR Séances', examens: 'Examens' };
+        const urlMap   = { eleves: CONFIG.URL_ELEVES, moniteurs: CONFIG.URL_MONITEURS, crseance: CONFIG.URL_CR_SEANCE, examens: CONFIG.URL_EXAMENS, news: CONFIG.URL_NEWS };
+        const labelMap = { eleves: 'Eleves', moniteurs: 'Moniteurs', crseance: 'CR Séances', examens: 'Examens', news: 'Actualités' };
         const url   = urlMap[which];
         const label = labelMap[which] || which;
         setStatus(which, 'loading', 'Chargement ' + label.toLowerCase() + '…');
@@ -7102,7 +7102,8 @@
           loadOne('eleves'),
           loadOne('moniteurs'),
           loadOne('crseance'),
-          loadOne('examens')
+          loadOne('examens'),
+          loadOne('news')
         ]);
 
         if (results[0].status === 'fulfilled') {
@@ -7133,15 +7134,143 @@
           console.warn('[Examens] Echec chargement — données examens indisponibles');
         }
 
+        if (results[4].status === 'fulfilled') {
+          STATE.rawNews = results[4].value;
+          console.log('[NEWS] ' + Object.keys(STATE.rawNews.sources).length + ' sources chargées');
+        } else {
+          console.warn('[NEWS] Echec chargement — actualités indisponibles');
+        }
+
         const anyFailed = results[0].status === 'rejected' || results[1].status === 'rejected';
         if (anyFailed) {
           $('#importFallback').classList.add('visible');
         }
 
         postLoadProcess();
+        
+        // Initialiser le module NEWS après chargement des données
+        if (typeof window._rscc_news !== 'undefined') {
+          window._rscc_news.initNews();
+        }
       }
 
       return { loadAll, readLocalJsonFile, setStatus, setStatusSummary, parseToArray, showErrorBanner, _loadOne: loadOne };
+
+  <!-- =====================================================================
+       MODULE NEWS — Charge depuis GitHub via dataLoader
+       Même pattern que ÉLÈVES/MONITEURS
+       ===================================================================== -->
+  <script>
+  (function() {
+    'use strict';
+
+    var currentSource = null;
+    var currentArticles = [];
+
+    var sourceEmojis = {
+      'FFESSM National': '🇫🇷',
+      'CODEP 94 (Val de Marne)': '📍',
+      'FFESSM Île-de-France': '🗺️',
+      'Subaqua Magazine': '🤿'
+    };
+
+    function formatDate(dateStr) {
+      if (!dateStr || dateStr === 'N/A') return '';
+      if (dateStr.indexOf('/') > -1) return dateStr;
+      try {
+        return new Date(dateStr).toLocaleDateString('fr-FR');
+      } catch(e) {
+        return dateStr;
+      }
+    }
+
+    function loadNews(sourceKey) {
+      console.log('[NEWS] Changement source:', sourceKey);
+      
+      if (!STATE.rawNews || !STATE.rawNews.sources[sourceKey]) {
+        console.error('[NEWS] Source invalide:', sourceKey);
+        return;
+      }
+      
+      currentSource = sourceKey;
+      
+      var indicator = document.getElementById('newsSourceIndicator');
+      if (indicator) {
+        var emoji = sourceEmojis[sourceKey] || '📰';
+        indicator.textContent = emoji + ' ' + sourceKey;
+      }
+      
+      var allButtons = document.querySelectorAll('.news-source-btn');
+      allButtons.forEach(function(btn) {
+        btn.classList.remove('news-source-active');
+        btn.style.background = 'var(--surface)';
+        btn.style.borderColor = 'var(--border)';
+        btn.style.color = 'var(--text)';
+      });
+      
+      var activeBtn = document.getElementById('newsSourceBtn-' + sourceKey);
+      if (activeBtn) {
+        activeBtn.classList.add('news-source-active');
+        activeBtn.style.background = '#38bdf8';
+        activeBtn.style.borderColor = '#38bdf8';
+        activeBtn.style.color = 'white';
+      }
+      
+      var sourceData = STATE.rawNews.sources[sourceKey];
+      currentArticles = (sourceData.articles || []).map(function(article) {
+        return {
+          title: article.title,
+          link: article.url,
+          description: article.description || '',
+          pubDate: article.date,
+          category: article.category || 'Info'
+        };
+      });
+      
+      renderNews();
+    }
+
+    function renderNews() {
+      var container = document.getElementById('newsContainer');
+      if (!container || !currentArticles.length) return;
+      
+      var sourceColor = {
+        'FFESSM National': '#38bdf8',
+        'CODEP 94 (Val de Marne)': '#16a34a',
+        'FFESSM Île-de-France': '#8b5cf6',
+        'Subaqua Magazine': '#f97316'
+      };
+      var color = sourceColor[currentSource] || '#38bdf8';
+      
+      container.innerHTML = currentArticles.map(function(article) {
+        return '<a href="' + article.link + '" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;"><div style="border: 1px solid var(--border); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; height: 100%; background: var(--card); transition: all 0.2s; cursor: pointer;" onmouseover="this.style.boxShadow='0 8px 24px rgba(0,0,0,0.3)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';"><div style="width: 100%; height: 8px; background: ' + color + ';"></div><div style="padding: 12px; flex: 1; display: flex; flex-direction: column;"><span style="font-size: 11px; color: var(--accent); font-weight: 600; margin-bottom: 6px;">' + article.category + '</span><h3 style="margin: 0 0 8px 0; font-size: 14px; font-weight: 600; line-height: 1.4;">' + article.title + '</h3>' + (article.description ? '<p style="margin: 0 0 8px 0; font-size: 12px; color: var(--muted); flex: 1;">' + article.description + '</p>' : '') + '<div style="margin-top: auto; padding-top: 8px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted);">' + formatDate(article.pubDate) + '</div></div></div></a>';
+      }).join('');
+    }
+
+    function initNews() {
+      console.log('[NEWS] Initialisation');
+      if (!STATE.rawNews) {
+        console.error('[NEWS] Données non chargées');
+        return;
+      }
+      
+      var sourceKey = (typeof SETTINGS !== 'undefined' && SETTINGS.data && SETTINGS.data.newsDefaultSource) 
+        ? SETTINGS.data.newsDefaultSource 
+        : Object.keys(STATE.rawNews.sources)[0];
+      
+      console.log('[NEWS] Source par défaut:', sourceKey);
+      loadNews(sourceKey);
+    }
+
+    window._rscc_news = {
+      loadNews: loadNews,
+      renderNews: renderNews,
+      initNews: initNews
+    };
+
+  })();
+  </script>
+
     })();
 
     /** Mesure la hauteur réelle du header et met à jour --header-h + scroll-margin */
@@ -13204,186 +13333,6 @@
       });
     }
 
-  })();
-  </script>
-
-  <!-- =====================================================================
-       MODULE NEWS — Charge depuis GitHub (CONFIG.URL_NEWS)
-       Même pattern que élèves/moniteurs/examens
-       ===================================================================== -->
-  <script>
-  (function() {
-    'use strict';
-
-    var NEWS_DATA_EMBEDDED = null;  // Sera chargé depuis GitHub
-    var currentSource = null;
-    var currentArticles = [];
-
-    // Mapping des sources avec emojis
-    var sourceEmojis = {
-      'FFESSM National': '🇫🇷',
-      'CODEP 94 (Val de Marne)': '📍',
-      'FFESSM Île-de-France': '🗺️',
-      'Subaqua Magazine': '🤿'
-    };
-
-    function loadNewsFromJSON(jsonKey) {
-      console.log('[NEWS] Chargement source:', jsonKey);
-      return new Promise((resolve, reject) => {
-        try {
-          if (!NEWS_DATA_EMBEDDED || !NEWS_DATA_EMBEDDED.sources[jsonKey]) {
-            reject(new Error('Source not found: ' + jsonKey));
-            return;
-          }
-          var sourceData = NEWS_DATA_EMBEDDED.sources[jsonKey];
-          var articles = (sourceData.articles || []).map(function(article) {
-            return {
-              title: article.title,
-              link: article.url,
-              description: article.description || '',
-              pubDate: article.date,
-              category: article.category || 'Info'
-            };
-          });
-          console.log('[NEWS] ' + articles.length + ' articles chargés');
-          resolve({status: 'ok', items: articles});
-        } catch(e) {
-          console.error('[NEWS] Exception:', e);
-          reject(e);
-        }
-      });
-    }
-
-    function formatDate(dateStr) {
-      if (!dateStr || dateStr === 'N/A') return '';
-      if (dateStr.indexOf('/') > -1) return dateStr;
-      try {
-        return new Date(dateStr).toLocaleDateString('fr-FR');
-      } catch(e) {
-        return dateStr;
-      }
-    }
-
-    function loadNews(sourceKey) {
-      console.log('[NEWS] Changement source:', sourceKey);
-      
-      if (!NEWS_DATA_EMBEDDED || !NEWS_DATA_EMBEDDED.sources[sourceKey]) {
-        console.error('[NEWS] Source invalide:', sourceKey);
-        return;
-      }
-      
-      currentSource = sourceKey;
-      
-      // Mettre à jour l'indicateur UX
-      var indicator = document.getElementById('newsSourceIndicator');
-      if (indicator) {
-        var emoji = sourceEmojis[sourceKey] || '📰';
-        indicator.textContent = emoji + ' ' + sourceKey;
-      }
-      
-      // Mettre à jour les boutons pills
-      var allButtons = document.querySelectorAll('.news-source-btn');
-      allButtons.forEach(function(btn) {
-        btn.classList.remove('news-source-active');
-        btn.style.background = 'var(--surface)';
-        btn.style.borderColor = 'var(--border)';
-        btn.style.color = 'var(--text)';
-      });
-      var activeBtn = document.getElementById('newsSourceBtn-' + sourceKey);
-      if (activeBtn) {
-        activeBtn.classList.add('news-source-active');
-        activeBtn.style.background = '#38bdf8';
-        activeBtn.style.borderColor = '#38bdf8';
-        activeBtn.style.color = 'white';
-      }
-      
-      var container = document.getElementById('newsContainer');
-      if (container) container.innerHTML = '<div style="grid-column: 1/-1; padding: 40px; text-align: center;"><p>⏳ Chargement...</p></div>';
-      
-      loadNewsFromJSON(sourceKey).then(function(response) {
-        if (response.status === 'ok') {
-          currentArticles = response.items;
-          renderNews();
-        }
-      }).catch(function(error) {
-        console.error('[NEWS] Erreur chargement:', error);
-        if (container) container.innerHTML = '<div style="grid-column: 1/-1; padding: 40px;"><p>⚠️ Erreur</p></div>';
-      });
-    }
-
-    function renderNews() {
-      var container = document.getElementById('newsContainer');
-      if (!container || !currentArticles.length) return;
-      
-      var sourceColor = {
-        'FFESSM National': '#38bdf8',
-        'CODEP 94 (Val de Marne)': '#16a34a',
-        'FFESSM Île-de-France': '#8b5cf6',
-        'Subaqua Magazine': '#f97316'
-      };
-      var color = sourceColor[currentSource] || '#38bdf8';
-      
-      container.innerHTML = currentArticles.map(function(article) {
-        return '<a href="' + article.link + '" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">' +
-          '<div style="border: 1px solid var(--border); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; height: 100%; background: var(--card); transition: all 0.2s; cursor: pointer;" ' +
-            'onmouseover="this.style.boxShadow=\\'0 8px 24px rgba(0,0,0,0.3)\\'; this.style.transform=\\'translateY(-2px)\\';" ' +
-            'onmouseout="this.style.boxShadow=\\'none\\'; this.style.transform=\\'translateY(0)\\';">' +
-            '<div style="width: 100%; height: 8px; background: ' + color + ';"></div>' +
-            '<div style="padding: 12px; flex: 1; display: flex; flex-direction: column;">' +
-              '<span style="font-size: 11px; color: var(--accent); font-weight: 600; margin-bottom: 6px;">' + article.category + '</span>' +
-              '<h3 style="margin: 0 0 8px 0; font-size: 14px; font-weight: 600; line-height: 1.4;">' + article.title + '</h3>' +
-              (article.description ? '<p style="margin: 0 0 8px 0; font-size: 12px; color: var(--muted); flex: 1;">' + article.description + '</p>' : '') +
-              '<div style="margin-top: auto; padding-top: 8px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted);">' + formatDate(article.pubDate) + '</div>' +
-            '</div>' +
-          '</div>' +
-        '</a>';
-      }).join('');
-    }
-
-    function initNews() {
-      console.log('[NEWS] Initialisation');
-      if (typeof SETTINGS !== 'undefined' && SETTINGS.data && SETTINGS.data.newsDefaultSource) {
-        currentSource = SETTINGS.data.newsDefaultSource;
-      } else {
-        currentSource = NEWS_DATA_EMBEDDED ? Object.keys(NEWS_DATA_EMBEDDED.sources)[0] : 'FFESSM National';
-      }
-      console.log('[NEWS] Source par défaut:', currentSource);
-      loadNews(currentSource);
-    }
-
-    function loadNewsDataFromGitHub() {
-      console.log('[NEWS] Chargement JSON depuis GitHub:', CONFIG.URL_NEWS);
-      fetch(CONFIG.URL_NEWS, { method: 'GET' })
-        .then(function(resp) {
-          if (!resp.ok) throw new Error('HTTP ' + resp.status);
-          return resp.json();
-        })
-        .then(function(data) {
-          NEWS_DATA_EMBEDDED = data;
-          console.log('[NEWS] JSON chargé - ' + Object.keys(data.sources).length + ' sources');
-          initNews();
-        })
-        .catch(function(err) {
-          console.error('[NEWS] Erreur chargement JSON:', err);
-          var container = document.getElementById('newsContainer');
-          if (container) container.innerHTML = '<div style="grid-column: 1/-1; padding: 40px;"><p>⚠️ Erreur chargement données</p></div>';
-        });
-    }
-
-    // Exposer au global
-    window._rscc_news = {
-      loadNews: loadNews,
-      renderNews: renderNews,
-      initNews: initNews,
-      loadNewsDataFromGitHub: loadNewsDataFromGitHub
-    };
-
-    // Charger au démarrage
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', loadNewsDataFromGitHub);
-    } else {
-      loadNewsDataFromGitHub();
-    }
   })();
   </script>
 
