@@ -1156,6 +1156,13 @@
   },
   {
     "Moniteur": "Eddy",
+    "Date": "2026-05-19",
+    "Eleve": "FLORENT",
+    "Role": "Encadrant",
+    "CR": "Salut, j'ai validé hier la pratique pour Florent, il est top"
+  },
+  {
+    "Moniteur": "Eddy",
     "Date": "2026-04-19",
     "Eleve": "JUDICAËL",
     "Role": "Encadrant",
@@ -1195,5 +1202,40 @@
     "Eleve": "ROBIN",
     "Role": "Encadrant",
     "CR": "Bonjour à tous,\n\n1er partie avec nos 2 seuls élèves Robin et Jérémie \n\nPmt avec pyramide jusqu'à 300 m.\nNous avions imposé avec Benoît, un délai de récupération de 30 secondes entre chaque distance.\nRAS pour les 2 qui ont su parfaitement gérer leurs efforts pour respecter l'exercice.\n\n2eme partie \n\nExo de mimétisme pour interpréter la séquence du moniteur a refaire par l'élève (ras)\nPuis du ludique avec le jeu des montgolfières.\nNos deux élèves ont vraiment apprécié et activement participé.\n\nA refaire pour le reste du groupe.\n\nCdt,\nBenoît"
+  },
+  {
+    "Moniteur": "Carlos",
+    "Date": "2026-05-19",
+    "Eleve": "SACHA",
+    "Role": "Encadrant",
+    "CR": "Debrief de l'examen theorie (avec Carlos) \n\nPour Sacha \nA revoir : administratif, signe panne d'air, ADD, niveau encadrement et formation de la palanquée,  barotromatismes, espèce protégé.\n\nGlobalement un peu déçu, je m'attendais a mieux de la part de Sacha.\nPeut être le brevet des collèges 😕"
+  },
+  {
+    "Moniteur": "Benoit P.",
+    "Date": "2026-05-19",
+    "Eleve": "SACHA",
+    "Role": "Encadrant",
+    "CR": "Debrief de l'examen theorie (avec Carlos) \n\nPour Sacha \nA revoir : administratif, signe panne d'air, ADD, niveau encadrement et formation de la palanquée,  barotromatismes, espèce protégé.\n\nGlobalement un peu déçu, je m'attendais a mieux de la part de Sacha.\nPeut être le brevet des collèges 😕"
+  },
+  {
+    "Moniteur": "Benoit L.",
+    "Date": "2026-05-19",
+    "Eleve": "SAMY",
+    "Role": "Encadrant",
+    "CR": "Debrief de Samy \nExamen de théorie passée avec Guillaume \nPoint a revoir \nLicence \nAssurance liée à la licence \nCalcul de la pression pas maîtrisée \nCourbe de sécurité pas où peu connue \nMot palanquée pas connu !\nSais néanmoins le nombre max de plongeur que compose une palenquee \nAu final beaucoup d'éléments qu'il a fallu susciter pour avancer sur l'examen \nArf Guillaume on a oublié la bio en demandant des espèces.\n\nBref même ressenti que Benoît P. Au vu du très bon parcours de la pratique nous attendions nettement mieux que ça.\n\nUne phase de révision s'impose et un complément de question est a faire \nPerso difficile de donner un N1 dans ces conditions là sans retouche des acquis et validation par Eddy"
+  },
+  {
+    "Moniteur": "Guillaume",
+    "Date": "2026-05-19",
+    "Eleve": "SAMY",
+    "Role": "Encadrant",
+    "CR": "Hello pour samy, je suis Benoît. Niveau global pas fou, mais je dirais qu'il connaît quand même globalement les principes importants pour sa sécurité (barotraumatismes, perte de palanquée,... )\nIl faudrait qu'il fasse une petite révision, surtout des documents, ADD et Mariotte et ça sera bon."
+  },
+  {
+    "Moniteur": "Eddy",
+    "Date": "2026-05-19",
+    "Eleve": "JUDICAËL",
+    "Role": "Encadrant",
+    "CR": "Judicaël, c'est poussif....Il a du mal à retenir les consignes du brief si elles sont au nombre d'au moins 5. Bref un super niveau pour Florent et un tout petit niveau pour Jude. Je mettrai en garde les moniteurs mer pour le Frioul.\nMardi prochain avant la présentation Frioul, je prendrai à part Samy, Sacha et Judicaël pour leur dire si qu'il faut revoir et ils seront interrogés au Frioul. Pour finir, si Judicaël s'inscrit l'an prochain au groupe 2, il va poser problème mais on a l'habitude des défis 😉"
   }
 ]
