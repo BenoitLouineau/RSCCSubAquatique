@@ -1,0 +1,337 @@
+[
+  {
+    "id": "bernard-zoe",
+    "nom": "Bernard Zoé",
+    "nb_seances": 1,
+    "dates_seances": [
+      "2026-05-12"
+    ],
+    "moniteurs": [
+      "Jo"
+    ],
+    "nb_competences_travaillees": 3,
+    "competences": {
+      "Stabilisation": {
+        "nb_evaluations": 1,
+        "derniere_note": 4,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-05-12",
+            "note": 4,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Théorie": {
+        "nb_evaluations": 1,
+        "derniere_note": null,
+        "moyenne_notes": null,
+        "historique": [
+          {
+            "date": "2026-05-12",
+            "note": null,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Gestion de l'air": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-05-12",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      }
+    },
+    "commentaires": []
+  },
+  {
+    "id": "bruce-wayne",
+    "nom": "Bruce Wayne",
+    "nb_seances": 0,
+    "dates_seances": [],
+    "moniteurs": [],
+    "nb_competences_travaillees": 0,
+    "competences": {},
+    "commentaires": []
+  },
+  {
+    "id": "dayne-jonhson",
+    "nom": "Dayne Jonhson",
+    "nb_seances": 0,
+    "dates_seances": [],
+    "moniteurs": [],
+    "nb_competences_travaillees": 0,
+    "competences": {},
+    "commentaires": []
+  },
+  {
+    "id": "dupont-lea",
+    "nom": "Dupont Léa",
+    "nb_seances": 3,
+    "dates_seances": [
+      "2026-05-12",
+      "2026-06-02",
+      "2026-07-14"
+    ],
+    "moniteurs": [
+      "Jo",
+      "Sam"
+    ],
+    "nb_competences_travaillees": 4,
+    "competences": {
+      "Théorie": {
+        "nb_evaluations": 1,
+        "derniere_note": null,
+        "moyenne_notes": null,
+        "historique": [
+          {
+            "date": "2026-06-02",
+            "note": null,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Gestion de l'air": {
+        "nb_evaluations": 1,
+        "derniere_note": 1,
+        "moyenne_notes": 1.0,
+        "historique": [
+          {
+            "date": "2026-06-02",
+            "note": 1,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Stabilisation": {
+        "nb_evaluations": 1,
+        "derniere_note": 4,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-05-12",
+            "note": 4,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Pas d'atelier": {
+        "nb_evaluations": 1,
+        "derniere_note": null,
+        "moyenne_notes": null,
+        "historique": [
+          {
+            "date": "2026-07-14",
+            "note": null,
+            "moniteur": "Sam"
+          }
+        ]
+      }
+    },
+    "commentaires": []
+  },
+  {
+    "id": "ezio-auditore",
+    "nom": "Ezio Auditore",
+    "nb_seances": 0,
+    "dates_seances": [],
+    "moniteurs": [],
+    "nb_competences_travaillees": 0,
+    "competences": {},
+    "commentaires": []
+  },
+  {
+    "id": "harry-potter",
+    "nom": "Harry Potter",
+    "nb_seances": 0,
+    "dates_seances": [],
+    "moniteurs": [],
+    "nb_competences_travaillees": 0,
+    "competences": {},
+    "commentaires": []
+  },
+  {
+    "id": "john-travolta",
+    "nom": "John Travolta",
+    "nb_seances": 0,
+    "dates_seances": [],
+    "moniteurs": [],
+    "nb_competences_travaillees": 0,
+    "competences": {},
+    "commentaires": []
+  },
+  {
+    "id": "kurt-cobain",
+    "nom": "Kurt Cobain",
+    "nb_seances": 0,
+    "dates_seances": [],
+    "moniteurs": [],
+    "nb_competences_travaillees": 0,
+    "competences": {},
+    "commentaires": []
+  },
+  {
+    "id": "malcolm-x",
+    "nom": "Malcolm X",
+    "nb_seances": 0,
+    "dates_seances": [],
+    "moniteurs": [],
+    "nb_competences_travaillees": 0,
+    "competences": {},
+    "commentaires": []
+  },
+  {
+    "id": "martin-noah",
+    "nom": "Martin Noah",
+    "nb_seances": 2,
+    "dates_seances": [
+      "2026-05-12",
+      "2026-07-14"
+    ],
+    "moniteurs": [
+      "Jo"
+    ],
+    "nb_competences_travaillees": 3,
+    "competences": {
+      "Remontée assistée": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-05-12",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Stabilisation": {
+        "nb_evaluations": 1,
+        "derniere_note": 4,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-05-12",
+            "note": 4,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Vidage de masque": {
+        "nb_evaluations": 1,
+        "derniere_note": 1,
+        "moyenne_notes": 1.0,
+        "historique": [
+          {
+            "date": "2026-07-14",
+            "note": 1,
+            "moniteur": "Jo"
+          }
+        ]
+      }
+    },
+    "commentaires": [
+      {
+        "date": "2026-05-12",
+        "moniteur": "Jo",
+        "atelier": "Remontée assistée",
+        "commentaire": "Ras"
+      },
+      {
+        "date": "2026-05-12",
+        "moniteur": "Jo",
+        "atelier": "Stabilisation",
+        "commentaire": "Ras"
+      }
+    ]
+  },
+  {
+    "id": "marty-macfly",
+    "nom": "Marty MacFly",
+    "nb_seances": 0,
+    "dates_seances": [],
+    "moniteurs": [],
+    "nb_competences_travaillees": 0,
+    "competences": {},
+    "commentaires": []
+  },
+  {
+    "id": "peter-parker",
+    "nom": "Peter Parker",
+    "nb_seances": 1,
+    "dates_seances": [
+      "2026-07-14"
+    ],
+    "moniteurs": [
+      "Sam"
+    ],
+    "nb_competences_travaillees": 1,
+    "competences": {
+      "Pas d'atelier": {
+        "nb_evaluations": 1,
+        "derniere_note": null,
+        "moyenne_notes": null,
+        "historique": [
+          {
+            "date": "2026-07-14",
+            "note": null,
+            "moniteur": "Sam"
+          }
+        ]
+      }
+    },
+    "commentaires": [
+      {
+        "date": "2026-07-14",
+        "moniteur": "Sam",
+        "atelier": "Pas d'atelier",
+        "commentaire": "Oreilles hs"
+      }
+    ]
+  },
+  {
+    "id": "sarah-connord",
+    "nom": "Sarah Connord",
+    "nb_seances": 1,
+    "dates_seances": [
+      "2026-07-14"
+    ],
+    "moniteurs": [
+      "Sam"
+    ],
+    "nb_competences_travaillees": 2,
+    "competences": {
+      "Stabilisation": {
+        "nb_evaluations": 1,
+        "derniere_note": 1,
+        "moyenne_notes": 1.0,
+        "historique": [
+          {
+            "date": "2026-07-14",
+            "note": 1,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Théorie": {
+        "nb_evaluations": 1,
+        "derniere_note": null,
+        "moyenne_notes": null,
+        "historique": [
+          {
+            "date": "2026-07-14",
+            "note": null,
+            "moniteur": "Sam"
+          }
+        ]
+      }
+    },
+    "commentaires": []
+  }
+]
