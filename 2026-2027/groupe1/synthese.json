@@ -1,5 +1,5 @@
 {
-  "date_generation": "2026-08-08T19:23:30",
+  "date_generation": "2026-08-08T22:54:12",
   "nb_eleves": 13,
   "nb_moniteurs": 9,
   "nb_seances": 4,
@@ -113,5 +113,42 @@
       "nb_ateliers_evalues": 2,
       "moyenne_generale": 1.0
     }
-  ]
+  ],
+  "anomalies": {
+    "eleves_hors_referentiel": [
+      "Bernard Zoé",
+      "Dupont Léa",
+      "Martin Noah"
+    ],
+    "eleves_referentiel_jamais_vus": [
+      "Bruce Wayne",
+      "Dayne Jonhson",
+      "Ezio Auditore",
+      "Harry Potter",
+      "John Travolta",
+      "Kurt Cobain",
+      "Malcolm X",
+      "Marty MacFly"
+    ],
+    "moniteurs_hors_referentiel": [
+      "Jo",
+      "Sam"
+    ],
+    "moniteurs_referentiel_jamais_actifs": [
+      "Avrell Dalton",
+      "Bilbo le Hobitt",
+      "Hulk",
+      "Lanfeust",
+      "Luky Luke",
+      "Mad Max",
+      "Wall-E"
+    ],
+    "ateliers_hors_referentiel": [
+      "Gestion de l'air",
+      "Remontée assistée",
+      "Stabilisation",
+      "Vidage de masque"
+    ],
+    "comptes_rendus_doublons": []
+  }
 }
