@@ -1,0 +1,106 @@
+[
+  {
+    "id": "avrell-dalton",
+    "nom": "Avrell Dalton",
+    "nb_seances_animees": 0,
+    "dates_seances": [],
+    "nb_eleves_suivis": 0,
+    "eleves_suivis": [],
+    "nb_comptes_rendus": 0,
+    "nb_evaluations_notees": 0
+  },
+  {
+    "id": "bilbo-le-hobitt",
+    "nom": "Bilbo le Hobitt",
+    "nb_seances_animees": 0,
+    "dates_seances": [],
+    "nb_eleves_suivis": 0,
+    "eleves_suivis": [],
+    "nb_comptes_rendus": 0,
+    "nb_evaluations_notees": 0
+  },
+  {
+    "id": "hulk",
+    "nom": "Hulk",
+    "nb_seances_animees": 0,
+    "dates_seances": [],
+    "nb_eleves_suivis": 0,
+    "eleves_suivis": [],
+    "nb_comptes_rendus": 0,
+    "nb_evaluations_notees": 0
+  },
+  {
+    "id": "jo",
+    "nom": "Jo",
+    "nb_seances_animees": 2,
+    "dates_seances": [
+      "2026-05-12",
+      "2026-07-14"
+    ],
+    "nb_eleves_suivis": 3,
+    "eleves_suivis": [
+      "Bernard Zoé",
+      "Dupont Léa",
+      "Martin Noah"
+    ],
+    "nb_comptes_rendus": 7,
+    "nb_evaluations_notees": 6
+  },
+  {
+    "id": "lanfeust",
+    "nom": "Lanfeust",
+    "nb_seances_animees": 0,
+    "dates_seances": [],
+    "nb_eleves_suivis": 0,
+    "eleves_suivis": [],
+    "nb_comptes_rendus": 0,
+    "nb_evaluations_notees": 0
+  },
+  {
+    "id": "luky-luke",
+    "nom": "Luky Luke",
+    "nb_seances_animees": 0,
+    "dates_seances": [],
+    "nb_eleves_suivis": 0,
+    "eleves_suivis": [],
+    "nb_comptes_rendus": 0,
+    "nb_evaluations_notees": 0
+  },
+  {
+    "id": "mad-max",
+    "nom": "Mad Max",
+    "nb_seances_animees": 0,
+    "dates_seances": [],
+    "nb_eleves_suivis": 0,
+    "eleves_suivis": [],
+    "nb_comptes_rendus": 0,
+    "nb_evaluations_notees": 0
+  },
+  {
+    "id": "sam",
+    "nom": "Sam",
+    "nb_seances_animees": 2,
+    "dates_seances": [
+      "2026-06-02",
+      "2026-07-14"
+    ],
+    "nb_eleves_suivis": 3,
+    "eleves_suivis": [
+      "Dupont Léa",
+      "Peter Parker",
+      "Sarah Connord"
+    ],
+    "nb_comptes_rendus": 6,
+    "nb_evaluations_notees": 2
+  },
+  {
+    "id": "wall-e",
+    "nom": "Wall-E",
+    "nb_seances_animees": 0,
+    "dates_seances": [],
+    "nb_eleves_suivis": 0,
+    "eleves_suivis": [],
+    "nb_comptes_rendus": 0,
+    "nb_evaluations_notees": 0
+  }
+]
