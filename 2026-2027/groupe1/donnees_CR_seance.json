@@ -1,0 +1,50 @@
+[
+  {
+    "Moniteur": "Jo",
+    "Date": "2026-05-12",
+    "Eleve": "Bernard Zoé",
+    "CR": ""
+  },
+  {
+    "Moniteur": "Jo",
+    "Date": "2026-05-12",
+    "Eleve": "Dupont Léa",
+    "CR": ""
+  },
+  {
+    "Moniteur": "Jo",
+    "Date": "2026-05-12",
+    "Eleve": "Martin Noah",
+    "CR": "Ras; Ras"
+  },
+  {
+    "Moniteur": "Sam",
+    "Date": "2026-06-02",
+    "Eleve": "Dupont Léa",
+    "CR": ""
+  },
+  {
+    "Moniteur": "Jo",
+    "Date": "2026-07-14",
+    "Eleve": "Martin Noah",
+    "CR": ""
+  },
+  {
+    "Moniteur": "Sam",
+    "Date": "2026-07-14",
+    "Eleve": "Dupont Léa",
+    "CR": ""
+  },
+  {
+    "Moniteur": "Sam",
+    "Date": "2026-07-14",
+    "Eleve": "Peter Parker",
+    "CR": "Oreilles hs"
+  },
+  {
+    "Moniteur": "Sam",
+    "Date": "2026-07-14",
+    "Eleve": "Sarah Connord",
+    "CR": ""
+  }
+]
