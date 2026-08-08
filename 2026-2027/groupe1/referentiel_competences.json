@@ -1,0 +1,303 @@
+[
+  {
+    "id": "greage",
+    "nom": "Gréage",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "gestion-de-son-materiel",
+    "nom": "Gestion de son matériel",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "saut-droit-pmt",
+    "nom": "Saut droit PMT",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "saut-droit",
+    "nom": "Saut droit",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "bascule-arriere-pmt",
+    "nom": "Bascule Arrière PMT",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "bascule-arriere",
+    "nom": "Bascule Arrière",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "bascule-avant-pmt",
+    "nom": "**Bascule Avant PMT",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "bascule-avant",
+    "nom": "**Bascule Avant",
+    "actif": false,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "phoque",
+    "nom": "Phoque",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "canard-pmt",
+    "nom": "Canard PMT",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": false
+  },
+  {
+    "id": "canard",
+    "nom": "Canard",
+    "actif": false,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "dbn",
+    "nom": "DBN",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "vdm-partiel",
+    "nom": "VDM partiel",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "vdm",
+    "nom": "VDM",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "vdm-equilibre",
+    "nom": "**VDM équilibré",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "lre-surpression",
+    "nom": "LRE surpression",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "lre-expiration",
+    "nom": "LRE expiration",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "signes",
+    "nom": "Signes",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "pa-recoit-octo",
+    "nom": "PA - reçoit octo",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "pa-donne-octo",
+    "nom": "PA - donne octo",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "pa-recoit-echange",
+    "nom": "PA - reçoit échange",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "pa-donne-echange",
+    "nom": "PA - donne échange",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "essoufflement-etre-pris-en-charge",
+    "nom": "Essoufflement - être pris en charge",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "poumon-ballast",
+    "nom": "Poumon Ballast",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "gestion-du-gilet",
+    "nom": "Gestion du gilet",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "stabilisation-statique",
+    "nom": "Stabilisation statique",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "stabilisation-dynamique",
+    "nom": "Stabilisation dynamique",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "deplacements-immersion",
+    "nom": "Déplacements immersion",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": false
+  },
+  {
+    "id": "vitesse-de-remontee",
+    "nom": "Vitesse de remontée",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "tenue-palier",
+    "nom": "Tenue palier",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "360",
+    "nom": "360°",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "mise-en-secu-surface",
+    "nom": "Mise en sécu surface",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "remonte-expi-controlee",
+    "nom": "Remonté expi controlée",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "sortie-de-l-eau",
+    "nom": "Sortie de l'eau",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "degreage",
+    "nom": "dégréage",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "soin-au-materiel",
+    "nom": "Soin au materiel",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "palmage",
+    "nom": "Palmage",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": false
+  },
+  {
+    "id": "vidage-tuba",
+    "nom": "Vidage tuba",
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": true
+  },
+  {
+    "id": "theorie",
+    "nom": "Théorie",
+    "actif": true,
+    "notable": false,
+    "compte_dans_moyenne": false
+  },
+  {
+    "id": "exam-theorie",
+    "nom": "Exam Théorie",
+    "actif": false,
+    "notable": false,
+    "compte_dans_moyenne": false
+  },
+  {
+    "id": "exam-pmt-100m",
+    "nom": "Exam PMT 100m",
+    "actif": true,
+    "notable": false,
+    "compte_dans_moyenne": false
+  },
+  {
+    "id": "exam-capele-50m",
+    "nom": "Exam capelé 50m",
+    "actif": true,
+    "notable": false,
+    "compte_dans_moyenne": false
+  },
+  {
+    "id": "pas-d-atelier",
+    "nom": "Pas d'atelier",
+    "actif": true,
+    "notable": false,
+    "compte_dans_moyenne": false
+  }
+]
