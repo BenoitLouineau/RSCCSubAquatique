@@ -1,0 +1,117 @@
+{
+  "date_generation": "2026-08-08T19:23:30",
+  "nb_eleves": 13,
+  "nb_moniteurs": 9,
+  "nb_seances": 4,
+  "nb_comptes_rendus": 13,
+  "nb_competences_referencees": 43,
+  "periode": {
+    "date_min": "2026-05-12",
+    "date_max": "2026-07-14"
+  },
+  "acquisition_par_atelier": [
+    {
+      "atelier": "Stabilisation",
+      "nb_evaluations": 4,
+      "moyenne": 3.25,
+      "note_min": 1,
+      "note_max": 4,
+      "notable": false,
+      "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "Gestion de l'air",
+      "nb_evaluations": 2,
+      "moyenne": 1.5,
+      "note_min": 1,
+      "note_max": 2,
+      "notable": false,
+      "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "Remontée assistée",
+      "nb_evaluations": 1,
+      "moyenne": 2.0,
+      "note_min": 2,
+      "note_max": 2,
+      "notable": false,
+      "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "Vidage de masque",
+      "nb_evaluations": 1,
+      "moyenne": 1.0,
+      "note_min": 1,
+      "note_max": 1,
+      "notable": false,
+      "compte_dans_moyenne": false
+    }
+  ],
+  "progression_par_eleve": [
+    {
+      "eleve": "Bernard Zoé",
+      "nb_ateliers_evalues": 3,
+      "moyenne_generale": 3.0
+    },
+    {
+      "eleve": "Bruce Wayne",
+      "nb_ateliers_evalues": 0,
+      "moyenne_generale": null
+    },
+    {
+      "eleve": "Dayne Jonhson",
+      "nb_ateliers_evalues": 0,
+      "moyenne_generale": null
+    },
+    {
+      "eleve": "Dupont Léa",
+      "nb_ateliers_evalues": 4,
+      "moyenne_generale": 2.5
+    },
+    {
+      "eleve": "Ezio Auditore",
+      "nb_ateliers_evalues": 0,
+      "moyenne_generale": null
+    },
+    {
+      "eleve": "Harry Potter",
+      "nb_ateliers_evalues": 0,
+      "moyenne_generale": null
+    },
+    {
+      "eleve": "John Travolta",
+      "nb_ateliers_evalues": 0,
+      "moyenne_generale": null
+    },
+    {
+      "eleve": "Kurt Cobain",
+      "nb_ateliers_evalues": 0,
+      "moyenne_generale": null
+    },
+    {
+      "eleve": "Malcolm X",
+      "nb_ateliers_evalues": 0,
+      "moyenne_generale": null
+    },
+    {
+      "eleve": "Martin Noah",
+      "nb_ateliers_evalues": 3,
+      "moyenne_generale": 2.33
+    },
+    {
+      "eleve": "Marty MacFly",
+      "nb_ateliers_evalues": 0,
+      "moyenne_generale": null
+    },
+    {
+      "eleve": "Peter Parker",
+      "nb_ateliers_evalues": 1,
+      "moyenne_generale": null
+    },
+    {
+      "eleve": "Sarah Connord",
+      "nb_ateliers_evalues": 2,
+      "moyenne_generale": 1.0
+    }
+  ]
+}
