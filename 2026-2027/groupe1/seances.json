@@ -1,0 +1,150 @@
+[
+  {
+    "id": "2026-05-12_jo",
+    "date_seance": "2026-05-12",
+    "moniteur": "Jo",
+    "nb_eleves": 3,
+    "eleves": [
+      "Bernard Zoé",
+      "Dupont Léa",
+      "Martin Noah"
+    ],
+    "ateliers_traites": [
+      "Gestion de l'air",
+      "Remontée assistée",
+      "Stabilisation",
+      "Théorie"
+    ],
+    "nb_comptes_rendus": 6,
+    "comptes_rendus": [
+      {
+        "eleve": "Dupont Léa",
+        "atelier": "Stabilisation",
+        "note": 4,
+        "commentaire": null
+      },
+      {
+        "eleve": "Bernard Zoé",
+        "atelier": "Stabilisation",
+        "note": 4,
+        "commentaire": null
+      },
+      {
+        "eleve": "Bernard Zoé",
+        "atelier": "Théorie",
+        "note": null,
+        "commentaire": null
+      },
+      {
+        "eleve": "Bernard Zoé",
+        "atelier": "Gestion de l'air",
+        "note": 2,
+        "commentaire": null
+      },
+      {
+        "eleve": "Martin Noah",
+        "atelier": "Remontée assistée",
+        "note": 2,
+        "commentaire": "Ras"
+      },
+      {
+        "eleve": "Martin Noah",
+        "atelier": "Stabilisation",
+        "note": 4,
+        "commentaire": "Ras"
+      }
+    ]
+  },
+  {
+    "id": "2026-06-02_sam",
+    "date_seance": "2026-06-02",
+    "moniteur": "Sam",
+    "nb_eleves": 1,
+    "eleves": [
+      "Dupont Léa"
+    ],
+    "ateliers_traites": [
+      "Gestion de l'air",
+      "Théorie"
+    ],
+    "nb_comptes_rendus": 2,
+    "comptes_rendus": [
+      {
+        "eleve": "Dupont Léa",
+        "atelier": "Théorie",
+        "note": null,
+        "commentaire": null
+      },
+      {
+        "eleve": "Dupont Léa",
+        "atelier": "Gestion de l'air",
+        "note": 1,
+        "commentaire": null
+      }
+    ]
+  },
+  {
+    "id": "2026-07-14_jo",
+    "date_seance": "2026-07-14",
+    "moniteur": "Jo",
+    "nb_eleves": 1,
+    "eleves": [
+      "Martin Noah"
+    ],
+    "ateliers_traites": [
+      "Vidage de masque"
+    ],
+    "nb_comptes_rendus": 1,
+    "comptes_rendus": [
+      {
+        "eleve": "Martin Noah",
+        "atelier": "Vidage de masque",
+        "note": 1,
+        "commentaire": null
+      }
+    ]
+  },
+  {
+    "id": "2026-07-14_sam",
+    "date_seance": "2026-07-14",
+    "moniteur": "Sam",
+    "nb_eleves": 3,
+    "eleves": [
+      "Dupont Léa",
+      "Peter Parker",
+      "Sarah Connord"
+    ],
+    "ateliers_traites": [
+      "Pas d'atelier",
+      "Stabilisation",
+      "Théorie"
+    ],
+    "nb_comptes_rendus": 4,
+    "comptes_rendus": [
+      {
+        "eleve": "Dupont Léa",
+        "atelier": "Pas d'atelier",
+        "note": null,
+        "commentaire": null
+      },
+      {
+        "eleve": "Peter Parker",
+        "atelier": "Pas d'atelier",
+        "note": null,
+        "commentaire": "Oreilles hs"
+      },
+      {
+        "eleve": "Sarah Connord",
+        "atelier": "Stabilisation",
+        "note": 1,
+        "commentaire": null
+      },
+      {
+        "eleve": "Sarah Connord",
+        "atelier": "Théorie",
+        "note": null,
+        "commentaire": null
+      }
+    ]
+  }
+]
