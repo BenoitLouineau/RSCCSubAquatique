@@ -354,6 +354,65 @@ table.synthese thead th.sticky-col { z-index: 4; }
 }
 
 
+/* ===================== MONITEURS — carte "Suivi de CR" ===================== */
+.cr-summary-card {
+  border: 1px solid var(--border); border-radius: var(--radius); background: var(--card);
+  box-shadow: var(--shadow); padding: 18px 20px; margin-bottom: 22px;
+}
+.cr-summary-header { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+.cr-summary-lastdate { font-size: 12.5px; color: var(--muted); }
+.cr-filter-row { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.cr-filter-row label { font-size: 12.5px; color: var(--muted); }
+.cr-filter-select {
+  padding: 7px 10px; border-radius: 8px; border: 1px solid var(--border);
+  background: var(--chip); color: var(--text); font-size: 12.5px;
+}
+.cr-chips-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.cr-chip {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  padding: 12px 20px; border-radius: var(--radius-sm); background: var(--chip); border: 1px solid var(--border);
+  min-width: 130px;
+}
+.cr-chip-value { font-size: 22px; font-weight: 800; }
+.cr-chip-label { font-size: 11px; color: var(--muted); text-align: center; }
+.cr-chip-alert .cr-chip-value { color: var(--bad); }
+
+.cr-table-toggle {
+  display: flex; align-items: center; gap: 6px; border: none; background: transparent;
+  color: var(--accent2); font-size: 12.5px; font-weight: 700; padding: 4px 0; margin-bottom: 8px;
+}
+table.cr-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+table.cr-table th, table.cr-table td { padding: 8px 12px; text-align: left; }
+table.cr-table thead th { background: var(--chip); color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .04em; }
+table.cr-table tbody tr { border-top: 1px solid var(--border); }
+
+.cr-missing-block { margin-top: 16px; border-top: 1px solid var(--border); padding-top: 12px; }
+.cr-missing-title { font-size: 12px; font-weight: 700; color: var(--bad); margin-bottom: 8px; }
+.cr-missing-item {
+  display: flex; align-items: center; gap: 8px; font-size: 12.5px; padding: 5px 0; color: var(--text);
+}
+.cr-missing-item .cmi-date { color: var(--muted); min-width: 90px; }
+.cr-missing-empty { font-size: 12.5px; color: var(--muted); }
+
+/* ===================== MONITEURS — fiche individuelle ===================== */
+.moniteur-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+.moniteur-title { font-size: 17px; font-weight: 800; }
+.moniteur-head-actions { display: flex; gap: 8px; }
+
+.sub-card { margin-top: 16px; border-top: 1px solid var(--border); padding-top: 12px; }
+.sub-card-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: var(--muted); margin-bottom: 10px; }
+
+.seance-mini-card { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 10px 12px; background: var(--chip); margin-bottom: 8px; }
+.seance-mini-date { font-size: 12.5px; font-weight: 700; margin-bottom: 6px; }
+.seance-mini-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.chips-wrap { display: flex; flex-wrap: wrap; gap: 6px; }
+.mini-eleve-chip {
+  display: inline-flex; align-items: center; gap: 5px; font-size: 12px; padding: 5px 11px;
+  border-radius: 999px; background: var(--chip); border: 1px solid var(--border);
+}
+.mini-eleve-chip.flag { color: var(--warn); border-color: rgba(245, 158, 11, .35); }
+
 .load-screen {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   padding: 80px 20px; color: var(--muted); text-align: center; gap: 10px;
@@ -444,7 +503,7 @@ table.synthese thead th.sticky-col { z-index: 4; }
 
     <nav class="tabs" role="tablist">
       <button class="tab active" data-tab="eleves">🤿 Élèves <span class="tab-count" id="countEleves">—</span></button>
-      <button class="tab disabled" data-tab="moniteurs">🥽 Moniteurs <span class="tab-count">—</span></button>
+      <button class="tab disabled" data-tab="moniteurs">🥽 Moniteurs <span class="tab-count" id="countMoniteurs">—</span></button>
       <button class="tab disabled" data-tab="examens">🎓 Examens <span class="tab-count">—</span></button>
       <button class="tab disabled" data-tab="analyse">📊 Analyse</button>
       <button class="tab disabled" data-tab="palmares">🏆 Palmarès</button>
@@ -454,6 +513,12 @@ table.synthese thead th.sticky-col { z-index: 4; }
       <button class="chips-scroll-btn" id="chipsPrev" type="button" aria-label="Précédent">‹</button>
       <div class="chips-track" id="chipsTrack"></div>
       <button class="chips-scroll-btn" id="chipsNext" type="button" aria-label="Suivant">›</button>
+    </div>
+
+    <div class="eleves-chips-bar hidden" id="moniteursChipsBar">
+      <button class="chips-scroll-btn" id="moniteursChipsPrev" type="button" aria-label="Précédent">‹</button>
+      <div class="chips-track" id="moniteursChipsTrack"></div>
+      <button class="chips-scroll-btn" id="moniteursChipsNext" type="button" aria-label="Suivant">›</button>
     </div>
   </div>
 </header>
@@ -474,11 +539,11 @@ table.synthese thead th.sticky-col { z-index: 4; }
   </button>
 
   <section class="tab-panel" id="panel-moniteurs">
-    <div class="placeholder-panel">
-      <div class="ph-icon">🥽</div>
-      <div class="ph-title">Module Moniteurs — à venir</div>
-      <div>Sera construit une fois le module Élèves validé.</div>
+    <div id="moniteursLoadScreen" class="load-screen">
+      <div class="spinner"></div>
+      <div>Chargement des données moniteurs…</div>
     </div>
+    <div id="moniteursMainContent"></div>
   </section>
 
   <section class="tab-panel" id="panel-examens">
@@ -585,6 +650,7 @@ table.synthese thead th.sticky-col { z-index: 4; }
   /** Filtre le calendrier complet du groupe selon l'option choisie dans les réglages. */
   function filterDatesByRange(allDates, mode) {
     if (mode === 'last5') return allDates.slice(-5);
+    if (mode === 'derniere') return allDates.length ? [allDates[allDates.length - 1]] : [];
     const today = new Date();
     if (mode === 'month') {
       return allDates.filter(function(d) {
@@ -659,6 +725,7 @@ table.synthese thead th.sticky-col { z-index: 4; }
     synthese: null,
     referentiel: null,
     seances: null,
+    moniteurs: null,
     allDates: [],   // calendrier complet du groupe (toutes dates de séance, triées)
   };
 
@@ -795,6 +862,8 @@ table.synthese thead th.sticky-col { z-index: 4; }
     $$('.tab-panel').forEach(p => p.classList.toggle('active', p.id === 'panel-' + name));
     const chipsBar = $('#elevesChipsBar');
     if (chipsBar) chipsBar.classList.toggle('hidden', name !== 'eleves');
+    const moniteursChipsBar = $('#moniteursChipsBar');
+    if (moniteursChipsBar) moniteursChipsBar.classList.toggle('hidden', name !== 'moniteurs');
     syncHeaderHeight();
   }
   $$('.tab').forEach(function(tab) {
@@ -815,18 +884,22 @@ table.synthese thead th.sticky-col { z-index: 4; }
 
   async function loadAll() {
     try {
-      const [eleves, synthese, referentiel, seances] = await Promise.all([
+      const [eleves, synthese, referentiel, seances, moniteurs] = await Promise.all([
         fetchJSON(CONFIG.URL_ELEVES),
         fetchJSON(CONFIG.URL_SYNTHESE),
         fetchJSON(CONFIG.URL_REFERENTIEL),
         fetchJSON(CONFIG.URL_SEANCES),
+        fetchJSON(CONFIG.URL_MONITEURS),
       ]);
       STATE.eleves = eleves;
       STATE.synthese = synthese;
       STATE.referentiel = referentiel;
       STATE.seances = seances;
+      STATE.moniteurs = moniteurs;
       STATE.allDates = Array.from(new Set(seances.map(s => s.date_seance))).sort();
       renderEleves();
+      renderMoniteurs();
+      enableMoniteursTab();
     } catch (err) {
       console.error(err);
       showLoadError(err);
@@ -866,10 +939,11 @@ table.synthese thead th.sticky-col { z-index: 4; }
             STATE.seances = data;
             STATE.allDates = Array.from(new Set(data.map(s => s.date_seance))).sort();
           }
+          else if (file.name.includes('moniteurs')) STATE.moniteurs = data;
           else if (file.name.includes('eleves')) STATE.eleves = data;
         } catch (err) { console.error('JSON invalide :', file.name, err); }
         pending--;
-        if (pending === 0 && STATE.eleves) renderEleves();
+        if (pending === 0 && STATE.eleves) { renderEleves(); if (STATE.moniteurs) { renderMoniteurs(); enableMoniteursTab(); } }
       };
       reader.readAsText(file);
     });
@@ -1276,17 +1350,15 @@ table.synthese thead th.sticky-col { z-index: 4; }
     XLSX.writeFile(wb, 'synthese_eleves.xlsx');
   }
 
-  function exportTableAsPng() {
-    const el = document.getElementById('syntheseTableWrap');
+  function exportElementAsPng(el, filename) {
     if (!el || typeof html2canvas === 'undefined') return;
     const bg = getComputedStyle(document.body).backgroundColor;
     html2canvas(el, { backgroundColor: bg, scale: 2 }).then(function(canvas) {
-      canvas.toBlob(function(blob) { downloadBlob(blob, 'synthese_eleves.png'); });
+      canvas.toBlob(function(blob) { downloadBlob(blob, filename); });
     });
   }
 
-  function exportTableAsPdf() {
-    const el = document.getElementById('syntheseTableWrap');
+  function exportElementAsPdf(el, filename) {
     if (!el || typeof html2canvas === 'undefined' || !window.jspdf) return;
     const bg = getComputedStyle(document.body).backgroundColor;
     html2canvas(el, { backgroundColor: bg, scale: 2 }).then(function(canvas) {
@@ -1295,8 +1367,16 @@ table.synthese thead th.sticky-col { z-index: 4; }
       const orientation = canvas.width > canvas.height ? 'landscape' : 'portrait';
       const pdf = new jsPDF({ orientation: orientation, unit: 'px', format: [canvas.width, canvas.height] });
       pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
-      pdf.save('synthese_eleves.pdf');
+      pdf.save(filename);
     });
+  }
+
+  function exportTableAsPng() {
+    exportElementAsPng(document.getElementById('syntheseTableWrap'), 'synthese_eleves.png');
+  }
+
+  function exportTableAsPdf() {
+    exportElementAsPdf(document.getElementById('syntheseTableWrap'), 'synthese_eleves.pdf');
   }
 
   function renderElevesChipsBar() {
@@ -1457,6 +1537,310 @@ table.synthese thead th.sticky-col { z-index: 4; }
       if (anchor) anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
       else window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+  }
+
+  // =====================================================================
+  // RENDU — ONGLET MONITEURS
+  // =====================================================================
+
+  function enableMoniteursTab() {
+    const tabBtn = document.querySelector('.tab[data-tab="moniteurs"]');
+    if (tabBtn) tabBtn.classList.remove('disabled');
+    const countEl = $('#countMoniteurs');
+    if (countEl) countEl.textContent = String((STATE.moniteurs || []).length);
+  }
+
+  /** Statistiques CR pour un moniteur donné, restreintes à un sous-ensemble de dates. */
+  function computeMoniteurPeriodStats(moniteurNom, periodDates) {
+    const periodSet = new Set(periodDates);
+    const seancesM = (STATE.seances || []).filter(s => s.moniteur === moniteurNom && periodSet.has(s.date_seance));
+    let crRemplis = 0;
+    const elevesSet = new Set();
+    const missingDates = [];
+    seancesM.forEach(function(s) {
+      const hasCR = (s.comptes_rendus || []).some(cr => cr.commentaire);
+      if (hasCR) crRemplis++; else missingDates.push(s.date_seance);
+      (s.eleves || []).forEach(el => elevesSet.add(el));
+    });
+    const nbSeances = seancesM.length;
+    const crManquants = nbSeances - crRemplis;
+    const tauxCR = nbSeances ? Math.round((crRemplis / nbSeances) * 100) : null;
+    return { nbSeances, crRemplis, crManquants, tauxCR, encadrement: elevesSet.size, missingDates };
+  }
+
+  /** Statistiques CR globales (tous moniteurs confondus) sur une période donnée. */
+  function computeGlobalCrStats(periodDates) {
+    const periodSet = new Set(periodDates);
+    const seancesP = (STATE.seances || []).filter(s => periodSet.has(s.date_seance));
+    let crRemplis = 0;
+    const missing = [];
+    seancesP.forEach(function(s) {
+      const hasCR = (s.comptes_rendus || []).some(cr => cr.commentaire);
+      if (hasCR) crRemplis++; else missing.push({ moniteur: s.moniteur, date: s.date_seance });
+    });
+    const nbSeances = seancesP.length;
+    const tauxRetour = nbSeances ? Math.round((crRemplis / nbSeances) * 100) : 0;
+    missing.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    return { nbSeances, crRemplis, crManquants: nbSeances - crRemplis, tauxRetour, missing };
+  }
+
+  function getElevesSuivisParMoniteur(moniteurNom) {
+    const set = new Set();
+    (STATE.seances || []).forEach(function(s) {
+      if (s.moniteur === moniteurNom) (s.eleves || []).forEach(el => set.add(el));
+    });
+    return set;
+  }
+
+  function getDernieresSeancesMoniteur(moniteurNom, limit) {
+    return (STATE.seances || [])
+      .filter(s => s.moniteur === moniteurNom)
+      .slice()
+      .sort((a, b) => (b.date_seance || '').localeCompare(a.date_seance || ''))
+      .slice(0, limit || 5);
+  }
+
+  const CR_FILTER_LABELS = {
+    derniere: 'Dernière séance',
+    month: 'Mois en cours',
+    trimester: 'Trimestre en cours',
+    season: 'Sur la saison (Sept. → Juin)',
+  };
+  let crFilterMode = 'season';
+
+  // Registres pour les graphiques et la dernière liste rendue (fiches moniteurs)
+  let activeMoniteurCharts = [];
+  function destroyMoniteurCharts() { activeMoniteurCharts.forEach(c => c.destroy()); activeMoniteurCharts = []; }
+  function instantiateMoniteurCharts(moniteurs) {
+    const cs = getComputedStyle(document.documentElement);
+    const ok = cs.getPropertyValue('--ok').trim() || '#16a34a';
+    const rest = cs.getPropertyValue('--donut-rest').trim() || '#334155';
+    moniteurs.forEach(function(m) {
+      ['donut-couverture-' + m.id, 'donut-presencemoniteur-' + m.id].forEach(function(canvasId) {
+        const cv = document.getElementById(canvasId);
+        if (!cv) return;
+        const a = parseInt(cv.dataset.a, 10) || 0;
+        const b = parseInt(cv.dataset.b, 10) || 0;
+        activeMoniteurCharts.push(new Chart(cv, {
+          type: 'doughnut',
+          data: { datasets: [{ data: (a + b) ? [a, b] : [1], backgroundColor: (a + b) ? [ok, rest] : [rest], borderWidth: 0 }] },
+          options: { cutout: '72%', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { enabled: false } }, animation: { duration: 400 } }
+        }));
+      });
+    });
+  }
+
+  function buildCrSummaryCard() {
+    const periodDates = filterDatesByRange(STATE.allDates, crFilterMode);
+    const global = computeGlobalCrStats(periodDates);
+    const perMoniteur = (STATE.moniteurs || []).map(function(m) {
+      return { m: m, stats: computeMoniteurPeriodStats(m.nom, periodDates) };
+    });
+    const lastDate = STATE.allDates.length ? STATE.allDates[STATE.allDates.length - 1] : null;
+
+    const tableRows = perMoniteur.map(function(row) {
+      const s = row.stats;
+      return '<tr>' +
+        '<td>' + escapeHtml(row.m.nom) + '</td>' +
+        '<td>' + s.encadrement + '</td>' +
+        '<td>' + s.crRemplis + '</td>' +
+        '<td>' + s.crManquants + '</td>' +
+        '<td>' + (s.tauxCR === null ? '—' : s.tauxCR + '%') + '</td>' +
+      '</tr>';
+    }).join('');
+
+    const missingHtml = global.missing.length
+      ? global.missing.map(function(mi) {
+          return '<div class="cr-missing-item"><span class="cmi-date">' + formatDateFR(mi.date) + '</span>' +
+            '<span>' + ICONS.moniteur + ' ' + escapeHtml(mi.moniteur) + ' — CR non saisi</span></div>';
+        }).join('')
+      : '<div class="cr-missing-empty">Aucun CR manquant sur cette période ✅</div>';
+
+    const filterOptions = Object.keys(CR_FILTER_LABELS).map(function(k) {
+      return '<option value="' + k + '"' + (k === crFilterMode ? ' selected' : '') + '>' + CR_FILTER_LABELS[k] + '</option>';
+    }).join('');
+
+    return '<div class="cr-summary-card">' +
+      '<div class="cr-summary-header">' +
+        '<h2 class="section-title" style="margin:0;">📋 Suivi de CR</h2>' +
+        '<span class="cr-summary-lastdate">' + ICONS.calendrier + ' Dernière séance : ' + formatDateFR(lastDate) + '</span>' +
+      '</div>' +
+      '<div class="cr-filter-row">' +
+        '<label for="crFilterSelect">Période d\'analyse :</label>' +
+        '<select class="cr-filter-select" id="crFilterSelect">' + filterOptions + '</select>' +
+      '</div>' +
+      '<div class="cr-chips-row">' +
+        '<div class="cr-chip"><span class="cr-chip-value">' + global.tauxRetour + '%</span><span class="cr-chip-label">Taux de retour de CR</span></div>' +
+        '<div class="cr-chip"><span class="cr-chip-value">' + global.nbSeances + '</span><span class="cr-chip-label">Séances couvertes</span></div>' +
+        '<div class="cr-chip cr-chip-alert"><span class="cr-chip-value">' + global.crManquants + '</span><span class="cr-chip-label">CR manquant</span></div>' +
+      '</div>' +
+      '<button class="cr-table-toggle" id="btnToggleCrTable" type="button">▲ Masquer l\'historique par moniteur</button>' +
+      '<div id="crTableWrap"><div class="synthese-table-wrap"><table class="cr-table">' +
+        '<thead><tr><th>Moniteur</th><th>Encadrement</th><th>CR Remplis</th><th>CR manquants</th><th>Taux de CR</th></tr></thead>' +
+        '<tbody>' + tableRows + '</tbody>' +
+      '</table></div></div>' +
+      '<div class="cr-missing-block">' +
+        '<div class="cr-missing-title">⚠ Moniteurs avec CR non saisi (' + CR_FILTER_LABELS[crFilterMode] + ')</div>' +
+        missingHtml +
+      '</div>' +
+    '</div>';
+  }
+
+  function eleveChipHtml(eleveNom, nameByNom) {
+    return '<span class="mini-eleve-chip">' + ICONS.eleve + ' ' + escapeHtml(nameByNom[eleveNom] || eleveNom) + '</span>';
+  }
+
+  function buildMoniteurCard(m, nameByNom) {
+    const seasonStats = computeMoniteurPeriodStats(m.nom, STATE.allDates);
+    const totalEleves = (STATE.eleves || []).length;
+    const tauxCouverture = totalEleves ? Math.round((seasonStats.encadrement / totalEleves) * 100) : 0;
+    const tauxPresenceMoniteur = STATE.allDates.length ? Math.round((seasonStats.nbSeances / STATE.allDates.length) * 100) : 0;
+
+    const suivisSet = getElevesSuivisParMoniteur(m.nom);
+    const suivis = (STATE.eleves || []).filter(e => suivisSet.has(e.nom));
+    const nonSuivis = (STATE.eleves || []).filter(e => !suivisSet.has(e.nom));
+    const dernieresSeances = getDernieresSeancesMoniteur(m.nom, 5);
+
+    const canvasCouverture = 'donut-couverture-' + m.id;
+    const canvasPresenceM = 'donut-presencemoniteur-' + m.id;
+
+    const seancesHtml = dernieresSeances.length
+      ? dernieresSeances.map(function(s) {
+          return '<div class="seance-mini-card">' +
+            '<div class="seance-mini-date">' + ICONS.calendrier + ' ' + formatDateFR(s.date_seance) + '</div>' +
+            '<div class="seance-mini-chips">' + (s.eleves || []).map(el => eleveChipHtml(el, nameByNom)).join('') + '</div>' +
+          '</div>';
+        }).join('')
+      : '<div class="presence-empty">Aucune séance animée pour le moment.</div>';
+
+    return '<div class="student-card moniteur-card" id="moniteur-' + escapeHtml(m.id) + '">' +
+      '<div class="moniteur-head">' +
+        '<div class="moniteur-title">' + ICONS.moniteur + ' ' + escapeHtml(m.nom) + '</div>' +
+        '<div class="moniteur-head-actions">' +
+          '<button class="export-btn" data-export-moniteur-png="' + m.id + '" type="button">🖼️ PNG</button>' +
+          '<button class="export-btn" data-export-moniteur-pdf="' + m.id + '" type="button">📄 PDF</button>' +
+        '</div>' +
+      '</div>' +
+      '<div class="toolbar"><input type="text" class="search-input" data-eleve-search="' + m.id + '" placeholder="🔍 Rechercher un élève suivi…"/></div>' +
+      '<div class="presence-section">' +
+        '<div class="donut-block">' +
+          '<div class="donut-title">Taux de couverture</div>' +
+          '<div class="donut-canvas-wrap"><canvas id="' + canvasCouverture + '" data-a="' + seasonStats.encadrement + '" data-b="' + Math.max(0, totalEleves - seasonStats.encadrement) + '"></canvas>' +
+            '<div class="donut-label">' + tauxCouverture + '%</div></div>' +
+          '<div class="donut-legend"><span class="dl-item"><span class="dl-dot" style="background:var(--ok);"></span>' + seasonStats.encadrement + '/' + totalEleves + ' élèves</span></div>' +
+        '</div>' +
+        '<div class="donut-block">' +
+          '<div class="donut-title">Présence du moniteur</div>' +
+          '<div class="donut-canvas-wrap"><canvas id="' + canvasPresenceM + '" data-a="' + seasonStats.nbSeances + '" data-b="' + Math.max(0, STATE.allDates.length - seasonStats.nbSeances) + '"></canvas>' +
+            '<div class="donut-label">' + tauxPresenceMoniteur + '%</div></div>' +
+          '<div class="donut-legend"><span class="dl-item"><span class="dl-dot" style="background:var(--ok);"></span>' + seasonStats.nbSeances + '/' + STATE.allDates.length + ' séances</span></div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="sub-card"><div class="sub-card-title">' + ICONS.horloge + ' Dernières séances</div>' + seancesHtml + '</div>' +
+      '<div class="sub-card"><div class="sub-card-title">' + ICONS.eleve + ' Élèves suivis (' + suivis.length + ')</div>' +
+        '<div class="chips-wrap" data-suivis-chips="' + m.id + '">' + suivis.map(e => eleveChipHtml(e.nom, nameByNom)).join('') + '</div>' +
+      '</div>' +
+      '<div class="sub-card"><div class="sub-card-title">🚩 Élèves non suivis (' + nonSuivis.length + ')</div>' +
+        '<div class="chips-wrap">' + nonSuivis.map(function(e) {
+          return '<span class="mini-eleve-chip flag">🚩 ' + escapeHtml(nameByNom[e.nom] || e.nom) + '</span>';
+        }).join('') + '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function renderMoniteursChipsBar() {
+    const track = $('#moniteursChipsTrack');
+    if (!track) return;
+    const moniteurs = STATE.moniteurs || [];
+    track.innerHTML = moniteurs.map(function(m) {
+      const stats = computeMoniteurPeriodStats(m.nom, STATE.allDates);
+      return '<div class="eleve-chip" data-id="' + escapeHtml(m.id) + '">' +
+        '<span class="eleve-chip-icon">' + ICONS.moniteur + '</span>' +
+        '<div class="eleve-chip-info">' +
+          '<span class="eleve-chip-name">' + escapeHtml(m.nom) + '</span>' +
+          '<span class="eleve-chip-sub">' + stats.nbSeances + ' séance(s)</span>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+    $$('.eleve-chip', track).forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        const target = document.getElementById('moniteur-' + chip.dataset.id);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+    const prevBtn = $('#moniteursChipsPrev'), nextBtn = $('#moniteursChipsNext');
+    if (prevBtn) prevBtn.onclick = function() { track.scrollBy({ left: -260, behavior: 'smooth' }); };
+    if (nextBtn) nextBtn.onclick = function() { track.scrollBy({ left: 260, behavior: 'smooth' }); };
+    syncHeaderHeight();
+  }
+
+  function renderMoniteurs() {
+    $('#moniteursLoadScreen').classList.add('hidden');
+    const container = $('#moniteursMainContent');
+    const moniteurs = STATE.moniteurs || [];
+    renderMoniteursChipsBar();
+
+    const nameByNom = {};
+    const displayNamesEleves = buildDisplayNames(STATE.eleves || []);
+    (STATE.eleves || []).forEach(function(e) { nameByNom[e.nom] = displayNamesEleves[e.id]; });
+
+    function draw() {
+      destroyMoniteurCharts();
+      container.innerHTML =
+        buildCrSummaryCard() +
+        '<h2 class="section-title" style="margin-top:26px;">' + ICONS.moniteur + ' Fiches moniteurs</h2>' +
+        '<div class="student-grid">' + moniteurs.map(m => buildMoniteurCard(m, nameByNom)).join('') + '</div>';
+
+      // Filtre de période (carte "Suivi de CR")
+      const filterSelect = $('#crFilterSelect');
+      if (filterSelect) filterSelect.addEventListener('change', function() {
+        crFilterMode = filterSelect.value;
+        draw();
+      });
+
+      // Masquer / afficher le tableau historique
+      const toggleBtn = $('#btnToggleCrTable');
+      const tableWrap = $('#crTableWrap');
+      if (toggleBtn && tableWrap) toggleBtn.addEventListener('click', function() {
+        const hidden = tableWrap.classList.toggle('hidden');
+        toggleBtn.textContent = (hidden ? '▼ Afficher' : '▲ Masquer') + " l'historique par moniteur";
+      });
+
+      // Recherche d'élève suivi, par fiche moniteur
+      $$('input[data-eleve-search]').forEach(function(input) {
+        input.addEventListener('input', function() {
+          const mid = input.dataset.eleveSearch;
+          const m = moniteurs.find(x => x.id === mid);
+          if (!m) return;
+          const q = input.value.trim().toLowerCase();
+          const suivisSet = getElevesSuivisParMoniteur(m.nom);
+          const suivis = (STATE.eleves || []).filter(e => suivisSet.has(e.nom) &&
+            (!q || (nameByNom[e.nom] || e.nom).toLowerCase().includes(q)));
+          const chipsWrap = document.querySelector('[data-suivis-chips="' + mid + '"]');
+          if (chipsWrap) chipsWrap.innerHTML = suivis.length
+            ? suivis.map(e => eleveChipHtml(e.nom, nameByNom)).join('')
+            : '<span class="presence-empty">Aucun élève trouvé.</span>';
+        });
+      });
+
+      // Export PNG / PDF par fiche moniteur
+      $$('[data-export-moniteur-png]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const card = document.getElementById('moniteur-' + btn.dataset.exportMoniteurPng);
+          if (card) exportElementAsPng(card, 'moniteur_' + btn.dataset.exportMoniteurPng + '.png');
+        });
+      });
+      $$('[data-export-moniteur-pdf]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const card = document.getElementById('moniteur-' + btn.dataset.exportMoniteurPdf);
+          if (card) exportElementAsPdf(card, 'moniteur_' + btn.dataset.exportMoniteurPdf + '.pdf');
+        });
+      });
+
+      instantiateMoniteurCharts(moniteurs);
+    }
+
+    draw();
   }
 
   // =====================================================================
