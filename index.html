@@ -291,9 +291,14 @@ table.synthese thead th.sticky-col { z-index: 4; }
 /* Grille responsive dédiée à Analyse (cartes plus légères que Élèves/Moniteurs) :
    1 colonne sur smartphone, 2+ sur tablette, 3+ sur grand écran PC — s'adapte
    automatiquement à la largeur disponible plutôt que de rester figée en 1 colonne. */
-.analyse-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
-@media (max-width: 380px) {
-  .analyse-grid { grid-template-columns: 1fr; } /* filet de sécurité : évite tout débordement horizontal sur les très petits écrans */
+/* Plafonnée à ~2 colonnes max, peu importe la largeur d'écran (27", 32", ultra-wide...) :
+   on limite la largeur totale de la grille plutôt que de la laisser s'étirer indéfiniment
+   avec auto-fill, ce qui donnait 4 cartes trop petites/étriquées sur grand écran. */
+/* Toujours 1 colonne, quelle que soit la largeur d'écran (PC, tablette, smartphone) —
+   changement demandé après test : plus simple et plus lisible qu'un multi-colonnes. */
+.analyse-grid {
+  display: grid; grid-template-columns: 1fr; gap: 18px;
+  max-width: 680px; margin: 0 auto;
 }
 .student-card {
   background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
@@ -1951,13 +1956,47 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     });
   }
 
-  function buildRadarCategoryChipsHtml(eleveId) {
+  /** Couleur de la puce d'acquisition d'une catégorie : gris = jamais travaillée,
+   *  orange = travaillée mais < 70% acquis, vert = ≥ 70% acquis. */
+  function categorieChipColor(pct, touched) {
+    if (!touched) return 'var(--grey)';
+    return pct >= 70 ? 'var(--ok)' : 'var(--warn)';
+  }
+
+  function buildRadarCategoryChipsHtml(e) {
+    const radarData = buildRadarDataForEleve(e);
+    const dataByCat = {};
+    radarData.forEach(function(d) { dataByCat[d.categorie] = d; });
     return '<div class="chips-wrap" style="margin-top:10px;">' +
       getCategoriesWithDetail().map(function(cat) {
+        const d = dataByCat[cat] || { pct: 0, touched: 0 };
+        const color = categorieChipColor(d.pct, d.touched);
         return '<button class="mini-eleve-chip" data-radar-cat="' + escapeHtml(cat) + '" data-radar-eleve="' +
-          escapeHtml(eleveId) + '" type="button" style="cursor:pointer;">' + escapeHtml(cat) + '</button>';
+          escapeHtml(e.id) + '" type="button" style="cursor:pointer;">' +
+          '<span class="note-dot" style="background:' + color + ';width:9px;height:9px;box-shadow:none;flex-shrink:0;"></span>' +
+          escapeHtml(cat) + ' · ' + d.pct + '%' +
+        '</button>';
       }).join('') +
     '</div>';
+  }
+
+  /** Détecte le cas où la vue d'ensemble affiche un % (via le mapping de repli atelier
+   *  générique) mais qu'AUCUN axe fin du détail n'a de correspondance stricte — situation
+   *  visuellement contradictoire (ex. "100%" en vue d'ensemble vs "jamais évaluée" en détail)
+   *  qu'il faut expliquer plutôt que laisser paraître comme un bug.
+   */
+  function buildDetailContextBannerHtml(e, categorie) {
+    const overview = buildRadarDataForEleve(e).find(d => d.categorie === categorie);
+    const detail = buildDetailRadarDataForEleve(e, categorie);
+    const anyMatched = detail.some(d => d.matched);
+    if (overview && overview.touched > 0 && overview.pct > 0 && !anyMatched) {
+      return '<div class="cache-banner" style="margin-bottom:10px;">' +
+        'ℹ️ La vue d\'ensemble affiche ' + overview.pct + '% pour cette catégorie, calculé à partir d\'un ' +
+        'atelier générique saisi en séance (pas de correspondance exacte avec les compétences fines ' +
+        'ci-dessous — voir "Couverture du référentiel" dans l\'onglet Saison pour le détail du problème de nommage).' +
+      '</div>';
+    }
+    return '';
   }
 
   function buildRadarCardHtml(e) {
@@ -1973,10 +2012,12 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     const backBtn = categorieActive
       ? '<button class="export-btn" data-radar-back="' + escapeHtml(e.id) + '" type="button" style="margin-bottom:10px;">← Retour aux catégories</button>'
       : '';
-    const chipsRow = categorieActive ? '' : buildRadarCategoryChipsHtml(e.id);
+    const contextBanner = categorieActive ? buildDetailContextBannerHtml(e, categorieActive) : '';
+    const chipsRow = categorieActive ? '' : buildRadarCategoryChipsHtml(e);
     return '<div class="sub-card">' +
       '<div class="sub-card-title">' + title + '</div>' +
       backBtn +
+      contextBanner +
       '<div style="position:relative;width:100%;height:280px;"><canvas id="' + canvasId + '"></canvas></div>' +
       chipsRow +
     '</div>';
@@ -3177,6 +3218,10 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     return '<div class="analyse-eleve-card" id="analyse-eleve-' + escapeHtml(e.id) + '">' +
       '<div class="analyse-eleve-head">' +
         '<div class="analyse-eleve-name">' + ICONS.eleve + ' ' + escapeHtml(e.nom) + '</div>' +
+        '<div class="moniteur-head-actions">' +
+          '<button class="export-btn" data-export-analyse-png="' + escapeHtml(e.id) + '" type="button">🖼️ PNG</button>' +
+          '<button class="export-btn" data-export-analyse-pdf="' + escapeHtml(e.id) + '" type="button">📄 PDF</button>' +
+        '</div>' +
       '</div>' +
       '<div class="analyse-eleve-sub">Statut retour : dernière évaluation le ' + formatDateFR(lastEval) + '</div>' +
       sectionsHtml +
@@ -3428,6 +3473,18 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
       chip.addEventListener('click', function() {
         const target = document.getElementById('analyse-eleve-' + chip.dataset.analyseChip);
         if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+    $$('[data-export-analyse-png]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const card = document.getElementById('analyse-eleve-' + btn.dataset.exportAnalysePng);
+        if (card) exportElementAsPng(card, 'analyse_' + btn.dataset.exportAnalysePng + '.png');
+      });
+    });
+    $$('[data-export-analyse-pdf]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const card = document.getElementById('analyse-eleve-' + btn.dataset.exportAnalysePdf);
+        if (card) exportElementAsPdf(card, 'analyse_' + btn.dataset.exportAnalysePdf + '.pdf');
       });
     });
 
