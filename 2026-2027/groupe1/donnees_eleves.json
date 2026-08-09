@@ -4,7 +4,7 @@
     "genre": "",
     "categorie": "Théorie",
     "competence": "Théorie",
-    "date": "2026-06-02",
+    "date": "2026-09-09",
     "moniteur": "Sam",
     "presence": "Présent",
     "statut": "Non évalué"
@@ -14,7 +14,7 @@
     "genre": "",
     "categorie": "Gestion de l'air",
     "competence": "Gestion de l'air",
-    "date": "2026-06-02",
+    "date": "2026-09-09",
     "moniteur": "Sam",
     "presence": "Présent",
     "statut": "Non acquis"
@@ -24,7 +24,7 @@
     "genre": "",
     "categorie": "Stabilisation",
     "competence": "Stabilisation",
-    "date": "2026-05-12",
+    "date": "2026-09-16",
     "moniteur": "Jo",
     "presence": "Présent",
     "statut": "Acquis"
@@ -34,7 +34,7 @@
     "genre": "",
     "categorie": "Stabilisation",
     "competence": "Stabilisation",
-    "date": "2026-05-12",
+    "date": "2026-09-16",
     "moniteur": "Jo",
     "presence": "Présent",
     "statut": "Acquis"
@@ -44,7 +44,7 @@
     "genre": "",
     "categorie": "Théorie",
     "competence": "Théorie",
-    "date": "2026-05-12",
+    "date": "2026-09-16",
     "moniteur": "Jo",
     "presence": "Présent",
     "statut": "Non évalué"
@@ -54,7 +54,7 @@
     "genre": "",
     "categorie": "Gestion de l'air",
     "competence": "Gestion de l'air",
-    "date": "2026-05-12",
+    "date": "2026-09-16",
     "moniteur": "Jo",
     "presence": "Présent",
     "statut": "En cours d'acquisition"
@@ -64,7 +64,7 @@
     "genre": "",
     "categorie": "Remontée assistée",
     "competence": "Remontée assistée",
-    "date": "2026-05-12",
+    "date": "2026-09-23",
     "moniteur": "Jo",
     "presence": "Présent",
     "statut": "En cours d'acquisition"
@@ -74,7 +74,7 @@
     "genre": "",
     "categorie": "Stabilisation",
     "competence": "Stabilisation",
-    "date": "2026-05-12",
+    "date": "2026-09-23",
     "moniteur": "Jo",
     "presence": "Présent",
     "statut": "Acquis"
@@ -84,7 +84,7 @@
     "genre": "",
     "categorie": "Vidage de masque",
     "competence": "Vidage de masque",
-    "date": "2026-07-14",
+    "date": "2026-09-30",
     "moniteur": "Jo",
     "presence": "Présent",
     "statut": "Non acquis"
@@ -94,7 +94,7 @@
     "genre": "",
     "categorie": "Pas d'atelier",
     "competence": "Pas d'atelier",
-    "date": "2026-07-14",
+    "date": "2026-09-30",
     "moniteur": "Sam",
     "presence": "Présent",
     "statut": "Non évalué"
@@ -104,7 +104,7 @@
     "genre": "",
     "categorie": "Pas d'atelier",
     "competence": "Pas d'atelier",
-    "date": "2026-07-14",
+    "date": "2026-10-07",
     "moniteur": "Sam",
     "presence": "Présent",
     "statut": "Non évalué"
@@ -114,7 +114,7 @@
     "genre": "",
     "categorie": "Stabilisation",
     "competence": "Stabilisation",
-    "date": "2026-07-14",
+    "date": "2026-10-07",
     "moniteur": "Sam",
     "presence": "Présent",
     "statut": "Non acquis"
@@ -124,7 +124,7 @@
     "genre": "",
     "categorie": "Théorie",
     "competence": "Théorie",
-    "date": "2026-07-14",
+    "date": "2026-10-14",
     "moniteur": "Sam",
     "presence": "Présent",
     "statut": "Non évalué"
