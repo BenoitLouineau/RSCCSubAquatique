@@ -1,0 +1,53 @@
+[
+  { "id": "greage", "categorie": "Gréement & Matériel" },
+  { "id": "gestion-de-son-materiel", "categorie": "Gréement & Matériel" },
+  { "id": "degreage", "categorie": "Gréement & Matériel" },
+  { "id": "soin-au-materiel", "categorie": "Gréement & Matériel" },
+
+  { "id": "saut-droit-pmt", "categorie": "Sauts & Entrées à l'eau" },
+  { "id": "saut-droit", "categorie": "Sauts & Entrées à l'eau" },
+  { "id": "bascule-arriere-pmt", "categorie": "Sauts & Entrées à l'eau" },
+  { "id": "bascule-arriere", "categorie": "Sauts & Entrées à l'eau" },
+  { "id": "bascule-avant-pmt", "categorie": "Sauts & Entrées à l'eau" },
+  { "id": "bascule-avant", "categorie": "Sauts & Entrées à l'eau" },
+
+  { "id": "phoque", "categorie": "Palmage & Déplacement" },
+  { "id": "canard-pmt", "categorie": "Palmage & Déplacement" },
+  { "id": "canard", "categorie": "Palmage & Déplacement" },
+  { "id": "palmage", "categorie": "Palmage & Déplacement" },
+  { "id": "deplacements-immersion", "categorie": "Palmage & Déplacement" },
+  { "id": "vidage-tuba", "categorie": "Palmage & Déplacement" },
+
+  { "id": "dbn", "categorie": "Gestion du masque & de l'embout" },
+  { "id": "vdm-partiel", "categorie": "Gestion du masque & de l'embout" },
+  { "id": "vdm", "categorie": "Gestion du masque & de l'embout" },
+  { "id": "vdm-equilibre", "categorie": "Gestion du masque & de l'embout" },
+
+  { "id": "lre-surpression", "categorie": "Respiration & Gestion de l'air" },
+  { "id": "lre-expiration", "categorie": "Respiration & Gestion de l'air" },
+  { "id": "poumon-ballast", "categorie": "Respiration & Gestion de l'air" },
+  { "id": "gestion-du-gilet", "categorie": "Respiration & Gestion de l'air" },
+  { "id": "essoufflement-etre-pris-en-charge", "categorie": "Respiration & Gestion de l'air" },
+
+  { "id": "signes", "categorie": "Communication & Assistance" },
+  { "id": "pa-recoit-octo", "categorie": "Communication & Assistance" },
+  { "id": "pa-donne-octo", "categorie": "Communication & Assistance" },
+  { "id": "pa-recoit-echange", "categorie": "Communication & Assistance" },
+  { "id": "pa-donne-echange", "categorie": "Communication & Assistance" },
+
+  { "id": "stabilisation-statique", "categorie": "Stabilisation & Flottabilité" },
+  { "id": "stabilisation-dynamique", "categorie": "Stabilisation & Flottabilité" },
+
+  { "id": "vitesse-de-remontee", "categorie": "Remontée & Sécurité" },
+  { "id": "tenue-palier", "categorie": "Remontée & Sécurité" },
+  { "id": "360", "categorie": "Remontée & Sécurité" },
+  { "id": "mise-en-secu-surface", "categorie": "Remontée & Sécurité" },
+  { "id": "remonte-expi-controlee", "categorie": "Remontée & Sécurité" },
+  { "id": "sortie-de-l-eau", "categorie": "Remontée & Sécurité" },
+
+  { "id": "theorie", "categorie": "Théorie & Examens" },
+  { "id": "exam-theorie", "categorie": "Théorie & Examens" },
+  { "id": "exam-pmt-100m", "categorie": "Théorie & Examens" },
+  { "id": "exam-capele-50m", "categorie": "Théorie & Examens" },
+  { "id": "pas-d-atelier", "categorie": "Théorie & Examens" }
+]
