@@ -287,6 +287,14 @@ table.synthese thead th.sticky-col { z-index: 4; }
 
 /* ===================== STUDENT CARDS ===================== */
 .student-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+
+/* Grille responsive dédiée à Analyse (cartes plus légères que Élèves/Moniteurs) :
+   1 colonne sur smartphone, 2+ sur tablette, 3+ sur grand écran PC — s'adapte
+   automatiquement à la largeur disponible plutôt que de rester figée en 1 colonne. */
+.analyse-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+@media (max-width: 380px) {
+  .analyse-grid { grid-template-columns: 1fr; } /* filet de sécurité : évite tout débordement horizontal sur les très petits écrans */
+}
 .student-card {
   background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
   padding: 20px; box-shadow: var(--shadow); scroll-margin-top: calc(var(--header-h) + 12px);
@@ -494,6 +502,27 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 }
 .mini-eleve-chip.flag { color: var(--warn); border-color: rgba(245, 158, 11, .35); }
 
+/* Effet de brillance au survol/focus des chips de catégorie (navigation radar) */
+.mini-eleve-chip[data-radar-cat] {
+  cursor: pointer; transition: box-shadow 200ms, border-color 200ms, color 200ms, transform 150ms;
+}
+.mini-eleve-chip[data-radar-cat]:hover,
+.mini-eleve-chip[data-radar-cat]:focus-visible {
+  color: var(--accent2); border-color: var(--accent2); transform: translateY(-1px);
+  box-shadow: 0 0 0 1px var(--accent2), 0 0 14px 3px rgba(34, 211, 238, .45);
+}
+
+/* ===================== ANALYSE — cartes élève allégées ===================== */
+.analyse-eleve-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 18px; box-shadow: var(--shadow); scroll-margin-top: calc(var(--header-h) + 12px);
+}
+.analyse-eleve-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 6px; flex-wrap: wrap; }
+.analyse-eleve-name { font-size: 15px; font-weight: 800; }
+.analyse-eleve-sub { font-size: 11.5px; color: var(--muted); margin-bottom: 10px; }
+.radar-hint { font-size: 10.5px; color: var(--muted); text-align: center; margin-top: 4px; }
+.analyse-chips-band { margin-bottom: 18px; }
+
 /* ===================== SAISON — frise chronologique ===================== */
 .saison-frise { display: flex; gap: 10px; overflow-x: auto; padding: 6px 2px 10px; }
 .sf-item {
@@ -677,10 +706,11 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   </section>
 
   <section class="tab-panel" id="panel-analyse">
-    <div class="placeholder-panel">
-      <div class="ph-icon">📊</div>
-      <div class="ph-title">Module Analyse — à venir</div>
+    <div id="analyseLoadScreen" class="load-screen">
+      <div class="spinner"></div>
+      <div>Chargement de l'analyse…</div>
     </div>
+    <div id="analyseMainContent"></div>
   </section>
 
   <section class="tab-panel" id="panel-palmares">
@@ -748,6 +778,16 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
       <div class="settings-section-title">🔀 Ordre des modules (onglet Saison)</div>
       <p class="settings-info">Glisse-dépose les lignes, ou utilise les flèches ▲▼.</p>
       <div id="saisonOrderList"></div>
+    </div>
+    <div class="settings-section">
+      <div class="settings-section-title">🔀 Ordre des sections (fiche élève Analyse)</div>
+      <p class="settings-info">Radar par catégorie et courbe de progression — dans quel ordre les afficher.</p>
+      <div id="analyseCardOrderList"></div>
+    </div>
+    <div class="settings-section">
+      <div class="settings-section-title">🔀 Disposition (onglet Analyse &gt; Élèves)</div>
+      <p class="settings-info">Position du bandeau de navigation par rapport à la grille de cartes.</p>
+      <div id="analyseLayoutOrderList"></div>
     </div>
     <div class="settings-section">
       <div class="settings-section-title">🔜 À venir avec les prochains modules</div>
@@ -1464,6 +1504,8 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
       enableMoniteursTab();
       renderSaison();
       enableSaisonTab();
+      renderAnalyse();
+      enableAnalyseTab();
     } catch (err) {
       console.error(err);
       showLoadError(err);
@@ -1507,7 +1549,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
           else if (file.name.includes('eleves')) STATE.eleves = data;
         } catch (err) { console.error('JSON invalide :', file.name, err); }
         pending--;
-        if (pending === 0 && STATE.eleves) { renderEleves(); if (STATE.moniteurs) { renderMoniteurs(); enableMoniteursTab(); renderSaison(); enableSaisonTab(); } }
+        if (pending === 0 && STATE.eleves) { renderEleves(); if (STATE.moniteurs) { renderMoniteurs(); enableMoniteursTab(); renderSaison(); enableSaisonTab(); renderAnalyse(); enableAnalyseTab(); } }
       };
       reader.readAsText(file);
     });
@@ -1875,11 +1917,68 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     });
   }
 
+  /** Détail d'une catégorie : un axe par compétence RÉFÉRENTIEL de cette catégorie (pas
+   *  seulement celles travaillées). Valeur remplie UNIQUEMENT si correspondance stricte de
+   *  nom entre l'atelier saisi et la compétence du référentiel — sinon axe à 0/non évalué
+   *  (choix validé avec l'utilisateur : honnêteté plutôt qu'approximation).
+   */
+  function buildDetailRadarDataForEleve(e, categorie) {
+    const items = (STATE.referentiel || []).filter(function(c) {
+      if (!(c.actif && c.notable)) return false;
+      const cat = (STATE.referentielCategories || []).find(x => x.id === c.id);
+      return cat && cat.categorie === categorie;
+    });
+    return items.map(function(item) {
+      const comp = (e.competences || {})[item.nom];
+      if (!comp) return { nom: item.nom, pct: 0, note: null, matched: false };
+      const note = comp.derniere_note;
+      return { nom: item.nom, pct: note != null ? Math.round((note / 4) * 100) : 0, note: note, matched: true };
+    });
+  }
+
+  // État de navigation du radar, par élève : undefined/null = vue par catégorie,
+  // sinon nom de la catégorie actuellement détaillée. Persiste entre les re-rendus (recherche,
+  // tri, thème...) tant que la page n'est pas rechargée.
+  const radarViewState = {};
+
+  function getCategoriesWithDetail() {
+    return getAllCategories().filter(function(cat) {
+      return (STATE.referentiel || []).some(function(c) {
+        if (!(c.actif && c.notable)) return false;
+        const catEntry = (STATE.referentielCategories || []).find(x => x.id === c.id);
+        return catEntry && catEntry.categorie === cat;
+      });
+    });
+  }
+
+  function buildRadarCategoryChipsHtml(eleveId) {
+    return '<div class="chips-wrap" style="margin-top:10px;">' +
+      getCategoriesWithDetail().map(function(cat) {
+        return '<button class="mini-eleve-chip" data-radar-cat="' + escapeHtml(cat) + '" data-radar-eleve="' +
+          escapeHtml(eleveId) + '" type="button" style="cursor:pointer;">' + escapeHtml(cat) + '</button>';
+      }).join('') +
+    '</div>';
+  }
+
   function buildRadarCardHtml(e) {
     const canvasId = 'radar-cat-' + e.id;
+    let categorieActive = radarViewState[e.id];
+    if (categorieActive && buildDetailRadarDataForEleve(e, categorieActive).length === 0) {
+      delete radarViewState[e.id];
+      categorieActive = null;
+    }
+    const title = categorieActive
+      ? '🎯 Détail — ' + escapeHtml(categorieActive)
+      : '🎯 Compétences acquises par catégorie';
+    const backBtn = categorieActive
+      ? '<button class="export-btn" data-radar-back="' + escapeHtml(e.id) + '" type="button" style="margin-bottom:10px;">← Retour aux catégories</button>'
+      : '';
+    const chipsRow = categorieActive ? '' : buildRadarCategoryChipsHtml(e.id);
     return '<div class="sub-card">' +
-      '<div class="sub-card-title">🎯 Compétences acquises par catégorie</div>' +
+      '<div class="sub-card-title">' + title + '</div>' +
+      backBtn +
       '<div style="position:relative;width:100%;height:280px;"><canvas id="' + canvasId + '"></canvas></div>' +
+      chipsRow +
     '</div>';
   }
 
@@ -1913,39 +2012,6 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
           options: { cutout: '72%', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { enabled: false } }, animation: { duration: 400 } }
         }));
       }
-      const cvRadar = document.getElementById('radar-cat-' + e.id);
-      if (cvRadar) {
-        const radarData = buildRadarDataForEleve(e);
-        activeCharts.push(new Chart(cvRadar, {
-          type: 'radar',
-          data: {
-            labels: radarData.map(d => d.categorie),
-            datasets: [{
-              data: radarData.map(d => d.pct),
-              backgroundColor: accent2 + '33', // ~20% opacité
-              borderColor: accent2, borderWidth: 2,
-              pointBackgroundColor: accent2, pointRadius: 3,
-            }],
-          },
-          options: {
-            responsive: true, maintainAspectRatio: false,
-            plugins: {
-              legend: { display: false },
-              tooltip: { callbacks: { label: function(ctx) {
-                const d = radarData[ctx.dataIndex];
-                return d.pct + '% acquis' + (d.touched ? ' (' + d.touched + ' travaillée(s))' : ' (jamais travaillée)');
-              } } },
-            },
-            scales: {
-              r: {
-                min: 0, max: 100, ticks: { stepSize: 25, showLabelBackdrop: false, color: muted, font: { size: 9 } },
-                grid: { color: gridColor }, angleLines: { color: gridColor },
-                pointLabels: { color: muted, font: { size: 10.5 } },
-              },
-            },
-          },
-        }));
-      }
     });
   }
 
@@ -1959,7 +2025,6 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     const lastDate = e.dates_seances && e.dates_seances.length ? e.dates_seances[e.dates_seances.length - 1] : null;
     const cahierHtml = buildCahierDeBord(e);
     const presenceSectionHtml = buildPresenceSectionHtml(e);
-    const radarCardHtml = buildRadarCardHtml(e);
 
     return '<div class="student-card" id="eleve-' + escapeHtml(e.id) + '">' +
       '<div class="student-head">' +
@@ -1971,7 +2036,6 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
         '</div>' +
       '</div>' +
       presenceSectionHtml +
-      radarCardHtml +
       (compsHtml ? '<div class="competences-grid">' + compsHtml + '</div>' : '<div style="color:var(--muted);font-size:13px;">Aucune compétence travaillée pour le moment.</div>') +
       cahierHtml +
     '</div>';
@@ -2195,6 +2259,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     eleves: { anchor: 'syntheseAnchor', label: '↑ Tableau des élèves' },
     moniteurs: { anchor: 'moniteursAnchor', label: '↑ Suivi de CR' },
     saison: { anchor: 'saisonAnchor', label: '↑ Frise de la saison' },
+    analyse: { anchor: 'analyseAnchor', label: '↑ Haut de page' },
   };
 
   function setupBackToTable() {
@@ -2859,6 +2924,36 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     couverture: buildCouvertureReferentielHtml,
     activite: buildActiviteMoniteursCardHtml,
   };
+
+  /** Fabrique générique de gestion d'ordre réglable (localStorage + validation), pour éviter
+   *  de dupliquer cette logique à chaque nouveau réglage de positionnement du même type
+   *  (déjà utilisé pour l'ordre des onglets et des modules Saison, réutilisé ci-dessous pour
+   *  Analyse). */
+  function makeOrderStore(lsKey, defaultOrder) {
+    function load() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(lsKey) || 'null');
+        if (Array.isArray(saved) && saved.length === defaultOrder.length && defaultOrder.every(k => saved.includes(k))) {
+          return saved;
+        }
+      } catch (e) {}
+      return defaultOrder.slice();
+    }
+    const state = { order: load() };
+    state.save = function() { try { localStorage.setItem(lsKey, JSON.stringify(state.order)); } catch (e) {} };
+    return state;
+  }
+
+  const LS_ANALYSE_CARD_ORDER = 'rscc_v2_analyse_card_order';
+  const ANALYSE_CARD_SECTIONS_DEFAULT_ORDER = ['radar', 'courbe'];
+  const ANALYSE_CARD_SECTIONS_LABELS = { radar: '🎯 Radar par catégorie', courbe: '📈 Courbe de progression' };
+  const analyseCardOrderStore = makeOrderStore(LS_ANALYSE_CARD_ORDER, ANALYSE_CARD_SECTIONS_DEFAULT_ORDER);
+
+  const LS_ANALYSE_LAYOUT_ORDER = 'rscc_v2_analyse_layout_order';
+  const ANALYSE_LAYOUT_DEFAULT_ORDER = ['chips', 'grid'];
+  const ANALYSE_LAYOUT_LABELS = { chips: '🤿 Bandeau de navigation élèves', grid: '🗂️ Grille des cartes élèves' };
+  const analyseLayoutOrderStore = makeOrderStore(LS_ANALYSE_LAYOUT_ORDER, ANALYSE_LAYOUT_DEFAULT_ORDER);
+
   function loadSaisonOrder() {
     try {
       const saved = JSON.parse(localStorage.getItem(LS_SAISON_ORDER) || 'null');
@@ -2929,6 +3024,58 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     });
   }
 
+  /** Version générique de renderSaisonOrderList, pilotable pour n'importe quel réglage
+   *  d'ordre (utilisée pour les 2 nouveaux réglages de l'onglet Analyse). */
+  function renderGenericOrderList(containerId, store, labels, onChange) {
+    const el = $('#' + containerId);
+    if (!el) return;
+
+    el.innerHTML = store.order.map(function(key, i) {
+      return '<div class="reorder-row" draggable="true" data-key="' + key + '">' +
+        '<span class="reorder-handle">⠿</span>' +
+        '<span class="reorder-label">' + labels[key] + '</span>' +
+        '<div class="reorder-arrows">' +
+          '<button type="button" class="reorder-btn" data-move="up" data-key="' + key + '"' + (i === 0 ? ' disabled' : '') + '>▲</button>' +
+          '<button type="button" class="reorder-btn" data-move="down" data-key="' + key + '"' + (i === store.order.length - 1 ? ' disabled' : '') + '>▼</button>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+
+    function commit() {
+      store.save();
+      renderGenericOrderList(containerId, store, labels, onChange);
+      if (onChange) onChange();
+    }
+
+    $$('.reorder-btn', el).forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const idx = store.order.indexOf(btn.dataset.key);
+        const swapIdx = idx + (btn.dataset.move === 'up' ? -1 : 1);
+        if (swapIdx < 0 || swapIdx >= store.order.length) return;
+        const tmp = store.order[idx]; store.order[idx] = store.order[swapIdx]; store.order[swapIdx] = tmp;
+        commit();
+      });
+    });
+
+    let dragKey = null;
+    $$('.reorder-row', el).forEach(function(row) {
+      row.addEventListener('dragstart', function() { dragKey = row.dataset.key; row.classList.add('dragging'); });
+      row.addEventListener('dragend', function() { row.classList.remove('dragging'); });
+      row.addEventListener('dragover', function(ev) { ev.preventDefault(); });
+      row.addEventListener('drop', function(ev) {
+        ev.preventDefault();
+        const targetKey = row.dataset.key;
+        if (!dragKey || dragKey === targetKey) return;
+        const fromIdx = store.order.indexOf(dragKey);
+        const toIdx = store.order.indexOf(targetKey);
+        store.order.splice(fromIdx, 1);
+        store.order.splice(toIdx, 0, dragKey);
+        dragKey = null;
+        commit();
+      });
+    });
+  }
+
   function renderSaison() {
     $('#saisonLoadScreen').classList.add('hidden');
     const container = $('#saisonMainContent');
@@ -2958,12 +3105,346 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   }
 
   // =====================================================================
+  // RENDU — ONGLET ANALYSE (section Élèves : radar de compétences par catégorie)
+  // =====================================================================
+
+  function enableAnalyseTab() {
+    TAB_ENABLED.analyse = true;
+    renderBottomNav();
+  }
+
+  let activeAnalyseCharts = [];
+  function destroyAnalyseCharts() { activeAnalyseCharts.forEach(c => c.destroy()); activeAnalyseCharts = []; }
+
+  /** Regroupe une liste de dates d'événements en série cumulative triée chronologiquement. */
+  function buildCumulativeCurve(dateEvents) {
+    const counts = {};
+    dateEvents.forEach(function(d) { if (d) counts[d] = (counts[d] || 0) + 1; });
+    const dates = Object.keys(counts).sort();
+    let cumul = 0;
+    return dates.map(function(date) { cumul += counts[date]; return { date: date, cumul: cumul }; });
+  }
+
+  /** Dates de première acquisition (note ≥3) de chaque compétence travaillée par un élève. */
+  function getAcquisitionEventsForEleve(e) {
+    const events = [];
+    Object.keys(e.competences || {}).forEach(function(atelier) {
+      const histo = (e.competences[atelier].historique || []).slice().sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+      const firstAcquis = histo.find(h => h.note != null && h.note >= 3);
+      if (firstAcquis) events.push(firstAcquis.date);
+    });
+    return events;
+  }
+
+  /** Même principe, agrégé sur tout le groupe (toutes les acquisitions, tous élèves confondus). */
+  function getAcquisitionEventsForGroupe() {
+    let events = [];
+    (STATE.eleves || []).forEach(function(e) { events = events.concat(getAcquisitionEventsForEleve(e)); });
+    return events;
+  }
+
+  /** Date de la dernière évaluation (toutes compétences confondues) pour un élève. */
+  function getLastEvaluationDate(e) {
+    let last = null;
+    Object.values(e.competences || {}).forEach(function(comp) {
+      (comp.historique || []).forEach(function(h) {
+        if (h.date && (!last || h.date > last)) last = h.date;
+      });
+    });
+    return last;
+  }
+
+  function buildCourbeCardHtml(canvasId, titre, sousTitre) {
+    return '<div class="sub-card">' +
+      '<div class="sub-card-title">' + titre + '</div>' +
+      (sousTitre ? '<div class="analyse-eleve-sub" style="margin-bottom:8px;">' + sousTitre + '</div>' : '') +
+      '<div style="position:relative;width:100%;height:220px;"><canvas id="' + canvasId + '"></canvas></div>' +
+    '</div>';
+  }
+
+  const ANALYSE_CARD_SECTION_BUILDERS = {
+    radar: function(e) { return buildRadarCardHtml(e); },
+    courbe: function(e) {
+      return buildCourbeCardHtml('courbe-eleve-' + e.id, '📈 Courbe de progression', 'Compétences acquises cumulées, dans le temps');
+    },
+  };
+
+  function buildAnalyseEleveCardHtml(e) {
+    const lastEval = getLastEvaluationDate(e);
+    const sectionsHtml = analyseCardOrderStore.order.map(function(key) {
+      return ANALYSE_CARD_SECTION_BUILDERS[key] ? ANALYSE_CARD_SECTION_BUILDERS[key](e) : '';
+    }).join('');
+    return '<div class="analyse-eleve-card" id="analyse-eleve-' + escapeHtml(e.id) + '">' +
+      '<div class="analyse-eleve-head">' +
+        '<div class="analyse-eleve-name">' + ICONS.eleve + ' ' + escapeHtml(e.nom) + '</div>' +
+      '</div>' +
+      '<div class="analyse-eleve-sub">Statut retour : dernière évaluation le ' + formatDateFR(lastEval) + '</div>' +
+      sectionsHtml +
+    '</div>';
+  }
+
+  /** Instancie les radars de l'onglet Analyse, avec DEUX modes de navigation vers le détail
+   *  d'une catégorie : les chips sous le graphique (fiable partout), ET un clic direct sur le
+   *  libellé de la catégorie autour du radar (plus rapide, mais zone de clic plus fine — donc
+   *  moins fiable au tactile ; les chips restent le repli sûr).
+   */
+  function instantiateAnalyseCharts(eleves) {
+    const cs = getComputedStyle(document.documentElement);
+    const accent2 = cs.getPropertyValue('--accent2').trim() || '#22d3ee';
+    const muted = cs.getPropertyValue('--muted').trim() || '#94a3b8';
+    const gridColor = cs.getPropertyValue('--border').trim() || 'rgba(148,163,184,.12)';
+
+    eleves.forEach(function(e) {
+      const cvRadar = document.getElementById('radar-cat-' + e.id);
+      if (!cvRadar) return;
+
+      let categorieActive = radarViewState[e.id];
+      if (categorieActive && buildDetailRadarDataForEleve(e, categorieActive).length === 0) {
+        delete radarViewState[e.id];
+        categorieActive = null;
+      }
+
+      let labels, values, tooltipFn;
+      if (categorieActive) {
+        const detail = buildDetailRadarDataForEleve(e, categorieActive);
+        labels = detail.map(d => d.nom);
+        values = detail.map(d => d.pct);
+        tooltipFn = function(ctx) {
+          const d = detail[ctx.dataIndex];
+          return d.matched ? (d.pct + '% (note ' + d.note + '/4)') : 'Jamais évaluée (pas de correspondance exacte)';
+        };
+      } else {
+        const radarData = buildRadarDataForEleve(e);
+        labels = radarData.map(d => d.categorie);
+        values = radarData.map(d => d.pct);
+        tooltipFn = function(ctx) {
+          const d = radarData[ctx.dataIndex];
+          return d.pct + '% acquis' + (d.touched ? ' (' + d.touched + ' travaillée(s))' : ' (jamais travaillée)');
+        };
+      }
+
+      const categoriesWithDetail = getCategoriesWithDetail();
+      let hoveredLabelIndex = -1;
+
+      const chart = new Chart(cvRadar, {
+        type: 'radar',
+        data: {
+          labels: labels,
+          datasets: [{
+            data: values,
+            backgroundColor: accent2 + '33',
+            borderColor: accent2, borderWidth: 2,
+            pointBackgroundColor: accent2, pointRadius: 3,
+          }],
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: tooltipFn } },
+          },
+          scales: {
+            r: {
+              min: 0, max: 100, ticks: { stepSize: 25, showLabelBackdrop: false, color: muted, font: { size: 9 } },
+              grid: { color: gridColor }, angleLines: { color: gridColor },
+              // Callback dynamique : le libellé survolé passe en couleur accent + gras
+              // (simule un effet de surbrillance/"sélection qui brille" sur un texte de canvas,
+              // qui ne peut pas recevoir un vrai box-shadow CSS).
+              pointLabels: {
+                color: function(ctx) { return ctx.index === hoveredLabelIndex ? accent2 : muted; },
+                font: function(ctx) {
+                  return ctx.index === hoveredLabelIndex ? { size: 12, weight: '700' } : { size: 10.5, weight: '400' };
+                },
+              },
+            },
+          },
+          onHover: function(evt) {
+            if (categorieActive) return; // pas pertinent en vue détail
+            const scale = this.scales.r;
+            if (!scale || typeof scale.getPointLabelPosition !== 'function') return;
+            const rect = cvRadar.getBoundingClientRect();
+            const x = evt.native ? evt.native.clientX - rect.left : 0;
+            const y = evt.native ? evt.native.clientY - rect.top : 0;
+            let idx = -1;
+            for (let i = 0; i < labels.length; i++) {
+              let pos;
+              try { pos = scale.getPointLabelPosition(i); } catch (err) { continue; }
+              if (!pos) continue;
+              if (x >= pos.left && x <= pos.right && y >= pos.top && y <= pos.bottom) { idx = i; break; }
+            }
+            const clickable = idx >= 0 && categoriesWithDetail.includes(labels[idx]);
+            cvRadar.style.cursor = clickable ? 'pointer' : 'default';
+            if (idx !== hoveredLabelIndex) {
+              hoveredLabelIndex = idx;
+              this.update('none'); // pas d'animation, juste un redraw immédiat
+            }
+          },
+          // Navigation "option 1" : clic direct sur le libellé de catégorie autour du radar
+          // (uniquement pertinent en vue d'ensemble, pas en vue détaillée).
+          onClick: function(evt) {
+            if (categorieActive) return; // en détail, le clic sur les libellés n'a pas de sens
+            const scale = this.scales.r;
+            if (!scale || typeof scale.getPointLabelPosition !== 'function') return;
+            const rect = cvRadar.getBoundingClientRect();
+            const x = evt.native ? evt.native.clientX - rect.left : (evt.x || 0);
+            const y = evt.native ? evt.native.clientY - rect.top : (evt.y || 0);
+            for (let i = 0; i < labels.length; i++) {
+              let pos;
+              try { pos = scale.getPointLabelPosition(i); } catch (err) { continue; }
+              if (!pos) continue;
+              if (x >= pos.left && x <= pos.right && y >= pos.top && y <= pos.bottom) {
+                const cat = labels[i];
+                if (categoriesWithDetail.includes(cat)) {
+                  radarViewState[e.id] = cat;
+                  renderAnalyse();
+                }
+                break;
+              }
+            }
+          },
+        },
+      });
+      activeAnalyseCharts.push(chart);
+
+      // Réinitialise la surbrillance quand la souris quitte le canvas (onHover ne se
+      // déclenche plus une fois le curseur sorti de la zone).
+      cvRadar.addEventListener('mouseleave', function() {
+        if (hoveredLabelIndex !== -1) {
+          hoveredLabelIndex = -1;
+          cvRadar.style.cursor = 'default';
+          chart.update('none');
+        }
+      });
+    });
+  }
+
+  function instantiateCourbeChart(canvasId, data, colorVar) {
+    const cv = document.getElementById(canvasId);
+    if (!cv) return;
+    const cs = getComputedStyle(document.documentElement);
+    const color = cs.getPropertyValue(colorVar || '--accent2').trim() || '#22d3ee';
+    const muted = cs.getPropertyValue('--muted').trim() || '#94a3b8';
+    const gridColor = cs.getPropertyValue('--border').trim() || 'rgba(148,163,184,.12)';
+
+    if (!data.length) {
+      // Chart.js gère mal un dataset totalement vide -> on affiche un message plutôt qu'un graphique cassé
+      const ctx = cv.getContext('2d');
+      ctx.font = '12px system-ui'; ctx.fillStyle = muted; ctx.textAlign = 'center';
+      ctx.fillText('Aucune compétence acquise pour le moment', cv.width / 2, cv.height / 2);
+      return;
+    }
+
+    const chart = new Chart(cv, {
+      type: 'line',
+      data: {
+        labels: data.map(d => formatDateFR(d.date)),
+        datasets: [{
+          data: data.map(d => d.cumul),
+          borderColor: color, backgroundColor: color + '22',
+          fill: true, tension: 0.25, pointBackgroundColor: color, pointRadius: 4,
+        }],
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: ctx => ctx.parsed.y + ' compétence(s) acquise(s) cumulées' } },
+        },
+        scales: {
+          x: { ticks: { color: muted, font: { size: 10 } }, grid: { display: false } },
+          y: { beginAtZero: true, ticks: { stepSize: 1, color: muted, font: { size: 10 } }, grid: { color: gridColor } },
+        },
+      },
+    });
+    activeAnalyseCharts.push(chart);
+  }
+
+  function buildGroupeSectionHtml() {
+    return '<div class="cr-summary-card">' +
+      '<div class="cr-summary-header">' +
+        '<h2 class="section-title" style="margin:0;">' + ICONS.moniteurLogo + ' Groupe 1</h2>' +
+        '<span class="cr-summary-lastdate">Saison ' + escapeHtml(CONFIG.SEASON) + '</span>' +
+      '</div>' +
+      buildCourbeCardHtml('courbe-groupe', '📈 Compétences acquises par date — tout le groupe', null) +
+    '</div>';
+  }
+
+  function buildAnalyseChipsBandHtml(evalues) {
+    const nameByNom = {};
+    const displayNamesEleves = buildDisplayNames(STATE.eleves || []);
+    (STATE.eleves || []).forEach(function(e) { nameByNom[e.nom] = displayNamesEleves[e.id]; });
+    return '<div class="analyse-chips-band">' +
+      '<div class="chips-track" id="analyseChipsTrack" style="overflow-x:auto;">' +
+        evalues.map(function(e) {
+          return '<div class="eleve-chip" data-analyse-chip="' + escapeHtml(e.id) + '" style="cursor:pointer;">' +
+            '<span class="eleve-chip-icon">' + ICONS.eleve + '</span>' +
+            '<div class="eleve-chip-info"><span class="eleve-chip-name">' + escapeHtml(nameByNom[e.nom] || e.nom) + '</span></div>' +
+          '</div>';
+        }).join('') +
+      '</div>' +
+    '</div>';
+  }
+
+  function renderAnalyse() {
+    $('#analyseLoadScreen').classList.add('hidden');
+    const container = $('#analyseMainContent');
+    destroyAnalyseCharts();
+
+    // Seuls les élèves ayant au moins une compétence travaillée sont affichés
+    // (pas de carte/radar vide pour un élève jamais évalué).
+    const evalues = (STATE.eleves || []).filter(e => e.nb_competences_travaillees > 0);
+
+    const cardsHtml = evalues.length
+      ? evalues.map(buildAnalyseEleveCardHtml).join('')
+      : '<div class="placeholder-panel"><div class="ph-icon">📊</div><div class="ph-title">Aucun élève évalué pour le moment</div></div>';
+
+    // Disposition élèves : bandeau de navigation + grille, dans l'ordre choisi en Réglages
+    const layoutParts = { chips: buildAnalyseChipsBandHtml(evalues), grid: '<div class="analyse-grid">' + cardsHtml + '</div>' };
+    const elevesSectionHtml = analyseLayoutOrderStore.order.map(function(key) { return layoutParts[key] || ''; }).join('');
+
+    container.innerHTML =
+      '<div id="analyseAnchor" style="scroll-margin-top:calc(var(--header-h) + 12px);"></div>' +
+      buildCacheBanner() +
+      buildGroupeSectionHtml() +
+      '<h2 class="section-title" style="margin-top:26px;">📊 Analyse — Élèves</h2>' +
+      '<p class="section-subtitle">Compétences acquises par catégorie, uniquement pour les élèves ayant déjà été évalués (' +
+        evalues.length + '/' + (STATE.eleves || []).length + ').</p>' +
+      '<div class="radar-hint">💡 Clique sur le libellé d\'une catégorie autour du radar, ou sur une chip en dessous, pour voir le détail.</div>' +
+      elevesSectionHtml;
+
+    $$('[data-radar-cat]').forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        radarViewState[chip.dataset.radarEleve] = chip.dataset.radarCat;
+        renderAnalyse();
+      });
+    });
+    $$('[data-radar-back]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        delete radarViewState[btn.dataset.radarBack];
+        renderAnalyse();
+      });
+    });
+    $$('[data-analyse-chip]').forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        const target = document.getElementById('analyse-eleve-' + chip.dataset.analyseChip);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    instantiateAnalyseCharts(evalues);
+    instantiateCourbeChart('courbe-groupe', buildCumulativeCurve(getAcquisitionEventsForGroupe()), '--accent2');
+    evalues.forEach(function(e) {
+      instantiateCourbeChart('courbe-eleve-' + e.id, buildCumulativeCurve(getAcquisitionEventsForEleve(e)), '--accent2');
+    });
+  }
+
+  // =====================================================================
   // INIT
   // =====================================================================
   initTheme();
   setupBackToTable();
   switchTab(tabOrder[0]);
-  const PERMANENT_PLACEHOLDER_TABS = ['examens', 'analyse', 'palmares'];
+  const PERMANENT_PLACEHOLDER_TABS = ['examens', 'palmares'];
   if (PERMANENT_PLACEHOLDER_TABS.includes(tabOrder[0])) {
     showToast(
       'Le module « ' + TAB_LABELS[tabOrder[0]] + ' » n\'est pas encore disponible. Il est arrivé en 1ère ' +
@@ -2974,6 +3455,8 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   }
   syncHeaderHeight();
   renderSaisonOrderList();
+  renderGenericOrderList('analyseCardOrderList', analyseCardOrderStore, ANALYSE_CARD_SECTIONS_LABELS, function() { if (STATE.eleves) renderAnalyse(); });
+  renderGenericOrderList('analyseLayoutOrderList', analyseLayoutOrderStore, ANALYSE_LAYOUT_LABELS, function() { if (STATE.eleves) renderAnalyse(); });
   const footerSeasonEl = $('#footerSeason');
   if (footerSeasonEl) footerSeasonEl.textContent = CONFIG.SEASON.replace('-', '/');
   loadAll();
