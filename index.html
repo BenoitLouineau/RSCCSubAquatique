@@ -111,20 +111,37 @@ button { font-family: inherit; cursor: pointer; }
   border-top: 1px solid var(--border);
   display: flex; justify-content: center; align-items: stretch; padding: 8px 8px;
 }
+/* Pas de position:relative ici — les boutons doivent partager le même repère de
+   positionnement que la pastille (.bottom-nav-bar, position:fixed), sinon leur offsetLeft
+   est calculé dans un référentiel différent et la pastille se désynchronise (bug corrigé). */
+.bn-buttons-row { display: flex; }
+/* Pastille persistante (jamais recréée) qui glisse d'un onglet à l'autre — voir
+   ensureBottomNavStructure()/movePillToActive() : c'est cette persistance qui permet
+   à la transition CSS de s'animer même si les boutons, eux, sont reconstruits à chaque appel. */
+.bn-pill {
+  position: absolute; top: 0; height: 100%; border-radius: 14px;
+  background: rgba(34, 211, 238, .10); border: 1px solid rgba(34, 211, 238, .25);
+  z-index: 0; pointer-events: none; opacity: 0;
+  transition: left 320ms cubic-bezier(.34,1.56,.64,1), width 320ms cubic-bezier(.34,1.56,.64,1), opacity 200ms;
+}
+.bn-pill.visible { opacity: 1; }
 .bn-item {
-  flex-shrink: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 4px; border: none; background: transparent; color: var(--muted);
-  padding: 8px 22px; margin: 6px 2px; border-radius: 14px;
-  font-size: 11.5px; font-weight: 600; white-space: nowrap; position: relative;
-  transition: background var(--transition), color var(--transition);
+  position: relative; z-index: 1; flex-shrink: 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 4px; border: none; background: transparent;
+  color: var(--muted); padding: 8px 22px; margin: 6px 2px; border-radius: 14px;
+  font-size: 11.5px; font-weight: 600; white-space: nowrap;
+  transition: color var(--transition);
 }
-.bn-item:hover { color: var(--text); background: rgba(255,255,255,.03); }
+.bn-item:hover { color: var(--text); }
 .bn-item.active { color: var(--accent2); }
-.bn-item.active::before {
-  content: ''; position: absolute; inset: 0; border-radius: 14px; background: rgba(34,211,238,.10);
-  border: 1px solid rgba(34,211,238,.25); z-index: -1;
+.bn-icon { font-size: 22px; line-height: 1; display: inline-block; transition: transform 180ms ease-out; }
+.bn-icon.bounce { animation: bnBounce 420ms cubic-bezier(.34,1.56,.64,1); }
+@keyframes bnBounce {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.35) translateY(-3px); }
+  65% { transform: scale(.92); }
+  100% { transform: scale(1); }
 }
-.bn-icon { font-size: 22px; line-height: 1; }
 .bn-item.disabled { opacity: .45; }
 .bn-item.more-btn .bn-icon { font-size: 22px; font-weight: 800; }
 @media (min-width: 1400px) {
@@ -580,6 +597,19 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 .settings-header { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px; border-bottom: 1px solid var(--border); }
 .settings-title { font-size: 16px; font-weight: 800; }
 .settings-close { border: none; background: var(--chip); width: 30px; height: 30px; border-radius: 8px; color: var(--text); font-size: 16px; }
+
+.settings-tabs {
+  display: flex; flex-wrap: wrap; gap: 3px 2px; padding: 8px 10px 6px; border-bottom: 1px solid var(--border); flex-shrink: 0;
+}
+.settings-tab {
+  border: none; background: var(--chip); color: var(--muted); padding: 7px 11px; font-size: 12px;
+  font-weight: 700; white-space: nowrap; flex-shrink: 0; border-radius: 8px;
+  transition: color var(--transition), background var(--transition);
+}
+.settings-tab:hover { color: var(--text); }
+.settings-tab.active { color: #04262b; background: var(--accent2); }
+.settings-tab-panel { display: none; }
+.settings-tab-panel.active { display: block; }
 .settings-body { padding: 18px 20px; overflow-y: auto; flex: 1; }
 .settings-section { margin-bottom: 22px; }
 .settings-section-title { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
@@ -743,65 +773,99 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     <div class="settings-title">⚙️ Réglages</div>
     <button class="settings-close" id="settingsClose">×</button>
   </div>
+  <nav class="settings-tabs" id="settingsTabsNav">
+    <button class="settings-tab active" data-settings-tab="general" type="button">🎛️ Général</button>
+    <button class="settings-tab" data-settings-tab="eleves" type="button">🤿 Élèves</button>
+    <button class="settings-tab" data-settings-tab="moniteurs" type="button">🥽 Moniteurs</button>
+    <button class="settings-tab" data-settings-tab="saison" type="button">🗓️ Saison</button>
+    <button class="settings-tab" data-settings-tab="analyse" type="button">📊 Analyse</button>
+  </nav>
   <div class="settings-body">
-    <div class="settings-section">
-      <div class="settings-section-title">🎨 Apparence</div>
-      <p class="settings-info">Le thème clair/sombre se règle directement depuis l'icône ☀️/🌙 du bandeau.</p>
-    </div>
-    <div class="settings-section">
-      <div class="settings-section-title">🗂️ Ordre des onglets du menu</div>
-      <p class="settings-info">Glisse-dépose ou utilise les flèches ▲▼. Le 1er onglet devient celui affiché par défaut à l'ouverture.</p>
-      <div id="tabOrderList"></div>
-    </div>
-    <div class="settings-section">
-      <div class="settings-section-title">📅 Contexte</div>
-      <p class="settings-info">Saison et groupe affichés dans le bandeau — configurés en dur pour cette version (module Header).</p>
-    </div>
-    <div class="settings-section">
-      <div class="settings-section-title">👤 Administrateur du rapport</div>
-      <div class="admin-block">
-        <span>Louineau Benoit</span>
-        <span><a href="mailto:louineau.benoit@orange.fr">louineau.benoit@orange.fr</a></span>
-        <span class="admin-readonly">Valeur fixe, non modifiable depuis cette interface.</span>
+
+    <div class="settings-tab-panel active" data-settings-panel="general">
+      <div class="settings-section">
+        <div class="settings-section-title">🎨 Apparence</div>
+        <p class="settings-info">Le thème clair/sombre se règle directement depuis l'icône ☀️/🌙 du bandeau.</p>
+      </div>
+      <div class="settings-section">
+        <div class="settings-section-title">🗂️ Ordre des onglets du menu</div>
+        <p class="settings-info">Glisse-dépose ou utilise les flèches ▲▼. Le 1er onglet devient celui affiché par défaut à l'ouverture.</p>
+        <div id="tabOrderList"></div>
+      </div>
+      <div class="settings-section">
+        <div class="settings-section-title">📅 Contexte</div>
+        <p class="settings-info">Saison et groupe affichés dans le bandeau — configurés en dur pour cette version (module Header).</p>
+      </div>
+      <div class="settings-section">
+        <div class="settings-section-title">👤 Administrateur du rapport</div>
+        <div class="admin-block">
+          <span>Louineau Benoit</span>
+          <span><a href="mailto:louineau.benoit@orange.fr">louineau.benoit@orange.fr</a></span>
+          <span class="admin-readonly">Valeur fixe, non modifiable depuis cette interface.</span>
+        </div>
+      </div>
+      <div class="settings-section">
+        <div class="settings-section-title">🗓️ Dates de la saison</div>
+        <p class="settings-info">Par défaut : 2ᵉ mardi de septembre → 30 juin (règle du club). Modifiable ici si besoin (ex. données de test hors saison). Utilisé par plusieurs onglets (Élèves, Moniteurs, Saison), d'où sa place ici.</p>
+        <div class="season-dates-row">
+          <label>Début<input type="date" id="seasonStartInput" /></label>
+          <label>Fin<input type="date" id="seasonEndInput" /></label>
+        </div>
+        <button class="export-btn" id="btnResetSeasonDates" type="button" style="margin-top:8px;">↺ Réinitialiser aux dates par défaut</button>
+      </div>
+      <div class="settings-section">
+        <div class="settings-section-title">🔜 À venir</div>
+        <div class="settings-todo">Seuils de couleur globaux (%, jours) et règle de définition d'une "compétence acquise" (actuellement note ≥ 3) — deviendront réglables ici.</div>
       </div>
     </div>
-    <div class="settings-section">
-      <div class="settings-section-title">🗓️ Dates de la saison</div>
-      <p class="settings-info">Par défaut : 2ᵉ mardi de septembre → 30 juin (règle du club). Modifiable ici si besoin (ex. données de test hors saison).</p>
-      <div class="season-dates-row">
-        <label>Début<input type="date" id="seasonStartInput" /></label>
-        <label>Fin<input type="date" id="seasonEndInput" /></label>
+
+    <div class="settings-tab-panel" data-settings-panel="eleves">
+      <div class="settings-section">
+        <div class="settings-section-title">🕐 Historique des séances (fiche élève)</div>
+        <p class="settings-info">Volume de séances affiché sur l'axe chronologique de chaque fiche élève. Le % de présence global, lui, reste toujours calculé sur toute la saison.</p>
+        <div id="historiqueRangeOptions"></div>
       </div>
-      <button class="export-btn" id="btnResetSeasonDates" type="button" style="margin-top:8px;">↺ Réinitialiser aux dates par défaut</button>
-    </div>
-    <div class="settings-section">
-      <div class="settings-section-title">🕐 Historique des séances (fiche élève)</div>
-      <p class="settings-info">Volume de séances affiché sur l'axe chronologique de chaque fiche élève. Le % de présence global, lui, reste toujours calculé sur toute la saison.</p>
-      <div id="historiqueRangeOptions"></div>
-    </div>
-    <div class="settings-section">
-      <div class="settings-section-title">🔀 Ordre des modules (onglet Saison)</div>
-      <p class="settings-info">Glisse-dépose les lignes, ou utilise les flèches ▲▼.</p>
-      <div id="saisonOrderList"></div>
-    </div>
-    <div class="settings-section">
-      <div class="settings-section-title">🔀 Ordre des sections (fiche élève Analyse)</div>
-      <p class="settings-info">Radar par catégorie et courbe de progression — dans quel ordre les afficher.</p>
-      <div id="analyseCardOrderList"></div>
-    </div>
-    <div class="settings-section">
-      <div class="settings-section-title">🔀 Disposition (onglet Analyse &gt; Élèves)</div>
-      <p class="settings-info">Position du bandeau de navigation par rapport à la grille de cartes.</p>
-      <div id="analyseLayoutOrderList"></div>
-    </div>
-    <div class="settings-section">
-      <div class="settings-section-title">🔜 À venir avec les prochains modules</div>
-      <div class="settings-todo">
-        Seuils d'alerte (Analyse), règle de validation des compétences, tri par défaut du
-        tableau de synthèse, nombre de séances affichées (Moniteurs)… seront ajoutés au fil
-        de la validation de chaque onglet.
+      <div class="settings-section">
+        <div class="settings-section-title">🔜 À venir</div>
+        <div class="settings-todo">Tri par défaut du tableau de synthèse.</div>
       </div>
     </div>
+
+    <div class="settings-tab-panel" data-settings-panel="moniteurs">
+      <div class="settings-section">
+        <p class="settings-info">Le filtre de période et les colonnes affichées du tableau "Suivi de CR" se configurent directement dans l'onglet Moniteurs (déjà mémorisés automatiquement).</p>
+      </div>
+      <div class="settings-section">
+        <div class="settings-section-title">🔜 À venir</div>
+        <div class="settings-todo">Nombre de séances affichées dans "Dernières séances" (fiche moniteur).</div>
+      </div>
+    </div>
+
+    <div class="settings-tab-panel" data-settings-panel="saison">
+      <div class="settings-section">
+        <div class="settings-section-title">🔀 Ordre des modules</div>
+        <p class="settings-info">Glisse-dépose les lignes, ou utilise les flèches ▲▼.</p>
+        <div id="saisonOrderList"></div>
+      </div>
+    </div>
+
+    <div class="settings-tab-panel" data-settings-panel="analyse">
+      <div class="settings-section">
+        <div class="settings-section-title">🔀 Ordre des sections (fiche élève)</div>
+        <p class="settings-info">Radar par catégorie et courbe de progression — dans quel ordre les afficher.</p>
+        <div id="analyseCardOrderList"></div>
+      </div>
+      <div class="settings-section">
+        <div class="settings-section-title">🔀 Disposition (Analyse &gt; Élèves)</div>
+        <p class="settings-info">Position du bandeau de navigation par rapport à la grille de cartes.</p>
+        <div id="analyseLayoutOrderList"></div>
+      </div>
+      <div class="settings-section">
+        <div class="settings-section-title">🔜 À venir</div>
+        <div class="settings-todo">Seuils d'alerte et seuil de couleur des chips de catégorie (actuellement 70% fixe).</div>
+      </div>
+    </div>
+
   </div>
 </aside>
 
@@ -926,15 +990,62 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
    *  largeur disponible, range le reste dans la feuille "⋯ Plus". S'applique à toutes les
    *  tailles d'écran (PC compris), pas seulement mobile.
    */
-  function renderBottomNav() {
+  /** Crée la structure interne de la barre (pastille + conteneur de boutons) une seule fois.
+   *  La pastille ne doit JAMAIS être recréée (sinon la transition CSS ne peut pas s'animer) —
+   *  seul #bnButtonsRow est reconstruit à chaque appel de renderBottomNav().
+   */
+  function ensureBottomNavStructure() {
     const bar = $('#bottomNav');
+    if (!bar) return null;
+    let row = $('#bnButtonsRow');
+    if (!row) {
+      bar.innerHTML = '<div class="bn-pill" id="bnPill"></div><div class="bn-buttons-row" id="bnButtonsRow"></div>';
+      row = $('#bnButtonsRow');
+    }
+    return { bar: bar, row: row, pill: $('#bnPill') };
+  }
+
+  /** Positionne la pastille sur l'onglet actif. `animate=false` la fait sauter instantanément
+   *  (utilisé pour les reconstructions qui ne sont pas un vrai changement d'onglet : redimensionnement,
+   *  mise à jour de badge...) ; `animate=true` laisse la transition CSS glisser (vrai changement d'onglet).
+   */
+  function movePillToActive(animate) {
+    const pill = $('#bnPill');
+    const row = $('#bnButtonsRow');
+    if (!pill || !row) return;
+    const activeBtn = row.querySelector('.bn-item.active');
+    if (!activeBtn) { pill.classList.remove('visible'); return; }
+    if (!animate) pill.style.transition = 'none';
+    pill.style.left = activeBtn.offsetLeft + 'px';
+    pill.style.width = activeBtn.offsetWidth + 'px';
+    pill.classList.add('visible');
+    if (!animate) {
+      void pill.offsetWidth; // force le reflow avant de réactiver la transition
+      pill.style.transition = '';
+    }
+  }
+
+  function bounceActiveIcon() {
+    const row = $('#bnButtonsRow');
+    const icon = row && row.querySelector('.bn-item.active .bn-icon');
+    if (!icon) return;
+    icon.classList.remove('bounce');
+    void icon.offsetWidth; // relance l'animation même si le même onglet est recliqué
+    icon.classList.add('bounce');
+  }
+
+  function renderBottomNav(opts) {
+    opts = opts || {};
+    const structure = ensureBottomNavStructure();
+    if (!structure) return;
+    const row = structure.row;
     const sheetList = $('#bnSheetList');
-    if (!bar || !sheetList) return;
+    if (!sheetList) return;
 
     // 1) Rendu complet (sans "Plus") pour mesurer les largeurs réelles
-    bar.innerHTML = tabOrder.map(bnItemHtml).join('');
-    const containerWidth = bar.clientWidth;
-    const items = Array.from(bar.children);
+    row.innerHTML = tabOrder.map(bnItemHtml).join('');
+    const containerWidth = row.clientWidth;
+    const items = Array.from(row.children);
     const MORE_BTN_WIDTH = 70;
     let usedWidth = 0;
     let cutoff = items.length;
@@ -953,10 +1064,10 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     if (hiddenKeys.length) {
       html += '<button class="bn-item more-btn" id="bnMoreBtn" type="button"><span class="bn-icon">⋯</span>Plus</button>';
     }
-    bar.innerHTML = html;
+    row.innerHTML = html;
     sheetList.innerHTML = hiddenKeys.map(bnSheetItemHtml).join('');
 
-    $$('.bn-item[data-tab]', bar).forEach(function(btn) {
+    $$('.bn-item[data-tab]', row).forEach(function(btn) {
       btn.addEventListener('click', function() {
         if (!TAB_ENABLED[btn.dataset.tab]) return;
         switchTab(btn.dataset.tab);
@@ -972,12 +1083,14 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
       });
     });
 
+    movePillToActive(!!opts.animate);
+    if (opts.animate) bounceActiveIcon();
     syncBottomNavHeight();
   }
   let renderBottomNavResizeTimer = null;
   window.addEventListener('resize', function() {
     clearTimeout(renderBottomNavResizeTimer);
-    renderBottomNavResizeTimer = setTimeout(renderBottomNav, 120);
+    renderBottomNavResizeTimer = setTimeout(function() { renderBottomNav(); }, 120);
   });
 
   const LS_SEASON_START = 'rscc_v2_season_start_override';
@@ -1267,6 +1380,14 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   $('#settingsClose').addEventListener('click', closeSettings);
   $('#settingsOverlay').addEventListener('click', closeSettings);
 
+  // Mini-onglets internes au panneau Réglages (Général / Élèves / Moniteurs / Saison / Analyse)
+  $$('.settings-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      $$('.settings-tab').forEach(t => t.classList.toggle('active', t === tab));
+      $$('.settings-tab-panel').forEach(p => p.classList.toggle('active', p.dataset.settingsPanel === tab.dataset.settingsTab));
+    });
+  });
+
   // Option "volume d'historique des séances" dans les réglages
   function populateHistoriqueRangeOptions() {
     const el = $('#historiqueRangeOptions');
@@ -1396,7 +1517,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     if (chipsBar) chipsBar.classList.toggle('hidden', name !== 'eleves');
     const moniteursChipsBar = $('#moniteursChipsBar');
     if (moniteursChipsBar) moniteursChipsBar.classList.toggle('hidden', name !== 'moniteurs');
-    renderBottomNav();
+    renderBottomNav({ animate: true });
     closeBnSheet();
     syncHeaderHeight();
   }
@@ -2395,7 +2516,19 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     trimester: 'Trimestre en cours',
     season: 'Sur la saison (Sept. → Juin)',
   };
-  let crFilterMode = 'derniere'; // vue par défaut : dernière séance
+  const LS_CR_FILTER_MODE = 'rscc_v2_cr_filter_mode';
+  function loadCrFilterMode() {
+    try {
+      const v = localStorage.getItem(LS_CR_FILTER_MODE);
+      if (v && CR_FILTER_LABELS[v]) return v;
+    } catch (e) {}
+    return 'derniere';
+  }
+  let crFilterMode = loadCrFilterMode(); // persisté (corrige l'écart avec le filtre Élèves)
+  function saveCrFilterMode(mode) {
+    crFilterMode = mode;
+    try { localStorage.setItem(LS_CR_FILTER_MODE, mode); } catch (e) {}
+  }
 
   // Registres pour les graphiques et la dernière liste rendue (fiches moniteurs)
   let activeMoniteurCharts = [];
@@ -2420,19 +2553,46 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   }
 
   const CR_TABLE_COLS = [
-    { label: ICONS.moniteurLogo + ' Moniteurs', exportLabel: 'Moniteurs' },
-    { label: ICONS.moniteur + ' Nb élèves', exportLabel: 'Nb élèves' },
-    { label: ICONS.crRempli + ' CR séance annoté', exportLabel: 'CR séance annoté' },
-    { label: ICONS.crManquant + ' CR manquants', exportLabel: 'CR manquants' },
-    { label: ICONS.tauxCR + ' % Taux de retour CR', exportLabel: '% Taux de retour CR' },
+    { key: 'moniteur', label: ICONS.moniteurLogo + ' Moniteurs', exportLabel: 'Moniteurs', mandatory: true },
+    { key: 'nbEleves', label: ICONS.moniteur + ' Nb élèves', exportLabel: 'Nb élèves' },
+    { key: 'crRempli', label: ICONS.crRempli + ' CR séance annoté', exportLabel: 'CR séance annoté' },
+    { key: 'crManquant', label: ICONS.crManquant + ' CR manquants', exportLabel: 'CR manquants' },
+    { key: 'tauxCR', label: ICONS.tauxCR + ' % Taux de retour CR', exportLabel: '% Taux de retour CR' },
   ];
   let currentCrTableRows = []; // dernière liste calculée (période active), pour les exports
 
+  // Visibilité des colonnes du tableau CR (persistée, même mécanisme que le tableau Élèves)
+  const LS_CR_COLUMNS = 'rscc_v2_visible_cr_columns';
+  function loadVisibleCrColumns() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(LS_CR_COLUMNS) || 'null');
+      if (saved && typeof saved === 'object') return saved;
+    } catch (e) {}
+    const defaults = {};
+    CR_TABLE_COLS.forEach(c => { defaults[c.key] = true; });
+    return defaults;
+  }
+  let visibleCrColumns = loadVisibleCrColumns();
+  function saveVisibleCrColumns() {
+    try { localStorage.setItem(LS_CR_COLUMNS, JSON.stringify(visibleCrColumns)); } catch (e) {}
+  }
+  function isCrColVisible(col) { return col.mandatory || visibleCrColumns[col.key] !== false; }
+
   function exportCrTableAsCsv() {
-    const header = CR_TABLE_COLS.map(c => c.exportLabel);
+    const cols = CR_TABLE_COLS.filter(isCrColVisible);
+    const header = cols.map(c => c.exportLabel);
     const lines = [header].concat(currentCrTableRows.map(function(row) {
       const s = row.stats;
-      return [row.m.nom, s.encadrement, s.crRemplis, s.crManquants, s.tauxCR === null ? '—' : s.tauxCR + '%'];
+      return cols.map(function(col) {
+        switch (col.key) {
+          case 'moniteur': return row.m.nom;
+          case 'nbEleves': return s.encadrement;
+          case 'crRempli': return s.crRemplis;
+          case 'crManquant': return s.crManquants;
+          case 'tauxCR': return s.tauxCR === null ? '—' : s.tauxCR + '%';
+          default: return '';
+        }
+      });
     }));
     const csv = lines.map(row => row.map(csvEscape).join(';')).join('\r\n');
     downloadBlob(new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' }), 'suivi_cr_moniteurs.csv');
@@ -2440,16 +2600,38 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 
   function exportCrTableAsXlsx() {
     if (typeof XLSX === 'undefined') { alert('Librairie XLSX indisponible (hors-ligne ?).'); return; }
-    const header = CR_TABLE_COLS.map(c => c.exportLabel);
+    const cols = CR_TABLE_COLS.filter(isCrColVisible);
+    const header = cols.map(c => c.exportLabel);
     const data = [header].concat(currentCrTableRows.map(function(row) {
       const s = row.stats;
-      return [row.m.nom, s.encadrement, s.crRemplis, s.crManquants, s.tauxCR === null ? '—' : s.tauxCR + '%'];
+      return cols.map(function(col) {
+        switch (col.key) {
+          case 'moniteur': return row.m.nom;
+          case 'nbEleves': return s.encadrement;
+          case 'crRempli': return s.crRemplis;
+          case 'crManquant': return s.crManquants;
+          case 'tauxCR': return s.tauxCR === null ? '—' : s.tauxCR + '%';
+          default: return '';
+        }
+      });
     }));
     const ws = XLSX.utils.aoa_to_sheet(data);
-    ws['!cols'] = CR_TABLE_COLS.map(() => ({ wch: 16 }));
+    ws['!cols'] = cols.map(() => ({ wch: 16 }));
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Suivi CR moniteurs');
     XLSX.writeFile(wb, 'suivi_cr_moniteurs.xlsx');
+  }
+
+  function crCellContent(col, row) {
+    const s = row.stats;
+    switch (col.key) {
+      case 'moniteur': return ICONS.moniteurLogo + ' ' + escapeHtml(row.m.nom);
+      case 'nbEleves': return String(s.encadrement);
+      case 'crRempli': return String(s.crRemplis);
+      case 'crManquant': return String(s.crManquants);
+      case 'tauxCR': return s.tauxCR === null ? '—' : s.tauxCR + '%';
+      default: return '';
+    }
   }
 
   function buildCrSummaryCard() {
@@ -2461,19 +2643,19 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     currentCrTableRows = perMoniteur;
     const lastDate = STATE.allDates.length ? STATE.allDates[STATE.allDates.length - 1] : null;
 
-    const headerCells = CR_TABLE_COLS.map(function(col, i) {
-      return '<th class="' + (i === 0 ? 'sticky-col' : '') + '">' + col.label + '</th>';
+    const cols = CR_TABLE_COLS.filter(isCrColVisible);
+    const headerCells = cols.map(function(col) {
+      return '<th class="' + (col.mandatory ? 'sticky-col' : '') + '">' + col.label + '</th>';
     }).join('');
 
     const tableRows = perMoniteur.map(function(row) {
-      const s = row.stats;
-      return '<tr class="cr-row" data-id="' + escapeHtml(row.m.id) + '">' +
-        '<td class="sticky-col cr-row-name">' + ICONS.moniteurLogo + ' ' + escapeHtml(row.m.nom) + '</td>' +
-        '<td>' + s.encadrement + '</td>' +
-        '<td>' + s.crRemplis + '</td>' +
-        '<td>' + s.crManquants + '</td>' +
-        '<td>' + (s.tauxCR === null ? '—' : s.tauxCR + '%') + '</td>' +
-      '</tr>';
+      const cells = cols.map(function(col) {
+        const classes = [];
+        if (col.key === 'moniteur') classes.push('cr-row-name');
+        if (col.mandatory) classes.push('sticky-col');
+        return '<td class="' + classes.join(' ') + '">' + crCellContent(col, row) + '</td>';
+      }).join('');
+      return '<tr class="cr-row" data-id="' + escapeHtml(row.m.id) + '">' + cells + '</tr>';
     }).join('');
 
     const missingHtml = global.missing.length
@@ -2485,6 +2667,11 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 
     const filterOptions = Object.keys(CR_FILTER_LABELS).map(function(k) {
       return '<option value="' + k + '"' + (k === crFilterMode ? ' selected' : '') + '>' + CR_FILTER_LABELS[k] + '</option>';
+    }).join('');
+
+    const columnsMenu = CR_TABLE_COLS.filter(c => !c.mandatory).map(function(col) {
+      const checked = isCrColVisible(col) ? ' checked' : '';
+      return '<label><input type="checkbox" data-cr-col-toggle="' + col.key + '"' + checked + '/> ' + col.label + '</label>';
     }).join('');
 
     return '<div class="cr-summary-card">' +
@@ -2507,6 +2694,13 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
         '<button class="export-btn" id="btnCrExportPdf" type="button">📄 PDF</button>' +
         '<button class="export-btn" id="btnCrExportCsv" type="button">📊 CSV</button>' +
         '<button class="export-btn" id="btnCrExportXlsx" type="button">📗 XLSX</button>' +
+        '<div class="columns-dropdown-wrap" style="margin-left:auto;">' +
+          '<button class="export-btn" id="btnCrColumns" type="button">⚙ Colonnes</button>' +
+          '<div class="columns-dropdown" id="crColumnsDropdown">' +
+            '<label class="col-mandatory"><input type="checkbox" checked disabled/> ' + ICONS.moniteurLogo + ' Moniteurs (obligatoire)</label>' +
+            columnsMenu +
+          '</div>' +
+        '</div>' +
       '</div>' +
       '<button class="cr-table-toggle" id="btnToggleCrTable" type="button">▲ Masquer l\'historique par moniteur</button>' +
       '<div id="crTableWrap"><div class="synthese-table-wrap" id="crTableExportWrap"><table class="cr-table synthese">' +
@@ -2630,7 +2824,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
       // Filtre de période (carte "Suivi de CR")
       const filterSelect = $('#crFilterSelect');
       if (filterSelect) filterSelect.addEventListener('change', function() {
-        crFilterMode = filterSelect.value;
+        saveCrFilterMode(filterSelect.value);
         draw();
       });
 
@@ -2670,6 +2864,29 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
       if (btnCrCsv) btnCrCsv.addEventListener('click', exportCrTableAsCsv);
       const btnCrXlsx = $('#btnCrExportXlsx');
       if (btnCrXlsx) btnCrXlsx.addEventListener('click', exportCrTableAsXlsx);
+
+      // Bouton "Colonnes" du tableau CR : ouverture/fermeture du menu + toggle de visibilité
+      const btnCrColumns = $('#btnCrColumns');
+      const crColumnsDropdown = $('#crColumnsDropdown');
+      if (btnCrColumns && crColumnsDropdown) {
+        btnCrColumns.addEventListener('click', function(ev) {
+          ev.stopPropagation();
+          crColumnsDropdown.classList.toggle('open');
+          if (crColumnsDropdown.classList.contains('open')) {
+            document.addEventListener('click', function closeCrDropdownOnce() {
+              crColumnsDropdown.classList.remove('open');
+            }, { once: true });
+          }
+        });
+        crColumnsDropdown.addEventListener('click', function(ev) { ev.stopPropagation(); });
+        $$('input[data-cr-col-toggle]', crColumnsDropdown).forEach(function(cb) {
+          cb.addEventListener('change', function() {
+            visibleCrColumns[cb.dataset.crColToggle] = cb.checked;
+            saveVisibleCrColumns();
+            draw();
+          });
+        });
+      }
 
       // Recherche d'élève suivi, par fiche moniteur
       $$('input[data-eleve-search]').forEach(function(input) {
