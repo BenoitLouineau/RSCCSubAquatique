@@ -38,6 +38,7 @@
   --radius-sm: 8px;
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   --header-h: 132px;
+  --footer-h: 30px;
   --transition: 180ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -57,6 +58,7 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+
 body {
   margin: 0;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Arial, sans-serif;
@@ -65,6 +67,7 @@ body {
   font-size: 15px;
   line-height: 1.5;
   padding-top: var(--header-h);
+  padding-bottom: var(--footer-h);
   transition: background var(--transition), color var(--transition);
 }
 h1, h2, h3, h4 { margin: 0; line-height: 1.25; }
@@ -114,6 +117,29 @@ button { font-family: inherit; cursor: pointer; }
 }
 .tab.active .tab-count { background: rgba(34,211,238,.15); color: var(--accent2); }
 .tab.disabled { opacity: .5; cursor: default; }
+
+/* ===================== BARRE DE CHIPS ÉLÈVES (dans le bandeau fixe) ===================== */
+.eleves-chips-bar { display: flex; align-items: center; gap: 8px; padding: 10px 0 12px; }
+.eleves-chips-bar.hidden { display: none !important; }
+.chips-scroll-btn {
+  flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--border);
+  background: var(--chip); color: var(--text); display: flex; align-items: center; justify-content: center;
+  font-size: 15px; line-height: 1; transition: border-color var(--transition), color var(--transition);
+}
+.chips-scroll-btn:hover { border-color: var(--accent2); color: var(--accent2); }
+.chips-track { display: flex; gap: 9px; overflow-x: auto; scroll-behavior: smooth; padding: 2px 2px 4px; scrollbar-width: thin; }
+.chips-track::-webkit-scrollbar { height: 5px; }
+.chips-track::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
+.eleve-chip {
+  flex-shrink: 0; display: flex; align-items: center; gap: 8px; padding: 6px 13px 6px 10px;
+  border-radius: 999px; border: 1px solid var(--border); background: var(--chip); cursor: pointer;
+  transition: border-color var(--transition), background var(--transition);
+}
+.eleve-chip:hover { border-color: var(--accent2); }
+.eleve-chip-icon { font-size: 15px; }
+.eleve-chip-info { display: flex; flex-direction: column; line-height: 1.2; }
+.eleve-chip-name { font-size: 12px; font-weight: 700; white-space: nowrap; }
+.eleve-chip-sub { font-size: 10px; color: var(--muted); white-space: nowrap; }
 
 /* ===================== LAYOUT PRINCIPAL ===================== */
 .main-content { max-width: 1400px; margin: 0 auto; padding: 24px 20px 60px; }
@@ -175,6 +201,9 @@ table.synthese thead th.sortable { cursor: pointer; user-select: none; white-spa
 table.synthese thead th.sortable:hover { color: var(--text); }
 table.synthese thead th.sorted { color: var(--accent2); }
 
+.section-title { font-size: 17px; font-weight: 800; display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.section-subtitle { font-size: 12.5px; color: var(--muted); margin: 0 0 14px; }
+
 .table-toolbar { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
 .table-toolbar-label { font-size: 12px; color: var(--muted); margin-right: 2px; }
 .export-btn {
@@ -183,6 +212,29 @@ table.synthese thead th.sorted { color: var(--accent2); }
   align-items: center; gap: 5px; transition: border-color var(--transition), color var(--transition);
 }
 .export-btn:hover { border-color: var(--accent2); color: var(--accent2); }
+
+.columns-dropdown-wrap { position: relative; display: inline-block; }
+.columns-dropdown {
+  position: absolute; top: calc(100% + 6px); right: 0; z-index: 60;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  box-shadow: var(--shadow); padding: 8px; min-width: 220px; display: none;
+}
+.columns-dropdown.open { display: block; }
+.columns-dropdown label {
+  display: flex; align-items: center; gap: 8px; font-size: 12.5px; padding: 6px 6px;
+  cursor: pointer; border-radius: 6px; white-space: nowrap;
+}
+.columns-dropdown label:hover { background: var(--chip); }
+.columns-dropdown input[type="checkbox"] { accent-color: var(--accent2); }
+.columns-dropdown .col-mandatory { opacity: .55; cursor: default; }
+.columns-dropdown .col-mandatory:hover { background: transparent; }
+
+/* Colonne "Élève" figée au scroll horizontal (mobile) : slider sur le reste des colonnes */
+table.synthese th.sticky-col, table.synthese td.sticky-col {
+  position: sticky; left: 0; z-index: 3; background: var(--surface);
+}
+table.synthese thead th.sticky-col { z-index: 4; }
+
 
 .progress-bar-cell { display: flex; flex-direction: column; gap: 4px; min-width: 110px; }
 .progress-bar-track { width: 100%; height: 6px; border-radius: 999px; background: var(--border); overflow: hidden; }
@@ -240,7 +292,7 @@ table.synthese thead th.sorted { color: var(--accent2); }
 
 /* ===================== BOUTON RETOUR AU TABLEAU ===================== */
 .back-to-table {
-  position: fixed; right: 22px; bottom: 26px; z-index: 90;
+  position: fixed; right: 22px; bottom: calc(var(--footer-h) + 16px); z-index: 90;
   display: flex; align-items: center; gap: 8px;
   padding: 10px 16px 10px 12px; border-radius: 999px; border: 1px solid var(--border);
   background: var(--card); color: var(--text); box-shadow: var(--shadow);
@@ -250,6 +302,15 @@ table.synthese thead th.sorted { color: var(--accent2); }
 }
 .back-to-table.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 .back-to-table:hover { border-color: var(--accent2); color: var(--accent2); }
+
+/* ===================== FOOTER FIXE ===================== */
+.app-footer {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 95; height: var(--footer-h);
+  display: flex; align-items: center; justify-content: center;
+  background: var(--glass); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid var(--border); font-size: 11px; color: var(--muted);
+  padding: 0 12px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
 
 .legend-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin: 4px 0 18px; font-size: 12px; color: var(--muted); }
 .legend-item { display: flex; align-items: center; gap: 6px; }
@@ -337,6 +398,13 @@ table.synthese thead th.sorted { color: var(--accent2); }
   font-size: 12px; color: var(--muted); border: 1px dashed var(--border); border-radius: var(--radius-sm);
   padding: 10px 12px; background: var(--chip);
 }
+.settings-radio-group { display: flex; flex-direction: column; gap: 6px; }
+.settings-radio-group label {
+  display: flex; align-items: center; gap: 8px; font-size: 12.5px; cursor: pointer;
+  padding: 7px 10px; border-radius: 8px; border: 1px solid var(--border);
+}
+.settings-radio-group label:hover { background: var(--chip); }
+.settings-radio-group input[type="radio"] { accent-color: var(--accent2); }
 
 @media (max-width: 720px) {
   .header-top { gap: 8px; }
@@ -381,6 +449,12 @@ table.synthese thead th.sorted { color: var(--accent2); }
       <button class="tab disabled" data-tab="analyse">📊 Analyse</button>
       <button class="tab disabled" data-tab="palmares">🏆 Palmarès</button>
     </nav>
+
+    <div class="eleves-chips-bar" id="elevesChipsBar">
+      <button class="chips-scroll-btn" id="chipsPrev" type="button" aria-label="Précédent">‹</button>
+      <div class="chips-track" id="chipsTrack"></div>
+      <button class="chips-scroll-btn" id="chipsNext" type="button" aria-label="Suivant">›</button>
+    </div>
   </div>
 </header>
 
@@ -431,6 +505,8 @@ table.synthese thead th.sorted { color: var(--accent2); }
 
 </main>
 
+<footer class="app-footer" id="appFooter">© <span id="footerSeason"></span> · Benoit Louineau · RSCC SubAquatique · Généré avec Claude AI 🤖</footer>
+
 <!-- ======================= SETTINGS (squelette) ======================= -->
 <div class="settings-overlay" id="settingsOverlay"></div>
 <aside class="settings-modal" id="settingsModal">
@@ -446,6 +522,11 @@ table.synthese thead th.sorted { color: var(--accent2); }
     <div class="settings-section">
       <div class="settings-section-title">📅 Contexte</div>
       <p class="settings-info">Saison et groupe affichés dans le bandeau — configurés en dur pour cette version (module Header).</p>
+    </div>
+    <div class="settings-section">
+      <div class="settings-section-title">🕐 Historique des séances (fiche élève)</div>
+      <p class="settings-info">Volume de séances affiché sur l'axe chronologique de chaque fiche élève. Le % de présence global, lui, reste toujours calculé sur toute la saison.</p>
+      <div id="historiqueRangeOptions"></div>
     </div>
     <div class="settings-section">
       <div class="settings-section-title">🔜 À venir avec les prochains modules</div>
@@ -478,24 +559,100 @@ table.synthese thead th.sorted { color: var(--accent2); }
   CONFIG.URL_SYNTHESE    = CONFIG.RAW_BASE + 'synthese.json';
 
   // Icônes utilisées de façon cohérente dans toute la page
-  const ICONS = { eleve: '🤿', seance: '🕐', competence: '🧩' };
+  const ICONS = { eleve: '🤿', seance: '🕐', competence: '🧩', calendrier: '📅', moniteur: '🧑\u200d🏫', horloge: '⏱️' };
+
+  // Volume d'historique affiché dans "Historique des séances" (fiche élève) — configurable
+  const LS_HISTORIQUE_RANGE = 'rscc_v2_historique_range';
+  const HISTORIQUE_RANGE_LABELS = {
+    last5: '5 dernières séances',
+    month: 'Sur le mois en cours',
+    trimester: 'Sur le trimestre en cours',
+    season: 'Sur la saison (sept. → juin)',
+  };
+  function loadHistoriqueRange() {
+    try {
+      const v = localStorage.getItem(LS_HISTORIQUE_RANGE);
+      if (v && HISTORIQUE_RANGE_LABELS[v]) return v;
+    } catch (e) {}
+    return 'last5';
+  }
+  let historiqueRangeMode = loadHistoriqueRange();
+  function saveHistoriqueRange(mode) {
+    historiqueRangeMode = mode;
+    try { localStorage.setItem(LS_HISTORIQUE_RANGE, mode); } catch (e) {}
+  }
+
+  /** Filtre le calendrier complet du groupe selon l'option choisie dans les réglages. */
+  function filterDatesByRange(allDates, mode) {
+    if (mode === 'last5') return allDates.slice(-5);
+    const today = new Date();
+    if (mode === 'month') {
+      return allDates.filter(function(d) {
+        const dt = new Date(d + 'T00:00:00');
+        return dt.getFullYear() === today.getFullYear() && dt.getMonth() === today.getMonth();
+      });
+    }
+    if (mode === 'trimester') {
+      // Trimestres "saison club" : T1 sept-déc, T2 janv-mars, T3 avr-juin
+      const trimOf = function(m) { return m >= 8 ? 1 : (m <= 2 ? 2 : (m <= 5 ? 3 : 0)); };
+      const todayTrim = trimOf(today.getMonth());
+      return allDates.filter(function(d) { return trimOf(new Date(d + 'T00:00:00').getMonth()) === todayTrim; });
+    }
+    if (mode === 'season') {
+      const [y1, y2] = CONFIG.SEASON.split('-').map(Number);
+      const start = new Date(y1, 8, 1);       // 1er septembre
+      const end = new Date(y2, 5, 30, 23, 59, 59); // 30 juin
+      return allDates.filter(function(d) {
+        const dt = new Date(d + 'T00:00:00');
+        return dt >= start && dt <= end;
+      });
+    }
+    return allDates.slice(-5);
+  }
 
   // Définition centralisée des colonnes du tableau de synthèse : pilote à la fois
   // l'affichage, le tri au clic sur en-tête, et l'export (CSV/XLSX).
   const TABLE_COLS = [
-    { key: 'nom', label: ICONS.eleve + ' Élève', exportLabel: 'Élève', type: 'string',
-      getValue: r => r.nom, exportValue: r => r.nom },
+    { key: 'nom', label: ICONS.eleve + ' Élève', exportLabel: 'Élève', type: 'string', mandatory: true,
+      getValue: r => r.nom, exportValue: r => r.nom,
+      cellContent: r => escapeHtml(r.nom) },
     { key: 'acquisAbs', label: ICONS.competence + ' Acquises', exportLabel: 'Acquises', type: 'number',
-      getValue: r => r.acquisAbs, exportValue: r => r.acquisAbs + '/' + r.acquisTotal },
+      getValue: r => r.acquisAbs, exportValue: r => r.acquisAbs + '/' + r.acquisTotal,
+      cellContent: r => r.acquisAbs + '/' + r.acquisTotal },
     { key: 'pctAcquis', label: '% Acquis', exportLabel: '% Acquis', type: 'number',
-      getValue: r => r.pctAcquis, exportValue: r => r.pctAcquis },
+      getValue: r => r.pctAcquis, exportValue: r => r.pctAcquis,
+      cellContent: r => progressBarContent(r.pctAcquis) },
     { key: 'pctPresence', label: '% Présence', exportLabel: '% Présence', type: 'number',
-      getValue: r => r.pctPresence, exportValue: r => r.pctPresence },
-    { key: 'lastDate', label: 'Dernière séance', exportLabel: 'Dernière séance', type: 'string',
-      getValue: r => r.lastDate || '', exportValue: r => formatDateFR(r.lastDate) },
-    { key: 'moniteurs', label: 'Moniteur(s)', exportLabel: 'Moniteur(s)', type: 'string',
-      getValue: r => r.moniteurs, exportValue: r => r.moniteurs },
+      getValue: r => r.pctPresence, exportValue: r => r.pctPresence,
+      cellContent: r => progressBarContent(r.pctPresence, r.presentAbs + '/' + r.presentTotal) },
+    { key: 'lastDate', label: ICONS.calendrier + ' Dernière séance', exportLabel: 'Dernière séance', type: 'string',
+      getValue: r => r.lastDate || '', exportValue: r => formatDateFR(r.lastDate),
+      cellContent: r => formatDateFR(r.lastDate) },
+    { key: 'joursDepuis', label: ICONS.horloge + ' Dernier cours', exportLabel: 'Dernier cours (jours)', type: 'number',
+      getValue: r => (r.joursDepuis == null ? -1 : r.joursDepuis), exportValue: r => (r.joursDepuis == null ? '—' : r.joursDepuis + ' j'),
+      cellContent: r => r.joursDepuis == null ? '<span style="color:var(--muted);">—</span>' :
+        '<span style="color:' + daysSinceColor(r.joursDepuis) + ';font-weight:700;">Il y a ' + r.joursDepuis + ' j</span>' },
+    { key: 'moniteurs', label: ICONS.moniteur + ' Moniteur(s)', exportLabel: 'Moniteur(s)', type: 'string',
+      getValue: r => r.moniteurs, exportValue: r => r.moniteurs,
+      cellContent: r => escapeHtml(r.moniteurs) },
   ];
+
+  // Visibilité des colonnes (persistée) — "Élève" (mandatory) reste toujours affichée
+  const LS_COLUMNS = 'rscc_v2_visible_columns';
+  function loadVisibleColumns() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(LS_COLUMNS) || 'null');
+      if (saved && typeof saved === 'object') return saved;
+    } catch (e) {}
+    const defaults = {};
+    TABLE_COLS.forEach(c => { defaults[c.key] = true; });
+    return defaults;
+  }
+  let visibleColumns = loadVisibleColumns();
+  function saveVisibleColumns() {
+    try { localStorage.setItem(LS_COLUMNS, JSON.stringify(visibleColumns)); } catch (e) {}
+  }
+  function isColVisible(col) { return col.mandatory || visibleColumns[col.key] !== false; }
 
   const STATE = {
     eleves: null,
@@ -514,6 +671,30 @@ table.synthese thead th.sorted { color: var(--accent2); }
   function escapeHtml(str) {
     if (str == null) return '';
     return String(str).replace(/[&<>"']/g, s => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[s]));
+  }
+
+  // =====================================================================
+  // PRÉNOMS D'AFFICHAGE (barre de chips) — convention "Nom Prénom" : le
+  // dernier mot du champ `nom` est considéré comme le prénom. Si plusieurs
+  // élèves partagent le même prénom, on ajoute un espace + l'initiale du nom.
+  // =====================================================================
+  function getPrenom(nomComplet) {
+    const parts = String(nomComplet).trim().split(/\s+/);
+    return parts[parts.length - 1];
+  }
+  function getInitialeNom(nomComplet) {
+    const parts = String(nomComplet).trim().split(/\s+/);
+    return parts.length > 1 ? parts[0].charAt(0).toUpperCase() : '';
+  }
+  function buildDisplayNames(eleves) {
+    const counts = {};
+    eleves.forEach(function(e) { const p = getPrenom(e.nom); counts[p] = (counts[p] || 0) + 1; });
+    const map = {};
+    eleves.forEach(function(e) {
+      const p = getPrenom(e.nom);
+      map[e.id] = counts[p] > 1 ? p + ' ' + getInitialeNom(e.nom) + '.' : p;
+    });
+    return map;
   }
 
   function formatDateFR(iso) {
@@ -580,12 +761,41 @@ table.synthese thead th.sorted { color: var(--accent2); }
   $('#settingsClose').addEventListener('click', closeSettings);
   $('#settingsOverlay').addEventListener('click', closeSettings);
 
+  // Option "volume d'historique des séances" dans les réglages
+  function populateHistoriqueRangeOptions() {
+    const el = $('#historiqueRangeOptions');
+    if (!el) return;
+    el.innerHTML = '<div class="settings-radio-group">' +
+      Object.keys(HISTORIQUE_RANGE_LABELS).map(function(mode) {
+        const checked = mode === historiqueRangeMode ? ' checked' : '';
+        return '<label><input type="radio" name="historiqueRange" value="' + mode + '"' + checked + '/> ' + HISTORIQUE_RANGE_LABELS[mode] + '</label>';
+      }).join('') +
+    '</div>';
+    $$('input[name="historiqueRange"]', el).forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        if (!radio.checked) return;
+        saveHistoriqueRange(radio.value);
+        if (STATE.eleves) renderEleves(); // rafraîchit l'axe "Historique des séances" de chaque fiche
+      });
+    });
+  }
+  populateHistoriqueRangeOptions();
+
   // =====================================================================
   // TABS
   // =====================================================================
+  function syncHeaderHeight() {
+    const header = $('.app-header');
+    if (header) document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px');
+  }
+  window.addEventListener('resize', syncHeaderHeight);
+
   function switchTab(name) {
     $$('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
     $$('.tab-panel').forEach(p => p.classList.toggle('active', p.id === 'panel-' + name));
+    const chipsBar = $('#elevesChipsBar');
+    if (chipsBar) chipsBar.classList.toggle('hidden', name !== 'eleves');
+    syncHeaderHeight();
   }
   $$('.tab').forEach(function(tab) {
     tab.addEventListener('click', function() {
@@ -696,13 +906,27 @@ table.synthese thead th.sorted { color: var(--accent2); }
     '</div>';
   }
 
-  function progressBarCell(pct, sublabel) {
-    return '<td>' +
-      '<div class="progress-bar-cell">' +
+  function progressBarContent(pct, sublabel) {
+    return '<div class="progress-bar-cell">' +
         '<div class="progress-bar-track"><div class="progress-bar-fill" style="width:' + pct + '%;background:' + stoplightColor(pct) + ';"></div></div>' +
         '<span class="progress-bar-label">' + pct + '%' + (sublabel ? ' · ' + sublabel : '') + '</span>' +
-      '</div>' +
-    '</td>';
+      '</div>';
+  }
+
+  function daysSince(iso) {
+    if (!iso) return null;
+    const d = new Date(iso + 'T00:00:00');
+    if (isNaN(d.getTime())) return null;
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    return Math.round((today - d) / 86400000);
+  }
+
+  /** Code couleur "fraîcheur" pour le nombre de jours depuis le dernier cours. */
+  function daysSinceColor(days) {
+    if (days == null) return 'var(--muted)';
+    if (days <= 14) return 'var(--ok)';
+    if (days <= 45) return 'var(--warn)';
+    return 'var(--bad)';
   }
 
   function buildRowsData(elevesFiltered) {
@@ -720,6 +944,7 @@ table.synthese thead th.sorted { color: var(--accent2); }
         presentTotal: presence.total,
         pctPresence: presence.pct,
         lastDate: lastDate,
+        joursDepuis: daysSince(lastDate),
         moniteurs: (e.moniteurs || []).join(', ') || '—',
       };
     });
@@ -735,29 +960,47 @@ table.synthese thead th.sorted { color: var(--accent2); }
   }
 
   function buildSyntheseTable(rows, sortCol, sortDir) {
-    const headerCells = TABLE_COLS.map(function(col) {
+    const cols = TABLE_COLS.filter(isColVisible);
+
+    const headerCells = cols.map(function(col) {
       const isSorted = col.key === sortCol;
       const arrow = isSorted ? (sortDir === 'asc' ? ' ▲' : ' ▼') : '';
-      return '<th class="sortable' + (isSorted ? ' sorted' : '') + '" data-col="' + col.key + '">' + col.label + arrow + '</th>';
+      const classes = ['sortable'];
+      if (isSorted) classes.push('sorted');
+      if (col.mandatory) classes.push('sticky-col');
+      return '<th class="' + classes.join(' ') + '" data-col="' + col.key + '">' + col.label + arrow + '</th>';
     }).join('');
 
     const bodyRows = rows.map(function(r) {
-      return '<tr data-id="' + escapeHtml(r.eleve.id) + '">' +
-        '<td class="eleve-name">' + escapeHtml(r.nom) + '</td>' +
-        '<td>' + r.acquisAbs + '/' + r.acquisTotal + '</td>' +
-        progressBarCell(r.pctAcquis) +
-        progressBarCell(r.pctPresence, r.presentAbs + '/' + r.presentTotal) +
-        '<td>' + formatDateFR(r.lastDate) + '</td>' +
-        '<td>' + escapeHtml(r.moniteurs) + '</td>' +
-      '</tr>';
+      const cells = cols.map(function(col) {
+        const classes = [];
+        if (col.key === 'nom') classes.push('eleve-name');
+        if (col.mandatory) classes.push('sticky-col');
+        return '<td class="' + classes.join(' ') + '">' + col.cellContent(r) + '</td>';
+      }).join('');
+      return '<tr data-id="' + escapeHtml(r.eleve.id) + '">' + cells + '</tr>';
     }).join('');
 
-    return '<div class="table-toolbar">' +
+    const columnsMenu = TABLE_COLS.filter(c => !c.mandatory).map(function(col) {
+      const checked = isColVisible(col) ? ' checked' : '';
+      return '<label><input type="checkbox" data-col-toggle="' + col.key + '"' + checked + '/> ' + col.label + '</label>';
+    }).join('');
+
+    return '<h2 class="section-title">' + ICONS.competence + ' Synthèse des compétences acquises</h2>' +
+      '<p class="section-subtitle">Tableau récapitulatif des élèves et de leurs compétences acquises (sur toute la saison). Cliquer sur une ligne pour aller à la fiche.</p>' +
+      '<div class="table-toolbar">' +
         '<span class="table-toolbar-label">Exporter le tableau :</span>' +
         '<button class="export-btn" id="btnExportPng" type="button">🖼️ PNG</button>' +
         '<button class="export-btn" id="btnExportPdf" type="button">📄 PDF</button>' +
         '<button class="export-btn" id="btnExportCsv" type="button">📊 CSV</button>' +
         '<button class="export-btn" id="btnExportXlsx" type="button">📗 XLSX</button>' +
+        '<div class="columns-dropdown-wrap" style="margin-left:auto;">' +
+          '<button class="export-btn" id="btnColumns" type="button">⚙ Colonnes</button>' +
+          '<div class="columns-dropdown" id="columnsDropdown">' +
+            '<label class="col-mandatory"><input type="checkbox" checked disabled/> ' + ICONS.eleve + ' Élève (obligatoire)</label>' +
+            columnsMenu +
+          '</div>' +
+        '</div>' +
       '</div>' +
       '<div class="synthese-table-wrap" id="syntheseTableWrap"><table class="synthese">' +
         '<thead><tr>' + headerCells + '</tr></thead>' +
@@ -839,6 +1082,16 @@ table.synthese thead th.sorted { color: var(--accent2); }
   }
 
   /** Répartition des compétences travaillées par statut (dérivé de la dernière note). */
+  /** Nombre total de compétences de référence à valider sur la saison (dénominateur du ratio
+   *  de progression) — compte les compétences actives ET marquées "compte dans la moyenne"
+   *  dans le référentiel, indépendamment du nombre de compétences déjà travaillées.
+   */
+  function getTotalCompetencesReferentiel() {
+    const ref = STATE.referentiel || [];
+    const n = ref.filter(c => c.actif && c.compte_dans_moyenne).length;
+    return n || ref.length; // repli si le référentiel n'a pas ces indicateurs
+  }
+
   function buildAcquisitionData(e) {
     const counts = { 'Acquis': 0, "En cours d'acquisition": 0, 'Non acquis': 0, 'Non évalué': 0 };
     Object.values(e.competences || {}).forEach(function(c) {
@@ -848,7 +1101,14 @@ table.synthese thead th.sorted { color: var(--accent2); }
       else if (n === 2) counts["En cours d'acquisition"]++;
       else counts['Non acquis']++;
     });
-    const total = Object.values(counts).reduce((a, b) => a + b, 0);
+    // Le ratio se calcule sur le NOMBRE TOTAL de compétences du référentiel (pas seulement
+    // celles déjà travaillées par l'élève) : les compétences jamais abordées comptent comme
+    // "restantes" dans le dénominateur.
+    const totalReferentiel = getTotalCompetencesReferentiel();
+    const travaillees = Object.values(counts).reduce((a, b) => a + b, 0);
+    const nonAbordees = Math.max(0, totalReferentiel - travaillees);
+    counts['Non évalué'] += nonAbordees;
+    const total = totalReferentiel;
     const pct = total ? Math.round((counts['Acquis'] / total) * 100) : 0;
     return { counts, total, pct };
   }
@@ -862,17 +1122,21 @@ table.synthese thead th.sorted { color: var(--accent2); }
   }
 
   function buildPresenceSectionHtml(e) {
+    // Le ratio (donut + %) porte toujours sur TOUTE la saison ; seul l'axe visuel
+    // "Historique des séances" respecte le volume choisi dans les réglages.
     const presence = buildPresenceData(e, STATE.allDates);
+    const filteredDates = filterDatesByRange(STATE.allDates, historiqueRangeMode);
+    const presenceTimeline = buildPresenceData(e, filteredDates);
     const acquisition = buildAcquisitionData(e);
     const canvasIdPresence = 'donut-presence-' + e.id;
     const canvasIdAcquis = 'donut-acquis-' + e.id;
 
-    const timelineHtml = presence.items.length
-      ? '<div class="presence-timeline">' + presence.items.map(function(it) {
+    const timelineHtml = presenceTimeline.items.length
+      ? '<div class="presence-timeline">' + presenceTimeline.items.map(function(it) {
           return '<div class="pt-item"><span class="pt-date">' + formatDateStacked(it.date) + '</span>' +
             '<span class="pt-dot ' + (it.present ? 'present' : 'absent') + '" title="' + formatDateFR(it.date) + ' — ' + (it.present ? 'Présent' : 'Absent') + '"></span></div>';
         }).join('') + '</div>'
-      : '<div class="presence-empty">Aucune séance enregistrée pour le groupe.</div>';
+      : '<div class="presence-empty">Aucune séance sur cette période (' + HISTORIQUE_RANGE_LABELS[historiqueRangeMode] + ').</div>';
 
     return '<div class="presence-section">' +
       '<div class="donut-block">' +
@@ -898,7 +1162,8 @@ table.synthese thead th.sorted { color: var(--accent2); }
         '</div>' +
       '</div>' +
       '<div class="presence-timeline-block">' +
-        '<div class="pt-title">Historique des séances (' + presence.total + ' date' + (presence.total > 1 ? 's' : '') + ' au calendrier du groupe)</div>' +
+        '<div class="pt-title">Historique des séances — ' + HISTORIQUE_RANGE_LABELS[historiqueRangeMode] +
+          ' (' + presenceTimeline.total + ' date' + (presenceTimeline.total > 1 ? 's' : '') + ')</div>' +
         timelineHtml +
       '</div>' +
     '</div>';
@@ -991,8 +1256,9 @@ table.synthese thead th.sorted { color: var(--accent2); }
   }
 
   function exportTableAsCsv() {
-    const header = TABLE_COLS.map(c => c.exportLabel);
-    const lines = [header].concat(currentRowsData.map(r => TABLE_COLS.map(c => c.exportValue(r))));
+    const cols = TABLE_COLS.filter(isColVisible);
+    const header = cols.map(c => c.exportLabel);
+    const lines = [header].concat(currentRowsData.map(r => cols.map(c => c.exportValue(r))));
     const csv = lines.map(row => row.map(csvEscape).join(';')).join('\r\n');
     // \uFEFF (BOM) pour qu'Excel reconnaisse l'UTF-8 (accents) à l'ouverture
     downloadBlob(new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' }), 'synthese_eleves.csv');
@@ -1000,10 +1266,11 @@ table.synthese thead th.sorted { color: var(--accent2); }
 
   function exportTableAsXlsx() {
     if (typeof XLSX === 'undefined') { alert('Librairie XLSX indisponible (hors-ligne ?).'); return; }
-    const header = TABLE_COLS.map(c => c.exportLabel);
-    const data = [header].concat(currentRowsData.map(r => TABLE_COLS.map(c => c.exportValue(r))));
+    const cols = TABLE_COLS.filter(isColVisible);
+    const header = cols.map(c => c.exportLabel);
+    const data = [header].concat(currentRowsData.map(r => cols.map(c => c.exportValue(r))));
     const ws = XLSX.utils.aoa_to_sheet(data);
-    ws['!cols'] = TABLE_COLS.map(() => ({ wch: 16 }));
+    ws['!cols'] = cols.map(() => ({ wch: 16 }));
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Synthèse élèves');
     XLSX.writeFile(wb, 'synthese_eleves.xlsx');
@@ -1032,12 +1299,44 @@ table.synthese thead th.sorted { color: var(--accent2); }
     });
   }
 
+  function renderElevesChipsBar() {
+    const track = $('#chipsTrack');
+    if (!track) return;
+    const eleves = STATE.eleves || [];
+    const displayNames = buildDisplayNames(eleves);
+
+    track.innerHTML = eleves.map(function(e) {
+      const presence = buildPresenceData(e, STATE.allDates);
+      return '<div class="eleve-chip" data-id="' + escapeHtml(e.id) + '">' +
+        '<span class="eleve-chip-icon">' + ICONS.eleve + '</span>' +
+        '<div class="eleve-chip-info">' +
+          '<span class="eleve-chip-name">' + escapeHtml(displayNames[e.id]) + '</span>' +
+          '<span class="eleve-chip-sub">' + presence.nbPresent + '/' + presence.total + ' présences</span>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+
+    $$('.eleve-chip', track).forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        const target = document.getElementById('eleve-' + chip.dataset.id);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    const prevBtn = $('#chipsPrev'), nextBtn = $('#chipsNext');
+    if (prevBtn) prevBtn.onclick = function() { track.scrollBy({ left: -260, behavior: 'smooth' }); };
+    if (nextBtn) nextBtn.onclick = function() { track.scrollBy({ left: 260, behavior: 'smooth' }); };
+
+    syncHeaderHeight();
+  }
+
   function renderEleves() {
     $('#elevesLoadScreen').classList.add('hidden');
     const container = $('#elevesMainContent');
     const eleves = STATE.eleves || [];
 
     $('#countEleves').textContent = eleves.filter(e => e.nb_seances > 0).length + '/' + eleves.length;
+    renderElevesChipsBar();
 
     const a = (STATE.synthese && STATE.synthese.anomalies) || {};
     const nbAnomTotal = Object.values(a).reduce((sum, v) => sum + (Array.isArray(v) ? v.length : 0), 0);
@@ -1054,7 +1353,7 @@ table.synthese thead th.sorted { color: var(--accent2); }
       destroyStudentCharts();
 
       container.innerHTML =
-        '<div id="syntheseAnchor"></div>' +
+        '<div id="syntheseAnchor" style="scroll-margin-top:calc(var(--header-h) + 12px);"></div>' +
         buildKPIs() +
         buildAnomaliesBanner() +
         '<div class="legend-row">' +
@@ -1087,6 +1386,29 @@ table.synthese thead th.sorted { color: var(--accent2); }
           draw();
         });
       });
+
+      // Bouton "Colonnes" : ouverture/fermeture du menu + toggle de visibilité
+      const btnColumns = $('#btnColumns');
+      const columnsDropdown = $('#columnsDropdown');
+      if (btnColumns && columnsDropdown) {
+        btnColumns.addEventListener('click', function(ev) {
+          ev.stopPropagation();
+          columnsDropdown.classList.toggle('open');
+          if (columnsDropdown.classList.contains('open')) {
+            document.addEventListener('click', function closeDropdownOnce() {
+              columnsDropdown.classList.remove('open');
+            }, { once: true });
+          }
+        });
+        columnsDropdown.addEventListener('click', function(ev) { ev.stopPropagation(); });
+        $$('input[data-col-toggle]', columnsDropdown).forEach(function(cb) {
+          cb.addEventListener('change', function() {
+            visibleColumns[cb.dataset.colToggle] = cb.checked;
+            saveVisibleColumns();
+            draw();
+          });
+        });
+      }
 
       $$('table.synthese tbody tr').forEach(function(tr) {
         tr.addEventListener('click', function() {
@@ -1142,6 +1464,9 @@ table.synthese thead th.sorted { color: var(--accent2); }
   // =====================================================================
   initTheme();
   setupBackToTable();
+  syncHeaderHeight();
+  const footerSeasonEl = $('#footerSeason');
+  if (footerSeasonEl) footerSeasonEl.textContent = CONFIG.SEASON.replace('-', '/');
   loadAll();
 
 })();
