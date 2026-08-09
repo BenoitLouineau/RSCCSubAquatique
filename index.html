@@ -67,7 +67,7 @@ body {
   font-size: 15px;
   line-height: 1.5;
   padding-top: var(--header-h);
-  padding-bottom: var(--footer-h);
+  padding-bottom: calc(var(--footer-h) + var(--bottomnav-h));
   transition: background var(--transition), color var(--transition);
 }
 h1, h2, h3, h4 { margin: 0; line-height: 1.25; }
@@ -102,21 +102,57 @@ button { font-family: inherit; cursor: pointer; }
 .icon-btn:active { transform: scale(0.94); }
 .icon-btn svg { width: 18px; height: 18px; }
 
-.tabs { display: flex; gap: 4px; margin-top: 12px; overflow-x: auto; padding-bottom: 2px; }
-.tab {
-  border: none; background: transparent; color: var(--muted);
-  padding: 10px 14px; font-size: 14px; font-weight: 600; border-radius: 10px 10px 0 0;
-  display: flex; align-items: center; gap: 8px; white-space: nowrap;
-  border-bottom: 2px solid transparent; transition: color var(--transition), border-color var(--transition);
+/* ===================== BARRE DE NAVIGATION BASSE (remplace les onglets du haut,
+   PC + tablette + smartphone) ===================== */
+:root { --bottomnav-h: 78px; } /* valeur de repli avant mesure JS réelle (voir syncBottomNavHeight) */
+.bottom-nav-bar {
+  position: fixed; left: 0; right: 0; bottom: var(--footer-h); z-index: 200;
+  background: var(--glass); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid var(--border);
+  display: flex; justify-content: center; align-items: stretch; padding: 8px 8px;
 }
-.tab:hover { color: var(--text); }
-.tab.active { color: var(--accent2); border-bottom-color: var(--accent2); }
-.tab-count {
-  font-size: 11px; padding: 1px 7px; border-radius: 999px;
-  background: var(--chip); color: var(--muted);
+.bn-item {
+  flex-shrink: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 4px; border: none; background: transparent; color: var(--muted);
+  padding: 8px 22px; margin: 6px 2px; border-radius: 14px;
+  font-size: 11.5px; font-weight: 600; white-space: nowrap; position: relative;
+  transition: background var(--transition), color var(--transition);
 }
-.tab.active .tab-count { background: rgba(34,211,238,.15); color: var(--accent2); }
-.tab.disabled { opacity: .5; cursor: default; }
+.bn-item:hover { color: var(--text); background: rgba(255,255,255,.03); }
+.bn-item.active { color: var(--accent2); }
+.bn-item.active::before {
+  content: ''; position: absolute; inset: 0; border-radius: 14px; background: rgba(34,211,238,.10);
+  border: 1px solid rgba(34,211,238,.25); z-index: -1;
+}
+.bn-icon { font-size: 22px; line-height: 1; }
+.bn-item.disabled { opacity: .45; }
+.bn-item.more-btn .bn-icon { font-size: 22px; font-weight: 800; }
+@media (min-width: 1400px) {
+  .bn-icon { font-size: 25px; }
+  .bn-item { padding: 10px 30px; font-size: 12.5px; }
+}
+
+.bn-sheet-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 199; opacity: 0; pointer-events: none;
+  transition: opacity var(--transition);
+}
+.bn-sheet-overlay.open { opacity: 1; pointer-events: auto; }
+.bn-more-sheet {
+  position: fixed; left: 0; right: 0; bottom: calc(var(--footer-h) + var(--bottomnav-h)); z-index: 201;
+  background: var(--card); border-top: 1px solid var(--border); border-radius: 16px 16px 0 0;
+  padding: 8px 8px calc(8px + env(safe-area-inset-bottom, 0)); box-shadow: var(--shadow);
+  transform: translateY(calc(100% + 40px)); visibility: hidden; max-height: 60vh; overflow-y: auto;
+  transition: transform 220ms, visibility 0s linear 220ms;
+}
+.bn-more-sheet.open { transform: translateY(0); visibility: visible; transition: transform 220ms, visibility 0s linear 0s; }
+.bn-more-sheet .sheet-handle { width: 34px; height: 4px; background: var(--border); border-radius: 999px; margin: 4px auto 10px; }
+.bn-sheet-list button {
+  width: 100%; text-align: left; border: none; background: transparent; color: var(--text);
+  padding: 12px 12px; font-size: 14px; border-radius: 10px; display: flex; align-items: center; gap: 12px;
+}
+.bn-sheet-list button:hover { background: var(--chip); }
+.bn-sheet-list button.active { color: var(--accent2); }
+.bn-sheet-list button.disabled { opacity: .45; }
 
 /* ===================== BARRE DE CHIPS ÉLÈVES (dans le bandeau fixe) ===================== */
 .eleves-chips-bar { display: flex; align-items: center; gap: 8px; padding: 10px 0 12px; }
@@ -127,9 +163,12 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 15px; line-height: 1; transition: border-color var(--transition), color var(--transition);
 }
 .chips-scroll-btn:hover { border-color: var(--accent2); color: var(--accent2); }
-.chips-track { display: flex; gap: 9px; overflow-x: auto; scroll-behavior: smooth; padding: 2px 2px 4px; scrollbar-width: thin; }
-.chips-track::-webkit-scrollbar { height: 5px; }
-.chips-track::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
+.chips-track {
+  display: flex; gap: 9px; overflow-x: auto; scroll-behavior: smooth; padding: 2px 2px 4px;
+  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;   /* Edge/IE legacy */
+}
+.chips-track::-webkit-scrollbar { display: none; } /* Chrome, Safari, Edge (Chromium) */
 .eleve-chip {
   flex-shrink: 0; display: flex; align-items: center; gap: 8px; padding: 6px 13px 6px 10px;
   border-radius: 999px; border: 1px solid var(--border); background: var(--chip); cursor: pointer;
@@ -269,6 +308,11 @@ table.synthese thead th.sticky-col { z-index: 4; }
 .note-dot.n0 { background: var(--grey); }
 .comp-sub { font-size: 11px; color: var(--muted); }
 .comp-comment { font-size: 11px; color: var(--text); margin-top: 7px; padding-top: 6px; border-top: 1px dashed var(--border); font-style: italic; }
+.comp-categorie { font-size: 10.5px; color: var(--accent2); margin-top: 2px; }
+
+.cat-group { margin-bottom: 14px; }
+.cat-group:last-child { margin-bottom: 0; }
+.cat-group-title { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 6px; }
 .mini-histo { display: flex; gap: 3px; margin-top: 6px; flex-wrap: wrap; }
 .mini-histo .note-dot { width: 8px; height: 8px; box-shadow: none; }
 
@@ -297,7 +341,7 @@ table.synthese thead th.sticky-col { z-index: 4; }
 
 /* ===================== BOUTON RETOUR AU TABLEAU ===================== */
 .back-to-table {
-  position: fixed; right: 22px; bottom: calc(var(--footer-h) + 16px); z-index: 90;
+  position: fixed; right: 22px; bottom: calc(var(--footer-h) + var(--bottomnav-h) + 16px); z-index: 90;
   display: flex; align-items: center; gap: 8px;
   padding: 10px 16px 10px 12px; border-radius: 999px; border: 1px solid var(--border);
   background: var(--card); color: var(--text); box-shadow: var(--shadow);
@@ -307,6 +351,38 @@ table.synthese thead th.sticky-col { z-index: 4; }
 }
 .back-to-table.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 .back-to-table:hover { border-color: var(--accent2); color: var(--accent2); }
+
+/* ===================== NOTIFICATIONS TOAST ===================== */
+.toast-container {
+  position: fixed; top: calc(var(--header-h) + 12px); right: 16px; z-index: 300;
+  display: flex; flex-direction: column; gap: 10px; max-width: 380px;
+}
+.toast {
+  display: flex; align-items: flex-start; gap: 10px; padding: 13px 14px;
+  border-radius: var(--radius-sm); background: var(--card); border: 1px solid var(--border);
+  border-left: 3px solid var(--brand); box-shadow: var(--shadow); font-size: 12.5px;
+  opacity: 0; transform: translateX(24px); transition: opacity 220ms, transform 220ms;
+}
+.toast.visible { opacity: 1; transform: translateX(0); }
+.toast-icon { font-size: 16px; flex-shrink: 0; line-height: 1.3; }
+.toast-message { flex: 1; line-height: 1.45; }
+.toast-close { border: none; background: transparent; color: var(--muted); font-size: 16px; line-height: 1; flex-shrink: 0; }
+.toast-close:hover { color: var(--text); }
+.toast-action {
+  border: 1px solid var(--border); background: var(--chip); color: var(--accent2); border-radius: 6px;
+  padding: 5px 9px; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+}
+.toast-warning { border-left-color: var(--warn); }
+.toast-error { border-left-color: var(--bad); }
+.toast-success { border-left-color: var(--ok); }
+.toast-info { border-left-color: var(--brand); }
+@media (max-width: 480px) {
+  .toast-container { left: 12px; right: 12px; max-width: none; top: calc(var(--header-h) + 8px); }
+}
+
+.admin-block { display: flex; flex-direction: column; gap: 3px; font-size: 12px; color: var(--text); }
+.admin-block a { color: var(--accent2); }
+.admin-block .admin-readonly { font-size: 11px; color: var(--muted); font-style: italic; margin-top: 4px; }
 
 /* ===================== FOOTER FIXE ===================== */
 .app-footer {
@@ -547,15 +623,6 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
       </button>
     </div>
 
-    <nav class="tabs" role="tablist">
-      <button class="tab active" data-tab="eleves">🤿 Élèves <span class="tab-count" id="countEleves">—</span></button>
-      <button class="tab disabled" data-tab="moniteurs">🥽 Moniteurs <span class="tab-count" id="countMoniteurs">—</span></button>
-      <button class="tab disabled" data-tab="examens">🎓 Examens <span class="tab-count">—</span></button>
-      <button class="tab disabled" data-tab="saison">🗓️ Saison <span class="tab-count" id="countSaison">—</span></button>
-      <button class="tab disabled" data-tab="analyse">📊 Analyse</button>
-      <button class="tab disabled" data-tab="palmares">🏆 Palmarès</button>
-    </nav>
-
     <div class="eleves-chips-bar" id="elevesChipsBar">
       <button class="chips-scroll-btn" id="chipsPrev" type="button" aria-label="Précédent">‹</button>
       <div class="chips-track" id="chipsTrack"></div>
@@ -625,6 +692,13 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 
 </main>
 
+<div class="bn-sheet-overlay" id="bnSheetOverlay"></div>
+<div class="bn-more-sheet" id="bnMoreSheet">
+  <div class="sheet-handle"></div>
+  <div class="bn-sheet-list" id="bnSheetList"></div>
+</div>
+<nav class="bottom-nav-bar" id="bottomNav" role="tablist"></nav>
+
 <footer class="app-footer" id="appFooter">© <span id="footerSeason"></span> · Benoit Louineau · RSCC SubAquatique · Généré avec Claude AI 🤖</footer>
 
 <!-- ======================= SETTINGS (squelette) ======================= -->
@@ -647,6 +721,14 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     <div class="settings-section">
       <div class="settings-section-title">📅 Contexte</div>
       <p class="settings-info">Saison et groupe affichés dans le bandeau — configurés en dur pour cette version (module Header).</p>
+    </div>
+    <div class="settings-section">
+      <div class="settings-section-title">👤 Administrateur du rapport</div>
+      <div class="admin-block">
+        <span>Louineau Benoit</span>
+        <span><a href="mailto:louineau.benoit@orange.fr">louineau.benoit@orange.fr</a></span>
+        <span class="admin-readonly">Valeur fixe, non modifiable depuis cette interface.</span>
+      </div>
     </div>
     <div class="settings-section">
       <div class="settings-section-title">🗓️ Dates de la saison</div>
@@ -695,9 +777,26 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   CONFIG.URL_MONITEURS   = CONFIG.RAW_BASE + 'moniteurs.json';
   CONFIG.URL_SEANCES     = CONFIG.RAW_BASE + 'seances.json';
   CONFIG.URL_REFERENTIEL = CONFIG.RAW_BASE + 'referentiel_competences.json';
+  CONFIG.URL_REFERENTIEL_CATEGORIES = CONFIG.RAW_BASE + 'referentiel_categories.json';
   CONFIG.URL_SYNTHESE    = CONFIG.RAW_BASE + 'synthese.json';
 
   // Icônes utilisées de façon cohérente dans toute la page
+  // Administrateur du rapport — valeur en dur, non modifiable depuis l'interface.
+  const ADMIN = { nom: 'Louineau', prenom: 'Benoit', email: 'louineau.benoit@orange.fr' };
+
+  // Repli de catégorisation, utilisé UNIQUEMENT quand la correspondance stricte au référentiel
+  // échoue (ex. "Stabilisation" saisi en séance vs "Stabilisation statique"/"dynamique" au
+  // référentiel). Si le nommage est un jour réaligné, la correspondance stricte primera
+  // automatiquement et ces entrées ne seront simplement plus jamais utilisées — rien à retirer.
+  const ATELIER_CATEGORIE_FALLBACK = {
+    'Stabilisation': 'Stabilisation & Flottabilité',
+    "Gestion de l'air": 'Respiration & Gestion de l\'air',
+    'Remontée assistée': 'Remontée & Sécurité',
+    'Vidage de masque': 'Gestion du masque & de l\'embout',
+    'Théorie': 'Théorie & Examens',
+    "Pas d'atelier": 'Théorie & Examens',
+  };
+
   const ICONS = {
     eleve: '🤿', seance: '🕐', competence: '🧩', calendrier: '📅', horloge: '⏱️',
     moniteurLogo: '🥽',      // identité moniteur (fiche, colonne "Moniteur", chips)
@@ -741,14 +840,100 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   function saveTabOrder() {
     try { localStorage.setItem(LS_TAB_ORDER, JSON.stringify(tabOrder)); } catch (e) {}
   }
-  function applyTabOrder() {
-    const nav = document.querySelector('.tabs');
-    if (!nav) return;
-    tabOrder.forEach(function(key) {
-      const btn = nav.querySelector('.tab[data-tab="' + key + '"]');
-      if (btn) nav.appendChild(btn); // déplace le nœud existant (conserve ses écouteurs d'événements)
-    });
+  const TAB_ENABLED = { eleves: true, moniteurs: false, examens: false, saison: false, analyse: false, palmares: false };
+  const TAB_COUNTS = { eleves: '—', moniteurs: '—', examens: '—', saison: '—' };
+  let activeTabKey = null;
+
+  function tabIconAndLabel(key) {
+    const full = TAB_LABELS[key] || key;
+    const spaceIdx = full.indexOf(' ');
+    return spaceIdx === -1 ? { icon: '', label: full } : { icon: full.slice(0, spaceIdx), label: full.slice(spaceIdx + 1) };
   }
+
+  function bnItemHtml(key) {
+    const parts = tabIconAndLabel(key);
+    const enabled = TAB_ENABLED[key];
+    return '<button class="bn-item' + (key === activeTabKey ? ' active' : '') + (!enabled ? ' disabled' : '') +
+      '" data-tab="' + key + '" type="button">' +
+      '<span class="bn-icon">' + parts.icon + '</span>' + escapeHtml(parts.label) +
+    '</button>';
+  }
+
+  function bnSheetItemHtml(key) {
+    const parts = tabIconAndLabel(key);
+    const enabled = TAB_ENABLED[key];
+    return '<button class="' + (key === activeTabKey ? 'active' : '') + (!enabled ? ' disabled' : '') +
+      '" data-tab="' + key + '" type="button">' +
+      '<span class="bn-icon">' + parts.icon + '</span>' + escapeHtml(parts.label) +
+    '</button>';
+  }
+
+  function openBnSheet() {
+    $('#bnMoreSheet').classList.add('open');
+    $('#bnSheetOverlay').classList.add('open');
+  }
+  function closeBnSheet() {
+    $('#bnMoreSheet').classList.remove('open');
+    $('#bnSheetOverlay').classList.remove('open');
+  }
+
+  /** Reconstruit la barre de navigation basse : mesure combien d'onglets tiennent dans la
+   *  largeur disponible, range le reste dans la feuille "⋯ Plus". S'applique à toutes les
+   *  tailles d'écran (PC compris), pas seulement mobile.
+   */
+  function renderBottomNav() {
+    const bar = $('#bottomNav');
+    const sheetList = $('#bnSheetList');
+    if (!bar || !sheetList) return;
+
+    // 1) Rendu complet (sans "Plus") pour mesurer les largeurs réelles
+    bar.innerHTML = tabOrder.map(bnItemHtml).join('');
+    const containerWidth = bar.clientWidth;
+    const items = Array.from(bar.children);
+    const MORE_BTN_WIDTH = 70;
+    let usedWidth = 0;
+    let cutoff = items.length;
+    for (let i = 0; i < items.length; i++) {
+      usedWidth += items[i].getBoundingClientRect().width;
+      const remaining = items.length - (i + 1);
+      const reserve = remaining > 0 ? MORE_BTN_WIDTH : 0;
+      if (usedWidth + reserve > containerWidth) { cutoff = i; break; }
+    }
+
+    const visibleKeys = tabOrder.slice(0, cutoff);
+    const hiddenKeys = tabOrder.slice(cutoff);
+
+    // 2) Rendu final avec le bon nombre d'onglets + bouton "Plus" si besoin
+    let html = visibleKeys.map(bnItemHtml).join('');
+    if (hiddenKeys.length) {
+      html += '<button class="bn-item more-btn" id="bnMoreBtn" type="button"><span class="bn-icon">⋯</span>Plus</button>';
+    }
+    bar.innerHTML = html;
+    sheetList.innerHTML = hiddenKeys.map(bnSheetItemHtml).join('');
+
+    $$('.bn-item[data-tab]', bar).forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        if (!TAB_ENABLED[btn.dataset.tab]) return;
+        switchTab(btn.dataset.tab);
+      });
+    });
+    const moreBtn = $('#bnMoreBtn');
+    if (moreBtn) moreBtn.addEventListener('click', openBnSheet);
+    $$('button[data-tab]', sheetList).forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        if (!TAB_ENABLED[btn.dataset.tab]) return;
+        switchTab(btn.dataset.tab);
+        closeBnSheet();
+      });
+    });
+
+    syncBottomNavHeight();
+  }
+  let renderBottomNavResizeTimer = null;
+  window.addEventListener('resize', function() {
+    clearTimeout(renderBottomNavResizeTimer);
+    renderBottomNavResizeTimer = setTimeout(renderBottomNav, 120);
+  });
 
   const LS_SEASON_START = 'rscc_v2_season_start_override';
   const LS_SEASON_END = 'rscc_v2_season_end_override';
@@ -887,6 +1072,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     eleves: null,
     synthese: null,
     referentiel: null,
+    referentielCategories: null, // fichier de catégorisation optionnel (peut ne pas exister encore)
     seances: null,
     moniteurs: null,
     allDates: [],   // calendrier complet du groupe (toutes dates de séance, triées)
@@ -901,6 +1087,51 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   function escapeHtml(str) {
     if (str == null) return '';
     return String(str).replace(/[&<>"']/g, s => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[s]));
+  }
+
+  // =====================================================================
+  // NOTIFICATIONS TOAST — système générique, réutilisable partout dans le rapport
+  // =====================================================================
+  const TOAST_ICONS = { info: 'ℹ️', success: '✅', warning: '⚠️', error: '❌' };
+
+  function ensureToastContainer() {
+    let c = document.getElementById('toastContainer');
+    if (!c) {
+      c = document.createElement('div');
+      c.id = 'toastContainer';
+      c.className = 'toast-container';
+      document.body.appendChild(c);
+    }
+    return c;
+  }
+
+  /** Affiche une notification toast.
+   *  type : 'info' | 'success' | 'warning' | 'error'
+   *  opts : { persistent: bool, duration: ms, actionLabel: string, onAction: fn }
+   */
+  function showToast(message, type, opts) {
+    opts = opts || {};
+    const container = ensureToastContainer();
+    const toast = document.createElement('div');
+    toast.className = 'toast toast-' + (type || 'info');
+    toast.innerHTML =
+      '<span class="toast-icon">' + (TOAST_ICONS[type] || TOAST_ICONS.info) + '</span>' +
+      '<span class="toast-message">' + message + '</span>' +
+      (opts.actionLabel ? '<button type="button" class="toast-action">' + escapeHtml(opts.actionLabel) + '</button>' : '') +
+      '<button type="button" class="toast-close" aria-label="Fermer">×</button>';
+    container.appendChild(toast);
+    requestAnimationFrame(function() { toast.classList.add('visible'); });
+
+    function remove() {
+      toast.classList.remove('visible');
+      setTimeout(function() { toast.remove(); }, 250);
+    }
+    toast.querySelector('.toast-close').addEventListener('click', remove);
+    const actionBtn = toast.querySelector('.toast-action');
+    if (actionBtn && opts.onAction) actionBtn.addEventListener('click', function() { opts.onAction(); remove(); });
+
+    if (!opts.persistent) setTimeout(remove, opts.duration || 6000);
+    return { remove };
   }
 
   // =====================================================================
@@ -1029,7 +1260,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 
     function applyNewTabOrder() {
       saveTabOrder();
-      applyTabOrder();
+      renderBottomNav();
       renderTabOrderList();
     }
 
@@ -1102,21 +1333,30 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   }
   window.addEventListener('resize', syncHeaderHeight);
 
+  /** Mesure la hauteur RÉELLE de la barre de navigation basse et met à jour --bottomnav-h
+   *  en conséquence (le contenu — icônes, textes — peut varier en taille selon l'écran,
+   *  une hauteur fixe codée en dur se désynchronise et coupe le bas de la barre). */
+  function syncBottomNavHeight() {
+    const bar = $('#bottomNav');
+    if (bar) document.documentElement.style.setProperty('--bottomnav-h', bar.offsetHeight + 'px');
+  }
+
+  // Défilement de la nav d'onglets via les flèches ‹ › (scrollbar masquée)
+  // (nav d'onglets du haut retirée — remplacée par la barre de navigation basse #bottomNav)
+
   function switchTab(name) {
-    $$('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+    activeTabKey = name;
     $$('.tab-panel').forEach(p => p.classList.toggle('active', p.id === 'panel-' + name));
     const chipsBar = $('#elevesChipsBar');
     if (chipsBar) chipsBar.classList.toggle('hidden', name !== 'eleves');
     const moniteursChipsBar = $('#moniteursChipsBar');
     if (moniteursChipsBar) moniteursChipsBar.classList.toggle('hidden', name !== 'moniteurs');
+    renderBottomNav();
+    closeBnSheet();
     syncHeaderHeight();
   }
-  $$('.tab').forEach(function(tab) {
-    tab.addEventListener('click', function() {
-      if (tab.classList.contains('disabled')) return; // modules pas encore construits
-      switchTab(tab.dataset.tab);
-    });
-  });
+
+  $('#bnSheetOverlay').addEventListener('click', closeBnSheet);
 
   // =====================================================================
   // CHARGEMENT DES DONNÉES (avec repli import manuel)
@@ -1174,6 +1414,16 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     }
   }
 
+  /** Compare le référentiel (script Python) à la catégorisation (fichier maintenu à part,
+   *  potentiellement par l'administrateur). Retourne les compétences qui n'ont pas encore
+   *  de catégorie connue — signe qu'un nouvel export a introduit une compétence à classer.
+   */
+  function detectUncategorizedCompetences() {
+    if (!STATE.referentielCategories) return []; // fichier de catégorisation indisponible : pas de comparaison possible
+    const catIds = new Set(STATE.referentielCategories.map(c => c.id));
+    return (STATE.referentiel || []).filter(c => !catIds.has(c.id));
+  }
+
   async function loadAll() {
     try {
       const [eleves, synthese, referentiel, seances, moniteurs] = await Promise.all([
@@ -1189,6 +1439,26 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
       STATE.seances = seances;
       STATE.moniteurs = moniteurs;
       STATE.allDates = Array.from(new Set(seances.map(s => s.date_seance))).sort();
+
+      // Catégorisation du référentiel : optionnelle, ne doit jamais faire échouer le chargement
+      // principal (le fichier peut ne pas encore exister sur GitHub).
+      try {
+        STATE.referentielCategories = await fetchJSON(CONFIG.URL_REFERENTIEL_CATEGORIES, 'referentiel_categories');
+      } catch (e) {
+        console.warn('Catégorisation du référentiel indisponible :', e.message);
+        STATE.referentielCategories = null;
+      }
+      const orphans = detectUncategorizedCompetences();
+      if (orphans.length) {
+        showToast(
+          orphans.length + ' compétence(s) non catégorisée(s) détectée(s) dans le référentiel : ' +
+          escapeHtml(orphans.map(c => c.nom).join(', ')) + '. Merci de contacter l\'administrateur ' +
+          '(<a href="mailto:' + ADMIN.email + '">' + ADMIN.email + '</a>) pour mise à jour de la catégorisation.',
+          'warning',
+          { persistent: true }
+        );
+      }
+
       renderEleves();
       renderMoniteurs();
       enableMoniteursTab();
@@ -1386,14 +1656,33 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
       '</table></div>';
   }
 
-  function buildCompCard(atelier, data, latestComment) {
+  /** Retrouve la catégorie d'un atelier via correspondance EXACTE de nom avec le référentiel,
+   *  puis lookup de son id dans le fichier de catégorisation. Retourne null si l'atelier ne
+   *  correspond à aucune entrée du référentiel (cas fréquent, voir "ateliers orphelins").
+   */
+  /** Retrouve la catégorie d'un atelier. Essaie d'abord la correspondance EXACTE de nom avec
+   *  le référentiel (source de vérité) ; si aucune correspondance, se replie sur le mapping
+   *  direct ATELIER_CATEGORIE_FALLBACK (voir commentaire à sa définition).
+   */
+  function getCategorieForAtelier(atelierNom) {
+    const ref = (STATE.referentiel || []).find(c => c.nom === atelierNom);
+    if (ref) {
+      const cat = (STATE.referentielCategories || []).find(c => c.id === ref.id);
+      if (cat) return cat.categorie;
+    }
+    return ATELIER_CATEGORIE_FALLBACK[atelierNom] || null;
+  }
+
+  function buildCompCard(atelier, data, latestComment, categorie) {
     const histo = (data.historique || []).slice(-8);
     const dots = histo.map(h => '<span class="note-dot ' + noteClass(h.note) + '" title="' + escapeHtml(h.date) + ' — ' + noteLabel(h.note) + '"></span>').join('');
     const commentHtml = latestComment
       ? '<div class="comp-comment">💬 ' + escapeHtml(latestComment) + '</div>'
       : '';
+    const catHtml = categorie ? '<div class="comp-categorie">🏷️ ' + escapeHtml(categorie) + '</div>' : '';
     return '<div class="comp-card">' +
       '<div class="comp-name"><span>' + escapeHtml(atelier) + '</span><span class="note-dot ' + noteClass(data.derniere_note) + '" title="' + noteLabel(data.derniere_note) + '"></span></div>' +
+      catHtml +
       '<div class="comp-sub">' + data.nb_evaluations + ' évaluation(s)' + (data.moyenne_notes != null ? ' · moy. ' + data.moyenne_notes : '') + '</div>' +
       '<div class="mini-histo">' + dots + '</div>' +
       commentHtml +
@@ -1558,11 +1847,50 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     activeCharts.forEach(c => c.destroy());
     activeCharts = [];
   }
+  function getAllCategories() {
+    const set = new Set();
+    (STATE.referentielCategories || []).forEach(c => set.add(c.categorie));
+    Object.values(ATELIER_CATEGORIE_FALLBACK).forEach(c => set.add(c));
+    return Array.from(set).sort();
+  }
+
+  /** Pour un élève, calcule le % de compétences acquises (note ≥3) parmi celles DÉJÀ
+   *  TRAVAILLÉES par catégorie (dénominateur = travaillé, pas total référentiel — pour rester
+   *  lisible malgré la sparsité actuelle des données, voir échange avec l'utilisateur).
+   */
+  function buildRadarDataForEleve(e) {
+    const parCategorie = {};
+    Object.keys(e.competences || {}).forEach(function(atelier) {
+      const cat = getCategorieForAtelier(atelier);
+      if (!cat) return;
+      if (!parCategorie[cat]) parCategorie[cat] = { touched: 0, acquis: 0 };
+      parCategorie[cat].touched++;
+      const note = e.competences[atelier].derniere_note;
+      if (note != null && note >= 3) parCategorie[cat].acquis++;
+    });
+    const categories = getAllCategories();
+    return categories.map(function(cat) {
+      const d = parCategorie[cat];
+      return { categorie: cat, pct: d ? Math.round((d.acquis / d.touched) * 100) : 0, touched: d ? d.touched : 0 };
+    });
+  }
+
+  function buildRadarCardHtml(e) {
+    const canvasId = 'radar-cat-' + e.id;
+    return '<div class="sub-card">' +
+      '<div class="sub-card-title">🎯 Compétences acquises par catégorie</div>' +
+      '<div style="position:relative;width:100%;height:280px;"><canvas id="' + canvasId + '"></canvas></div>' +
+    '</div>';
+  }
+
   function instantiateStudentCharts(eleves) {
     const cardStyle = getComputedStyle(document.documentElement);
     const ok = cardStyle.getPropertyValue('--ok').trim() || '#16a34a';
     const bad = cardStyle.getPropertyValue('--bad').trim() || '#dc2626';
     const rest = cardStyle.getPropertyValue('--donut-rest').trim() || '#334155';
+    const accent2 = cardStyle.getPropertyValue('--accent2').trim() || '#22d3ee';
+    const muted = cardStyle.getPropertyValue('--muted').trim() || '#94a3b8';
+    const gridColor = cardStyle.getPropertyValue('--border').trim() || 'rgba(148,163,184,.12)';
 
     eleves.forEach(function(e) {
       const cvPresence = document.getElementById('donut-presence-' + e.id);
@@ -1585,6 +1913,39 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
           options: { cutout: '72%', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { enabled: false } }, animation: { duration: 400 } }
         }));
       }
+      const cvRadar = document.getElementById('radar-cat-' + e.id);
+      if (cvRadar) {
+        const radarData = buildRadarDataForEleve(e);
+        activeCharts.push(new Chart(cvRadar, {
+          type: 'radar',
+          data: {
+            labels: radarData.map(d => d.categorie),
+            datasets: [{
+              data: radarData.map(d => d.pct),
+              backgroundColor: accent2 + '33', // ~20% opacité
+              borderColor: accent2, borderWidth: 2,
+              pointBackgroundColor: accent2, pointRadius: 3,
+            }],
+          },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: { callbacks: { label: function(ctx) {
+                const d = radarData[ctx.dataIndex];
+                return d.pct + '% acquis' + (d.touched ? ' (' + d.touched + ' travaillée(s))' : ' (jamais travaillée)');
+              } } },
+            },
+            scales: {
+              r: {
+                min: 0, max: 100, ticks: { stepSize: 25, showLabelBackdrop: false, color: muted, font: { size: 9 } },
+                grid: { color: gridColor }, angleLines: { color: gridColor },
+                pointLabels: { color: muted, font: { size: 10.5 } },
+              },
+            },
+          },
+        }));
+      }
     });
   }
 
@@ -1593,11 +1954,12 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
       // Dernier commentaire moniteur pour cet atelier (e.commentaires est trié par date croissante côté script Python)
       const relatedComments = (e.commentaires || []).filter(c => c.atelier === k && c.commentaire);
       const latest = relatedComments.length ? relatedComments[relatedComments.length - 1].commentaire : null;
-      return buildCompCard(k, e.competences[k], latest);
+      return buildCompCard(k, e.competences[k], latest, getCategorieForAtelier(k));
     }).join('');
     const lastDate = e.dates_seances && e.dates_seances.length ? e.dates_seances[e.dates_seances.length - 1] : null;
     const cahierHtml = buildCahierDeBord(e);
     const presenceSectionHtml = buildPresenceSectionHtml(e);
+    const radarCardHtml = buildRadarCardHtml(e);
 
     return '<div class="student-card" id="eleve-' + escapeHtml(e.id) + '">' +
       '<div class="student-head">' +
@@ -1609,6 +1971,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
         '</div>' +
       '</div>' +
       presenceSectionHtml +
+      radarCardHtml +
       (compsHtml ? '<div class="competences-grid">' + compsHtml + '</div>' : '<div style="color:var(--muted);font-size:13px;">Aucune compétence travaillée pour le moment.</div>') +
       cahierHtml +
     '</div>';
@@ -1719,7 +2082,8 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     const container = $('#elevesMainContent');
     const eleves = STATE.eleves || [];
 
-    $('#countEleves').textContent = eleves.filter(e => e.nb_seances > 0).length + '/' + eleves.length;
+    TAB_COUNTS.eleves = eleves.filter(e => e.nb_seances > 0).length + '/' + eleves.length;
+    renderBottomNav();
     renderElevesChipsBar();
 
     const a = (STATE.synthese && STATE.synthese.anomalies) || {};
@@ -1864,10 +2228,9 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   // =====================================================================
 
   function enableMoniteursTab() {
-    const tabBtn = document.querySelector('.tab[data-tab="moniteurs"]');
-    if (tabBtn) tabBtn.classList.remove('disabled');
-    const countEl = $('#countMoniteurs');
-    if (countEl) countEl.textContent = String((STATE.moniteurs || []).length);
+    TAB_ENABLED.moniteurs = true;
+    TAB_COUNTS.moniteurs = String((STATE.moniteurs || []).length);
+    renderBottomNav();
   }
 
   /** Statistiques CR pour un moniteur donné, restreintes à un sous-ensemble de dates. */
@@ -2244,10 +2607,9 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   // =====================================================================
 
   function enableSaisonTab() {
-    const tabBtn = document.querySelector('.tab[data-tab="saison"]');
-    if (tabBtn) tabBtn.classList.remove('disabled');
-    const countEl = $('#countSaison');
-    if (countEl) countEl.textContent = String((STATE.allDates || []).length);
+    TAB_ENABLED.saison = true;
+    TAB_COUNTS.saison = String((STATE.allDates || []).length);
+    renderBottomNav();
   }
 
   /** Regroupe les séances par date (agrégation validée avec l'utilisateur) et calcule,
@@ -2317,17 +2679,49 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     return { total: refBase.length, couvertes, jamaisAbordees, pct, orphelins };
   }
 
+  function getCategorieMap() {
+    const map = {};
+    (STATE.referentielCategories || []).forEach(function(c) { map[c.id] = c.categorie; });
+    return map;
+  }
+
+  function groupByCategorie(list, catMap) {
+    const groups = {};
+    list.forEach(function(c) {
+      const cat = catMap[c.id] || 'Non catégorisé';
+      if (!groups[cat]) groups[cat] = [];
+      groups[cat].push(c);
+    });
+    return groups;
+  }
+
+  function buildGroupedChipsHtml(list, catMap) {
+    const groups = groupByCategorie(list, catMap);
+    return Object.keys(groups).sort().map(function(cat) {
+      return '<div class="cat-group">' +
+        '<div class="cat-group-title">' + escapeHtml(cat) + ' (' + groups[cat].length + ')</div>' +
+        '<div class="chips-wrap">' + groups[cat].map(c => '<span class="mini-eleve-chip">' + escapeHtml(c.nom) + '</span>').join('') + '</div>' +
+      '</div>';
+    }).join('');
+  }
+
   function buildCouvertureReferentielHtml() {
     const cov = buildReferentielCoverage();
     const color = stoplightColor(cov.pct);
+    const catMap = getCategorieMap();
+    const hasCategories = Object.keys(catMap).length > 0;
 
     const orphelinsHtml = cov.orphelins.length
       ? '<div class="chips-wrap">' + cov.orphelins.map(a => '<span class="mini-eleve-chip flag">🏋 ' + escapeHtml(a) + '</span>').join('') + '</div>'
       : '<span class="presence-empty">Aucun — tous les ateliers saisis correspondent au référentiel.</span>';
 
     const jamaisHtml = cov.jamaisAbordees.length
-      ? '<div class="chips-wrap">' + cov.jamaisAbordees.map(c => '<span class="mini-eleve-chip">' + escapeHtml(c.nom) + '</span>').join('') + '</div>'
+      ? (hasCategories ? buildGroupedChipsHtml(cov.jamaisAbordees, catMap) : '<div class="chips-wrap">' + cov.jamaisAbordees.map(c => '<span class="mini-eleve-chip">' + escapeHtml(c.nom) + '</span>').join('') + '</div>')
       : '<span class="presence-empty">Toutes les compétences ont été confirmées comme abordées ✅</span>';
+
+    const couvertesHtml = cov.couvertes.length
+      ? (hasCategories ? buildGroupedChipsHtml(cov.couvertes, catMap) : '<div class="chips-wrap">' + cov.couvertes.map(c => '<span class="mini-eleve-chip">' + escapeHtml(c.nom) + '</span>').join('') + '</div>')
+      : '';
 
     return '<div class="cr-summary-card">' +
       '<div class="cr-summary-header">' +
@@ -2346,7 +2740,8 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
         '<div class="sub-card-title">🏋 Ateliers utilisés cette saison mais absents du référentiel (' + cov.orphelins.length + ')</div>' +
         orphelinsHtml +
       '</div>' +
-      '<button class="cr-table-toggle" id="btnToggleJamaisAbordees" type="button">▼ Afficher les ' + cov.jamaisAbordees.length + ' compétences jamais confirmées</button>' +
+      (couvertesHtml ? '<div class="sub-card"><div class="sub-card-title">✅ Compétences confirmées, par catégorie</div>' + couvertesHtml + '</div>' : '') +
+      '<button class="cr-table-toggle" id="btnToggleJamaisAbordees" type="button">▼ Afficher les ' + cov.jamaisAbordees.length + ' compétences jamais confirmées, par catégorie</button>' +
       '<div id="jamaisAbordeesWrap" class="hidden">' + jamaisHtml + '</div>' +
     '</div>';
   }
@@ -2567,8 +2962,16 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   // =====================================================================
   initTheme();
   setupBackToTable();
-  applyTabOrder();
   switchTab(tabOrder[0]);
+  const PERMANENT_PLACEHOLDER_TABS = ['examens', 'analyse', 'palmares'];
+  if (PERMANENT_PLACEHOLDER_TABS.includes(tabOrder[0])) {
+    showToast(
+      'Le module « ' + TAB_LABELS[tabOrder[0]] + ' » n\'est pas encore disponible. Il est arrivé en 1ère ' +
+      'position suite à ton réglage d\'ordre des onglets.',
+      'warning',
+      { persistent: true, actionLabel: 'Aller à Élèves', onAction: function() { switchTab('eleves'); } }
+    );
+  }
   syncHeaderHeight();
   renderSaisonOrderList();
   const footerSeasonEl = $('#footerSeason');
