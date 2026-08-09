@@ -148,6 +148,12 @@ button { font-family: inherit; cursor: pointer; }
   .bn-icon { font-size: 25px; }
   .bn-item { padding: 10px 30px; font-size: 12.5px; }
 }
+/* Smartphone : icône seule (texte masqué), pour que 4 onglets + "Plus" tiennent
+   confortablement — sur PC/tablette (au-dessus de ce seuil), texte + icône restent visibles. */
+@media (max-width: 640px) {
+  .bn-item { padding: 8px 12px; font-size: 0; gap: 0; }
+  .bn-icon { font-size: 22px; }
+}
 
 .bn-sheet-overlay {
   position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 199; opacity: 0; pointer-events: none;
@@ -1054,6 +1060,16 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
       const remaining = items.length - (i + 1);
       const reserve = remaining > 0 ? MORE_BTN_WIDTH : 0;
       if (usedWidth + reserve > containerWidth) { cutoff = i; break; }
+    }
+
+    // Sur smartphone (largeur réelle de fenêtre, pas de détection d'appareil), on plafonne
+    // volontairement à 4 onglets visibles + "Plus", même si l'algorithme de largeur en
+    // laisserait tenir davantage — sur grand écran (PC/tablette), aucun plafond n'est appliqué
+    // et tous les onglets qui rentrent restent affichés.
+    const SMARTPHONE_BREAKPOINT = 640;
+    const MAX_VISIBLE_SMARTPHONE = 4;
+    if (window.innerWidth <= SMARTPHONE_BREAKPOINT) {
+      cutoff = Math.min(cutoff, MAX_VISIBLE_SMARTPHONE);
     }
 
     const visibleKeys = tabOrder.slice(0, cutoff);
