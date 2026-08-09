@@ -173,6 +173,11 @@ button { font-family: inherit; cursor: pointer; }
   margin-left: auto; border: none; background: transparent; color: inherit;
   font-size: 12.5px; text-decoration: underline; font-weight: 600;
 }
+.cache-banner {
+  display: flex; align-items: center; gap: 10px; padding: 10px 14px; margin-bottom: 18px;
+  border-radius: var(--radius-sm); background: rgba(56, 189, 248, .10);
+  border: 1px solid rgba(56, 189, 248, .35); color: var(--brand); font-size: 12.5px;
+}
 
 /* ===================== SEARCH / TOOLBAR ===================== */
 .toolbar { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; }
@@ -413,6 +418,22 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 }
 .mini-eleve-chip.flag { color: var(--warn); border-color: rgba(245, 158, 11, .35); }
 
+/* ===================== SAISON — frise chronologique ===================== */
+.saison-frise { display: flex; gap: 10px; overflow-x: auto; padding: 6px 2px 10px; }
+.sf-item {
+  flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 5px;
+  padding: 12px 16px; border: 1px solid var(--border); border-radius: var(--radius-sm);
+  background: var(--chip); min-width: 118px;
+}
+.sf-date { font-size: 11.5px; font-weight: 700; text-align: center; line-height: 1.3; }
+.sf-cr-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.sf-cr-dot.complet { background: var(--ok); }
+.sf-cr-dot.partiel { background: var(--warn); }
+.sf-cr-dot.manquant { background: var(--bad); }
+.sf-moniteurs { font-size: 10.5px; color: var(--text); text-align: center; }
+.sf-eleves { font-size: 10.5px; color: var(--muted); }
+.sf-legend-item { display: inline-flex; align-items: center; gap: 5px; margin-right: 14px; font-size: 12px; color: var(--muted); }
+
 .load-screen {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   padding: 80px 20px; color: var(--muted); text-align: center; gap: 10px;
@@ -458,12 +479,37 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   padding: 10px 12px; background: var(--chip);
 }
 .settings-radio-group { display: flex; flex-direction: column; gap: 6px; }
+
+.season-dates-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.season-dates-row label { display: flex; flex-direction: column; gap: 4px; font-size: 11.5px; color: var(--muted); flex: 1; min-width: 130px; }
+.season-dates-row input[type="date"] {
+  padding: 7px 9px; border-radius: 8px; border: 1px solid var(--border);
+  background: var(--chip); color: var(--text); font-size: 12.5px;
+}
 .settings-radio-group label {
   display: flex; align-items: center; gap: 8px; font-size: 12.5px; cursor: pointer;
   padding: 7px 10px; border-radius: 8px; border: 1px solid var(--border);
 }
 .settings-radio-group label:hover { background: var(--chip); }
 .settings-radio-group input[type="radio"] { accent-color: var(--accent2); }
+
+.reorder-row {
+  display: flex; align-items: center; gap: 10px; padding: 9px 10px; margin-bottom: 6px;
+  border: 1px solid var(--border); border-radius: 8px; background: var(--chip);
+  cursor: grab; transition: opacity var(--transition), border-color var(--transition);
+}
+.reorder-row.dragging { opacity: .4; }
+.reorder-row:hover { border-color: var(--accent2); }
+.reorder-handle { color: var(--muted); font-size: 15px; cursor: grab; }
+.reorder-label { flex: 1; font-size: 12.5px; }
+.reorder-arrows { display: flex; gap: 4px; }
+.reorder-btn {
+  width: 24px; height: 24px; border-radius: 6px; border: 1px solid var(--border);
+  background: var(--card); color: var(--text); font-size: 11px; display: flex;
+  align-items: center; justify-content: center;
+}
+.reorder-btn:hover:not(:disabled) { border-color: var(--accent2); color: var(--accent2); }
+.reorder-btn:disabled { opacity: .3; cursor: default; }
 
 @media (max-width: 720px) {
   .header-top { gap: 8px; }
@@ -505,6 +551,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
       <button class="tab active" data-tab="eleves">🤿 Élèves <span class="tab-count" id="countEleves">—</span></button>
       <button class="tab disabled" data-tab="moniteurs">🥽 Moniteurs <span class="tab-count" id="countMoniteurs">—</span></button>
       <button class="tab disabled" data-tab="examens">🎓 Examens <span class="tab-count">—</span></button>
+      <button class="tab disabled" data-tab="saison">🗓️ Saison <span class="tab-count" id="countSaison">—</span></button>
       <button class="tab disabled" data-tab="analyse">📊 Analyse</button>
       <button class="tab disabled" data-tab="palmares">🏆 Palmarès</button>
     </nav>
@@ -554,6 +601,14 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     </div>
   </section>
 
+  <section class="tab-panel" id="panel-saison">
+    <div id="saisonLoadScreen" class="load-screen">
+      <div class="spinner"></div>
+      <div>Chargement des données de saison…</div>
+    </div>
+    <div id="saisonMainContent"></div>
+  </section>
+
   <section class="tab-panel" id="panel-analyse">
     <div class="placeholder-panel">
       <div class="ph-icon">📊</div>
@@ -585,13 +640,32 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
       <p class="settings-info">Le thème clair/sombre se règle directement depuis l'icône ☀️/🌙 du bandeau.</p>
     </div>
     <div class="settings-section">
+      <div class="settings-section-title">🗂️ Ordre des onglets du menu</div>
+      <p class="settings-info">Glisse-dépose ou utilise les flèches ▲▼. Le 1er onglet devient celui affiché par défaut à l'ouverture.</p>
+      <div id="tabOrderList"></div>
+    </div>
+    <div class="settings-section">
       <div class="settings-section-title">📅 Contexte</div>
       <p class="settings-info">Saison et groupe affichés dans le bandeau — configurés en dur pour cette version (module Header).</p>
+    </div>
+    <div class="settings-section">
+      <div class="settings-section-title">🗓️ Dates de la saison</div>
+      <p class="settings-info">Par défaut : 2ᵉ mardi de septembre → 30 juin (règle du club). Modifiable ici si besoin (ex. données de test hors saison).</p>
+      <div class="season-dates-row">
+        <label>Début<input type="date" id="seasonStartInput" /></label>
+        <label>Fin<input type="date" id="seasonEndInput" /></label>
+      </div>
+      <button class="export-btn" id="btnResetSeasonDates" type="button" style="margin-top:8px;">↺ Réinitialiser aux dates par défaut</button>
     </div>
     <div class="settings-section">
       <div class="settings-section-title">🕐 Historique des séances (fiche élève)</div>
       <p class="settings-info">Volume de séances affiché sur l'axe chronologique de chaque fiche élève. Le % de présence global, lui, reste toujours calculé sur toute la saison.</p>
       <div id="historiqueRangeOptions"></div>
+    </div>
+    <div class="settings-section">
+      <div class="settings-section-title">🔀 Ordre des modules (onglet Saison)</div>
+      <p class="settings-info">Glisse-dépose les lignes, ou utilise les flèches ▲▼.</p>
+      <div id="saisonOrderList"></div>
     </div>
     <div class="settings-section">
       <div class="settings-section-title">🔜 À venir avec les prochains modules</div>
@@ -624,9 +698,100 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   CONFIG.URL_SYNTHESE    = CONFIG.RAW_BASE + 'synthese.json';
 
   // Icônes utilisées de façon cohérente dans toute la page
-  const ICONS = { eleve: '🤿', seance: '🕐', competence: '🧩', calendrier: '📅', moniteur: '🧑\u200d🏫', horloge: '⏱️' };
+  const ICONS = {
+    eleve: '🤿', seance: '🕐', competence: '🧩', calendrier: '📅', horloge: '⏱️',
+    moniteurLogo: '🥽',      // identité moniteur (fiche, colonne "Moniteur", chips)
+    moniteur: '🧑\u200d🏫',   // colonne "Nb élèves"
+    crRempli: '📋',          // colonne "CR séance annoté"
+    crManquant: '⚠️',        // colonne "CR manquants"
+    tauxCR: '📈',            // colonne "% Taux de retour CR"
+    theorieValidee: '🎖️',   // TODO (module Examens) : à afficher à côté de CHAQUE nom d'élève
+                              // (chips, tableaux, fiches...) dès qu'une source de données réelle
+                              // "théorie validée" existera (aucune actuellement — l'atelier
+                              // "Théorie" ne trace que la présence, pas une validation/note).
+  };
 
   // Volume d'historique affiché dans "Historique des séances" (fiche élève) — configurable
+  // Dates réelles de la saison — configurables (par défaut : 2e mardi de septembre → 30 juin,
+  // conforme à la règle du club). Un override manuel est possible depuis les Réglages, utile
+  // par exemple pour des données de test hors saison.
+  // Ordre des onglets du menu — réglable, persisté. Le 1er onglet de la liste devient
+  // l'onglet actif par défaut au chargement de la page.
+  const LS_TAB_ORDER = 'rscc_v2_tab_order';
+  const TAB_DEFAULT_ORDER = ['eleves', 'moniteurs', 'examens', 'saison', 'analyse', 'palmares'];
+  const TAB_LABELS = {
+    eleves: '🤿 Élèves',
+    moniteurs: '🥽 Moniteurs',
+    examens: '🎓 Examens',
+    saison: '🗓️ Saison',
+    analyse: '📊 Analyse',
+    palmares: '🏆 Palmarès',
+  };
+  function loadTabOrder() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(LS_TAB_ORDER) || 'null');
+      if (Array.isArray(saved) && saved.length === TAB_DEFAULT_ORDER.length &&
+          TAB_DEFAULT_ORDER.every(k => saved.includes(k))) {
+        return saved;
+      }
+    } catch (e) {}
+    return TAB_DEFAULT_ORDER.slice();
+  }
+  let tabOrder = loadTabOrder();
+  function saveTabOrder() {
+    try { localStorage.setItem(LS_TAB_ORDER, JSON.stringify(tabOrder)); } catch (e) {}
+  }
+  function applyTabOrder() {
+    const nav = document.querySelector('.tabs');
+    if (!nav) return;
+    tabOrder.forEach(function(key) {
+      const btn = nav.querySelector('.tab[data-tab="' + key + '"]');
+      if (btn) nav.appendChild(btn); // déplace le nœud existant (conserve ses écouteurs d'événements)
+    });
+  }
+
+  const LS_SEASON_START = 'rscc_v2_season_start_override';
+  const LS_SEASON_END = 'rscc_v2_season_end_override';
+
+  function computeDefaultSeasonStart(year) {
+    const d = new Date(year, 8, 1); // 1er septembre
+    const dow = d.getDay(); // 0=dim...6=sam, mardi=2
+    const firstTuesday = 1 + ((2 - dow + 7) % 7);
+    return new Date(year, 8, firstTuesday + 7); // 2e mardi de septembre
+  }
+  function computeDefaultSeasonEnd(year) {
+    return new Date(year, 5, 30, 23, 59, 59); // 30 juin
+  }
+  function toInputDate(d) {
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  }
+  function getSeasonBounds() {
+    const [y1, y2] = CONFIG.SEASON.split('-').map(Number);
+    let start = computeDefaultSeasonStart(y1);
+    let end = computeDefaultSeasonEnd(y2);
+    try {
+      const overrideStart = localStorage.getItem(LS_SEASON_START);
+      const overrideEnd = localStorage.getItem(LS_SEASON_END);
+      if (overrideStart) start = new Date(overrideStart + 'T00:00:00');
+      if (overrideEnd) end = new Date(overrideEnd + 'T23:59:59');
+    } catch (e) {}
+    return { start, end };
+  }
+  function saveSeasonOverride(startIso, endIso) {
+    try {
+      if (startIso) localStorage.setItem(LS_SEASON_START, startIso); else localStorage.removeItem(LS_SEASON_START);
+      if (endIso) localStorage.setItem(LS_SEASON_END, endIso); else localStorage.removeItem(LS_SEASON_END);
+    } catch (e) {}
+  }
+  function resetSeasonOverride() {
+    try { localStorage.removeItem(LS_SEASON_START); localStorage.removeItem(LS_SEASON_END); } catch (e) {}
+  }
+  function refreshAfterSeasonDatesChange() {
+    if (STATE.eleves) renderEleves();
+    if (STATE.moniteurs) renderMoniteurs();
+    if (STATE.seances) renderSaison();
+  }
+
   const LS_HISTORIQUE_RANGE = 'rscc_v2_historique_range';
   const HISTORIQUE_RANGE_LABELS = {
     last5: '5 dernières séances',
@@ -665,9 +830,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
       return allDates.filter(function(d) { return trimOf(new Date(d + 'T00:00:00').getMonth()) === todayTrim; });
     }
     if (mode === 'season') {
-      const [y1, y2] = CONFIG.SEASON.split('-').map(Number);
-      const start = new Date(y1, 8, 1);       // 1er septembre
-      const end = new Date(y2, 5, 30, 23, 59, 59); // 30 juin
+      const { start, end } = getSeasonBounds();
       return allDates.filter(function(d) {
         const dt = new Date(d + 'T00:00:00');
         return dt >= start && dt <= end;
@@ -698,7 +861,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
       getValue: r => (r.joursDepuis == null ? -1 : r.joursDepuis), exportValue: r => (r.joursDepuis == null ? '—' : r.joursDepuis + ' j'),
       cellContent: r => r.joursDepuis == null ? '<span style="color:var(--muted);">—</span>' :
         '<span style="color:' + daysSinceColor(r.joursDepuis) + ';font-weight:700;">Il y a ' + r.joursDepuis + ' j</span>' },
-    { key: 'moniteurs', label: ICONS.moniteur + ' Moniteur(s)', exportLabel: 'Moniteur(s)', type: 'string',
+    { key: 'moniteurs', label: ICONS.moniteurLogo + ' Moniteur(s)', exportLabel: 'Moniteur(s)', type: 'string',
       getValue: r => r.moniteurs, exportValue: r => r.moniteurs,
       cellContent: r => escapeHtml(r.moniteurs) },
   ];
@@ -848,6 +1011,88 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   }
   populateHistoriqueRangeOptions();
 
+  // Ordre des onglets du menu (Réglages)
+  function renderTabOrderList() {
+    const el = $('#tabOrderList');
+    if (!el) return;
+
+    el.innerHTML = tabOrder.map(function(key, i) {
+      return '<div class="reorder-row" draggable="true" data-key="' + key + '">' +
+        '<span class="reorder-handle">⠿</span>' +
+        '<span class="reorder-label">' + TAB_LABELS[key] + '</span>' +
+        '<div class="reorder-arrows">' +
+          '<button type="button" class="reorder-btn" data-move="up" data-key="' + key + '"' + (i === 0 ? ' disabled' : '') + '>▲</button>' +
+          '<button type="button" class="reorder-btn" data-move="down" data-key="' + key + '"' + (i === tabOrder.length - 1 ? ' disabled' : '') + '>▼</button>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+
+    function applyNewTabOrder() {
+      saveTabOrder();
+      applyTabOrder();
+      renderTabOrderList();
+    }
+
+    $$('.reorder-btn', el).forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const idx = tabOrder.indexOf(btn.dataset.key);
+        const swapIdx = idx + (btn.dataset.move === 'up' ? -1 : 1);
+        if (swapIdx < 0 || swapIdx >= tabOrder.length) return;
+        const tmp = tabOrder[idx]; tabOrder[idx] = tabOrder[swapIdx]; tabOrder[swapIdx] = tmp;
+        applyNewTabOrder();
+      });
+    });
+
+    let dragKey = null;
+    $$('.reorder-row', el).forEach(function(row) {
+      row.addEventListener('dragstart', function() { dragKey = row.dataset.key; row.classList.add('dragging'); });
+      row.addEventListener('dragend', function() { row.classList.remove('dragging'); });
+      row.addEventListener('dragover', function(ev) { ev.preventDefault(); });
+      row.addEventListener('drop', function(ev) {
+        ev.preventDefault();
+        const targetKey = row.dataset.key;
+        if (!dragKey || dragKey === targetKey) return;
+        const fromIdx = tabOrder.indexOf(dragKey);
+        const toIdx = tabOrder.indexOf(targetKey);
+        tabOrder.splice(fromIdx, 1);
+        tabOrder.splice(toIdx, 0, dragKey);
+        dragKey = null;
+        applyNewTabOrder();
+      });
+    });
+  }
+  renderTabOrderList();
+
+  // Dates de la saison (Réglages)
+  function populateSeasonDatesOptions() {
+    const startInput = $('#seasonStartInput');
+    const endInput = $('#seasonEndInput');
+    const resetBtn = $('#btnResetSeasonDates');
+    if (!startInput || !endInput) return;
+
+    function refreshInputs() {
+      const { start, end } = getSeasonBounds();
+      startInput.value = toInputDate(start);
+      endInput.value = toInputDate(end);
+    }
+    refreshInputs();
+
+    function onChange() {
+      if (!startInput.value || !endInput.value) return;
+      saveSeasonOverride(startInput.value, endInput.value);
+      refreshAfterSeasonDatesChange();
+    }
+    startInput.addEventListener('change', onChange);
+    endInput.addEventListener('change', onChange);
+
+    if (resetBtn) resetBtn.addEventListener('click', function() {
+      resetSeasonOverride();
+      refreshInputs();
+      refreshAfterSeasonDatesChange();
+    });
+  }
+  populateSeasonDatesOptions();
+
   // =====================================================================
   // TABS
   // =====================================================================
@@ -876,20 +1121,67 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   // =====================================================================
   // CHARGEMENT DES DONNÉES (avec repli import manuel)
   // =====================================================================
-  async function fetchJSON(url) {
-    const res = await fetch(url, { cache: 'no-store' });
-    if (!res.ok) throw new Error('HTTP ' + res.status + ' sur ' + url);
-    return res.json();
+  // Cache localStorage (repli si GitHub est temporairement injoignable) — même principe
+  // que le rapport historique : timeout borné + dernière copie connue en secours.
+  const LS_CACHE_PREFIX = 'rscc_v2_cache_';
+  const LS_CACHE_DATE_PREFIX = 'rscc_v2_cache_date_';
+  function saveCacheItem(key, data) {
+    try {
+      localStorage.setItem(LS_CACHE_PREFIX + key, JSON.stringify(data));
+      localStorage.setItem(LS_CACHE_DATE_PREFIX + key, new Date().toISOString());
+    } catch (e) {}
+  }
+  function loadCacheItem(key) {
+    try {
+      const raw = localStorage.getItem(LS_CACHE_PREFIX + key);
+      const dt = localStorage.getItem(LS_CACHE_DATE_PREFIX + key);
+      if (!raw) return null;
+      return { data: JSON.parse(raw), date: dt };
+    } catch (e) { return null; }
+  }
+  function formatCacheDate(iso) {
+    if (!iso) return '—';
+    try {
+      const d = new Date(iso);
+      return d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' }) +
+        ' à ' + d.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+    } catch (e) { return iso; }
+  }
+  STATE.cacheUsed = {}; // { cacheKey: dateISO } rempli si une donnée vient du cache local (pas de GitHub)
+
+  async function fetchJSON(url, cacheKey, timeoutMs) {
+    timeoutMs = timeoutMs || 20000;
+    const ctrl = new AbortController();
+    const timer = setTimeout(function() { ctrl.abort(); }, timeoutMs);
+    try {
+      const res = await fetch(url, { cache: 'no-store', signal: ctrl.signal });
+      clearTimeout(timer);
+      if (!res.ok) throw new Error('HTTP ' + res.status + ' sur ' + url);
+      const data = await res.json();
+      if (cacheKey) saveCacheItem(cacheKey, data);
+      return data;
+    } catch (err) {
+      clearTimeout(timer);
+      if (cacheKey) {
+        const cached = loadCacheItem(cacheKey);
+        if (cached && cached.data) {
+          console.warn('[' + cacheKey + '] Échec réseau, repli sur le cache local :', err.message);
+          STATE.cacheUsed[cacheKey] = cached.date;
+          return cached.data;
+        }
+      }
+      throw err;
+    }
   }
 
   async function loadAll() {
     try {
       const [eleves, synthese, referentiel, seances, moniteurs] = await Promise.all([
-        fetchJSON(CONFIG.URL_ELEVES),
-        fetchJSON(CONFIG.URL_SYNTHESE),
-        fetchJSON(CONFIG.URL_REFERENTIEL),
-        fetchJSON(CONFIG.URL_SEANCES),
-        fetchJSON(CONFIG.URL_MONITEURS),
+        fetchJSON(CONFIG.URL_ELEVES, 'eleves'),
+        fetchJSON(CONFIG.URL_SYNTHESE, 'synthese'),
+        fetchJSON(CONFIG.URL_REFERENTIEL, 'referentiel'),
+        fetchJSON(CONFIG.URL_SEANCES, 'seances'),
+        fetchJSON(CONFIG.URL_MONITEURS, 'moniteurs'),
       ]);
       STATE.eleves = eleves;
       STATE.synthese = synthese;
@@ -900,6 +1192,8 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
       renderEleves();
       renderMoniteurs();
       enableMoniteursTab();
+      renderSaison();
+      enableSaisonTab();
     } catch (err) {
       console.error(err);
       showLoadError(err);
@@ -943,7 +1237,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
           else if (file.name.includes('eleves')) STATE.eleves = data;
         } catch (err) { console.error('JSON invalide :', file.name, err); }
         pending--;
-        if (pending === 0 && STATE.eleves) { renderEleves(); if (STATE.moniteurs) { renderMoniteurs(); enableMoniteursTab(); } }
+        if (pending === 0 && STATE.eleves) { renderEleves(); if (STATE.moniteurs) { renderMoniteurs(); enableMoniteursTab(); renderSaison(); enableSaisonTab(); } }
       };
       reader.readAsText(file);
     });
@@ -967,6 +1261,16 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
       kpiCard(s.nb_competences_referencees != null ? s.nb_competences_referencees : '—', ICONS.competence + ' Compétences référencées') +
     '</div>' +
     '<div class="kpi-card" style="margin-bottom:20px;"><div class="kpi-label">Période couverte</div><div class="kpi-value" style="font-size:16px;">' + periode + '</div></div>';
+  }
+
+  function buildCacheBanner() {
+    const keys = Object.keys(STATE.cacheUsed || {});
+    if (!keys.length) return '';
+    const mostRecent = keys.map(k => STATE.cacheUsed[k]).sort().pop();
+    return '<div class="cache-banner">' +
+      '📡 Certaines données proviennent du cache local (GitHub temporairement injoignable) — ' +
+      'dernière synchronisation réussie : ' + formatCacheDate(mostRecent) +
+    '</div>';
   }
 
   function buildAnomaliesBanner() {
@@ -1434,6 +1738,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 
       container.innerHTML =
         '<div id="syntheseAnchor" style="scroll-margin-top:calc(var(--header-h) + 12px);"></div>' +
+        buildCacheBanner() +
         buildKPIs() +
         buildAnomaliesBanner() +
         '<div class="legend-row">' +
@@ -1522,18 +1827,33 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   // =====================================================================
   // BOUTON "RETOUR AU TABLEAU DES ÉLÈVES"
   // =====================================================================
+  const BACK_TO_TOP_TARGETS = {
+    eleves: { anchor: 'syntheseAnchor', label: '↑ Tableau des élèves' },
+    moniteurs: { anchor: 'moniteursAnchor', label: '↑ Suivi de CR' },
+    saison: { anchor: 'saisonAnchor', label: '↑ Frise de la saison' },
+  };
+
   function setupBackToTable() {
     const btn = $('#backToTableBtn');
     if (!btn) return;
     const THRESHOLD = 480;
 
+    function activeTabName() {
+      const active = document.querySelector('.tab-panel.active');
+      return active ? active.id.replace('panel-', '') : null;
+    }
+
     window.addEventListener('scroll', function() {
-      const panelActive = $('#panel-eleves').classList.contains('active');
-      btn.classList.toggle('visible', panelActive && window.scrollY > THRESHOLD);
+      const tab = activeTabName();
+      const isTracked = BACK_TO_TOP_TARGETS.hasOwnProperty(tab);
+      btn.classList.toggle('visible', isTracked && window.scrollY > THRESHOLD);
+      if (isTracked) btn.textContent = BACK_TO_TOP_TARGETS[tab].label;
     }, { passive: true });
 
     btn.addEventListener('click', function() {
-      const anchor = document.getElementById('syntheseAnchor');
+      const tab = activeTabName();
+      const target = BACK_TO_TOP_TARGETS[tab];
+      const anchor = target ? document.getElementById(target.anchor) : null;
       if (anchor) anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
       else window.scrollTo({ top: 0, behavior: 'smooth' });
     });
@@ -1606,7 +1926,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     trimester: 'Trimestre en cours',
     season: 'Sur la saison (Sept. → Juin)',
   };
-  let crFilterMode = 'season';
+  let crFilterMode = 'derniere'; // vue par défaut : dernière séance
 
   // Registres pour les graphiques et la dernière liste rendue (fiches moniteurs)
   let activeMoniteurCharts = [];
@@ -1630,18 +1950,56 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     });
   }
 
+  const CR_TABLE_COLS = [
+    { label: ICONS.moniteurLogo + ' Moniteurs', exportLabel: 'Moniteurs' },
+    { label: ICONS.moniteur + ' Nb élèves', exportLabel: 'Nb élèves' },
+    { label: ICONS.crRempli + ' CR séance annoté', exportLabel: 'CR séance annoté' },
+    { label: ICONS.crManquant + ' CR manquants', exportLabel: 'CR manquants' },
+    { label: ICONS.tauxCR + ' % Taux de retour CR', exportLabel: '% Taux de retour CR' },
+  ];
+  let currentCrTableRows = []; // dernière liste calculée (période active), pour les exports
+
+  function exportCrTableAsCsv() {
+    const header = CR_TABLE_COLS.map(c => c.exportLabel);
+    const lines = [header].concat(currentCrTableRows.map(function(row) {
+      const s = row.stats;
+      return [row.m.nom, s.encadrement, s.crRemplis, s.crManquants, s.tauxCR === null ? '—' : s.tauxCR + '%'];
+    }));
+    const csv = lines.map(row => row.map(csvEscape).join(';')).join('\r\n');
+    downloadBlob(new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' }), 'suivi_cr_moniteurs.csv');
+  }
+
+  function exportCrTableAsXlsx() {
+    if (typeof XLSX === 'undefined') { alert('Librairie XLSX indisponible (hors-ligne ?).'); return; }
+    const header = CR_TABLE_COLS.map(c => c.exportLabel);
+    const data = [header].concat(currentCrTableRows.map(function(row) {
+      const s = row.stats;
+      return [row.m.nom, s.encadrement, s.crRemplis, s.crManquants, s.tauxCR === null ? '—' : s.tauxCR + '%'];
+    }));
+    const ws = XLSX.utils.aoa_to_sheet(data);
+    ws['!cols'] = CR_TABLE_COLS.map(() => ({ wch: 16 }));
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Suivi CR moniteurs');
+    XLSX.writeFile(wb, 'suivi_cr_moniteurs.xlsx');
+  }
+
   function buildCrSummaryCard() {
     const periodDates = filterDatesByRange(STATE.allDates, crFilterMode);
     const global = computeGlobalCrStats(periodDates);
     const perMoniteur = (STATE.moniteurs || []).map(function(m) {
       return { m: m, stats: computeMoniteurPeriodStats(m.nom, periodDates) };
     });
+    currentCrTableRows = perMoniteur;
     const lastDate = STATE.allDates.length ? STATE.allDates[STATE.allDates.length - 1] : null;
+
+    const headerCells = CR_TABLE_COLS.map(function(col, i) {
+      return '<th class="' + (i === 0 ? 'sticky-col' : '') + '">' + col.label + '</th>';
+    }).join('');
 
     const tableRows = perMoniteur.map(function(row) {
       const s = row.stats;
-      return '<tr>' +
-        '<td>' + escapeHtml(row.m.nom) + '</td>' +
+      return '<tr class="cr-row" data-id="' + escapeHtml(row.m.id) + '">' +
+        '<td class="sticky-col cr-row-name">' + ICONS.moniteurLogo + ' ' + escapeHtml(row.m.nom) + '</td>' +
         '<td>' + s.encadrement + '</td>' +
         '<td>' + s.crRemplis + '</td>' +
         '<td>' + s.crManquants + '</td>' +
@@ -1652,7 +2010,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     const missingHtml = global.missing.length
       ? global.missing.map(function(mi) {
           return '<div class="cr-missing-item"><span class="cmi-date">' + formatDateFR(mi.date) + '</span>' +
-            '<span>' + ICONS.moniteur + ' ' + escapeHtml(mi.moniteur) + ' — CR non saisi</span></div>';
+            '<span>' + ICONS.moniteurLogo + ' ' + escapeHtml(mi.moniteur) + ' — CR non saisi</span></div>';
         }).join('')
       : '<div class="cr-missing-empty">Aucun CR manquant sur cette période ✅</div>';
 
@@ -1670,13 +2028,20 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
         '<select class="cr-filter-select" id="crFilterSelect">' + filterOptions + '</select>' +
       '</div>' +
       '<div class="cr-chips-row">' +
-        '<div class="cr-chip"><span class="cr-chip-value">' + global.tauxRetour + '%</span><span class="cr-chip-label">Taux de retour de CR</span></div>' +
+        '<div class="cr-chip"><span class="cr-chip-value" style="color:' + stoplightColor(global.tauxRetour) + ';">' + global.tauxRetour + '%</span><span class="cr-chip-label">% Taux de retour CR</span></div>' +
         '<div class="cr-chip"><span class="cr-chip-value">' + global.nbSeances + '</span><span class="cr-chip-label">Séances couvertes</span></div>' +
         '<div class="cr-chip cr-chip-alert"><span class="cr-chip-value">' + global.crManquants + '</span><span class="cr-chip-label">CR manquant</span></div>' +
       '</div>' +
+      '<div class="table-toolbar">' +
+        '<span class="table-toolbar-label">Exporter le tableau :</span>' +
+        '<button class="export-btn" id="btnCrExportPng" type="button">🖼️ PNG</button>' +
+        '<button class="export-btn" id="btnCrExportPdf" type="button">📄 PDF</button>' +
+        '<button class="export-btn" id="btnCrExportCsv" type="button">📊 CSV</button>' +
+        '<button class="export-btn" id="btnCrExportXlsx" type="button">📗 XLSX</button>' +
+      '</div>' +
       '<button class="cr-table-toggle" id="btnToggleCrTable" type="button">▲ Masquer l\'historique par moniteur</button>' +
-      '<div id="crTableWrap"><div class="synthese-table-wrap"><table class="cr-table">' +
-        '<thead><tr><th>Moniteur</th><th>Encadrement</th><th>CR Remplis</th><th>CR manquants</th><th>Taux de CR</th></tr></thead>' +
+      '<div id="crTableWrap"><div class="synthese-table-wrap" id="crTableExportWrap"><table class="cr-table synthese">' +
+        '<thead><tr>' + headerCells + '</tr></thead>' +
         '<tbody>' + tableRows + '</tbody>' +
       '</table></div></div>' +
       '<div class="cr-missing-block">' +
@@ -1715,7 +2080,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 
     return '<div class="student-card moniteur-card" id="moniteur-' + escapeHtml(m.id) + '">' +
       '<div class="moniteur-head">' +
-        '<div class="moniteur-title">' + ICONS.moniteur + ' ' + escapeHtml(m.nom) + '</div>' +
+        '<div class="moniteur-title">' + ICONS.moniteurLogo + ' ' + escapeHtml(m.nom) + '</div>' +
         '<div class="moniteur-head-actions">' +
           '<button class="export-btn" data-export-moniteur-png="' + m.id + '" type="button">🖼️ PNG</button>' +
           '<button class="export-btn" data-export-moniteur-pdf="' + m.id + '" type="button">📄 PDF</button>' +
@@ -1755,7 +2120,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     track.innerHTML = moniteurs.map(function(m) {
       const stats = computeMoniteurPeriodStats(m.nom, STATE.allDates);
       return '<div class="eleve-chip" data-id="' + escapeHtml(m.id) + '">' +
-        '<span class="eleve-chip-icon">' + ICONS.moniteur + '</span>' +
+        '<span class="eleve-chip-icon">' + ICONS.moniteurLogo + '</span>' +
         '<div class="eleve-chip-info">' +
           '<span class="eleve-chip-name">' + escapeHtml(m.nom) + '</span>' +
           '<span class="eleve-chip-sub">' + stats.nbSeances + ' séance(s)</span>' +
@@ -1787,8 +2152,10 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     function draw() {
       destroyMoniteurCharts();
       container.innerHTML =
+        '<div id="moniteursAnchor" style="scroll-margin-top:calc(var(--header-h) + 12px);"></div>' +
+        buildCacheBanner() +
         buildCrSummaryCard() +
-        '<h2 class="section-title" style="margin-top:26px;">' + ICONS.moniteur + ' Fiches moniteurs</h2>' +
+        '<h2 class="section-title" style="margin-top:26px;">' + ICONS.moniteurLogo + ' Fiches moniteurs</h2>' +
         '<div class="student-grid">' + moniteurs.map(m => buildMoniteurCard(m, nameByNom)).join('') + '</div>';
 
       // Filtre de période (carte "Suivi de CR")
@@ -1805,6 +2172,35 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
         const hidden = tableWrap.classList.toggle('hidden');
         toggleBtn.textContent = (hidden ? '▼ Afficher' : '▲ Masquer') + " l'historique par moniteur";
       });
+
+      // Clic sur une ligne du tableau -> scroll vers la fiche du moniteur (logique identique Élèves)
+      $$('tr.cr-row').forEach(function(tr) {
+        tr.addEventListener('click', function() {
+          const target = document.getElementById('moniteur-' + tr.dataset.id);
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+
+      // Export du tableau "Suivi de CR" (PNG / PDF capturent la table même si repliée)
+      function withTableVisible(fn) {
+        const wrap = $('#crTableWrap');
+        const wasHidden = wrap && wrap.classList.contains('hidden');
+        if (wasHidden) wrap.classList.remove('hidden');
+        fn();
+        if (wasHidden) setTimeout(function() { wrap.classList.add('hidden'); }, 600);
+      }
+      const btnCrPng = $('#btnCrExportPng');
+      if (btnCrPng) btnCrPng.addEventListener('click', function() {
+        withTableVisible(function() { exportElementAsPng(document.getElementById('crTableExportWrap'), 'suivi_cr_moniteurs.png'); });
+      });
+      const btnCrPdf = $('#btnCrExportPdf');
+      if (btnCrPdf) btnCrPdf.addEventListener('click', function() {
+        withTableVisible(function() { exportElementAsPdf(document.getElementById('crTableExportWrap'), 'suivi_cr_moniteurs.pdf'); });
+      });
+      const btnCrCsv = $('#btnCrExportCsv');
+      if (btnCrCsv) btnCrCsv.addEventListener('click', exportCrTableAsCsv);
+      const btnCrXlsx = $('#btnCrExportXlsx');
+      if (btnCrXlsx) btnCrXlsx.addEventListener('click', exportCrTableAsXlsx);
 
       // Recherche d'élève suivi, par fiche moniteur
       $$('input[data-eleve-search]').forEach(function(input) {
@@ -1844,11 +2240,337 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   }
 
   // =====================================================================
+  // RENDU — ONGLET SAISON
+  // =====================================================================
+
+  function enableSaisonTab() {
+    const tabBtn = document.querySelector('.tab[data-tab="saison"]');
+    if (tabBtn) tabBtn.classList.remove('disabled');
+    const countEl = $('#countSaison');
+    if (countEl) countEl.textContent = String((STATE.allDates || []).length);
+  }
+
+  /** Regroupe les séances par date (agrégation validée avec l'utilisateur) et calcule,
+   *  pour chaque date : moniteurs présents, nb élèves distincts, statut CR à 3 états
+   *  (complet / partiel / manquant selon le nombre de séances de ce jour ayant un CR).
+   */
+  function buildFriseSaisonData() {
+    const byDate = {};
+    (STATE.seances || []).forEach(function(s) {
+      if (!byDate[s.date_seance]) byDate[s.date_seance] = { moniteurs: new Set(), eleves: new Set(), crFlags: [] };
+      const day = byDate[s.date_seance];
+      day.moniteurs.add(s.moniteur);
+      (s.eleves || []).forEach(el => day.eleves.add(el));
+      day.crFlags.push((s.comptes_rendus || []).some(cr => cr.commentaire));
+    });
+    return Object.keys(byDate).sort().map(function(date) {
+      const day = byDate[date];
+      const nbCR = day.crFlags.filter(Boolean).length;
+      const total = day.crFlags.length;
+      const status = nbCR === total ? 'complet' : (nbCR === 0 ? 'manquant' : 'partiel');
+      return {
+        date: date,
+        moniteurs: Array.from(day.moniteurs),
+        nbEleves: day.eleves.size,
+        status: status,
+        nbCR: nbCR,
+        totalSeances: total,
+      };
+    });
+  }
+
+  const SF_STATUS_LABELS = { complet: 'CR complet', partiel: 'CR partiel', manquant: 'CR manquant' };
+
+  function buildFriseSaisonHtml() {
+    const data = buildFriseSaisonData();
+    if (!data.length) return '<div class="presence-empty">Aucune séance enregistrée pour le moment.</div>';
+    const items = data.map(function(d) {
+      return '<div class="sf-item">' +
+        '<span class="sf-date">' + formatDateStacked(d.date) + '</span>' +
+        '<span class="sf-cr-dot ' + d.status + '" title="' + SF_STATUS_LABELS[d.status] + ' (' + d.nbCR + '/' + d.totalSeances + ')"></span>' +
+        '<span class="sf-moniteurs">' + ICONS.moniteurLogo + ' ' + escapeHtml(d.moniteurs.join(', ')) + '</span>' +
+        '<span class="sf-eleves">' + ICONS.eleve + ' ' + d.nbEleves + '</span>' +
+      '</div>';
+    }).join('');
+    return '<div class="saison-frise">' + items + '</div>';
+  }
+
+  /** Couverture du référentiel : parmi les compétences actives et "notables" (36 chez toi,
+   *  hors marqueurs administratifs comme Théorie/Exam), lesquelles ont été confirmées comme
+   *  abordées cette saison — par correspondance EXACTE de nom avec les ateliers saisis.
+   *  ⚠️ Limite connue et assumée (validée avec l'utilisateur) : nos ateliers de séance ont une
+   *  granularité différente du référentiel (ex. "Stabilisation" saisi vs "Stabilisation statique"
+   *  /"dynamique" au référentiel) → le score peut être bas pour des raisons de nommage, pas
+   *  d'absence réelle d'activité. Les ateliers "orphelins" sont listés pour le rendre lisible.
+   */
+  function buildReferentielCoverage() {
+    const refBase = (STATE.referentiel || []).filter(c => c.actif && c.notable);
+    const ateliersUtilises = new Set();
+    (STATE.eleves || []).forEach(function(e) {
+      Object.keys(e.competences || {}).forEach(a => ateliersUtilises.add(a));
+    });
+    const couvertes = refBase.filter(c => ateliersUtilises.has(c.nom));
+    const jamaisAbordees = refBase.filter(c => !ateliersUtilises.has(c.nom));
+    const pct = refBase.length ? Math.round((couvertes.length / refBase.length) * 100) : 0;
+    const refNoms = new Set((STATE.referentiel || []).map(c => c.nom));
+    const orphelins = Array.from(ateliersUtilises).filter(a => !refNoms.has(a)).sort();
+    return { total: refBase.length, couvertes, jamaisAbordees, pct, orphelins };
+  }
+
+  function buildCouvertureReferentielHtml() {
+    const cov = buildReferentielCoverage();
+    const color = stoplightColor(cov.pct);
+
+    const orphelinsHtml = cov.orphelins.length
+      ? '<div class="chips-wrap">' + cov.orphelins.map(a => '<span class="mini-eleve-chip flag">🏋 ' + escapeHtml(a) + '</span>').join('') + '</div>'
+      : '<span class="presence-empty">Aucun — tous les ateliers saisis correspondent au référentiel.</span>';
+
+    const jamaisHtml = cov.jamaisAbordees.length
+      ? '<div class="chips-wrap">' + cov.jamaisAbordees.map(c => '<span class="mini-eleve-chip">' + escapeHtml(c.nom) + '</span>').join('') + '</div>'
+      : '<span class="presence-empty">Toutes les compétences ont été confirmées comme abordées ✅</span>';
+
+    return '<div class="cr-summary-card">' +
+      '<div class="cr-summary-header">' +
+        '<h2 class="section-title" style="margin:0;">' + ICONS.competence + ' Couverture du référentiel</h2>' +
+      '</div>' +
+      '<div class="cr-chips-row">' +
+        '<div class="cr-chip"><span class="cr-chip-value" style="color:' + color + ';">' + cov.pct + '%</span>' +
+          '<span class="cr-chip-label">Confirmées abordées (' + cov.couvertes.length + '/' + cov.total + ')</span></div>' +
+      '</div>' +
+      '<div class="cache-banner">' +
+        'ℹ️ Correspondance EXACTE entre le nom des ateliers saisis et celui du référentiel. Un score bas ' +
+        'reflète souvent un écart de nommage plutôt qu\'un manque d\'activité réelle — voir les ateliers ' +
+        '"orphelins" ci-dessous, probablement les mêmes compétences sous un autre libellé.' +
+      '</div>' +
+      '<div class="sub-card" style="margin-top:0;border-top:none;padding-top:0;">' +
+        '<div class="sub-card-title">🏋 Ateliers utilisés cette saison mais absents du référentiel (' + cov.orphelins.length + ')</div>' +
+        orphelinsHtml +
+      '</div>' +
+      '<button class="cr-table-toggle" id="btnToggleJamaisAbordees" type="button">▼ Afficher les ' + cov.jamaisAbordees.length + ' compétences jamais confirmées</button>' +
+      '<div id="jamaisAbordeesWrap" class="hidden">' + jamaisHtml + '</div>' +
+    '</div>';
+  }
+
+  function buildSaisonHeaderHtml() {
+    const s = STATE.synthese || {};
+    const { start, end } = getSeasonBounds();
+    const today = new Date();
+    const totalMs = end - start;
+    const elapsedMs = today - start;
+    const pctSaison = totalMs > 0 ? Math.max(0, Math.min(100, Math.round((elapsedMs / totalMs) * 100))) : 0;
+
+    const periodeReelle = s.periode
+      ? formatDateFR(s.periode.date_min) + ' → ' + formatDateFR(s.periode.date_max)
+      : '—';
+
+    return '<div class="cr-summary-card">' +
+      '<div class="cr-summary-header">' +
+        '<h2 class="section-title" style="margin:0;">📋 Synthèse de la saison ' + escapeHtml(CONFIG.SEASON) + '</h2>' +
+        '<button class="export-btn" id="btnEditSeasonDates" type="button">⚙️ Modifier les dates de saison</button>' +
+      '</div>' +
+      '<div class="progress-bar-cell" style="max-width:420px;margin-bottom:6px;">' +
+        '<div class="progress-bar-track" style="height:9px;"><div class="progress-bar-fill" style="width:' + pctSaison + '%;background:' + stoplightColor(pctSaison) + ';"></div></div>' +
+        '<span class="progress-bar-label">' + pctSaison + '% de la saison écoulée (' + formatDateFR(start.toISOString().slice(0, 10)) + ' → ' + formatDateFR(end.toISOString().slice(0, 10)) + ')</span>' +
+      '</div>' +
+      '<div class="cr-summary-lastdate" style="margin-bottom:16px;">' + ICONS.calendrier + ' Période d\'activité réelle : ' + periodeReelle + '</div>' +
+      '<div class="kpi-row">' +
+        kpiCard(s.nb_eleves != null ? s.nb_eleves : '—', ICONS.eleve + ' Élèves') +
+        kpiCard(s.nb_moniteurs != null ? s.nb_moniteurs : '—', ICONS.moniteurLogo + ' Moniteurs') +
+        kpiCard(s.nb_seances != null ? s.nb_seances : '—', ICONS.seance + ' Séances') +
+        kpiCard(s.nb_comptes_rendus != null ? s.nb_comptes_rendus : '—', ICONS.crRempli + ' Comptes rendus') +
+        kpiCard(s.nb_competences_referencees != null ? s.nb_competences_referencees : '—', ICONS.competence + ' Compétences référencées') +
+      '</div>' +
+    '</div>';
+  }
+
+  // Registre des graphiques Chart.js de l'onglet Saison (barre comparative moniteurs...)
+  let activeSaisonCharts = [];
+  function destroySaisonCharts() { activeSaisonCharts.forEach(c => c.destroy()); activeSaisonCharts = []; }
+
+  function buildActiviteMoniteursCardHtml() {
+    const rows = (STATE.moniteurs || [])
+      .map(m => ({ nom: m.nom, nb: m.nb_seances_animees || 0 }))
+      .sort((a, b) => b.nb - a.nb);
+    const height = Math.max(160, rows.length * 34);
+
+    return '<div class="cr-summary-card">' +
+      '<div class="cr-summary-header">' +
+        '<h2 class="section-title" style="margin:0;">' + ICONS.moniteurLogo + ' Activité comparée des moniteurs</h2>' +
+        '<span class="cr-summary-lastdate">' + rows.length + ' moniteur(s) au total</span>' +
+      '</div>' +
+      '<div style="position:relative;width:100%;height:' + height + 'px;">' +
+        '<canvas id="chartActiviteMoniteurs"></canvas>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function instantiateActiviteMoniteursChart() {
+    const cv = document.getElementById('chartActiviteMoniteurs');
+    if (!cv) return;
+    const rows = (STATE.moniteurs || [])
+      .map(m => ({ nom: m.nom, nb: m.nb_seances_animees || 0 }))
+      .sort((a, b) => b.nb - a.nb);
+    const cs = getComputedStyle(document.documentElement);
+    const accent = cs.getPropertyValue('--accent2').trim() || '#22d3ee';
+    const textColor = cs.getPropertyValue('--muted').trim() || '#94a3b8';
+    const gridColor = cs.getPropertyValue('--border').trim() || 'rgba(148,163,184,.12)';
+
+    activeSaisonCharts.push(new Chart(cv, {
+      type: 'bar',
+      data: {
+        labels: rows.map(r => r.nom),
+        datasets: [{ data: rows.map(r => r.nb), backgroundColor: accent, borderRadius: 4, maxBarThickness: 22 }],
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ctx.parsed.x + ' séance(s)' } } },
+        scales: {
+          x: { beginAtZero: true, ticks: { stepSize: 1, color: textColor }, grid: { color: gridColor } },
+          y: { ticks: { color: textColor }, grid: { display: false } },
+        },
+      },
+    }));
+  }
+
+  function buildFriseCardHtml() {
+    return '<div class="cr-summary-card">' +
+      '<div class="cr-summary-header">' +
+        '<h2 class="section-title" style="margin:0;">🗓️ Frise chronologique de la saison</h2>' +
+      '</div>' +
+      '<div class="cr-filter-row">' +
+        '<span class="sf-legend-item"><span class="sf-cr-dot complet"></span>CR complet</span>' +
+        '<span class="sf-legend-item"><span class="sf-cr-dot partiel"></span>CR partiel</span>' +
+        '<span class="sf-legend-item"><span class="sf-cr-dot manquant"></span>CR manquant</span>' +
+      '</div>' +
+      buildFriseSaisonHtml() +
+    '</div>';
+  }
+
+  // Ordre des modules de l'onglet Saison — réglable par l'utilisateur (Réglages),
+  // persisté en localStorage. Glisser-déposer + flèches ▲▼ (les deux mécanismes
+  // manipulent le même tableau `saisonOrder`).
+  const LS_SAISON_ORDER = 'rscc_v2_saison_order';
+  const SAISON_MODULE_DEFAULT_ORDER = ['header', 'frise', 'couverture', 'activite'];
+  const SAISON_MODULE_LABELS = {
+    header: '📋 En-tête + KPI',
+    frise: '🗓️ Frise chronologique',
+    couverture: '🧩 Couverture du référentiel',
+    activite: '🥽 Activité comparée des moniteurs',
+  };
+  const SAISON_MODULE_BUILDERS = {
+    header: buildSaisonHeaderHtml,
+    frise: buildFriseCardHtml,
+    couverture: buildCouvertureReferentielHtml,
+    activite: buildActiviteMoniteursCardHtml,
+  };
+  function loadSaisonOrder() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(LS_SAISON_ORDER) || 'null');
+      if (Array.isArray(saved) && saved.length === SAISON_MODULE_DEFAULT_ORDER.length &&
+          SAISON_MODULE_DEFAULT_ORDER.every(k => saved.includes(k))) {
+        return saved;
+      }
+    } catch (e) {}
+    return SAISON_MODULE_DEFAULT_ORDER.slice();
+  }
+  let saisonOrder = loadSaisonOrder();
+  function saveSaisonOrder() {
+    try { localStorage.setItem(LS_SAISON_ORDER, JSON.stringify(saisonOrder)); } catch (e) {}
+  }
+
+  function renderSaisonOrderList() {
+    const el = $('#saisonOrderList');
+    if (!el) return;
+
+    el.innerHTML = saisonOrder.map(function(key, i) {
+      return '<div class="reorder-row" draggable="true" data-key="' + key + '">' +
+        '<span class="reorder-handle">⠿</span>' +
+        '<span class="reorder-label">' + SAISON_MODULE_LABELS[key] + '</span>' +
+        '<div class="reorder-arrows">' +
+          '<button type="button" class="reorder-btn" data-move="up" data-key="' + key + '"' + (i === 0 ? ' disabled' : '') + '>▲</button>' +
+          '<button type="button" class="reorder-btn" data-move="down" data-key="' + key + '"' + (i === saisonOrder.length - 1 ? ' disabled' : '') + '>▼</button>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+
+    function applyNewOrder() {
+      saveSaisonOrder();
+      renderSaisonOrderList();
+      if (STATE.eleves) renderSaison();
+    }
+
+    // Flèches ▲▼
+    $$('.reorder-btn', el).forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const idx = saisonOrder.indexOf(btn.dataset.key);
+        const swapIdx = idx + (btn.dataset.move === 'up' ? -1 : 1);
+        if (swapIdx < 0 || swapIdx >= saisonOrder.length) return;
+        const tmp = saisonOrder[idx]; saisonOrder[idx] = saisonOrder[swapIdx]; saisonOrder[swapIdx] = tmp;
+        applyNewOrder();
+      });
+    });
+
+    // Glisser-déposer natif (HTML5 Drag & Drop, sans librairie)
+    let dragKey = null;
+    $$('.reorder-row', el).forEach(function(row) {
+      row.addEventListener('dragstart', function() {
+        dragKey = row.dataset.key;
+        row.classList.add('dragging');
+      });
+      row.addEventListener('dragend', function() { row.classList.remove('dragging'); });
+      row.addEventListener('dragover', function(ev) { ev.preventDefault(); });
+      row.addEventListener('drop', function(ev) {
+        ev.preventDefault();
+        const targetKey = row.dataset.key;
+        if (!dragKey || dragKey === targetKey) return;
+        const fromIdx = saisonOrder.indexOf(dragKey);
+        const toIdx = saisonOrder.indexOf(targetKey);
+        saisonOrder.splice(fromIdx, 1);
+        saisonOrder.splice(toIdx, 0, dragKey);
+        dragKey = null;
+        applyNewOrder();
+      });
+    });
+  }
+
+  function renderSaison() {
+    $('#saisonLoadScreen').classList.add('hidden');
+    const container = $('#saisonMainContent');
+    destroySaisonCharts();
+
+    const modulesHtml = saisonOrder.map(function(key) {
+      return SAISON_MODULE_BUILDERS[key] ? SAISON_MODULE_BUILDERS[key]() : '';
+    }).join('');
+
+    container.innerHTML =
+      '<div id="saisonAnchor" style="scroll-margin-top:calc(var(--header-h) + 12px);"></div>' +
+      buildCacheBanner() +
+      modulesHtml;
+
+    instantiateActiviteMoniteursChart();
+
+    const btnEditSeasonDates = $('#btnEditSeasonDates');
+    if (btnEditSeasonDates) btnEditSeasonDates.addEventListener('click', openSettings);
+
+    const toggleJamais = $('#btnToggleJamaisAbordees');
+    const jamaisWrap = $('#jamaisAbordeesWrap');
+    if (toggleJamais && jamaisWrap) toggleJamais.addEventListener('click', function() {
+      const hidden = jamaisWrap.classList.toggle('hidden');
+      const cov = buildReferentielCoverage();
+      toggleJamais.textContent = (hidden ? '▼ Afficher' : '▲ Masquer') + ' les ' + cov.jamaisAbordees.length + ' compétences jamais confirmées';
+    });
+  }
+
+  // =====================================================================
   // INIT
   // =====================================================================
   initTheme();
   setupBackToTable();
+  applyTabOrder();
+  switchTab(tabOrder[0]);
   syncHeaderHeight();
+  renderSaisonOrderList();
   const footerSeasonEl = $('#footerSeason');
   if (footerSeasonEl) footerSeasonEl.textContent = CONFIG.SEASON.replace('-', '/');
   loadAll();
