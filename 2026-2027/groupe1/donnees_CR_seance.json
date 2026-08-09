@@ -1,50 +1,98 @@
 [
   {
     "Moniteur": "Jo",
-    "Date": "2026-05-12",
+    "Date": "2026-09-09",
     "Eleve": "Bernard Zoé",
-    "CR": ""
+    "CR": "Premier essai en piscine. Bonnes bases pour la respiration avec détendeur. À travailler : équilibrage des oreilles en descente."
   },
   {
     "Moniteur": "Jo",
-    "Date": "2026-05-12",
+    "Date": "2026-09-09",
     "Eleve": "Dupont Léa",
-    "CR": ""
+    "CR": "A l'aise en surface. Difficulté à vider son masque (exercice à répéter). Confiante mais stressée en immersion."
   },
   {
     "Moniteur": "Jo",
-    "Date": "2026-05-12",
+    "Date": "2026-09-09",
     "Eleve": "Martin Noah",
-    "CR": "Ras; Ras"
+    "CR": "Ras; Ras. Excellente maîtrise des signes sous l'eau. Prochaine étape : exercice de partage d'air."
   },
   {
     "Moniteur": "Sam",
-    "Date": "2026-06-02",
+    "Date": "2026-09-16",
     "Eleve": "Dupont Léa",
-    "CR": ""
+    "CR": "Progrès sur le vidage de masque. À surveiller : consommation d'air élevée (respiration saccadée)."
   },
   {
     "Moniteur": "Jo",
-    "Date": "2026-07-14",
+    "Date": "2026-09-23",
     "Eleve": "Martin Noah",
-    "CR": ""
+    "CR": "Exercice de partage d'air réussi. Bon contrôle de la flottabilité. Prêt pour la plongée en milieu naturel."
   },
   {
     "Moniteur": "Sam",
-    "Date": "2026-07-14",
+    "Date": "2026-09-23",
     "Eleve": "Dupont Léa",
-    "CR": ""
+    "CR": "Moins stressée en immersion. Travail sur la stabilisation en palanquée à approfondir."
   },
   {
     "Moniteur": "Sam",
-    "Date": "2026-07-14",
+    "Date": "2026-09-23",
     "Eleve": "Peter Parker",
-    "CR": "Oreilles hs"
+    "CR": "Difficulté à égaliser en descente (oreilles). Conseils donnés : souffler doucement par le nez. À retenter en piscine."
   },
   {
     "Moniteur": "Sam",
-    "Date": "2026-07-14",
+    "Date": "2026-09-23",
     "Eleve": "Sarah Connord",
-    "CR": ""
+    "CR": "Première immersion réussie. Bonnes réactions aux signes du moniteur. À travailler : gestion du gilet stabilisateur."
+  },
+  {
+    "Moniteur": "Jo",
+    "Date": "2026-09-30",
+    "Eleve": "Bernard Zoé",
+    "CR": "Équilibrage des oreilles maîtrisé. Exercice de remontée lente à perfectionner (tendance à remonter trop vite)."
+  },
+  {
+    "Moniteur": "Jo",
+    "Date": "2026-09-30",
+    "Eleve": "Dupont Léa",
+    "CR": "Consommation d'air améliorée. Confiance en progression. Prête pour un exercice de lâcher de détendeur."
+  },
+  {
+    "Moniteur": "Jo",
+    "Date": "2026-09-30",
+    "Eleve": "Martin Noah",
+    "CR": "Ras; Ras. Partage d'air fluide. Prochaine séance : simulation de panne de détendeur."
+  },
+  {
+    "Moniteur": "Sam",
+    "Date": "2026-10-07",
+    "Eleve": "Dupont Léa",
+    "CR": "Lâcher de détendeur réussi après 2 essais. À renforcer : communication sous l'eau avec les autres plongeurs."
+  },
+  {
+    "Moniteur": "Jo",
+    "Date": "2026-10-14",
+    "Eleve": "Martin Noah",
+    "CR": "Simulation de panne de détendeur maîtrisée. Très à l'aise en situation de stress."
+  },
+  {
+    "Moniteur": "Sam",
+    "Date": "2026-10-14",
+    "Eleve": "Dupont Léa",
+    "CR": "Communication sous l'eau en progrès. À travailler : gestion de l'espace autour de soi en palanquée."
+  },
+  {
+    "Moniteur": "Sam",
+    "Date": "2026-10-14",
+    "Eleve": "Peter Parker",
+    "CR": "Équilibrage des oreilles toujours difficile. Essai avec une descente plus lente : amélioration notable."
+  },
+  {
+    "Moniteur": "Sam",
+    "Date": "2026-10-14",
+    "Eleve": "Sarah Connord",
+    "CR": "Gilet stabilisateur mieux maîtrisé. Exercice de remontée d'urgence à prévoir pour la prochaine séance."
   }
 ]
