@@ -32,19 +32,24 @@
   {
     "id": "jo",
     "nom": "Jo",
-    "nb_seances_animees": 2,
+    "nb_seances_animees": 5,
     "dates_seances": [
-      "2026-05-12",
-      "2026-07-14"
+      "2026-06-02",
+      "2026-06-30",
+      "2026-07-28",
+      "2026-08-25",
+      "2026-09-22"
     ],
-    "nb_eleves_suivis": 3,
+    "nb_eleves_suivis": 5,
     "eleves_suivis": [
       "Bernard Zoé",
       "Dupont Léa",
-      "Martin Noah"
+      "Martin Noah",
+      "Peter Parker",
+      "Sarah Connord"
     ],
-    "nb_comptes_rendus": 7,
-    "nb_evaluations_notees": 6
+    "nb_comptes_rendus": 93,
+    "nb_evaluations_notees": 93
   },
   {
     "id": "lanfeust",
@@ -79,19 +84,24 @@
   {
     "id": "sam",
     "nom": "Sam",
-    "nb_seances_animees": 2,
+    "nb_seances_animees": 5,
     "dates_seances": [
-      "2026-06-02",
-      "2026-07-14"
+      "2026-06-16",
+      "2026-07-14",
+      "2026-08-11",
+      "2026-09-08",
+      "2026-09-29"
     ],
-    "nb_eleves_suivis": 3,
+    "nb_eleves_suivis": 5,
     "eleves_suivis": [
+      "Bernard Zoé",
       "Dupont Léa",
+      "Martin Noah",
       "Peter Parker",
       "Sarah Connord"
     ],
-    "nb_comptes_rendus": 6,
-    "nb_evaluations_notees": 2
+    "nb_comptes_rendus": 102,
+    "nb_evaluations_notees": 92
   },
   {
     "id": "wall-e",
