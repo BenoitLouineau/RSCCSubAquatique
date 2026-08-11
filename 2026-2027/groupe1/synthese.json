@@ -1,57 +1,363 @@
 {
-  "date_generation": "2026-08-08T23:04:04",
+  "date_generation": "2026-08-11T19:29:01",
   "nb_eleves": 13,
   "nb_moniteurs": 9,
-  "nb_seances": 4,
-  "nb_comptes_rendus": 13,
+  "nb_seances": 10,
+  "nb_comptes_rendus": 195,
   "nb_competences_referencees": 43,
   "periode": {
-    "date_min": "2026-05-12",
-    "date_max": "2026-07-14"
+    "date_min": "2026-06-02",
+    "date_max": "2026-09-29"
   },
   "acquisition_par_atelier": [
     {
-      "atelier": "Stabilisation",
-      "nb_evaluations": 4,
-      "moyenne": 3.25,
+      "atelier": "Gestion de son matériel",
+      "nb_evaluations": 8,
+      "moyenne": 2.62,
       "note_min": 1,
       "note_max": 4,
-      "notable": false,
-      "compte_dans_moyenne": false
+      "notable": true,
+      "compte_dans_moyenne": true
     },
     {
-      "atelier": "Gestion de l'air",
-      "nb_evaluations": 2,
-      "moyenne": 1.5,
+      "atelier": "Bascule Arrière",
+      "nb_evaluations": 7,
+      "moyenne": 2.57,
       "note_min": 1,
-      "note_max": 2,
-      "notable": false,
-      "compte_dans_moyenne": false
+      "note_max": 4,
+      "notable": true,
+      "compte_dans_moyenne": true
     },
     {
-      "atelier": "Remontée assistée",
-      "nb_evaluations": 1,
-      "moyenne": 2.0,
+      "atelier": "Gréage",
+      "nb_evaluations": 7,
+      "moyenne": 2.71,
+      "note_min": 1,
+      "note_max": 4,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Saut droit",
+      "nb_evaluations": 7,
+      "moyenne": 2.71,
       "note_min": 2,
-      "note_max": 2,
+      "note_max": 4,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "DBN",
+      "nb_evaluations": 6,
+      "moyenne": 2.5,
+      "note_min": 2,
+      "note_max": 3,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "**Bascule Avant PMT",
+      "nb_evaluations": 5,
+      "moyenne": 2.4,
+      "note_min": 2,
+      "note_max": 3,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "360°",
+      "nb_evaluations": 5,
+      "moyenne": 2.2,
+      "note_min": 1,
+      "note_max": 3,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Déplacements immersion",
+      "nb_evaluations": 5,
+      "moyenne": 2.6,
+      "note_min": 2,
+      "note_max": 4,
+      "notable": true,
+      "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "Exam PMT 100m",
+      "nb_evaluations": 5,
+      "moyenne": 2.6,
+      "note_min": 1,
+      "note_max": 3,
       "notable": false,
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "Vidage de masque",
-      "nb_evaluations": 1,
-      "moyenne": 1.0,
-      "note_min": 1,
-      "note_max": 1,
+      "atelier": "Exam capelé 50m",
+      "nb_evaluations": 5,
+      "moyenne": 2.2,
+      "note_min": 2,
+      "note_max": 3,
       "notable": false,
       "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "Gestion du gilet",
+      "nb_evaluations": 5,
+      "moyenne": 2.6,
+      "note_min": 1,
+      "note_max": 3,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "LRE expiration",
+      "nb_evaluations": 5,
+      "moyenne": 2.8,
+      "note_min": 2,
+      "note_max": 3,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "LRE surpression",
+      "nb_evaluations": 5,
+      "moyenne": 2.2,
+      "note_min": 1,
+      "note_max": 3,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Mise en sécu surface",
+      "nb_evaluations": 5,
+      "moyenne": 2.4,
+      "note_min": 1,
+      "note_max": 4,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Palmage",
+      "nb_evaluations": 5,
+      "moyenne": 3.0,
+      "note_min": 2,
+      "note_max": 4,
+      "notable": true,
+      "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "Phoque",
+      "nb_evaluations": 5,
+      "moyenne": 2.8,
+      "note_min": 1,
+      "note_max": 4,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Poumon Ballast",
+      "nb_evaluations": 5,
+      "moyenne": 2.4,
+      "note_min": 1,
+      "note_max": 3,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Remonté expi controlée",
+      "nb_evaluations": 5,
+      "moyenne": 2.6,
+      "note_min": 2,
+      "note_max": 3,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Signes",
+      "nb_evaluations": 5,
+      "moyenne": 2.2,
+      "note_min": 1,
+      "note_max": 3,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Soin au materiel",
+      "nb_evaluations": 5,
+      "moyenne": 2.6,
+      "note_min": 2,
+      "note_max": 3,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Sortie de l'eau",
+      "nb_evaluations": 5,
+      "moyenne": 2.6,
+      "note_min": 2,
+      "note_max": 3,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Stabilisation dynamique",
+      "nb_evaluations": 5,
+      "moyenne": 2.2,
+      "note_min": 2,
+      "note_max": 3,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Stabilisation statique",
+      "nb_evaluations": 5,
+      "moyenne": 2.8,
+      "note_min": 2,
+      "note_max": 4,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Tenue palier",
+      "nb_evaluations": 5,
+      "moyenne": 2.8,
+      "note_min": 2,
+      "note_max": 3,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Vitesse de remontée",
+      "nb_evaluations": 5,
+      "moyenne": 2.8,
+      "note_min": 1,
+      "note_max": 4,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "dégréage",
+      "nb_evaluations": 5,
+      "moyenne": 2.4,
+      "note_min": 2,
+      "note_max": 3,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "**VDM équilibré",
+      "nb_evaluations": 4,
+      "moyenne": 2.75,
+      "note_min": 2,
+      "note_max": 3,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Essoufflement - être pris en charge",
+      "nb_evaluations": 4,
+      "moyenne": 2.5,
+      "note_min": 2,
+      "note_max": 3,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "PA - donne octo",
+      "nb_evaluations": 4,
+      "moyenne": 2.5,
+      "note_min": 2,
+      "note_max": 3,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "PA - donne échange",
+      "nb_evaluations": 4,
+      "moyenne": 3.0,
+      "note_min": 2,
+      "note_max": 4,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "PA - reçoit octo",
+      "nb_evaluations": 4,
+      "moyenne": 2.75,
+      "note_min": 2,
+      "note_max": 4,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "PA - reçoit échange",
+      "nb_evaluations": 4,
+      "moyenne": 2.5,
+      "note_min": 2,
+      "note_max": 4,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Saut droit PMT",
+      "nb_evaluations": 4,
+      "moyenne": 2.25,
+      "note_min": 1,
+      "note_max": 3,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "VDM",
+      "nb_evaluations": 4,
+      "moyenne": 2.25,
+      "note_min": 1,
+      "note_max": 4,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "VDM partiel",
+      "nb_evaluations": 4,
+      "moyenne": 2.0,
+      "note_min": 1,
+      "note_max": 3,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Bascule Arrière PMT",
+      "nb_evaluations": 3,
+      "moyenne": 2.0,
+      "note_min": 1,
+      "note_max": 3,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Canard PMT",
+      "nb_evaluations": 3,
+      "moyenne": 2.67,
+      "note_min": 2,
+      "note_max": 4,
+      "notable": true,
+      "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "Vidage tuba",
+      "nb_evaluations": 3,
+      "moyenne": 2.67,
+      "note_min": 1,
+      "note_max": 4,
+      "notable": true,
+      "compte_dans_moyenne": true
     }
   ],
   "progression_par_eleve": [
     {
       "eleve": "Bernard Zoé",
-      "nb_ateliers_evalues": 3,
-      "moyenne_generale": 3.0
+      "nb_ateliers_evalues": 39,
+      "moyenne_generale": 3.42
     },
     {
       "eleve": "Bruce Wayne",
@@ -65,8 +371,8 @@
     },
     {
       "eleve": "Dupont Léa",
-      "nb_ateliers_evalues": 4,
-      "moyenne_generale": 2.5
+      "nb_ateliers_evalues": 39,
+      "moyenne_generale": 2.58
     },
     {
       "eleve": "Ezio Auditore",
@@ -95,8 +401,8 @@
     },
     {
       "eleve": "Martin Noah",
-      "nb_ateliers_evalues": 3,
-      "moyenne_generale": 2.33
+      "nb_ateliers_evalues": 34,
+      "moyenne_generale": 1.64
     },
     {
       "eleve": "Marty MacFly",
@@ -105,13 +411,13 @@
     },
     {
       "eleve": "Peter Parker",
-      "nb_ateliers_evalues": 1,
-      "moyenne_generale": null
+      "nb_ateliers_evalues": 32,
+      "moyenne_generale": 2.61
     },
     {
       "eleve": "Sarah Connord",
-      "nb_ateliers_evalues": 2,
-      "moyenne_generale": 1.0
+      "nb_ateliers_evalues": 31,
+      "moyenne_generale": 2.57
     }
   ],
   "anomalies": {
@@ -143,12 +449,7 @@
       "Mad Max",
       "Wall-E"
     ],
-    "ateliers_hors_referentiel": [
-      "Gestion de l'air",
-      "Remontée assistée",
-      "Stabilisation",
-      "Vidage de masque"
-    ],
+    "ateliers_hors_referentiel": [],
     "comptes_rendus_doublons": []
   }
 }
