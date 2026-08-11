@@ -2,53 +2,630 @@
   {
     "id": "bernard-zoe",
     "nom": "Bernard Zoé",
-    "nb_seances": 1,
+    "nb_seances": 10,
     "dates_seances": [
-      "2026-05-12"
+      "2026-06-02",
+      "2026-06-16",
+      "2026-06-30",
+      "2026-07-14",
+      "2026-07-28",
+      "2026-08-11",
+      "2026-08-25",
+      "2026-09-08",
+      "2026-09-22",
+      "2026-09-29"
     ],
     "moniteurs": [
-      "Jo"
+      "Jo",
+      "Sam"
     ],
-    "nb_competences_travaillees": 3,
+    "nb_competences_travaillees": 39,
     "competences": {
-      "Stabilisation": {
+      "Gréage": {
+        "nb_evaluations": 2,
+        "derniere_note": 4,
+        "moyenne_notes": 3.5,
+        "historique": [
+          {
+            "date": "2026-06-02",
+            "note": 3,
+            "moniteur": "Jo"
+          },
+          {
+            "date": "2026-09-29",
+            "note": 4,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Gestion de son matériel": {
+        "nb_evaluations": 2,
+        "derniere_note": 4,
+        "moyenne_notes": 3.5,
+        "historique": [
+          {
+            "date": "2026-06-02",
+            "note": 3,
+            "moniteur": "Jo"
+          },
+          {
+            "date": "2026-09-29",
+            "note": 4,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Palmage": {
+        "nb_evaluations": 2,
+        "derniere_note": 4,
+        "moyenne_notes": 3.5,
+        "historique": [
+          {
+            "date": "2026-06-02",
+            "note": 3,
+            "moniteur": "Jo"
+          },
+          {
+            "date": "2026-09-29",
+            "note": 4,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Phoque": {
         "nb_evaluations": 1,
         "derniere_note": 4,
         "moyenne_notes": 4.0,
         "historique": [
           {
-            "date": "2026-05-12",
+            "date": "2026-06-02",
             "note": 4,
             "moniteur": "Jo"
           }
         ]
       },
-      "Théorie": {
+      "Saut droit PMT": {
         "nb_evaluations": 1,
-        "derniere_note": null,
-        "moyenne_notes": null,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
         "historique": [
           {
-            "date": "2026-05-12",
-            "note": null,
+            "date": "2026-06-16",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Bascule Arrière PMT": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-06-16",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Canard PMT": {
+        "nb_evaluations": 1,
+        "derniere_note": 4,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-06-16",
+            "note": 4,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Vidage tuba": {
+        "nb_evaluations": 1,
+        "derniere_note": 4,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-06-16",
+            "note": 4,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Saut droit": {
+        "nb_evaluations": 1,
+        "derniere_note": 4,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-06-30",
+            "note": 4,
             "moniteur": "Jo"
           }
         ]
       },
-      "Gestion de l'air": {
+      "Bascule Arrière": {
         "nb_evaluations": 1,
-        "derniere_note": 2,
-        "moyenne_notes": 2.0,
+        "derniere_note": 4,
+        "moyenne_notes": 4.0,
         "historique": [
           {
-            "date": "2026-05-12",
-            "note": 2,
+            "date": "2026-06-30",
+            "note": 4,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "DBN": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-06-30",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Stabilisation statique": {
+        "nb_evaluations": 1,
+        "derniere_note": 4,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-06-30",
+            "note": 4,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "LRE expiration": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-07-14",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "LRE surpression": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-07-14",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Poumon Ballast": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-07-14",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Gestion du gilet": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-07-14",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Théorie": {
+        "nb_evaluations": 2,
+        "derniere_note": null,
+        "moyenne_notes": null,
+        "historique": [
+          {
+            "date": "2026-07-14",
+            "note": null,
+            "moniteur": "Sam"
+          },
+          {
+            "date": "2026-09-29",
+            "note": null,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Stabilisation dynamique": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-07-28",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Déplacements immersion": {
+        "nb_evaluations": 1,
+        "derniere_note": 4,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-07-28",
+            "note": 4,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "**Bascule Avant PMT": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-07-28",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Signes": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-07-28",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "PA - reçoit octo": {
+        "nb_evaluations": 1,
+        "derniere_note": 4,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-08-11",
+            "note": 4,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "PA - donne octo": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-08-11",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "PA - reçoit échange": {
+        "nb_evaluations": 1,
+        "derniere_note": 4,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-08-11",
+            "note": 4,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "PA - donne échange": {
+        "nb_evaluations": 1,
+        "derniere_note": 4,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-08-11",
+            "note": 4,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Essoufflement - être pris en charge": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-08-11",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "VDM partiel": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-08-25",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "VDM": {
+        "nb_evaluations": 1,
+        "derniere_note": 4,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-08-25",
+            "note": 4,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "**VDM équilibré": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-08-25",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Vitesse de remontée": {
+        "nb_evaluations": 1,
+        "derniere_note": 4,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-09-08",
+            "note": 4,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Tenue palier": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-08",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "360°": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-08",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Remonté expi controlée": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-08",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Mise en sécu surface": {
+        "nb_evaluations": 1,
+        "derniere_note": 4,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-09-08",
+            "note": 4,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Sortie de l'eau": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "dégréage": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Soin au materiel": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Exam PMT 100m": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Exam capelé 50m": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 3,
             "moniteur": "Jo"
           }
         ]
       }
     },
-    "commentaires": []
+    "commentaires": [
+      {
+        "date": "2026-06-02",
+        "moniteur": "Jo",
+        "atelier": "Palmage",
+        "commentaire": "Bonne autonomie"
+      },
+      {
+        "date": "2026-06-16",
+        "moniteur": "Sam",
+        "atelier": "Saut droit PMT",
+        "commentaire": "Très à l'aise"
+      },
+      {
+        "date": "2026-06-16",
+        "moniteur": "Sam",
+        "atelier": "Bascule Arrière PMT",
+        "commentaire": "Très à l'aise"
+      },
+      {
+        "date": "2026-06-30",
+        "moniteur": "Jo",
+        "atelier": "Bascule Arrière",
+        "commentaire": "Manque un peu d'assurance"
+      },
+      {
+        "date": "2026-06-30",
+        "moniteur": "Jo",
+        "atelier": "Stabilisation statique",
+        "commentaire": "À revoir en douceur"
+      },
+      {
+        "date": "2026-07-14",
+        "moniteur": "Sam",
+        "atelier": "LRE surpression",
+        "commentaire": "Bonne autonomie"
+      },
+      {
+        "date": "2026-07-28",
+        "moniteur": "Jo",
+        "atelier": "**Bascule Avant PMT",
+        "commentaire": "RAS"
+      },
+      {
+        "date": "2026-08-11",
+        "moniteur": "Sam",
+        "atelier": "PA - donne octo",
+        "commentaire": "Progrès net"
+      },
+      {
+        "date": "2026-08-11",
+        "moniteur": "Sam",
+        "atelier": "PA - reçoit échange",
+        "commentaire": "RAS"
+      },
+      {
+        "date": "2026-08-11",
+        "moniteur": "Sam",
+        "atelier": "PA - donne échange",
+        "commentaire": "Bonne autonomie"
+      },
+      {
+        "date": "2026-08-25",
+        "moniteur": "Jo",
+        "atelier": "VDM",
+        "commentaire": "Bien"
+      },
+      {
+        "date": "2026-09-08",
+        "moniteur": "Sam",
+        "atelier": "Remonté expi controlée",
+        "commentaire": "Progrès net"
+      },
+      {
+        "date": "2026-09-08",
+        "moniteur": "Sam",
+        "atelier": "Mise en sécu surface",
+        "commentaire": "Très à l'aise"
+      },
+      {
+        "date": "2026-09-22",
+        "moniteur": "Jo",
+        "atelier": "Sortie de l'eau",
+        "commentaire": "Bien"
+      },
+      {
+        "date": "2026-09-22",
+        "moniteur": "Jo",
+        "atelier": "Soin au materiel",
+        "commentaire": "Bonne autonomie"
+      },
+      {
+        "date": "2026-09-22",
+        "moniteur": "Jo",
+        "atelier": "Exam capelé 50m",
+        "commentaire": "À revoir en douceur"
+      },
+      {
+        "date": "2026-09-29",
+        "moniteur": "Sam",
+        "atelier": "Théorie",
+        "commentaire": "Révisions générales"
+      },
+      {
+        "date": "2026-09-29",
+        "moniteur": "Sam",
+        "atelier": "Gestion de son matériel",
+        "commentaire": "Très à l'aise"
+      },
+      {
+        "date": "2026-09-29",
+        "moniteur": "Sam",
+        "atelier": "Palmage",
+        "commentaire": "Manque un peu d'assurance"
+      }
+    ]
   },
   {
     "id": "bruce-wayne",
@@ -73,56 +650,234 @@
   {
     "id": "dupont-lea",
     "nom": "Dupont Léa",
-    "nb_seances": 3,
+    "nb_seances": 10,
     "dates_seances": [
-      "2026-05-12",
       "2026-06-02",
-      "2026-07-14"
+      "2026-06-16",
+      "2026-06-30",
+      "2026-07-14",
+      "2026-07-28",
+      "2026-08-11",
+      "2026-08-25",
+      "2026-09-08",
+      "2026-09-22",
+      "2026-09-29"
     ],
     "moniteurs": [
       "Jo",
       "Sam"
     ],
-    "nb_competences_travaillees": 4,
+    "nb_competences_travaillees": 39,
     "competences": {
-      "Théorie": {
-        "nb_evaluations": 1,
-        "derniere_note": null,
-        "moyenne_notes": null,
-        "historique": [
-          {
-            "date": "2026-06-02",
-            "note": null,
-            "moniteur": "Sam"
-          }
-        ]
-      },
-      "Gestion de l'air": {
-        "nb_evaluations": 1,
-        "derniere_note": 1,
-        "moyenne_notes": 1.0,
-        "historique": [
-          {
-            "date": "2026-06-02",
-            "note": 1,
-            "moniteur": "Sam"
-          }
-        ]
-      },
-      "Stabilisation": {
-        "nb_evaluations": 1,
+      "Gréage": {
+        "nb_evaluations": 2,
         "derniere_note": 4,
-        "moyenne_notes": 4.0,
+        "moyenne_notes": 3.0,
         "historique": [
           {
-            "date": "2026-05-12",
+            "date": "2026-06-02",
+            "note": 2,
+            "moniteur": "Jo"
+          },
+          {
+            "date": "2026-09-29",
             "note": 4,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Gestion de son matériel": {
+        "nb_evaluations": 2,
+        "derniere_note": 3,
+        "moyenne_notes": 2.5,
+        "historique": [
+          {
+            "date": "2026-06-02",
+            "note": 2,
+            "moniteur": "Jo"
+          },
+          {
+            "date": "2026-09-29",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Palmage": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-06-02",
+            "note": 3,
             "moniteur": "Jo"
           }
         ]
       },
-      "Pas d'atelier": {
+      "Phoque": {
         "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-06-02",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Saut droit PMT": {
+        "nb_evaluations": 2,
+        "derniere_note": 3,
+        "moyenne_notes": 2.5,
+        "historique": [
+          {
+            "date": "2026-06-16",
+            "note": 2,
+            "moniteur": "Sam"
+          },
+          {
+            "date": "2026-09-29",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Bascule Arrière PMT": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-06-16",
+            "note": 2,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Canard PMT": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-06-16",
+            "note": 2,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Vidage tuba": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-06-16",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Saut droit": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-06-30",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Bascule Arrière": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-06-30",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "DBN": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-06-30",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Stabilisation statique": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-06-30",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "LRE expiration": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-07-14",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "LRE surpression": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-07-14",
+            "note": 2,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Poumon Ballast": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-07-14",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Gestion du gilet": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-07-14",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Théorie": {
+        "nb_evaluations": 2,
         "derniere_note": null,
         "moyenne_notes": null,
         "historique": [
@@ -130,11 +885,419 @@
             "date": "2026-07-14",
             "note": null,
             "moniteur": "Sam"
+          },
+          {
+            "date": "2026-09-29",
+            "note": null,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Stabilisation dynamique": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-07-28",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Déplacements immersion": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-07-28",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "**Bascule Avant PMT": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-07-28",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Signes": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-07-28",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "PA - reçoit octo": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-08-11",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "PA - donne octo": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-08-11",
+            "note": 2,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "PA - reçoit échange": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-08-11",
+            "note": 2,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "PA - donne échange": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-08-11",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Essoufflement - être pris en charge": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-08-11",
+            "note": 2,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "VDM partiel": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-08-25",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "VDM": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-08-25",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "**VDM équilibré": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-08-25",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Vitesse de remontée": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-08",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Tenue palier": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-08",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "360°": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-09-08",
+            "note": 2,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Remonté expi controlée": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-08",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Mise en sécu surface": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-09-08",
+            "note": 2,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Sortie de l'eau": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "dégréage": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Soin au materiel": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Exam PMT 100m": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Exam capelé 50m": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 2,
+            "moniteur": "Jo"
           }
         ]
       }
     },
-    "commentaires": []
+    "commentaires": [
+      {
+        "date": "2026-06-02",
+        "moniteur": "Jo",
+        "atelier": "Gestion de son matériel",
+        "commentaire": "Manque un peu d'assurance"
+      },
+      {
+        "date": "2026-06-02",
+        "moniteur": "Jo",
+        "atelier": "Phoque",
+        "commentaire": "RAS"
+      },
+      {
+        "date": "2026-06-16",
+        "moniteur": "Sam",
+        "atelier": "Saut droit PMT",
+        "commentaire": "Manque un peu d'assurance"
+      },
+      {
+        "date": "2026-06-16",
+        "moniteur": "Sam",
+        "atelier": "Bascule Arrière PMT",
+        "commentaire": "Bien"
+      },
+      {
+        "date": "2026-06-16",
+        "moniteur": "Sam",
+        "atelier": "Vidage tuba",
+        "commentaire": "Manque un peu d'assurance"
+      },
+      {
+        "date": "2026-06-30",
+        "moniteur": "Jo",
+        "atelier": "Stabilisation statique",
+        "commentaire": "À revoir en douceur"
+      },
+      {
+        "date": "2026-07-14",
+        "moniteur": "Sam",
+        "atelier": "LRE expiration",
+        "commentaire": "Bonne autonomie"
+      },
+      {
+        "date": "2026-07-14",
+        "moniteur": "Sam",
+        "atelier": "LRE surpression",
+        "commentaire": "À revoir en douceur"
+      },
+      {
+        "date": "2026-07-28",
+        "moniteur": "Jo",
+        "atelier": "Stabilisation dynamique",
+        "commentaire": "Très à l'aise"
+      },
+      {
+        "date": "2026-08-11",
+        "moniteur": "Sam",
+        "atelier": "PA - donne octo",
+        "commentaire": "Progrès net"
+      },
+      {
+        "date": "2026-08-11",
+        "moniteur": "Sam",
+        "atelier": "PA - donne échange",
+        "commentaire": "Très à l'aise"
+      },
+      {
+        "date": "2026-08-11",
+        "moniteur": "Sam",
+        "atelier": "Essoufflement - être pris en charge",
+        "commentaire": "Bonne autonomie"
+      },
+      {
+        "date": "2026-08-25",
+        "moniteur": "Jo",
+        "atelier": "VDM partiel",
+        "commentaire": "Bien"
+      },
+      {
+        "date": "2026-08-25",
+        "moniteur": "Jo",
+        "atelier": "VDM",
+        "commentaire": "Progrès net"
+      },
+      {
+        "date": "2026-08-25",
+        "moniteur": "Jo",
+        "atelier": "**VDM équilibré",
+        "commentaire": "Manque un peu d'assurance"
+      },
+      {
+        "date": "2026-09-08",
+        "moniteur": "Sam",
+        "atelier": "Vitesse de remontée",
+        "commentaire": "RAS"
+      },
+      {
+        "date": "2026-09-08",
+        "moniteur": "Sam",
+        "atelier": "Remonté expi controlée",
+        "commentaire": "Progrès net"
+      },
+      {
+        "date": "2026-09-22",
+        "moniteur": "Jo",
+        "atelier": "dégréage",
+        "commentaire": "Très à l'aise"
+      },
+      {
+        "date": "2026-09-22",
+        "moniteur": "Jo",
+        "atelier": "Soin au materiel",
+        "commentaire": "Bien"
+      },
+      {
+        "date": "2026-09-29",
+        "moniteur": "Sam",
+        "atelier": "Théorie",
+        "commentaire": "Révisions générales"
+      },
+      {
+        "date": "2026-09-29",
+        "moniteur": "Sam",
+        "atelier": "Gréage",
+        "commentaire": "À revoir en douceur"
+      },
+      {
+        "date": "2026-09-29",
+        "moniteur": "Sam",
+        "atelier": "Gestion de son matériel",
+        "commentaire": "RAS"
+      },
+      {
+        "date": "2026-09-29",
+        "moniteur": "Sam",
+        "atelier": "Saut droit PMT",
+        "commentaire": "Très à l'aise"
+      }
+    ]
   },
   {
     "id": "ezio-auditore",
@@ -189,41 +1352,196 @@
   {
     "id": "martin-noah",
     "nom": "Martin Noah",
-    "nb_seances": 2,
+    "nb_seances": 9,
     "dates_seances": [
-      "2026-05-12",
-      "2026-07-14"
+      "2026-06-02",
+      "2026-06-16",
+      "2026-06-30",
+      "2026-07-14",
+      "2026-07-28",
+      "2026-08-25",
+      "2026-09-08",
+      "2026-09-22",
+      "2026-09-29"
     ],
     "moniteurs": [
-      "Jo"
+      "Jo",
+      "Sam"
     ],
-    "nb_competences_travaillees": 3,
+    "nb_competences_travaillees": 34,
     "competences": {
-      "Remontée assistée": {
+      "Gréage": {
+        "nb_evaluations": 2,
+        "derniere_note": 2,
+        "moyenne_notes": 1.5,
+        "historique": [
+          {
+            "date": "2026-06-02",
+            "note": 1,
+            "moniteur": "Jo"
+          },
+          {
+            "date": "2026-09-29",
+            "note": 2,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Gestion de son matériel": {
+        "nb_evaluations": 2,
+        "derniere_note": 3,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-06-02",
+            "note": 1,
+            "moniteur": "Jo"
+          },
+          {
+            "date": "2026-09-29",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Palmage": {
         "nb_evaluations": 1,
         "derniere_note": 2,
         "moyenne_notes": 2.0,
         "historique": [
           {
-            "date": "2026-05-12",
+            "date": "2026-06-02",
             "note": 2,
             "moniteur": "Jo"
           }
         ]
       },
-      "Stabilisation": {
-        "nb_evaluations": 1,
-        "derniere_note": 4,
-        "moyenne_notes": 4.0,
+      "Phoque": {
+        "nb_evaluations": 2,
+        "derniere_note": 3,
+        "moyenne_notes": 2.0,
         "historique": [
           {
-            "date": "2026-05-12",
-            "note": 4,
+            "date": "2026-06-02",
+            "note": 1,
+            "moniteur": "Jo"
+          },
+          {
+            "date": "2026-09-29",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Saut droit PMT": {
+        "nb_evaluations": 1,
+        "derniere_note": 1,
+        "moyenne_notes": 1.0,
+        "historique": [
+          {
+            "date": "2026-06-16",
+            "note": 1,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Bascule Arrière PMT": {
+        "nb_evaluations": 1,
+        "derniere_note": 1,
+        "moyenne_notes": 1.0,
+        "historique": [
+          {
+            "date": "2026-06-16",
+            "note": 1,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Canard PMT": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-06-16",
+            "note": 2,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Vidage tuba": {
+        "nb_evaluations": 1,
+        "derniere_note": 1,
+        "moyenne_notes": 1.0,
+        "historique": [
+          {
+            "date": "2026-06-16",
+            "note": 1,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Saut droit": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-06-30",
+            "note": 2,
             "moniteur": "Jo"
           }
         ]
       },
-      "Vidage de masque": {
+      "Bascule Arrière": {
+        "nb_evaluations": 1,
+        "derniere_note": 1,
+        "moyenne_notes": 1.0,
+        "historique": [
+          {
+            "date": "2026-06-30",
+            "note": 1,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "DBN": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-06-30",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Stabilisation statique": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-06-30",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "LRE expiration": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-07-14",
+            "note": 2,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "LRE surpression": {
         "nb_evaluations": 1,
         "derniere_note": 1,
         "moyenne_notes": 1.0,
@@ -231,6 +1549,251 @@
           {
             "date": "2026-07-14",
             "note": 1,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Poumon Ballast": {
+        "nb_evaluations": 1,
+        "derniere_note": 1,
+        "moyenne_notes": 1.0,
+        "historique": [
+          {
+            "date": "2026-07-14",
+            "note": 1,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Gestion du gilet": {
+        "nb_evaluations": 1,
+        "derniere_note": 1,
+        "moyenne_notes": 1.0,
+        "historique": [
+          {
+            "date": "2026-07-14",
+            "note": 1,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Théorie": {
+        "nb_evaluations": 2,
+        "derniere_note": null,
+        "moyenne_notes": null,
+        "historique": [
+          {
+            "date": "2026-07-14",
+            "note": null,
+            "moniteur": "Sam"
+          },
+          {
+            "date": "2026-09-29",
+            "note": null,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Stabilisation dynamique": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-07-28",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Déplacements immersion": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-07-28",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "**Bascule Avant PMT": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-07-28",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Signes": {
+        "nb_evaluations": 1,
+        "derniere_note": 1,
+        "moyenne_notes": 1.0,
+        "historique": [
+          {
+            "date": "2026-07-28",
+            "note": 1,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "VDM partiel": {
+        "nb_evaluations": 1,
+        "derniere_note": 1,
+        "moyenne_notes": 1.0,
+        "historique": [
+          {
+            "date": "2026-08-25",
+            "note": 1,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "VDM": {
+        "nb_evaluations": 1,
+        "derniere_note": 1,
+        "moyenne_notes": 1.0,
+        "historique": [
+          {
+            "date": "2026-08-25",
+            "note": 1,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "**VDM équilibré": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-08-25",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Vitesse de remontée": {
+        "nb_evaluations": 1,
+        "derniere_note": 1,
+        "moyenne_notes": 1.0,
+        "historique": [
+          {
+            "date": "2026-09-08",
+            "note": 1,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Tenue palier": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-09-08",
+            "note": 2,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "360°": {
+        "nb_evaluations": 1,
+        "derniere_note": 1,
+        "moyenne_notes": 1.0,
+        "historique": [
+          {
+            "date": "2026-09-08",
+            "note": 1,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Remonté expi controlée": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-09-08",
+            "note": 2,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Mise en sécu surface": {
+        "nb_evaluations": 1,
+        "derniere_note": 1,
+        "moyenne_notes": 1.0,
+        "historique": [
+          {
+            "date": "2026-09-08",
+            "note": 1,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Sortie de l'eau": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "dégréage": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Soin au materiel": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Exam PMT 100m": {
+        "nb_evaluations": 1,
+        "derniere_note": 1,
+        "moyenne_notes": 1.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 1,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Exam capelé 50m": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 2,
             "moniteur": "Jo"
           }
         ]
@@ -238,16 +1801,130 @@
     },
     "commentaires": [
       {
-        "date": "2026-05-12",
+        "date": "2026-06-02",
         "moniteur": "Jo",
-        "atelier": "Remontée assistée",
-        "commentaire": "Ras"
+        "atelier": "Gréage",
+        "commentaire": "Progrès net"
       },
       {
-        "date": "2026-05-12",
+        "date": "2026-06-16",
+        "moniteur": "Sam",
+        "atelier": "Saut droit PMT",
+        "commentaire": "Très à l'aise"
+      },
+      {
+        "date": "2026-06-16",
+        "moniteur": "Sam",
+        "atelier": "Vidage tuba",
+        "commentaire": "Bonne autonomie"
+      },
+      {
+        "date": "2026-06-30",
         "moniteur": "Jo",
-        "atelier": "Stabilisation",
-        "commentaire": "Ras"
+        "atelier": "Bascule Arrière",
+        "commentaire": "RAS"
+      },
+      {
+        "date": "2026-06-30",
+        "moniteur": "Jo",
+        "atelier": "DBN",
+        "commentaire": "Progrès net"
+      },
+      {
+        "date": "2026-07-14",
+        "moniteur": "Sam",
+        "atelier": "LRE surpression",
+        "commentaire": "RAS"
+      },
+      {
+        "date": "2026-07-14",
+        "moniteur": "Sam",
+        "atelier": "Gestion du gilet",
+        "commentaire": "RAS"
+      },
+      {
+        "date": "2026-07-28",
+        "moniteur": "Jo",
+        "atelier": "Signes",
+        "commentaire": "Bonne autonomie"
+      },
+      {
+        "date": "2026-08-25",
+        "moniteur": "Jo",
+        "atelier": "VDM partiel",
+        "commentaire": "Très à l'aise"
+      },
+      {
+        "date": "2026-08-25",
+        "moniteur": "Jo",
+        "atelier": "VDM",
+        "commentaire": "RAS"
+      },
+      {
+        "date": "2026-08-25",
+        "moniteur": "Jo",
+        "atelier": "**VDM équilibré",
+        "commentaire": "À revoir en douceur"
+      },
+      {
+        "date": "2026-09-08",
+        "moniteur": "Sam",
+        "atelier": "Remonté expi controlée",
+        "commentaire": "Manque un peu d'assurance"
+      },
+      {
+        "date": "2026-09-08",
+        "moniteur": "Sam",
+        "atelier": "Mise en sécu surface",
+        "commentaire": "Progrès net"
+      },
+      {
+        "date": "2026-09-22",
+        "moniteur": "Jo",
+        "atelier": "Sortie de l'eau",
+        "commentaire": "Bonne autonomie"
+      },
+      {
+        "date": "2026-09-22",
+        "moniteur": "Jo",
+        "atelier": "dégréage",
+        "commentaire": "À revoir en douceur"
+      },
+      {
+        "date": "2026-09-22",
+        "moniteur": "Jo",
+        "atelier": "Soin au materiel",
+        "commentaire": "Bonne autonomie"
+      },
+      {
+        "date": "2026-09-22",
+        "moniteur": "Jo",
+        "atelier": "Exam PMT 100m",
+        "commentaire": "À revoir en douceur"
+      },
+      {
+        "date": "2026-09-22",
+        "moniteur": "Jo",
+        "atelier": "Exam capelé 50m",
+        "commentaire": "Très à l'aise"
+      },
+      {
+        "date": "2026-09-29",
+        "moniteur": "Sam",
+        "atelier": "Théorie",
+        "commentaire": "Révisions générales"
+      },
+      {
+        "date": "2026-09-29",
+        "moniteur": "Sam",
+        "atelier": "Gréage",
+        "commentaire": "Bien"
+      },
+      {
+        "date": "2026-09-29",
+        "moniteur": "Sam",
+        "atelier": "Phoque",
+        "commentaire": "RAS"
       }
     ]
   },
@@ -264,17 +1941,184 @@
   {
     "id": "peter-parker",
     "nom": "Peter Parker",
-    "nb_seances": 1,
+    "nb_seances": 8,
     "dates_seances": [
-      "2026-07-14"
+      "2026-06-02",
+      "2026-06-30",
+      "2026-07-14",
+      "2026-07-28",
+      "2026-08-11",
+      "2026-09-08",
+      "2026-09-22",
+      "2026-09-29"
     ],
     "moniteurs": [
+      "Jo",
       "Sam"
     ],
-    "nb_competences_travaillees": 1,
+    "nb_competences_travaillees": 32,
     "competences": {
-      "Pas d'atelier": {
+      "Gréage": {
         "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-06-02",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Gestion de son matériel": {
+        "nb_evaluations": 2,
+        "derniere_note": 3,
+        "moyenne_notes": 2.5,
+        "historique": [
+          {
+            "date": "2026-06-02",
+            "note": 2,
+            "moniteur": "Jo"
+          },
+          {
+            "date": "2026-09-29",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Palmage": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-06-02",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Phoque": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-06-02",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Saut droit": {
+        "nb_evaluations": 2,
+        "derniere_note": 3,
+        "moyenne_notes": 2.5,
+        "historique": [
+          {
+            "date": "2026-06-30",
+            "note": 2,
+            "moniteur": "Jo"
+          },
+          {
+            "date": "2026-09-29",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Bascule Arrière": {
+        "nb_evaluations": 2,
+        "derniere_note": 3,
+        "moyenne_notes": 2.5,
+        "historique": [
+          {
+            "date": "2026-06-30",
+            "note": 2,
+            "moniteur": "Jo"
+          },
+          {
+            "date": "2026-09-29",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "DBN": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-06-30",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Stabilisation statique": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-06-30",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "LRE expiration": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-07-14",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "LRE surpression": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-07-14",
+            "note": 2,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Poumon Ballast": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-07-14",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Gestion du gilet": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-07-14",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Théorie": {
+        "nb_evaluations": 2,
         "derniere_note": null,
         "moyenne_notes": null,
         "historique": [
@@ -282,45 +2126,493 @@
             "date": "2026-07-14",
             "note": null,
             "moniteur": "Sam"
+          },
+          {
+            "date": "2026-09-29",
+            "note": null,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Stabilisation dynamique": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-07-28",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Déplacements immersion": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-07-28",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "**Bascule Avant PMT": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-07-28",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Signes": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-07-28",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "PA - reçoit octo": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-08-11",
+            "note": 2,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "PA - donne octo": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-08-11",
+            "note": 2,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "PA - reçoit échange": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-08-11",
+            "note": 2,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "PA - donne échange": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-08-11",
+            "note": 2,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Essoufflement - être pris en charge": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-08-11",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Vitesse de remontée": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-08",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Tenue palier": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-08",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "360°": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-08",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Remonté expi controlée": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-08",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Mise en sécu surface": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-09-08",
+            "note": 2,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Sortie de l'eau": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "dégréage": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Soin au materiel": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Exam PMT 100m": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Exam capelé 50m": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 2,
+            "moniteur": "Jo"
           }
         ]
       }
     },
     "commentaires": [
       {
+        "date": "2026-06-02",
+        "moniteur": "Jo",
+        "atelier": "Gréage",
+        "commentaire": "Manque un peu d'assurance"
+      },
+      {
+        "date": "2026-06-02",
+        "moniteur": "Jo",
+        "atelier": "Gestion de son matériel",
+        "commentaire": "À revoir en douceur"
+      },
+      {
+        "date": "2026-06-02",
+        "moniteur": "Jo",
+        "atelier": "Palmage",
+        "commentaire": "Bonne autonomie"
+      },
+      {
+        "date": "2026-06-02",
+        "moniteur": "Jo",
+        "atelier": "Phoque",
+        "commentaire": "Manque un peu d'assurance"
+      },
+      {
+        "date": "2026-06-30",
+        "moniteur": "Jo",
+        "atelier": "Saut droit",
+        "commentaire": "Manque un peu d'assurance"
+      },
+      {
+        "date": "2026-06-30",
+        "moniteur": "Jo",
+        "atelier": "DBN",
+        "commentaire": "Bonne autonomie"
+      },
+      {
         "date": "2026-07-14",
         "moniteur": "Sam",
-        "atelier": "Pas d'atelier",
-        "commentaire": "Oreilles hs"
+        "atelier": "LRE expiration",
+        "commentaire": "Bien"
+      },
+      {
+        "date": "2026-07-14",
+        "moniteur": "Sam",
+        "atelier": "LRE surpression",
+        "commentaire": "Bonne autonomie"
+      },
+      {
+        "date": "2026-07-28",
+        "moniteur": "Jo",
+        "atelier": "Stabilisation dynamique",
+        "commentaire": "RAS"
+      },
+      {
+        "date": "2026-07-28",
+        "moniteur": "Jo",
+        "atelier": "Signes",
+        "commentaire": "RAS"
+      },
+      {
+        "date": "2026-08-11",
+        "moniteur": "Sam",
+        "atelier": "PA - reçoit octo",
+        "commentaire": "Bien"
+      },
+      {
+        "date": "2026-08-11",
+        "moniteur": "Sam",
+        "atelier": "PA - donne octo",
+        "commentaire": "Manque un peu d'assurance"
+      },
+      {
+        "date": "2026-08-11",
+        "moniteur": "Sam",
+        "atelier": "PA - donne échange",
+        "commentaire": "Bien"
+      },
+      {
+        "date": "2026-09-08",
+        "moniteur": "Sam",
+        "atelier": "Vitesse de remontée",
+        "commentaire": "Progrès net"
+      },
+      {
+        "date": "2026-09-08",
+        "moniteur": "Sam",
+        "atelier": "Tenue palier",
+        "commentaire": "Bien"
+      },
+      {
+        "date": "2026-09-08",
+        "moniteur": "Sam",
+        "atelier": "360°",
+        "commentaire": "Bien"
+      },
+      {
+        "date": "2026-09-22",
+        "moniteur": "Jo",
+        "atelier": "Sortie de l'eau",
+        "commentaire": "Bonne autonomie"
+      },
+      {
+        "date": "2026-09-22",
+        "moniteur": "Jo",
+        "atelier": "Exam PMT 100m",
+        "commentaire": "RAS"
+      },
+      {
+        "date": "2026-09-29",
+        "moniteur": "Sam",
+        "atelier": "Théorie",
+        "commentaire": "Révisions générales"
       }
     ]
   },
   {
     "id": "sarah-connord",
     "nom": "Sarah Connord",
-    "nb_seances": 1,
+    "nb_seances": 8,
     "dates_seances": [
-      "2026-07-14"
+      "2026-06-30",
+      "2026-07-14",
+      "2026-07-28",
+      "2026-08-11",
+      "2026-08-25",
+      "2026-09-08",
+      "2026-09-22",
+      "2026-09-29"
     ],
     "moniteurs": [
+      "Jo",
       "Sam"
     ],
-    "nb_competences_travaillees": 2,
+    "nb_competences_travaillees": 31,
     "competences": {
-      "Stabilisation": {
+      "Saut droit": {
+        "nb_evaluations": 2,
+        "derniere_note": 3,
+        "moyenne_notes": 2.5,
+        "historique": [
+          {
+            "date": "2026-06-30",
+            "note": 2,
+            "moniteur": "Jo"
+          },
+          {
+            "date": "2026-09-29",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Bascule Arrière": {
+        "nb_evaluations": 2,
+        "derniere_note": 3,
+        "moyenne_notes": 2.5,
+        "historique": [
+          {
+            "date": "2026-06-30",
+            "note": 2,
+            "moniteur": "Jo"
+          },
+          {
+            "date": "2026-09-29",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "DBN": {
+        "nb_evaluations": 2,
+        "derniere_note": 3,
+        "moyenne_notes": 2.5,
+        "historique": [
+          {
+            "date": "2026-06-30",
+            "note": 2,
+            "moniteur": "Jo"
+          },
+          {
+            "date": "2026-09-29",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Stabilisation statique": {
         "nb_evaluations": 1,
-        "derniere_note": 1,
-        "moyenne_notes": 1.0,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-06-30",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "LRE expiration": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
         "historique": [
           {
             "date": "2026-07-14",
-            "note": 1,
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "LRE surpression": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-07-14",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Poumon Ballast": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-07-14",
+            "note": 2,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Gestion du gilet": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-07-14",
+            "note": 3,
             "moniteur": "Sam"
           }
         ]
       },
       "Théorie": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": null,
         "moyenne_notes": null,
         "historique": [
@@ -328,10 +2620,370 @@
             "date": "2026-07-14",
             "note": null,
             "moniteur": "Sam"
+          },
+          {
+            "date": "2026-09-29",
+            "note": null,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Stabilisation dynamique": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-07-28",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Déplacements immersion": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-07-28",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "**Bascule Avant PMT": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-07-28",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Signes": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-07-28",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "PA - reçoit octo": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-08-11",
+            "note": 2,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "PA - donne octo": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-08-11",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "PA - reçoit échange": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-08-11",
+            "note": 2,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "PA - donne échange": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-08-11",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Essoufflement - être pris en charge": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-08-11",
+            "note": 2,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "VDM partiel": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-08-25",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "VDM": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-08-25",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "**VDM équilibré": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-08-25",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Vitesse de remontée": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-08",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Tenue palier": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-08",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "360°": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-09-08",
+            "note": 2,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Remonté expi controlée": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-09-08",
+            "note": 2,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Mise en sécu surface": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-08",
+            "note": 3,
+            "moniteur": "Sam"
+          }
+        ]
+      },
+      "Sortie de l'eau": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 2,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "dégréage": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Soin au materiel": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Exam PMT 100m": {
+        "nb_evaluations": 1,
+        "derniere_note": 3,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 3,
+            "moniteur": "Jo"
+          }
+        ]
+      },
+      "Exam capelé 50m": {
+        "nb_evaluations": 1,
+        "derniere_note": 2,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 2,
+            "moniteur": "Jo"
           }
         ]
       }
     },
-    "commentaires": []
+    "commentaires": [
+      {
+        "date": "2026-06-30",
+        "moniteur": "Jo",
+        "atelier": "Bascule Arrière",
+        "commentaire": "À revoir en douceur"
+      },
+      {
+        "date": "2026-06-30",
+        "moniteur": "Jo",
+        "atelier": "DBN",
+        "commentaire": "Très à l'aise"
+      },
+      {
+        "date": "2026-07-14",
+        "moniteur": "Sam",
+        "atelier": "LRE surpression",
+        "commentaire": "RAS"
+      },
+      {
+        "date": "2026-07-14",
+        "moniteur": "Sam",
+        "atelier": "Gestion du gilet",
+        "commentaire": "RAS"
+      },
+      {
+        "date": "2026-07-28",
+        "moniteur": "Jo",
+        "atelier": "Stabilisation dynamique",
+        "commentaire": "Bien"
+      },
+      {
+        "date": "2026-07-28",
+        "moniteur": "Jo",
+        "atelier": "Déplacements immersion",
+        "commentaire": "Bonne autonomie"
+      },
+      {
+        "date": "2026-07-28",
+        "moniteur": "Jo",
+        "atelier": "**Bascule Avant PMT",
+        "commentaire": "À revoir en douceur"
+      },
+      {
+        "date": "2026-07-28",
+        "moniteur": "Jo",
+        "atelier": "Signes",
+        "commentaire": "Bien"
+      },
+      {
+        "date": "2026-08-11",
+        "moniteur": "Sam",
+        "atelier": "PA - reçoit échange",
+        "commentaire": "Progrès net"
+      },
+      {
+        "date": "2026-08-11",
+        "moniteur": "Sam",
+        "atelier": "PA - donne échange",
+        "commentaire": "À revoir en douceur"
+      },
+      {
+        "date": "2026-09-08",
+        "moniteur": "Sam",
+        "atelier": "Vitesse de remontée",
+        "commentaire": "Bonne autonomie"
+      },
+      {
+        "date": "2026-09-08",
+        "moniteur": "Sam",
+        "atelier": "Remonté expi controlée",
+        "commentaire": "Progrès net"
+      },
+      {
+        "date": "2026-09-22",
+        "moniteur": "Jo",
+        "atelier": "Sortie de l'eau",
+        "commentaire": "RAS"
+      },
+      {
+        "date": "2026-09-22",
+        "moniteur": "Jo",
+        "atelier": "Exam capelé 50m",
+        "commentaire": "Très à l'aise"
+      },
+      {
+        "date": "2026-09-29",
+        "moniteur": "Sam",
+        "atelier": "Théorie",
+        "commentaire": "Révisions générales"
+      }
+    ]
   }
 ]
