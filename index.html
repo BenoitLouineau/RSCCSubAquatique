@@ -238,6 +238,11 @@ button { font-family: inherit; cursor: pointer; }
   margin-left: auto; border: none; background: transparent; color: inherit;
   font-size: 12.5px; text-decoration: underline; font-weight: 600;
 }
+.anomalies-detail {
+  margin: -10px 0 18px; padding: 14px 16px; border-radius: var(--radius-sm);
+  background: var(--card); border: 1px solid var(--border);
+}
+.anomalies-detail.hidden { display: none; }
 .cache-banner {
   display: flex; align-items: center; gap: 10px; padding: 10px 14px; margin-bottom: 18px;
   border-radius: var(--radius-sm); background: rgba(56, 189, 248, .10);
@@ -2015,12 +2020,26 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 
   function buildAnomaliesBanner() {
     const a = (STATE.synthese && STATE.synthese.anomalies) || {};
-    const relevant = (a.eleves_hors_referentiel || []).length + (a.eleves_referentiel_jamais_vus || []).length;
+    const horsRef = a.eleves_hors_referentiel || [];
+    const jamaisVus = a.eleves_referentiel_jamais_vus || [];
+    const relevant = horsRef.length + jamaisVus.length;
     if (!relevant) return '';
+    const horsRefHtml = horsRef.length
+      ? '<div class="sub-card-title">🏋 Élèves hors référentiel (' + horsRef.length + ')</div>' +
+        '<div class="chips-wrap">' + horsRef.map(n => '<span class="mini-eleve-chip flag">' + escapeHtml(n) + '</span>').join('') + '</div>'
+      : '';
+    const jamaisVusHtml = jamaisVus.length
+      ? '<div class="sub-card-title" style="margin-top:14px;">👻 Élèves du référentiel jamais vus en séance (' + jamaisVus.length + ')</div>' +
+        '<div class="chips-wrap">' + jamaisVus.map(n => '<span class="mini-eleve-chip flag">' + escapeHtml(n) + '</span>').join('') + '</div>'
+      : '';
     return '<div class="anomalies-banner">' +
-      '⚠ ' + (a.eleves_hors_referentiel || []).length + ' élève(s) hors référentiel, ' +
-      (a.eleves_referentiel_jamais_vus || []).length + ' élève(s) du référentiel jamais vu(s) en séance.' +
+      '⚠ ' + horsRef.length + ' élève(s) hors référentiel, ' +
+      jamaisVus.length + ' élève(s) du référentiel jamais vu(s) en séance.' +
       '<button id="btnAnomaliesDetail">Voir le détail</button>' +
+    '</div>' +
+    '<div class="anomalies-detail hidden" id="anomaliesDetail">' +
+      '<p class="settings-info" style="margin-top:0;">"Référentiel" désigne ici la liste officielle des élèves inscrits (indépendante des comptes rendus). Un écart révèle souvent un nom saisi différemment (typo, nom/prénom inversé) plutôt qu\'une vraie absence.</p>' +
+      horsRefHtml + jamaisVusHtml +
     '</div>';
   }
 
@@ -2718,7 +2737,12 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
         });
       });
       const btnAnomDetail = $('#btnAnomaliesDetail');
-      if (btnAnomDetail) btnAnomDetail.addEventListener('click', openSettings); // provisoire : détail complet viendra avec le module Analyse
+      if (btnAnomDetail) btnAnomDetail.addEventListener('click', function() {
+        const panel = $('#anomaliesDetail');
+        if (!panel) return;
+        panel.classList.toggle('hidden');
+        btnAnomDetail.textContent = panel.classList.contains('hidden') ? 'Voir le détail' : 'Masquer le détail';
+      });
 
       // Boutons d'export du tableau
       const btnPng = $('#btnExportPng'); if (btnPng) btnPng.addEventListener('click', exportTableAsPng);
