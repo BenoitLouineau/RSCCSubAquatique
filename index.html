@@ -102,6 +102,7 @@ button { font-family: inherit; cursor: pointer; }
   justify-content: center; transition: background var(--transition), transform 120ms;
 }
 .icon-btn:hover { background: var(--border); }
+.icon-btn { text-decoration: none; font-size: 15px; }
 .icon-btn:active { transform: scale(0.94); }
 .icon-btn svg { width: 18px; height: 18px; }
 
@@ -518,6 +519,12 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 }
 .cr-missing-item .cmi-date { color: var(--muted); min-width: 90px; }
 .cr-missing-empty { font-size: 12.5px; color: var(--muted); }
+.cr-missing-saisie {
+  margin-left: auto; flex-shrink: 0; font-size: 11.5px; font-weight: 700; text-decoration: none;
+  padding: 3px 10px; border-radius: 999px; background: rgba(34, 211, 238, .12); color: var(--accent2);
+  border: 1px solid rgba(34, 211, 238, .35);
+}
+.cr-missing-saisie:hover { background: rgba(34, 211, 238, .22); }
 
 /* ===================== MONITEURS — fiche individuelle ===================== */
 .moniteur-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
@@ -654,6 +661,13 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 .niveau-badge.tier-debutant { background: var(--chip); color: var(--muted); border: 1px solid var(--border); }
 .chef-badge { font-size: 13px; }
 
+/* ===================== SAISIE — iframe app externe ===================== */
+.saisie-wrap { display: flex; flex-direction: column; gap: 10px; height: calc(100vh - var(--header-h) - var(--bottomnav-h) - var(--footer-h) - 32px); min-height: 420px; }
+.saisie-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.saisie-iframe { flex: 1; width: 100%; border: 1px solid var(--border); border-radius: var(--radius-sm); background: #fff; }
+.saisie-fallback { font-size: 12px; color: var(--muted); text-align: center; }
+.saisie-fallback a { color: var(--accent2); }
+
 /* ===================== PALMARÈS — cartes trophée ===================== */
 .trophy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-bottom: 24px; }
 .trophy-card {
@@ -782,6 +796,10 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
         <span id="incoherencesCount">0</span>&nbsp;⚠
       </button>
 
+      <a class="icon-btn" id="btnSaisieCr" href="#" target="_blank" rel="noopener" title="Saisir un compte rendu">
+        📝
+      </a>
+
       <button class="icon-btn" id="btnSettings" title="Réglages">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
       </button>
@@ -859,6 +877,17 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 
   <section class="tab-panel" id="panel-palanquees">
     <div id="palanqueesMainContent"></div>
+  </section>
+
+  <section class="tab-panel" id="panel-saisie">
+    <div class="saisie-wrap">
+      <div class="saisie-toolbar">
+        <p class="section-subtitle" style="margin:0;">Formulaire de saisie des comptes rendus (développé par Nicolas Causse).</p>
+        <a class="export-btn" id="saisieOpenNewTab" href="#" target="_blank" rel="noopener">↗ Ouvrir dans un nouvel onglet</a>
+      </div>
+      <iframe id="saisieIframe" class="saisie-iframe" src="" title="Saisie des comptes rendus" loading="lazy"></iframe>
+      <div class="saisie-fallback">L'application ne s'affiche pas correctement ? <a id="saisieFallbackLink" href="#" target="_blank" rel="noopener">Ouvre-la dans un nouvel onglet</a>.</div>
+    </div>
   </section>
 
   <section class="tab-panel" id="panel-palmares">
@@ -1022,6 +1051,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   CONFIG.URL_REFERENTIEL = CONFIG.RAW_BASE + 'referentiel_competences.json';
   CONFIG.URL_REFERENTIEL_CATEGORIES = CONFIG.RAW_BASE + 'referentiel_categories.json';
   CONFIG.URL_SYNTHESE    = CONFIG.RAW_BASE + 'synthese.json';
+  CONFIG.URL_SAISIE_CR   = 'https://script.google.com/macros/s/AKfycbwAINN9KmZCwMSqio7H_i0fF00h5tRjDuGMsMBOq-u-nZ87Q8XcWKJznNPg2xnnrAq8/exec';
 
   // Icônes utilisées de façon cohérente dans toute la page
   // Administrateur du rapport — valeur en dur, non modifiable depuis l'interface.
@@ -1063,7 +1093,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   // Ordre des onglets du menu — réglable, persisté. Le 1er onglet de la liste devient
   // l'onglet actif par défaut au chargement de la page.
   const LS_TAB_ORDER = 'rscc_v2_tab_order';
-  const TAB_DEFAULT_ORDER = ['eleves', 'moniteurs', 'examens', 'saison', 'analyse', 'palanquees', 'palmares'];
+  const TAB_DEFAULT_ORDER = ['eleves', 'moniteurs', 'examens', 'saison', 'analyse', 'palanquees', 'saisie', 'palmares'];
   const TAB_LABELS = {
     eleves: '🤿 Élèves',
     moniteurs: '🥽 Moniteurs',
@@ -1071,6 +1101,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     saison: '🗓️ Saison',
     analyse: '📊 Analyse',
     palanquees: '🪢 Palanquées',
+    saisie: '📝 Compte Rendu',
     palmares: '🏆 Palmarès',
   };
   function loadTabOrder() {
@@ -1087,7 +1118,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   function saveTabOrder() {
     try { localStorage.setItem(LS_TAB_ORDER, JSON.stringify(tabOrder)); } catch (e) {}
   }
-  const TAB_ENABLED = { eleves: true, moniteurs: false, examens: false, saison: false, analyse: false, palanquees: false, palmares: false };
+  const TAB_ENABLED = { eleves: true, moniteurs: false, examens: false, saison: false, analyse: false, palanquees: false, saisie: true, palmares: false };
   const TAB_COUNTS = { eleves: '—', moniteurs: '—', examens: '—', saison: '—' };
   let activeTabKey = null;
 
@@ -1577,6 +1608,10 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     $('#settingsModal').classList.remove('open');
   }
   $('#btnSettings').addEventListener('click', openSettings);
+  $('#btnSaisieCr').setAttribute('href', CONFIG.URL_SAISIE_CR);
+  $('#saisieIframe').setAttribute('src', CONFIG.URL_SAISIE_CR);
+  $('#saisieOpenNewTab').setAttribute('href', CONFIG.URL_SAISIE_CR);
+  $('#saisieFallbackLink').setAttribute('href', CONFIG.URL_SAISIE_CR);
   $('#settingsClose').addEventListener('click', closeSettings);
   $('#settingsOverlay').addEventListener('click', closeSettings);
 
@@ -3007,7 +3042,8 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     const missingHtml = global.missing.length
       ? global.missing.map(function(mi) {
           return '<div class="cr-missing-item"><span class="cmi-date">' + formatDateFR(mi.date) + '</span>' +
-            '<span>' + ICONS.moniteurLogo + ' ' + escapeHtml(mi.moniteur) + chefBadge(mi.moniteur) + ' — CR non saisi</span></div>';
+            '<span>' + ICONS.moniteurLogo + ' ' + escapeHtml(mi.moniteur) + chefBadge(mi.moniteur) + ' — CR non saisi</span>' +
+            '<a class="cr-missing-saisie" href="' + CONFIG.URL_SAISIE_CR + '" target="_blank" rel="noopener">📝 Saisir</a></div>';
         }).join('')
       : '<div class="cr-missing-empty">Aucun CR manquant sur cette période ✅</div>';
 
