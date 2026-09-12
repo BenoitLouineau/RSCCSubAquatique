@@ -660,13 +660,46 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 .niveau-badge.tier-moyen { background: rgba(245, 158, 11, .12); color: var(--warn); border: 1px solid rgba(245, 158, 11, .35); }
 .niveau-badge.tier-debutant { background: var(--chip); color: var(--muted); border: 1px solid var(--border); }
 .chef-badge { font-size: 13px; }
+.threshold-custom-inputs { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 10px; }
+.threshold-custom-inputs.hidden { display: none; }
+.threshold-custom-inputs label { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--text); }
+.threshold-custom-inputs input[type="number"] {
+  width: 60px; padding: 5px 8px; border-radius: 6px; border: 1px solid var(--border);
+  background: var(--chip); color: var(--text); font-size: 12.5px;
+}
+.threshold-custom-inputs select {
+  padding: 5px 8px; border-radius: 6px; border: 1px solid var(--border);
+  background: var(--chip); color: var(--text); font-size: 12.5px; margin-left: 6px;
+}
+.swatch-block { margin-bottom: 16px; }
+.swatch-block-title { font-size: 12px; font-weight: 700; color: var(--muted); margin-bottom: 8px; }
+.swatch-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.color-swatch-col { display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; }
+.color-swatch {
+  width: 32px; height: 32px; border-radius: 50%; border: 3px solid transparent;
+  transition: border-color var(--transition), transform 120ms;
+}
+.color-swatch:hover { transform: scale(1.08); }
+.color-swatch.selected { border-color: var(--text); }
+.color-swatch-label { font-size: 9.5px; color: var(--muted); text-align: center; max-width: 52px; line-height: 1.2; }
 
-/* ===================== SAISIE — iframe app externe ===================== */
-.saisie-wrap { display: flex; flex-direction: column; gap: 10px; height: calc(100vh - var(--header-h) - var(--bottomnav-h) - var(--footer-h) - 32px); min-height: 420px; }
-.saisie-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-.saisie-iframe { flex: 1; width: 100%; border: 1px solid var(--border); border-radius: var(--radius-sm); background: #fff; }
-.saisie-fallback { font-size: 12px; color: var(--muted); text-align: center; }
-.saisie-fallback a { color: var(--accent2); }
+.color-preview-row { display: flex; gap: 14px; margin-top: 18px; flex-wrap: wrap; }
+.color-preview-card {
+  flex: 1; min-width: 150px; border-radius: var(--radius-sm); padding: 14px;
+  border: 1px solid rgba(148, 163, 184, .25); display: flex; flex-direction: column; gap: 10px;
+}
+.color-preview-label { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; opacity: .7; }
+.color-preview-badge { display: inline-flex; align-self: flex-start; padding: 4px 10px; border-radius: 999px; font-size: 11.5px; font-weight: 600; background: rgba(148, 163, 184, .14); }
+.color-preview-btn { display: inline-flex; align-self: flex-start; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 800; }
+.color-preview-chart { width: 100%; height: 34px; display: block; }
+.icon-eleve { font-size: 1.25em; line-height: 1; vertical-align: -0.1em; }
+
+/* ===================== CR SÉANCE — iframe app externe ===================== */
+.crseance-wrap { display: flex; flex-direction: column; gap: 10px; height: calc(100vh - var(--header-h) - var(--bottomnav-h) - var(--footer-h) - 32px); min-height: 420px; }
+.crseance-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.crseance-iframe { flex: 1; width: 100%; border: 1px solid var(--border); border-radius: var(--radius-sm); background: #fff; }
+.crseance-fallback { font-size: 12px; color: var(--muted); text-align: center; }
+.crseance-fallback a { color: var(--accent2); }
 
 /* ===================== PALMARÈS — cartes trophée ===================== */
 .trophy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-bottom: 24px; }
@@ -796,7 +829,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
         <span id="incoherencesCount">0</span>&nbsp;⚠
       </button>
 
-      <a class="icon-btn" id="btnSaisieCr" href="#" target="_blank" rel="noopener" title="Saisir un compte rendu">
+      <a class="icon-btn" id="btnCrSeance" href="#" target="_blank" rel="noopener" title="Saisir un compte rendu">
         📝
       </a>
 
@@ -879,14 +912,14 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     <div id="palanqueesMainContent"></div>
   </section>
 
-  <section class="tab-panel" id="panel-saisie">
-    <div class="saisie-wrap">
-      <div class="saisie-toolbar">
-        <p class="section-subtitle" style="margin:0;">Formulaire de saisie des comptes rendus (développé par Nicolas Causse).</p>
-        <a class="export-btn" id="saisieOpenNewTab" href="#" target="_blank" rel="noopener">↗ Ouvrir dans un nouvel onglet</a>
+  <section class="tab-panel" id="panel-crseance">
+    <div class="crseance-wrap">
+      <div class="crseance-toolbar">
+        <p class="section-subtitle" style="margin:0;">Formulaire de saisie des comptes rendus (développé par l'équipe).</p>
+        <a class="export-btn" id="crseanceOpenNewTab" href="#" target="_blank" rel="noopener">↗ Ouvrir dans un nouvel onglet</a>
       </div>
-      <iframe id="saisieIframe" class="saisie-iframe" src="" title="Saisie des comptes rendus" loading="lazy"></iframe>
-      <div class="saisie-fallback">L'application ne s'affiche pas correctement ? <a id="saisieFallbackLink" href="#" target="_blank" rel="noopener">Ouvre-la dans un nouvel onglet</a>.</div>
+      <iframe id="crseanceIframe" class="crseance-iframe" src="" title="CR séance" loading="lazy"></iframe>
+      <div class="crseance-fallback">L'application ne s'affiche pas correctement ? <a id="crseanceFallbackLink" href="#" target="_blank" rel="noopener">Ouvre-la dans un nouvel onglet</a>.</div>
     </div>
   </section>
 
@@ -914,11 +947,12 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   </div>
   <nav class="settings-tabs" id="settingsTabsNav">
     <button class="settings-tab active" data-settings-tab="general" type="button">🎛️ Général</button>
-    <button class="settings-tab" data-settings-tab="eleves" type="button">🤿 Élèves</button>
+    <button class="settings-tab" data-settings-tab="eleves" type="button">🏊 Élèves</button>
     <button class="settings-tab" data-settings-tab="moniteurs" type="button">🥽 Moniteurs</button>
     <button class="settings-tab" data-settings-tab="saison" type="button">🗓️ Saison</button>
     <button class="settings-tab" data-settings-tab="analyse" type="button">📊 Analyse</button>
     <button class="settings-tab" data-settings-tab="palanquees" type="button">🪢 Palanquées</button>
+    <button class="settings-tab" data-settings-tab="couleurs" type="button">🎨 Couleurs</button>
   </nav>
   <div class="settings-body">
 
@@ -954,8 +988,44 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
         <button class="export-btn" id="btnResetSeasonDates" type="button" style="margin-top:8px;">↺ Réinitialiser aux dates par défaut</button>
       </div>
       <div class="settings-section">
-        <div class="settings-section-title">🔜 À venir</div>
-        <div class="settings-todo">Seuils de couleur globaux (%, jours) et règle de définition d'une "compétence acquise" (actuellement note ≥ 3) — deviendront réglables ici.</div>
+        <div class="settings-section-title">🎨 Seuils de couleur — pourcentages</div>
+        <p class="settings-info">S'applique partout où un % est affiché avec une couleur (acquisition, présence, couverture référentiel...).</p>
+        <div id="pctThresholdOptions"></div>
+        <div class="threshold-custom-inputs hidden" id="pctCustomInputs">
+          <label>🟢 Vert à partir de <input type="number" id="pctCustomGreen" min="0" max="100" step="1" /> %</label>
+          <label>🟠 Orange à partir de <input type="number" id="pctCustomOrange" min="0" max="100" step="1" /> %</label>
+        </div>
+      </div>
+      <div class="settings-section">
+        <div class="settings-section-title">📅 Seuils de couleur — jours depuis le dernier cours</div>
+        <p class="settings-info">Utilisé dans la colonne "Dernier cours" du tableau élèves.</p>
+        <div id="joursThresholdOptions"></div>
+        <div class="threshold-custom-inputs hidden" id="joursCustomInputs">
+          <label>🟢 Vert jusqu'à <input type="number" id="joursCustomGreen" min="0" step="1" /> j</label>
+          <label>🟠 Orange jusqu'à <input type="number" id="joursCustomOrange" min="0" step="1" /> j</label>
+        </div>
+      </div>
+      <div class="settings-section">
+        <div class="settings-section-title">✅ Règle "compétence acquise"</div>
+        <p class="settings-info">S'applique à tout le rapport : % acquis, bingo, badges, classements, courbe de progression, score de niveau (Palanquées). Changer cette valeur modifie tous les chiffres affichés simultanément.</p>
+        <div id="seuilAcquisOptions"></div>
+      </div>
+      <div class="settings-section">
+        <div class="settings-section-title">🛡️ Robustesse de la validation</div>
+        <p class="settings-info">Une compétence "acquise" ne devrait pas reposer sur la seule évaluation d'un seul moniteur, un seul jour. Le mode Renforcé exige une confirmation par plusieurs évaluations récentes ET plusieurs moniteurs différents avant de compter une compétence comme acquise — partout où la règle ci-dessus s'applique.</p>
+        <div id="robustesseModeOptions"></div>
+        <div class="threshold-custom-inputs" id="robustesseMoniteursWrap">
+          <label>Nombre de moniteurs différents requis
+            <select id="robustesseMoniteursSelect">
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
+          </label>
+        </div>
+        <p class="settings-info" style="margin-top:8px;">En mode Renforcé, une compétence est acquise si sa dernière note atteint le seuil <em>et</em> qu'au moins ce nombre de moniteurs différents lui ont, à un moment donné, donné une note ≥ seuil. Une régression de la dernière note invalide le statut, même si d'anciennes évaluations l'atteignaient.</p>
       </div>
     </div>
 
@@ -1029,6 +1099,47 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
       </div>
     </div>
 
+    <div class="settings-tab-panel" data-settings-panel="couleurs">
+      <div class="settings-section">
+        <div class="settings-section-title">🎨 Couleurs du thème</div>
+        <p class="settings-info">Quatre couleurs par thème : le fond (page/cartes), le texte, la couleur principale (badges, dates) et la couleur vive (boutons, liens actifs, surlignages). Réglables séparément pour le thème sombre et le thème clair.</p>
+        <div class="swatch-block">
+          <div class="swatch-block-title">Sombre — couleur de fond</div>
+          <div id="bgDarkSwatches" class="swatch-row"></div>
+        </div>
+        <div class="swatch-block">
+          <div class="swatch-block-title">Sombre — couleur de texte</div>
+          <div id="textDarkSwatches" class="swatch-row"></div>
+        </div>
+        <div class="swatch-block">
+          <div class="swatch-block-title">Sombre — couleur principale</div>
+          <div id="colorDarkPrincipaleSwatches" class="swatch-row"></div>
+        </div>
+        <div class="swatch-block">
+          <div class="swatch-block-title">Sombre — couleur vive</div>
+          <div id="colorDarkViveSwatches" class="swatch-row"></div>
+        </div>
+        <div class="swatch-block">
+          <div class="swatch-block-title">Clair — couleur de fond</div>
+          <div id="bgLightSwatches" class="swatch-row"></div>
+        </div>
+        <div class="swatch-block">
+          <div class="swatch-block-title">Clair — couleur de texte</div>
+          <div id="textLightSwatches" class="swatch-row"></div>
+        </div>
+        <div class="swatch-block">
+          <div class="swatch-block-title">Clair — couleur principale</div>
+          <div id="colorLightPrincipaleSwatches" class="swatch-row"></div>
+        </div>
+        <div class="swatch-block">
+          <div class="swatch-block-title">Clair — couleur vive</div>
+          <div id="colorLightViveSwatches" class="swatch-row"></div>
+        </div>
+        <button class="export-btn" id="btnResetColors" type="button" style="margin-top:4px;">↺ Réinitialiser aux couleurs par défaut</button>
+        <div class="color-preview-row" id="colorPreviewRow"></div>
+      </div>
+    </div>
+
   </div>
 </aside>
 
@@ -1051,7 +1162,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   CONFIG.URL_REFERENTIEL = CONFIG.RAW_BASE + 'referentiel_competences.json';
   CONFIG.URL_REFERENTIEL_CATEGORIES = CONFIG.RAW_BASE + 'referentiel_categories.json';
   CONFIG.URL_SYNTHESE    = CONFIG.RAW_BASE + 'synthese.json';
-  CONFIG.URL_SAISIE_CR   = 'https://script.google.com/macros/s/AKfycbwAINN9KmZCwMSqio7H_i0fF00h5tRjDuGMsMBOq-u-nZ87Q8XcWKJznNPg2xnnrAq8/exec';
+  CONFIG.URL_CR_SEANCE   = 'https://script.google.com/macros/s/AKfycbwAINN9KmZCwMSqio7H_i0fF00h5tRjDuGMsMBOq-u-nZ87Q8XcWKJznNPg2xnnrAq8/exec';
 
   // Icônes utilisées de façon cohérente dans toute la page
   // Administrateur du rapport — valeur en dur, non modifiable depuis l'interface.
@@ -1071,7 +1182,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   };
 
   const ICONS = {
-    eleve: '🏊', seance: '🕐', competence: '🧩', calendrier: '📅', horloge: '⏱️',
+    eleve: '<span class="icon-eleve">🏊</span>', seance: '🕐', competence: '🧩', calendrier: '📅', horloge: '⏱️',
     moniteurLogo: '🥽',      // identité moniteur (fiche, colonne "Moniteur", chips)
     moniteur: '🧑\u200d🏫',   // colonne "Nb élèves"
     crRempli: '📋',          // colonne "CR séance annoté"
@@ -1093,7 +1204,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   // Ordre des onglets du menu — réglable, persisté. Le 1er onglet de la liste devient
   // l'onglet actif par défaut au chargement de la page.
   const LS_TAB_ORDER = 'rscc_v2_tab_order';
-  const TAB_DEFAULT_ORDER = ['eleves', 'moniteurs', 'examens', 'saison', 'analyse', 'palanquees', 'saisie', 'palmares'];
+  const TAB_DEFAULT_ORDER = ['eleves', 'moniteurs', 'examens', 'saison', 'analyse', 'palanquees', 'crseance', 'palmares'];
   const TAB_LABELS = {
     eleves: '🏊 Élèves',
     moniteurs: '🥽 Moniteurs',
@@ -1101,7 +1212,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     saison: '🗓️ Saison',
     analyse: '📊 Analyse',
     palanquees: '🪢 Palanquées',
-    saisie: '📝 Compte Rendu',
+    crseance: '📝 CR séance',
     palmares: '🏆 Palmarès',
   };
   function loadTabOrder() {
@@ -1118,7 +1229,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   function saveTabOrder() {
     try { localStorage.setItem(LS_TAB_ORDER, JSON.stringify(tabOrder)); } catch (e) {}
   }
-  const TAB_ENABLED = { eleves: true, moniteurs: false, examens: false, saison: false, analyse: false, palanquees: false, saisie: true, palmares: false };
+  const TAB_ENABLED = { eleves: true, moniteurs: false, examens: false, saison: false, analyse: false, palanquees: false, crseance: true, palmares: false };
   const TAB_COUNTS = { eleves: '—', moniteurs: '—', examens: '—', saison: '—' };
   let activeTabKey = null;
 
@@ -1380,7 +1491,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   }
 
   const LS_PALANQUEE_RATIO = 'rscc_v2_palanquee_ratio_max';
-  const PALANQUEE_RATIO_LABELS = { '2': '2 élèves max', '3': '3 élèves max', '4': '4 élèves max', '5': '5 élèves max', '6': '6 élèves max', 'illimite': 'Illimité' };
+  const PALANQUEE_RATIO_LABELS = { '1': '1 élève max', '2': '2 élèves max', '3': '3 élèves max', '4': '4 élèves max (norme FFESSM)' };
   function loadPalanqueeRatio() {
     try {
       const v = localStorage.getItem(LS_PALANQUEE_RATIO);
@@ -1565,20 +1676,309 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   }
 
   /** Couleur "feu tricolore" pour une barre de progression (%), seuils repris du rapport historique. */
+  // =====================================================================
+  // SEUILS DE COULEUR CONFIGURABLES (%, jours) + règle "compétence acquise"
+  // =====================================================================
+  const PCT_THRESHOLD_PRESETS = {
+    strict: { green: 85, orange: 50 },
+    modere: { green: 70, orange: 30 },
+    souple: { green: 50, orange: 20 },
+  };
+  const LS_PCT_PRESET = 'rscc_v2_pct_threshold_preset';
+  const LS_PCT_CUSTOM_GREEN = 'rscc_v2_pct_threshold_custom_green';
+  const LS_PCT_CUSTOM_ORANGE = 'rscc_v2_pct_threshold_custom_orange';
+  function loadPctPreset() {
+    try { const v = localStorage.getItem(LS_PCT_PRESET); if (v === 'perso' || PCT_THRESHOLD_PRESETS[v]) return v; } catch (e) {}
+    return 'modere';
+  }
+  function loadPctCustom() {
+    try {
+      const g = parseInt(localStorage.getItem(LS_PCT_CUSTOM_GREEN), 10);
+      const o = parseInt(localStorage.getItem(LS_PCT_CUSTOM_ORANGE), 10);
+      if (!isNaN(g) && !isNaN(o)) return { green: g, orange: o };
+    } catch (e) {}
+    return { green: 70, orange: 30 };
+  }
+  let pctPreset = loadPctPreset();
+  let pctCustom = loadPctCustom();
+  function savePctPreset(v) { pctPreset = v; try { localStorage.setItem(LS_PCT_PRESET, v); } catch (e) {} }
+  function savePctCustom(green, orange) {
+    pctCustom = { green: green, orange: orange };
+    try { localStorage.setItem(LS_PCT_CUSTOM_GREEN, String(green)); localStorage.setItem(LS_PCT_CUSTOM_ORANGE, String(orange)); } catch (e) {}
+  }
+  function getPctThresholds() { return pctPreset === 'perso' ? pctCustom : (PCT_THRESHOLD_PRESETS[pctPreset] || PCT_THRESHOLD_PRESETS.modere); }
+
+  const JOURS_THRESHOLD_PRESETS = {
+    strict: { green: 7, orange: 21 },
+    modere: { green: 14, orange: 45 },
+    souple: { green: 21, orange: 60 },
+  };
+  const LS_JOURS_PRESET = 'rscc_v2_jours_threshold_preset';
+  const LS_JOURS_CUSTOM_GREEN = 'rscc_v2_jours_threshold_custom_green';
+  const LS_JOURS_CUSTOM_ORANGE = 'rscc_v2_jours_threshold_custom_orange';
+  function loadJoursPreset() {
+    try { const v = localStorage.getItem(LS_JOURS_PRESET); if (v === 'perso' || JOURS_THRESHOLD_PRESETS[v]) return v; } catch (e) {}
+    return 'modere';
+  }
+  function loadJoursCustom() {
+    try {
+      const g = parseInt(localStorage.getItem(LS_JOURS_CUSTOM_GREEN), 10);
+      const o = parseInt(localStorage.getItem(LS_JOURS_CUSTOM_ORANGE), 10);
+      if (!isNaN(g) && !isNaN(o)) return { green: g, orange: o };
+    } catch (e) {}
+    return { green: 14, orange: 45 };
+  }
+  let joursPreset = loadJoursPreset();
+  let joursCustom = loadJoursCustom();
+  function saveJoursPreset(v) { joursPreset = v; try { localStorage.setItem(LS_JOURS_PRESET, v); } catch (e) {} }
+  function saveJoursCustom(green, orange) {
+    joursCustom = { green: green, orange: orange };
+    try { localStorage.setItem(LS_JOURS_CUSTOM_GREEN, String(green)); localStorage.setItem(LS_JOURS_CUSTOM_ORANGE, String(orange)); } catch (e) {}
+  }
+  function getJoursThresholds() { return joursPreset === 'perso' ? joursCustom : (JOURS_THRESHOLD_PRESETS[joursPreset] || JOURS_THRESHOLD_PRESETS.modere); }
+
+  const LS_SEUIL_ACQUIS = 'rscc_v2_seuil_competence_acquise';
+  function loadSeuilAcquis() {
+    try { const v = parseInt(localStorage.getItem(LS_SEUIL_ACQUIS), 10); if (v === 3 || v === 4) return v; } catch (e) {}
+    return 3;
+  }
+  let seuilCompetenceAcquise = loadSeuilAcquis();
+  function saveSeuilAcquis(v) { seuilCompetenceAcquise = v; try { localStorage.setItem(LS_SEUIL_ACQUIS, String(v)); } catch (e) {} }
+  function getSeuilCompetenceAcquise() { return seuilCompetenceAcquise; }
+
+  // --- Robustesse de la validation : une compétence n'est comptée comme acquise que si (1) sa
+  // dernière note est ≥ seuil (pas de régression récente) ET (2) au moins M moniteurs différents
+  // lui ont, à un moment donné, donné une note ≥ seuil (évite qu'un seul moniteur ne suffise). ---
+  const LS_ROBUSTESSE_MODE = 'rscc_v2_robustesse_mode';
+  const LS_ROBUSTESSE_MONITEURS_MIN = 'rscc_v2_robustesse_moniteurs_min';
+  function loadRobustesseMode() {
+    try { const v = localStorage.getItem(LS_ROBUSTESSE_MODE); if (v === 'standard' || v === 'renforce') return v; } catch (e) {}
+    return 'standard';
+  }
+  function loadRobustesseMoniteursMin() {
+    try { const v = parseInt(localStorage.getItem(LS_ROBUSTESSE_MONITEURS_MIN), 10); if (v >= 2 && v <= 6) return v; } catch (e) {}
+    return 3;
+  }
+  let robustesseMode = loadRobustesseMode();
+  let robustesseMoniteursMin = loadRobustesseMoniteursMin();
+  function saveRobustesseMode(v) { robustesseMode = v; try { localStorage.setItem(LS_ROBUSTESSE_MODE, v); } catch (e) {} }
+  function saveRobustesseMoniteursMin(v) { robustesseMoniteursMin = v; try { localStorage.setItem(LS_ROBUSTESSE_MONITEURS_MIN, String(v)); } catch (e) {} }
+  function isRobustesseActive() { return robustesseMode === 'renforce'; }
+
+  function sortHistoriqueChrono(historique) {
+    return (historique || []).slice().sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+  }
+
+  /** Statut actuel d'une compétence (objet e.competences[atelier]) : acquise ou non, selon le
+   *  mode Standard (dernière note ≥ seuil) ou Renforcé (dernière note ≥ seuil ET au moins M
+   *  moniteurs différents ayant chacun donné ≥ seuil à un moment de l'historique). */
+  function isCompetenceAcquiseFromHistorique(competenceEntry) {
+    const seuil = getSeuilCompetenceAcquise();
+    const n = competenceEntry ? competenceEntry.derniere_note : null;
+    if (n == null || n < seuil) return false;
+    if (!isRobustesseActive()) return true;
+    const moniteursValidants = new Set();
+    (competenceEntry.historique || []).forEach(function(h) {
+      if (h.note != null && h.note >= seuil && h.moniteur) moniteursValidants.add(h.moniteur);
+    });
+    return moniteursValidants.size >= robustesseMoniteursMin;
+  }
+
+  /** Date à laquelle une compétence a été (robustement) acquise pour la première fois — pour la
+   *  courbe de progression et le classement "progression récente". En mode Renforcé, c'est la
+   *  date à laquelle le Mᵉ moniteur distinct a validé (≥ seuil) pour la première fois. */
+  function findDateAcquisitionFromHistorique(competenceEntry) {
+    const seuil = getSeuilCompetenceAcquise();
+    const sorted = sortHistoriqueChrono(competenceEntry ? competenceEntry.historique : null);
+    if (!isRobustesseActive()) {
+      const found = sorted.find(h => h.note != null && h.note >= seuil);
+      return found ? found.date : null;
+    }
+    const moniteursVus = new Set();
+    for (let i = 0; i < sorted.length; i++) {
+      const h = sorted[i];
+      if (h.note != null && h.note >= seuil && h.moniteur) moniteursVus.add(h.moniteur);
+      if (moniteursVus.size >= robustesseMoniteursMin) return h.date;
+    }
+    return null;
+  }
+
+
   function stoplightColor(pct) {
-    if (pct >= 70) return 'var(--ok)';
-    if (pct >= 30) return 'var(--warn)';
+    const t = getPctThresholds();
+    if (pct >= t.green) return 'var(--ok)';
+    if (pct >= t.orange) return 'var(--warn)';
     return 'var(--bad)';
   }
+
+  function daysSinceColor(days) {
+    if (days == null) return 'var(--muted)';
+    const t = getJoursThresholds();
+    if (days <= t.green) return 'var(--ok)';
+    if (days <= t.orange) return 'var(--warn)';
+    return 'var(--bad)';
+  }
+
 
   // =====================================================================
   // THEME
   // =====================================================================
+  const DARK_TEXT_PALETTE = {
+    blanc: { text: '#e2e8f0', label: 'Blanc cassé (actuel)' },
+    blancPur: { text: '#ffffff', label: 'Blanc pur' },
+    grisClair: { text: '#cbd5e1', label: 'Gris clair' },
+    cyanPale: { text: '#a5f3fc', label: 'Cyan pâle' },
+    ambrePale: { text: '#fde68a', label: 'Ambre pâle' },
+    vertPale: { text: '#bbf7d0', label: 'Vert pâle' },
+  };
+  const LIGHT_TEXT_PALETTE = {
+    grisFonce: { text: '#1e293b', label: 'Gris foncé (actuel)' },
+    noir: { text: '#000000', label: 'Noir' },
+    bleuMarine: { text: '#1e3a5f', label: 'Bleu marine' },
+    marronFonce: { text: '#451a03', label: 'Marron foncé' },
+    vertFonce: { text: '#14532d', label: 'Vert foncé' },
+    violetFonce: { text: '#3b0764', label: 'Violet foncé' },
+  };
+  const TEXT_LS_KEYS = { dark: 'rscc_v2_text_dark', light: 'rscc_v2_text_light' };
+  const TEXT_DEFAULTS = { dark: 'blanc', light: 'grisFonce' };
+  function loadTextChoice(themeKey) {
+    try {
+      const v = localStorage.getItem(TEXT_LS_KEYS[themeKey]);
+      const palette = themeKey === 'dark' ? DARK_TEXT_PALETTE : LIGHT_TEXT_PALETTE;
+      if (v && palette[v]) return v;
+    } catch (e) {}
+    return TEXT_DEFAULTS[themeKey];
+  }
+  const textChoice = { dark: loadTextChoice('dark'), light: loadTextChoice('light') };
+  function saveTextChoice(themeKey, key) {
+    textChoice[themeKey] = key;
+    try { localStorage.setItem(TEXT_LS_KEYS[themeKey], key); } catch (e) {}
+    applyAccentColors();
+    refreshAllTabsForThresholds();
+  }
+
+  const DARK_BG_PALETTE = {
+    bleuNuit: { bg: '#0b1220', card: '#0f172a', label: 'Bleu nuit (actuel)' },
+    noir: { bg: '#000000', card: '#111111', label: 'Noir pur' },
+    anthracite: { bg: '#18181b', card: '#27272a', label: 'Anthracite' },
+    vertFonce: { bg: '#0a1f14', card: '#0f2a1c', label: 'Vert foncé' },
+    violetFonce: { bg: '#15102b', card: '#1e1638', label: 'Violet foncé' },
+    marronFonce: { bg: '#1c1410', card: '#2a1f18', label: 'Marron foncé' },
+  };
+  const LIGHT_BG_PALETTE = {
+    blancCasse: { bg: '#f8fafc', card: '#ffffff', label: 'Blanc cassé (actuel)' },
+    blancPur: { bg: '#ffffff', card: '#ffffff', label: 'Blanc pur' },
+    grisTresClair: { bg: '#f1f5f9', card: '#ffffff', label: 'Gris très clair' },
+    creme: { bg: '#fdf8f0', card: '#ffffff', label: 'Crème' },
+    bleuPale: { bg: '#eff6ff', card: '#ffffff', label: 'Bleu pâle' },
+    vertPale: { bg: '#f0fdf4', card: '#ffffff', label: 'Vert pâle' },
+  };
+  const BG_LS_KEYS = { dark: 'rscc_v2_bg_dark', light: 'rscc_v2_bg_light' };
+  const BG_DEFAULTS = { dark: 'bleuNuit', light: 'blancCasse' };
+  function loadBgChoice(themeKey) {
+    try {
+      const v = localStorage.getItem(BG_LS_KEYS[themeKey]);
+      const palette = themeKey === 'dark' ? DARK_BG_PALETTE : LIGHT_BG_PALETTE;
+      if (v && palette[v]) return v;
+    } catch (e) {}
+    return BG_DEFAULTS[themeKey];
+  }
+  const bgChoice = { dark: loadBgChoice('dark'), light: loadBgChoice('light') };
+  function saveBgChoice(themeKey, key) {
+    bgChoice[themeKey] = key;
+    try { localStorage.setItem(BG_LS_KEYS[themeKey], key); } catch (e) {}
+    applyAccentColors();
+    refreshAllTabsForThresholds();
+  }
+  /** '#rrggbb' -> 'rgba(r,g,b,alpha)', pour garder le bandeau/le flou de verre cohérents
+   *  avec la couleur de fond choisie plutôt que figés sur l'ancien bleu nuit. */
+  function hexToRgba(hex, alpha) {
+    const h = hex.replace('#', '');
+    const r = parseInt(h.substring(0, 2), 16);
+    const g = parseInt(h.substring(2, 4), 16);
+    const b = parseInt(h.substring(4, 6), 16);
+    return 'rgba(' + r + ',' + g + ',' + b + ',' + alpha + ')';
+  }
+
+  const DARK_ACCENT_PALETTE = {
+    blanc: '#ffffff', noir: '#000000', grisClair: '#cbd5e1', gris: '#94a3b8', grisFonce: '#64748b',
+    cyan: '#22d3ee', corail: '#ff5b5b', bleu: '#38bdf8', indigo: '#818cf8',
+    emeraude: '#34d399', vert: '#4ade80', violet: '#a78bfa', rose: '#f472b6',
+    ambre: '#fbbf24', rouge: '#f87171',
+  };
+  const LIGHT_ACCENT_PALETTE = {
+    noir: '#000000', blanc: '#ffffff', grisFonce: '#334155', gris: '#64748b', grisClair: '#94a3b8',
+    cyan: '#0e7490', corail: '#e11d48', bleu: '#2563eb', indigo: '#4f46e5',
+    emeraude: '#059669', vert: '#15803d', violet: '#7c3aed', rose: '#db2777',
+    ambre: '#b45309', rouge: '#b91c1c',
+  };
+  const ACCENT_COLOR_LABELS = {
+    blanc: 'Blanc', noir: 'Noir', grisClair: 'Gris clair', gris: 'Gris', grisFonce: 'Gris foncé',
+    cyan: 'Cyan', corail: 'Corail (logo)', bleu: 'Bleu', indigo: 'Indigo',
+    emeraude: 'Émeraude', vert: 'Vert', violet: 'Violet', rose: 'Rose',
+    ambre: 'Ambre', rouge: 'Rouge',
+  };
+  const ACCENT_LS_KEYS = {
+    darkPrincipale: 'rscc_v2_color_dark_principale',
+    darkVive: 'rscc_v2_color_dark_vive',
+    lightPrincipale: 'rscc_v2_color_light_principale',
+    lightVive: 'rscc_v2_color_light_vive',
+  };
+  const ACCENT_DEFAULTS = { darkPrincipale: 'grisClair', darkVive: 'blanc', lightPrincipale: 'grisFonce', lightVive: 'gris' };
+  function loadAccentChoice(role) {
+    try {
+      const v = localStorage.getItem(ACCENT_LS_KEYS[role]);
+      const palette = role.indexOf('dark') === 0 ? DARK_ACCENT_PALETTE : LIGHT_ACCENT_PALETTE;
+      if (v && palette[v]) return v;
+    } catch (e) {}
+    return ACCENT_DEFAULTS[role];
+  }
+  const accentChoice = {
+    darkPrincipale: loadAccentChoice('darkPrincipale'),
+    darkVive: loadAccentChoice('darkVive'),
+    lightPrincipale: loadAccentChoice('lightPrincipale'),
+    lightVive: loadAccentChoice('lightVive'),
+  };
+  function saveAccentChoice(role, key) {
+    accentChoice[role] = key;
+    try { localStorage.setItem(ACCENT_LS_KEYS[role], key); } catch (e) {}
+    applyAccentColors();
+    // Les graphiques Chart.js lisent la couleur une seule fois à leur création (impossible à
+    // recolorer via CSS seul) : on force un re-rendu complet des onglets déjà chargés, comme
+    // pour les autres réglages (seuils, chef de groupe...).
+    refreshAllTabsForThresholds();
+  }
+  /** Applique les couleurs --brand / --accent2 correspondant au thème actif. Appelé au chargement
+   *  et à chaque bascule clair/sombre, car les deux thèmes ont des choix indépendants. */
+  function applyAccentColors() {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    const palette = isLight ? LIGHT_ACCENT_PALETTE : DARK_ACCENT_PALETTE;
+    const principale = isLight ? accentChoice.lightPrincipale : accentChoice.darkPrincipale;
+    const vive = isLight ? accentChoice.lightVive : accentChoice.darkVive;
+    document.documentElement.style.setProperty('--brand', palette[principale] || palette.bleu);
+    document.documentElement.style.setProperty('--accent2', palette[vive] || palette.cyan);
+
+    const bgPalette = isLight ? LIGHT_BG_PALETTE : DARK_BG_PALETTE;
+    const bgKey = isLight ? bgChoice.light : bgChoice.dark;
+    const bgEntry = bgPalette[bgKey] || bgPalette[BG_DEFAULTS[isLight ? 'light' : 'dark']];
+    document.documentElement.style.setProperty('--bg', bgEntry.bg);
+    document.documentElement.style.setProperty('--card', bgEntry.card);
+    document.documentElement.style.setProperty('--surface', bgEntry.card);
+    document.documentElement.style.setProperty('--glass', hexToRgba(bgEntry.card, isLight ? 0.82 : 0.72));
+
+    const textPalette = isLight ? LIGHT_TEXT_PALETTE : DARK_TEXT_PALETTE;
+    const textKey = isLight ? textChoice.light : textChoice.dark;
+    const textEntry = textPalette[textKey] || textPalette[TEXT_DEFAULTS[isLight ? 'light' : 'dark']];
+    document.documentElement.style.setProperty('--text', textEntry.text);
+    document.documentElement.style.setProperty('--muted', hexToRgba(textEntry.text, 0.62));
+  }
+
   function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     $('#iconSun').classList.toggle('hidden', theme !== 'light');
     $('#iconMoon').classList.toggle('hidden', theme === 'light');
     try { localStorage.setItem(CONFIG.LS_THEME, theme); } catch (e) {}
+    applyAccentColors();
   }
   function initTheme() {
     let theme = 'dark';
@@ -1608,10 +2008,10 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     $('#settingsModal').classList.remove('open');
   }
   $('#btnSettings').addEventListener('click', openSettings);
-  $('#btnSaisieCr').setAttribute('href', CONFIG.URL_SAISIE_CR);
-  $('#saisieIframe').setAttribute('src', CONFIG.URL_SAISIE_CR);
-  $('#saisieOpenNewTab').setAttribute('href', CONFIG.URL_SAISIE_CR);
-  $('#saisieFallbackLink').setAttribute('href', CONFIG.URL_SAISIE_CR);
+  $('#btnCrSeance').setAttribute('href', CONFIG.URL_CR_SEANCE);
+  $('#crseanceIframe').setAttribute('src', CONFIG.URL_CR_SEANCE);
+  $('#crseanceOpenNewTab').setAttribute('href', CONFIG.URL_CR_SEANCE);
+  $('#crseanceFallbackLink').setAttribute('href', CONFIG.URL_CR_SEANCE);
   $('#settingsClose').addEventListener('click', closeSettings);
   $('#settingsOverlay').addEventListener('click', closeSettings);
 
@@ -1689,6 +2089,285 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   }
 
   populateHistoriqueRangeOptions();
+
+  // Réglages seuils de couleur (%, jours) + règle "compétence acquise"
+  function refreshAllTabsForThresholds() {
+    if (STATE.eleves) renderEleves();
+    if (STATE.moniteurs) renderMoniteurs();
+    if (STATE.synthese) renderSaison();
+    if (TAB_ENABLED.analyse) renderAnalyse();
+    if (TAB_ENABLED.palanquees) renderPalanquees();
+    if (TAB_ENABLED.palmares) renderPalmares();
+  }
+
+  const PCT_PRESET_LABELS = {
+    strict: 'Strict (vert ≥85%, orange ≥50%)',
+    modere: 'Modéré — actuel (vert ≥70%, orange ≥30%)',
+    souple: 'Souple (vert ≥50%, orange ≥20%)',
+    perso: 'Personnalisé',
+  };
+  function populatePctThresholdOptions() {
+    const el = $('#pctThresholdOptions');
+    if (!el) return;
+    const order = ['strict', 'modere', 'souple', 'perso'];
+    el.innerHTML = '<div class="settings-radio-group">' +
+      order.map(function(key) {
+        const checked = key === pctPreset ? ' checked' : '';
+        return '<label><input type="radio" name="pctPreset" value="' + key + '"' + checked + '/> ' + PCT_PRESET_LABELS[key] + '</label>';
+      }).join('') +
+    '</div>';
+    $$('input[name="pctPreset"]', el).forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        if (!radio.checked) return;
+        savePctPreset(radio.value);
+        updatePctCustomVisibility();
+        refreshAllTabsForThresholds();
+      });
+    });
+    updatePctCustomVisibility();
+  }
+  function updatePctCustomVisibility() {
+    $('#pctCustomInputs').classList.toggle('hidden', pctPreset !== 'perso');
+    $('#pctCustomGreen').value = pctCustom.green;
+    $('#pctCustomOrange').value = pctCustom.orange;
+  }
+  populatePctThresholdOptions();
+  $('#pctCustomGreen').addEventListener('change', function() {
+    savePctCustom(parseInt(this.value, 10) || 0, pctCustom.orange);
+    refreshAllTabsForThresholds();
+  });
+  $('#pctCustomOrange').addEventListener('change', function() {
+    savePctCustom(pctCustom.green, parseInt(this.value, 10) || 0);
+    refreshAllTabsForThresholds();
+  });
+
+  const JOURS_PRESET_LABELS = {
+    strict: 'Strict (vert ≤7j, orange ≤21j)',
+    modere: 'Modéré — actuel (vert ≤14j, orange ≤45j)',
+    souple: 'Souple (vert ≤21j, orange ≤60j)',
+    perso: 'Personnalisé',
+  };
+  function populateJoursThresholdOptions() {
+    const el = $('#joursThresholdOptions');
+    if (!el) return;
+    const order = ['strict', 'modere', 'souple', 'perso'];
+    el.innerHTML = '<div class="settings-radio-group">' +
+      order.map(function(key) {
+        const checked = key === joursPreset ? ' checked' : '';
+        return '<label><input type="radio" name="joursPreset" value="' + key + '"' + checked + '/> ' + JOURS_PRESET_LABELS[key] + '</label>';
+      }).join('') +
+    '</div>';
+    $$('input[name="joursPreset"]', el).forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        if (!radio.checked) return;
+        saveJoursPreset(radio.value);
+        updateJoursCustomVisibility();
+        refreshAllTabsForThresholds();
+      });
+    });
+    updateJoursCustomVisibility();
+  }
+  function updateJoursCustomVisibility() {
+    $('#joursCustomInputs').classList.toggle('hidden', joursPreset !== 'perso');
+    $('#joursCustomGreen').value = joursCustom.green;
+    $('#joursCustomOrange').value = joursCustom.orange;
+  }
+  populateJoursThresholdOptions();
+  $('#joursCustomGreen').addEventListener('change', function() {
+    saveJoursCustom(parseInt(this.value, 10) || 0, joursCustom.orange);
+    refreshAllTabsForThresholds();
+  });
+  $('#joursCustomOrange').addEventListener('change', function() {
+    saveJoursCustom(joursCustom.green, parseInt(this.value, 10) || 0);
+    refreshAllTabsForThresholds();
+  });
+
+  const SEUIL_ACQUIS_LABELS = {
+    '3': 'Note ≥ 3 — actuel (Acquis + Maîtrisé comptent)',
+    '4': 'Note ≥ 4 — strict (seul Maîtrisé compte)',
+  };
+  function populateSeuilAcquisOptions() {
+    const el = $('#seuilAcquisOptions');
+    if (!el) return;
+    el.innerHTML = '<div class="settings-radio-group">' +
+      Object.keys(SEUIL_ACQUIS_LABELS).map(function(v) {
+        const checked = parseInt(v, 10) === seuilCompetenceAcquise ? ' checked' : '';
+        return '<label><input type="radio" name="seuilAcquis" value="' + v + '"' + checked + '/> ' + SEUIL_ACQUIS_LABELS[v] + '</label>';
+      }).join('') +
+    '</div>';
+    $$('input[name="seuilAcquis"]', el).forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        if (!radio.checked) return;
+        saveSeuilAcquis(parseInt(radio.value, 10));
+        refreshAllTabsForThresholds();
+      });
+    });
+  }
+  populateSeuilAcquisOptions();
+
+  function buildSwatchRowHtml(role, palette) {
+    return Object.keys(palette).map(function(key) {
+      const selected = accentChoice[role] === key;
+      return '<div class="color-swatch-col" data-swatch-role="' + role + '" data-swatch-key="' + key + '">' +
+        '<div class="color-swatch' + (selected ? ' selected' : '') + '" style="background:' + palette[key] + ';"></div>' +
+        '<div class="color-swatch-label">' + ACCENT_COLOR_LABELS[key] + '</div>' +
+      '</div>';
+    }).join('');
+  }
+  /** Mini graphique en sparkline SVG, dans l'esprit de la vraie courbe de progression
+   *  (trait + zone remplie translucide), pour illustrer la couleur "vive" choisie. */
+  function buildPreviewSparklineSvg(color) {
+    const points = '0,28 20,18 40,22 60,8 80,14 100,4';
+    const areaPoints = points + ' 100,34 0,34';
+    return '<svg class="color-preview-chart" viewBox="0 0 100 34" preserveAspectRatio="none">' +
+      '<polyline points="' + areaPoints + '" fill="' + color + '22" stroke="none"></polyline>' +
+      '<polyline points="' + points + '" fill="none" stroke="' + color + '" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline>' +
+    '</svg>';
+  }
+  function buildColorPreviewCardHtml(label, bg, text, muted, principaleColor, viveColor) {
+    return '<div class="color-preview-card" style="background:' + bg + ';color:' + text + ';">' +
+      '<div class="color-preview-label" style="color:' + muted + ';">' + label + '</div>' +
+      '<span class="color-preview-badge" style="color:' + principaleColor + ';">Saison 2026-2027</span>' +
+      '<span class="color-preview-btn" style="background:' + viveColor + ';color:#04262b;">Générer</span>' +
+      buildPreviewSparklineSvg(viveColor) +
+    '</div>';
+  }
+  function renderColorPreview() {
+    const el = $('#colorPreviewRow');
+    if (!el) return;
+    const darkBg = DARK_BG_PALETTE[bgChoice.dark] || DARK_BG_PALETTE.bleuNuit;
+    const lightBg = LIGHT_BG_PALETTE[bgChoice.light] || LIGHT_BG_PALETTE.blancCasse;
+    const darkText = DARK_TEXT_PALETTE[textChoice.dark] || DARK_TEXT_PALETTE.blanc;
+    const lightText = LIGHT_TEXT_PALETTE[textChoice.light] || LIGHT_TEXT_PALETTE.grisFonce;
+    el.innerHTML =
+      buildColorPreviewCardHtml('Aperçu sombre', darkBg.bg, darkText.text, hexToRgba(darkText.text, 0.62),
+        DARK_ACCENT_PALETTE[accentChoice.darkPrincipale], DARK_ACCENT_PALETTE[accentChoice.darkVive]) +
+      buildColorPreviewCardHtml('Aperçu clair', lightBg.bg, lightText.text, hexToRgba(lightText.text, 0.62),
+        LIGHT_ACCENT_PALETTE[accentChoice.lightPrincipale], LIGHT_ACCENT_PALETTE[accentChoice.lightVive]);
+  }
+
+  function buildBgSwatchRowHtml(themeKey, palette) {
+    return Object.keys(palette).map(function(key) {
+      const selected = bgChoice[themeKey] === key;
+      return '<div class="color-swatch-col" data-bg-theme="' + themeKey + '" data-bg-key="' + key + '">' +
+        '<div class="color-swatch' + (selected ? ' selected' : '') + '" style="background:' + palette[key].bg + '; border-color:' + (selected ? 'var(--text)' : 'rgba(148,163,184,.35)') + ';"></div>' +
+        '<div class="color-swatch-label">' + palette[key].label + '</div>' +
+      '</div>';
+    }).join('');
+  }
+  function populateBgSwatches() {
+    const el1 = $('#bgDarkSwatches');
+    if (el1) el1.innerHTML = buildBgSwatchRowHtml('dark', DARK_BG_PALETTE);
+    const el2 = $('#bgLightSwatches');
+    if (el2) el2.innerHTML = buildBgSwatchRowHtml('light', LIGHT_BG_PALETTE);
+    $$('[data-bg-theme]').forEach(function(col) {
+      col.addEventListener('click', function() {
+        saveBgChoice(col.dataset.bgTheme, col.dataset.bgKey);
+        populateBgSwatches();
+        renderColorPreview();
+      });
+    });
+  }
+
+  function buildTextSwatchRowHtml(themeKey, palette) {
+    return Object.keys(palette).map(function(key) {
+      const selected = textChoice[themeKey] === key;
+      return '<div class="color-swatch-col" data-text-theme="' + themeKey + '" data-text-key="' + key + '">' +
+        '<div class="color-swatch' + (selected ? ' selected' : '') + '" style="background:' + palette[key].text + '; border-color:' + (selected ? 'var(--text)' : 'rgba(148,163,184,.35)') + ';"></div>' +
+        '<div class="color-swatch-label">' + palette[key].label + '</div>' +
+      '</div>';
+    }).join('');
+  }
+  function populateTextSwatches() {
+    const el1 = $('#textDarkSwatches');
+    if (el1) el1.innerHTML = buildTextSwatchRowHtml('dark', DARK_TEXT_PALETTE);
+    const el2 = $('#textLightSwatches');
+    if (el2) el2.innerHTML = buildTextSwatchRowHtml('light', LIGHT_TEXT_PALETTE);
+    $$('[data-text-theme]').forEach(function(col) {
+      col.addEventListener('click', function() {
+        saveTextChoice(col.dataset.textTheme, col.dataset.textKey);
+        populateTextSwatches();
+        renderColorPreview();
+      });
+    });
+  }
+
+  function populateAccentSwatches() {
+    const map = {
+      colorDarkPrincipaleSwatches: { role: 'darkPrincipale', palette: DARK_ACCENT_PALETTE },
+      colorDarkViveSwatches: { role: 'darkVive', palette: DARK_ACCENT_PALETTE },
+      colorLightPrincipaleSwatches: { role: 'lightPrincipale', palette: LIGHT_ACCENT_PALETTE },
+      colorLightViveSwatches: { role: 'lightVive', palette: LIGHT_ACCENT_PALETTE },
+    };
+    Object.keys(map).forEach(function(id) {
+      const el = $('#' + id);
+      if (!el) return;
+      el.innerHTML = buildSwatchRowHtml(map[id].role, map[id].palette);
+    });
+    $$('[data-swatch-role]').forEach(function(col) {
+      col.addEventListener('click', function() {
+        saveAccentChoice(col.dataset.swatchRole, col.dataset.swatchKey);
+        populateAccentSwatches();
+      });
+    });
+    renderColorPreview();
+  }
+  populateAccentSwatches();
+  populateBgSwatches();
+  populateTextSwatches();
+  $('#btnResetColors').addEventListener('click', function() {
+    Object.keys(ACCENT_LS_KEYS).forEach(function(role) {
+      try { localStorage.removeItem(ACCENT_LS_KEYS[role]); } catch (e) {}
+      accentChoice[role] = ACCENT_DEFAULTS[role];
+    });
+    Object.keys(BG_LS_KEYS).forEach(function(themeKey) {
+      try { localStorage.removeItem(BG_LS_KEYS[themeKey]); } catch (e) {}
+      bgChoice[themeKey] = BG_DEFAULTS[themeKey];
+    });
+    Object.keys(TEXT_LS_KEYS).forEach(function(themeKey) {
+      try { localStorage.removeItem(TEXT_LS_KEYS[themeKey]); } catch (e) {}
+      textChoice[themeKey] = TEXT_DEFAULTS[themeKey];
+    });
+    applyAccentColors();
+    populateAccentSwatches();
+    populateBgSwatches();
+    populateTextSwatches();
+    refreshAllTabsForThresholds();
+    showToast('Couleurs réinitialisées.', 'info');
+  });
+
+  const ROBUSTESSE_MODE_LABELS = {
+    standard: 'Standard — actuel (la dernière note suffit)',
+    renforce: 'Renforcé (confirmation par plusieurs évaluations et moniteurs)',
+  };
+  function updateRobustesseMoniteursVisibility() {
+    $('#robustesseMoniteursWrap').classList.toggle('hidden', robustesseMode !== 'renforce');
+    $('#robustesseMoniteursSelect').value = String(robustesseMoniteursMin);
+  }
+  function populateRobustesseModeOptions() {
+    const el = $('#robustesseModeOptions');
+    if (!el) return;
+    el.innerHTML = '<div class="settings-radio-group">' +
+      Object.keys(ROBUSTESSE_MODE_LABELS).map(function(v) {
+        const checked = v === robustesseMode ? ' checked' : '';
+        return '<label><input type="radio" name="robustesseMode" value="' + v + '"' + checked + '/> ' + ROBUSTESSE_MODE_LABELS[v] + '</label>';
+      }).join('') +
+    '</div>';
+    $$('input[name="robustesseMode"]', el).forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        if (!radio.checked) return;
+        saveRobustesseMode(radio.value);
+        updateRobustesseMoniteursVisibility();
+        refreshAllTabsForThresholds();
+      });
+    });
+    updateRobustesseMoniteursVisibility();
+  }
+  populateRobustesseModeOptions();
+  $('#robustesseMoniteursSelect').addEventListener('change', function() {
+    saveRobustesseMoniteursMin(parseInt(this.value, 10));
+    refreshAllTabsForThresholds();
+  });
 
   // Options "réglages Palanquées" (seuil anti-répétition, ratio, mode par défaut)
   function populatePalanqueeStreakOptions() {
@@ -2093,14 +2772,6 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     return Math.round((today - d) / 86400000);
   }
 
-  /** Code couleur "fraîcheur" pour le nombre de jours depuis le dernier cours. */
-  function daysSinceColor(days) {
-    if (days == null) return 'var(--muted)';
-    if (days <= 14) return 'var(--ok)';
-    if (days <= 45) return 'var(--warn)';
-    return 'var(--bad)';
-  }
-
   function buildRowsData(elevesFiltered) {
     return elevesFiltered.map(function(e) {
       const acquisition = buildAcquisitionData(e);
@@ -2303,10 +2974,13 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     // proche de 0 — c'est le même écart déjà visible sur "Couverture du référentiel".
     Object.keys(e.competences || {}).forEach(function(atelier) {
       if (!matchSet.has(atelier)) return;
-      const n = e.competences[atelier].derniere_note;
+      const entry = e.competences[atelier];
+      const n = entry.derniere_note;
       if (n === null || n === undefined) counts['Non évalué']++;
-      else if (n >= 3) counts['Acquis']++;
-      else if (n === 2) counts["En cours d'acquisition"]++;
+      else if (isCompetenceAcquiseFromHistorique(entry)) counts['Acquis']++;
+      // "En cours d'acquisition" couvre aussi le cas note ≥ seuil mais pas encore confirmée
+      // robustement (mode Renforcé) — la compétence progresse, elle n'est juste pas encore actée.
+      else if (n >= getSeuilCompetenceAcquise() - 1) counts["En cours d'acquisition"]++;
       else counts['Non acquis']++;
     });
     // Le ratio se calcule sur le NOMBRE TOTAL de compétences du référentiel (pas seulement
@@ -2406,8 +3080,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
       if (!cat) return;
       if (!parCategorie[cat]) parCategorie[cat] = { touched: 0, acquis: 0 };
       parCategorie[cat].touched++;
-      const note = e.competences[atelier].derniere_note;
-      if (note != null && note >= 3) parCategorie[cat].acquis++;
+      if (isCompetenceAcquiseFromHistorique(e.competences[atelier])) parCategorie[cat].acquis++;
     });
     const categories = getAllCategories();
     return categories.map(function(cat) {
@@ -3043,7 +3716,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
       ? global.missing.map(function(mi) {
           return '<div class="cr-missing-item"><span class="cmi-date">' + formatDateFR(mi.date) + '</span>' +
             '<span>' + ICONS.moniteurLogo + ' ' + escapeHtml(mi.moniteur) + chefBadge(mi.moniteur) + ' — CR non saisi</span>' +
-            '<a class="cr-missing-saisie" href="' + CONFIG.URL_SAISIE_CR + '" target="_blank" rel="noopener">📝 Saisir</a></div>';
+            '<a class="cr-missing-saisie" href="' + CONFIG.URL_CR_SEANCE + '" target="_blank" rel="noopener">📝 Saisir</a></div>';
         }).join('')
       : '<div class="cr-missing-empty">Aucun CR manquant sur cette période ✅</div>';
 
@@ -3591,7 +4264,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 
   const LS_ANALYSE_LAYOUT_ORDER = 'rscc_v2_analyse_layout_order';
   const ANALYSE_LAYOUT_DEFAULT_ORDER = ['chips', 'grid'];
-  const ANALYSE_LAYOUT_LABELS = { chips: '🤿 Bandeau de navigation élèves', grid: '🗂️ Grille des cartes élèves' };
+  const ANALYSE_LAYOUT_LABELS = { chips: '🏊 Bandeau de navigation élèves', grid: '🗂️ Grille des cartes élèves' };
   const analyseLayoutOrderStore = makeOrderStore(LS_ANALYSE_LAYOUT_ORDER, ANALYSE_LAYOUT_DEFAULT_ORDER);
 
   function loadSaisonOrder() {
@@ -3769,9 +4442,8 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   function getAcquisitionEventsForEleve(e) {
     const events = [];
     Object.keys(e.competences || {}).forEach(function(atelier) {
-      const histo = (e.competences[atelier].historique || []).slice().sort((a, b) => (a.date || '').localeCompare(b.date || ''));
-      const firstAcquis = histo.find(h => h.note != null && h.note >= 3);
-      if (firstAcquis) events.push(firstAcquis.date);
+      const date = findDateAcquisitionFromHistorique(e.competences[atelier]);
+      if (date) events.push(date);
     });
     return events;
   }
@@ -4255,7 +4927,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     competenceNoms.forEach(function(nom) {
       const c = (e.competences || {})[nom];
       const n = c ? c.derniere_note : null;
-      if (n !== null && n !== undefined) { notes.push(n); if (n >= 3) acquisCount++; }
+      if (n !== null && n !== undefined) { notes.push(n); if (isCompetenceAcquiseFromHistorique(c)) acquisCount++; }
     });
     const acquisNorm = acquisCount / competenceNoms.length;
     const moyenne = notes.length ? notes.reduce((a, b) => a + b, 0) / notes.length : null;
@@ -4272,15 +4944,14 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     return computeNiveauScore(eleveNom);
   }
 
-  /** Un élève "a besoin" d'un thème s'il n'a pas encore acquis (jamais évalué OU note < 3)
-   *  au moins une des compétences sélectionnées pour la séance. */
+  /** Un élève "a besoin" d'un thème s'il n'a pas encore acquis (jamais évalué OU pas encore
+   *  robustement validé, voir mode Renforcé) au moins une des compétences sélectionnées. */
   function eleveABesoinDuTheme(eleveNom, competenceNoms) {
     const e = findEleveByNom(eleveNom);
     if (!e) return true;
     return (competenceNoms || []).some(function(nom) {
       const c = (e.competences || {})[nom];
-      const n = c ? c.derniere_note : null;
-      return n === null || n === undefined || n < 3;
+      return !isCompetenceAcquiseFromHistorique(c);
     });
   }
 
@@ -4419,8 +5090,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
       if (!e) return themesForM.length;
       return themesForM.filter(function(t) {
         const c = (e.competences || {})[t];
-        const n = c ? c.derniere_note : null;
-        return n === null || n === undefined || n < 3;
+        return !isCompetenceAcquiseFromHistorique(c);
       }).length;
     }
 
@@ -4803,7 +5473,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   function buildPalmaresCollectifHtml() {
     const cards = [];
 
-    cards.push(trophyCardHtml('🤿', String(computeTotalSeancesEleves()), 'Séances-élèves cumulées cette saison'));
+    cards.push(trophyCardHtml('🏊', String(computeTotalSeancesEleves()), 'Séances-élèves cumulées cette saison'));
 
     const ateliers = computeAtelierExtremes();
     if (ateliers) {
@@ -5012,8 +5682,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     const pool = (STATE.referentiel || []).filter(c => c.actif && c.notable);
     const acquisSet = new Set();
     Object.keys(e.competences || {}).forEach(function(atelier) {
-      const n = e.competences[atelier].derniere_note;
-      if (n != null && n >= 3) acquisSet.add(atelier);
+      if (isCompetenceAcquiseFromHistorique(e.competences[atelier])) acquisSet.add(atelier);
     });
     const nbAcquis = pool.filter(c => acquisSet.has(c.nom)).length;
     const cellsHtml = pool.map(function(c) {
