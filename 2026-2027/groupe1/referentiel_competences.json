@@ -263,7 +263,7 @@
     "nom": "Vidage tuba",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": false
   },
   {
     "id": "theorie",
@@ -275,8 +275,8 @@
   {
     "id": "exam-theorie",
     "nom": "Exam Théorie",
-    "actif": false,
-    "notable": false,
+    "actif": true,
+    "notable": true,
     "compte_dans_moyenne": false
   },
   {
@@ -291,6 +291,13 @@
     "nom": "Exam capelé 50m",
     "actif": true,
     "notable": false,
+    "compte_dans_moyenne": false
+  },
+  {
+    "id": "exam-pratique",
+    "nom": "Exam pratique",
+    "actif": true,
+    "notable": true,
     "compte_dans_moyenne": false
   },
   {
