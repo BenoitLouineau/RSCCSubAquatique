@@ -1,0 +1,1952 @@
+[
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-06-02",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-06-02",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Palmage",
+    "competence": "Palmage",
+    "date": "2026-06-02",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Phoque",
+    "competence": "Phoque",
+    "date": "2026-06-02",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-06-02",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-06-02",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Palmage",
+    "competence": "Palmage",
+    "date": "2026-06-02",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Phoque",
+    "competence": "Phoque",
+    "date": "2026-06-02",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-06-02",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-06-02",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Palmage",
+    "competence": "Palmage",
+    "date": "2026-06-02",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Phoque",
+    "competence": "Phoque",
+    "date": "2026-06-02",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-06-02",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-06-02",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Palmage",
+    "competence": "Palmage",
+    "date": "2026-06-02",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Phoque",
+    "competence": "Phoque",
+    "date": "2026-06-02",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Saut droit PMT",
+    "competence": "Saut droit PMT",
+    "date": "2026-06-16",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Bascule Arrière PMT",
+    "competence": "Bascule Arrière PMT",
+    "date": "2026-06-16",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Canard PMT",
+    "competence": "Canard PMT",
+    "date": "2026-06-16",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Vidage tuba",
+    "competence": "Vidage tuba",
+    "date": "2026-06-16",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Saut droit PMT",
+    "competence": "Saut droit PMT",
+    "date": "2026-06-16",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Bascule Arrière PMT",
+    "competence": "Bascule Arrière PMT",
+    "date": "2026-06-16",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Canard PMT",
+    "competence": "Canard PMT",
+    "date": "2026-06-16",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Vidage tuba",
+    "competence": "Vidage tuba",
+    "date": "2026-06-16",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Saut droit PMT",
+    "competence": "Saut droit PMT",
+    "date": "2026-06-16",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Bascule Arrière PMT",
+    "competence": "Bascule Arrière PMT",
+    "date": "2026-06-16",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Canard PMT",
+    "competence": "Canard PMT",
+    "date": "2026-06-16",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Vidage tuba",
+    "competence": "Vidage tuba",
+    "date": "2026-06-16",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Saut droit",
+    "competence": "Saut droit",
+    "date": "2026-06-30",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Bascule Arrière",
+    "competence": "Bascule Arrière",
+    "date": "2026-06-30",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-06-30",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Stabilisation statique",
+    "competence": "Stabilisation statique",
+    "date": "2026-06-30",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Saut droit",
+    "competence": "Saut droit",
+    "date": "2026-06-30",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Bascule Arrière",
+    "competence": "Bascule Arrière",
+    "date": "2026-06-30",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-06-30",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Stabilisation statique",
+    "competence": "Stabilisation statique",
+    "date": "2026-06-30",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Saut droit",
+    "competence": "Saut droit",
+    "date": "2026-06-30",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Bascule Arrière",
+    "competence": "Bascule Arrière",
+    "date": "2026-06-30",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-06-30",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Stabilisation statique",
+    "competence": "Stabilisation statique",
+    "date": "2026-06-30",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Saut droit",
+    "competence": "Saut droit",
+    "date": "2026-06-30",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Bascule Arrière",
+    "competence": "Bascule Arrière",
+    "date": "2026-06-30",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-06-30",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Stabilisation statique",
+    "competence": "Stabilisation statique",
+    "date": "2026-06-30",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "Saut droit",
+    "competence": "Saut droit",
+    "date": "2026-06-30",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "Bascule Arrière",
+    "competence": "Bascule Arrière",
+    "date": "2026-06-30",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-06-30",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "Stabilisation statique",
+    "competence": "Stabilisation statique",
+    "date": "2026-06-30",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "LRE expiration",
+    "competence": "LRE expiration",
+    "date": "2026-07-14",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "LRE surpression",
+    "competence": "LRE surpression",
+    "date": "2026-07-14",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Poumon Ballast",
+    "competence": "Poumon Ballast",
+    "date": "2026-07-14",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Gestion du gilet",
+    "competence": "Gestion du gilet",
+    "date": "2026-07-14",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Théorie",
+    "competence": "Théorie",
+    "date": "2026-07-14",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Non évalué"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "LRE expiration",
+    "competence": "LRE expiration",
+    "date": "2026-07-14",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "LRE surpression",
+    "competence": "LRE surpression",
+    "date": "2026-07-14",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Poumon Ballast",
+    "competence": "Poumon Ballast",
+    "date": "2026-07-14",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Gestion du gilet",
+    "competence": "Gestion du gilet",
+    "date": "2026-07-14",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Théorie",
+    "competence": "Théorie",
+    "date": "2026-07-14",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Non évalué"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "LRE expiration",
+    "competence": "LRE expiration",
+    "date": "2026-07-14",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "LRE surpression",
+    "competence": "LRE surpression",
+    "date": "2026-07-14",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Poumon Ballast",
+    "competence": "Poumon Ballast",
+    "date": "2026-07-14",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Gestion du gilet",
+    "competence": "Gestion du gilet",
+    "date": "2026-07-14",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Théorie",
+    "competence": "Théorie",
+    "date": "2026-07-14",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Non évalué"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "LRE expiration",
+    "competence": "LRE expiration",
+    "date": "2026-07-14",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "LRE surpression",
+    "competence": "LRE surpression",
+    "date": "2026-07-14",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Poumon Ballast",
+    "competence": "Poumon Ballast",
+    "date": "2026-07-14",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Gestion du gilet",
+    "competence": "Gestion du gilet",
+    "date": "2026-07-14",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Théorie",
+    "competence": "Théorie",
+    "date": "2026-07-14",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Non évalué"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "LRE expiration",
+    "competence": "LRE expiration",
+    "date": "2026-07-14",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "LRE surpression",
+    "competence": "LRE surpression",
+    "date": "2026-07-14",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "Poumon Ballast",
+    "competence": "Poumon Ballast",
+    "date": "2026-07-14",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "Gestion du gilet",
+    "competence": "Gestion du gilet",
+    "date": "2026-07-14",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "Théorie",
+    "competence": "Théorie",
+    "date": "2026-07-14",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Non évalué"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Stabilisation dynamique",
+    "competence": "Stabilisation dynamique",
+    "date": "2026-07-28",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Déplacements immersion",
+    "competence": "Déplacements immersion",
+    "date": "2026-07-28",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "**Bascule Avant PMT",
+    "competence": "**Bascule Avant PMT",
+    "date": "2026-07-28",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Signes",
+    "competence": "Signes",
+    "date": "2026-07-28",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Stabilisation dynamique",
+    "competence": "Stabilisation dynamique",
+    "date": "2026-07-28",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Déplacements immersion",
+    "competence": "Déplacements immersion",
+    "date": "2026-07-28",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "**Bascule Avant PMT",
+    "competence": "**Bascule Avant PMT",
+    "date": "2026-07-28",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Signes",
+    "competence": "Signes",
+    "date": "2026-07-28",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Stabilisation dynamique",
+    "competence": "Stabilisation dynamique",
+    "date": "2026-07-28",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Déplacements immersion",
+    "competence": "Déplacements immersion",
+    "date": "2026-07-28",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "**Bascule Avant PMT",
+    "competence": "**Bascule Avant PMT",
+    "date": "2026-07-28",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Signes",
+    "competence": "Signes",
+    "date": "2026-07-28",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Stabilisation dynamique",
+    "competence": "Stabilisation dynamique",
+    "date": "2026-07-28",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Déplacements immersion",
+    "competence": "Déplacements immersion",
+    "date": "2026-07-28",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "**Bascule Avant PMT",
+    "competence": "**Bascule Avant PMT",
+    "date": "2026-07-28",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Signes",
+    "competence": "Signes",
+    "date": "2026-07-28",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "Stabilisation dynamique",
+    "competence": "Stabilisation dynamique",
+    "date": "2026-07-28",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "Déplacements immersion",
+    "competence": "Déplacements immersion",
+    "date": "2026-07-28",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "**Bascule Avant PMT",
+    "competence": "**Bascule Avant PMT",
+    "date": "2026-07-28",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "Signes",
+    "competence": "Signes",
+    "date": "2026-07-28",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "PA - reçoit octo",
+    "competence": "PA - reçoit octo",
+    "date": "2026-08-11",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "PA - donne octo",
+    "competence": "PA - donne octo",
+    "date": "2026-08-11",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "PA - reçoit échange",
+    "competence": "PA - reçoit échange",
+    "date": "2026-08-11",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "PA - donne échange",
+    "competence": "PA - donne échange",
+    "date": "2026-08-11",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Essoufflement - être pris en charge",
+    "competence": "Essoufflement - être pris en charge",
+    "date": "2026-08-11",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "PA - reçoit octo",
+    "competence": "PA - reçoit octo",
+    "date": "2026-08-11",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "PA - donne octo",
+    "competence": "PA - donne octo",
+    "date": "2026-08-11",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "PA - reçoit échange",
+    "competence": "PA - reçoit échange",
+    "date": "2026-08-11",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "PA - donne échange",
+    "competence": "PA - donne échange",
+    "date": "2026-08-11",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Essoufflement - être pris en charge",
+    "competence": "Essoufflement - être pris en charge",
+    "date": "2026-08-11",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "PA - reçoit octo",
+    "competence": "PA - reçoit octo",
+    "date": "2026-08-11",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "PA - donne octo",
+    "competence": "PA - donne octo",
+    "date": "2026-08-11",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "PA - reçoit échange",
+    "competence": "PA - reçoit échange",
+    "date": "2026-08-11",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "PA - donne échange",
+    "competence": "PA - donne échange",
+    "date": "2026-08-11",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Essoufflement - être pris en charge",
+    "competence": "Essoufflement - être pris en charge",
+    "date": "2026-08-11",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "PA - reçoit octo",
+    "competence": "PA - reçoit octo",
+    "date": "2026-08-11",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "PA - donne octo",
+    "competence": "PA - donne octo",
+    "date": "2026-08-11",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "PA - reçoit échange",
+    "competence": "PA - reçoit échange",
+    "date": "2026-08-11",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "PA - donne échange",
+    "competence": "PA - donne échange",
+    "date": "2026-08-11",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "Essoufflement - être pris en charge",
+    "competence": "Essoufflement - être pris en charge",
+    "date": "2026-08-11",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "VDM partiel",
+    "competence": "VDM partiel",
+    "date": "2026-08-25",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "VDM",
+    "competence": "VDM",
+    "date": "2026-08-25",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "**VDM équilibré",
+    "competence": "**VDM équilibré",
+    "date": "2026-08-25",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "VDM partiel",
+    "competence": "VDM partiel",
+    "date": "2026-08-25",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "VDM",
+    "competence": "VDM",
+    "date": "2026-08-25",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "**VDM équilibré",
+    "competence": "**VDM équilibré",
+    "date": "2026-08-25",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "VDM partiel",
+    "competence": "VDM partiel",
+    "date": "2026-08-25",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "VDM",
+    "competence": "VDM",
+    "date": "2026-08-25",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "**VDM équilibré",
+    "competence": "**VDM équilibré",
+    "date": "2026-08-25",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "VDM partiel",
+    "competence": "VDM partiel",
+    "date": "2026-08-25",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "VDM",
+    "competence": "VDM",
+    "date": "2026-08-25",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "**VDM équilibré",
+    "competence": "**VDM équilibré",
+    "date": "2026-08-25",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Vitesse de remontée",
+    "competence": "Vitesse de remontée",
+    "date": "2026-09-08",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Tenue palier",
+    "competence": "Tenue palier",
+    "date": "2026-09-08",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "360°",
+    "competence": "360°",
+    "date": "2026-09-08",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Remonté expi controlée",
+    "competence": "Remonté expi controlée",
+    "date": "2026-09-08",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Mise en sécu surface",
+    "competence": "Mise en sécu surface",
+    "date": "2026-09-08",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Vitesse de remontée",
+    "competence": "Vitesse de remontée",
+    "date": "2026-09-08",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Tenue palier",
+    "competence": "Tenue palier",
+    "date": "2026-09-08",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "360°",
+    "competence": "360°",
+    "date": "2026-09-08",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Remonté expi controlée",
+    "competence": "Remonté expi controlée",
+    "date": "2026-09-08",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Mise en sécu surface",
+    "competence": "Mise en sécu surface",
+    "date": "2026-09-08",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Vitesse de remontée",
+    "competence": "Vitesse de remontée",
+    "date": "2026-09-08",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Tenue palier",
+    "competence": "Tenue palier",
+    "date": "2026-09-08",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "360°",
+    "competence": "360°",
+    "date": "2026-09-08",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Remonté expi controlée",
+    "competence": "Remonté expi controlée",
+    "date": "2026-09-08",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Mise en sécu surface",
+    "competence": "Mise en sécu surface",
+    "date": "2026-09-08",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Vitesse de remontée",
+    "competence": "Vitesse de remontée",
+    "date": "2026-09-08",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Tenue palier",
+    "competence": "Tenue palier",
+    "date": "2026-09-08",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "360°",
+    "competence": "360°",
+    "date": "2026-09-08",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Remonté expi controlée",
+    "competence": "Remonté expi controlée",
+    "date": "2026-09-08",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Mise en sécu surface",
+    "competence": "Mise en sécu surface",
+    "date": "2026-09-08",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "Vitesse de remontée",
+    "competence": "Vitesse de remontée",
+    "date": "2026-09-08",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "Tenue palier",
+    "competence": "Tenue palier",
+    "date": "2026-09-08",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "360°",
+    "competence": "360°",
+    "date": "2026-09-08",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "Remonté expi controlée",
+    "competence": "Remonté expi controlée",
+    "date": "2026-09-08",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "Mise en sécu surface",
+    "competence": "Mise en sécu surface",
+    "date": "2026-09-08",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Sortie de l'eau",
+    "competence": "Sortie de l'eau",
+    "date": "2026-09-22",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-09-22",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Soin au materiel",
+    "competence": "Soin au materiel",
+    "date": "2026-09-22",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Exam PMT 100m",
+    "competence": "Exam PMT 100m",
+    "date": "2026-09-22",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Exam capelé 50m",
+    "competence": "Exam capelé 50m",
+    "date": "2026-09-22",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Sortie de l'eau",
+    "competence": "Sortie de l'eau",
+    "date": "2026-09-22",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-09-22",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Soin au materiel",
+    "competence": "Soin au materiel",
+    "date": "2026-09-22",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Exam PMT 100m",
+    "competence": "Exam PMT 100m",
+    "date": "2026-09-22",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Exam capelé 50m",
+    "competence": "Exam capelé 50m",
+    "date": "2026-09-22",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Sortie de l'eau",
+    "competence": "Sortie de l'eau",
+    "date": "2026-09-22",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-09-22",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Soin au materiel",
+    "competence": "Soin au materiel",
+    "date": "2026-09-22",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Exam PMT 100m",
+    "competence": "Exam PMT 100m",
+    "date": "2026-09-22",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Exam capelé 50m",
+    "competence": "Exam capelé 50m",
+    "date": "2026-09-22",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Sortie de l'eau",
+    "competence": "Sortie de l'eau",
+    "date": "2026-09-22",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-09-22",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Soin au materiel",
+    "competence": "Soin au materiel",
+    "date": "2026-09-22",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Exam PMT 100m",
+    "competence": "Exam PMT 100m",
+    "date": "2026-09-22",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Exam capelé 50m",
+    "competence": "Exam capelé 50m",
+    "date": "2026-09-22",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "Sortie de l'eau",
+    "competence": "Sortie de l'eau",
+    "date": "2026-09-22",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-09-22",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "Soin au materiel",
+    "competence": "Soin au materiel",
+    "date": "2026-09-22",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "Exam PMT 100m",
+    "competence": "Exam PMT 100m",
+    "date": "2026-09-22",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "Exam capelé 50m",
+    "competence": "Exam capelé 50m",
+    "date": "2026-09-22",
+    "moniteur": "Jo",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Théorie",
+    "competence": "Théorie",
+    "date": "2026-09-29",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Non évalué"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-09-29",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-09-29",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bernard Zoé",
+    "genre": "",
+    "categorie": "Palmage",
+    "competence": "Palmage",
+    "date": "2026-09-29",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Théorie",
+    "competence": "Théorie",
+    "date": "2026-09-29",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Non évalué"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-09-29",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-09-29",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Dupont Léa",
+    "genre": "",
+    "categorie": "Saut droit PMT",
+    "competence": "Saut droit PMT",
+    "date": "2026-09-29",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Théorie",
+    "competence": "Théorie",
+    "date": "2026-09-29",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Non évalué"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-09-29",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-09-29",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Martin Noah",
+    "genre": "",
+    "categorie": "Phoque",
+    "competence": "Phoque",
+    "date": "2026-09-29",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Théorie",
+    "competence": "Théorie",
+    "date": "2026-09-29",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Non évalué"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-09-29",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Saut droit",
+    "competence": "Saut droit",
+    "date": "2026-09-29",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Bascule Arrière",
+    "competence": "Bascule Arrière",
+    "date": "2026-09-29",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "Théorie",
+    "competence": "Théorie",
+    "date": "2026-09-29",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Non évalué"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "Saut droit",
+    "competence": "Saut droit",
+    "date": "2026-09-29",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "Bascule Arrière",
+    "competence": "Bascule Arrière",
+    "date": "2026-09-29",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Sarah Connord",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-09-29",
+    "moniteur": "Sam",
+    "presence": "Présent",
+    "statut": "Acquis"
+  }
+]
