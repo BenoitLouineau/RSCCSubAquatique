@@ -175,19 +175,24 @@
         ]
       },
       "Exam pratique": {
-        "nb_evaluations": 1,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.0,
+        "nb_evaluations": 2,
+        "derniere_note": 4.0,
+        "moyenne_notes": 3.0,
         "historique": [
           {
             "date": "2026-09-08",
             "note": 2.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-09-08",
+            "note": 4.0,
+            "moniteur": "Nicos"
           }
         ]
       },
       "Exam Théorie": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 4.0,
         "moyenne_notes": 4.0,
         "historique": [
@@ -195,6 +200,11 @@
             "date": "2026-09-08",
             "note": 4.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-09-08",
+            "note": 4.0,
+            "moniteur": "Nicos"
           }
         ]
       }
@@ -265,26 +275,36 @@
         ]
       },
       "Exam pratique": {
-        "nb_evaluations": 1,
-        "derniere_note": 3.0,
-        "moyenne_notes": 3.0,
+        "nb_evaluations": 2,
+        "derniere_note": 4.0,
+        "moyenne_notes": 3.5,
         "historique": [
           {
             "date": "2026-09-08",
             "note": 3.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-09-08",
+            "note": 4.0,
+            "moniteur": "Nicos"
           }
         ]
       },
       "Exam Théorie": {
-        "nb_evaluations": 1,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.0,
+        "nb_evaluations": 2,
+        "derniere_note": 4.0,
+        "moyenne_notes": 3.0,
         "historique": [
           {
             "date": "2026-09-08",
             "note": 2.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-09-08",
+            "note": 4.0,
+            "moniteur": "Nicos"
           }
         ]
       }
