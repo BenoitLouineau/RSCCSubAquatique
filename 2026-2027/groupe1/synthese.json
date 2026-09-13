@@ -1,423 +1,270 @@
 {
-  "date_generation": "2026-09-13T11:51:58",
+  "date_generation": "2026-09-13T12:02:24",
   "nb_eleves": 13,
-  "nb_moniteurs": 9,
-  "nb_seances": 10,
-  "nb_comptes_rendus": 195,
-  "nb_competences_referencees": 43,
+  "nb_moniteurs": 16,
+  "nb_seances": 13,
+  "nb_comptes_rendus": 89,
+  "nb_competences_referencees": 44,
   "periode": {
-    "date_min": "2026-06-02",
-    "date_max": "2026-09-29"
+    "date_min": "2026-05-12",
+    "date_max": "2026-09-11"
   },
   "acquisition_par_atelier": [
     {
-      "atelier": "Gestion de son matériel",
-      "nb_evaluations": 8,
-      "moyenne": 2.62,
-      "note_min": 1,
-      "note_max": 4,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Bascule Arrière",
-      "nb_evaluations": 7,
-      "moyenne": 2.57,
-      "note_min": 1,
-      "note_max": 4,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
       "atelier": "Gréage",
-      "nb_evaluations": 7,
-      "moyenne": 2.71,
-      "note_min": 1,
-      "note_max": 4,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Saut droit",
-      "nb_evaluations": 7,
-      "moyenne": 2.71,
-      "note_min": 2,
-      "note_max": 4,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "DBN",
-      "nb_evaluations": 6,
-      "moyenne": 2.5,
-      "note_min": 2,
-      "note_max": 3,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "**Bascule Avant PMT",
-      "nb_evaluations": 5,
-      "moyenne": 2.4,
-      "note_min": 2,
-      "note_max": 3,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "360°",
-      "nb_evaluations": 5,
-      "moyenne": 2.2,
-      "note_min": 1,
-      "note_max": 3,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Déplacements immersion",
-      "nb_evaluations": 5,
-      "moyenne": 2.6,
-      "note_min": 2,
-      "note_max": 4,
-      "notable": true,
-      "compte_dans_moyenne": false
-    },
-    {
-      "atelier": "Exam PMT 100m",
-      "nb_evaluations": 5,
-      "moyenne": 2.6,
-      "note_min": 1,
-      "note_max": 3,
-      "notable": false,
-      "compte_dans_moyenne": false
-    },
-    {
-      "atelier": "Exam capelé 50m",
-      "nb_evaluations": 5,
-      "moyenne": 2.2,
-      "note_min": 2,
-      "note_max": 3,
-      "notable": false,
-      "compte_dans_moyenne": false
-    },
-    {
-      "atelier": "Gestion du gilet",
-      "nb_evaluations": 5,
-      "moyenne": 2.6,
-      "note_min": 1,
-      "note_max": 3,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "LRE expiration",
-      "nb_evaluations": 5,
-      "moyenne": 2.8,
-      "note_min": 2,
-      "note_max": 3,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "LRE surpression",
-      "nb_evaluations": 5,
-      "moyenne": 2.2,
-      "note_min": 1,
-      "note_max": 3,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Mise en sécu surface",
-      "nb_evaluations": 5,
-      "moyenne": 2.4,
-      "note_min": 1,
-      "note_max": 4,
+      "nb_evaluations": 16,
+      "moyenne": 2.69,
+      "note_min": 1.0,
+      "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
     },
     {
       "atelier": "Palmage",
-      "nb_evaluations": 5,
-      "moyenne": 3.0,
-      "note_min": 2,
-      "note_max": 4,
+      "nb_evaluations": 12,
+      "moyenne": 1.08,
+      "note_min": 1.0,
+      "note_max": 2.0,
       "notable": true,
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "Phoque",
-      "nb_evaluations": 5,
-      "moyenne": 2.8,
-      "note_min": 1,
-      "note_max": 4,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Poumon Ballast",
-      "nb_evaluations": 5,
-      "moyenne": 2.4,
-      "note_min": 1,
-      "note_max": 3,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Remonté expi controlée",
-      "nb_evaluations": 5,
-      "moyenne": 2.6,
-      "note_min": 2,
-      "note_max": 3,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Signes",
-      "nb_evaluations": 5,
-      "moyenne": 2.2,
-      "note_min": 1,
-      "note_max": 3,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Soin au materiel",
-      "nb_evaluations": 5,
-      "moyenne": 2.6,
-      "note_min": 2,
-      "note_max": 3,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Sortie de l'eau",
-      "nb_evaluations": 5,
-      "moyenne": 2.6,
-      "note_min": 2,
-      "note_max": 3,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Stabilisation dynamique",
-      "nb_evaluations": 5,
-      "moyenne": 2.2,
-      "note_min": 2,
-      "note_max": 3,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Stabilisation statique",
-      "nb_evaluations": 5,
-      "moyenne": 2.8,
-      "note_min": 2,
-      "note_max": 4,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Tenue palier",
-      "nb_evaluations": 5,
-      "moyenne": 2.8,
-      "note_min": 2,
-      "note_max": 3,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Vitesse de remontée",
-      "nb_evaluations": 5,
-      "moyenne": 2.8,
-      "note_min": 1,
-      "note_max": 4,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "dégréage",
-      "nb_evaluations": 5,
-      "moyenne": 2.4,
-      "note_min": 2,
-      "note_max": 3,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "**VDM équilibré",
-      "nb_evaluations": 4,
-      "moyenne": 2.75,
-      "note_min": 2,
-      "note_max": 3,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Essoufflement - être pris en charge",
-      "nb_evaluations": 4,
-      "moyenne": 2.5,
-      "note_min": 2,
-      "note_max": 3,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "PA - donne octo",
-      "nb_evaluations": 4,
-      "moyenne": 2.5,
-      "note_min": 2,
-      "note_max": 3,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "PA - donne échange",
-      "nb_evaluations": 4,
-      "moyenne": 3.0,
-      "note_min": 2,
-      "note_max": 4,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "PA - reçoit octo",
-      "nb_evaluations": 4,
-      "moyenne": 2.75,
-      "note_min": 2,
-      "note_max": 4,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "PA - reçoit échange",
-      "nb_evaluations": 4,
-      "moyenne": 2.5,
-      "note_min": 2,
-      "note_max": 4,
+      "atelier": "Gestion de son matériel",
+      "nb_evaluations": 10,
+      "moyenne": 2.9,
+      "note_min": 2.0,
+      "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
     },
     {
       "atelier": "Saut droit PMT",
-      "nb_evaluations": 4,
-      "moyenne": 2.25,
-      "note_min": 1,
-      "note_max": 3,
+      "nb_evaluations": 7,
+      "moyenne": 2.57,
+      "note_min": 1.0,
+      "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
     },
     {
-      "atelier": "VDM",
-      "nb_evaluations": 4,
-      "moyenne": 2.25,
-      "note_min": 1,
-      "note_max": 4,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "VDM partiel",
+      "atelier": "**Bascule Avant PMT",
       "nb_evaluations": 4,
       "moyenne": 2.0,
-      "note_min": 1,
-      "note_max": 3,
+      "note_min": 1.0,
+      "note_max": 3.0,
       "notable": true,
       "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Stabilisation",
+      "nb_evaluations": 4,
+      "moyenne": 3.25,
+      "note_min": 1.0,
+      "note_max": 4.0,
+      "notable": false,
+      "compte_dans_moyenne": false
     },
     {
       "atelier": "Bascule Arrière PMT",
-      "nb_evaluations": 3,
-      "moyenne": 2.0,
-      "note_min": 1,
-      "note_max": 3,
+      "nb_evaluations": 2,
+      "moyenne": 3.5,
+      "note_min": 3.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Exam Théorie",
+      "nb_evaluations": 2,
+      "moyenne": 3.0,
+      "note_min": 2.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "Exam pratique",
+      "nb_evaluations": 2,
+      "moyenne": 2.5,
+      "note_min": 2.0,
+      "note_max": 3.0,
+      "notable": true,
+      "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "Gestion de l'air",
+      "nb_evaluations": 2,
+      "moyenne": 1.5,
+      "note_min": 1.0,
+      "note_max": 2.0,
+      "notable": false,
+      "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "LRE expiration",
+      "nb_evaluations": 2,
+      "moyenne": 1.5,
+      "note_min": 1.0,
+      "note_max": 2.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Signes",
+      "nb_evaluations": 2,
+      "moyenne": 3.0,
+      "note_min": 2.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Soin au materiel",
+      "nb_evaluations": 2,
+      "moyenne": 3.5,
+      "note_min": 3.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Bascule Arrière",
+      "nb_evaluations": 1,
+      "moyenne": 4.0,
+      "note_min": 4.0,
+      "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
     },
     {
       "atelier": "Canard PMT",
-      "nb_evaluations": 3,
-      "moyenne": 2.67,
-      "note_min": 2,
-      "note_max": 4,
+      "nb_evaluations": 1,
+      "moyenne": 2.0,
+      "note_min": 2.0,
+      "note_max": 2.0,
       "notable": true,
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "Vidage tuba",
-      "nb_evaluations": 3,
-      "moyenne": 2.67,
-      "note_min": 1,
-      "note_max": 4,
+      "atelier": "DBN",
+      "nb_evaluations": 1,
+      "moyenne": 4.0,
+      "note_min": 4.0,
+      "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "LRE surpression",
+      "nb_evaluations": 1,
+      "moyenne": 2.0,
+      "note_min": 2.0,
+      "note_max": 2.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Remontée assistée",
+      "nb_evaluations": 1,
+      "moyenne": 2.0,
+      "note_min": 2.0,
+      "note_max": 2.0,
+      "notable": false,
+      "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "Saut droit",
+      "nb_evaluations": 1,
+      "moyenne": 3.0,
+      "note_min": 3.0,
+      "note_max": 3.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "VDM",
+      "nb_evaluations": 1,
+      "moyenne": 2.0,
+      "note_min": 2.0,
+      "note_max": 2.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Vidage de masque",
+      "nb_evaluations": 1,
+      "moyenne": 1.0,
+      "note_min": 1.0,
+      "note_max": 1.0,
+      "notable": false,
+      "compte_dans_moyenne": false
     }
   ],
   "progression_par_eleve": [
     {
       "eleve": "Bernard Zoé",
-      "nb_ateliers_evalues": 39,
-      "moyenne_generale": 3.42
+      "nb_ateliers_evalues": 3,
+      "moyenne_generale": 3.0
     },
     {
       "eleve": "Bruce Wayne",
-      "nb_ateliers_evalues": 0,
-      "moyenne_generale": null
+      "nb_ateliers_evalues": 9,
+      "moyenne_generale": 2.44
     },
     {
       "eleve": "Dayne Jonhson",
-      "nb_ateliers_evalues": 0,
-      "moyenne_generale": null
+      "nb_ateliers_evalues": 4,
+      "moyenne_generale": 2.25
     },
     {
       "eleve": "Dupont Léa",
-      "nb_ateliers_evalues": 39,
-      "moyenne_generale": 2.58
+      "nb_ateliers_evalues": 4,
+      "moyenne_generale": 2.5
     },
     {
       "eleve": "Ezio Auditore",
-      "nb_ateliers_evalues": 0,
-      "moyenne_generale": null
+      "nb_ateliers_evalues": 6,
+      "moyenne_generale": 2.33
     },
     {
       "eleve": "Harry Potter",
-      "nb_ateliers_evalues": 0,
-      "moyenne_generale": null
+      "nb_ateliers_evalues": 6,
+      "moyenne_generale": 2.2
     },
     {
       "eleve": "John Travolta",
-      "nb_ateliers_evalues": 0,
-      "moyenne_generale": null
+      "nb_ateliers_evalues": 3,
+      "moyenne_generale": 3.0
     },
     {
       "eleve": "Kurt Cobain",
-      "nb_ateliers_evalues": 0,
-      "moyenne_generale": null
+      "nb_ateliers_evalues": 7,
+      "moyenne_generale": 1.83
     },
     {
       "eleve": "Malcolm X",
-      "nb_ateliers_evalues": 0,
-      "moyenne_generale": null
+      "nb_ateliers_evalues": 4,
+      "moyenne_generale": 3.0
     },
     {
       "eleve": "Martin Noah",
-      "nb_ateliers_evalues": 34,
-      "moyenne_generale": 1.64
+      "nb_ateliers_evalues": 3,
+      "moyenne_generale": 2.33
     },
     {
       "eleve": "Marty MacFly",
-      "nb_ateliers_evalues": 0,
-      "moyenne_generale": null
+      "nb_ateliers_evalues": 6,
+      "moyenne_generale": 2.6
     },
     {
       "eleve": "Peter Parker",
-      "nb_ateliers_evalues": 32,
-      "moyenne_generale": 2.61
+      "nb_ateliers_evalues": 6,
+      "moyenne_generale": 2.67
     },
     {
       "eleve": "Sarah Connord",
-      "nb_ateliers_evalues": 31,
-      "moyenne_generale": 2.57
+      "nb_ateliers_evalues": 10,
+      "moyenne_generale": 2.75
     }
   ],
   "anomalies": {
@@ -426,30 +273,86 @@
       "Dupont Léa",
       "Martin Noah"
     ],
-    "eleves_referentiel_jamais_vus": [
-      "Bruce Wayne",
-      "Dayne Jonhson",
-      "Ezio Auditore",
-      "Harry Potter",
-      "John Travolta",
-      "Kurt Cobain",
-      "Malcolm X",
-      "Marty MacFly"
-    ],
+    "eleves_referentiel_jamais_vus": [],
     "moniteurs_hors_referentiel": [
-      "Jo",
-      "Sam"
-    ],
-    "moniteurs_referentiel_jamais_actifs": [
-      "Avrell Dalton",
       "Bilbo le Hobitt",
-      "Hulk",
-      "Lanfeust",
+      "Jo",
       "Luky Luke",
       "Mad Max",
+      "Sam",
       "Wall-E"
     ],
-    "ateliers_hors_referentiel": [],
-    "comptes_rendus_doublons": []
+    "moniteurs_referentiel_jamais_actifs": [
+      "Carine",
+      "Catherine",
+      "Christophe",
+      "Hervé",
+      "Virginie",
+      "Véronique"
+    ],
+    "ateliers_hors_referentiel": [
+      "Gestion de l'air",
+      "Remontée assistée",
+      "Stabilisation",
+      "Vidage de masque"
+    ],
+    "comptes_rendus_doublons": [
+      {
+        "date_seance": "2026-09-08",
+        "moniteur": "Bilbo le Hobitt",
+        "eleve": "Bruce Wayne",
+        "atelier": "Gestion de son matériel",
+        "occurrences": 2
+      },
+      {
+        "date_seance": "2026-09-08",
+        "moniteur": "Bilbo le Hobitt",
+        "eleve": "Bruce Wayne",
+        "atelier": "Gréage",
+        "occurrences": 3
+      },
+      {
+        "date_seance": "2026-09-08",
+        "moniteur": "Bilbo le Hobitt",
+        "eleve": "Bruce Wayne",
+        "atelier": "**Bascule Avant PMT",
+        "occurrences": 2
+      },
+      {
+        "date_seance": "2026-09-08",
+        "moniteur": "Luky Luke",
+        "eleve": "Harry Potter",
+        "atelier": "Gréage",
+        "occurrences": 2
+      },
+      {
+        "date_seance": "2026-09-08",
+        "moniteur": "Luky Luke",
+        "eleve": "Harry Potter",
+        "atelier": "Gestion de son matériel",
+        "occurrences": 2
+      },
+      {
+        "date_seance": "2026-09-08",
+        "moniteur": "Bilbo le Hobitt",
+        "eleve": "John Travolta",
+        "atelier": "Gréage",
+        "occurrences": 2
+      },
+      {
+        "date_seance": "2026-09-08",
+        "moniteur": "Luky Luke",
+        "eleve": "Kurt Cobain",
+        "atelier": "Gréage",
+        "occurrences": 2
+      },
+      {
+        "date_seance": "2026-09-08",
+        "moniteur": "Luky Luke",
+        "eleve": "Kurt Cobain",
+        "atelier": "Gestion de son matériel",
+        "occurrences": 2
+      }
+    ]
   }
 }
