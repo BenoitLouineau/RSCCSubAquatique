@@ -275,8 +275,15 @@
   {
     "id": "exam-theorie",
     "nom": "Exam Théorie",
-    "actif": false,
-    "notable": false,
+    "actif": true,
+    "notable": true,
+    "compte_dans_moyenne": false
+  },
+    {
+    "id": "exam-pratique",
+    "nom": "Exam Pratique",
+    "actif": true,
+    "notable": true,
     "compte_dans_moyenne": false
   },
   {
