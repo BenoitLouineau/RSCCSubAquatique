@@ -593,11 +593,13 @@
       "Sarah Connord"
     ],
     "ateliers_traites": [
+      "Exam Théorie",
+      "Exam pratique",
       "Palmage",
       "Saut droit PMT",
       "Signes"
     ],
-    "nb_comptes_rendus": 14,
+    "nb_comptes_rendus": 18,
     "comptes_rendus": [
       {
         "eleve": "Marty MacFly",
@@ -681,6 +683,30 @@
         "eleve": "Kurt Cobain",
         "atelier": "Saut droit PMT",
         "note": 3.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Dayne Jonhson",
+        "atelier": "Exam Théorie",
+        "note": 4.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Dayne Jonhson",
+        "atelier": "Exam pratique",
+        "note": 4.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Bruce Wayne",
+        "atelier": "Exam pratique",
+        "note": 4.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Bruce Wayne",
+        "atelier": "Exam Théorie",
+        "note": 4.0,
         "commentaire": null
       }
     ]
