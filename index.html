@@ -103,6 +103,31 @@ button { font-family: inherit; cursor: pointer; }
 }
 .icon-btn:hover { background: var(--border); }
 .icon-btn { text-decoration: none; font-size: 15px; }
+.notif-wrap { position: relative; }
+.notif-badge {
+  position: absolute; top: -4px; right: -4px; background: #ef4444; color: #fff;
+  font-size: 10px; font-weight: 800; border-radius: 999px; min-width: 16px; height: 16px;
+  display: flex; align-items: center; justify-content: center; padding: 0 3px; line-height: 1;
+}
+.notif-badge.hidden { display: none; }
+.notif-panel {
+  position: absolute; top: calc(100% + 10px); right: 0; width: 320px; max-width: 85vw;
+  max-height: 70vh; overflow-y: auto; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); box-shadow: var(--shadow); padding: 14px; z-index: 210;
+}
+.notif-panel.hidden { display: none; }
+.notif-panel-title { font-size: 14px; font-weight: 800; margin-bottom: 10px; }
+.notif-item { padding: 10px 0; border-top: 1px solid var(--border); }
+.notif-item:first-child { border-top: none; }
+.notif-item-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+.notif-tag {
+  font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .03em;
+  color: var(--brand); background: rgba(56, 189, 248, .12); padding: 2px 8px; border-radius: 999px;
+}
+.notif-close { border: none; background: transparent; color: var(--muted); font-size: 15px; cursor: pointer; line-height: 1; }
+.notif-close:hover { color: var(--text); }
+.notif-text { font-size: 13px; line-height: 1.4; }
+.notif-empty { font-size: 12.5px; color: var(--muted); text-align: center; padding: 10px 0; }
 .icon-btn:active { transform: scale(0.94); }
 .icon-btn svg { width: 18px; height: 18px; }
 
@@ -700,6 +725,20 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 .crseance-iframe { flex: 1; width: 100%; border: 1px solid var(--border); border-radius: var(--radius-sm); background: #fff; }
 .crseance-fallback { font-size: 12px; color: var(--muted); text-align: center; }
 .crseance-fallback a { color: var(--accent2); }
+.exam-status-badge {
+  display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 999px;
+  font-size: 12px; font-weight: 700; white-space: nowrap;
+}
+.exam-status-badge.exam-status-ok { background: rgba(22, 163, 74, .14); color: var(--ok); border: 1px solid rgba(22, 163, 74, .35); }
+.exam-status-badge.exam-status-warn { background: rgba(245, 158, 11, .12); color: var(--warn); border: 1px solid rgba(245, 158, 11, .35); }
+.exam-status-badge.exam-status-muted { background: var(--chip); color: var(--muted); border: 1px solid var(--border); }
+
+/* Élève ayant validé Exam Théorie + Exam pratique — trame verte discrète, partout où son nom apparaît */
+.eleve-exam-ok, tr.eleve-exam-ok, span.eleve-exam-ok {
+  background: rgba(34, 197, 94, .16);
+  border-color: rgba(34, 197, 94, .4);
+}
+tr.eleve-exam-ok td { background: rgba(34, 197, 94, .1); }
 
 /* ===================== PALMARÈS — cartes trophée ===================== */
 .trophy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-bottom: 24px; }
@@ -833,6 +872,17 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
         📝
       </a>
 
+      <div class="notif-wrap">
+        <button class="icon-btn" id="btnNotif" title="Informations">
+          🔔
+          <span class="notif-badge hidden" id="notifBadge">0</span>
+        </button>
+        <div class="notif-panel hidden" id="notifPanel">
+          <div class="notif-panel-title">🔔 Informations</div>
+          <div id="notifPanelBody"></div>
+        </div>
+      </div>
+
       <button class="icon-btn" id="btnSettings" title="Réglages">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
       </button>
@@ -885,11 +935,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   </section>
 
   <section class="tab-panel" id="panel-examens">
-    <div class="placeholder-panel">
-      <div class="ph-icon">🎓</div>
-      <div class="ph-title">Module Examens — à venir</div>
-      <div>Aucune donnée d'examen dans la source actuelle (pas d'onglet Examens dans l'Excel).</div>
-    </div>
+    <div id="examensMainContent"></div>
   </section>
 
   <section class="tab-panel" id="panel-saison">
@@ -1162,6 +1208,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   CONFIG.URL_REFERENTIEL = CONFIG.RAW_BASE + 'referentiel_competences.json';
   CONFIG.URL_REFERENTIEL_CATEGORIES = CONFIG.RAW_BASE + 'referentiel_categories.json';
   CONFIG.URL_SYNTHESE    = CONFIG.RAW_BASE + 'synthese.json';
+  CONFIG.URL_INFOS       = CONFIG.RAW_BASE + 'infos.json';
   CONFIG.URL_CR_SEANCE   = 'https://script.google.com/macros/s/AKfycbwAINN9KmZCwMSqio7H_i0fF00h5tRjDuGMsMBOq-u-nZ87Q8XcWKJznNPg2xnnrAq8/exec';
 
   // Icônes utilisées de façon cohérente dans toute la page
@@ -1529,7 +1576,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   const TABLE_COLS = [
     { key: 'nom', label: ICONS.eleve + ' Élève', exportLabel: 'Élève', type: 'string', mandatory: true,
       getValue: r => r.nom, exportValue: r => r.nom,
-      cellContent: r => escapeHtml(r.nom) },
+      cellContent: r => (hasBothExamsValidated(r.nom) ? '✅ ' : '') + escapeHtml(r.nom) },
     { key: 'acquisAbs', label: ICONS.competence + ' Acquises', exportLabel: 'Acquises', type: 'number',
       getValue: r => r.acquisAbs, exportValue: r => r.acquisAbs + '/' + r.acquisTotal,
       cellContent: r => r.acquisAbs + '/' + r.acquisTotal },
@@ -2045,16 +2092,18 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   // CHEF DE GROUPE — désigne un moniteur, badgé 🧭 partout où son nom apparaît
   // =====================================================================
   const LS_CHEF_DE_GROUPE = 'rscc_v2_chef_de_groupe';
+  const CHEF_DE_GROUPE_AUCUN = '__aucun__';
   function loadChefDeGroupe() {
-    try { return localStorage.getItem(LS_CHEF_DE_GROUPE) || ''; } catch (e) { return ''; }
+    try {
+      const v = localStorage.getItem(LS_CHEF_DE_GROUPE);
+      if (v === null) return 'Nicos'; // jamais réglé : défaut de la saison en cours
+      return v === CHEF_DE_GROUPE_AUCUN ? '' : v;
+    } catch (e) { return 'Nicos'; }
   }
   let chefDeGroupeNom = loadChefDeGroupe();
   function saveChefDeGroupe(nom) {
     chefDeGroupeNom = nom;
-    try {
-      if (nom) localStorage.setItem(LS_CHEF_DE_GROUPE, nom);
-      else localStorage.removeItem(LS_CHEF_DE_GROUPE);
-    } catch (e) {}
+    try { localStorage.setItem(LS_CHEF_DE_GROUPE, nom || CHEF_DE_GROUPE_AUCUN); } catch (e) {}
   }
   function isChefDeGroupe(nom) { return !!chefDeGroupeNom && nom === chefDeGroupeNom; }
   /** Badge inline à ajouter après un nom de moniteur affiché n'importe où dans le rapport. */
@@ -2063,6 +2112,197 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   }
   /** Variante texte brute (sans HTML), pour les libellés de graphique Chart.js et les exports. */
   function chefBadgeText(nom) { return isChefDeGroupe(nom) ? ' 🧭' : ''; }
+
+  // =====================================================================
+  // MODULE EXAMENS — validation à double signature pour Exam Théorie / Exam
+  // pratique : nécessite au moins une évaluation à 4 donnée par le Chef de
+  // groupe actif (une évaluation du Chef de groupe compte à la fois comme
+  // "moniteur jury" et comme "confirmation", pas besoin de deux entrées
+  // distinctes si c'est la même personne). Exam PMT 100m / Exam capelé 50m
+  // restent en dehors de cette règle spécifique.
+  // =====================================================================
+  const EXAM_ITEMS_DUAL_VALIDATION = ['Exam Théorie', 'Exam pratique'];
+  const EXAM_ITEMS_SIMPLES = ['Exam PMT 100m', 'Exam capelé 50m'];
+
+  function getExamStatus(competenceEntry) {
+    const historique = (competenceEntry && competenceEntry.historique) || [];
+    if (!historique.length) return 'non-presente';
+    const notes4 = historique.filter(h => h.note === 4);
+    if (!notes4.length) return 'non-valide';
+    const chefAValide = chefDeGroupeNom && notes4.some(h => h.moniteur === chefDeGroupeNom);
+    return chefAValide ? 'valide' : 'attente-chef';
+  }
+
+  const EXAM_STATUS_INFO = {
+    'non-presente': { label: 'Non présenté', icon: '—', cls: 'muted' },
+    'non-valide': { label: 'À réévaluer', icon: '🔸', cls: 'warn' },
+    'attente-chef': { label: 'En attente du Chef de groupe', icon: '⏳', cls: 'warn' },
+    'valide': { label: 'Validé', icon: '✅', cls: 'ok' },
+  };
+
+  function examStatusBadgeHtml(status, detail) {
+    const info = EXAM_STATUS_INFO[status];
+    return '<span class="exam-status-badge exam-status-' + info.cls + '"' + (detail ? ' title="' + escapeHtml(detail) + '"' : '') + '>' +
+      info.icon + ' ' + info.label +
+    '</span>';
+  }
+
+  function enableExamensTab() {
+    TAB_ENABLED.examens = true;
+    renderBottomNav();
+    renderExamens();
+  }
+
+  function renderExamens() {
+    const el = $('#examensMainContent');
+    if (!el) return;
+    const eleves = STATE.eleves || [];
+    const names = buildDisplayNames(eleves);
+
+    const chefBanner = chefDeGroupeNom
+      ? ''
+      : '<div class="anomalies-banner">⚠ Aucun Chef de groupe actif — aucun examen ne peut être validé tant qu\'un Chef de groupe n\'est pas désigné (Réglages → Moniteurs).</div>';
+
+    const rowsDual = eleves.map(function(e) {
+      const cells = EXAM_ITEMS_DUAL_VALIDATION.map(function(item) {
+        const entry = (e.competences || {})[item];
+        const status = getExamStatus(entry);
+        let detail = '';
+        if (entry && entry.historique && entry.historique.length) {
+          const notes4 = entry.historique.filter(h => h.note === 4).map(h => h.moniteur + ' (' + formatDateFR(h.date) + ')');
+          if (notes4.length) detail = 'Note 4 par : ' + notes4.join(', ');
+        }
+        return '<td>' + examStatusBadgeHtml(status, detail) + '</td>';
+      }).join('');
+      return '<tr class="' + eleveExamRowClass(e.nom).trim() + '"><td class="cr-row-name">' + (hasBothExamsValidated(e.nom) ? '✅ ' : '') + escapeHtml(names[e.id] || e.nom) + '</td>' + cells + '</tr>';
+    }).join('');
+
+    const dualTableHtml = '<div class="cr-summary-card">' +
+      '<div class="section-title">🎓 Validation des examens</div>' +
+      '<p class="section-subtitle">Un examen est validé dès qu\'une évaluation à 4 a été donnée par le Chef de groupe actif' +
+        (chefDeGroupeNom ? ' (actuellement ' + escapeHtml(chefDeGroupeNom) + ' ' + ICONS.moniteurLogo + '🧭)' : '') + '.</p>' +
+      '<div class="synthese-table-wrap"><table class="synthese"><thead><tr>' +
+        '<th>' + ICONS.eleve + ' Élève</th>' +
+        EXAM_ITEMS_DUAL_VALIDATION.map(i => '<th>' + escapeHtml(i) + '</th>').join('') +
+      '</tr></thead><tbody>' + rowsDual + '</tbody></table></div>' +
+    '</div>';
+
+    const rowsSimples = eleves.map(function(e) {
+      const cells = EXAM_ITEMS_SIMPLES.map(function(item) {
+        const entry = (e.competences || {})[item];
+        const n = entry ? entry.derniere_note : null;
+        if (n == null) return '<td><span class="exam-status-badge exam-status-muted">— Non présenté</span></td>';
+        const ok = n >= getSeuilCompetenceAcquise();
+        return '<td><span class="exam-status-badge exam-status-' + (ok ? 'ok' : 'warn') + '">' + (ok ? '✅' : '🔸') + ' Note ' + n + '</span></td>';
+      }).join('');
+      return '<tr class="' + eleveExamRowClass(e.nom).trim() + '"><td class="cr-row-name">' + (hasBothExamsValidated(e.nom) ? '✅ ' : '') + escapeHtml(names[e.id] || e.nom) + '</td>' + cells + '</tr>';
+    }).join('');
+
+    const simplesTableHtml = '<div class="cr-summary-card">' +
+      '<div class="section-title">📋 Autres épreuves</div>' +
+      '<p class="section-subtitle">Exam PMT 100m et Exam capelé 50m — notation simple, sans validation du Chef de groupe.</p>' +
+      '<div class="synthese-table-wrap"><table class="synthese"><thead><tr>' +
+        '<th>' + ICONS.eleve + ' Élève</th>' +
+        EXAM_ITEMS_SIMPLES.map(i => '<th>' + escapeHtml(i) + '</th>').join('') +
+      '</tr></thead><tbody>' + rowsSimples + '</tbody></table></div>' +
+    '</div>';
+
+    el.innerHTML = chefBanner + dualTableHtml + simplesTableHtml;
+  }
+
+  /** Un élève est "double-diplômé" si Exam Théorie ET Exam pratique sont tous les deux au
+   *  statut "valide" (donc confirmés par le Chef de groupe actif). Utilisé partout où le nom
+   *  d'un élève est affiché, pour le badge ✅ et la trame de fond verte. */
+  function hasBothExamsValidated(eleveNom) {
+    const e = findEleveByNom(eleveNom);
+    if (!e) return false;
+    return EXAM_ITEMS_DUAL_VALIDATION.every(function(item) {
+      return getExamStatus((e.competences || {})[item]) === 'valide';
+    });
+  }
+  /** Badge à insérer juste après ICONS.eleve (🏊) — vide si non éligible. */
+  function eleveExamBadge(eleveNom) { return hasBothExamsValidated(eleveNom) ? ' ✅' : ''; }
+  /** Classe CSS à ajouter à l'élément (chip, ligne, carte) pour la trame de fond verte. */
+  function eleveExamRowClass(eleveNom) { return hasBothExamsValidated(eleveNom) ? ' eleve-exam-ok' : ''; }
+
+  // =====================================================================
+  // MODULE NOTIFICATIONS — messages d'information (infos.json), lus à
+  // chaque ouverture du rapport (pas de mémorisation de fermeture : un
+  // message fermé revient à la prochaine visite, comme demandé). Cloche
+  // dans le bandeau + panneau déroulant, complétés par un toast de
+  // résumé au tout premier chargement.
+  // =====================================================================
+  let dismissedInfoIds = {}; // fermetures pour la session en cours uniquement (non persisté)
+
+  function computeInfoMessages() {
+    const infos = STATE.infos || [];
+    const accueil = infos.filter(i => i.accueil).map(i => ({ id: 'accueil-' + i.ligne, tag: 'Accueil', text: i.accueil }));
+    const palanquees = infos.filter(i => i.palanquees).map(i => ({ id: 'palanquees-' + i.ligne, tag: 'Palanquées', text: i.palanquees }));
+    return accueil.concat(palanquees).filter(m => !dismissedInfoIds[m.id]);
+  }
+
+  function renderNotifBell() {
+    const badge = $('#notifBadge');
+    if (!badge) return;
+    const n = computeInfoMessages().length;
+    badge.textContent = String(n);
+    badge.classList.toggle('hidden', n === 0);
+  }
+
+  function renderNotifPanel() {
+    const body = $('#notifPanelBody');
+    if (!body) return;
+    const messages = computeInfoMessages();
+    body.innerHTML = messages.length
+      ? messages.map(function(m) {
+          return '<div class="notif-item">' +
+            '<div class="notif-item-head"><span class="notif-tag">' + escapeHtml(m.tag) + '</span>' +
+              '<button type="button" class="notif-close" data-notif-close="' + m.id + '" aria-label="Fermer">×</button></div>' +
+            '<div class="notif-text">' + escapeHtml(m.text) + '</div>' +
+          '</div>';
+        }).join('')
+      : '<div class="notif-empty">Aucune information pour le moment.</div>';
+    $$('[data-notif-close]', body).forEach(function(btn) {
+      btn.addEventListener('click', function(ev) {
+        ev.stopPropagation();
+        dismissedInfoIds[btn.dataset.notifClose] = true;
+        renderNotifBell();
+        renderNotifPanel();
+      });
+    });
+  }
+
+  function toggleNotifPanel(forceOpen) {
+    const panel = $('#notifPanel');
+    if (!panel) return;
+    const open = forceOpen != null ? forceOpen : panel.classList.contains('hidden');
+    panel.classList.toggle('hidden', !open);
+    if (open) renderNotifPanel();
+  }
+
+  function initNotifications() {
+    renderNotifBell();
+    const btn = $('#btnNotif');
+    if (btn && !btn.dataset.wired) {
+      btn.dataset.wired = '1';
+      btn.addEventListener('click', function(ev) { ev.stopPropagation(); toggleNotifPanel(); });
+      document.addEventListener('click', function(ev) {
+        const wrap = $('.notif-wrap');
+        if (wrap && !wrap.contains(ev.target)) toggleNotifPanel(false);
+      });
+    }
+    const n = computeInfoMessages().length;
+    if (n > 0) {
+      showToast(
+        '🔔 ' + n + ' nouvelle' + (n > 1 ? 's' : '') + ' information' + (n > 1 ? 's' : '') + ' disponible' + (n > 1 ? 's' : '') + '.',
+        'info',
+        { actionLabel: 'Voir', onAction: function() { toggleNotifPanel(true); } }
+      );
+    }
+  }
+
+
+
 
   function populateChefDeGroupeOptions() {
     const el = $('#chefDeGroupeOptions');
@@ -2084,6 +2324,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
         if (STATE.synthese) renderSaison();
         if (TAB_ENABLED.palanquees) renderPalanquees();
         if (TAB_ENABLED.palmares) renderPalmares();
+        if (TAB_ENABLED.examens) renderExamens();
       });
     });
   }
@@ -2633,6 +2874,15 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
         console.warn('Catégorisation du référentiel indisponible :', e.message);
         STATE.referentielCategories = null;
       }
+
+      // Messages d'information (accueil / palanquées) : optionnel, idem.
+      try {
+        STATE.infos = await fetchJSON(CONFIG.URL_INFOS, 'infos');
+      } catch (e) {
+        console.warn('Fichier infos.json indisponible :', e.message);
+        STATE.infos = [];
+      }
+      initNotifications();
       const orphans = detectUncategorizedCompetences();
       if (orphans.length) {
         showToast(
@@ -2653,6 +2903,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
       enableAnalyseTab();
       enablePalanqueesTab();
       enablePalmaresTab();
+      enableExamensTab();
     } catch (err) {
       console.error(err);
       showLoadError(err);
@@ -2696,7 +2947,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
           else if (file.name.includes('eleves')) STATE.eleves = data;
         } catch (err) { console.error('JSON invalide :', file.name, err); }
         pending--;
-        if (pending === 0 && STATE.eleves) { renderEleves(); if (STATE.moniteurs) { renderMoniteurs(); enableMoniteursTab(); renderSaison(); enableSaisonTab(); renderAnalyse(); enableAnalyseTab(); enablePalanqueesTab(); enablePalmaresTab(); } }
+        if (pending === 0 && STATE.eleves) { renderEleves(); if (STATE.moniteurs) { renderMoniteurs(); enableMoniteursTab(); renderSaison(); enableSaisonTab(); renderAnalyse(); enableAnalyseTab(); enablePalanqueesTab(); enablePalmaresTab(); enableExamensTab(); } }
       };
       reader.readAsText(file);
     });
@@ -2740,11 +2991,11 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     if (!relevant) return '';
     const horsRefHtml = horsRef.length
       ? '<div class="sub-card-title">🏋 Élèves hors référentiel (' + horsRef.length + ')</div>' +
-        '<div class="chips-wrap">' + horsRef.map(n => '<span class="mini-eleve-chip flag">' + escapeHtml(n) + '</span>').join('') + '</div>'
+        '<div class="chips-wrap">' + horsRef.map(n => '<span class="mini-eleve-chip flag' + eleveExamRowClass(n) + '">' + (hasBothExamsValidated(n) ? '✅ ' : '') + escapeHtml(n) + '</span>').join('') + '</div>'
       : '';
     const jamaisVusHtml = jamaisVus.length
       ? '<div class="sub-card-title" style="margin-top:14px;">👻 Élèves du référentiel jamais vus en séance (' + jamaisVus.length + ')</div>' +
-        '<div class="chips-wrap">' + jamaisVus.map(n => '<span class="mini-eleve-chip flag">' + escapeHtml(n) + '</span>').join('') + '</div>'
+        '<div class="chips-wrap">' + jamaisVus.map(n => '<span class="mini-eleve-chip flag' + eleveExamRowClass(n) + '">' + (hasBothExamsValidated(n) ? '✅ ' : '') + escapeHtml(n) + '</span>').join('') + '</div>'
       : '';
     return '<div class="anomalies-banner">' +
       '⚠ ' + horsRef.length + ' élève(s) hors référentiel, ' +
@@ -2822,7 +3073,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
         if (col.mandatory) classes.push('sticky-col');
         return '<td class="' + classes.join(' ') + '">' + col.cellContent(r) + '</td>';
       }).join('');
-      return '<tr data-id="' + escapeHtml(r.eleve.id) + '">' + cells + '</tr>';
+      return '<tr data-id="' + escapeHtml(r.eleve.id) + '" class="' + eleveExamRowClass(r.nom).trim() + '">' + cells + '</tr>';
     }).join('');
 
     const columnsMenu = TABLE_COLS.filter(c => !c.mandatory).map(function(col) {
@@ -3236,7 +3487,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 
     return '<div class="student-card" id="eleve-' + escapeHtml(e.id) + '">' +
       '<div class="student-head">' +
-        '<div><div class="student-name">' + ICONS.eleve + ' ' + escapeHtml(e.nom) + '</div>' +
+        '<div><div class="student-name">' + ICONS.eleve + eleveExamBadge(e.nom) + ' ' + escapeHtml(e.nom) + '</div>' +
         '<div class="student-meta">Dernière séance : ' + formatDateFR(lastDate) + (e.moniteurs && e.moniteurs.length ? ' avec ' + e.moniteurs.map(nm => escapeHtml(nm) + chefBadge(nm)).join(', ') : '') + '</div></div>' +
         '<div class="student-stats">' +
           '<span class="stat-pill">' + ICONS.seance + ' ' + e.nb_seances + ' séance(s)</span>' +
@@ -3326,8 +3577,8 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 
     track.innerHTML = eleves.map(function(e) {
       const presence = buildPresenceData(e, STATE.allDates);
-      return '<div class="eleve-chip" data-id="' + escapeHtml(e.id) + '">' +
-        '<span class="eleve-chip-icon">' + ICONS.eleve + '</span>' +
+      return '<div class="eleve-chip' + eleveExamRowClass(e.nom) + '" data-id="' + escapeHtml(e.id) + '">' +
+        '<span class="eleve-chip-icon">' + ICONS.eleve + eleveExamBadge(e.nom) + '</span>' +
         '<div class="eleve-chip-info">' +
           '<span class="eleve-chip-name">' + escapeHtml(displayNames[e.id]) + '</span>' +
           '<span class="eleve-chip-sub">' + presence.nbPresent + '/' + presence.total + ' présences</span>' +
@@ -3770,7 +4021,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   }
 
   function eleveChipHtml(eleveNom, nameByNom) {
-    return '<span class="mini-eleve-chip">' + ICONS.eleve + ' ' + escapeHtml(nameByNom[eleveNom] || eleveNom) + '</span>';
+    return '<span class="mini-eleve-chip' + eleveExamRowClass(eleveNom) + '">' + ICONS.eleve + eleveExamBadge(eleveNom) + ' ' + escapeHtml(nameByNom[eleveNom] || eleveNom) + '</span>';
   }
 
   function buildMoniteurCard(m, nameByNom) {
@@ -3825,7 +4076,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
       '</div>' +
       '<div class="sub-card"><div class="sub-card-title">🚩 Élèves non suivis (' + nonSuivis.length + ')</div>' +
         '<div class="chips-wrap">' + nonSuivis.map(function(e) {
-          return '<span class="mini-eleve-chip flag">🚩 ' + escapeHtml(nameByNom[e.nom] || e.nom) + '</span>';
+          return '<span class="mini-eleve-chip flag' + eleveExamRowClass(e.nom) + '">🚩 ' + eleveExamBadge(e.nom).trim() + ' ' + escapeHtml(nameByNom[e.nom] || e.nom) + '</span>';
         }).join('') + '</div>' +
       '</div>' +
     '</div>';
@@ -4488,7 +4739,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     }).join('');
     return '<div class="analyse-eleve-card" id="analyse-eleve-' + escapeHtml(e.id) + '">' +
       '<div class="analyse-eleve-head">' +
-        '<div class="analyse-eleve-name">' + ICONS.eleve + ' ' + escapeHtml(e.nom) + '</div>' +
+        '<div class="analyse-eleve-name">' + ICONS.eleve + eleveExamBadge(e.nom) + ' ' + escapeHtml(e.nom) + '</div>' +
         '<div class="moniteur-head-actions">' +
           '<button class="export-btn" data-export-analyse-png="' + escapeHtml(e.id) + '" type="button">🖼️ PNG</button>' +
           '<button class="export-btn" data-export-analyse-pdf="' + escapeHtml(e.id) + '" type="button">📄 PDF</button>' +
@@ -5122,11 +5373,12 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 
   function toggleSelSet(set, val) { if (set.has(val)) set.delete(val); else set.add(val); }
 
-  function buildSelectionGridHtml(items, selectedSet, dataAttr, showChefBadge) {
+  function buildSelectionGridHtml(items, selectedSet, dataAttr, showChefBadge, showExamBadge) {
     return items.map(function(nom) {
       const sel = selectedSet.has(nom);
-      return '<div class="selection-chip' + (sel ? ' selected' : '') + '" data-' + dataAttr + '="' + escapeHtml(nom) + '" role="button" tabindex="0">' +
-        (sel ? '✅ ' : '') + escapeHtml(nom) + (showChefBadge ? chefBadge(nom) : '') +
+      const examOk = showExamBadge && hasBothExamsValidated(nom);
+      return '<div class="selection-chip' + (sel ? ' selected' : '') + (examOk ? ' eleve-exam-ok' : '') + '" data-' + dataAttr + '="' + escapeHtml(nom) + '" role="button" tabindex="0">' +
+        (sel ? '✅ ' : '') + (examOk ? '✅ ' : '') + escapeHtml(nom) + (showChefBadge ? chefBadge(nom) : '') +
       '</div>';
     }).join('');
   }
@@ -5170,7 +5422,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
         '<button type="button" class="export-btn" data-pal-select-none="eleves">Tout désélectionner</button>' +
         '<span class="table-toolbar-label">' + PALANQUEE_STATE.eleves.size + ' sélectionné(s)</span>' +
       '</div>' +
-      '<div class="selection-grid">' + buildSelectionGridHtml(eleves, PALANQUEE_STATE.eleves, 'pal-eleve') + '</div>' +
+      '<div class="selection-grid">' + buildSelectionGridHtml(eleves, PALANQUEE_STATE.eleves, 'pal-eleve', false, true) + '</div>' +
       '<div class="palanquee-actions">' +
         '<button type="button" class="btn-secondary-action" id="palPrevStep2">← Précédent</button>' +
         '<button type="button" class="btn-primary-action" id="palNextStep2"' + (PALANQUEE_STATE.eleves.size === 0 ? ' disabled' : '') + '>Suivant →</button>' +
@@ -5293,7 +5545,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
         const themeBadge = (themesArr.length && eleveABesoinDuTheme(e, themesArr))
           ? '<span class="niveau-badge tier-moyen">🎯 À travailler</span>'
           : '';
-        return '<span class="mini-eleve-chip">' + escapeHtml(e) + niveauBadge + themeBadge + badge + '</span>';
+        return '<span class="mini-eleve-chip' + eleveExamRowClass(e) + '">' + eleveExamBadge(e).trim() + ' ' + escapeHtml(e) + niveauBadge + themeBadge + badge + '</span>';
       }).join('');
       return '<div class="student-card palanquee-result-card">' +
         '<div class="student-head"><div class="student-name">' + ICONS.moniteurLogo + ' ' + escapeHtml(m) + chefBadge(m) + '</div>' +
@@ -5522,13 +5774,13 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 
     const assidu = computeEleveLePlusAssidu();
     if (assidu) {
-      cards.push(trophyCardHtml('⭐', escapeHtml(displayNames[assidu.e.id] || assidu.e.nom), 'Le plus assidu',
+      cards.push(trophyCardHtml('⭐', eleveExamBadge(assidu.e.nom).trim() + ' ' + escapeHtml(displayNames[assidu.e.id] || assidu.e.nom), 'Le plus assidu',
         assidu.presence.pct + '% de présence (' + assidu.presence.nbPresent + '/' + assidu.presence.total + ')'));
     }
 
     const serie = computeMeilleureSerie();
     if (serie) {
-      cards.push(trophyCardHtml('🔥', escapeHtml(displayNames[serie.e.id] || serie.e.nom), 'Plus grosse série sans absence',
+      cards.push(trophyCardHtml('🔥', eleveExamBadge(serie.e.nom).trim() + ' ' + escapeHtml(displayNames[serie.e.id] || serie.e.nom), 'Plus grosse série sans absence',
         serie.streak + ' séance(s) d\'affilée'));
     }
 
@@ -5569,7 +5821,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     const names = buildDisplayNames(STATE.eleves || []);
     return getElevesEligiblesClassement().map(function(e) {
       const nb = buildAcquisitionData(e).counts['Acquis'];
-      return { nom: names[e.id] || e.nom, raw: nb, value: nb + ' compétence(s) acquise(s)', detail: e.nb_seances + ' séance(s)' };
+      return { nom: names[e.id] || e.nom, eleveNomComplet: e.nom, raw: nb, value: nb + ' compétence(s) acquise(s)', detail: e.nb_seances + ' séance(s)' };
     }).sort((a, b) => b.raw - a.raw);
   }
 
@@ -5577,7 +5829,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     const names = buildDisplayNames(STATE.eleves || []);
     return getElevesEligiblesClassement().map(function(e) {
       const presence = buildPresenceData(e, STATE.allDates);
-      return { nom: names[e.id] || e.nom, raw: presence.pct, value: presence.pct + '% de présence', detail: presence.nbPresent + '/' + presence.total + ' séance(s)' };
+      return { nom: names[e.id] || e.nom, eleveNomComplet: e.nom, raw: presence.pct, value: presence.pct + '% de présence', detail: presence.nbPresent + '/' + presence.total + ' séance(s)' };
     }).sort((a, b) => b.raw - a.raw);
   }
 
@@ -5587,7 +5839,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     return getElevesEligiblesClassement().map(function(e) {
       const events = getAcquisitionEventsForEleve(e);
       const nbRecent = events.filter(d => recentDates.has(d)).length;
-      return { nom: names[e.id] || e.nom, raw: nbRecent, value: nbRecent + ' compétence(s) récente(s)', detail: 'sur le trimestre en cours' };
+      return { nom: names[e.id] || e.nom, eleveNomComplet: e.nom, raw: nbRecent, value: nbRecent + ' compétence(s) récente(s)', detail: 'sur le trimestre en cours' };
     }).sort((a, b) => b.raw - a.raw);
   }
 
@@ -5596,7 +5848,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     return getElevesEligiblesClassement().map(function(e) {
       const nb = buildAcquisitionData(e).counts['Acquis'];
       const ratio = e.nb_seances ? nb / e.nb_seances : 0;
-      return { nom: names[e.id] || e.nom, raw: ratio, value: ratio.toFixed(2) + ' compétence(s)/séance', detail: nb + ' acquise(s) en ' + e.nb_seances + ' séance(s)' };
+      return { nom: names[e.id] || e.nom, eleveNomComplet: e.nom, raw: ratio, value: ratio.toFixed(2) + ' compétence(s)/séance', detail: nb + ' acquise(s) en ' + e.nb_seances + ' séance(s)' };
     }).sort((a, b) => b.raw - a.raw);
   }
 
@@ -5611,12 +5863,14 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     const body = rows.length
       ? (function() {
           const podium = rows.slice(0, 3).map(function(r, i) {
-            const nomHtml = r.preEscaped ? r.nom : escapeHtml(r.nom);
+            const examOk = r.eleveNomComplet && hasBothExamsValidated(r.eleveNomComplet);
+            const nomHtml = (examOk ? '✅ ' : '') + (r.preEscaped ? r.nom : escapeHtml(r.nom));
             return trophyCardHtml(MEDALS[i], nomHtml, r.value, r.detail);
           }).join('');
           const fullListRows = rows.map(function(r, i) {
-            const nomHtml = r.preEscaped ? r.nom : escapeHtml(r.nom);
-            return '<div class="ranking-row"><span class="ranking-rank">' + (i < 3 ? MEDALS[i] : (i + 1)) + '</span>' +
+            const examOk = r.eleveNomComplet && hasBothExamsValidated(r.eleveNomComplet);
+            const nomHtml = (examOk ? '✅ ' : '') + (r.preEscaped ? r.nom : escapeHtml(r.nom));
+            return '<div class="ranking-row' + (examOk ? ' eleve-exam-ok' : '') + '"><span class="ranking-rank">' + (i < 3 ? MEDALS[i] : (i + 1)) + '</span>' +
               '<span class="ranking-name">' + nomHtml + '</span>' +
               '<span class="ranking-value">' + r.value + '</span></div>';
           }).join('');
@@ -5665,9 +5919,10 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     }
     const pills = eligibles.map(function(e) {
       const badges = computeBadgesEleve(e);
-      const nom = escapeHtml(names[e.id] || e.nom);
-      if (!badges.length) return '<span class="badge-pill bp-empty">' + nom + ' — pas encore de badge</span>';
-      return '<span class="badge-pill"><span class="bp-icons">' + badges.map(b => b.icon).join('') + '</span>' + nom +
+      const nom = (hasBothExamsValidated(e.nom) ? '✅ ' : '') + escapeHtml(names[e.id] || e.nom);
+      const examCls = eleveExamRowClass(e.nom);
+      if (!badges.length) return '<span class="badge-pill bp-empty' + examCls + '">' + nom + ' — pas encore de badge</span>';
+      return '<span class="badge-pill' + examCls + '"><span class="bp-icons">' + badges.map(b => b.icon).join('') + '</span>' + nom +
         '<span style="color:var(--muted);font-weight:400;">(' + badges.map(b => b.label).join(', ') + ')</span></span>';
     }).join('');
     return '<div class="cr-summary-card">' +
@@ -5702,8 +5957,8 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
     const entries = eligibles.map(function(e) {
       const bingo = buildBingoCellsHtml(e);
       return '<div class="bingo-summary-row">' +
-        '<button class="cahier-toggle" type="button" data-bingo-toggle="' + escapeHtml(e.id) + '">' +
-          escapeHtml(names[e.id] || e.nom) + ' — ' + bingo.nbAcquis + '/' + bingo.total +
+        '<button class="cahier-toggle' + eleveExamRowClass(e.nom) + '" type="button" data-bingo-toggle="' + escapeHtml(e.id) + '">' +
+          eleveExamBadge(e.nom).trim() + ' ' + escapeHtml(names[e.id] || e.nom) + ' — ' + bingo.nbAcquis + '/' + bingo.total +
           '<span class="cahier-chevron">▾</span>' +
         '</button>' +
         '<div class="bingo-grid hidden" id="bingo-' + escapeHtml(e.id) + '">' + bingo.cellsHtml + '</div>' +
@@ -5751,7 +6006,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   initTheme();
   setupBackToTable();
   switchTab(tabOrder[0]);
-  const PERMANENT_PLACEHOLDER_TABS = ['examens'];
+  const PERMANENT_PLACEHOLDER_TABS = [];
   if (PERMANENT_PLACEHOLDER_TABS.includes(tabOrder[0])) {
     showToast(
       'Le module « ' + TAB_LABELS[tabOrder[0]] + ' » n\'est pas encore disponible. Il est arrivé en 1ère ' +
