@@ -824,6 +824,15 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 .settings-tab-panel { display: none; }
 .settings-tab-panel.active { display: block; }
 .settings-body { padding: 18px 20px; overflow-y: auto; flex: 1; }
+.settings-footer {
+  padding: 12px 20px; border-top: 1px solid var(--border); display: flex; flex-direction: column;
+  gap: 6px; flex-shrink: 0;
+}
+.settings-freshness { font-size: 11px; color: var(--muted); text-align: center; }
+.settings-section-toggle { cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.settings-section-chevron { color: var(--muted); font-size: 12px; transition: transform var(--transition); flex-shrink: 0; }
+.settings-section.collapsed .settings-section-chevron { transform: rotate(-90deg); }
+.settings-section.collapsed .settings-section-body { display: none; }
 .settings-section { margin-bottom: 22px; }
 .settings-section-title { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
 .settings-info { font-size: 12px; color: var(--muted); margin: 0 0 8px; }
@@ -1002,7 +1011,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 </div>
 <nav class="bottom-nav-bar" id="bottomNav" role="tablist"></nav>
 
-<footer class="app-footer" id="appFooter">© <span id="footerSeason"></span> · Benoit Louineau · RSCC SubAquatique · Claude AI 🤖</footer>
+<footer class="app-footer" id="appFooter">© <span id="footerSeason"></span> · Benoit Louineau · RSCC SubAquatique · Claude AI 🤖<span id="footerFreshness"></span></footer>
 
 <!-- ======================= SETTINGS (squelette) ======================= -->
 <div class="settings-overlay" id="settingsOverlay"></div>
@@ -1214,6 +1223,10 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     </div>
 
   </div>
+  <div class="settings-footer">
+    <button class="export-btn" id="btnResetAllSettings" type="button">↺ Réinitialiser tous les réglages</button>
+    <div class="settings-freshness" id="settingsFreshness"></div>
+  </div>
 </aside>
 
 <script>
@@ -1262,10 +1275,6 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     crRempli: '📋',          // colonne "CR séance annoté"
     crManquant: '⚠️',        // colonne "CR manquants"
     tauxCR: '📈',            // colonne "% Taux de retour CR"
-    theorieValidee: '🎖️',   // TODO (module Examens) : à afficher à côté de CHAQUE nom d'élève
-                              // (chips, tableaux, fiches...) dès qu'une source de données réelle
-                              // "théorie validée" existera (aucune actuellement — l'atelier
-                              // "Théorie" ne trace que la présence, pas une validation/note).
     palanquee: '🪢',         // identité module Palanquées (onglet, réglages, cartes résultat)
     nouveauBinome: '🆕',     // badge : élève jamais encadré par ce moniteur (ou série rompue)
     repeteBinome: '🔁',      // badge : binôme déjà formé récemment (nombre de fois consécutives)
@@ -2089,6 +2098,35 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   $('#settingsClose').addEventListener('click', closeSettings);
   $('#settingsOverlay').addEventListener('click', closeSettings);
 
+  /** Transforme génériquement CHAQUE .settings-section en carte repliable : le titre devient
+   *  cliquable (avec un chevron), et tout le reste du contenu de la section est regroupé dans un
+   *  conteneur masquable. Repliées par défaut sur mobile (assez de réglages accumulés pour que le
+   *  défilement devienne pénible), dépliées par défaut sur desktop (assez de place). Ne s'exécute
+   *  qu'une fois par section (marquage via dataset) même si rappelée plus tard. */
+  function enhanceSettingsSectionsCollapsible() {
+    const isMobile = window.innerWidth <= 720;
+    $$('.settings-section').forEach(function(section) {
+      if (section.dataset.collapsible === '1') return;
+      const title = section.querySelector('.settings-section-title');
+      if (!title) return;
+      section.dataset.collapsible = '1';
+      const bodyChildren = Array.from(section.children).filter(function(c) { return c !== title; });
+      if (!bodyChildren.length) return; // rien à replier (section déjà minimale)
+      const body = document.createElement('div');
+      body.className = 'settings-section-body';
+      bodyChildren.forEach(function(c) { body.appendChild(c); });
+      section.appendChild(body);
+      title.classList.add('settings-section-toggle');
+      const chevron = document.createElement('span');
+      chevron.className = 'settings-section-chevron';
+      chevron.textContent = '▾';
+      title.appendChild(chevron);
+      title.addEventListener('click', function() { section.classList.toggle('collapsed'); });
+      if (isMobile) section.classList.add('collapsed');
+    });
+  }
+  enhanceSettingsSectionsCollapsible();
+
   // Mini-onglets internes au panneau Réglages (Général / Élèves / Moniteurs / Saison / Analyse)
   $$('.settings-tab').forEach(function(tab) {
     tab.addEventListener('click', function() {
@@ -2294,6 +2332,21 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   // dans le bandeau + panneau déroulant, complétés par un toast de
   // résumé au tout premier chargement.
   // =====================================================================
+  /** Affiche la date de génération des données (synthese.json) dans le pied de page et le pied
+   *  des Réglages — visible en permanence, pas seulement en mode dégradé (cache). */
+  function updateFreshnessDisplay() {
+    const dateGen = STATE.synthese && STATE.synthese.date_generation;
+    if (!dateGen) return;
+    const d = new Date(dateGen);
+    if (isNaN(d.getTime())) return;
+    const formatted = d.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' }) +
+      ' à ' + d.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+    const footerEl = $('#footerFreshness');
+    if (footerEl) footerEl.textContent = ' · Données du ' + formatted;
+    const settingsEl = $('#settingsFreshness');
+    if (settingsEl) settingsEl.textContent = 'Données à jour au ' + formatted;
+  }
+
   let dismissedInfoIds = {}; // fermetures pour la session en cours uniquement (non persisté)
 
   const LS_NOTIF_BREAKPOINT = 'rscc_v2_notif_breakpoint';
@@ -2675,6 +2728,31 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     showToast('Couleurs réinitialisées.', 'info');
   });
 
+  $('#btnResetAllSettings').addEventListener('click', function() {
+    const confirmed = window.confirm(
+      'Réinitialiser TOUS les réglages (seuils, couleurs, Chef de groupe, ordre des onglets, ' +
+      'Palanquées, notifications...) à leurs valeurs par défaut ?\n\nCette action est irréversible ' +
+      'et recharge la page. Les données du club (élèves, séances...) ne sont pas concernées.'
+    );
+    if (!confirmed) return;
+    const ALL_SETTINGS_LS_KEYS = [
+      'rscc_v2_theme', 'rscc_v2_tab_order', 'rscc_v2_visible_columns', 'rscc_v2_visible_cr_columns',
+      'rscc_v2_cr_filter_mode', 'rscc_v2_historique_range', 'rscc_v2_analyse_layout_order',
+      'rscc_v2_analyse_card_order', 'rscc_v2_saison_order', 'rscc_v2_season_start_override',
+      'rscc_v2_season_end_override', 'rscc_v2_chef_de_groupe', 'rscc_v2_pct_threshold_preset',
+      'rscc_v2_pct_threshold_custom_green', 'rscc_v2_pct_threshold_custom_orange',
+      'rscc_v2_jours_threshold_preset', 'rscc_v2_jours_threshold_custom_green',
+      'rscc_v2_jours_threshold_custom_orange', 'rscc_v2_seuil_competence_acquise',
+      'rscc_v2_robustesse_mode', 'rscc_v2_robustesse_moniteurs_min', 'rscc_v2_palanquee_streak_n',
+      'rscc_v2_palanquee_ratio_max', 'rscc_v2_palanquee_mode_default', 'rscc_v2_color_dark_principale',
+      'rscc_v2_color_dark_vive', 'rscc_v2_color_light_principale', 'rscc_v2_color_light_vive',
+      'rscc_v2_bg_dark', 'rscc_v2_bg_light', 'rscc_v2_text_dark', 'rscc_v2_text_light',
+      'rscc_v2_notif_breakpoint',
+    ];
+    ALL_SETTINGS_LS_KEYS.forEach(function(key) { try { localStorage.removeItem(key); } catch (e) {} });
+    window.location.reload();
+  });
+
   const ROBUSTESSE_MODE_LABELS = {
     standard: 'Standard — actuel (la dernière note suffit)',
     renforce: 'Renforcé (confirmation par plusieurs évaluations et moniteurs)',
@@ -2963,6 +3041,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       STATE.seances = seances;
       STATE.moniteurs = moniteurs;
       STATE.allDates = Array.from(new Set(seances.map(s => s.date_seance))).sort();
+      updateFreshnessDisplay();
 
       // Catégorisation du référentiel : optionnelle, ne doit jamais faire échouer le chargement
       // principal (le fichier peut ne pas encore exister sur GitHub).
