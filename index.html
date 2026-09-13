@@ -128,6 +128,16 @@ button { font-family: inherit; cursor: pointer; }
 .notif-close:hover { color: var(--text); }
 .notif-text { font-size: 13px; line-height: 1.4; }
 .notif-empty { font-size: 12.5px; color: var(--muted); text-align: center; padding: 10px 0; }
+
+.notif-backdrop {
+  position: fixed; inset: 0; background: rgba(0, 0, 0, .5); z-index: 205;
+}
+.notif-backdrop.hidden { display: none; }
+.notif-panel.notif-sheet {
+  position: fixed; left: 0; right: 0; bottom: 0; top: auto; width: 100%; max-width: 100%;
+  max-height: 80vh; border-radius: 16px 16px 0 0; z-index: 210;
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, .4);
+}
 .icon-btn:active { transform: scale(0.94); }
 .icon-btn svg { width: 18px; height: 18px; }
 
@@ -739,6 +749,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
   border-color: rgba(34, 197, 94, .4);
 }
 tr.eleve-exam-ok td { background: rgba(34, 197, 94, .1); }
+table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .16); }
 
 /* ===================== PALMARÈS — cartes trophée ===================== */
 .trophy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-bottom: 24px; }
@@ -885,6 +896,7 @@ tr.eleve-exam-ok td { background: rgba(34, 197, 94, .1); }
           🔔
           <span class="notif-badge hidden" id="notifBadge">0</span>
         </button>
+        <div class="notif-backdrop hidden" id="notifBackdrop"></div>
         <div class="notif-panel hidden" id="notifPanel">
           <div class="notif-panel-title">🔔 Informations</div>
           <div id="notifPanelBody"></div>
@@ -1080,6 +1092,13 @@ tr.eleve-exam-ok td { background: rgba(34, 197, 94, .1); }
           </label>
         </div>
         <p class="settings-info" style="margin-top:8px;">En mode Renforcé, une compétence est acquise si sa dernière note atteint le seuil <em>et</em> qu'au moins ce nombre de moniteurs différents lui ont, à un moment donné, donné une note ≥ seuil. Une régression de la dernière note invalide le statut, même si d'anciennes évaluations l'atteignaient.</p>
+      </div>
+      <div class="settings-section">
+        <div class="settings-section-title">🔔 Notifications</div>
+        <p class="settings-info">En dessous de ce seuil de largeur d'écran, le panneau d'informations s'affiche en feuille remontant du bas (plus lisible sur mobile) plutôt qu'en menu déroulant.</p>
+        <div class="threshold-custom-inputs">
+          <label>Seuil mobile <input type="number" id="notifBreakpointInput" min="360" max="1400" step="10" /> px</label>
+        </div>
       </div>
     </div>
 
@@ -2277,6 +2296,24 @@ tr.eleve-exam-ok td { background: rgba(34, 197, 94, .1); }
   // =====================================================================
   let dismissedInfoIds = {}; // fermetures pour la session en cours uniquement (non persisté)
 
+  const LS_NOTIF_BREAKPOINT = 'rscc_v2_notif_breakpoint';
+  function loadNotifBreakpoint() {
+    try { const v = parseInt(localStorage.getItem(LS_NOTIF_BREAKPOINT), 10); if (v >= 360 && v <= 1400) return v; } catch (e) {}
+    return 720;
+  }
+  let notifBreakpoint = loadNotifBreakpoint();
+  function saveNotifBreakpoint(v) { notifBreakpoint = v; try { localStorage.setItem(LS_NOTIF_BREAKPOINT, String(v)); } catch (e) {} }
+  function isNotifMobileMode() { return window.innerWidth <= notifBreakpoint; }
+
+  /** Bascule le panneau entre dropdown (desktop) et feuille du bas (mobile), selon le seuil
+   *  configurable — recalculé à chaque ouverture pour rester juste même après un redimensionnement
+   *  ou une rotation d'écran. */
+  function updateNotifPanelMode() {
+    const panel = $('#notifPanel');
+    if (!panel) return;
+    panel.classList.toggle('notif-sheet', isNotifMobileMode());
+  }
+
   function computeInfoMessages() {
     const infos = STATE.infos || [];
     const accueil = infos.filter(i => i.accueil).map(i => ({ id: 'accueil-' + i.ligne, tag: 'Accueil', text: i.accueil }));
@@ -2317,9 +2354,12 @@ tr.eleve-exam-ok td { background: rgba(34, 197, 94, .1); }
 
   function toggleNotifPanel(forceOpen) {
     const panel = $('#notifPanel');
+    const backdrop = $('#notifBackdrop');
     if (!panel) return;
     const open = forceOpen != null ? forceOpen : panel.classList.contains('hidden');
+    updateNotifPanelMode();
     panel.classList.toggle('hidden', !open);
+    if (backdrop) backdrop.classList.toggle('hidden', !(open && isNotifMobileMode()));
     if (open) renderNotifPanel();
   }
 
@@ -2333,6 +2373,21 @@ tr.eleve-exam-ok td { background: rgba(34, 197, 94, .1); }
         const wrap = $('.notif-wrap');
         if (wrap && !wrap.contains(ev.target)) toggleNotifPanel(false);
       });
+      const backdrop = $('#notifBackdrop');
+      if (backdrop) backdrop.addEventListener('click', function() { toggleNotifPanel(false); });
+      window.addEventListener('resize', function() {
+        const panel = $('#notifPanel');
+        if (panel && !panel.classList.contains('hidden')) toggleNotifPanel(true);
+      });
+      const bp = $('#notifBreakpointInput');
+      if (bp) {
+        bp.value = notifBreakpoint;
+        bp.addEventListener('change', function() {
+          const v = parseInt(bp.value, 10);
+          if (v >= 360 && v <= 1400) saveNotifBreakpoint(v);
+          else bp.value = notifBreakpoint;
+        });
+      }
     }
     const n = computeInfoMessages().length;
     if (n > 0) {
