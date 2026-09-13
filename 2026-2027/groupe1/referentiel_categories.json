@@ -46,7 +46,8 @@
   { "id": "sortie-de-l-eau", "categorie": "Remontée & Sécurité" },
 
   { "id": "theorie", "categorie": "Théorie & Examens" },
-  { "id": "exam-theorie", "categorie": "Théorie & Examens" },
+  { "id": "exam-theorie", "categorie": "Théorie & Examens" },  
+  { "id": "exam-pratique", "categorie": "Théorie & Examens" },
   { "id": "exam-pmt-100m", "categorie": "Théorie & Examens" },
   { "id": "exam-capele-50m", "categorie": "Théorie & Examens" },
   { "id": "pas-d-atelier", "categorie": "Théorie & Examens" }
