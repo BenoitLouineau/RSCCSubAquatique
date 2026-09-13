@@ -1,9 +1,9 @@
 {
-  "date_generation": "2026-09-13T12:02:24",
+  "date_generation": "2026-09-13T17:36:51",
   "nb_eleves": 13,
   "nb_moniteurs": 16,
   "nb_seances": 13,
-  "nb_comptes_rendus": 89,
+  "nb_comptes_rendus": 93,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-05-12",
@@ -56,6 +56,24 @@
       "compte_dans_moyenne": true
     },
     {
+      "atelier": "Exam Théorie",
+      "nb_evaluations": 4,
+      "moyenne": 3.5,
+      "note_min": 2.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "Exam pratique",
+      "nb_evaluations": 4,
+      "moyenne": 3.25,
+      "note_min": 2.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": false
+    },
+    {
       "atelier": "Stabilisation",
       "nb_evaluations": 4,
       "moyenne": 3.25,
@@ -72,24 +90,6 @@
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Exam Théorie",
-      "nb_evaluations": 2,
-      "moyenne": 3.0,
-      "note_min": 2.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": false
-    },
-    {
-      "atelier": "Exam pratique",
-      "nb_evaluations": 2,
-      "moyenne": 2.5,
-      "note_min": 2.0,
-      "note_max": 3.0,
-      "notable": true,
-      "compte_dans_moyenne": false
     },
     {
       "atelier": "Gestion de l'air",
@@ -209,12 +209,12 @@
     {
       "eleve": "Bruce Wayne",
       "nb_ateliers_evalues": 9,
-      "moyenne_generale": 2.44
+      "moyenne_generale": 2.67
     },
     {
       "eleve": "Dayne Jonhson",
       "nb_ateliers_evalues": 4,
-      "moyenne_generale": 2.25
+      "moyenne_generale": 3.0
     },
     {
       "eleve": "Dupont Léa",
