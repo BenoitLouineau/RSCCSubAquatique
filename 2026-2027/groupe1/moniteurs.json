@@ -1,17 +1,63 @@
 [
   {
-    "id": "avrell-dalton",
-    "nom": "Avrell Dalton",
-    "nb_seances_animees": 0,
-    "dates_seances": [],
-    "nb_eleves_suivis": 0,
-    "eleves_suivis": [],
-    "nb_comptes_rendus": 0,
-    "nb_evaluations_notees": 0
+    "id": "benoit-l",
+    "nom": "Benoit L",
+    "nb_seances_animees": 1,
+    "dates_seances": [
+      "2026-09-08"
+    ],
+    "nb_eleves_suivis": 4,
+    "eleves_suivis": [
+      "Bruce Wayne",
+      "Dayne Jonhson",
+      "Peter Parker",
+      "Sarah Connord"
+    ],
+    "nb_comptes_rendus": 8,
+    "nb_evaluations_notees": 4
+  },
+  {
+    "id": "benoit-p",
+    "nom": "Benoit P",
+    "nb_seances_animees": 1,
+    "dates_seances": [
+      "2026-09-08"
+    ],
+    "nb_eleves_suivis": 3,
+    "eleves_suivis": [
+      "Bruce Wayne",
+      "Kurt Cobain",
+      "Malcolm X"
+    ],
+    "nb_comptes_rendus": 5,
+    "nb_evaluations_notees": 4
   },
   {
     "id": "bilbo-le-hobitt",
     "nom": "Bilbo le Hobitt",
+    "nb_seances_animees": 1,
+    "dates_seances": [
+      "2026-09-08"
+    ],
+    "nb_eleves_suivis": 10,
+    "eleves_suivis": [
+      "Bruce Wayne",
+      "Dayne Jonhson",
+      "Ezio Auditore",
+      "Harry Potter",
+      "John Travolta",
+      "Kurt Cobain",
+      "Malcolm X",
+      "Marty MacFly",
+      "Peter Parker",
+      "Sarah Connord"
+    ],
+    "nb_comptes_rendus": 26,
+    "nb_evaluations_notees": 23
+  },
+  {
+    "id": "carine",
+    "nom": "Carine",
     "nb_seances_animees": 0,
     "dates_seances": [],
     "nb_eleves_suivis": 0,
@@ -20,8 +66,43 @@
     "nb_evaluations_notees": 0
   },
   {
-    "id": "hulk",
-    "nom": "Hulk",
+    "id": "carlos",
+    "nom": "Carlos",
+    "nb_seances_animees": 1,
+    "dates_seances": [
+      "2026-09-11"
+    ],
+    "nb_eleves_suivis": 2,
+    "eleves_suivis": [
+      "Harry Potter",
+      "Kurt Cobain"
+    ],
+    "nb_comptes_rendus": 2,
+    "nb_evaluations_notees": 2
+  },
+  {
+    "id": "catherine",
+    "nom": "Catherine",
+    "nb_seances_animees": 0,
+    "dates_seances": [],
+    "nb_eleves_suivis": 0,
+    "eleves_suivis": [],
+    "nb_comptes_rendus": 0,
+    "nb_evaluations_notees": 0
+  },
+  {
+    "id": "christophe",
+    "nom": "Christophe",
+    "nb_seances_animees": 0,
+    "dates_seances": [],
+    "nb_eleves_suivis": 0,
+    "eleves_suivis": [],
+    "nb_comptes_rendus": 0,
+    "nb_evaluations_notees": 0
+  },
+  {
+    "id": "herve",
+    "nom": "Hervé",
     "nb_seances_animees": 0,
     "dates_seances": [],
     "nb_eleves_suivis": 0,
@@ -32,85 +113,126 @@
   {
     "id": "jo",
     "nom": "Jo",
-    "nb_seances_animees": 5,
+    "nb_seances_animees": 2,
     "dates_seances": [
-      "2026-06-02",
-      "2026-06-30",
-      "2026-07-28",
-      "2026-08-25",
-      "2026-09-22"
+      "2026-05-12",
+      "2026-07-14"
     ],
-    "nb_eleves_suivis": 5,
+    "nb_eleves_suivis": 3,
     "eleves_suivis": [
       "Bernard Zoé",
       "Dupont Léa",
-      "Martin Noah",
-      "Peter Parker",
-      "Sarah Connord"
+      "Martin Noah"
     ],
-    "nb_comptes_rendus": 93,
-    "nb_evaluations_notees": 93
-  },
-  {
-    "id": "lanfeust",
-    "nom": "Lanfeust",
-    "nb_seances_animees": 0,
-    "dates_seances": [],
-    "nb_eleves_suivis": 0,
-    "eleves_suivis": [],
-    "nb_comptes_rendus": 0,
-    "nb_evaluations_notees": 0
+    "nb_comptes_rendus": 7,
+    "nb_evaluations_notees": 6
   },
   {
     "id": "luky-luke",
     "nom": "Luky Luke",
-    "nb_seances_animees": 0,
-    "dates_seances": [],
-    "nb_eleves_suivis": 0,
-    "eleves_suivis": [],
-    "nb_comptes_rendus": 0,
-    "nb_evaluations_notees": 0
+    "nb_seances_animees": 1,
+    "dates_seances": [
+      "2026-09-08"
+    ],
+    "nb_eleves_suivis": 3,
+    "eleves_suivis": [
+      "Harry Potter",
+      "Kurt Cobain",
+      "Sarah Connord"
+    ],
+    "nb_comptes_rendus": 9,
+    "nb_evaluations_notees": 9
   },
   {
     "id": "mad-max",
     "nom": "Mad Max",
-    "nb_seances_animees": 0,
-    "dates_seances": [],
-    "nb_eleves_suivis": 0,
-    "eleves_suivis": [],
-    "nb_comptes_rendus": 0,
-    "nb_evaluations_notees": 0
+    "nb_seances_animees": 2,
+    "dates_seances": [
+      "2026-09-08",
+      "2026-09-10"
+    ],
+    "nb_eleves_suivis": 3,
+    "eleves_suivis": [
+      "Harry Potter",
+      "Kurt Cobain",
+      "Marty MacFly"
+    ],
+    "nb_comptes_rendus": 6,
+    "nb_evaluations_notees": 5
+  },
+  {
+    "id": "nicos",
+    "nom": "Nicos",
+    "nb_seances_animees": 1,
+    "dates_seances": [
+      "2026-09-08"
+    ],
+    "nb_eleves_suivis": 10,
+    "eleves_suivis": [
+      "Bruce Wayne",
+      "Dayne Jonhson",
+      "Ezio Auditore",
+      "Harry Potter",
+      "John Travolta",
+      "Kurt Cobain",
+      "Malcolm X",
+      "Marty MacFly",
+      "Peter Parker",
+      "Sarah Connord"
+    ],
+    "nb_comptes_rendus": 14,
+    "nb_evaluations_notees": 14
   },
   {
     "id": "sam",
     "nom": "Sam",
-    "nb_seances_animees": 5,
+    "nb_seances_animees": 2,
     "dates_seances": [
-      "2026-06-16",
-      "2026-07-14",
-      "2026-08-11",
-      "2026-09-08",
-      "2026-09-29"
+      "2026-06-02",
+      "2026-07-14"
     ],
-    "nb_eleves_suivis": 5,
+    "nb_eleves_suivis": 3,
     "eleves_suivis": [
-      "Bernard Zoé",
       "Dupont Léa",
-      "Martin Noah",
       "Peter Parker",
       "Sarah Connord"
     ],
-    "nb_comptes_rendus": 102,
-    "nb_evaluations_notees": 92
+    "nb_comptes_rendus": 6,
+    "nb_evaluations_notees": 2
   },
   {
-    "id": "wall-e",
-    "nom": "Wall-E",
+    "id": "virginie",
+    "nom": "Virginie",
     "nb_seances_animees": 0,
     "dates_seances": [],
     "nb_eleves_suivis": 0,
     "eleves_suivis": [],
     "nb_comptes_rendus": 0,
     "nb_evaluations_notees": 0
+  },
+  {
+    "id": "veronique",
+    "nom": "Véronique",
+    "nb_seances_animees": 0,
+    "dates_seances": [],
+    "nb_eleves_suivis": 0,
+    "eleves_suivis": [],
+    "nb_comptes_rendus": 0,
+    "nb_evaluations_notees": 0
+  },
+  {
+    "id": "wall-e",
+    "nom": "Wall-E",
+    "nb_seances_animees": 1,
+    "dates_seances": [
+      "2026-09-08"
+    ],
+    "nb_eleves_suivis": 2,
+    "eleves_suivis": [
+      "Harry Potter",
+      "Sarah Connord"
+    ],
+    "nb_comptes_rendus": 6,
+    "nb_evaluations_notees": 6
   }
 ]
