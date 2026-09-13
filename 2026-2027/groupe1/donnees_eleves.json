@@ -888,5 +888,45 @@
     "moniteur": "Benoit L",
     "presence": "Présent",
     "statut": "Acquis"
+  },
+  {
+    "eleve": "Dayne Jonhson",
+    "genre": "",
+    "categorie": "Exam Théorie",
+    "competence": "Exam Théorie",
+    "date": "2026-09-08",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Dayne Jonhson",
+    "genre": "",
+    "categorie": "Exam pratique",
+    "competence": "Exam pratique",
+    "date": "2026-09-08",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bruce Wayne",
+    "genre": "",
+    "categorie": "Exam pratique",
+    "competence": "Exam pratique",
+    "date": "2026-09-08",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bruce Wayne",
+    "genre": "",
+    "categorie": "Exam Théorie",
+    "competence": "Exam Théorie",
+    "date": "2026-09-08",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "Acquis"
   }
 ]
