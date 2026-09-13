@@ -378,6 +378,21 @@ table.synthese thead th.sticky-col { z-index: 4; }
 .stat-pill { font-size: 12px; padding: 4px 10px; border-radius: 999px; background: var(--chip); color: var(--muted); }
 
 .competences-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; margin-top: 4px; }
+.competences-grid.hidden { display: none; }
+.comp-category-block { margin-top: 12px; }
+.comp-category-block:first-of-type { margin-top: 16px; }
+.comp-cat-count { font-size: 11px; font-weight: 600; color: var(--muted); margin-left: 8px; }
+.comp-categories-wrap { display: grid; grid-template-columns: 1fr; }
+.comp-section-toolbar { display: flex; justify-content: flex-end; margin-top: 14px; }
+.comp-expand-all-btn {
+  padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--chip);
+  color: var(--text); font-size: 12px; font-weight: 700; cursor: pointer;
+}
+.comp-expand-all-btn:hover { border-color: var(--accent2); color: var(--accent2); }
+@media (min-width: 721px) {
+  .comp-categories-wrap { grid-template-columns: 1fr 1fr; column-gap: 24px; }
+  .comp-category-block { min-width: 0; } /* évite qu'une grille interne large ne déborde de sa colonne */
+}
 .comp-card { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 10px 12px; background: var(--chip); }
 .comp-name { font-size: 13px; font-weight: 700; margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .note-dot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 0 2px var(--card); }
@@ -3652,11 +3667,41 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   }
 
   function buildStudentCard(e) {
-    const compsHtml = Object.keys(e.competences || {}).sort().map(function(k) {
-      // Dernier commentaire moniteur pour cet atelier (e.commentaires est trié par date croissante côté script Python)
-      const relatedComments = (e.commentaires || []).filter(c => c.atelier === k && c.commentaire);
-      const latest = relatedComments.length ? relatedComments[relatedComments.length - 1].commentaire : null;
-      return buildCompCard(k, e.competences[k], latest, getCategorieForAtelier(k));
+    // Regroupe les compétences par catégorie (référentiel_categories.json si disponible, sinon
+    // repli sur ATELIER_CATEGORIE_FALLBACK) — évite un mur de 40+ cartes à faire défiler d'un
+    // coup, surtout sur smartphone. "Non catégorisé" recueille ce qui n'est pas reconnu (écart de
+    // nommage déjà identifié ailleurs dans le rapport) et reste toujours en dernier.
+    const groups = {};
+    Object.keys(e.competences || {}).sort().forEach(function(k) {
+      const cat = getCategorieForAtelier(k) || 'Non catégorisé';
+      if (!groups[cat]) groups[cat] = [];
+      groups[cat].push(k);
+    });
+    const catNames = Object.keys(groups).sort(function(a, b) {
+      if (a === 'Non catégorisé') return 1;
+      if (b === 'Non catégorisé') return -1;
+      return a.localeCompare(b);
+    });
+    // Repliées par défaut sur smartphone (sauf la 1ère, en aperçu) ; toutes dépliées sur desktop,
+    // où la place ne manque pas — même logique que les sections de Réglages.
+    const isMobile = window.innerWidth <= 720;
+    const compsHtml = catNames.map(function(cat, idx) {
+      const items = groups[cat];
+      const cardsHtml = items.map(function(k) {
+        const relatedComments = (e.commentaires || []).filter(c => c.atelier === k && c.commentaire);
+        const latest = relatedComments.length ? relatedComments[relatedComments.length - 1].commentaire : null;
+        return buildCompCard(k, e.competences[k], latest, null); // catégorie déjà dans l'en-tête du groupe
+      }).join('');
+      const nbAcquis = items.filter(function(k) { return isCompetenceAcquiseFromHistorique(e.competences[k]); }).length;
+      const startOpen = !isMobile || idx === 0;
+      return '<div class="comp-category-block">' +
+        '<button type="button" class="cahier-toggle' + (startOpen ? ' open' : '') + '">' +
+          '🏷️ ' + escapeHtml(cat) +
+          '<span class="comp-cat-count">' + items.length + ' · ' + nbAcquis + ' acquise(s)</span>' +
+          '<span class="cahier-chevron">▾</span>' +
+        '</button>' +
+        '<div class="competences-grid' + (startOpen ? '' : ' hidden') + '">' + cardsHtml + '</div>' +
+      '</div>';
     }).join('');
     const lastDate = e.dates_seances && e.dates_seances.length ? e.dates_seances[e.dates_seances.length - 1] : null;
     const cahierHtml = buildCahierDeBord(e);
@@ -3672,7 +3717,14 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         '</div>' +
       '</div>' +
       presenceSectionHtml +
-      (compsHtml ? '<div class="competences-grid">' + compsHtml + '</div>' : '<div style="color:var(--muted);font-size:13px;">Aucune compétence travaillée pour le moment.</div>') +
+      (compsHtml
+        ? '<div class="comp-section-toolbar">' +
+            '<button type="button" class="comp-expand-all-btn" data-expand-target="eleve-' + escapeHtml(e.id) + '" data-state="' + (isMobile ? 'collapsed' : 'expanded') + '">' +
+              (isMobile ? '▾ Tout déplier' : '▴ Tout replier') +
+            '</button>' +
+          '</div>' +
+          '<div class="comp-categories-wrap">' + compsHtml + '</div>'
+        : '<div style="color:var(--muted);font-size:13px;">Aucune compétence travaillée pour le moment.</div>') +
       cahierHtml +
     '</div>';
   }
@@ -3870,6 +3922,21 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         btn.addEventListener('click', function() {
           btn.classList.toggle('open');
           btn.nextElementSibling.classList.toggle('hidden');
+        });
+      });
+      // Tout déplier / tout replier les catégories de compétences (scopé à la fiche élève concernée)
+      $$('.comp-expand-all-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const card = document.getElementById(btn.dataset.expandTarget);
+          if (!card) return;
+          const shouldOpen = btn.dataset.state !== 'expanded';
+          $$('.comp-categories-wrap .cahier-toggle', card).forEach(function(t) {
+            t.classList.toggle('open', shouldOpen);
+            const grid = t.nextElementSibling;
+            if (grid) grid.classList.toggle('hidden', !shouldOpen);
+          });
+          btn.dataset.state = shouldOpen ? 'expanded' : 'collapsed';
+          btn.textContent = shouldOpen ? '▴ Tout replier' : '▾ Tout déplier';
         });
       });
       const btnAnomDetail = $('#btnAnomaliesDetail');
