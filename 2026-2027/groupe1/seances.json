@@ -1,125 +1,8 @@
 [
   {
-    "id": "2026-06-02_jo",
-    "date_seance": "2026-06-02",
+    "id": "2026-05-12_jo",
+    "date_seance": "2026-05-12",
     "moniteur": "Jo",
-    "nb_eleves": 4,
-    "eleves": [
-      "Bernard Zoé",
-      "Dupont Léa",
-      "Martin Noah",
-      "Peter Parker"
-    ],
-    "ateliers_traites": [
-      "Gestion de son matériel",
-      "Gréage",
-      "Palmage",
-      "Phoque"
-    ],
-    "nb_comptes_rendus": 16,
-    "comptes_rendus": [
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "Gréage",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "Gestion de son matériel",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "Palmage",
-        "note": 3,
-        "commentaire": "Bonne autonomie"
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "Phoque",
-        "note": 4,
-        "commentaire": null
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "Gréage",
-        "note": 2,
-        "commentaire": null
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "Gestion de son matériel",
-        "note": 2,
-        "commentaire": "Manque un peu d'assurance"
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "Palmage",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "Phoque",
-        "note": 3,
-        "commentaire": "RAS"
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "Gréage",
-        "note": 1,
-        "commentaire": "Progrès net"
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "Gestion de son matériel",
-        "note": 1,
-        "commentaire": null
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "Palmage",
-        "note": 2,
-        "commentaire": null
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "Phoque",
-        "note": 1,
-        "commentaire": null
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "Gréage",
-        "note": 3,
-        "commentaire": "Manque un peu d'assurance"
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "Gestion de son matériel",
-        "note": 2,
-        "commentaire": "À revoir en douceur"
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "Palmage",
-        "note": 3,
-        "commentaire": "Bonne autonomie"
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "Phoque",
-        "note": 3,
-        "commentaire": "Manque un peu d'assurance"
-      }
-    ]
-  },
-  {
-    "id": "2026-06-16_sam",
-    "date_seance": "2026-06-16",
-    "moniteur": "Sam",
     "nb_eleves": 3,
     "eleves": [
       "Bernard Zoé",
@@ -127,225 +10,96 @@
       "Martin Noah"
     ],
     "ateliers_traites": [
-      "Bascule Arrière PMT",
-      "Canard PMT",
-      "Saut droit PMT",
-      "Vidage tuba"
+      "Gestion de l'air",
+      "Remontée assistée",
+      "Stabilisation",
+      "Théorie"
     ],
-    "nb_comptes_rendus": 12,
+    "nb_comptes_rendus": 6,
     "comptes_rendus": [
       {
-        "eleve": "Bernard Zoé",
-        "atelier": "Saut droit PMT",
-        "note": 3,
-        "commentaire": "Très à l'aise"
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "Bascule Arrière PMT",
-        "note": 3,
-        "commentaire": "Très à l'aise"
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "Canard PMT",
-        "note": 4,
+        "eleve": "Dupont Léa",
+        "atelier": "Stabilisation",
+        "note": 4.0,
         "commentaire": null
       },
       {
         "eleve": "Bernard Zoé",
-        "atelier": "Vidage tuba",
-        "note": 4,
+        "atelier": "Stabilisation",
+        "note": 4.0,
         "commentaire": null
       },
       {
-        "eleve": "Dupont Léa",
-        "atelier": "Saut droit PMT",
-        "note": 2,
-        "commentaire": "Manque un peu d'assurance"
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "Bascule Arrière PMT",
-        "note": 2,
-        "commentaire": "Bien"
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "Canard PMT",
-        "note": 2,
+        "eleve": "Bernard Zoé",
+        "atelier": "Théorie",
+        "note": null,
         "commentaire": null
       },
       {
-        "eleve": "Dupont Léa",
-        "atelier": "Vidage tuba",
-        "note": 3,
-        "commentaire": "Manque un peu d'assurance"
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "Saut droit PMT",
-        "note": 1,
-        "commentaire": "Très à l'aise"
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "Bascule Arrière PMT",
-        "note": 1,
+        "eleve": "Bernard Zoé",
+        "atelier": "Gestion de l'air",
+        "note": 2.0,
         "commentaire": null
       },
       {
         "eleve": "Martin Noah",
-        "atelier": "Canard PMT",
-        "note": 2,
-        "commentaire": null
+        "atelier": "Remontée assistée",
+        "note": 2.0,
+        "commentaire": "Ras"
       },
       {
         "eleve": "Martin Noah",
-        "atelier": "Vidage tuba",
-        "note": 1,
-        "commentaire": "Bonne autonomie"
+        "atelier": "Stabilisation",
+        "note": 4.0,
+        "commentaire": "Ras"
       }
     ]
   },
   {
-    "id": "2026-06-30_jo",
-    "date_seance": "2026-06-30",
-    "moniteur": "Jo",
-    "nb_eleves": 5,
+    "id": "2026-06-02_sam",
+    "date_seance": "2026-06-02",
+    "moniteur": "Sam",
+    "nb_eleves": 1,
     "eleves": [
-      "Bernard Zoé",
-      "Dupont Léa",
-      "Martin Noah",
-      "Peter Parker",
-      "Sarah Connord"
+      "Dupont Léa"
     ],
     "ateliers_traites": [
-      "Bascule Arrière",
-      "DBN",
-      "Saut droit",
-      "Stabilisation statique"
+      "Gestion de l'air",
+      "Théorie"
     ],
-    "nb_comptes_rendus": 20,
+    "nb_comptes_rendus": 2,
     "comptes_rendus": [
       {
-        "eleve": "Bernard Zoé",
-        "atelier": "Saut droit",
-        "note": 4,
-        "commentaire": null
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "Bascule Arrière",
-        "note": 4,
-        "commentaire": "Manque un peu d'assurance"
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "DBN",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "Stabilisation statique",
-        "note": 4,
-        "commentaire": "À revoir en douceur"
-      },
-      {
         "eleve": "Dupont Léa",
-        "atelier": "Saut droit",
-        "note": 3,
+        "atelier": "Théorie",
+        "note": null,
         "commentaire": null
       },
       {
         "eleve": "Dupont Léa",
-        "atelier": "Bascule Arrière",
-        "note": 3,
+        "atelier": "Gestion de l'air",
+        "note": 1.0,
         "commentaire": null
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "DBN",
-        "note": 2,
-        "commentaire": null
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "Stabilisation statique",
-        "note": 3,
-        "commentaire": "À revoir en douceur"
-      },
+      }
+    ]
+  },
+  {
+    "id": "2026-07-14_jo",
+    "date_seance": "2026-07-14",
+    "moniteur": "Jo",
+    "nb_eleves": 1,
+    "eleves": [
+      "Martin Noah"
+    ],
+    "ateliers_traites": [
+      "Vidage de masque"
+    ],
+    "nb_comptes_rendus": 1,
+    "comptes_rendus": [
       {
         "eleve": "Martin Noah",
-        "atelier": "Saut droit",
-        "note": 2,
-        "commentaire": null
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "Bascule Arrière",
-        "note": 1,
-        "commentaire": "RAS"
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "DBN",
-        "note": 2,
-        "commentaire": "Progrès net"
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "Stabilisation statique",
-        "note": 2,
-        "commentaire": null
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "Saut droit",
-        "note": 2,
-        "commentaire": "Manque un peu d'assurance"
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "Bascule Arrière",
-        "note": 2,
-        "commentaire": null
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "DBN",
-        "note": 3,
-        "commentaire": "Bonne autonomie"
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "Stabilisation statique",
-        "note": 2,
-        "commentaire": null
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "Saut droit",
-        "note": 2,
-        "commentaire": null
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "Bascule Arrière",
-        "note": 2,
-        "commentaire": "À revoir en douceur"
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "DBN",
-        "note": 2,
-        "commentaire": "Très à l'aise"
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "Stabilisation statique",
-        "note": 3,
+        "atelier": "Vidage de masque",
+        "note": 1.0,
         "commentaire": null
       }
     ]
@@ -354,166 +108,36 @@
     "id": "2026-07-14_sam",
     "date_seance": "2026-07-14",
     "moniteur": "Sam",
-    "nb_eleves": 5,
+    "nb_eleves": 3,
     "eleves": [
-      "Bernard Zoé",
       "Dupont Léa",
-      "Martin Noah",
       "Peter Parker",
       "Sarah Connord"
     ],
     "ateliers_traites": [
-      "Gestion du gilet",
-      "LRE expiration",
-      "LRE surpression",
-      "Poumon Ballast",
+      "Pas d'atelier",
+      "Stabilisation",
       "Théorie"
     ],
-    "nb_comptes_rendus": 25,
+    "nb_comptes_rendus": 4,
     "comptes_rendus": [
       {
-        "eleve": "Bernard Zoé",
-        "atelier": "LRE expiration",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "LRE surpression",
-        "note": 3,
-        "commentaire": "Bonne autonomie"
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "Poumon Ballast",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "Gestion du gilet",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "Théorie",
-        "note": null,
-        "commentaire": null
-      },
-      {
         "eleve": "Dupont Léa",
-        "atelier": "LRE expiration",
-        "note": 3,
-        "commentaire": "Bonne autonomie"
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "LRE surpression",
-        "note": 2,
-        "commentaire": "À revoir en douceur"
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "Poumon Ballast",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "Gestion du gilet",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "Théorie",
-        "note": null,
-        "commentaire": null
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "LRE expiration",
-        "note": 2,
-        "commentaire": null
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "LRE surpression",
-        "note": 1,
-        "commentaire": "RAS"
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "Poumon Ballast",
-        "note": 1,
-        "commentaire": null
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "Gestion du gilet",
-        "note": 1,
-        "commentaire": "RAS"
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "Théorie",
+        "atelier": "Pas d'atelier",
         "note": null,
         "commentaire": null
       },
       {
         "eleve": "Peter Parker",
-        "atelier": "LRE expiration",
-        "note": 3,
-        "commentaire": "Bien"
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "LRE surpression",
-        "note": 2,
-        "commentaire": "Bonne autonomie"
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "Poumon Ballast",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "Gestion du gilet",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "Théorie",
+        "atelier": "Pas d'atelier",
         "note": null,
+        "commentaire": "Oreilles hs"
+      },
+      {
+        "eleve": "Sarah Connord",
+        "atelier": "Stabilisation",
+        "note": 1.0,
         "commentaire": null
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "LRE expiration",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "LRE surpression",
-        "note": 3,
-        "commentaire": "RAS"
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "Poumon Ballast",
-        "note": 2,
-        "commentaire": null
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "Gestion du gilet",
-        "note": 3,
-        "commentaire": "RAS"
       },
       {
         "eleve": "Sarah Connord",
@@ -524,870 +148,642 @@
     ]
   },
   {
-    "id": "2026-07-28_jo",
-    "date_seance": "2026-07-28",
-    "moniteur": "Jo",
-    "nb_eleves": 5,
+    "id": "2026-09-08_benoit-l",
+    "date_seance": "2026-09-08",
+    "moniteur": "Benoit L",
+    "nb_eleves": 4,
     "eleves": [
-      "Bernard Zoé",
-      "Dupont Léa",
-      "Martin Noah",
+      "Bruce Wayne",
+      "Dayne Jonhson",
+      "Peter Parker",
+      "Sarah Connord"
+    ],
+    "ateliers_traites": [
+      "Exam Théorie",
+      "Exam pratique",
+      "Théorie"
+    ],
+    "nb_comptes_rendus": 8,
+    "comptes_rendus": [
+      {
+        "eleve": "Sarah Connord",
+        "atelier": "Exam Théorie",
+        "note": null,
+        "commentaire": "Test théorie mais non évaluable le 11/09 18:12"
+      },
+      {
+        "eleve": "Sarah Connord",
+        "atelier": "Théorie",
+        "note": null,
+        "commentaire": "Test théorie mais non évaluable le 11/09 18:12"
+      },
+      {
+        "eleve": "Peter Parker",
+        "atelier": "Théorie",
+        "note": null,
+        "commentaire": "Idem non évaluable"
+      },
+      {
+        "eleve": "Peter Parker",
+        "atelier": "Exam Théorie",
+        "note": null,
+        "commentaire": "Idem non évaluable"
+      },
+      {
+        "eleve": "Dayne Jonhson",
+        "atelier": "Exam pratique",
+        "note": 3.0,
+        "commentaire": "Des petites lacunes en théorie sur barotraumatisme, \nPetite retenue sur le Vdm"
+      },
+      {
+        "eleve": "Dayne Jonhson",
+        "atelier": "Exam Théorie",
+        "note": 2.0,
+        "commentaire": "Des petites lacunes en théorie sur barotraumatisme, \nPetite retenue sur le Vdm"
+      },
+      {
+        "eleve": "Bruce Wayne",
+        "atelier": "Exam pratique",
+        "note": 2.0,
+        "commentaire": "Théorie complètement intégrée et l'ensemble du jeu de rôle de la sortie mer correctement répondu \nPratique,  revoir VDM, et LRE"
+      },
+      {
+        "eleve": "Bruce Wayne",
+        "atelier": "Exam Théorie",
+        "note": 4.0,
+        "commentaire": "Théorie complètement intégrée et l'ensemble du jeu de rôle de la sortie mer correctement répondu \nPratique,  revoir VDM, et LRE"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-08_benoit-p",
+    "date_seance": "2026-09-08",
+    "moniteur": "Benoit P",
+    "nb_eleves": 3,
+    "eleves": [
+      "Bruce Wayne",
+      "Kurt Cobain",
+      "Malcolm X"
+    ],
+    "ateliers_traites": [
+      "**Bascule Avant PMT",
+      "Bascule Arrière PMT",
+      "Pas d'atelier",
+      "Saut droit PMT"
+    ],
+    "nb_comptes_rendus": 5,
+    "comptes_rendus": [
+      {
+        "eleve": "Kurt Cobain",
+        "atelier": "Saut droit PMT",
+        "note": 1.0,
+        "commentaire": "Chaud"
+      },
+      {
+        "eleve": "Kurt Cobain",
+        "atelier": "**Bascule Avant PMT",
+        "note": 1.0,
+        "commentaire": "Chaud"
+      },
+      {
+        "eleve": "Malcolm X",
+        "atelier": "Pas d'atelier",
+        "note": null,
+        "commentaire": null
+      },
+      {
+        "eleve": "Bruce Wayne",
+        "atelier": "Saut droit PMT",
+        "note": 3.0,
+        "commentaire": "Top"
+      },
+      {
+        "eleve": "Bruce Wayne",
+        "atelier": "Bascule Arrière PMT",
+        "note": 3.0,
+        "commentaire": "Top"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-08_bilbo-le-hobitt",
+    "date_seance": "2026-09-08",
+    "moniteur": "Bilbo le Hobitt",
+    "nb_eleves": 10,
+    "eleves": [
+      "Bruce Wayne",
+      "Dayne Jonhson",
+      "Ezio Auditore",
+      "Harry Potter",
+      "John Travolta",
+      "Kurt Cobain",
+      "Malcolm X",
+      "Marty MacFly",
       "Peter Parker",
       "Sarah Connord"
     ],
     "ateliers_traites": [
       "**Bascule Avant PMT",
-      "Déplacements immersion",
-      "Signes",
-      "Stabilisation dynamique"
+      "Bascule Arrière PMT",
+      "Canard PMT",
+      "Gestion de son matériel",
+      "Gréage",
+      "LRE surpression",
+      "Pas d'atelier",
+      "Saut droit PMT",
+      "VDM"
     ],
-    "nb_comptes_rendus": 20,
+    "nb_comptes_rendus": 26,
     "comptes_rendus": [
       {
-        "eleve": "Bernard Zoé",
-        "atelier": "Stabilisation dynamique",
-        "note": 3,
+        "eleve": "Bruce Wayne",
+        "atelier": "Gestion de son matériel",
+        "note": 3.0,
         "commentaire": null
       },
       {
-        "eleve": "Bernard Zoé",
-        "atelier": "Déplacements immersion",
-        "note": 4,
+        "eleve": "Bruce Wayne",
+        "atelier": "Gréage",
+        "note": 3.0,
         "commentaire": null
       },
       {
-        "eleve": "Bernard Zoé",
+        "eleve": "John Travolta",
+        "atelier": "Gréage",
+        "note": 2.0,
+        "commentaire": "S'est trompé dans le sens du bloc"
+      },
+      {
+        "eleve": "Bruce Wayne",
         "atelier": "**Bascule Avant PMT",
-        "note": 3,
-        "commentaire": "RAS"
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "Signes",
-        "note": 3,
+        "note": 2.0,
         "commentaire": null
       },
       {
-        "eleve": "Dupont Léa",
-        "atelier": "Stabilisation dynamique",
-        "note": 2,
-        "commentaire": "Très à l'aise"
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "Déplacements immersion",
-        "note": 2,
+        "eleve": "Bruce Wayne",
+        "atelier": "Canard PMT",
+        "note": 2.0,
         "commentaire": null
       },
       {
-        "eleve": "Dupont Léa",
+        "eleve": "Bruce Wayne",
+        "atelier": "Gréage",
+        "note": 3.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Bruce Wayne",
         "atelier": "**Bascule Avant PMT",
-        "note": 3,
+        "note": 3.0,
         "commentaire": null
       },
       {
-        "eleve": "Dupont Léa",
-        "atelier": "Signes",
-        "note": 2,
+        "eleve": "Bruce Wayne",
+        "atelier": "Saut droit PMT",
+        "note": 3.0,
         "commentaire": null
       },
       {
-        "eleve": "Martin Noah",
-        "atelier": "Stabilisation dynamique",
-        "note": 2,
+        "eleve": "Ezio Auditore",
+        "atelier": "VDM",
+        "note": 2.0,
         "commentaire": null
       },
       {
-        "eleve": "Martin Noah",
-        "atelier": "Déplacements immersion",
-        "note": 2,
+        "eleve": "Ezio Auditore",
+        "atelier": "LRE surpression",
+        "note": 2.0,
         "commentaire": null
       },
       {
-        "eleve": "Martin Noah",
-        "atelier": "**Bascule Avant PMT",
-        "note": 2,
+        "eleve": "Dayne Jonhson",
+        "atelier": "Saut droit PMT",
+        "note": 3.0,
         "commentaire": null
       },
       {
-        "eleve": "Martin Noah",
-        "atelier": "Signes",
-        "note": 1,
-        "commentaire": "Bonne autonomie"
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "Stabilisation dynamique",
-        "note": 2,
-        "commentaire": "RAS"
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "Déplacements immersion",
-        "note": 3,
+        "eleve": "Malcolm X",
+        "atelier": "Gréage",
+        "note": 4.0,
         "commentaire": null
       },
       {
-        "eleve": "Peter Parker",
-        "atelier": "**Bascule Avant PMT",
-        "note": 2,
+        "eleve": "Malcolm X",
+        "atelier": "Gestion de son matériel",
+        "note": 4.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Ezio Auditore",
+        "atelier": "Gestion de son matériel",
+        "note": 4.0,
         "commentaire": null
       },
       {
         "eleve": "Peter Parker",
-        "atelier": "Signes",
-        "note": 2,
-        "commentaire": "RAS"
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "Stabilisation dynamique",
-        "note": 2,
-        "commentaire": "Bien"
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "Déplacements immersion",
-        "note": 2,
-        "commentaire": "Bonne autonomie"
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "**Bascule Avant PMT",
-        "note": 2,
-        "commentaire": "À revoir en douceur"
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "Signes",
-        "note": 3,
-        "commentaire": "Bien"
-      }
-    ]
-  },
-  {
-    "id": "2026-08-11_sam",
-    "date_seance": "2026-08-11",
-    "moniteur": "Sam",
-    "nb_eleves": 4,
-    "eleves": [
-      "Bernard Zoé",
-      "Dupont Léa",
-      "Peter Parker",
-      "Sarah Connord"
-    ],
-    "ateliers_traites": [
-      "Essoufflement - être pris en charge",
-      "PA - donne octo",
-      "PA - donne échange",
-      "PA - reçoit octo",
-      "PA - reçoit échange"
-    ],
-    "nb_comptes_rendus": 20,
-    "comptes_rendus": [
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "PA - reçoit octo",
-        "note": 4,
-        "commentaire": null
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "PA - donne octo",
-        "note": 3,
-        "commentaire": "Progrès net"
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "PA - reçoit échange",
-        "note": 4,
-        "commentaire": "RAS"
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "PA - donne échange",
-        "note": 4,
-        "commentaire": "Bonne autonomie"
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "Essoufflement - être pris en charge",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "PA - reçoit octo",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "PA - donne octo",
-        "note": 2,
-        "commentaire": "Progrès net"
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "PA - reçoit échange",
-        "note": 2,
-        "commentaire": null
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "PA - donne échange",
-        "note": 3,
-        "commentaire": "Très à l'aise"
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "Essoufflement - être pris en charge",
-        "note": 2,
-        "commentaire": "Bonne autonomie"
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "PA - reçoit octo",
-        "note": 2,
-        "commentaire": "Bien"
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "PA - donne octo",
-        "note": 2,
-        "commentaire": "Manque un peu d'assurance"
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "PA - reçoit échange",
-        "note": 2,
+        "atelier": "Gréage",
+        "note": 3.0,
         "commentaire": null
       },
       {
         "eleve": "Peter Parker",
-        "atelier": "PA - donne échange",
-        "note": 2,
-        "commentaire": "Bien"
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "Essoufflement - être pris en charge",
-        "note": 3,
+        "atelier": "Gestion de son matériel",
+        "note": 4.0,
         "commentaire": null
       },
       {
-        "eleve": "Sarah Connord",
-        "atelier": "PA - reçoit octo",
-        "note": 2,
+        "eleve": "Marty MacFly",
+        "atelier": "Pas d'atelier",
+        "note": null,
         "commentaire": null
       },
       {
-        "eleve": "Sarah Connord",
-        "atelier": "PA - donne octo",
-        "note": 3,
+        "eleve": "Harry Potter",
+        "atelier": "Pas d'atelier",
+        "note": null,
         "commentaire": null
       },
       {
-        "eleve": "Sarah Connord",
-        "atelier": "PA - reçoit échange",
-        "note": 2,
-        "commentaire": "Progrès net"
+        "eleve": "Kurt Cobain",
+        "atelier": "Pas d'atelier",
+        "note": null,
+        "commentaire": "A eu peur"
       },
       {
         "eleve": "Sarah Connord",
-        "atelier": "PA - donne échange",
-        "note": 3,
-        "commentaire": "À revoir en douceur"
+        "atelier": "Gréage",
+        "note": 4.0,
+        "commentaire": "Top"
       },
       {
         "eleve": "Sarah Connord",
-        "atelier": "Essoufflement - être pris en charge",
-        "note": 2,
+        "atelier": "Saut droit PMT",
+        "note": 4.0,
+        "commentaire": "Top"
+      },
+      {
+        "eleve": "Sarah Connord",
+        "atelier": "Bascule Arrière PMT",
+        "note": 4.0,
+        "commentaire": "Top"
+      },
+      {
+        "eleve": "Bruce Wayne",
+        "atelier": "Gestion de son matériel",
+        "note": 2.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Bruce Wayne",
+        "atelier": "Gréage",
+        "note": 2.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "John Travolta",
+        "atelier": "Gestion de son matériel",
+        "note": 4.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "John Travolta",
+        "atelier": "Gréage",
+        "note": 4.0,
         "commentaire": null
       }
     ]
   },
   {
-    "id": "2026-08-25_jo",
-    "date_seance": "2026-08-25",
-    "moniteur": "Jo",
-    "nb_eleves": 4,
-    "eleves": [
-      "Bernard Zoé",
-      "Dupont Léa",
-      "Martin Noah",
-      "Sarah Connord"
-    ],
-    "ateliers_traites": [
-      "**VDM équilibré",
-      "VDM",
-      "VDM partiel"
-    ],
-    "nb_comptes_rendus": 12,
-    "comptes_rendus": [
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "VDM partiel",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "VDM",
-        "note": 4,
-        "commentaire": "Bien"
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "**VDM équilibré",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "VDM partiel",
-        "note": 2,
-        "commentaire": "Bien"
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "VDM",
-        "note": 2,
-        "commentaire": "Progrès net"
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "**VDM équilibré",
-        "note": 3,
-        "commentaire": "Manque un peu d'assurance"
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "VDM partiel",
-        "note": 1,
-        "commentaire": "Très à l'aise"
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "VDM",
-        "note": 1,
-        "commentaire": "RAS"
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "**VDM équilibré",
-        "note": 2,
-        "commentaire": "À revoir en douceur"
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "VDM partiel",
-        "note": 2,
-        "commentaire": null
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "VDM",
-        "note": 2,
-        "commentaire": null
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "**VDM équilibré",
-        "note": 3,
-        "commentaire": null
-      }
-    ]
-  },
-  {
-    "id": "2026-09-08_sam",
+    "id": "2026-09-08_luky-luke",
     "date_seance": "2026-09-08",
-    "moniteur": "Sam",
-    "nb_eleves": 5,
+    "moniteur": "Luky Luke",
+    "nb_eleves": 3,
     "eleves": [
-      "Bernard Zoé",
-      "Dupont Léa",
-      "Martin Noah",
-      "Peter Parker",
-      "Sarah Connord"
-    ],
-    "ateliers_traites": [
-      "360°",
-      "Mise en sécu surface",
-      "Remonté expi controlée",
-      "Tenue palier",
-      "Vitesse de remontée"
-    ],
-    "nb_comptes_rendus": 25,
-    "comptes_rendus": [
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "Vitesse de remontée",
-        "note": 4,
-        "commentaire": null
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "Tenue palier",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "360°",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "Remonté expi controlée",
-        "note": 3,
-        "commentaire": "Progrès net"
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "Mise en sécu surface",
-        "note": 4,
-        "commentaire": "Très à l'aise"
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "Vitesse de remontée",
-        "note": 3,
-        "commentaire": "RAS"
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "Tenue palier",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "360°",
-        "note": 2,
-        "commentaire": null
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "Remonté expi controlée",
-        "note": 3,
-        "commentaire": "Progrès net"
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "Mise en sécu surface",
-        "note": 2,
-        "commentaire": null
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "Vitesse de remontée",
-        "note": 1,
-        "commentaire": null
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "Tenue palier",
-        "note": 2,
-        "commentaire": null
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "360°",
-        "note": 1,
-        "commentaire": null
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "Remonté expi controlée",
-        "note": 2,
-        "commentaire": "Manque un peu d'assurance"
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "Mise en sécu surface",
-        "note": 1,
-        "commentaire": "Progrès net"
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "Vitesse de remontée",
-        "note": 3,
-        "commentaire": "Progrès net"
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "Tenue palier",
-        "note": 3,
-        "commentaire": "Bien"
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "360°",
-        "note": 3,
-        "commentaire": "Bien"
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "Remonté expi controlée",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "Mise en sécu surface",
-        "note": 2,
-        "commentaire": null
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "Vitesse de remontée",
-        "note": 3,
-        "commentaire": "Bonne autonomie"
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "Tenue palier",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "360°",
-        "note": 2,
-        "commentaire": null
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "Remonté expi controlée",
-        "note": 2,
-        "commentaire": "Progrès net"
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "Mise en sécu surface",
-        "note": 3,
-        "commentaire": null
-      }
-    ]
-  },
-  {
-    "id": "2026-09-22_jo",
-    "date_seance": "2026-09-22",
-    "moniteur": "Jo",
-    "nb_eleves": 5,
-    "eleves": [
-      "Bernard Zoé",
-      "Dupont Léa",
-      "Martin Noah",
-      "Peter Parker",
-      "Sarah Connord"
-    ],
-    "ateliers_traites": [
-      "Exam PMT 100m",
-      "Exam capelé 50m",
-      "Soin au materiel",
-      "Sortie de l'eau",
-      "dégréage"
-    ],
-    "nb_comptes_rendus": 25,
-    "comptes_rendus": [
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "Sortie de l'eau",
-        "note": 3,
-        "commentaire": "Bien"
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "dégréage",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "Soin au materiel",
-        "note": 3,
-        "commentaire": "Bonne autonomie"
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "Exam PMT 100m",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Bernard Zoé",
-        "atelier": "Exam capelé 50m",
-        "note": 3,
-        "commentaire": "À revoir en douceur"
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "Sortie de l'eau",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "dégréage",
-        "note": 2,
-        "commentaire": "Très à l'aise"
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "Soin au materiel",
-        "note": 2,
-        "commentaire": "Bien"
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "Exam PMT 100m",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "Exam capelé 50m",
-        "note": 2,
-        "commentaire": null
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "Sortie de l'eau",
-        "note": 2,
-        "commentaire": "Bonne autonomie"
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "dégréage",
-        "note": 2,
-        "commentaire": "À revoir en douceur"
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "Soin au materiel",
-        "note": 2,
-        "commentaire": "Bonne autonomie"
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "Exam PMT 100m",
-        "note": 1,
-        "commentaire": "À revoir en douceur"
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "Exam capelé 50m",
-        "note": 2,
-        "commentaire": "Très à l'aise"
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "Sortie de l'eau",
-        "note": 3,
-        "commentaire": "Bonne autonomie"
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "dégréage",
-        "note": 2,
-        "commentaire": null
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "Soin au materiel",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "Exam PMT 100m",
-        "note": 3,
-        "commentaire": "RAS"
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "Exam capelé 50m",
-        "note": 2,
-        "commentaire": null
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "Sortie de l'eau",
-        "note": 2,
-        "commentaire": "RAS"
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "dégréage",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "Soin au materiel",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "Exam PMT 100m",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "Exam capelé 50m",
-        "note": 2,
-        "commentaire": "Très à l'aise"
-      }
-    ]
-  },
-  {
-    "id": "2026-09-29_sam",
-    "date_seance": "2026-09-29",
-    "moniteur": "Sam",
-    "nb_eleves": 5,
-    "eleves": [
-      "Bernard Zoé",
-      "Dupont Léa",
-      "Martin Noah",
-      "Peter Parker",
+      "Harry Potter",
+      "Kurt Cobain",
       "Sarah Connord"
     ],
     "ateliers_traites": [
       "Bascule Arrière",
-      "DBN",
       "Gestion de son matériel",
-      "Gréage",
-      "Palmage",
-      "Phoque",
-      "Saut droit",
-      "Saut droit PMT",
-      "Théorie"
+      "Gréage"
     ],
-    "nb_comptes_rendus": 20,
+    "nb_comptes_rendus": 9,
     "comptes_rendus": [
       {
-        "eleve": "Bernard Zoé",
-        "atelier": "Théorie",
-        "note": null,
-        "commentaire": "Révisions générales"
-      },
-      {
-        "eleve": "Bernard Zoé",
+        "eleve": "Harry Potter",
         "atelier": "Gréage",
-        "note": 4,
-        "commentaire": null
+        "note": 2.0,
+        "commentaire": "Il était à l'écoute..."
       },
       {
-        "eleve": "Bernard Zoé",
+        "eleve": "Harry Potter",
         "atelier": "Gestion de son matériel",
-        "note": 4,
-        "commentaire": "Très à l'aise"
+        "note": 2.0,
+        "commentaire": "Il était à l'écoute..."
       },
       {
-        "eleve": "Bernard Zoé",
-        "atelier": "Palmage",
-        "note": 4,
-        "commentaire": "Manque un peu d'assurance"
-      },
-      {
-        "eleve": "Dupont Léa",
-        "atelier": "Théorie",
-        "note": null,
-        "commentaire": "Révisions générales"
-      },
-      {
-        "eleve": "Dupont Léa",
+        "eleve": "Kurt Cobain",
         "atelier": "Gréage",
-        "note": 4,
-        "commentaire": "À revoir en douceur"
+        "note": 3.0,
+        "commentaire": "À revoir la gestion"
       },
       {
-        "eleve": "Dupont Léa",
+        "eleve": "Kurt Cobain",
         "atelier": "Gestion de son matériel",
-        "note": 3,
-        "commentaire": "RAS"
+        "note": 2.0,
+        "commentaire": "À revoir la gestion"
       },
       {
-        "eleve": "Dupont Léa",
-        "atelier": "Saut droit PMT",
-        "note": 3,
-        "commentaire": "Très à l'aise"
-      },
-      {
-        "eleve": "Martin Noah",
-        "atelier": "Théorie",
-        "note": null,
-        "commentaire": "Révisions générales"
-      },
-      {
-        "eleve": "Martin Noah",
+        "eleve": "Harry Potter",
         "atelier": "Gréage",
-        "note": 2,
-        "commentaire": "Bien"
+        "note": 3.0,
+        "commentaire": null
       },
       {
-        "eleve": "Martin Noah",
+        "eleve": "Harry Potter",
         "atelier": "Gestion de son matériel",
-        "note": 3,
+        "note": 2.0,
         "commentaire": null
       },
       {
-        "eleve": "Martin Noah",
-        "atelier": "Phoque",
-        "note": 3,
-        "commentaire": "RAS"
+        "eleve": "Kurt Cobain",
+        "atelier": "Gréage",
+        "note": 2.0,
+        "commentaire": null
       },
       {
-        "eleve": "Peter Parker",
-        "atelier": "Théorie",
-        "note": null,
-        "commentaire": "Révisions générales"
-      },
-      {
-        "eleve": "Peter Parker",
+        "eleve": "Kurt Cobain",
         "atelier": "Gestion de son matériel",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "Saut droit",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Peter Parker",
-        "atelier": "Bascule Arrière",
-        "note": 3,
-        "commentaire": null
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "Théorie",
-        "note": null,
-        "commentaire": "Révisions générales"
-      },
-      {
-        "eleve": "Sarah Connord",
-        "atelier": "Saut droit",
-        "note": 3,
+        "note": 2.0,
         "commentaire": null
       },
       {
         "eleve": "Sarah Connord",
         "atelier": "Bascule Arrière",
-        "note": 3,
+        "note": 4.0,
         "commentaire": null
+      }
+    ]
+  },
+  {
+    "id": "2026-09-08_mad-max",
+    "date_seance": "2026-09-08",
+    "moniteur": "Mad Max",
+    "nb_eleves": 2,
+    "eleves": [
+      "Kurt Cobain",
+      "Marty MacFly"
+    ],
+    "ateliers_traites": [
+      "**Bascule Avant PMT",
+      "DBN",
+      "Gréage",
+      "Saut droit"
+    ],
+    "nb_comptes_rendus": 5,
+    "comptes_rendus": [
+      {
+        "eleve": "Marty MacFly",
+        "atelier": "**Bascule Avant PMT",
+        "note": 2.0,
+        "commentaire": "Pas de bras pas de chocolat !"
       },
       {
-        "eleve": "Sarah Connord",
+        "eleve": "Marty MacFly",
+        "atelier": "Gréage",
+        "note": 3.0,
+        "commentaire": "Pas de bras pas de chocolat !"
+      },
+      {
+        "eleve": "Marty MacFly",
         "atelier": "DBN",
-        "note": 3,
+        "note": 4.0,
+        "commentaire": "Pas de bras pas de chocolat !"
+      },
+      {
+        "eleve": "Marty MacFly",
+        "atelier": "Saut droit",
+        "note": 3.0,
+        "commentaire": "Pas de bras pas de chocolat !"
+      },
+      {
+        "eleve": "Kurt Cobain",
+        "atelier": "Gréage",
+        "note": 1.0,
+        "commentaire": null
+      }
+    ]
+  },
+  {
+    "id": "2026-09-08_nicos",
+    "date_seance": "2026-09-08",
+    "moniteur": "Nicos",
+    "nb_eleves": 10,
+    "eleves": [
+      "Bruce Wayne",
+      "Dayne Jonhson",
+      "Ezio Auditore",
+      "Harry Potter",
+      "John Travolta",
+      "Kurt Cobain",
+      "Malcolm X",
+      "Marty MacFly",
+      "Peter Parker",
+      "Sarah Connord"
+    ],
+    "ateliers_traites": [
+      "Palmage",
+      "Saut droit PMT",
+      "Signes"
+    ],
+    "nb_comptes_rendus": 14,
+    "comptes_rendus": [
+      {
+        "eleve": "Marty MacFly",
+        "atelier": "Palmage",
+        "note": 1.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Sarah Connord",
+        "atelier": "Palmage",
+        "note": 1.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Malcolm X",
+        "atelier": "Palmage",
+        "note": 1.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Bruce Wayne",
+        "atelier": "Palmage",
+        "note": 1.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Peter Parker",
+        "atelier": "Palmage",
+        "note": 1.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "John Travolta",
+        "atelier": "Palmage",
+        "note": 1.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Harry Potter",
+        "atelier": "Palmage",
+        "note": 1.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Dayne Jonhson",
+        "atelier": "Palmage",
+        "note": 1.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Ezio Auditore",
+        "atelier": "Palmage",
+        "note": 1.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Kurt Cobain",
+        "atelier": "Palmage",
+        "note": 1.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Ezio Auditore",
+        "atelier": "Signes",
+        "note": 4.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Ezio Auditore",
+        "atelier": "Saut droit PMT",
+        "note": 1.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Kurt Cobain",
+        "atelier": "Signes",
+        "note": 2.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Kurt Cobain",
+        "atelier": "Saut droit PMT",
+        "note": 3.0,
+        "commentaire": null
+      }
+    ]
+  },
+  {
+    "id": "2026-09-08_wall-e",
+    "date_seance": "2026-09-08",
+    "moniteur": "Wall-E",
+    "nb_eleves": 2,
+    "eleves": [
+      "Harry Potter",
+      "Sarah Connord"
+    ],
+    "ateliers_traites": [
+      "LRE expiration",
+      "Palmage",
+      "Soin au materiel"
+    ],
+    "nb_comptes_rendus": 6,
+    "comptes_rendus": [
+      {
+        "eleve": "Harry Potter",
+        "atelier": "Palmage",
+        "note": 1.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Harry Potter",
+        "atelier": "LRE expiration",
+        "note": 2.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Harry Potter",
+        "atelier": "Soin au materiel",
+        "note": 4.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Sarah Connord",
+        "atelier": "LRE expiration",
+        "note": 1.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Sarah Connord",
+        "atelier": "Palmage",
+        "note": 2.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Sarah Connord",
+        "atelier": "Soin au materiel",
+        "note": 3.0,
+        "commentaire": null
+      }
+    ]
+  },
+  {
+    "id": "2026-09-10_mad-max",
+    "date_seance": "2026-09-10",
+    "moniteur": "Mad Max",
+    "nb_eleves": 1,
+    "eleves": [
+      "Harry Potter"
+    ],
+    "ateliers_traites": [
+      "Pas d'atelier"
+    ],
+    "nb_comptes_rendus": 1,
+    "comptes_rendus": [
+      {
+        "eleve": "Harry Potter",
+        "atelier": "Pas d'atelier",
+        "note": null,
+        "commentaire": "Cool"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-11_carlos",
+    "date_seance": "2026-09-11",
+    "moniteur": "Carlos",
+    "nb_eleves": 2,
+    "eleves": [
+      "Harry Potter",
+      "Kurt Cobain"
+    ],
+    "ateliers_traites": [
+      "Gréage"
+    ],
+    "nb_comptes_rendus": 2,
+    "comptes_rendus": [
+      {
+        "eleve": "Kurt Cobain",
+        "atelier": "Gréage",
+        "note": 2.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Harry Potter",
+        "atelier": "Gréage",
+        "note": 2.0,
         "commentaire": null
       }
     ]
