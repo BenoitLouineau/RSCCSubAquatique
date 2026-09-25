@@ -1,7 +1,17 @@
 [
   {
     "ligne": 1,
-    "accueil": "📢 Mardi 15 et mardi 22 : Baptêmes 📢",
+    "accueil": "📯nouveauté > le nom de l'élève en rouge = pas de CACI valide📯",
+    "palanquees": "📯nouveauté > le nom de l'élève en rouge = pas de CACI valide📯"
+  },
+  {
+    "ligne": 2,
+    "accueil": "📢 Mardi 22 : Baptêmes 📢",
+    "palanquees": "🚨🚨 CACI à vérifier 🚨🚨"
+  },
+  {
+    "ligne": 3,
+    "accueil": "🔥Padlet Moniteurs🔥",
     "palanquees": null
   }
 ]
