@@ -53,22 +53,24 @@
   {
     "id": "bruce-wayne",
     "nom": "Bruce Wayne",
-    "nb_seances": 1,
+    "nb_seances": 2,
     "dates_seances": [
-      "2026-09-08"
+      "2026-09-08",
+      "2026-09-22"
     ],
     "moniteurs": [
       "Benoit L",
       "Benoit P",
       "Bilbo le Hobitt",
+      "Carine",
       "Nicos"
     ],
-    "nb_competences_travaillees": 9,
+    "nb_competences_travaillees": 12,
     "competences": {
       "Gestion de son matériel": {
-        "nb_evaluations": 2,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.5,
+        "nb_evaluations": 3,
+        "derniere_note": 1.0,
+        "moyenne_notes": 2.0,
         "historique": [
           {
             "date": "2026-09-08",
@@ -79,13 +81,18 @@
             "date": "2026-09-08",
             "note": 2.0,
             "moniteur": "Bilbo le Hobitt"
+          },
+          {
+            "date": "2026-09-22",
+            "note": 1.0,
+            "moniteur": "Carine"
           }
         ]
       },
       "Gréage": {
-        "nb_evaluations": 3,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.67,
+        "nb_evaluations": 4,
+        "derniere_note": 4.0,
+        "moyenne_notes": 3.0,
         "historique": [
           {
             "date": "2026-09-08",
@@ -101,6 +108,11 @@
             "date": "2026-09-08",
             "note": 2.0,
             "moniteur": "Bilbo le Hobitt"
+          },
+          {
+            "date": "2026-09-22",
+            "note": 4.0,
+            "moniteur": "Carine"
           }
         ]
       },
@@ -175,9 +187,9 @@
         ]
       },
       "Exam pratique": {
-        "nb_evaluations": 2,
+        "nb_evaluations": 3,
         "derniere_note": 4.0,
-        "moyenne_notes": 3.0,
+        "moyenne_notes": 3.33,
         "historique": [
           {
             "date": "2026-09-08",
@@ -188,11 +200,16 @@
             "date": "2026-09-08",
             "note": 4.0,
             "moniteur": "Nicos"
+          },
+          {
+            "date": "2026-09-22",
+            "note": 4.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
       "Exam Théorie": {
-        "nb_evaluations": 2,
+        "nb_evaluations": 3,
         "derniere_note": 4.0,
         "moyenne_notes": 4.0,
         "historique": [
@@ -205,6 +222,47 @@
             "date": "2026-09-08",
             "note": 4.0,
             "moniteur": "Nicos"
+          },
+          {
+            "date": "2026-09-22",
+            "note": 4.0,
+            "moniteur": "Benoit L"
+          }
+        ]
+      },
+      "LRE expiration": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 3.0,
+            "moniteur": "Carine"
+          }
+        ]
+      },
+      "Phoque": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 4.0,
+            "moniteur": "Carine"
+          }
+        ]
+      },
+      "Exam PMT 100m": {
+        "nb_evaluations": 1,
+        "derniere_note": null,
+        "moyenne_notes": null,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": null,
+            "moniteur": "Benoit L"
           }
         ]
       }
@@ -233,6 +291,24 @@
         "moniteur": "Benoit L",
         "atelier": "Exam Théorie",
         "commentaire": "Théorie complètement intégrée et l'ensemble du jeu de rôle de la sortie mer correctement répondu \nPratique,  revoir VDM, et LRE"
+      },
+      {
+        "date": "2026-09-22",
+        "moniteur": "Benoit L",
+        "atelier": "Exam Théorie",
+        "commentaire": "Pratique :\nL'ensemble des gestes sont réalisés à la demande et sans niveau d'appréhension ni stress, bravo\n\nThéorie :\nLes éléments décrit dans le parcours de la sortie mer ont été bien perçu et donné avec l'attendu de cet examen"
+      },
+      {
+        "date": "2026-09-22",
+        "moniteur": "Benoit L",
+        "atelier": "Exam PMT 100m",
+        "commentaire": "Pratique :\nL'ensemble des gestes sont réalisés à la demande et sans niveau d'appréhension ni stress, bravo\n\nThéorie :\nLes éléments décrit dans le parcours de la sortie mer ont été bien perçu et donné avec l'attendu de cet examen"
+      },
+      {
+        "date": "2026-09-22",
+        "moniteur": "Benoit L",
+        "atelier": "Exam pratique",
+        "commentaire": "Pratique :\nL'ensemble des gestes sont réalisés à la demande et sans niveau d'appréhension ni stress, bravo\n\nThéorie :\nLes éléments décrit dans le parcours de la sortie mer ont été bien perçu et donné avec l'attendu de cet examen"
       }
     ]
   },
@@ -481,21 +557,23 @@
   {
     "id": "harry-potter",
     "nom": "Harry Potter",
-    "nb_seances": 3,
+    "nb_seances": 4,
     "dates_seances": [
       "2026-09-08",
       "2026-09-10",
-      "2026-09-11"
+      "2026-09-11",
+      "2026-09-22"
     ],
     "moniteurs": [
       "Bilbo le Hobitt",
+      "Carine",
       "Carlos",
       "Luky Luke",
       "Mad Max",
       "Nicos",
       "Wall-E"
     ],
-    "nb_competences_travaillees": 6,
+    "nb_competences_travaillees": 10,
     "competences": {
       "Pas d'atelier": {
         "nb_evaluations": 2,
@@ -593,6 +671,54 @@
             "moniteur": "Wall-E"
           }
         ]
+      },
+      "Canard PMT": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 3.0,
+            "moniteur": "Carine"
+          }
+        ]
+      },
+      "VDM": {
+        "nb_evaluations": 1,
+        "derniere_note": 1.0,
+        "moyenne_notes": 1.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 1.0,
+            "moniteur": "Carine"
+          }
+        ]
+      },
+      "Signes": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 3.0,
+            "moniteur": "Carine"
+          }
+        ]
+      },
+      "Saut droit": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 3.0,
+            "moniteur": "Carine"
+          }
+        ]
       }
     },
     "commentaires": [
@@ -683,25 +809,29 @@
   {
     "id": "kurt-cobain",
     "nom": "Kurt Cobain",
-    "nb_seances": 2,
+    "nb_seances": 4,
     "dates_seances": [
       "2026-09-08",
-      "2026-09-11"
+      "2026-09-11",
+      "2026-09-14",
+      "2026-09-15"
     ],
     "moniteurs": [
       "Benoit P",
       "Bilbo le Hobitt",
+      "Carine",
       "Carlos",
       "Luky Luke",
       "Mad Max",
-      "Nicos"
+      "Nicos",
+      "Véronique"
     ],
-    "nb_competences_travaillees": 7,
+    "nb_competences_travaillees": 11,
     "competences": {
       "Gréage": {
-        "nb_evaluations": 4,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.0,
+        "nb_evaluations": 5,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.2,
         "historique": [
           {
             "date": "2026-09-08",
@@ -722,6 +852,11 @@
             "date": "2026-09-11",
             "note": 2.0,
             "moniteur": "Carlos"
+          },
+          {
+            "date": "2026-09-15",
+            "note": 3.0,
+            "moniteur": "Carine"
           }
         ]
       },
@@ -804,6 +939,54 @@
             "date": "2026-09-08",
             "note": 2.0,
             "moniteur": "Nicos"
+          }
+        ]
+      },
+      "Exam Théorie": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-09-14",
+            "note": 4.0,
+            "moniteur": "Véronique"
+          }
+        ]
+      },
+      "Canard PMT": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-09-14",
+            "note": 2.0,
+            "moniteur": "Véronique"
+          }
+        ]
+      },
+      "Saut droit": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-15",
+            "note": 3.0,
+            "moniteur": "Carine"
+          }
+        ]
+      },
+      "Phoque": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-15",
+            "note": 3.0,
+            "moniteur": "Carine"
           }
         ]
       }
@@ -1088,18 +1271,21 @@
   {
     "id": "peter-parker",
     "nom": "Peter Parker",
-    "nb_seances": 2,
+    "nb_seances": 4,
     "dates_seances": [
       "2026-07-14",
-      "2026-09-08"
+      "2026-09-08",
+      "2026-09-15",
+      "2026-09-22"
     ],
     "moniteurs": [
       "Benoit L",
       "Bilbo le Hobitt",
+      "Carine",
       "Nicos",
       "Sam"
     ],
-    "nb_competences_travaillees": 6,
+    "nb_competences_travaillees": 10,
     "competences": {
       "Pas d'atelier": {
         "nb_evaluations": 1,
@@ -1114,26 +1300,46 @@
         ]
       },
       "Gréage": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 3,
         "derniere_note": 3.0,
-        "moyenne_notes": 3.0,
+        "moyenne_notes": 2.67,
         "historique": [
           {
             "date": "2026-09-08",
             "note": 3.0,
             "moniteur": "Bilbo le Hobitt"
+          },
+          {
+            "date": "2026-09-15",
+            "note": 2.0,
+            "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-09-22",
+            "note": 3.0,
+            "moniteur": "Carine"
           }
         ]
       },
       "Gestion de son matériel": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 3,
         "derniere_note": 4.0,
-        "moyenne_notes": 4.0,
+        "moyenne_notes": 3.33,
         "historique": [
           {
             "date": "2026-09-08",
             "note": 4.0,
             "moniteur": "Bilbo le Hobitt"
+          },
+          {
+            "date": "2026-09-15",
+            "note": 2.0,
+            "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-09-22",
+            "note": 4.0,
+            "moniteur": "Carine"
           }
         ]
       },
@@ -1172,6 +1378,54 @@
             "moniteur": "Benoit L"
           }
         ]
+      },
+      "Saut droit": {
+        "nb_evaluations": 1,
+        "derniere_note": 1.0,
+        "moyenne_notes": 1.0,
+        "historique": [
+          {
+            "date": "2026-09-15",
+            "note": 1.0,
+            "moniteur": "Benoit L"
+          }
+        ]
+      },
+      "Saut droit PMT": {
+        "nb_evaluations": 1,
+        "derniere_note": 1.0,
+        "moyenne_notes": 1.0,
+        "historique": [
+          {
+            "date": "2026-09-15",
+            "note": 1.0,
+            "moniteur": "Benoit L"
+          }
+        ]
+      },
+      "LRE expiration": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 3.0,
+            "moniteur": "Carine"
+          }
+        ]
+      },
+      "Phoque": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-09-22",
+            "note": 2.0,
+            "moniteur": "Carine"
+          }
+        ]
       }
     },
     "commentaires": [
@@ -1192,6 +1446,30 @@
         "moniteur": "Benoit L",
         "atelier": "Exam Théorie",
         "commentaire": "Idem non évaluable"
+      },
+      {
+        "date": "2026-09-15",
+        "moniteur": "Benoit L",
+        "atelier": "Gréage",
+        "commentaire": "1ere soirée avec délivrance du matériel"
+      },
+      {
+        "date": "2026-09-15",
+        "moniteur": "Benoit L",
+        "atelier": "Gestion de son matériel",
+        "commentaire": "1ere soirée avec délivrance du matériel"
+      },
+      {
+        "date": "2026-09-15",
+        "moniteur": "Benoit L",
+        "atelier": "Saut droit",
+        "commentaire": "1ere soirée avec délivrance du matériel"
+      },
+      {
+        "date": "2026-09-15",
+        "moniteur": "Benoit L",
+        "atelier": "Saut droit PMT",
+        "commentaire": "1ere soirée avec délivrance du matériel"
       }
     ]
   },
