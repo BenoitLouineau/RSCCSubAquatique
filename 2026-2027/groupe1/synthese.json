@@ -1,19 +1,28 @@
 {
-  "date_generation": "2026-09-25T15:23:09",
+  "date_generation": "2026-09-25T15:28:51",
   "nb_eleves": 13,
   "nb_moniteurs": 16,
-  "nb_seances": 13,
-  "nb_comptes_rendus": 93,
+  "nb_seances": 18,
+  "nb_comptes_rendus": 117,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-05-12",
-    "date_max": "2026-09-11"
+    "date_max": "2026-09-22"
   },
   "acquisition_par_atelier": [
     {
       "atelier": "Gréage",
-      "nb_evaluations": 16,
-      "moyenne": 2.69,
+      "nb_evaluations": 20,
+      "moyenne": 2.75,
+      "note_min": 1.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Gestion de son matériel",
+      "nb_evaluations": 13,
+      "moyenne": 2.77,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -29,22 +38,31 @@
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "Gestion de son matériel",
-      "nb_evaluations": 10,
-      "moyenne": 2.9,
-      "note_min": 2.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
       "atelier": "Saut droit PMT",
-      "nb_evaluations": 7,
-      "moyenne": 2.57,
+      "nb_evaluations": 8,
+      "moyenne": 2.38,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
-      "compte_dans_moyenne": true
+      "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "Exam Théorie",
+      "nb_evaluations": 6,
+      "moyenne": 3.67,
+      "note_min": 2.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "Exam pratique",
+      "nb_evaluations": 5,
+      "moyenne": 3.4,
+      "note_min": 2.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": false
     },
     {
       "atelier": "**Bascule Avant PMT",
@@ -53,25 +71,25 @@
       "note_min": 1.0,
       "note_max": 3.0,
       "notable": true,
+      "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "LRE expiration",
+      "nb_evaluations": 4,
+      "moyenne": 2.25,
+      "note_min": 1.0,
+      "note_max": 3.0,
+      "notable": true,
       "compte_dans_moyenne": true
     },
     {
-      "atelier": "Exam Théorie",
+      "atelier": "Saut droit",
       "nb_evaluations": 4,
-      "moyenne": 3.5,
-      "note_min": 2.0,
-      "note_max": 4.0,
+      "moyenne": 2.5,
+      "note_min": 1.0,
+      "note_max": 3.0,
       "notable": true,
-      "compte_dans_moyenne": false
-    },
-    {
-      "atelier": "Exam pratique",
-      "nb_evaluations": 4,
-      "moyenne": 3.25,
-      "note_min": 2.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": false
+      "compte_dans_moyenne": true
     },
     {
       "atelier": "Stabilisation",
@@ -83,13 +101,40 @@
       "compte_dans_moyenne": false
     },
     {
+      "atelier": "Canard PMT",
+      "nb_evaluations": 3,
+      "moyenne": 2.33,
+      "note_min": 2.0,
+      "note_max": 3.0,
+      "notable": true,
+      "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "Phoque",
+      "nb_evaluations": 3,
+      "moyenne": 3.0,
+      "note_min": 2.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Signes",
+      "nb_evaluations": 3,
+      "moyenne": 3.0,
+      "note_min": 2.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
       "atelier": "Bascule Arrière PMT",
       "nb_evaluations": 2,
       "moyenne": 3.5,
       "note_min": 3.0,
       "note_max": 4.0,
       "notable": true,
-      "compte_dans_moyenne": true
+      "compte_dans_moyenne": false
     },
     {
       "atelier": "Gestion de l'air",
@@ -101,29 +146,20 @@
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "LRE expiration",
-      "nb_evaluations": 2,
-      "moyenne": 1.5,
-      "note_min": 1.0,
-      "note_max": 2.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Signes",
-      "nb_evaluations": 2,
-      "moyenne": 3.0,
-      "note_min": 2.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
       "atelier": "Soin au materiel",
       "nb_evaluations": 2,
       "moyenne": 3.5,
       "note_min": 3.0,
       "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "VDM",
+      "nb_evaluations": 2,
+      "moyenne": 1.5,
+      "note_min": 1.0,
+      "note_max": 2.0,
       "notable": true,
       "compte_dans_moyenne": true
     },
@@ -137,22 +173,13 @@
       "compte_dans_moyenne": true
     },
     {
-      "atelier": "Canard PMT",
-      "nb_evaluations": 1,
-      "moyenne": 2.0,
-      "note_min": 2.0,
-      "note_max": 2.0,
-      "notable": true,
-      "compte_dans_moyenne": false
-    },
-    {
       "atelier": "DBN",
       "nb_evaluations": 1,
       "moyenne": 4.0,
       "note_min": 4.0,
       "note_max": 4.0,
       "notable": true,
-      "compte_dans_moyenne": true
+      "compte_dans_moyenne": false
     },
     {
       "atelier": "LRE surpression",
@@ -173,24 +200,6 @@
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "Saut droit",
-      "nb_evaluations": 1,
-      "moyenne": 3.0,
-      "note_min": 3.0,
-      "note_max": 3.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "VDM",
-      "nb_evaluations": 1,
-      "moyenne": 2.0,
-      "note_min": 2.0,
-      "note_max": 2.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
       "atelier": "Vidage de masque",
       "nb_evaluations": 1,
       "moyenne": 1.0,
@@ -208,8 +217,8 @@
     },
     {
       "eleve": "Bruce Wayne",
-      "nb_ateliers_evalues": 9,
-      "moyenne_generale": 2.67
+      "nb_ateliers_evalues": 12,
+      "moyenne_generale": 2.91
     },
     {
       "eleve": "Dayne Jonhson",
@@ -228,8 +237,8 @@
     },
     {
       "eleve": "Harry Potter",
-      "nb_ateliers_evalues": 6,
-      "moyenne_generale": 2.2
+      "nb_ateliers_evalues": 10,
+      "moyenne_generale": 2.33
     },
     {
       "eleve": "John Travolta",
@@ -238,8 +247,8 @@
     },
     {
       "eleve": "Kurt Cobain",
-      "nb_ateliers_evalues": 7,
-      "moyenne_generale": 1.83
+      "nb_ateliers_evalues": 11,
+      "moyenne_generale": 2.4
     },
     {
       "eleve": "Malcolm X",
@@ -258,8 +267,8 @@
     },
     {
       "eleve": "Peter Parker",
-      "nb_ateliers_evalues": 6,
-      "moyenne_generale": 2.67
+      "nb_ateliers_evalues": 10,
+      "moyenne_generale": 2.14
     },
     {
       "eleve": "Sarah Connord",
@@ -283,12 +292,10 @@
       "Wall-E"
     ],
     "moniteurs_referentiel_jamais_actifs": [
-      "Carine",
       "Catherine",
       "Christophe",
       "Hervé",
-      "Virginie",
-      "Véronique"
+      "Virginie"
     ],
     "ateliers_hors_referentiel": [
       "Gestion de l'air",
