@@ -813,5 +813,241 @@
         "commentaire": null
       }
     ]
+  },
+  {
+    "id": "2026-09-14_veronique",
+    "date_seance": "2026-09-14",
+    "moniteur": "Véronique",
+    "nb_eleves": 1,
+    "eleves": [
+      "Kurt Cobain"
+    ],
+    "ateliers_traites": [
+      "Canard PMT",
+      "Exam Théorie"
+    ],
+    "nb_comptes_rendus": 2,
+    "comptes_rendus": [
+      {
+        "eleve": "Kurt Cobain",
+        "atelier": "Exam Théorie",
+        "note": 4.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Kurt Cobain",
+        "atelier": "Canard PMT",
+        "note": 2.0,
+        "commentaire": null
+      }
+    ]
+  },
+  {
+    "id": "2026-09-15_benoit-l",
+    "date_seance": "2026-09-15",
+    "moniteur": "Benoit L",
+    "nb_eleves": 1,
+    "eleves": [
+      "Peter Parker"
+    ],
+    "ateliers_traites": [
+      "Gestion de son matériel",
+      "Gréage",
+      "Saut droit",
+      "Saut droit PMT"
+    ],
+    "nb_comptes_rendus": 4,
+    "comptes_rendus": [
+      {
+        "eleve": "Peter Parker",
+        "atelier": "Gréage",
+        "note": 2.0,
+        "commentaire": "1ere soirée avec délivrance du matériel"
+      },
+      {
+        "eleve": "Peter Parker",
+        "atelier": "Gestion de son matériel",
+        "note": 2.0,
+        "commentaire": "1ere soirée avec délivrance du matériel"
+      },
+      {
+        "eleve": "Peter Parker",
+        "atelier": "Saut droit",
+        "note": 1.0,
+        "commentaire": "1ere soirée avec délivrance du matériel"
+      },
+      {
+        "eleve": "Peter Parker",
+        "atelier": "Saut droit PMT",
+        "note": 1.0,
+        "commentaire": "1ere soirée avec délivrance du matériel"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-15_carine",
+    "date_seance": "2026-09-15",
+    "moniteur": "Carine",
+    "nb_eleves": 1,
+    "eleves": [
+      "Kurt Cobain"
+    ],
+    "ateliers_traites": [
+      "Gréage",
+      "Phoque",
+      "Saut droit"
+    ],
+    "nb_comptes_rendus": 3,
+    "comptes_rendus": [
+      {
+        "eleve": "Kurt Cobain",
+        "atelier": "Saut droit",
+        "note": 3.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Kurt Cobain",
+        "atelier": "Gréage",
+        "note": 3.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Kurt Cobain",
+        "atelier": "Phoque",
+        "note": 3.0,
+        "commentaire": null
+      }
+    ]
+  },
+  {
+    "id": "2026-09-22_benoit-l",
+    "date_seance": "2026-09-22",
+    "moniteur": "Benoit L",
+    "nb_eleves": 1,
+    "eleves": [
+      "Bruce Wayne"
+    ],
+    "ateliers_traites": [
+      "Exam PMT 100m",
+      "Exam Théorie",
+      "Exam pratique"
+    ],
+    "nb_comptes_rendus": 3,
+    "comptes_rendus": [
+      {
+        "eleve": "Bruce Wayne",
+        "atelier": "Exam Théorie",
+        "note": 4.0,
+        "commentaire": "Pratique :\nL'ensemble des gestes sont réalisés à la demande et sans niveau d'appréhension ni stress, bravo\n\nThéorie :\nLes éléments décrit dans le parcours de la sortie mer ont été bien perçu et donné avec l'attendu de cet examen"
+      },
+      {
+        "eleve": "Bruce Wayne",
+        "atelier": "Exam PMT 100m",
+        "note": null,
+        "commentaire": "Pratique :\nL'ensemble des gestes sont réalisés à la demande et sans niveau d'appréhension ni stress, bravo\n\nThéorie :\nLes éléments décrit dans le parcours de la sortie mer ont été bien perçu et donné avec l'attendu de cet examen"
+      },
+      {
+        "eleve": "Bruce Wayne",
+        "atelier": "Exam pratique",
+        "note": 4.0,
+        "commentaire": "Pratique :\nL'ensemble des gestes sont réalisés à la demande et sans niveau d'appréhension ni stress, bravo\n\nThéorie :\nLes éléments décrit dans le parcours de la sortie mer ont été bien perçu et donné avec l'attendu de cet examen"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-22_carine",
+    "date_seance": "2026-09-22",
+    "moniteur": "Carine",
+    "nb_eleves": 3,
+    "eleves": [
+      "Bruce Wayne",
+      "Harry Potter",
+      "Peter Parker"
+    ],
+    "ateliers_traites": [
+      "Canard PMT",
+      "Gestion de son matériel",
+      "Gréage",
+      "LRE expiration",
+      "Phoque",
+      "Saut droit",
+      "Signes",
+      "VDM"
+    ],
+    "nb_comptes_rendus": 12,
+    "comptes_rendus": [
+      {
+        "eleve": "Peter Parker",
+        "atelier": "LRE expiration",
+        "note": 3.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Peter Parker",
+        "atelier": "Gréage",
+        "note": 3.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Peter Parker",
+        "atelier": "Phoque",
+        "note": 2.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Peter Parker",
+        "atelier": "Gestion de son matériel",
+        "note": 4.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Bruce Wayne",
+        "atelier": "LRE expiration",
+        "note": 3.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Bruce Wayne",
+        "atelier": "Gestion de son matériel",
+        "note": 1.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Bruce Wayne",
+        "atelier": "Gréage",
+        "note": 4.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Bruce Wayne",
+        "atelier": "Phoque",
+        "note": 4.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Harry Potter",
+        "atelier": "Canard PMT",
+        "note": 3.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Harry Potter",
+        "atelier": "VDM",
+        "note": 1.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Harry Potter",
+        "atelier": "Signes",
+        "note": 3.0,
+        "commentaire": null
+      },
+      {
+        "eleve": "Harry Potter",
+        "atelier": "Saut droit",
+        "note": 3.0,
+        "commentaire": null
+      }
+    ]
   }
 ]
