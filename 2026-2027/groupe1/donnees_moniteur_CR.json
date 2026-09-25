@@ -313,5 +313,54 @@
     "Eleve": "Kurt Cobain",
     "Role": "Encadrant",
     "CR": ""
+  },
+  {
+    "Moniteur": "Véronique",
+    "Date": "2026-09-14",
+    "Eleve": "Kurt Cobain",
+    "Role": "Encadrant",
+    "CR": ""
+  },
+  {
+    "Moniteur": "Benoit L",
+    "Date": "2026-09-15",
+    "Eleve": "Peter Parker",
+    "Role": "Encadrant",
+    "CR": "1ere soirée avec délivrance du matériel; 1ere soirée avec délivrance du matériel; 1ere soirée avec délivrance du matériel; 1ere soirée avec délivrance du matériel"
+  },
+  {
+    "Moniteur": "Carine",
+    "Date": "2026-09-15",
+    "Eleve": "Kurt Cobain",
+    "Role": "Encadrant",
+    "CR": ""
+  },
+  {
+    "Moniteur": "Benoit L",
+    "Date": "2026-09-22",
+    "Eleve": "Bruce Wayne",
+    "Role": "Encadrant",
+    "CR": "Pratique :\nL'ensemble des gestes sont réalisés à la demande et sans niveau d'appréhension ni stress, bravo\n\nThéorie :\nLes éléments décrit dans le parcours de la sortie mer ont été bien perçu et donné avec l'attendu de cet examen; Pratique :\nL'ensemble des gestes sont réalisés à la demande et sans niveau d'appréhension ni stress, bravo\n\nThéorie :\nLes éléments décrit dans le parcours de la sortie mer ont été bien perçu et donné avec l'attendu de cet examen; Pratique :\nL'ensemble des gestes sont réalisés à la demande et sans niveau d'appréhension ni stress, bravo\n\nThéorie :\nLes éléments décrit dans le parcours de la sortie mer ont été bien perçu et donné avec l'attendu de cet examen"
+  },
+  {
+    "Moniteur": "Carine",
+    "Date": "2026-09-22",
+    "Eleve": "Bruce Wayne",
+    "Role": "Encadrant",
+    "CR": ""
+  },
+  {
+    "Moniteur": "Carine",
+    "Date": "2026-09-22",
+    "Eleve": "Harry Potter",
+    "Role": "Encadrant",
+    "CR": ""
+  },
+  {
+    "Moniteur": "Carine",
+    "Date": "2026-09-22",
+    "Eleve": "Peter Parker",
+    "Role": "Encadrant",
+    "CR": ""
   }
 ]
