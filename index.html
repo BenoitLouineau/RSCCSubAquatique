@@ -766,6 +766,33 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 tr.eleve-exam-ok td { background: rgba(34, 197, 94, .1); }
 table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .16); }
 
+
+/* ===================== CACI — certificat d'absence de contre-indication ===================== */
+/* Nom en rouge + puce : convention annoncée aux moniteurs (infos.json). */
+:root { --caci-ko: #f87171; --caci-ok: #22c55e; }
+[data-theme="light"] { --caci-ko: #dc2626; --caci-ok: #16a34a; }
+.eleve-nom.caci-ko { color: var(--caci-ko); font-weight: 700; }
+.caci-dot {
+  display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+  width: 15px; height: 15px; margin-left: 5px; border-radius: 50%;
+  font-size: 9.5px; font-weight: 900; line-height: 1; vertical-align: 0.05em; cursor: help;
+}
+.caci-dot-ok { color: var(--caci-ok); border: 1.5px solid var(--caci-ok); background: transparent; }
+.caci-dot-ko { color: #fff; background: var(--caci-ko); border: 1.5px solid var(--caci-ko); }
+.kpi-card.kpi-caci .kpi-value { display: flex; align-items: baseline; gap: 8px; }
+.kpi-caci-pct { font-size: 14px; font-weight: 700; }
+.kpi-caci-bar { height: 6px; border-radius: 999px; background: var(--donut-rest); margin-top: 10px; overflow: hidden; }
+.kpi-caci-bar > span { display: block; height: 100%; border-radius: 999px; }
+.caci-vigilance {
+  margin-bottom: 18px; padding: 14px 16px; border-radius: var(--radius-sm);
+  background: rgba(220, 38, 38, .08); border: 1px solid rgba(220, 38, 38, .35);
+}
+.caci-vigilance-title { font-size: 14px; font-weight: 800; color: var(--caci-ko); }
+.caci-vigilance-sub { font-size: 12px; color: var(--muted); margin: 4px 0 12px; }
+.caci-vigilance .mini-eleve-chip { cursor: pointer; }
+.caci-vigilance .mini-eleve-chip:focus-visible { outline: 2px solid var(--accent2); outline-offset: 2px; }
+.caci-chip-meta { color: var(--muted); font-size: 11px; }
+
 /* ===================== PALMARÈS — cartes trophée ===================== */
 .trophy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-bottom: 24px; }
 .trophy-card {
@@ -1628,7 +1655,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   const TABLE_COLS = [
     { key: 'nom', label: ICONS.eleve + ' Élève', exportLabel: 'Élève', type: 'string', mandatory: true,
       getValue: r => r.nom, exportValue: r => r.nom,
-      cellContent: r => (hasBothExamsValidated(r.nom) ? '✅ ' : '') + escapeHtml(r.nom) },
+      cellContent: r => (hasBothExamsValidated(r.nom) ? '✅ ' : '') + eleveNomCaci(r.nom) },
     { key: 'acquisAbs', label: ICONS.competence + ' Acquises', exportLabel: 'Acquises', type: 'number',
       getValue: r => r.acquisAbs, exportValue: r => r.acquisAbs + '/' + r.acquisTotal,
       cellContent: r => r.acquisAbs + '/' + r.acquisTotal },
@@ -2255,7 +2282,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         }
         return '<td>' + examStatusBadgeHtml(status, detail) + '</td>';
       }).join('');
-      return '<tr class="' + eleveExamRowClass(e.nom).trim() + '"><td class="cr-row-name">' + (hasBothExamsValidated(e.nom) ? '✅ ' : '') + escapeHtml(names[e.id] || e.nom) + '</td>' + cells + '</tr>';
+      return '<tr class="' + eleveExamRowClass(e.nom).trim() + '"><td class="cr-row-name">' + (hasBothExamsValidated(e.nom) ? '✅ ' : '') + eleveNomCaci(e.nom, names[e.id] || e.nom) + '</td>' + cells + '</tr>';
     }).join('');
 
     const dualTableHtml = '<div class="cr-summary-card">' +
@@ -2276,7 +2303,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         const ok = n >= getSeuilCompetenceAcquise();
         return '<td><span class="exam-status-badge exam-status-' + (ok ? 'ok' : 'warn') + '">' + (ok ? '✅' : '🔸') + ' Note ' + n + '</span></td>';
       }).join('');
-      return '<tr class="' + eleveExamRowClass(e.nom).trim() + '"><td class="cr-row-name">' + (hasBothExamsValidated(e.nom) ? '✅ ' : '') + escapeHtml(names[e.id] || e.nom) + '</td>' + cells + '</tr>';
+      return '<tr class="' + eleveExamRowClass(e.nom).trim() + '"><td class="cr-row-name">' + (hasBothExamsValidated(e.nom) ? '✅ ' : '') + eleveNomCaci(e.nom, names[e.id] || e.nom) + '</td>' + cells + '</tr>';
     }).join('');
 
     const simplesTableHtml = '<div class="cr-summary-card">' +
@@ -2340,6 +2367,38 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   function eleveExamBadge(eleveNom) { return hasBothExamsValidated(eleveNom) ? ' ✅' : ''; }
   /** Classe CSS à ajouter à l'élément (chip, ligne, carte) pour la trame de fond verte. */
   function eleveExamRowClass(eleveNom) { return hasBothExamsValidated(eleveNom) ? ' eleve-exam-ok' : ''; }
+
+  // =====================================================================
+  // MODULE CACI — statut lu dans eleves.json (champ "caci", issu de l'onglet
+  // Eleves). Règle : seul true vaut CACI valide ; false, null ou élève absent
+  // du fichier = pas de CACI valide. Affichage : nom en rouge + puce, partout
+  // où le nom d'un élève apparaît (même logique que le badge examens ✅).
+  // =====================================================================
+  function eleveHasCaci(eleveNom) {
+    const e = findEleveByNom(eleveNom);
+    return !!(e && e.caci === true);
+  }
+  /** Puce seule, à placer juste après un nom d'élève. */
+  function caciDot(eleveNom) {
+    return eleveHasCaci(eleveNom)
+      ? '<span class="caci-dot caci-dot-ok" title="CACI valide" aria-label="CACI valide" role="img">✓</span>'
+      : '<span class="caci-dot caci-dot-ko" title="Pas de CACI valide enregistré" aria-label="Pas de CACI valide enregistré" role="img">!</span>';
+  }
+  /** Nom d'élève échappé + couleur CACI + puce. label = nom affiché (prénom court, etc.). */
+  function eleveNomCaci(eleveNom, label) {
+    const txt = (label === undefined || label === null || label === '') ? eleveNom : label;
+    return '<span class="eleve-nom' + (eleveHasCaci(eleveNom) ? '' : ' caci-ko') + '">' + escapeHtml(txt) + '</span>' + caciDot(eleveNom);
+  }
+  function computeCaciStats() {
+    const eleves = STATE.eleves || [];
+    const avec = eleves.filter(e => e.caci === true).length;
+    const vigilance = eleves
+      .filter(e => e.caci !== true && (e.nb_seances || 0) > 0)
+      .map(e => ({ e: e, nb: e.nb_seances || 0, last: (e.dates_seances || []).slice().sort().pop() || null }))
+      .sort((a, b) => (b.nb - a.nb) || String(b.last).localeCompare(String(a.last)) || a.e.nom.localeCompare(b.e.nom, 'fr'));
+    return { total: eleves.length, avec: avec, sans: eleves.length - avec,
+             taux: eleves.length ? Math.round(avec / eleves.length * 100) : 0, vigilance: vigilance };
+  }
 
   // =====================================================================
   // MODULE NOTIFICATIONS — messages d'information (infos.json), lus à
@@ -3162,8 +3221,47 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       kpiCard((STATE.eleves || []).length, ICONS.eleve + ' Élèves au total') +
       kpiCard(s.nb_seances != null ? s.nb_seances : '—', ICONS.seance + ' Séances') +
       kpiCard(s.nb_competences_referencees != null ? s.nb_competences_referencees : '—', ICONS.competence + ' Compétences référencées') +
+      caciKpiCard() +
     '</div>' +
     '<div class="kpi-card" style="margin-bottom:20px;"><div class="kpi-label">Période couverte</div><div class="kpi-value" style="font-size:16px;">' + periode + '</div></div>';
+  }
+
+  function caciKpiCard() {
+    const c = computeCaciStats();
+    const col = c.taux >= 90 ? 'var(--ok)' : (c.taux >= 60 ? 'var(--warn)' : 'var(--caci-ko)');
+    return '<div class="kpi-card kpi-caci" title="' + c.sans + ' élève(s) sans CACI valide enregistré">' +
+      '<div class="kpi-value">' + c.avec + '/' + c.total + '<span class="kpi-caci-pct" style="color:' + col + ';">' + c.taux + ' %</span></div>' +
+      '<div class="kpi-label">🩺 CACI valides</div>' +
+      '<div class="kpi-caci-bar" role="img" aria-label="' + c.taux + ' % des élèves ont un CACI valide"><span style="width:' + c.taux + '%;background:' + col + ';"></span></div>' +
+    '</div>';
+  }
+
+  function buildCaciVigilance() {
+    const c = computeCaciStats();
+    if (!c.vigilance.length) return '';
+    const chips = c.vigilance.map(function(v) {
+      return '<span class="mini-eleve-chip" data-caci-goto="' + escapeHtml(v.e.id) + '" role="button" tabindex="0" title="Aller à la fiche">' +
+        ICONS.eleve + eleveExamBadge(v.e.nom) + ' ' + eleveNomCaci(v.e.nom) +
+        ' <span class="caci-chip-meta">' + v.nb + ' séance' + (v.nb > 1 ? 's' : '') + ', dernière le ' + formatDateFR(v.last) + '</span>' +
+      '</span>';
+    }).join('');
+    return '<div class="caci-vigilance">' +
+      '<div class="caci-vigilance-title">🩺 ' + c.vigilance.length + ' élève' + (c.vigilance.length > 1 ? 's' : '') + ' en séance sans CACI valide</div>' +
+      '<div class="caci-vigilance-sub">Élèves ayant au moins une séance enregistrée cette saison et dont le CACI n\'est pas enregistré à ce jour (onglet Eleves, case vide comptée comme absence). À régulariser avant la prochaine mise à l\'eau.</div>' +
+      '<div class="chips-wrap">' + chips + '</div>' +
+    '</div>';
+  }
+
+  function bindCaciVigilance(root) {
+    $$('[data-caci-goto]', root).forEach(function(chip) {
+      function go() {
+        const target = document.getElementById('eleve-' + chip.dataset.caciGoto);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        else showToast('Fiche masquée par la recherche en cours.', 'info');
+      }
+      chip.addEventListener('click', go);
+      chip.addEventListener('keydown', function(ev) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); go(); } });
+    });
   }
 
   function buildCacheBanner() {
@@ -3184,11 +3282,11 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     if (!relevant) return '';
     const horsRefHtml = horsRef.length
       ? '<div class="sub-card-title">🏋 Élèves hors référentiel (' + horsRef.length + ')</div>' +
-        '<div class="chips-wrap">' + horsRef.map(n => '<span class="mini-eleve-chip flag' + eleveExamRowClass(n) + '">' + (hasBothExamsValidated(n) ? '✅ ' : '') + escapeHtml(n) + '</span>').join('') + '</div>'
+        '<div class="chips-wrap">' + horsRef.map(n => '<span class="mini-eleve-chip flag' + eleveExamRowClass(n) + '">' + (hasBothExamsValidated(n) ? '✅ ' : '') + eleveNomCaci(n) + '</span>').join('') + '</div>'
       : '';
     const jamaisVusHtml = jamaisVus.length
       ? '<div class="sub-card-title" style="margin-top:14px;">👻 Élèves du référentiel jamais vus en séance (' + jamaisVus.length + ')</div>' +
-        '<div class="chips-wrap">' + jamaisVus.map(n => '<span class="mini-eleve-chip flag' + eleveExamRowClass(n) + '">' + (hasBothExamsValidated(n) ? '✅ ' : '') + escapeHtml(n) + '</span>').join('') + '</div>'
+        '<div class="chips-wrap">' + jamaisVus.map(n => '<span class="mini-eleve-chip flag' + eleveExamRowClass(n) + '">' + (hasBothExamsValidated(n) ? '✅ ' : '') + eleveNomCaci(n) + '</span>').join('') + '</div>'
       : '';
     return '<div class="anomalies-banner">' +
       '⚠ ' + horsRef.length + ' élève(s) hors référentiel, ' +
@@ -3710,7 +3808,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 
     return '<div class="student-card" id="eleve-' + escapeHtml(e.id) + '">' +
       '<div class="student-head">' +
-        '<div><div class="student-name">' + ICONS.eleve + eleveExamBadge(e.nom) + ' ' + escapeHtml(e.nom) + '</div>' +
+        '<div><div class="student-name">' + ICONS.eleve + eleveExamBadge(e.nom) + ' ' + eleveNomCaci(e.nom) + '</div>' +
         '<div class="student-meta">Dernière séance : ' + formatDateFR(lastDate) + (e.moniteurs && e.moniteurs.length ? ' avec ' + e.moniteurs.map(nm => escapeHtml(nm) + chefBadge(nm)).join(', ') : '') + '</div></div>' +
         '<div class="student-stats">' +
           '<span class="stat-pill">' + ICONS.seance + ' ' + e.nb_seances + ' séance(s)</span>' +
@@ -3810,7 +3908,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       return '<div class="eleve-chip' + eleveExamRowClass(e.nom) + '" data-id="' + escapeHtml(e.id) + '">' +
         '<span class="eleve-chip-icon">' + ICONS.eleve + eleveExamBadge(e.nom) + '</span>' +
         '<div class="eleve-chip-info">' +
-          '<span class="eleve-chip-name">' + escapeHtml(displayNames[e.id]) + '</span>' +
+          '<span class="eleve-chip-name">' + eleveNomCaci(e.nom, displayNames[e.id]) + '</span>' +
           '<span class="eleve-chip-sub">' + presence.nbPresent + '/' + presence.total + ' présences</span>' +
         '</div>' +
       '</div>';
@@ -3857,6 +3955,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         '<div id="syntheseAnchor" style="scroll-margin-top:calc(var(--header-h) + 12px);"></div>' +
         buildCacheBanner() +
         buildKPIs() +
+        buildCaciVigilance() +
         buildAnomaliesBanner() +
         '<div class="legend-row">' +
           '<strong style="color:var(--text);">Légende notes :</strong>' +
@@ -3865,6 +3964,8 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
           '<span class="legend-item"><span class="note-dot n3"></span>3 — Acquis</span>' +
           '<span class="legend-item"><span class="note-dot n4"></span>4 — Maîtrisé</span>' +
           '<span class="legend-item"><span class="note-dot n0"></span>Non évalué</span>' +
+          '<span class="legend-item"><span class="caci-dot caci-dot-ok" style="margin:0;">✓</span>CACI valide</span>' +
+          '<span class="legend-item"><span class="caci-dot caci-dot-ko" style="margin:0;">!</span><span style="color:var(--caci-ko);font-weight:700;">Nom en rouge</span>&nbsp;= pas de CACI valide</span>' +
         '</div>' +
         '<div class="toolbar">' +
           '<input type="text" class="search-input" id="searchEleve" placeholder="🔍 Rechercher un élève…" value="' + escapeHtml(currentQuery) + '" />' +
@@ -3872,6 +3973,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         buildSyntheseTable(rows, currentSortCol, currentSortDir) +
         '<div class="student-grid">' + list.map(buildStudentCard).join('') + '</div>';
 
+      bindCaciVigilance(container);
       $('#searchEleve').addEventListener('input', function(ev) {
         currentQuery = ev.target.value;
         draw();
@@ -4266,7 +4368,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   }
 
   function eleveChipHtml(eleveNom, nameByNom) {
-    return '<span class="mini-eleve-chip' + eleveExamRowClass(eleveNom) + '">' + ICONS.eleve + eleveExamBadge(eleveNom) + ' ' + escapeHtml(nameByNom[eleveNom] || eleveNom) + '</span>';
+    return '<span class="mini-eleve-chip' + eleveExamRowClass(eleveNom) + '">' + ICONS.eleve + eleveExamBadge(eleveNom) + ' ' + eleveNomCaci(eleveNom, nameByNom[eleveNom] || eleveNom) + '</span>';
   }
 
   function buildMoniteurCard(m, nameByNom) {
@@ -4321,7 +4423,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       '</div>' +
       '<div class="sub-card"><div class="sub-card-title">🚩 Élèves non suivis (' + nonSuivis.length + ')</div>' +
         '<div class="chips-wrap">' + nonSuivis.map(function(e) {
-          return '<span class="mini-eleve-chip flag' + eleveExamRowClass(e.nom) + '">🚩 ' + eleveExamBadge(e.nom).trim() + ' ' + escapeHtml(nameByNom[e.nom] || e.nom) + '</span>';
+          return '<span class="mini-eleve-chip flag' + eleveExamRowClass(e.nom) + '">🚩 ' + eleveExamBadge(e.nom).trim() + ' ' + eleveNomCaci(e.nom, nameByNom[e.nom] || e.nom) + '</span>';
         }).join('') + '</div>' +
       '</div>' +
     '</div>';
@@ -4984,7 +5086,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     }).join('');
     return '<div class="analyse-eleve-card" id="analyse-eleve-' + escapeHtml(e.id) + '">' +
       '<div class="analyse-eleve-head">' +
-        '<div class="analyse-eleve-name">' + ICONS.eleve + eleveExamBadge(e.nom) + ' ' + escapeHtml(e.nom) + '</div>' +
+        '<div class="analyse-eleve-name">' + ICONS.eleve + eleveExamBadge(e.nom) + ' ' + eleveNomCaci(e.nom) + '</div>' +
         '<div class="moniteur-head-actions">' +
           '<button class="export-btn" data-export-analyse-png="' + escapeHtml(e.id) + '" type="button">🖼️ PNG</button>' +
           '<button class="export-btn" data-export-analyse-pdf="' + escapeHtml(e.id) + '" type="button">📄 PDF</button>' +
@@ -5190,7 +5292,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         evalues.map(function(e) {
           return '<div class="eleve-chip" data-analyse-chip="' + escapeHtml(e.id) + '" style="cursor:pointer;">' +
             '<span class="eleve-chip-icon">' + ICONS.eleve + '</span>' +
-            '<div class="eleve-chip-info"><span class="eleve-chip-name">' + escapeHtml(nameByNom[e.nom] || e.nom) + '</span></div>' +
+            '<div class="eleve-chip-info"><span class="eleve-chip-name">' + eleveNomCaci(e.nom, nameByNom[e.nom] || e.nom) + '</span></div>' +
           '</div>';
         }).join('') +
       '</div>' +
@@ -5623,7 +5725,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       const sel = selectedSet.has(nom);
       const examOk = showExamBadge && hasBothExamsValidated(nom);
       return '<div class="selection-chip' + (sel ? ' selected' : '') + (examOk ? ' eleve-exam-ok' : '') + '" data-' + dataAttr + '="' + escapeHtml(nom) + '" role="button" tabindex="0">' +
-        (sel ? '✅ ' : '') + (examOk ? '✅ ' : '') + escapeHtml(nom) + (showChefBadge ? chefBadge(nom) : '') +
+        (sel ? '✅ ' : '') + (examOk ? '✅ ' : '') + (showExamBadge ? eleveNomCaci(nom) : escapeHtml(nom)) + (showChefBadge ? chefBadge(nom) : '') +
       '</div>';
     }).join('');
   }
@@ -5790,7 +5892,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         const themeBadge = (themesArr.length && eleveABesoinDuTheme(e, themesArr))
           ? '<span class="niveau-badge tier-moyen">🎯 À travailler</span>'
           : '';
-        return '<span class="mini-eleve-chip' + eleveExamRowClass(e) + '">' + eleveExamBadge(e).trim() + ' ' + escapeHtml(e) + niveauBadge + themeBadge + badge + '</span>';
+        return '<span class="mini-eleve-chip' + eleveExamRowClass(e) + '">' + eleveExamBadge(e).trim() + ' ' + eleveNomCaci(e) + niveauBadge + themeBadge + badge + '</span>';
       }).join('');
       return '<div class="student-card palanquee-result-card">' +
         '<div class="student-head"><div class="student-name">' + ICONS.moniteurLogo + ' ' + escapeHtml(m) + chefBadge(m) + '</div>' +
@@ -6021,13 +6123,13 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 
     const assidu = computeEleveLePlusAssidu();
     if (assidu) {
-      cards.push(trophyCardHtml('⭐', eleveExamBadge(assidu.e.nom).trim() + ' ' + escapeHtml(displayNames[assidu.e.id] || assidu.e.nom), 'Le plus assidu',
+      cards.push(trophyCardHtml('⭐', eleveExamBadge(assidu.e.nom).trim() + ' ' + eleveNomCaci(assidu.e.nom, displayNames[assidu.e.id] || assidu.e.nom), 'Le plus assidu',
         assidu.presence.pct + '% de présence (' + assidu.presence.nbPresent + '/' + assidu.presence.total + ')'));
     }
 
     const serie = computeMeilleureSerie();
     if (serie) {
-      cards.push(trophyCardHtml('🔥', eleveExamBadge(serie.e.nom).trim() + ' ' + escapeHtml(displayNames[serie.e.id] || serie.e.nom), 'Plus grosse série sans absence',
+      cards.push(trophyCardHtml('🔥', eleveExamBadge(serie.e.nom).trim() + ' ' + eleveNomCaci(serie.e.nom, displayNames[serie.e.id] || serie.e.nom), 'Plus grosse série sans absence',
         serie.streak + ' séance(s) d\'affilée'));
     }
 
@@ -6063,7 +6165,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     const validesHtml = valides.length
       ? valides.map(function(v) {
           return '<div class="laureat-row laureat-valide"><span class="laureat-icon">🎓</span>' +
-            '<span class="laureat-name">' + escapeHtml(names[v.e.id] || v.e.nom) + '</span>' +
+            '<span class="laureat-name">' + eleveNomCaci(v.e.nom, names[v.e.id] || v.e.nom) + '</span>' +
             '<span class="laureat-date">' + (v.date ? formatDateFR(v.date) : '') + '</span></div>';
         }).join('')
       : '<div class="trophy-empty">Aucun N1 validé pour le moment.</div>';
@@ -6072,7 +6174,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       ? '<div class="laureat-subtitle">En cours de validation</div>' +
         enCours.map(function(v) {
           return '<div class="laureat-row laureat-en-cours"><span class="laureat-icon">📘</span>' +
-            '<span class="laureat-name">' + escapeHtml(names[v.e.id] || v.e.nom) + '</span>' +
+            '<span class="laureat-name">' + eleveNomCaci(v.e.nom, names[v.e.id] || v.e.nom) + '</span>' +
             '<span class="laureat-date">' + escapeHtml(v.doneItem) + ' validé (1/2)</span></div>';
         }).join('')
       : '';
@@ -6155,12 +6257,12 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       ? (function() {
           const podium = rows.slice(0, 3).map(function(r, i) {
             const examOk = r.eleveNomComplet && hasBothExamsValidated(r.eleveNomComplet);
-            const nomHtml = (examOk ? '✅ ' : '') + (r.preEscaped ? r.nom : escapeHtml(r.nom));
+            const nomHtml = (examOk ? '✅ ' : '') + (r.preEscaped ? r.nom : (r.eleveNomComplet ? eleveNomCaci(r.eleveNomComplet, r.nom) : escapeHtml(r.nom)));
             return trophyCardHtml(MEDALS[i], nomHtml, r.value, r.detail);
           }).join('');
           const fullListRows = rows.map(function(r, i) {
             const examOk = r.eleveNomComplet && hasBothExamsValidated(r.eleveNomComplet);
-            const nomHtml = (examOk ? '✅ ' : '') + (r.preEscaped ? r.nom : escapeHtml(r.nom));
+            const nomHtml = (examOk ? '✅ ' : '') + (r.preEscaped ? r.nom : (r.eleveNomComplet ? eleveNomCaci(r.eleveNomComplet, r.nom) : escapeHtml(r.nom)));
             return '<div class="ranking-row' + (examOk ? ' eleve-exam-ok' : '') + '"><span class="ranking-rank">' + (i < 3 ? MEDALS[i] : (i + 1)) + '</span>' +
               '<span class="ranking-name">' + nomHtml + '</span>' +
               '<span class="ranking-value">' + r.value + '</span></div>';
@@ -6213,7 +6315,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     }
     const pills = eligibles.map(function(e) {
       const badges = computeBadgesEleve(e);
-      const nom = (hasBothExamsValidated(e.nom) ? '✅ ' : '') + escapeHtml(names[e.id] || e.nom);
+      const nom = (hasBothExamsValidated(e.nom) ? '✅ ' : '') + eleveNomCaci(e.nom, names[e.id] || e.nom);
       const examCls = eleveExamRowClass(e.nom);
       if (!badges.length) return '<span class="badge-pill bp-empty' + examCls + '">' + nom + ' — pas encore de badge</span>';
       return '<span class="badge-pill' + examCls + '"><span class="bp-icons">' + badges.map(b => b.icon).join('') + '</span>' + nom +
@@ -6252,7 +6354,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       const bingo = buildBingoCellsHtml(e);
       return '<div class="bingo-summary-row">' +
         '<button class="cahier-toggle' + eleveExamRowClass(e.nom) + '" type="button" data-bingo-toggle="' + escapeHtml(e.id) + '">' +
-          eleveExamBadge(e.nom).trim() + ' ' + escapeHtml(names[e.id] || e.nom) + ' — ' + bingo.nbAcquis + '/' + bingo.total +
+          eleveExamBadge(e.nom).trim() + ' ' + eleveNomCaci(e.nom, names[e.id] || e.nom) + ' — ' + bingo.nbAcquis + '/' + bingo.total +
           '<span class="cahier-chevron">▾</span>' +
         '</button>' +
         '<div class="bingo-grid hidden" id="bingo-' + escapeHtml(e.id) + '">' + bingo.cellsHtml + '</div>' +
