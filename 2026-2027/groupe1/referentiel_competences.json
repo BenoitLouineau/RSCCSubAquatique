@@ -18,7 +18,7 @@
     "nom": "Saut droit PMT",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": false
   },
   {
     "id": "saut-droit",
@@ -32,7 +32,7 @@
     "nom": "Bascule Arrière PMT",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": false
   },
   {
     "id": "bascule-arriere",
@@ -46,12 +46,12 @@
     "nom": "**Bascule Avant PMT",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": false
   },
   {
     "id": "bascule-avant",
     "nom": "**Bascule Avant",
-    "actif": false,
+    "actif": true,
     "notable": true,
     "compte_dans_moyenne": true
   },
@@ -72,7 +72,7 @@
   {
     "id": "canard",
     "nom": "Canard",
-    "actif": false,
+    "actif": true,
     "notable": true,
     "compte_dans_moyenne": true
   },
@@ -81,14 +81,14 @@
     "nom": "DBN",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": false
   },
   {
     "id": "vdm-partiel",
     "nom": "VDM partiel",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": false
   },
   {
     "id": "vdm",
@@ -158,14 +158,14 @@
     "nom": "Essoufflement - être pris en charge",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": false
   },
   {
     "id": "poumon-ballast",
     "nom": "Poumon Ballast",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": false
   },
   {
     "id": "gestion-du-gilet",
@@ -249,7 +249,7 @@
     "nom": "Soin au materiel",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": false
   },
   {
     "id": "palmage",
