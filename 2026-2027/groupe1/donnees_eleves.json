@@ -928,5 +928,245 @@
     "moniteur": "Nicos",
     "presence": "Présent",
     "statut": "Acquis"
+  },
+  {
+    "eleve": "Kurt Cobain",
+    "genre": "",
+    "categorie": "Exam Théorie",
+    "competence": "Exam Théorie",
+    "date": "2026-09-14",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kurt Cobain",
+    "genre": "",
+    "categorie": "Canard PMT",
+    "competence": "Canard PMT",
+    "date": "2026-09-14",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Kurt Cobain",
+    "genre": "",
+    "categorie": "Saut droit",
+    "competence": "Saut droit",
+    "date": "2026-09-15",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kurt Cobain",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-09-15",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kurt Cobain",
+    "genre": "",
+    "categorie": "Phoque",
+    "competence": "Phoque",
+    "date": "2026-09-15",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-09-15",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-09-15",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Saut droit",
+    "competence": "Saut droit",
+    "date": "2026-09-15",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Saut droit PMT",
+    "competence": "Saut droit PMT",
+    "date": "2026-09-15",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "LRE expiration",
+    "competence": "LRE expiration",
+    "date": "2026-09-22",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-09-22",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Phoque",
+    "competence": "Phoque",
+    "date": "2026-09-22",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Peter Parker",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-09-22",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bruce Wayne",
+    "genre": "",
+    "categorie": "LRE expiration",
+    "competence": "LRE expiration",
+    "date": "2026-09-22",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bruce Wayne",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-09-22",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Bruce Wayne",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-09-22",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bruce Wayne",
+    "genre": "",
+    "categorie": "Phoque",
+    "competence": "Phoque",
+    "date": "2026-09-22",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Harry Potter",
+    "genre": "",
+    "categorie": "Canard PMT",
+    "competence": "Canard PMT",
+    "date": "2026-09-22",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Harry Potter",
+    "genre": "",
+    "categorie": "VDM",
+    "competence": "VDM",
+    "date": "2026-09-22",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Harry Potter",
+    "genre": "",
+    "categorie": "Signes",
+    "competence": "Signes",
+    "date": "2026-09-22",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Harry Potter",
+    "genre": "",
+    "categorie": "Saut droit",
+    "competence": "Saut droit",
+    "date": "2026-09-22",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bruce Wayne",
+    "genre": "",
+    "categorie": "Exam Théorie",
+    "competence": "Exam Théorie",
+    "date": "2026-09-22",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Bruce Wayne",
+    "genre": "",
+    "categorie": "Exam PMT 100m",
+    "competence": "Exam PMT 100m",
+    "date": "2026-09-22",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Non évalué"
+  },
+  {
+    "eleve": "Bruce Wayne",
+    "genre": "",
+    "categorie": "Exam pratique",
+    "competence": "Exam pratique",
+    "date": "2026-09-22",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Acquis"
   }
 ]
