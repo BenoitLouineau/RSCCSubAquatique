@@ -2,6 +2,7 @@
   {
     "id": "bernard-zoe",
     "nom": "Bernard Zoé",
+    "caci": null,
     "nb_seances": 1,
     "dates_seances": [
       "2026-05-12"
@@ -53,6 +54,7 @@
   {
     "id": "bruce-wayne",
     "nom": "Bruce Wayne",
+    "caci": true,
     "nb_seances": 2,
     "dates_seances": [
       "2026-09-08",
@@ -315,6 +317,7 @@
   {
     "id": "dayne-jonhson",
     "nom": "Dayne Jonhson",
+    "caci": false,
     "nb_seances": 1,
     "dates_seances": [
       "2026-09-08"
@@ -403,6 +406,7 @@
   {
     "id": "dupont-lea",
     "nom": "Dupont Léa",
+    "caci": null,
     "nb_seances": 3,
     "dates_seances": [
       "2026-05-12",
@@ -469,6 +473,7 @@
   {
     "id": "ezio-auditore",
     "nom": "Ezio Auditore",
+    "caci": false,
     "nb_seances": 1,
     "dates_seances": [
       "2026-09-08"
@@ -557,6 +562,7 @@
   {
     "id": "harry-potter",
     "nom": "Harry Potter",
+    "caci": false,
     "nb_seances": 4,
     "dates_seances": [
       "2026-09-08",
@@ -745,6 +751,7 @@
   {
     "id": "john-travolta",
     "nom": "John Travolta",
+    "caci": true,
     "nb_seances": 1,
     "dates_seances": [
       "2026-09-08"
@@ -809,6 +816,7 @@
   {
     "id": "kurt-cobain",
     "nom": "Kurt Cobain",
+    "caci": false,
     "nb_seances": 4,
     "dates_seances": [
       "2026-09-08",
@@ -1027,6 +1035,7 @@
   {
     "id": "malcolm-x",
     "nom": "Malcolm X",
+    "caci": true,
     "nb_seances": 1,
     "dates_seances": [
       "2026-09-08"
@@ -1092,6 +1101,7 @@
   {
     "id": "martin-noah",
     "nom": "Martin Noah",
+    "caci": null,
     "nb_seances": 2,
     "dates_seances": [
       "2026-05-12",
@@ -1157,6 +1167,7 @@
   {
     "id": "marty-macfly",
     "nom": "Marty MacFly",
+    "caci": false,
     "nb_seances": 1,
     "dates_seances": [
       "2026-09-08"
@@ -1271,6 +1282,7 @@
   {
     "id": "peter-parker",
     "nom": "Peter Parker",
+    "caci": true,
     "nb_seances": 4,
     "dates_seances": [
       "2026-07-14",
@@ -1476,6 +1488,7 @@
   {
     "id": "sarah-connord",
     "nom": "Sarah Connord",
+    "caci": false,
     "nb_seances": 2,
     "dates_seances": [
       "2026-07-14",
