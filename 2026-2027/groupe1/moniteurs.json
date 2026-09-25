@@ -2,9 +2,11 @@
   {
     "id": "benoit-l",
     "nom": "Benoit L",
-    "nb_seances_animees": 1,
+    "nb_seances_animees": 3,
     "dates_seances": [
-      "2026-09-08"
+      "2026-09-08",
+      "2026-09-15",
+      "2026-09-22"
     ],
     "nb_eleves_suivis": 4,
     "eleves_suivis": [
@@ -13,8 +15,8 @@
       "Peter Parker",
       "Sarah Connord"
     ],
-    "nb_comptes_rendus": 8,
-    "nb_evaluations_notees": 4
+    "nb_comptes_rendus": 15,
+    "nb_evaluations_notees": 10
   },
   {
     "id": "benoit-p",
@@ -58,12 +60,20 @@
   {
     "id": "carine",
     "nom": "Carine",
-    "nb_seances_animees": 0,
-    "dates_seances": [],
-    "nb_eleves_suivis": 0,
-    "eleves_suivis": [],
-    "nb_comptes_rendus": 0,
-    "nb_evaluations_notees": 0
+    "nb_seances_animees": 2,
+    "dates_seances": [
+      "2026-09-15",
+      "2026-09-22"
+    ],
+    "nb_eleves_suivis": 4,
+    "eleves_suivis": [
+      "Bruce Wayne",
+      "Harry Potter",
+      "Kurt Cobain",
+      "Peter Parker"
+    ],
+    "nb_comptes_rendus": 15,
+    "nb_evaluations_notees": 15
   },
   {
     "id": "carlos",
@@ -213,12 +223,16 @@
   {
     "id": "veronique",
     "nom": "Véronique",
-    "nb_seances_animees": 0,
-    "dates_seances": [],
-    "nb_eleves_suivis": 0,
-    "eleves_suivis": [],
-    "nb_comptes_rendus": 0,
-    "nb_evaluations_notees": 0
+    "nb_seances_animees": 1,
+    "dates_seances": [
+      "2026-09-14"
+    ],
+    "nb_eleves_suivis": 1,
+    "eleves_suivis": [
+      "Kurt Cobain"
+    ],
+    "nb_comptes_rendus": 2,
+    "nb_evaluations_notees": 2
   },
   {
     "id": "wall-e",
