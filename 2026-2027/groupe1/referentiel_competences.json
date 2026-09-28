@@ -23,7 +23,7 @@
   {
     "id": "saut-droit",
     "nom": "Saut droit",
-    "actif": true,
+    "actif": false,
     "notable": true,
     "compte_dans_moyenne": true
   },
@@ -37,21 +37,21 @@
   {
     "id": "bascule-arriere",
     "nom": "Bascule Arrière",
-    "actif": true,
+    "actif": false,
     "notable": true,
     "compte_dans_moyenne": true
   },
   {
     "id": "bascule-avant-pmt",
     "nom": "**Bascule Avant PMT",
-    "actif": true,
+    "actif": false,
     "notable": true,
     "compte_dans_moyenne": false
   },
   {
     "id": "bascule-avant",
     "nom": "**Bascule Avant",
-    "actif": true,
+    "actif": false,
     "notable": true,
     "compte_dans_moyenne": true
   },
@@ -65,14 +65,14 @@
   {
     "id": "canard-pmt",
     "nom": "Canard PMT",
-    "actif": true,
+    "actif": false,
     "notable": true,
     "compte_dans_moyenne": false
   },
   {
     "id": "canard",
     "nom": "Canard",
-    "actif": true,
+    "actif": false,
     "notable": true,
     "compte_dans_moyenne": true
   },
@@ -93,14 +93,14 @@
   {
     "id": "vdm",
     "nom": "VDM",
-    "actif": true,
+    "actif": false,
     "notable": true,
     "compte_dans_moyenne": true
   },
   {
     "id": "vdm-equilibre",
     "nom": "**VDM équilibré",
-    "actif": true,
+    "actif": false,
     "notable": true,
     "compte_dans_moyenne": true
   },
@@ -128,35 +128,35 @@
   {
     "id": "pa-recoit-octo",
     "nom": "PA - reçoit octo",
-    "actif": true,
+    "actif": false,
     "notable": true,
     "compte_dans_moyenne": true
   },
   {
     "id": "pa-donne-octo",
     "nom": "PA - donne octo",
-    "actif": true,
+    "actif": false,
     "notable": true,
     "compte_dans_moyenne": true
   },
   {
     "id": "pa-recoit-echange",
     "nom": "PA - reçoit échange",
-    "actif": true,
+    "actif": false,
     "notable": true,
     "compte_dans_moyenne": true
   },
   {
     "id": "pa-donne-echange",
     "nom": "PA - donne échange",
-    "actif": true,
+    "actif": false,
     "notable": true,
     "compte_dans_moyenne": true
   },
   {
     "id": "essoufflement-etre-pris-en-charge",
     "nom": "Essoufflement - être pris en charge",
-    "actif": true,
+    "actif": false,
     "notable": true,
     "compte_dans_moyenne": false
   },
@@ -177,14 +177,14 @@
   {
     "id": "stabilisation-statique",
     "nom": "Stabilisation statique",
-    "actif": true,
+    "actif": false,
     "notable": true,
     "compte_dans_moyenne": true
   },
   {
     "id": "stabilisation-dynamique",
     "nom": "Stabilisation dynamique",
-    "actif": true,
+    "actif": false,
     "notable": true,
     "compte_dans_moyenne": true
   },
@@ -205,7 +205,7 @@
   {
     "id": "tenue-palier",
     "nom": "Tenue palier",
-    "actif": true,
+    "actif": false,
     "notable": true,
     "compte_dans_moyenne": true
   },
@@ -268,35 +268,35 @@
   {
     "id": "theorie",
     "nom": "Théorie",
-    "actif": true,
+    "actif": false,
     "notable": false,
     "compte_dans_moyenne": false
   },
   {
     "id": "exam-theorie",
     "nom": "Exam Théorie",
-    "actif": true,
+    "actif": false,
     "notable": true,
     "compte_dans_moyenne": false
   },
   {
     "id": "exam-pmt-100m",
     "nom": "Exam PMT 100m",
-    "actif": true,
+    "actif": false,
     "notable": false,
     "compte_dans_moyenne": false
   },
   {
     "id": "exam-capele-50m",
     "nom": "Exam capelé 50m",
-    "actif": true,
+    "actif": false,
     "notable": false,
     "compte_dans_moyenne": false
   },
   {
     "id": "exam-pratique",
     "nom": "Exam pratique",
-    "actif": true,
+    "actif": false,
     "notable": true,
     "compte_dans_moyenne": false
   },
