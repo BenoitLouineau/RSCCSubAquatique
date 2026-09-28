@@ -1,365 +1,107 @@
 {
-  "date_generation": "2026-09-25T15:37:05",
-  "nb_eleves": 13,
-  "nb_moniteurs": 16,
-  "nb_seances": 18,
-  "nb_comptes_rendus": 117,
+  "date_generation": "2026-09-28T19:16:02",
+  "nb_eleves": 12,
+  "nb_moniteurs": 10,
+  "nb_seances": 0,
+  "nb_comptes_rendus": 0,
   "nb_competences_referencees": 44,
   "periode": {
-    "date_min": "2026-05-12",
-    "date_max": "2026-09-22"
+    "date_min": null,
+    "date_max": null
   },
-  "acquisition_par_atelier": [
-    {
-      "atelier": "Gréage",
-      "nb_evaluations": 20,
-      "moyenne": 2.75,
-      "note_min": 1.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Gestion de son matériel",
-      "nb_evaluations": 13,
-      "moyenne": 2.77,
-      "note_min": 1.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Palmage",
-      "nb_evaluations": 12,
-      "moyenne": 1.08,
-      "note_min": 1.0,
-      "note_max": 2.0,
-      "notable": true,
-      "compte_dans_moyenne": false
-    },
-    {
-      "atelier": "Saut droit PMT",
-      "nb_evaluations": 8,
-      "moyenne": 2.38,
-      "note_min": 1.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": false
-    },
-    {
-      "atelier": "Exam Théorie",
-      "nb_evaluations": 6,
-      "moyenne": 3.67,
-      "note_min": 2.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": false
-    },
-    {
-      "atelier": "Exam pratique",
-      "nb_evaluations": 5,
-      "moyenne": 3.4,
-      "note_min": 2.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": false
-    },
-    {
-      "atelier": "**Bascule Avant PMT",
-      "nb_evaluations": 4,
-      "moyenne": 2.0,
-      "note_min": 1.0,
-      "note_max": 3.0,
-      "notable": true,
-      "compte_dans_moyenne": false
-    },
-    {
-      "atelier": "LRE expiration",
-      "nb_evaluations": 4,
-      "moyenne": 2.25,
-      "note_min": 1.0,
-      "note_max": 3.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Saut droit",
-      "nb_evaluations": 4,
-      "moyenne": 2.5,
-      "note_min": 1.0,
-      "note_max": 3.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Stabilisation",
-      "nb_evaluations": 4,
-      "moyenne": 3.25,
-      "note_min": 1.0,
-      "note_max": 4.0,
-      "notable": false,
-      "compte_dans_moyenne": false
-    },
-    {
-      "atelier": "Canard PMT",
-      "nb_evaluations": 3,
-      "moyenne": 2.33,
-      "note_min": 2.0,
-      "note_max": 3.0,
-      "notable": true,
-      "compte_dans_moyenne": false
-    },
-    {
-      "atelier": "Phoque",
-      "nb_evaluations": 3,
-      "moyenne": 3.0,
-      "note_min": 2.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Signes",
-      "nb_evaluations": 3,
-      "moyenne": 3.0,
-      "note_min": 2.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Bascule Arrière PMT",
-      "nb_evaluations": 2,
-      "moyenne": 3.5,
-      "note_min": 3.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": false
-    },
-    {
-      "atelier": "Gestion de l'air",
-      "nb_evaluations": 2,
-      "moyenne": 1.5,
-      "note_min": 1.0,
-      "note_max": 2.0,
-      "notable": false,
-      "compte_dans_moyenne": false
-    },
-    {
-      "atelier": "Soin au materiel",
-      "nb_evaluations": 2,
-      "moyenne": 3.5,
-      "note_min": 3.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": false
-    },
-    {
-      "atelier": "VDM",
-      "nb_evaluations": 2,
-      "moyenne": 1.5,
-      "note_min": 1.0,
-      "note_max": 2.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Bascule Arrière",
-      "nb_evaluations": 1,
-      "moyenne": 4.0,
-      "note_min": 4.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "DBN",
-      "nb_evaluations": 1,
-      "moyenne": 4.0,
-      "note_min": 4.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": false
-    },
-    {
-      "atelier": "LRE surpression",
-      "nb_evaluations": 1,
-      "moyenne": 2.0,
-      "note_min": 2.0,
-      "note_max": 2.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Remontée assistée",
-      "nb_evaluations": 1,
-      "moyenne": 2.0,
-      "note_min": 2.0,
-      "note_max": 2.0,
-      "notable": false,
-      "compte_dans_moyenne": false
-    },
-    {
-      "atelier": "Vidage de masque",
-      "nb_evaluations": 1,
-      "moyenne": 1.0,
-      "note_min": 1.0,
-      "note_max": 1.0,
-      "notable": false,
-      "compte_dans_moyenne": false
-    }
-  ],
+  "acquisition_par_atelier": [],
   "progression_par_eleve": [
     {
-      "eleve": "Bernard Zoé",
-      "nb_ateliers_evalues": 3,
-      "moyenne_generale": 3.0
+      "eleve": "Amir",
+      "nb_ateliers_evalues": 0,
+      "moyenne_generale": null
     },
     {
-      "eleve": "Bruce Wayne",
-      "nb_ateliers_evalues": 12,
-      "moyenne_generale": 2.91
+      "eleve": "Camille",
+      "nb_ateliers_evalues": 0,
+      "moyenne_generale": null
     },
     {
-      "eleve": "Dayne Jonhson",
-      "nb_ateliers_evalues": 4,
-      "moyenne_generale": 3.0
+      "eleve": "Célia",
+      "nb_ateliers_evalues": 0,
+      "moyenne_generale": null
     },
     {
-      "eleve": "Dupont Léa",
-      "nb_ateliers_evalues": 4,
-      "moyenne_generale": 2.5
+      "eleve": "Guillaume",
+      "nb_ateliers_evalues": 0,
+      "moyenne_generale": null
     },
     {
-      "eleve": "Ezio Auditore",
-      "nb_ateliers_evalues": 6,
-      "moyenne_generale": 2.33
+      "eleve": "Hanane",
+      "nb_ateliers_evalues": 0,
+      "moyenne_generale": null
     },
     {
-      "eleve": "Harry Potter",
-      "nb_ateliers_evalues": 10,
-      "moyenne_generale": 2.33
+      "eleve": "Jean",
+      "nb_ateliers_evalues": 0,
+      "moyenne_generale": null
     },
     {
-      "eleve": "John Travolta",
-      "nb_ateliers_evalues": 3,
-      "moyenne_generale": 3.0
+      "eleve": "Kahina",
+      "nb_ateliers_evalues": 0,
+      "moyenne_generale": null
     },
     {
-      "eleve": "Kurt Cobain",
-      "nb_ateliers_evalues": 11,
-      "moyenne_generale": 2.4
+      "eleve": "Kevin",
+      "nb_ateliers_evalues": 0,
+      "moyenne_generale": null
     },
     {
-      "eleve": "Malcolm X",
-      "nb_ateliers_evalues": 4,
-      "moyenne_generale": 3.0
+      "eleve": "Michèle",
+      "nb_ateliers_evalues": 0,
+      "moyenne_generale": null
     },
     {
-      "eleve": "Martin Noah",
-      "nb_ateliers_evalues": 3,
-      "moyenne_generale": 2.33
+      "eleve": "Mohamed",
+      "nb_ateliers_evalues": 0,
+      "moyenne_generale": null
     },
     {
-      "eleve": "Marty MacFly",
-      "nb_ateliers_evalues": 6,
-      "moyenne_generale": 2.6
+      "eleve": "Nabiyu",
+      "nb_ateliers_evalues": 0,
+      "moyenne_generale": null
     },
     {
-      "eleve": "Peter Parker",
-      "nb_ateliers_evalues": 10,
-      "moyenne_generale": 2.14
-    },
-    {
-      "eleve": "Sarah Connord",
-      "nb_ateliers_evalues": 10,
-      "moyenne_generale": 2.75
+      "eleve": "Patricia",
+      "nb_ateliers_evalues": 0,
+      "moyenne_generale": null
     }
   ],
   "anomalies": {
-    "eleves_hors_referentiel": [
-      "Bernard Zoé",
-      "Dupont Léa",
-      "Martin Noah"
+    "eleves_hors_referentiel": [],
+    "eleves_referentiel_jamais_vus": [
+      "Amir",
+      "Camille",
+      "Célia",
+      "Guillaume",
+      "Hanane",
+      "Jean",
+      "Kahina",
+      "Kevin",
+      "Michèle",
+      "Mohamed",
+      "Nabiyu",
+      "Patricia"
     ],
-    "eleves_referentiel_jamais_vus": [],
-    "moniteurs_hors_referentiel": [
-      "Bilbo le Hobitt",
-      "Jo",
-      "Luky Luke",
-      "Mad Max",
-      "Sam",
-      "Wall-E"
-    ],
+    "moniteurs_hors_referentiel": [],
     "moniteurs_referentiel_jamais_actifs": [
+      "Benoit L",
+      "Benoit P",
+      "Carine",
+      "Carlos",
       "Catherine",
       "Christophe",
       "Hervé",
-      "Virginie"
+      "Nicos",
+      "Virginie",
+      "Véronique"
     ],
-    "ateliers_hors_referentiel": [
-      "Gestion de l'air",
-      "Remontée assistée",
-      "Stabilisation",
-      "Vidage de masque"
-    ],
-    "comptes_rendus_doublons": [
-      {
-        "date_seance": "2026-09-08",
-        "moniteur": "Bilbo le Hobitt",
-        "eleve": "Bruce Wayne",
-        "atelier": "Gestion de son matériel",
-        "occurrences": 2
-      },
-      {
-        "date_seance": "2026-09-08",
-        "moniteur": "Bilbo le Hobitt",
-        "eleve": "Bruce Wayne",
-        "atelier": "Gréage",
-        "occurrences": 3
-      },
-      {
-        "date_seance": "2026-09-08",
-        "moniteur": "Bilbo le Hobitt",
-        "eleve": "Bruce Wayne",
-        "atelier": "**Bascule Avant PMT",
-        "occurrences": 2
-      },
-      {
-        "date_seance": "2026-09-08",
-        "moniteur": "Luky Luke",
-        "eleve": "Harry Potter",
-        "atelier": "Gréage",
-        "occurrences": 2
-      },
-      {
-        "date_seance": "2026-09-08",
-        "moniteur": "Luky Luke",
-        "eleve": "Harry Potter",
-        "atelier": "Gestion de son matériel",
-        "occurrences": 2
-      },
-      {
-        "date_seance": "2026-09-08",
-        "moniteur": "Bilbo le Hobitt",
-        "eleve": "John Travolta",
-        "atelier": "Gréage",
-        "occurrences": 2
-      },
-      {
-        "date_seance": "2026-09-08",
-        "moniteur": "Luky Luke",
-        "eleve": "Kurt Cobain",
-        "atelier": "Gréage",
-        "occurrences": 2
-      },
-      {
-        "date_seance": "2026-09-08",
-        "moniteur": "Luky Luke",
-        "eleve": "Kurt Cobain",
-        "atelier": "Gestion de son matériel",
-        "occurrences": 2
-      }
-    ]
+    "ateliers_hors_referentiel": [],
+    "comptes_rendus_doublons": []
   }
 }
