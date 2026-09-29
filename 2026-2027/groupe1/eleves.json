@@ -1,7 +1,29 @@
 [
   {
+    "id": "abderrahmane",
+    "nom": "Abderrahmane",
+    "caci": true,
+    "nb_seances": 0,
+    "dates_seances": [],
+    "moniteurs": [],
+    "nb_competences_travaillees": 0,
+    "competences": {},
+    "commentaires": []
+  },
+  {
     "id": "amir",
     "nom": "Amir",
+    "caci": false,
+    "nb_seances": 0,
+    "dates_seances": [],
+    "moniteurs": [],
+    "nb_competences_travaillees": 0,
+    "competences": {},
+    "commentaires": []
+  },
+  {
+    "id": "aubree",
+    "nom": "Aubrée",
     "caci": false,
     "nb_seances": 0,
     "dates_seances": [],
@@ -79,6 +101,17 @@
   {
     "id": "kevin",
     "nom": "Kevin",
+    "caci": false,
+    "nb_seances": 0,
+    "dates_seances": [],
+    "moniteurs": [],
+    "nb_competences_travaillees": 0,
+    "competences": {},
+    "commentaires": []
+  },
+  {
+    "id": "kevin",
+    "nom": "Kévin",
     "caci": false,
     "nb_seances": 0,
     "dates_seances": [],
