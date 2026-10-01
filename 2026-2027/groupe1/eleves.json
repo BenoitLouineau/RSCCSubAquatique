@@ -36,7 +36,14 @@
         ]
       }
     },
-    "commentaires": []
+    "commentaires": [
+      {
+        "date": "2026-09-29",
+        "moniteur": "Carine",
+        "atelier": "Gréage",
+        "commentaire": "Aucun commentaire"
+      }
+    ]
   },
   {
     "id": "aubree",
@@ -381,6 +388,12 @@
     "commentaires": [
       {
         "date": "2026-09-29",
+        "moniteur": "Carine",
+        "atelier": "Gréage",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-09-29",
         "moniteur": "Benoit L",
         "atelier": "Gréage",
         "commentaire": "Élève sérieux et attentif aux explications et mouvement pédalier rapidement remplacé par l'attendu du geste du palmage. C'est encourageant pour la suite."
@@ -413,7 +426,14 @@
         ]
       }
     },
-    "commentaires": []
+    "commentaires": [
+      {
+        "date": "2026-09-29",
+        "moniteur": "Carine",
+        "atelier": "Gréage",
+        "commentaire": "Aucun commentaire"
+      }
+    ]
   },
   {
     "id": "patricia",
