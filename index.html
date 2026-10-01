@@ -3101,6 +3101,40 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     return (STATE.referentiel || []).filter(c => !catIds.has(c.id));
   }
 
+  /** Garantit des identifiants élèves uniques. Deux noms qui ne diffèrent que par un accent
+   *  ("Kevin" / "Kévin") produisent le même id côté script Python ; or l'id sert à nommer les
+   *  canvas des graphiques : un doublon fait planter Chart.js et bloque tous les modules suivants.
+   *  On suffixe donc les doublons (-2, -3…) et on prévient l'administrateur. */
+  function ensureUniqueEleveIds(list) {
+    const seen = {};
+    const doublons = [];
+    (list || []).forEach(function(e) {
+      const base = e.id || 'eleve';
+      if (seen[base] === undefined) { seen[base] = 1; return; }
+      seen[base]++;
+      e.id = base + '-' + seen[base];
+      doublons.push(e.nom);
+    });
+    if (doublons.length) {
+      console.info('Identifiants élèves homonymes distingués :', doublons);
+      showToast('Élèves au nom proche (à un accent près), affichés séparément : ' +
+        escapeHtml(doublons.join(', ')) + '. Attention lors de la saisie des comptes rendus.',
+        'info');
+    }
+    return list;
+  }
+
+  /** Exécute une étape de rendu sans qu'une erreur isolée n'empêche les autres modules
+   *  de s'afficher ; l'erreur est rendue visible (toast) au lieu d'être silencieuse. */
+  function safeStep(label, fn) {
+    try { fn(); }
+    catch (err) {
+      console.error('[' + label + ']', err);
+      showToast('Module « ' + escapeHtml(label) + ' » : erreur d\'affichage — ' +
+        escapeHtml(err && err.message ? err.message : String(err)), 'error', { persistent: true });
+    }
+  }
+
   async function loadAll() {
     try {
       const [eleves, synthese, referentiel, seances, moniteurs] = await Promise.all([
@@ -3110,7 +3144,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         fetchJSON(CONFIG.URL_SEANCES, 'seances'),
         fetchJSON(CONFIG.URL_MONITEURS, 'moniteurs'),
       ]);
-      STATE.eleves = eleves;
+      STATE.eleves = ensureUniqueEleveIds(eleves);
       STATE.synthese = synthese;
       STATE.referentiel = referentiel;
       STATE.seances = seances;
@@ -3146,16 +3180,13 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         );
       }
 
-      renderEleves();
-      renderMoniteurs();
-      enableMoniteursTab();
-      renderSaison();
-      enableSaisonTab();
-      renderAnalyse();
-      enableAnalyseTab();
-      enablePalanqueesTab();
-      enablePalmaresTab();
-      enableExamensTab();
+      safeStep('Élèves', renderEleves);
+      safeStep('Moniteurs', function() { renderMoniteurs(); enableMoniteursTab(); });
+      safeStep('Saison', function() { renderSaison(); enableSaisonTab(); });
+      safeStep('Analyse', function() { renderAnalyse(); enableAnalyseTab(); });
+      safeStep('Palanquées', enablePalanqueesTab);
+      safeStep('Palmarès', enablePalmaresTab);
+      safeStep('Examens', enableExamensTab);
     } catch (err) {
       console.error(err);
       showLoadError(err);
@@ -3196,7 +3227,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
             STATE.allDates = Array.from(new Set(data.map(s => s.date_seance))).sort();
           }
           else if (file.name.includes('moniteurs')) STATE.moniteurs = data;
-          else if (file.name.includes('eleves')) STATE.eleves = data;
+          else if (file.name.includes('eleves')) STATE.eleves = ensureUniqueEleveIds(data);
         } catch (err) { console.error('JSON invalide :', file.name, err); }
         pending--;
         if (pending === 0 && STATE.eleves) { renderEleves(); if (STATE.moniteurs) { renderMoniteurs(); enableMoniteursTab(); renderSaison(); enableSaisonTab(); renderAnalyse(); enableAnalyseTab(); enablePalanqueesTab(); enablePalmaresTab(); enableExamensTab(); } }
