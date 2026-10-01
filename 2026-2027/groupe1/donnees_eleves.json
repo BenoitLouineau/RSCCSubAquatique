@@ -80,7 +80,7 @@
     "statut": "Non acquis"
   },
   {
-    "eleve": "Kévin",
+    "eleve": "Kévin D",
     "genre": "",
     "categorie": "Palmage",
     "competence": "Palmage",
@@ -118,16 +118,6 @@
     "moniteur": "Benoit L",
     "presence": "Présent",
     "statut": "Non évalué"
-  },
-  {
-    "eleve": "Aubrée",
-    "genre": "",
-    "categorie": "Palmage",
-    "competence": "Palmage",
-    "date": "2026-09-29",
-    "moniteur": "Benoit L",
-    "presence": "Présent",
-    "statut": "Non acquis"
   },
   {
     "eleve": "Camille",
