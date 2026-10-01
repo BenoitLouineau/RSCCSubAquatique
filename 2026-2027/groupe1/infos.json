@@ -2,16 +2,16 @@
   {
     "ligne": 1,
     "accueil": "📯 le nom de l'élève en rouge = pas de CACI valide📯",
-    "palanquees": "📯le nom de l'élève en rouge = pas de CACI valide📯"
+    "url": null
   },
   {
     "ligne": 2,
     "accueil": "🚨🚨 CACI à vérifier 🚨🚨",
-    "palanquees": "🚨🚨 CACI à vérifier 🚨🚨"
+    "url": null
   },
   {
     "ligne": 3,
     "accueil": "🔥Padlet Moniteurs🔥",
-    "palanquees": null
+    "url": "https://padlet.com/nicolascausse/moniteurs-g1-s023q3zl63gheat4p8ga"
   }
 ]
