@@ -52,10 +52,15 @@
     "nb_competences_travaillees": 1,
     "competences": {
       "Palmage": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 1.0,
         "moyenne_notes": 1.0,
         "historique": [
+          {
+            "date": "2026-09-29",
+            "note": 1.0,
+            "moniteur": "Benoit L"
+          },
           {
             "date": "2026-09-29",
             "note": 1.0,
@@ -70,6 +75,12 @@
         "moniteur": "Benoit L",
         "atelier": "Palmage",
         "commentaire": "Première découverte du palmage. Beaucoup de mouvement de pédalier comme beaucoup de débutants. Explications données individuellement dans leur ligne d'eau pour un mouvement idéal attendu. Un mieux noté pour la fin de session. Encourageant pour la suite."
+      },
+      {
+        "date": "2026-09-29",
+        "moniteur": "Benoit L",
+        "atelier": "Palmage",
+        "commentaire": "Première découverte du palmage et même remarque avec mouvement de pédalier, explication et correction apportée individuellement dans la ligne d'eau. Amélioration vue en fin de session. A continuer sur les prochaines sessions."
       }
     ]
   },
