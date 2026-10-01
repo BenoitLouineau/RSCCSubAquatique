@@ -6,16 +6,17 @@
     "dates_seances": [
       "2026-09-29"
     ],
-    "nb_eleves_suivis": 6,
+    "nb_eleves_suivis": 7,
     "eleves_suivis": [
       "Aubrée",
       "Célia",
       "Guillaume",
       "Hanane",
       "Kévin",
+      "Michèle",
       "Mohamed"
     ],
-    "nb_comptes_rendus": 6,
+    "nb_comptes_rendus": 7,
     "nb_evaluations_notees": 6
   },
   {
