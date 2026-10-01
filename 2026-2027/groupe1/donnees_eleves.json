@@ -128,5 +128,15 @@
     "moniteur": "Benoit L",
     "presence": "Présent",
     "statut": "Non acquis"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "Palmage",
+    "competence": "Palmage",
+    "date": "2026-09-29",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Non acquis"
   }
 ]
