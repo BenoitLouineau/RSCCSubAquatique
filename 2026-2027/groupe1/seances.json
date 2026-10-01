@@ -124,19 +124,19 @@
         "eleve": "Amir",
         "atelier": "Gréage",
         "note": 1.0,
-        "commentaire": null
+        "commentaire": "Aucun commentaire"
       },
       {
         "eleve": "Mohamed",
         "atelier": "Gréage",
         "note": 1.0,
-        "commentaire": null
+        "commentaire": "Aucun commentaire"
       },
       {
         "eleve": "Nabiyu",
         "atelier": "Gréage",
         "note": 1.0,
-        "commentaire": null
+        "commentaire": "Aucun commentaire"
       }
     ]
   }
