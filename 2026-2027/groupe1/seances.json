@@ -18,7 +18,7 @@
       "Palmage",
       "Pas d'atelier"
     ],
-    "nb_comptes_rendus": 7,
+    "nb_comptes_rendus": 8,
     "comptes_rendus": [
       {
         "eleve": "Célia",
@@ -61,6 +61,12 @@
         "atelier": "Pas d'atelier",
         "note": null,
         "commentaire": "1er baptême lors du Téléthon 2025.  \nmise à l'eau classique pour un baptême mais rapidement je sens Michèle stressée,  amplifié par un masque peut-être pas adapté,  eau et buée,  premier contact du détenteur un peu compliqué et traversée vers l'échelle du bassin avec 2 ou 3 arrêts car je sens que la respiration sur détenteur est un peu compliquée et accentuée par le stress,  puis 3 tentatives pour essayer de descendre les marches de l'échelle ont été coupés de remonté à la surface car le froid et le stress sont encore trop présent. Eddy en surface semble également percevoir les difficultés à faire un baptême. Nous décidons alors de stopper et de ne pas forcer les choses."
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Palmage",
+        "note": 1.0,
+        "commentaire": "Première découverte du palmage et même remarque avec mouvement de pédalier, explication et correction apportée individuellement dans la ligne d'eau. Amélioration vue en fin de session. A continuer sur les prochaines sessions."
       }
     ]
   },
