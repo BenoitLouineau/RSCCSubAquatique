@@ -1,9 +1,9 @@
 {
-  "date_generation": "2026-10-01T12:21:36",
+  "date_generation": "2026-10-01T12:25:05",
   "nb_eleves": 15,
   "nb_moniteurs": 10,
   "nb_seances": 3,
-  "nb_comptes_rendus": 12,
+  "nb_comptes_rendus": 13,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
@@ -21,8 +21,8 @@
     },
     {
       "atelier": "Palmage",
-      "nb_evaluations": 5,
-      "moyenne": 1.4,
+      "nb_evaluations": 6,
+      "moyenne": 1.33,
       "note_min": 1.0,
       "note_max": 2.0,
       "notable": true,
@@ -126,6 +126,14 @@
       "Véronique"
     ],
     "ateliers_hors_referentiel": [],
-    "comptes_rendus_doublons": []
+    "comptes_rendus_doublons": [
+      {
+        "date_seance": "2026-09-29",
+        "moniteur": "Benoit L",
+        "eleve": "Aubrée",
+        "atelier": "Palmage",
+        "occurrences": 2
+      }
+    ]
   }
 }
