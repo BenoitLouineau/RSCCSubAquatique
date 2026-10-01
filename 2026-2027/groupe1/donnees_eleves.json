@@ -108,5 +108,15 @@
     "moniteur": "Benoit L",
     "presence": "Présent",
     "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Michèle",
+    "genre": "",
+    "categorie": "Pas d'atelier",
+    "competence": "Pas d'atelier",
+    "date": "2026-09-29",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Non évalué"
   }
 ]
