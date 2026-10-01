@@ -3,9 +3,10 @@
     "id": "2026-09-29_benoit-l",
     "date_seance": "2026-09-29",
     "moniteur": "Benoit L",
-    "nb_eleves": 7,
+    "nb_eleves": 8,
     "eleves": [
       "Aubrée",
+      "Camille",
       "Célia",
       "Guillaume",
       "Hanane",
@@ -18,7 +19,7 @@
       "Palmage",
       "Pas d'atelier"
     ],
-    "nb_comptes_rendus": 8,
+    "nb_comptes_rendus": 9,
     "comptes_rendus": [
       {
         "eleve": "Célia",
@@ -67,6 +68,12 @@
         "atelier": "Palmage",
         "note": 1.0,
         "commentaire": "Première découverte du palmage et même remarque avec mouvement de pédalier, explication et correction apportée individuellement dans la ligne d'eau. Amélioration vue en fin de session. A continuer sur les prochaines sessions."
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "Palmage",
+        "note": 1.0,
+        "commentaire": "Première séance de palmage avec mouvement de pédalier là aussi. Explications et correction apportée dans la ligne d'eau. Un léger mieux constaté en fin de séance"
       }
     ]
   },
