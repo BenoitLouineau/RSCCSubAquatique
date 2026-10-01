@@ -88,12 +88,36 @@
     "id": "camille",
     "nom": "Camille",
     "caci": true,
-    "nb_seances": 0,
-    "dates_seances": [],
-    "moniteurs": [],
-    "nb_competences_travaillees": 0,
-    "competences": {},
-    "commentaires": []
+    "nb_seances": 1,
+    "dates_seances": [
+      "2026-09-29"
+    ],
+    "moniteurs": [
+      "Benoit L"
+    ],
+    "nb_competences_travaillees": 1,
+    "competences": {
+      "Palmage": {
+        "nb_evaluations": 1,
+        "derniere_note": 1.0,
+        "moyenne_notes": 1.0,
+        "historique": [
+          {
+            "date": "2026-09-29",
+            "note": 1.0,
+            "moniteur": "Benoit L"
+          }
+        ]
+      }
+    },
+    "commentaires": [
+      {
+        "date": "2026-09-29",
+        "moniteur": "Benoit L",
+        "atelier": "Palmage",
+        "commentaire": "Première séance de palmage avec mouvement de pédalier là aussi. Explications et correction apportée dans la ligne d'eau. Un léger mieux constaté en fin de séance"
+      }
+    ]
   },
   {
     "id": "celia",
