@@ -1,9 +1,9 @@
 {
-  "date_generation": "2026-10-01T12:15:40",
+  "date_generation": "2026-10-01T12:21:36",
   "nb_eleves": 15,
   "nb_moniteurs": 10,
   "nb_seances": 3,
-  "nb_comptes_rendus": 11,
+  "nb_comptes_rendus": 12,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
@@ -87,7 +87,7 @@
     },
     {
       "eleve": "Michèle",
-      "nb_ateliers_evalues": 0,
+      "nb_ateliers_evalues": 1,
       "moyenne_generale": null
     },
     {
@@ -113,8 +113,7 @@
       "Camille",
       "Jean",
       "Kahina",
-      "Kevin",
-      "Michèle"
+      "Kevin"
     ],
     "moniteurs_hors_referentiel": [],
     "moniteurs_referentiel_jamais_actifs": [
