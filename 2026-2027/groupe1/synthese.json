@@ -1,15 +1,24 @@
 {
-  "date_generation": "2026-10-01T12:25:05",
+  "date_generation": "2026-10-01T12:31:03",
   "nb_eleves": 15,
   "nb_moniteurs": 10,
   "nb_seances": 3,
-  "nb_comptes_rendus": 13,
+  "nb_comptes_rendus": 14,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
     "date_max": "2026-09-29"
   },
   "acquisition_par_atelier": [
+    {
+      "atelier": "Palmage",
+      "nb_evaluations": 7,
+      "moyenne": 1.29,
+      "note_min": 1.0,
+      "note_max": 2.0,
+      "notable": true,
+      "compte_dans_moyenne": false
+    },
     {
       "atelier": "Gréage",
       "nb_evaluations": 6,
@@ -18,15 +27,6 @@
       "note_max": 2.0,
       "notable": true,
       "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Palmage",
-      "nb_evaluations": 6,
-      "moyenne": 1.33,
-      "note_min": 1.0,
-      "note_max": 2.0,
-      "notable": true,
-      "compte_dans_moyenne": false
     }
   ],
   "progression_par_eleve": [
@@ -47,8 +47,8 @@
     },
     {
       "eleve": "Camille",
-      "nb_ateliers_evalues": 0,
-      "moyenne_generale": null
+      "nb_ateliers_evalues": 1,
+      "moyenne_generale": 1.0
     },
     {
       "eleve": "Célia",
@@ -110,7 +110,6 @@
     "eleves_hors_referentiel": [],
     "eleves_referentiel_jamais_vus": [
       "Abderrahmane",
-      "Camille",
       "Jean",
       "Kahina",
       "Kevin"
