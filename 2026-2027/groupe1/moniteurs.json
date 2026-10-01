@@ -6,9 +6,10 @@
     "dates_seances": [
       "2026-09-29"
     ],
-    "nb_eleves_suivis": 7,
+    "nb_eleves_suivis": 8,
     "eleves_suivis": [
       "Aubrée",
+      "Camille",
       "Célia",
       "Guillaume",
       "Hanane",
@@ -16,8 +17,8 @@
       "Michèle",
       "Mohamed"
     ],
-    "nb_comptes_rendus": 8,
-    "nb_evaluations_notees": 7
+    "nb_comptes_rendus": 9,
+    "nb_evaluations_notees": 8
   },
   {
     "id": "benoit-p",
