@@ -1,24 +1,15 @@
 {
-  "date_generation": "2026-10-01T17:50:05",
+  "date_generation": "2026-10-01T17:51:10",
   "nb_eleves": 15,
   "nb_moniteurs": 10,
   "nb_seances": 3,
-  "nb_comptes_rendus": 14,
+  "nb_comptes_rendus": 13,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
     "date_max": "2026-09-29"
   },
   "acquisition_par_atelier": [
-    {
-      "atelier": "Palmage",
-      "nb_evaluations": 7,
-      "moyenne": 1.29,
-      "note_min": 1.0,
-      "note_max": 2.0,
-      "notable": true,
-      "compte_dans_moyenne": false
-    },
     {
       "atelier": "Gréage",
       "nb_evaluations": 6,
@@ -27,6 +18,15 @@
       "note_max": 2.0,
       "notable": true,
       "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Palmage",
+      "nb_evaluations": 6,
+      "moyenne": 1.33,
+      "note_min": 1.0,
+      "note_max": 2.0,
+      "notable": true,
+      "compte_dans_moyenne": false
     }
   ],
   "progression_par_eleve": [
@@ -76,12 +76,12 @@
       "moyenne_generale": null
     },
     {
-      "eleve": "Kevin",
+      "eleve": "Kevin F",
       "nb_ateliers_evalues": 0,
       "moyenne_generale": null
     },
     {
-      "eleve": "Kévin",
+      "eleve": "Kévin D",
       "nb_ateliers_evalues": 1,
       "moyenne_generale": 2.0
     },
@@ -112,7 +112,7 @@
       "Abderrahmane",
       "Jean",
       "Kahina",
-      "Kevin"
+      "Kevin F"
     ],
     "moniteurs_hors_referentiel": [],
     "moniteurs_referentiel_jamais_actifs": [
@@ -125,14 +125,6 @@
       "Véronique"
     ],
     "ateliers_hors_referentiel": [],
-    "comptes_rendus_doublons": [
-      {
-        "date_seance": "2026-09-29",
-        "moniteur": "Benoit L",
-        "eleve": "Aubrée",
-        "atelier": "Palmage",
-        "occurrences": 2
-      }
-    ]
+    "comptes_rendus_doublons": []
   }
 }
