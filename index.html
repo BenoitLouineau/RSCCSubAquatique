@@ -315,6 +315,22 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 12.5px; padding: 3px 9px; border-radius: 999px;
   background: var(--chip); border: 1px solid var(--border);
 }
+.anom-copy {
+  margin-left: auto; border: 1px solid var(--border); background: var(--chip); color: var(--text);
+  border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 700; cursor: pointer;
+}
+.anom-copy:hover { background: var(--border); }
+.anom-doublon { padding: 10px 12px; margin-top: 8px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--card); }
+.anom-doublon-head { display: flex; align-items: center; gap: 8px; font-size: 13.5px; }
+.anom-doublon-what { font-size: 12.5px; color: var(--muted); margin-top: 3px; }
+.anom-line-link { color: var(--brand); font-weight: 800; text-decoration: none; }
+.anom-line-link:hover { text-decoration: underline; }
+.anom-tag { margin-left: auto; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 999px; }
+.anom-tag.ok { background: rgba(34, 197, 94, .15); color: #22c55e; }
+.anom-tag.warn { background: rgba(245, 158, 11, .15); color: #f59e0b; }
+.anom-details { margin: 6px 0 0; padding-left: 16px; font-size: 12px; color: var(--muted); }
+.anom-details li { margin: 2px 0; }
+.anom-detail-line { font-weight: 700; color: var(--text); }
 .anom-group-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin: 16px 0 0; }
 .cache-banner {
   display: flex; align-items: center; gap: 10px; padding: 10px 14px; margin-bottom: 18px;
@@ -3394,7 +3410,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     { key: 'moniteurs_noms_proches', grav: 'corriger', label: '🔤 Moniteurs saisis sous plusieurs orthographes',
       hint: 'Probablement la même personne : unifier l\'orthographe dans l\'onglet Moniteurs et dans les comptes rendus.' },
     { key: 'comptes_rendus_doublons', grav: 'corriger', label: '♻️ Comptes rendus en doublon',
-      hint: 'Même élève, atelier, date et moniteur saisis plusieurs fois : la note compte en double dans les moyennes. Supprimer la ligne en trop dans ComptesRendus.' },
+      hint: 'Même élève, atelier, date et moniteur sur plusieurs lignes de l\'onglet ComptesRendus : la note compte en double dans les moyennes. « Identique » = ligne saisie deux fois, on peut supprimer l\'une des deux. « À vérifier » = note ou commentaire différents, probablement un mauvais élève ou atelier sélectionné : à confirmer avec le moniteur.' },
     { key: 'eleves_hors_referentiel', grav: 'corriger', label: '🧑 Élèves vus en séance mais absents de l\'onglet Eleves',
       hint: 'Ajouter l\'élève à l\'onglet Eleves (avec son CACI), ou corriger la faute de frappe dans le compte rendu.' },
     { key: 'moniteurs_hors_referentiel', grav: 'corriger', label: '🤿 Moniteurs actifs mais absents de l\'onglet Moniteurs',
@@ -3430,7 +3446,90 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     return isNaN(d.getTime()) ? iso : d.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' });
   }
 
+  // ----- Doublons de comptes rendus : n° de ligne dans l'onglet + signalement à copier -----
+  function crSheetLink(ligne) {
+    const src = (STATE.synthese && STATE.synthese.source) || {};
+    if (!src.classeur_url || !src.gid_comptes_rendus || !ligne) return null;
+    const base = String(src.classeur_url).replace(/\/(edit|view).*$/, '').replace(/[#?].*$/, '');
+    return base + '/edit#gid=' + encodeURIComponent(src.gid_comptes_rendus) + '&range=A' + ligne;
+  }
+
+  function formatLignes(lignes) {
+    const l = (lignes || []).filter(n => n !== null && n !== undefined);
+    if (!l.length) return 'n° de ligne inconnu';
+    return (l.length > 1 ? 'Lignes ' : 'Ligne ') +
+      (l.length > 1 ? l.slice(0, -1).join(', ') + ' et ' + l[l.length - 1] : l[0]);
+  }
+
+  function lignesHtml(lignes) {
+    const l = (lignes || []).filter(n => n !== null && n !== undefined);
+    if (!l.length) return 'n° de ligne inconnu';
+    const one = n => {
+      const href = crSheetLink(n);
+      return href
+        ? '<a class="anom-line-link" href="' + escapeHtml(href) + '" target="_blank" rel="noopener noreferrer" title="Ouvrir la ligne ' + n + ' dans le classeur">' + n + ' ↗</a>'
+        : '<strong>' + n + '</strong>';
+    };
+    return (l.length > 1 ? 'Lignes ' : 'Ligne ') +
+      (l.length > 1 ? l.slice(0, -1).map(one).join(', ') + ' et ' + one(l[l.length - 1]) : one(l[0]));
+  }
+
+  function truncate(txt, n) {
+    txt = String(txt || '');
+    return txt.length > n ? txt.slice(0, n - 1).trimEnd() + '…' : txt;
+  }
+
+  function buildDoublonsSection(c, values) {
+    const rows = values.map(function(d) {
+      const identique = d.type === 'identique';
+      const details = (d.details || []).map(x =>
+        '<li><span class="anom-detail-line">L.' + escapeHtml(x.ligne == null ? '?' : x.ligne) + '</span> note ' +
+        escapeHtml(x.note == null ? '—' : x.note) + ' · ' + escapeHtml(truncate(x.commentaire, 90)) + '</li>').join('');
+      return '<div class="anom-doublon">' +
+        '<div class="anom-doublon-head">' +
+          '<span class="anom-doublon-lines">' + lignesHtml(d.lignes) + '</span>' +
+          '<span class="anom-tag ' + (identique ? 'ok' : 'warn') + '">' + (identique ? 'Identique' : 'À vérifier') + '</span>' +
+        '</div>' +
+        '<div class="anom-doublon-what">' + eleveNomCaci(d.eleve) + ' · ' + escapeHtml(d.atelier || '—') + ' · ' +
+          escapeHtml(formatAnomDate(d.date_seance)) + ' · ' + escapeHtml(d.moniteur) + '</div>' +
+        (details ? '<ul class="anom-details">' + details + '</ul>' : '') +
+      '</div>';
+    }).join('');
+    return '<div class="anom-section">' +
+      '<div class="anom-section-head">' + escapeHtml(c.label) + '<span class="anom-count">' + values.length + '</span>' +
+        '<button type="button" class="anom-copy" id="btnCopyDoublons">📋 Copier le signalement</button></div>' +
+      '<p class="anom-hint">' + escapeHtml(c.hint) + '</p>' + rows +
+    '</div>';
+  }
+
+  /** Texte prêt à envoyer à l'administrateur du classeur. */
+  function buildDoublonsReport(values) {
+    const src = (STATE.synthese && STATE.synthese.source) || {};
+    const onglet = src.onglet_comptes_rendus || 'ComptesRendus';
+    const lines = values.map(function(d) {
+      const base = '• ' + formatLignes(d.lignes) + ' : ' + d.eleve + ' / ' + (d.atelier || '—') + ' / ' +
+        formatAnomDate(d.date_seance) + ' / ' + d.moniteur;
+      return d.type === 'identique'
+        ? base + ' — saisie identique, une ligne peut être supprimée.'
+        : base + ' — notes ou commentaires différents, à vérifier avec ' + d.moniteur + ' avant suppression.';
+    });
+    return 'Doublons de comptes rendus — onglet « ' + onglet + ' » (' + values.length + ') :\n' + lines.join('\n') +
+      (src.classeur_url ? '\n\nClasseur : ' + src.classeur_url : '');
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+    return new Promise(function(resolve, reject) {
+      const ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy') ? resolve() : reject(); } catch (e) { reject(e); }
+      document.body.removeChild(ta);
+    });
+  }
+
   function buildAnomSection(c, values) {
+    if (c.key === 'comptes_rendus_doublons') return buildDoublonsSection(c, values);
     return '<div class="anom-section' + (c.grav === 'info' ? ' info' : '') + '">' +
       '<div class="anom-section-head">' + escapeHtml(c.label) + '<span class="anom-count">' + values.length + '</span></div>' +
       '<p class="anom-hint">' + escapeHtml(c.hint) + '</p>' +
@@ -3471,6 +3570,12 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         ? '<div class="anom-group-title">À corriger (' + nCorr + ')</div>' + corriger
         : '<p class="anom-intro">✅ Rien à corriger.</p>') +
       (info ? '<div class="anom-group-title">Pour information (' + nInfo + ')</div>' + info : '');
+    const btnCopy = $('#btnCopyDoublons', overlay);
+    if (btnCopy) btnCopy.addEventListener('click', function() {
+      copyText(buildDoublonsReport(a.comptes_rendus_doublons || []))
+        .then(() => showToast('Signalement copié — collez-le dans votre message à l\'administrateur.', 'success'))
+        .catch(() => showToast('Copie impossible dans ce navigateur.', 'error'));
+    });
     overlay.classList.remove('hidden');
   }
 
