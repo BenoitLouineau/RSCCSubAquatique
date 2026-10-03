@@ -1,9 +1,9 @@
 {
-  "date_generation": "2026-10-02T00:22:26",
-  "nb_eleves": 15,
+  "date_generation": "2026-10-03T15:28:50",
+  "nb_eleves": 16,
   "nb_moniteurs": 10,
   "nb_seances": 3,
-  "nb_comptes_rendus": 14,
+  "nb_comptes_rendus": 13,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
@@ -11,22 +11,22 @@
   },
   "acquisition_par_atelier": [
     {
-      "atelier": "Palmage",
-      "nb_evaluations": 7,
-      "moyenne": 1.29,
-      "note_min": 1,
-      "note_max": 2,
-      "notable": true,
-      "compte_dans_moyenne": false
-    },
-    {
       "atelier": "Gréage",
       "nb_evaluations": 6,
       "moyenne": 1.5,
-      "note_min": 1,
-      "note_max": 2,
+      "note_min": 1.0,
+      "note_max": 2.0,
       "notable": true,
       "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Palmage",
+      "nb_evaluations": 6,
+      "moyenne": 1.33,
+      "note_min": 1.0,
+      "note_max": 2.0,
+      "notable": true,
+      "compte_dans_moyenne": false
     }
   ],
   "progression_par_eleve": [
@@ -101,6 +101,11 @@
       "moyenne_generale": 1.0
     },
     {
+      "eleve": "Olivia",
+      "nb_ateliers_evalues": 0,
+      "moyenne_generale": null
+    },
+    {
       "eleve": "Patricia",
       "nb_ateliers_evalues": 1,
       "moyenne_generale": 2.0
@@ -114,7 +119,8 @@
       "Abderrahmane",
       "Jean",
       "Kahina",
-      "Kevin F"
+      "Kevin F",
+      "Olivia"
     ],
     "moniteurs_hors_referentiel": [],
     "moniteurs_referentiel_jamais_actifs": [
@@ -127,32 +133,7 @@
       "Véronique"
     ],
     "ateliers_hors_referentiel": [],
-    "comptes_rendus_doublons": [
-      {
-        "date_seance": "2026-09-29",
-        "moniteur": "Benoit L",
-        "eleve": "Aubrée",
-        "atelier": "Palmage",
-        "occurrences": 2,
-        "lignes": [
-          9,
-          14
-        ],
-        "type": "a_verifier",
-        "details": [
-          {
-            "ligne": 9,
-            "note": 1,
-            "commentaire": "Première découverte du palmage. Beaucoup de mouvement de pédalier comme beaucoup de débutants. Explications données individuellement dans leur ligne d'eau pour un mouvement idéal attendu. Un mieux noté pour la fin de session. Encourageant pour la suite."
-          },
-          {
-            "ligne": 14,
-            "note": 1,
-            "commentaire": "Test doublon"
-          }
-        ]
-      }
-    ]
+    "comptes_rendus_doublons": []
   },
   "source": {
     "classeur_url": "https://docs.google.com/spreadsheets/d/1m_UMefQrdEWToAV5RXAskr_wtbxMyc4kEbmSC6T_PLE",
