@@ -1814,25 +1814,32 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   }
 
   // =====================================================================
-  // PRÉNOMS D'AFFICHAGE (barre de chips) — convention "Nom Prénom" : le
-  // dernier mot du champ `nom` est considéré comme le prénom. Si plusieurs
-  // élèves partagent le même prénom, on ajoute un espace + l'initiale du nom.
+  // PRÉNOMS D'AFFICHAGE (barre de chips). Deux saisies coexistent dans l'onglet Eleves :
+  //   - « Nom Prénom »        ("Dupont Léa")  -> le dernier mot est le prénom ;
+  //   - « Prénom Initiale »   ("Kevin F", "Kévin D.") -> le dernier mot est une simple
+  //     lettre : c'est l'initiale du nom, le prénom est ce qui précède ;
+  //   - un seul mot ("Amir") -> c'est le prénom.
+  // Si plusieurs élèves partagent le même prénom, on ajoute l'initiale du nom.
   // =====================================================================
-  function getPrenom(nomComplet) {
-    const parts = String(nomComplet).trim().split(/\s+/);
-    return parts[parts.length - 1];
+  function splitNomEleve(nomComplet) {
+    const parts = String(nomComplet || '').trim().split(/\s+/).filter(Boolean);
+    if (parts.length > 1 && /^[A-Za-zÀ-ÖØ-öø-ÿ]\.?$/.test(parts[parts.length - 1])) {
+      return { prenom: parts.slice(0, -1).join(' '),
+               initiale: parts[parts.length - 1].charAt(0).toUpperCase(), avecInitiale: true };
+    }
+    return { prenom: parts[parts.length - 1] || '',
+             initiale: parts.length > 1 ? parts[0].charAt(0).toUpperCase() : '', avecInitiale: false };
   }
-  function getInitialeNom(nomComplet) {
-    const parts = String(nomComplet).trim().split(/\s+/);
-    return parts.length > 1 ? parts[0].charAt(0).toUpperCase() : '';
-  }
+  function getPrenom(nomComplet) { return splitNomEleve(nomComplet).prenom; }
+  function getInitialeNom(nomComplet) { return splitNomEleve(nomComplet).initiale; }
   function buildDisplayNames(eleves) {
     const counts = {};
     eleves.forEach(function(e) { const p = getPrenom(e.nom); counts[p] = (counts[p] || 0) + 1; });
     const map = {};
     eleves.forEach(function(e) {
-      const p = getPrenom(e.nom);
-      map[e.id] = counts[p] > 1 ? p + ' ' + getInitialeNom(e.nom) + '.' : p;
+      const n = splitNomEleve(e.nom);
+      // Initiale affichée si le prénom est partagé, ou si la saisie l'a explicitement prévue
+      map[e.id] = (n.initiale && (counts[n.prenom] > 1 || n.avecInitiale)) ? n.prenom + ' ' + n.initiale + '.' : n.prenom;
     });
     return map;
   }
