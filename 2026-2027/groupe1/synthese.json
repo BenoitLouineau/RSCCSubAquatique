@@ -1,5 +1,5 @@
 {
-  "date_generation": "2026-10-03T15:28:50",
+  "date_generation": "2026-10-04T14:57:43",
   "nb_eleves": 16,
   "nb_moniteurs": 10,
   "nb_seances": 3,
@@ -14,8 +14,8 @@
       "atelier": "Gréage",
       "nb_evaluations": 6,
       "moyenne": 1.5,
-      "note_min": 1.0,
-      "note_max": 2.0,
+      "note_min": 1,
+      "note_max": 2,
       "notable": true,
       "compte_dans_moyenne": true
     },
@@ -23,8 +23,8 @@
       "atelier": "Palmage",
       "nb_evaluations": 6,
       "moyenne": 1.33,
-      "note_min": 1.0,
-      "note_max": 2.0,
+      "note_min": 1,
+      "note_max": 2,
       "notable": true,
       "compte_dans_moyenne": false
     }
