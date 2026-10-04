@@ -25,12 +25,12 @@
     "competences": {
       "Gréage": {
         "nb_evaluations": 1,
-        "derniere_note": 1.0,
+        "derniere_note": 1,
         "moyenne_notes": 1.0,
         "historique": [
           {
             "date": "2026-09-29",
-            "note": 1.0,
+            "note": 1,
             "moniteur": "Carine"
           }
         ]
@@ -60,12 +60,12 @@
     "competences": {
       "Palmage": {
         "nb_evaluations": 1,
-        "derniere_note": 1.0,
+        "derniere_note": 1,
         "moyenne_notes": 1.0,
         "historique": [
           {
             "date": "2026-09-29",
-            "note": 1.0,
+            "note": 1,
             "moniteur": "Benoit L"
           }
         ]
@@ -95,12 +95,12 @@
     "competences": {
       "Palmage": {
         "nb_evaluations": 1,
-        "derniere_note": 1.0,
+        "derniere_note": 1,
         "moyenne_notes": 1.0,
         "historique": [
           {
             "date": "2026-09-29",
-            "note": 1.0,
+            "note": 1,
             "moniteur": "Benoit L"
           }
         ]
@@ -130,12 +130,12 @@
     "competences": {
       "Palmage": {
         "nb_evaluations": 1,
-        "derniere_note": 1.0,
+        "derniere_note": 1,
         "moyenne_notes": 1.0,
         "historique": [
           {
             "date": "2026-09-29",
-            "note": 1.0,
+            "note": 1,
             "moniteur": "Benoit L"
           }
         ]
@@ -166,24 +166,24 @@
     "competences": {
       "Gréage": {
         "nb_evaluations": 1,
-        "derniere_note": 2.0,
+        "derniere_note": 2,
         "moyenne_notes": 2.0,
         "historique": [
           {
             "date": "2026-09-29",
-            "note": 2.0,
+            "note": 2,
             "moniteur": "Benoit P"
           }
         ]
       },
       "Palmage": {
         "nb_evaluations": 1,
-        "derniere_note": 2.0,
+        "derniere_note": 2,
         "moyenne_notes": 2.0,
         "historique": [
           {
             "date": "2026-09-29",
-            "note": 2.0,
+            "note": 2,
             "moniteur": "Benoit L"
           }
         ]
@@ -219,12 +219,12 @@
     "competences": {
       "Palmage": {
         "nb_evaluations": 1,
-        "derniere_note": 1.0,
+        "derniere_note": 1,
         "moyenne_notes": 1.0,
         "historique": [
           {
             "date": "2026-09-29",
-            "note": 1.0,
+            "note": 1,
             "moniteur": "Benoit L"
           }
         ]
@@ -287,12 +287,12 @@
     "competences": {
       "Palmage": {
         "nb_evaluations": 1,
-        "derniere_note": 2.0,
+        "derniere_note": 2,
         "moyenne_notes": 2.0,
         "historique": [
           {
             "date": "2026-09-29",
-            "note": 2.0,
+            "note": 2,
             "moniteur": "Benoit L"
           }
         ]
@@ -358,17 +358,17 @@
     "competences": {
       "Gréage": {
         "nb_evaluations": 2,
-        "derniere_note": 2.0,
+        "derniere_note": 2,
         "moyenne_notes": 1.5,
         "historique": [
           {
             "date": "2026-09-29",
-            "note": 1.0,
+            "note": 1,
             "moniteur": "Carine"
           },
           {
             "date": "2026-09-29",
-            "note": 2.0,
+            "note": 2,
             "moniteur": "Benoit L"
           }
         ]
@@ -404,12 +404,12 @@
     "competences": {
       "Gréage": {
         "nb_evaluations": 1,
-        "derniere_note": 1.0,
+        "derniere_note": 1,
         "moyenne_notes": 1.0,
         "historique": [
           {
             "date": "2026-09-29",
-            "note": 1.0,
+            "note": 1,
             "moniteur": "Carine"
           }
         ]
@@ -450,12 +450,12 @@
     "competences": {
       "Gréage": {
         "nb_evaluations": 1,
-        "derniere_note": 2.0,
+        "derniere_note": 2,
         "moyenne_notes": 2.0,
         "historique": [
           {
             "date": "2026-09-29",
-            "note": 2.0,
+            "note": 2,
             "moniteur": "Benoit P"
           }
         ]
