@@ -25,42 +25,42 @@
         "ligne": 7,
         "eleve": "Célia",
         "atelier": "Palmage",
-        "note": 1.0,
+        "note": 1,
         "commentaire": "Première découverte du palmage et même remarque avec mouvement de pédalier, explication et correction apportée individuellement dans la ligne d'eau. Amélioration vue en fin de session. A continuer sur les prochaines sessions."
       },
       {
         "ligne": 8,
         "eleve": "Hanane",
         "atelier": "Palmage",
-        "note": 1.0,
+        "note": 1,
         "commentaire": "Première séance de palmage avec mouvement de pédalier là aussi. Explications et correction apportée dans la ligne d'eau. Un léger mieux constaté en fin de séance"
       },
       {
         "ligne": 9,
         "eleve": "Aubrée",
         "atelier": "Palmage",
-        "note": 1.0,
+        "note": 1,
         "commentaire": "Première découverte du palmage. Beaucoup de mouvement de pédalier comme beaucoup de débutants. Explications données individuellement dans leur ligne d'eau pour un mouvement idéal attendu. Un mieux noté pour la fin de session. Encourageant pour la suite."
       },
       {
         "ligne": 10,
         "eleve": "Kévin D",
         "atelier": "Palmage",
-        "note": 2.0,
+        "note": 2,
         "commentaire": "Léger mouvement de pédale mais après explication dans la ligne d'eau, le mouvement a été vite corrigé et ce jusqu'à la fin de la session. Élève sérieux dans l'apprentissage et semble très aquatique. C'est encourageant pour la suite."
       },
       {
         "ligne": 11,
         "eleve": "Mohamed",
         "atelier": "Gréage",
-        "note": 2.0,
+        "note": 2,
         "commentaire": "Élève sérieux et attentif aux explications et mouvement pédalier rapidement remplacé par l'attendu du geste du palmage. C'est encourageant pour la suite."
       },
       {
         "ligne": 12,
         "eleve": "Guillaume",
         "atelier": "Palmage",
-        "note": 2.0,
+        "note": 2,
         "commentaire": "Très aquatique et certainement déjà habitué à porter des palmes et s'en servir. Encourageant pour la suite."
       },
       {
@@ -74,7 +74,7 @@
         "ligne": 14,
         "eleve": "Camille",
         "atelier": "Palmage",
-        "note": 1.0,
+        "note": 1,
         "commentaire": "Première séance de palmage avec mouvement de pédalier là aussi. Explications et correction apportée dans la ligne d'eau. Un léger mieux constaté en fin de séance"
       }
     ]
@@ -97,14 +97,14 @@
         "ligne": 2,
         "eleve": "Guillaume",
         "atelier": "Gréage",
-        "note": 2.0,
+        "note": 2,
         "commentaire": "Vif d'esprit"
       },
       {
         "ligne": 3,
         "eleve": "Patricia",
         "atelier": "Gréage",
-        "note": 2.0,
+        "note": 2,
         "commentaire": "Laisse transparaître des peurs, on sent qu'elle a déjà eu quelqu'un qui lui a expliqué des éléments (boucle 0213) 😉"
       }
     ]
@@ -128,21 +128,21 @@
         "ligne": 4,
         "eleve": "Amir",
         "atelier": "Gréage",
-        "note": 1.0,
+        "note": 1,
         "commentaire": "Aucun commentaire"
       },
       {
         "ligne": 5,
         "eleve": "Mohamed",
         "atelier": "Gréage",
-        "note": 1.0,
+        "note": 1,
         "commentaire": "Aucun commentaire"
       },
       {
         "ligne": 6,
         "eleve": "Nabiyu",
         "atelier": "Gréage",
-        "note": 1.0,
+        "note": 1,
         "commentaire": "Aucun commentaire"
       }
     ]
