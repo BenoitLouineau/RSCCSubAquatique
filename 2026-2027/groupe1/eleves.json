@@ -11,6 +11,77 @@
     "commentaires": []
   },
   {
+    "id": "abdou",
+    "nom": "Abdou",
+    "caci": false,
+    "nb_seances": 1,
+    "dates_seances": [
+      "2026-10-05"
+    ],
+    "moniteurs": [
+      "Carine"
+    ],
+    "nb_competences_travaillees": 3,
+    "competences": {
+      "DBN": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-10-05",
+            "note": 4.0,
+            "moniteur": "Carine"
+          }
+        ]
+      },
+      "dégréage": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-05",
+            "note": 3.0,
+            "moniteur": "Carine"
+          }
+        ]
+      },
+      "Gréage": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-05",
+            "note": 2.0,
+            "moniteur": "Carine"
+          }
+        ]
+      }
+    },
+    "commentaires": [
+      {
+        "date": "2026-10-05",
+        "moniteur": "Carine",
+        "atelier": "DBN",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-05",
+        "moniteur": "Carine",
+        "atelier": "dégréage",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-05",
+        "moniteur": "Carine",
+        "atelier": "Gréage",
+        "commentaire": "Aucun commentaire"
+      }
+    ]
+  },
+  {
     "id": "amir",
     "nom": "Amir",
     "caci": false,
@@ -25,12 +96,12 @@
     "competences": {
       "Gréage": {
         "nb_evaluations": 1,
-        "derniere_note": 1,
+        "derniere_note": 1.0,
         "moyenne_notes": 1.0,
         "historique": [
           {
             "date": "2026-09-29",
-            "note": 1,
+            "note": 1.0,
             "moniteur": "Carine"
           }
         ]
@@ -49,24 +120,134 @@
     "id": "aubree",
     "nom": "Aubrée",
     "caci": false,
-    "nb_seances": 1,
+    "nb_seances": 2,
     "dates_seances": [
-      "2026-09-29"
+      "2026-09-29",
+      "2026-10-06"
     ],
     "moniteurs": [
-      "Benoit L"
+      "Benoit L",
+      "Benoit P"
     ],
-    "nb_competences_travaillees": 1,
+    "nb_competences_travaillees": 10,
     "competences": {
       "Palmage": {
         "nb_evaluations": 1,
-        "derniere_note": 1,
+        "derniere_note": 1.0,
         "moyenne_notes": 1.0,
         "historique": [
           {
             "date": "2026-09-29",
-            "note": 1,
+            "note": 1.0,
             "moniteur": "Benoit L"
+          }
+        ]
+      },
+      "Mise en sécu surface": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 3.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "Poumon Ballast": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 2.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "Déplacements immersion": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 2.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "Vitesse de remontée": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 2.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "Gestion du gilet": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 2.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "dégréage": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 3.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "Sortie de l'eau": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 4.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "VDM partiel": {
+        "nb_evaluations": 1,
+        "derniere_note": 1.0,
+        "moyenne_notes": 1.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 1.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "DBN": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 2.0,
+            "moniteur": "Benoit P"
           }
         ]
       }
@@ -77,6 +258,60 @@
         "moniteur": "Benoit L",
         "atelier": "Palmage",
         "commentaire": "Première découverte du palmage. Beaucoup de mouvement de pédalier comme beaucoup de débutants. Explications données individuellement dans leur ligne d'eau pour un mouvement idéal attendu. Un mieux noté pour la fin de session. Encourageant pour la suite."
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Benoit P",
+        "atelier": "Mise en sécu surface",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Benoit P",
+        "atelier": "Poumon Ballast",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Benoit P",
+        "atelier": "Déplacements immersion",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Benoit P",
+        "atelier": "Vitesse de remontée",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Benoit P",
+        "atelier": "Gestion du gilet",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Benoit P",
+        "atelier": "dégréage",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Benoit P",
+        "atelier": "Sortie de l'eau",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Benoit P",
+        "atelier": "VDM partiel",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Benoit P",
+        "atelier": "DBN",
+        "commentaire": "Aucun commentaire"
       }
     ]
   },
@@ -84,24 +319,98 @@
     "id": "camille",
     "nom": "Camille",
     "caci": true,
-    "nb_seances": 1,
+    "nb_seances": 2,
     "dates_seances": [
-      "2026-09-29"
+      "2026-09-29",
+      "2026-10-06"
     ],
     "moniteurs": [
-      "Benoit L"
+      "Benoit L",
+      "Christophe"
     ],
-    "nb_competences_travaillees": 1,
+    "nb_competences_travaillees": 7,
     "competences": {
       "Palmage": {
         "nb_evaluations": 1,
-        "derniere_note": 1,
+        "derniere_note": 1.0,
         "moyenne_notes": 1.0,
         "historique": [
           {
             "date": "2026-09-29",
-            "note": 1,
+            "note": 1.0,
             "moniteur": "Benoit L"
+          }
+        ]
+      },
+      "Signes": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 4.0,
+            "moniteur": "Christophe"
+          }
+        ]
+      },
+      "Gréage": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 4.0,
+            "moniteur": "Christophe"
+          }
+        ]
+      },
+      "dégréage": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 4.0,
+            "moniteur": "Christophe"
+          }
+        ]
+      },
+      "DBN": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 4.0,
+            "moniteur": "Christophe"
+          }
+        ]
+      },
+      "Gestion de son matériel": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 4.0,
+            "moniteur": "Christophe"
+          }
+        ]
+      },
+      "Gestion du gilet": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 3.0,
+            "moniteur": "Christophe"
           }
         ]
       }
@@ -112,6 +421,167 @@
         "moniteur": "Benoit L",
         "atelier": "Palmage",
         "commentaire": "Première séance de palmage avec mouvement de pédalier là aussi. Explications et correction apportée dans la ligne d'eau. Un léger mieux constaté en fin de séance"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Christophe",
+        "atelier": "Signes",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Christophe",
+        "atelier": "Gréage",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Christophe",
+        "atelier": "dégréage",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Christophe",
+        "atelier": "DBN",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Christophe",
+        "atelier": "Gestion de son matériel",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Christophe",
+        "atelier": "Gestion du gilet",
+        "commentaire": "Aucun commentaire"
+      }
+    ]
+  },
+  {
+    "id": "catherine",
+    "nom": "Catherine",
+    "caci": false,
+    "nb_seances": 1,
+    "dates_seances": [
+      "2026-10-06"
+    ],
+    "moniteurs": [
+      "Christophe"
+    ],
+    "nb_competences_travaillees": 6,
+    "competences": {
+      "Gestion de son matériel": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 2.0,
+            "moniteur": "Christophe"
+          }
+        ]
+      },
+      "DBN": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 4.0,
+            "moniteur": "Christophe"
+          }
+        ]
+      },
+      "Gréage": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 2.0,
+            "moniteur": "Christophe"
+          }
+        ]
+      },
+      "Gestion du gilet": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 2.0,
+            "moniteur": "Christophe"
+          }
+        ]
+      },
+      "Signes": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 3.0,
+            "moniteur": "Christophe"
+          }
+        ]
+      },
+      "dégréage": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 2.0,
+            "moniteur": "Christophe"
+          }
+        ]
+      }
+    },
+    "commentaires": [
+      {
+        "date": "2026-10-06",
+        "moniteur": "Christophe",
+        "atelier": "Gestion de son matériel",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Christophe",
+        "atelier": "DBN",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Christophe",
+        "atelier": "Gréage",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Christophe",
+        "atelier": "Gestion du gilet",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Christophe",
+        "atelier": "Signes",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Christophe",
+        "atelier": "dégréage",
+        "commentaire": "Aucun commentaire"
       }
     ]
   },
@@ -130,12 +600,12 @@
     "competences": {
       "Palmage": {
         "nb_evaluations": 1,
-        "derniere_note": 1,
+        "derniere_note": 1.0,
         "moyenne_notes": 1.0,
         "historique": [
           {
             "date": "2026-09-29",
-            "note": 1,
+            "note": 1.0,
             "moniteur": "Benoit L"
           }
         ]
@@ -154,37 +624,68 @@
     "id": "guillaume",
     "nom": "Guillaume",
     "caci": true,
-    "nb_seances": 1,
+    "nb_seances": 2,
     "dates_seances": [
-      "2026-09-29"
+      "2026-09-29",
+      "2026-10-05"
     ],
     "moniteurs": [
       "Benoit L",
-      "Benoit P"
+      "Benoit P",
+      "Carine"
     ],
-    "nb_competences_travaillees": 2,
+    "nb_competences_travaillees": 4,
     "competences": {
       "Gréage": {
-        "nb_evaluations": 1,
-        "derniere_note": 2,
-        "moyenne_notes": 2.0,
+        "nb_evaluations": 2,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.5,
         "historique": [
           {
             "date": "2026-09-29",
-            "note": 2,
+            "note": 2.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-10-05",
+            "note": 3.0,
+            "moniteur": "Carine"
           }
         ]
       },
       "Palmage": {
         "nb_evaluations": 1,
-        "derniere_note": 2,
+        "derniere_note": 2.0,
         "moyenne_notes": 2.0,
         "historique": [
           {
             "date": "2026-09-29",
-            "note": 2,
+            "note": 2.0,
             "moniteur": "Benoit L"
+          }
+        ]
+      },
+      "DBN": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-10-05",
+            "note": 4.0,
+            "moniteur": "Carine"
+          }
+        ]
+      },
+      "dégréage": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-10-05",
+            "note": 4.0,
+            "moniteur": "Carine"
           }
         ]
       }
@@ -201,6 +702,24 @@
         "moniteur": "Benoit L",
         "atelier": "Palmage",
         "commentaire": "Très aquatique et certainement déjà habitué à porter des palmes et s'en servir. Encourageant pour la suite."
+      },
+      {
+        "date": "2026-10-05",
+        "moniteur": "Carine",
+        "atelier": "DBN",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-05",
+        "moniteur": "Carine",
+        "atelier": "Gréage",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-05",
+        "moniteur": "Carine",
+        "atelier": "dégréage",
+        "commentaire": "Aucun commentaire"
       }
     ]
   },
@@ -219,12 +738,12 @@
     "competences": {
       "Palmage": {
         "nb_evaluations": 1,
-        "derniere_note": 1,
+        "derniere_note": 1.0,
         "moyenne_notes": 1.0,
         "historique": [
           {
             "date": "2026-09-29",
-            "note": 1,
+            "note": 1.0,
             "moniteur": "Benoit L"
           }
         ]
@@ -276,24 +795,146 @@
     "id": "kevin-d",
     "nom": "Kévin D",
     "caci": true,
-    "nb_seances": 1,
+    "nb_seances": 2,
     "dates_seances": [
-      "2026-09-29"
+      "2026-09-29",
+      "2026-10-06"
     ],
     "moniteurs": [
-      "Benoit L"
+      "Benoit L",
+      "Benoit P"
     ],
-    "nb_competences_travaillees": 1,
+    "nb_competences_travaillees": 11,
     "competences": {
       "Palmage": {
         "nb_evaluations": 1,
-        "derniere_note": 2,
+        "derniere_note": 2.0,
         "moyenne_notes": 2.0,
         "historique": [
           {
             "date": "2026-09-29",
-            "note": 2,
+            "note": 2.0,
             "moniteur": "Benoit L"
+          }
+        ]
+      },
+      "dégréage": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 3.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "DBN": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 4.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "Mise en sécu surface": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 3.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "Poumon Ballast": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 2.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "Remonté expi controlée": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 2.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "Gestion du gilet": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 2.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "VDM partiel": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 2.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "Vitesse de remontée": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 2.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "Sortie de l'eau": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 2.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "Déplacements immersion": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 2.0,
+            "moniteur": "Benoit P"
           }
         ]
       }
@@ -304,6 +945,66 @@
         "moniteur": "Benoit L",
         "atelier": "Palmage",
         "commentaire": "Léger mouvement de pédale mais après explication dans la ligne d'eau, le mouvement a été vite corrigé et ce jusqu'à la fin de la session. Élève sérieux dans l'apprentissage et semble très aquatique. C'est encourageant pour la suite."
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Benoit P",
+        "atelier": "dégréage",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Benoit P",
+        "atelier": "DBN",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Benoit P",
+        "atelier": "Mise en sécu surface",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Benoit P",
+        "atelier": "Poumon Ballast",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Benoit P",
+        "atelier": "Remonté expi controlée",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Benoit P",
+        "atelier": "Gestion du gilet",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Benoit P",
+        "atelier": "VDM partiel",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Benoit P",
+        "atelier": "Vitesse de remontée",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Benoit P",
+        "atelier": "Sortie de l'eau",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-06",
+        "moniteur": "Benoit P",
+        "atelier": "Déplacements immersion",
+        "commentaire": "Aucun commentaire"
       }
     ]
   },
@@ -345,7 +1046,7 @@
   {
     "id": "mohamed",
     "nom": "Mohamed",
-    "caci": false,
+    "caci": true,
     "nb_seances": 1,
     "dates_seances": [
       "2026-09-29"
@@ -358,17 +1059,17 @@
     "competences": {
       "Gréage": {
         "nb_evaluations": 2,
-        "derniere_note": 2,
+        "derniere_note": 2.0,
         "moyenne_notes": 1.5,
         "historique": [
           {
             "date": "2026-09-29",
-            "note": 1,
+            "note": 1.0,
             "moniteur": "Carine"
           },
           {
             "date": "2026-09-29",
-            "note": 2,
+            "note": 2.0,
             "moniteur": "Benoit L"
           }
         ]
@@ -404,12 +1105,12 @@
     "competences": {
       "Gréage": {
         "nb_evaluations": 1,
-        "derniere_note": 1,
+        "derniere_note": 1.0,
         "moyenne_notes": 1.0,
         "historique": [
           {
             "date": "2026-09-29",
-            "note": 1,
+            "note": 1.0,
             "moniteur": "Carine"
           }
         ]
@@ -450,12 +1151,12 @@
     "competences": {
       "Gréage": {
         "nb_evaluations": 1,
-        "derniere_note": 2,
+        "derniere_note": 2.0,
         "moyenne_notes": 2.0,
         "historique": [
           {
             "date": "2026-09-29",
-            "note": 2,
+            "note": 2.0,
             "moniteur": "Benoit P"
           }
         ]
