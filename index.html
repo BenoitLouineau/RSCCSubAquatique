@@ -937,6 +937,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   padding: 10px 12px; background: var(--chip);
 }
 .settings-radio-group { display: flex; flex-direction: column; gap: 6px; }
+.settings-hint { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
 
 .season-dates-row { display: flex; gap: 10px; flex-wrap: wrap; }
 .season-dates-row label { display: flex; flex-direction: column; gap: 4px; font-size: 11.5px; color: var(--muted); flex: 1; min-width: 130px; }
@@ -1215,8 +1216,9 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         <div id="historiqueRangeOptions"></div>
       </div>
       <div class="settings-section">
-        <div class="settings-section-title">🔜 À venir</div>
-        <div class="settings-todo">Tri par défaut du tableau de synthèse.</div>
+        <div class="settings-section-title">↕️ Tri du tableau de synthèse</div>
+        <p class="settings-info">Le tableau se trie en cliquant sur l'en-tête d'une colonne (2e clic = sens inverse). Le tri par élève suit le prénom affiché sur les tuiles.</p>
+        <div id="syntheseSortOptions"></div>
       </div>
     </div>
 
@@ -1730,6 +1732,32 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       getValue: r => r.moniteurs, exportValue: r => r.moniteurs,
       cellContent: r => r.moniteursListe.length ? r.moniteursListe.map(nm => escapeHtml(nm) + chefBadge(nm)).join(', ') : '—' },
   ];
+
+  // ----- Tri du tableau de synthèse (réglages Élèves) -----
+  const LS_SYNTH_SORT = 'rscc_v2_synth_sort';                 // dernier tri cliqué {col, dir}
+  const LS_SYNTH_SORT_MEMO = 'rscc_v2_synth_sort_memo';       // '1' = mémoriser (défaut), '0' = non
+  const LS_SYNTH_SANS_SEANCE_FIN = 'rscc_v2_synth_sans_seance_fin'; // '1' = en fin (défaut), '0' = non
+  function lsGetFlag(key, defaut) {
+    try { const v = localStorage.getItem(key); return v === null ? defaut : v === '1'; } catch (e) { return defaut; }
+  }
+  function lsSetFlag(key, val) { try { localStorage.setItem(key, val ? '1' : '0'); } catch (e) {} }
+  let synthSortMemo = lsGetFlag(LS_SYNTH_SORT_MEMO, true);
+  let synthSansSeanceFin = lsGetFlag(LS_SYNTH_SANS_SEANCE_FIN, true);
+  function loadSavedSynthSort() {
+    if (!synthSortMemo) return null;
+    try {
+      const v = JSON.parse(localStorage.getItem(LS_SYNTH_SORT) || 'null');
+      if (v && TABLE_COLS.some(c => c.key === v.col) && (v.dir === 'asc' || v.dir === 'desc')) return v;
+    } catch (e) {}
+    return null;
+  }
+  function saveSynthSort() {
+    if (!synthSortMemo) return;
+    try { localStorage.setItem(LS_SYNTH_SORT, JSON.stringify({ col: currentSortCol, dir: currentSortDir })); } catch (e) {}
+  }
+  const savedSynthSort = loadSavedSynthSort();
+  let currentSortCol = savedSynthSort ? savedSynthSort.col : 'nom';
+  let currentSortDir = savedSynthSort ? savedSynthSort.dir : 'asc';
 
   // Visibilité des colonnes (persistée) — "Élève" (mandatory) reste toujours affichée
   const LS_COLUMNS = 'rscc_v2_visible_columns';
@@ -2262,6 +2290,29 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       });
     });
   }
+  // Options de tri du tableau de synthèse (réglages Élèves)
+  function populateSyntheseSortOptions() {
+    const el = $('#syntheseSortOptions');
+    if (!el) return;
+    el.innerHTML = '<div class="settings-radio-group">' +
+      '<label><input type="checkbox" id="optSynthSortMemo"' + (synthSortMemo ? ' checked' : '') + '/> ' +
+        '<span>Mémoriser le dernier tri cliqué<span class="settings-hint">Sinon, tri par élève (A → Z) à chaque ouverture.</span></span></label>' +
+      '<label><input type="checkbox" id="optSynthSansSeanceFin"' + (synthSansSeanceFin ? ' checked' : '') + '/> ' +
+        '<span>Élèves sans séance en fin de tableau<span class="settings-hint">Quel que soit le tri choisi.</span></span></label>' +
+    '</div>';
+    $('#optSynthSortMemo', el).addEventListener('change', function(ev) {
+      synthSortMemo = ev.target.checked;
+      lsSetFlag(LS_SYNTH_SORT_MEMO, synthSortMemo);
+      if (synthSortMemo) saveSynthSort();               // retient le tri en cours dès l'activation
+      else { try { localStorage.removeItem(LS_SYNTH_SORT); } catch (e) {} }
+    });
+    $('#optSynthSansSeanceFin', el).addEventListener('change', function(ev) {
+      synthSansSeanceFin = ev.target.checked;
+      lsSetFlag(LS_SYNTH_SANS_SEANCE_FIN, synthSansSeanceFin);
+      if (STATE.eleves) renderEleves();
+    });
+  }
+
   // =====================================================================
   // CHEF DE GROUPE — désigne un moniteur, badgé 🧭 partout où son nom apparaît
   // =====================================================================
@@ -2677,6 +2728,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   }
 
   populateHistoriqueRangeOptions();
+  populateSyntheseSortOptions();
 
   // Réglages seuils de couleur (%, jours) + règle "compétence acquise"
   function refreshAllTabsForThresholds() {
@@ -2943,7 +2995,8 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       'rscc_v2_palanquee_ratio_max', 'rscc_v2_palanquee_mode_default', 'rscc_v2_color_dark_principale',
       'rscc_v2_color_dark_vive', 'rscc_v2_color_light_principale', 'rscc_v2_color_light_vive',
       'rscc_v2_bg_dark', 'rscc_v2_bg_light', 'rscc_v2_text_dark', 'rscc_v2_text_light',
-      'rscc_v2_notif_breakpoint',
+      'rscc_v2_notif_breakpoint', 'rscc_v2_synth_sort', 'rscc_v2_synth_sort_memo',
+      'rscc_v2_synth_sans_seance_fin',
     ];
     ALL_SETTINGS_LS_KEYS.forEach(function(key) { try { localStorage.removeItem(key); } catch (e) {} });
     window.location.reload();
@@ -3687,10 +3740,23 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 
   function sortRowsData(rows, col, dir) {
     const colDef = TABLE_COLS.find(c => c.key === col) || TABLE_COLS[0];
+    // Tri alphabétique sur le prénom affiché (comme les tuiles) : les noms étant saisis de
+    // plusieurs façons (« Dupont Léa », « Kevin F », « Amir »), trier le texte brut les mélangerait.
+    const display = buildDisplayNames(STATE.eleves || []);
+    const libelle = r => (r.eleve && display[r.eleve.id]) || r.nom || '';
+    const parNom = (a, b) => libelle(a).localeCompare(libelle(b), 'fr', { sensitivity: 'base' });
+    const sansSeance = r => !!(r.eleve && !(r.eleve.nb_seances > 0));
     return rows.slice().sort(function(a, b) {
-      const va = colDef.getValue(a), vb = colDef.getValue(b);
-      const cmp = colDef.type === 'number' ? (va || 0) - (vb || 0) : String(va).localeCompare(String(vb), 'fr');
-      return dir === 'desc' ? -cmp : cmp;
+      // Option : élèves sans aucune séance regroupés en fin de tableau, quel que soit le tri
+      if (synthSansSeanceFin && sansSeance(a) !== sansSeance(b)) return sansSeance(a) ? 1 : -1;
+      let cmp;
+      if (colDef.key === 'nom') cmp = parNom(a, b);
+      else {
+        const va = colDef.getValue(a), vb = colDef.getValue(b);
+        cmp = colDef.type === 'number' ? (va || 0) - (vb || 0) : String(va).localeCompare(String(vb), 'fr');
+      }
+      if (dir === 'desc') cmp = -cmp;
+      return cmp || parNom(a, b); // à égalité : ordre alphabétique stable
     });
   }
 
@@ -3946,8 +4012,6 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   let activeCharts = [];
   let lastEleveList = []; // dernière liste affichée (après filtre/tri), pour recolorer sans tout reconstruire
   let currentQuery = '';
-  let currentSortCol = 'nom';
-  let currentSortDir = 'asc';
   let currentRowsData = []; // lignes actuellement affichées (filtrées + triées), pour les exports
   function destroyStudentCharts() {
     activeCharts.forEach(c => c.destroy());
@@ -4333,6 +4397,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
           const col = th.dataset.col;
           if (col === currentSortCol) currentSortDir = (currentSortDir === 'asc' ? 'desc' : 'asc');
           else { currentSortCol = col; currentSortDir = 'asc'; }
+          saveSynthSort();
           draw();
         });
       });
