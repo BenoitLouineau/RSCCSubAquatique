@@ -639,7 +639,28 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 .sub-card-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: var(--muted); margin-bottom: 10px; }
 
 .seance-mini-card { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 10px 12px; background: var(--chip); margin-bottom: 8px; }
-.seance-mini-date { font-size: 12.5px; font-weight: 700; margin-bottom: 6px; }
+.seance-mini-date { font-size: 12.5px; font-weight: 700; }
+.seance-mini-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
+.seance-mini-head .seance-cr { margin-left: auto; }
+.seance-mini-ateliers { margin: -2px 0 8px; }
+.seance-ateliers { font-size: 12px; color: var(--muted); }
+.seance-cr { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; white-space: nowrap; background: var(--chip); border: 1px solid var(--border); }
+.seance-cr.ok { color: #22c55e; border-color: rgba(34,197,94,.35); background: rgba(34,197,94,.10); }
+.seance-cr.partiel { color: #f59e0b; border-color: rgba(245,158,11,.35); background: rgba(245,158,11,.10); }
+.seance-cr.ko { color: #ef4444; border-color: rgba(239,68,68,.35); background: rgba(239,68,68,.10); }
+.seances-list.compact { border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 8px; }
+.seance-compact { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 8px 12px; background: var(--chip); font-size: 12.5px; }
+.seance-compact + .seance-compact { border-top: 1px solid var(--border); }
+.seance-compact-date { font-weight: 700; }
+.seance-compact-nb { color: var(--muted); }
+.seance-compact .seance-cr { margin-left: auto; }
+.seances-more.hidden { display: none; }
+.seances-more-btn {
+  width: 100%; margin-top: 2px; padding: 7px 10px; border-radius: var(--radius-sm); cursor: pointer;
+  border: 1px dashed var(--border); background: transparent; color: var(--brand); font-size: 12.5px; font-weight: 700;
+}
+.seances-more-btn:hover { background: var(--chip); }
+.seances-period { margin-left: 8px; font-size: 11px; font-weight: 600; color: var(--muted); text-transform: none; letter-spacing: 0; }
 .seance-mini-chips { display: flex; flex-wrap: wrap; gap: 6px; }
 
 .chips-wrap { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -1232,8 +1253,9 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         <p class="settings-info">Le filtre de période et les colonnes affichées du tableau "Suivi de CR" se configurent directement dans l'onglet Moniteurs (déjà mémorisés automatiquement).</p>
       </div>
       <div class="settings-section">
-        <div class="settings-section-title">🔜 À venir</div>
-        <div class="settings-todo">Nombre de séances affichées dans "Dernières séances" (fiche moniteur).</div>
+        <div class="settings-section-title">🕐 Dernières séances (fiche moniteur)</div>
+        <p class="settings-info">Séances affichées d'emblée sur chaque fiche moniteur (mêmes périodes que l'historique de la fiche élève). Les séances plus anciennes restent accessibles avec le bouton « Voir plus » de la fiche.</p>
+        <div id="moniteurSeancesOptions"></div>
       </div>
     </div>
 
@@ -1652,6 +1674,63 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       });
     }
     return allDates.slice(-5);
+  }
+
+  // =====================================================================
+  // RÉGLAGES — « DERNIÈRES SÉANCES » DE LA FICHE MONITEUR
+  // =====================================================================
+  const LS_MON_SEANCES_RANGE = 'rscc_v2_moniteur_seances_range';
+  const LS_MON_SEANCES_ATELIERS = 'rscc_v2_moniteur_seances_ateliers';
+  const LS_MON_SEANCES_CR = 'rscc_v2_moniteur_seances_cr';
+  const LS_MON_SEANCES_COMPACT = 'rscc_v2_moniteur_seances_compact';
+  function monLsFlag(key, defaut) {
+    try { const v = localStorage.getItem(key); return v === null ? defaut : v === '1'; } catch (e) { return defaut; }
+  }
+  const MON_SEANCES = {
+    range: (function() {
+      try { const v = localStorage.getItem(LS_MON_SEANCES_RANGE); if (v && HISTORIQUE_RANGE_LABELS[v]) return v; } catch (e) {}
+      return 'last5';
+    })(),
+    ateliers: monLsFlag(LS_MON_SEANCES_ATELIERS, true),
+    cr: monLsFlag(LS_MON_SEANCES_CR, true),
+    compact: monLsFlag(LS_MON_SEANCES_COMPACT, false),
+  };
+
+  function populateMoniteurSeancesOptions() {
+    const el = $('#moniteurSeancesOptions');
+    if (!el) return;
+    const check = (id, on, titre, aide) =>
+      '<label><input type="checkbox" id="' + id + '"' + (on ? ' checked' : '') + '/> ' +
+      '<span>' + titre + '<span class="settings-hint">' + aide + '</span></span></label>';
+    el.innerHTML =
+      '<div class="settings-radio-group">' +
+        Object.keys(HISTORIQUE_RANGE_LABELS).map(function(mode) {
+          return '<label><input type="radio" name="moniteurSeancesRange" value="' + mode + '"' +
+            (mode === MON_SEANCES.range ? ' checked' : '') + '/> ' + HISTORIQUE_RANGE_LABELS[mode] + '</label>';
+        }).join('') +
+      '</div>' +
+      '<div class="settings-radio-group" style="margin-top:10px;">' +
+        check('optMonAteliers', MON_SEANCES.ateliers, 'Afficher les ateliers traités', 'Ex. « Palmage · Gréage ».') +
+        check('optMonCr', MON_SEANCES.cr, 'Afficher l\'indicateur de commentaires', 'Nombre d\'élèves ayant un compte rendu commenté (même règle que « Suivi de CR »).') +
+        check('optMonCompact', MON_SEANCES.compact, 'Présentation compacte', 'Une ligne par séance, sans la liste des élèves.') +
+      '</div>';
+    const refresh = () => { if (STATE.moniteurs) renderMoniteurs(); };
+    $$('input[name="moniteurSeancesRange"]', el).forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        if (!radio.checked) return;
+        MON_SEANCES.range = radio.value;
+        try { localStorage.setItem(LS_MON_SEANCES_RANGE, radio.value); } catch (e) {}
+        refresh();
+      });
+    });
+    [['optMonAteliers', 'ateliers', LS_MON_SEANCES_ATELIERS], ['optMonCr', 'cr', LS_MON_SEANCES_CR],
+     ['optMonCompact', 'compact', LS_MON_SEANCES_COMPACT]].forEach(function(t) {
+      $('#' + t[0], el).addEventListener('change', function(ev) {
+        MON_SEANCES[t[1]] = ev.target.checked;
+        try { localStorage.setItem(t[2], ev.target.checked ? '1' : '0'); } catch (e) {}
+        refresh();
+      });
+    });
   }
 
   // =====================================================================
@@ -2729,6 +2808,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 
   populateHistoriqueRangeOptions();
   populateSyntheseSortOptions();
+  populateMoniteurSeancesOptions();
 
   // Réglages seuils de couleur (%, jours) + règle "compétence acquise"
   function refreshAllTabsForThresholds() {
@@ -2996,7 +3076,8 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       'rscc_v2_color_dark_vive', 'rscc_v2_color_light_principale', 'rscc_v2_color_light_vive',
       'rscc_v2_bg_dark', 'rscc_v2_bg_light', 'rscc_v2_text_dark', 'rscc_v2_text_light',
       'rscc_v2_notif_breakpoint', 'rscc_v2_synth_sort', 'rscc_v2_synth_sort_memo',
-      'rscc_v2_synth_sans_seance_fin',
+      'rscc_v2_synth_sans_seance_fin', 'rscc_v2_moniteur_seances_range', 'rscc_v2_moniteur_seances_ateliers',
+      'rscc_v2_moniteur_seances_cr', 'rscc_v2_moniteur_seances_compact',
     ];
     ALL_SETTINGS_LS_KEYS.forEach(function(key) { try { localStorage.removeItem(key); } catch (e) {} });
     window.location.reload();
@@ -4568,6 +4649,96 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       .slice(0, limit || 5);
   }
 
+  /** Toutes les séances animées par un moniteur, de la plus récente à la plus ancienne. */
+  function getSeancesMoniteur(moniteurNom) {
+    return (STATE.seances || [])
+      .filter(s => s.moniteur === moniteurNom)
+      .slice()
+      .sort((a, b) => (b.date_seance || '').localeCompare(a.date_seance || ''));
+  }
+
+  /** Commentaire présent — même règle que le tableau « Suivi de CR » : tout texte compte,
+   *  y compris « Aucun commentaire » que le script substitue aux cellules vides
+   *  (choix validé : les deux affichages restent cohérents). */
+  function isVraiCommentaire(c) {
+    return !!String(c || '').trim();
+  }
+
+  /** Indicateur par séance : élèves ayant reçu un vrai commentaire / élèves de la séance. */
+  function seanceCrBadge(s) {
+    const eleves = s.eleves || [];
+    const commentes = new Set((s.comptes_rendus || []).filter(cr => isVraiCommentaire(cr.commentaire)).map(cr => cr.eleve));
+    const n = eleves.filter(e => commentes.has(e)).length, total = eleves.length;
+    const cls = !total ? 'neutre' : (n === total ? 'ok' : (n === 0 ? 'ko' : 'partiel'));
+    const icone = cls === 'ok' ? '✅' : (cls === 'ko' ? '⚠' : '📝');
+    const title = n === 0 ? 'Aucun élève n\'a reçu de commentaire sur cette séance'
+      : n + ' élève' + (n > 1 ? 's' : '') + ' sur ' + total + ' avec un commentaire';
+    return '<span class="seance-cr ' + cls + '" title="' + escapeHtml(title) + '">' + icone + ' ' + n + '/' + total + ' commentés</span>';
+  }
+
+  function seanceAteliersHtml(s) {
+    const at = (s.ateliers_traites || []).filter(a => a && a !== "Pas d'atelier");
+    return at.length ? '<span class="seance-ateliers">' + at.map(escapeHtml).join(' · ') + '</span>' : '';
+  }
+
+  function seanceItemHtml(s, nameByNom) {
+    const nb = (s.eleves || []).length;
+    const date = ICONS.calendrier + ' ' + formatDateFR(s.date_seance);
+    if (MON_SEANCES.compact) {
+      return '<div class="seance-compact">' +
+        '<span class="seance-compact-date">' + date + '</span>' +
+        '<span class="seance-compact-nb">' + nb + ' élève' + (nb > 1 ? 's' : '') + '</span>' +
+        (MON_SEANCES.ateliers ? seanceAteliersHtml(s) : '') +
+        (MON_SEANCES.cr ? seanceCrBadge(s) : '') +
+      '</div>';
+    }
+    return '<div class="seance-mini-card">' +
+      '<div class="seance-mini-head"><span class="seance-mini-date">' + date + '</span>' +
+        (MON_SEANCES.cr ? seanceCrBadge(s) : '') + '</div>' +
+      (MON_SEANCES.ateliers && seanceAteliersHtml(s) ? '<div class="seance-mini-ateliers">' + seanceAteliersHtml(s) + '</div>' : '') +
+      '<div class="seance-mini-chips">' + (s.eleves || []).map(el => eleveChipHtml(el, nameByNom)).join('') + '</div>' +
+    '</div>';
+  }
+
+  /** Bloc « Dernières séances » : période choisie dans les réglages + « Voir plus » pour le reste. */
+  function buildMoniteurSeancesBloc(m, nameByNom) {
+    const toutes = getSeancesMoniteur(m.nom);
+    if (!toutes.length) return '<div class="presence-empty">Aucune séance animée pour le moment.</div>';
+    let visibles;
+    if (MON_SEANCES.range === 'last5') visibles = toutes.slice(0, 5);
+    else {
+      const datesAsc = toutes.map(s => s.date_seance).filter(Boolean).sort();
+      const garder = new Set(filterDatesByRange(datesAsc, MON_SEANCES.range));
+      visibles = toutes.filter(s => garder.has(s.date_seance));
+    }
+    const ids = new Set(visibles.map(s => s.id));
+    const autres = toutes.filter(s => !ids.has(s.id));
+    const wrap = MON_SEANCES.compact ? 'seances-list compact' : 'seances-list';
+    let html = visibles.length
+      ? '<div class="' + wrap + '">' + visibles.map(s => seanceItemHtml(s, nameByNom)).join('') + '</div>'
+      : '<div class="presence-empty">Aucune séance sur cette période.</div>';
+    if (autres.length) {
+      html += '<div class="' + wrap + ' seances-more hidden" data-seances-more-list="' + escapeHtml(m.id) + '">' +
+          autres.map(s => seanceItemHtml(s, nameByNom)).join('') + '</div>' +
+        '<button type="button" class="seances-more-btn" data-seances-more="' + escapeHtml(m.id) + '" data-n="' + autres.length + '">' +
+          'Afficher ' + (autres.length > 1 ? 'les ' + autres.length + ' séances précédentes' : 'la séance précédente') + ' ▾</button>';
+    }
+    return html;
+  }
+
+  // « Voir plus / Réduire » des fiches moniteur — délégation : fonctionne après chaque re-rendu
+  document.addEventListener('click', function(ev) {
+    const btn = ev.target.closest && ev.target.closest('[data-seances-more]');
+    if (!btn) return;
+    const id = btn.dataset.seancesMore;
+    const list = document.querySelector('[data-seances-more-list="' + (window.CSS && CSS.escape ? CSS.escape(id) : id) + '"]');
+    if (!list) return;
+    const ouvert = list.classList.toggle('hidden') === false;
+    const n = +btn.dataset.n;
+    btn.textContent = ouvert ? 'Réduire ▴'
+      : 'Afficher ' + (n > 1 ? 'les ' + n + ' séances précédentes' : 'la séance précédente') + ' ▾';
+  });
+
   const CR_FILTER_LABELS = {
     derniere: 'Dernière séance',
     month: 'Mois en cours',
@@ -4786,19 +4957,11 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     const suivisSet = getElevesSuivisParMoniteur(m.nom);
     const suivis = (STATE.eleves || []).filter(e => suivisSet.has(e.nom));
     const nonSuivis = (STATE.eleves || []).filter(e => !suivisSet.has(e.nom));
-    const dernieresSeances = getDernieresSeancesMoniteur(m.nom, 5);
+    const seancesBloc = buildMoniteurSeancesBloc(m, nameByNom);
 
     const canvasCouverture = 'donut-couverture-' + m.id;
     const canvasPresenceM = 'donut-presencemoniteur-' + m.id;
 
-    const seancesHtml = dernieresSeances.length
-      ? dernieresSeances.map(function(s) {
-          return '<div class="seance-mini-card">' +
-            '<div class="seance-mini-date">' + ICONS.calendrier + ' ' + formatDateFR(s.date_seance) + '</div>' +
-            '<div class="seance-mini-chips">' + (s.eleves || []).map(el => eleveChipHtml(el, nameByNom)).join('') + '</div>' +
-          '</div>';
-        }).join('')
-      : '<div class="presence-empty">Aucune séance animée pour le moment.</div>';
 
     return '<div class="student-card moniteur-card" id="moniteur-' + escapeHtml(m.id) + '">' +
       '<div class="moniteur-head">' +
@@ -4823,7 +4986,8 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
           '<div class="donut-legend"><span class="dl-item"><span class="dl-dot" style="background:var(--ok);"></span>' + seasonStats.nbSeances + '/' + STATE.allDates.length + ' séances</span></div>' +
         '</div>' +
       '</div>' +
-      '<div class="sub-card"><div class="sub-card-title">' + ICONS.horloge + ' Dernières séances</div>' + seancesHtml + '</div>' +
+      '<div class="sub-card"><div class="sub-card-title">' + ICONS.horloge + ' Dernières séances' +
+        '<span class="seances-period">' + escapeHtml(HISTORIQUE_RANGE_LABELS[MON_SEANCES.range]) + '</span></div>' + seancesBloc + '</div>' +
       '<div class="sub-card"><div class="sub-card-title">' + ICONS.eleve + ' Élèves suivis (' + suivis.length + ')</div>' +
         '<div class="chips-wrap" data-suivis-chips="' + m.id + '">' + suivis.map(e => eleveChipHtml(e.nom, nameByNom)).join('') + '</div>' +
       '</div>' +
