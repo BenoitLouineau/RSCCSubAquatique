@@ -1,32 +1,140 @@
 {
-  "date_generation": "2026-10-07T00:07:14",
-  "nb_eleves": 16,
+  "date_generation": "2026-10-07T00:09:40",
+  "nb_eleves": 18,
   "nb_moniteurs": 10,
-  "nb_seances": 3,
-  "nb_comptes_rendus": 13,
+  "nb_seances": 6,
+  "nb_comptes_rendus": 50,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
-    "date_max": "2026-09-29"
+    "date_max": "2026-10-06"
   },
   "acquisition_par_atelier": [
     {
       "atelier": "Gréage",
-      "nb_evaluations": 6,
-      "moyenne": 1.5,
-      "note_min": 1,
-      "note_max": 2,
+      "nb_evaluations": 10,
+      "moyenne": 2.0,
+      "note_min": 1.0,
+      "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "DBN",
+      "nb_evaluations": 6,
+      "moyenne": 3.67,
+      "note_min": 2.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": false
     },
     {
       "atelier": "Palmage",
       "nb_evaluations": 6,
       "moyenne": 1.33,
-      "note_min": 1,
-      "note_max": 2,
+      "note_min": 1.0,
+      "note_max": 2.0,
       "notable": true,
       "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "dégréage",
+      "nb_evaluations": 6,
+      "moyenne": 3.17,
+      "note_min": 2.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Gestion du gilet",
+      "nb_evaluations": 4,
+      "moyenne": 2.25,
+      "note_min": 2.0,
+      "note_max": 3.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Déplacements immersion",
+      "nb_evaluations": 2,
+      "moyenne": 2.0,
+      "note_min": 2.0,
+      "note_max": 2.0,
+      "notable": true,
+      "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "Gestion de son matériel",
+      "nb_evaluations": 2,
+      "moyenne": 3.0,
+      "note_min": 2.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Mise en sécu surface",
+      "nb_evaluations": 2,
+      "moyenne": 3.0,
+      "note_min": 3.0,
+      "note_max": 3.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Poumon Ballast",
+      "nb_evaluations": 2,
+      "moyenne": 2.0,
+      "note_min": 2.0,
+      "note_max": 2.0,
+      "notable": true,
+      "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "Signes",
+      "nb_evaluations": 2,
+      "moyenne": 3.5,
+      "note_min": 3.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Sortie de l'eau",
+      "nb_evaluations": 2,
+      "moyenne": 3.0,
+      "note_min": 2.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "VDM partiel",
+      "nb_evaluations": 2,
+      "moyenne": 1.5,
+      "note_min": 1.0,
+      "note_max": 2.0,
+      "notable": true,
+      "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "Vitesse de remontée",
+      "nb_evaluations": 2,
+      "moyenne": 2.0,
+      "note_min": 2.0,
+      "note_max": 2.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Remonté expi controlée",
+      "nb_evaluations": 1,
+      "moyenne": 2.0,
+      "note_min": 2.0,
+      "note_max": 2.0,
+      "notable": true,
+      "compte_dans_moyenne": true
     }
   ],
   "progression_par_eleve": [
@@ -36,19 +144,29 @@
       "moyenne_generale": null
     },
     {
+      "eleve": "Abdou",
+      "nb_ateliers_evalues": 3,
+      "moyenne_generale": 3.0
+    },
+    {
       "eleve": "Amir",
       "nb_ateliers_evalues": 1,
       "moyenne_generale": 1.0
     },
     {
       "eleve": "Aubrée",
-      "nb_ateliers_evalues": 1,
-      "moyenne_generale": 1.0
+      "nb_ateliers_evalues": 10,
+      "moyenne_generale": 2.2
     },
     {
       "eleve": "Camille",
-      "nb_ateliers_evalues": 1,
-      "moyenne_generale": 1.0
+      "nb_ateliers_evalues": 7,
+      "moyenne_generale": 3.43
+    },
+    {
+      "eleve": "Catherine",
+      "nb_ateliers_evalues": 6,
+      "moyenne_generale": 2.5
     },
     {
       "eleve": "Célia",
@@ -57,8 +175,8 @@
     },
     {
       "eleve": "Guillaume",
-      "nb_ateliers_evalues": 2,
-      "moyenne_generale": 2.0
+      "nb_ateliers_evalues": 4,
+      "moyenne_generale": 3.25
     },
     {
       "eleve": "Hanane",
@@ -82,8 +200,8 @@
     },
     {
       "eleve": "Kévin D",
-      "nb_ateliers_evalues": 1,
-      "moyenne_generale": 2.0
+      "nb_ateliers_evalues": 11,
+      "moyenne_generale": 2.36
     },
     {
       "eleve": "Michèle",
@@ -126,7 +244,6 @@
     "moniteurs_referentiel_jamais_actifs": [
       "Carlos",
       "Catherine",
-      "Christophe",
       "Hervé",
       "Nicos",
       "Virginie",
