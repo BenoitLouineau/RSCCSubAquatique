@@ -128,5 +128,375 @@
     "moniteur": "Benoit L",
     "presence": "Présent",
     "statut": "Non acquis"
+  },
+  {
+    "eleve": "Aubrée",
+    "genre": "",
+    "categorie": "Mise en sécu surface",
+    "competence": "Mise en sécu surface",
+    "date": "2026-10-06",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Aubrée",
+    "genre": "",
+    "categorie": "Poumon Ballast",
+    "competence": "Poumon Ballast",
+    "date": "2026-10-06",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Aubrée",
+    "genre": "",
+    "categorie": "Déplacements immersion",
+    "competence": "Déplacements immersion",
+    "date": "2026-10-06",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Aubrée",
+    "genre": "",
+    "categorie": "Vitesse de remontée",
+    "competence": "Vitesse de remontée",
+    "date": "2026-10-06",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Aubrée",
+    "genre": "",
+    "categorie": "Gestion du gilet",
+    "competence": "Gestion du gilet",
+    "date": "2026-10-06",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Aubrée",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-10-06",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Aubrée",
+    "genre": "",
+    "categorie": "Sortie de l'eau",
+    "competence": "Sortie de l'eau",
+    "date": "2026-10-06",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Aubrée",
+    "genre": "",
+    "categorie": "VDM partiel",
+    "competence": "VDM partiel",
+    "date": "2026-10-06",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Aubrée",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-10-06",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-10-06",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-10-06",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "Mise en sécu surface",
+    "competence": "Mise en sécu surface",
+    "date": "2026-10-06",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "Poumon Ballast",
+    "competence": "Poumon Ballast",
+    "date": "2026-10-06",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "Remonté expi controlée",
+    "competence": "Remonté expi controlée",
+    "date": "2026-10-06",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "Gestion du gilet",
+    "competence": "Gestion du gilet",
+    "date": "2026-10-06",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "VDM partiel",
+    "competence": "VDM partiel",
+    "date": "2026-10-06",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "Vitesse de remontée",
+    "competence": "Vitesse de remontée",
+    "date": "2026-10-06",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "Sortie de l'eau",
+    "competence": "Sortie de l'eau",
+    "date": "2026-10-06",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "Déplacements immersion",
+    "competence": "Déplacements immersion",
+    "date": "2026-10-06",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-10-06",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-10-06",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-10-06",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Gestion du gilet",
+    "competence": "Gestion du gilet",
+    "date": "2026-10-06",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Signes",
+    "competence": "Signes",
+    "date": "2026-10-06",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-10-06",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "Signes",
+    "competence": "Signes",
+    "date": "2026-10-06",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-10-06",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-10-06",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-10-06",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-10-06",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "Gestion du gilet",
+    "competence": "Gestion du gilet",
+    "date": "2026-10-06",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Guillaume",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-10-05",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Guillaume",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-10-05",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Guillaume",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-10-05",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Abdou",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-10-05",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Abdou",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-10-05",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Abdou",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-10-05",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
   }
 ]
