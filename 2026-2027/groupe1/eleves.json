@@ -1047,15 +1047,17 @@
     "id": "mohamed",
     "nom": "Mohamed",
     "caci": true,
-    "nb_seances": 1,
+    "nb_seances": 2,
     "dates_seances": [
-      "2026-09-29"
+      "2026-09-29",
+      "2026-10-05"
     ],
     "moniteurs": [
       "Benoit L",
-      "Carine"
+      "Carine",
+      "Carlos"
     ],
-    "nb_competences_travaillees": 1,
+    "nb_competences_travaillees": 4,
     "competences": {
       "Gréage": {
         "nb_evaluations": 2,
@@ -1073,6 +1075,42 @@
             "moniteur": "Benoit L"
           }
         ]
+      },
+      "Gestion de son matériel": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-05",
+            "note": 3.0,
+            "moniteur": "Carlos"
+          }
+        ]
+      },
+      "DBN": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-10-05",
+            "note": 4.0,
+            "moniteur": "Carlos"
+          }
+        ]
+      },
+      "dégréage": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-05",
+            "note": 3.0,
+            "moniteur": "Carlos"
+          }
+        ]
       }
     },
     "commentaires": [
@@ -1087,6 +1125,24 @@
         "moniteur": "Benoit L",
         "atelier": "Gréage",
         "commentaire": "Élève sérieux et attentif aux explications et mouvement pédalier rapidement remplacé par l'attendu du geste du palmage. C'est encourageant pour la suite."
+      },
+      {
+        "date": "2026-10-05",
+        "moniteur": "Carlos",
+        "atelier": "Gestion de son matériel",
+        "commentaire": "Pour Nábi et Mohamed, les deux très alaise dans l'eau. DBN bien maîtriser, nous avons vu les purges lente et les purges rapides. une fois que tous que c'est bien passé, nous sommes passés à la fosse et refaits les exercices. Pour le degreage c est en cours d'acquisition.  Très bonne séance..."
+      },
+      {
+        "date": "2026-10-05",
+        "moniteur": "Carlos",
+        "atelier": "DBN",
+        "commentaire": "Pour Nábi et Mohamed, les deux très alaise dans l'eau. DBN bien maîtriser, nous avons vu les purges lente et les purges rapides. une fois que tous que c'est bien passé, nous sommes passés à la fosse et refaits les exercices. Pour le degreage c est en cours d'acquisition.  Très bonne séance..."
+      },
+      {
+        "date": "2026-10-05",
+        "moniteur": "Carlos",
+        "atelier": "dégréage",
+        "commentaire": "Pour Nábi et Mohamed, les deux très alaise dans l'eau. DBN bien maîtriser, nous avons vu les purges lente et les purges rapides. une fois que tous que c'est bien passé, nous sommes passés à la fosse et refaits les exercices. Pour le degreage c est en cours d'acquisition.  Très bonne séance..."
       }
     ]
   },
@@ -1094,14 +1150,16 @@
     "id": "nabiyu",
     "nom": "Nabiyu",
     "caci": true,
-    "nb_seances": 1,
+    "nb_seances": 2,
     "dates_seances": [
-      "2026-09-29"
+      "2026-09-29",
+      "2026-10-05"
     ],
     "moniteurs": [
-      "Carine"
+      "Carine",
+      "Carlos"
     ],
-    "nb_competences_travaillees": 1,
+    "nb_competences_travaillees": 4,
     "competences": {
       "Gréage": {
         "nb_evaluations": 1,
@@ -1114,6 +1172,42 @@
             "moniteur": "Carine"
           }
         ]
+      },
+      "dégréage": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-05",
+            "note": 2.0,
+            "moniteur": "Carlos"
+          }
+        ]
+      },
+      "DBN": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-10-05",
+            "note": 4.0,
+            "moniteur": "Carlos"
+          }
+        ]
+      },
+      "Gestion de son matériel": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-05",
+            "note": 2.0,
+            "moniteur": "Carlos"
+          }
+        ]
       }
     },
     "commentaires": [
@@ -1121,6 +1215,24 @@
         "date": "2026-09-29",
         "moniteur": "Carine",
         "atelier": "Gréage",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-05",
+        "moniteur": "Carlos",
+        "atelier": "dégréage",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-05",
+        "moniteur": "Carlos",
+        "atelier": "DBN",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-05",
+        "moniteur": "Carlos",
+        "atelier": "Gestion de son matériel",
         "commentaire": "Aucun commentaire"
       }
     ]
