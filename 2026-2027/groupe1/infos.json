@@ -6,12 +6,17 @@
   },
   {
     "ligne": 2,
-    "accueil": "🚨🚨 CACI à vérifier 🚨🚨",
+    "accueil": "🚨 CACI à vérifier 🚨",
     "url": null
   },
   {
     "ligne": 3,
     "accueil": "🔥Padlet Moniteurs🔥",
     "url": "https://padlet.com/nicolascausse/moniteurs-g1-s023q3zl63gheat4p8ga"
+  },
+  {
+    "ligne": 4,
+    "accueil": "🎯Suivi des stagiaires🎯",
+    "url": "https://benoitlouineau.github.io/RSCCSubAquatique/"
   }
 ]
