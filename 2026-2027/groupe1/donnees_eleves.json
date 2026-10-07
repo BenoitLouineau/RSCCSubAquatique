@@ -558,5 +558,285 @@
     "moniteur": "Carlos",
     "presence": "Présent",
     "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Michèle",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-10-06",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Michèle",
+    "genre": "",
+    "categorie": "Déplacements immersion",
+    "competence": "Déplacements immersion",
+    "date": "2026-10-06",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Michèle",
+    "genre": "",
+    "categorie": "Poumon Ballast",
+    "competence": "Poumon Ballast",
+    "date": "2026-10-06",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-10-06",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "Poumon Ballast",
+    "competence": "Poumon Ballast",
+    "date": "2026-10-06",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "Déplacements immersion",
+    "competence": "Déplacements immersion",
+    "date": "2026-10-06",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-10-06",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Hanane",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-10-06",
+    "moniteur": "Hervé",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Hanane",
+    "genre": "",
+    "categorie": "Gestion du gilet",
+    "competence": "Gestion du gilet",
+    "date": "2026-10-06",
+    "moniteur": "Hervé",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Hanane",
+    "genre": "",
+    "categorie": "Soin au materiel",
+    "competence": "Soin au materiel",
+    "date": "2026-10-06",
+    "moniteur": "Hervé",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Hanane",
+    "genre": "",
+    "categorie": "Sortie de l'eau",
+    "competence": "Sortie de l'eau",
+    "date": "2026-10-06",
+    "moniteur": "Hervé",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Hanane",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-10-06",
+    "moniteur": "Hervé",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Hanane",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-10-06",
+    "moniteur": "Hervé",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Hanane",
+    "genre": "",
+    "categorie": "Vitesse de remontée",
+    "competence": "Vitesse de remontée",
+    "date": "2026-10-06",
+    "moniteur": "Hervé",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Hanane",
+    "genre": "",
+    "categorie": "Mise en sécu surface",
+    "competence": "Mise en sécu surface",
+    "date": "2026-10-06",
+    "moniteur": "Hervé",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Hanane",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-10-06",
+    "moniteur": "Hervé",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Hanane",
+    "genre": "",
+    "categorie": "Déplacements immersion",
+    "competence": "Déplacements immersion",
+    "date": "2026-10-06",
+    "moniteur": "Hervé",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "Gestion du gilet",
+    "competence": "Gestion du gilet",
+    "date": "2026-10-06",
+    "moniteur": "Hervé",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-10-06",
+    "moniteur": "Hervé",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-10-06",
+    "moniteur": "Hervé",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-10-06",
+    "moniteur": "Hervé",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "Soin au materiel",
+    "competence": "Soin au materiel",
+    "date": "2026-10-06",
+    "moniteur": "Hervé",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "Déplacements immersion",
+    "competence": "Déplacements immersion",
+    "date": "2026-10-06",
+    "moniteur": "Hervé",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "Signes",
+    "competence": "Signes",
+    "date": "2026-10-06",
+    "moniteur": "Hervé",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-10-06",
+    "moniteur": "Hervé",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "Vitesse de remontée",
+    "competence": "Vitesse de remontée",
+    "date": "2026-10-06",
+    "moniteur": "Hervé",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-10-06",
+    "moniteur": "Hervé",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Hanane",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-10-06",
+    "moniteur": "Hervé",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
   }
 ]
