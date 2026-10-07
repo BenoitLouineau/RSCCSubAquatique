@@ -444,7 +444,7 @@
     "genre": "",
     "categorie": "DBN",
     "competence": "DBN",
-    "date": "2026-10-05",
+    "date": "2026-10-06",
     "moniteur": "Carine",
     "presence": "Présent",
     "statut": "Acquis"
@@ -454,7 +454,7 @@
     "genre": "",
     "categorie": "Gréage",
     "competence": "Gréage",
-    "date": "2026-10-05",
+    "date": "2026-10-06",
     "moniteur": "Carine",
     "presence": "Présent",
     "statut": "Acquis"
@@ -464,7 +464,7 @@
     "genre": "",
     "categorie": "dégréage",
     "competence": "dégréage",
-    "date": "2026-10-05",
+    "date": "2026-10-06",
     "moniteur": "Carine",
     "presence": "Présent",
     "statut": "Acquis"
@@ -474,7 +474,7 @@
     "genre": "",
     "categorie": "DBN",
     "competence": "DBN",
-    "date": "2026-10-05",
+    "date": "2026-10-06",
     "moniteur": "Carine",
     "presence": "Présent",
     "statut": "Acquis"
@@ -484,7 +484,7 @@
     "genre": "",
     "categorie": "dégréage",
     "competence": "dégréage",
-    "date": "2026-10-05",
+    "date": "2026-10-06",
     "moniteur": "Carine",
     "presence": "Présent",
     "statut": "Acquis"
@@ -494,7 +494,7 @@
     "genre": "",
     "categorie": "Gréage",
     "competence": "Gréage",
-    "date": "2026-10-05",
+    "date": "2026-10-06",
     "moniteur": "Carine",
     "presence": "Présent",
     "statut": "En cours d'acquisition"
@@ -504,7 +504,7 @@
     "genre": "",
     "categorie": "Gestion de son matériel",
     "competence": "Gestion de son matériel",
-    "date": "2026-10-05",
+    "date": "2026-10-06",
     "moniteur": "Carlos",
     "presence": "Présent",
     "statut": "Acquis"
@@ -514,7 +514,7 @@
     "genre": "",
     "categorie": "DBN",
     "competence": "DBN",
-    "date": "2026-10-05",
+    "date": "2026-10-06",
     "moniteur": "Carlos",
     "presence": "Présent",
     "statut": "Acquis"
@@ -524,7 +524,7 @@
     "genre": "",
     "categorie": "dégréage",
     "competence": "dégréage",
-    "date": "2026-10-05",
+    "date": "2026-10-06",
     "moniteur": "Carlos",
     "presence": "Présent",
     "statut": "Acquis"
@@ -534,7 +534,7 @@
     "genre": "",
     "categorie": "dégréage",
     "competence": "dégréage",
-    "date": "2026-10-05",
+    "date": "2026-10-06",
     "moniteur": "Carlos",
     "presence": "Présent",
     "statut": "En cours d'acquisition"
@@ -544,7 +544,7 @@
     "genre": "",
     "categorie": "DBN",
     "competence": "DBN",
-    "date": "2026-10-05",
+    "date": "2026-10-06",
     "moniteur": "Carlos",
     "presence": "Présent",
     "statut": "Acquis"
@@ -554,7 +554,7 @@
     "genre": "",
     "categorie": "Gestion de son matériel",
     "competence": "Gestion de son matériel",
-    "date": "2026-10-05",
+    "date": "2026-10-06",
     "moniteur": "Carlos",
     "presence": "Présent",
     "statut": "En cours d'acquisition"
@@ -821,16 +821,6 @@
   },
   {
     "eleve": "Amir",
-    "genre": "",
-    "categorie": "dégréage",
-    "competence": "dégréage",
-    "date": "2026-10-06",
-    "moniteur": "Hervé",
-    "presence": "Présent",
-    "statut": "En cours d'acquisition"
-  },
-  {
-    "eleve": "Hanane",
     "genre": "",
     "categorie": "dégréage",
     "competence": "dégréage",
