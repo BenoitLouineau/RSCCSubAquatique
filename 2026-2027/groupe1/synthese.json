@@ -1,24 +1,15 @@
 {
-  "date_generation": "2026-10-07T14:31:55",
+  "date_generation": "2026-10-07T18:24:57",
   "nb_eleves": 18,
   "nb_moniteurs": 10,
   "nb_seances": 9,
-  "nb_comptes_rendus": 84,
+  "nb_comptes_rendus": 83,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
     "date_max": "2026-10-06"
   },
   "acquisition_par_atelier": [
-    {
-      "atelier": "dégréage",
-      "nb_evaluations": 13,
-      "moyenne": 2.62,
-      "note_min": 2.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
     {
       "atelier": "DBN",
       "nb_evaluations": 12,
@@ -33,6 +24,15 @@
       "nb_evaluations": 12,
       "moyenne": 2.0,
       "note_min": 1.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "dégréage",
+      "nb_evaluations": 12,
+      "moyenne": 2.67,
+      "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
@@ -278,32 +278,6 @@
           {
             "ligne": 84,
             "horodatage": "2026-10-07T13:22:50.871000",
-            "note": 2.0,
-            "commentaire": "Aucun commentaire"
-          }
-        ]
-      },
-      {
-        "date_seance": "2026-10-06",
-        "moniteur": "Hervé",
-        "eleve": "Hanane",
-        "atelier": "dégréage",
-        "occurrences": 2,
-        "lignes": [
-          73,
-          85
-        ],
-        "type": "a_verifier",
-        "details": [
-          {
-            "ligne": 73,
-            "horodatage": "2026-10-07T13:12:15.322000",
-            "note": 2.0,
-            "commentaire": "elle plonge avec un shorty donc il faut lui faire prendre un bloc \"lourd\" voir lui mettre du plomb....problème de stab donc échange de matos.\npour le reste  elle est alaise. remonté dbn stabilisation mise et sortie de l'eau , capelage decap, gréage dégréa...."
-          },
-          {
-            "ligne": 85,
-            "horodatage": "2026-10-07T13:23:18.626000",
             "note": 2.0,
             "commentaire": "Aucun commentaire"
           }
