@@ -529,5 +529,246 @@
         "commentaire": "Aucun commentaire"
       }
     ]
+  },
+  {
+    "id": "2026-10-06_herve",
+    "date_seance": "2026-10-06",
+    "moniteur": "Hervé",
+    "nb_eleves": 2,
+    "eleves": [
+      "Amir",
+      "Hanane"
+    ],
+    "ateliers_traites": [
+      "DBN",
+      "Déplacements immersion",
+      "Gestion de son matériel",
+      "Gestion du gilet",
+      "Gréage",
+      "Mise en sécu surface",
+      "Signes",
+      "Soin au materiel",
+      "Sortie de l'eau",
+      "Vitesse de remontée",
+      "dégréage"
+    ],
+    "nb_comptes_rendus": 21,
+    "comptes_rendus": [
+      {
+        "ligne": 65,
+        "eleve": "Hanane",
+        "atelier": "Gréage",
+        "note": 2.0,
+        "commentaire": "elle plonge avec un shorty donc il faut lui faire prendre un bloc \"lourd\" voir lui mettre du plomb....problème de stab donc échange de matos.\npour le reste  elle est alaise. remonté dbn stabilisation mise et sortie de l'eau , capelage decap, gréage dégréa...."
+      },
+      {
+        "ligne": 66,
+        "eleve": "Hanane",
+        "atelier": "Gestion du gilet",
+        "note": 3.0,
+        "commentaire": "elle plonge avec un shorty donc il faut lui faire prendre un bloc \"lourd\" voir lui mettre du plomb....problème de stab donc échange de matos.\npour le reste  elle est alaise. remonté dbn stabilisation mise et sortie de l'eau , capelage decap, gréage dégréa...."
+      },
+      {
+        "ligne": 67,
+        "eleve": "Hanane",
+        "atelier": "Soin au materiel",
+        "note": 2.0,
+        "commentaire": "elle plonge avec un shorty donc il faut lui faire prendre un bloc \"lourd\" voir lui mettre du plomb....problème de stab donc échange de matos.\npour le reste  elle est alaise. remonté dbn stabilisation mise et sortie de l'eau , capelage decap, gréage dégréa...."
+      },
+      {
+        "ligne": 68,
+        "eleve": "Hanane",
+        "atelier": "Sortie de l'eau",
+        "note": 1.0,
+        "commentaire": "elle plonge avec un shorty donc il faut lui faire prendre un bloc \"lourd\" voir lui mettre du plomb....problème de stab donc échange de matos.\npour le reste  elle est alaise. remonté dbn stabilisation mise et sortie de l'eau , capelage decap, gréage dégréa...."
+      },
+      {
+        "ligne": 69,
+        "eleve": "Hanane",
+        "atelier": "DBN",
+        "note": 3.0,
+        "commentaire": "elle plonge avec un shorty donc il faut lui faire prendre un bloc \"lourd\" voir lui mettre du plomb....problème de stab donc échange de matos.\npour le reste  elle est alaise. remonté dbn stabilisation mise et sortie de l'eau , capelage decap, gréage dégréa...."
+      },
+      {
+        "ligne": 70,
+        "eleve": "Hanane",
+        "atelier": "Gestion de son matériel",
+        "note": 2.0,
+        "commentaire": "elle plonge avec un shorty donc il faut lui faire prendre un bloc \"lourd\" voir lui mettre du plomb....problème de stab donc échange de matos.\npour le reste  elle est alaise. remonté dbn stabilisation mise et sortie de l'eau , capelage decap, gréage dégréa...."
+      },
+      {
+        "ligne": 71,
+        "eleve": "Hanane",
+        "atelier": "Vitesse de remontée",
+        "note": 2.0,
+        "commentaire": "elle plonge avec un shorty donc il faut lui faire prendre un bloc \"lourd\" voir lui mettre du plomb....problème de stab donc échange de matos.\npour le reste  elle est alaise. remonté dbn stabilisation mise et sortie de l'eau , capelage decap, gréage dégréa...."
+      },
+      {
+        "ligne": 72,
+        "eleve": "Hanane",
+        "atelier": "Mise en sécu surface",
+        "note": 2.0,
+        "commentaire": "elle plonge avec un shorty donc il faut lui faire prendre un bloc \"lourd\" voir lui mettre du plomb....problème de stab donc échange de matos.\npour le reste  elle est alaise. remonté dbn stabilisation mise et sortie de l'eau , capelage decap, gréage dégréa...."
+      },
+      {
+        "ligne": 73,
+        "eleve": "Hanane",
+        "atelier": "dégréage",
+        "note": 2.0,
+        "commentaire": "elle plonge avec un shorty donc il faut lui faire prendre un bloc \"lourd\" voir lui mettre du plomb....problème de stab donc échange de matos.\npour le reste  elle est alaise. remonté dbn stabilisation mise et sortie de l'eau , capelage decap, gréage dégréa...."
+      },
+      {
+        "ligne": 74,
+        "eleve": "Hanane",
+        "atelier": "Déplacements immersion",
+        "note": 2.0,
+        "commentaire": "elle plonge avec un shorty donc il faut lui faire prendre un bloc \"lourd\" voir lui mettre du plomb....problème de stab donc échange de matos.\npour le reste  elle est alaise. remonté dbn stabilisation mise et sortie de l'eau , capelage decap, gréage dégréa...."
+      },
+      {
+        "ligne": 75,
+        "eleve": "Amir",
+        "atelier": "Gestion du gilet",
+        "note": 2.0,
+        "commentaire": "bon élevé, attentif et a une bonne restitution après les conseils a tous réussi . seul problème il a très froid rapidement vu  avec lui et son père pour l'éventuelle solution...mettre un pull over...."
+      },
+      {
+        "ligne": 76,
+        "eleve": "Amir",
+        "atelier": "dégréage",
+        "note": 2.0,
+        "commentaire": "bon élevé, attentif et a une bonne restitution après les conseils a tous réussi . seul problème il a très froid rapidement vu  avec lui et son père pour l'éventuelle solution...mettre un pull over...."
+      },
+      {
+        "ligne": 77,
+        "eleve": "Amir",
+        "atelier": "Gréage",
+        "note": 2.0,
+        "commentaire": "bon élevé, attentif et a une bonne restitution après les conseils a tous réussi . seul problème il a très froid rapidement vu  avec lui et son père pour l'éventuelle solution...mettre un pull over...."
+      },
+      {
+        "ligne": 78,
+        "eleve": "Amir",
+        "atelier": "Gestion de son matériel",
+        "note": 2.0,
+        "commentaire": "bon élevé, attentif et a une bonne restitution après les conseils a tous réussi . seul problème il a très froid rapidement vu  avec lui et son père pour l'éventuelle solution...mettre un pull over...."
+      },
+      {
+        "ligne": 79,
+        "eleve": "Amir",
+        "atelier": "Soin au materiel",
+        "note": 2.0,
+        "commentaire": "bon élevé, attentif et a une bonne restitution après les conseils a tous réussi . seul problème il a très froid rapidement vu  avec lui et son père pour l'éventuelle solution...mettre un pull over...."
+      },
+      {
+        "ligne": 80,
+        "eleve": "Amir",
+        "atelier": "Déplacements immersion",
+        "note": 2.0,
+        "commentaire": "bon élevé, attentif et a une bonne restitution après les conseils a tous réussi . seul problème il a très froid rapidement vu  avec lui et son père pour l'éventuelle solution...mettre un pull over...."
+      },
+      {
+        "ligne": 81,
+        "eleve": "Amir",
+        "atelier": "Signes",
+        "note": 2.0,
+        "commentaire": "bon élevé, attentif et a une bonne restitution après les conseils a tous réussi . seul problème il a très froid rapidement vu  avec lui et son père pour l'éventuelle solution...mettre un pull over...."
+      },
+      {
+        "ligne": 82,
+        "eleve": "Amir",
+        "atelier": "DBN",
+        "note": 2.0,
+        "commentaire": "bon élevé, attentif et a une bonne restitution après les conseils a tous réussi . seul problème il a très froid rapidement vu  avec lui et son père pour l'éventuelle solution...mettre un pull over...."
+      },
+      {
+        "ligne": 83,
+        "eleve": "Amir",
+        "atelier": "Vitesse de remontée",
+        "note": 2.0,
+        "commentaire": "bon élevé, attentif et a une bonne restitution après les conseils a tous réussi . seul problème il a très froid rapidement vu  avec lui et son père pour l'éventuelle solution...mettre un pull over...."
+      },
+      {
+        "ligne": 84,
+        "eleve": "Amir",
+        "atelier": "dégréage",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 85,
+        "eleve": "Hanane",
+        "atelier": "dégréage",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire"
+      }
+    ]
+  },
+  {
+    "id": "2026-10-06_nicos",
+    "date_seance": "2026-10-06",
+    "moniteur": "Nicos",
+    "nb_eleves": 2,
+    "eleves": [
+      "Michèle",
+      "Patricia"
+    ],
+    "ateliers_traites": [
+      "DBN",
+      "Déplacements immersion",
+      "Poumon Ballast",
+      "dégréage"
+    ],
+    "nb_comptes_rendus": 7,
+    "comptes_rendus": [
+      {
+        "ligne": 58,
+        "eleve": "Michèle",
+        "atelier": "DBN",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 59,
+        "eleve": "Michèle",
+        "atelier": "Déplacements immersion",
+        "note": 1.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 60,
+        "eleve": "Michèle",
+        "atelier": "Poumon Ballast",
+        "note": 1.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 61,
+        "eleve": "Patricia",
+        "atelier": "dégréage",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 62,
+        "eleve": "Patricia",
+        "atelier": "Poumon Ballast",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 63,
+        "eleve": "Patricia",
+        "atelier": "Déplacements immersion",
+        "note": 1.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 64,
+        "eleve": "Patricia",
+        "atelier": "DBN",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire"
+      }
+    ]
   }
 ]
