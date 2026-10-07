@@ -1,9 +1,9 @@
 {
-  "date_generation": "2026-10-07T00:09:40",
+  "date_generation": "2026-10-07T11:33:54",
   "nb_eleves": 18,
   "nb_moniteurs": 10,
-  "nb_seances": 6,
-  "nb_comptes_rendus": 50,
+  "nb_seances": 7,
+  "nb_comptes_rendus": 56,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
@@ -21,12 +21,21 @@
     },
     {
       "atelier": "DBN",
-      "nb_evaluations": 6,
-      "moyenne": 3.67,
+      "nb_evaluations": 8,
+      "moyenne": 3.75,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "dégréage",
+      "nb_evaluations": 8,
+      "moyenne": 3.0,
+      "note_min": 2.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
     },
     {
       "atelier": "Palmage",
@@ -38,9 +47,9 @@
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "dégréage",
-      "nb_evaluations": 6,
-      "moyenne": 3.17,
+      "atelier": "Gestion de son matériel",
+      "nb_evaluations": 4,
+      "moyenne": 2.75,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -63,15 +72,6 @@
       "note_max": 2.0,
       "notable": true,
       "compte_dans_moyenne": false
-    },
-    {
-      "atelier": "Gestion de son matériel",
-      "nb_evaluations": 2,
-      "moyenne": 3.0,
-      "note_min": 2.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": true
     },
     {
       "atelier": "Mise en sécu surface",
@@ -210,13 +210,13 @@
     },
     {
       "eleve": "Mohamed",
-      "nb_ateliers_evalues": 1,
-      "moyenne_generale": 2.0
+      "nb_ateliers_evalues": 4,
+      "moyenne_generale": 3.0
     },
     {
       "eleve": "Nabiyu",
-      "nb_ateliers_evalues": 1,
-      "moyenne_generale": 1.0
+      "nb_ateliers_evalues": 4,
+      "moyenne_generale": 2.25
     },
     {
       "eleve": "Olivia",
@@ -242,7 +242,6 @@
     ],
     "moniteurs_hors_referentiel": [],
     "moniteurs_referentiel_jamais_actifs": [
-      "Carlos",
       "Catherine",
       "Hervé",
       "Nicos",
