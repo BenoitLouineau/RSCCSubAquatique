@@ -60,12 +60,17 @@
   {
     "id": "carlos",
     "nom": "Carlos",
-    "nb_seances_animees": 0,
-    "dates_seances": [],
-    "nb_eleves_suivis": 0,
-    "eleves_suivis": [],
-    "nb_comptes_rendus": 0,
-    "nb_evaluations_notees": 0
+    "nb_seances_animees": 1,
+    "dates_seances": [
+      "2026-10-05"
+    ],
+    "nb_eleves_suivis": 2,
+    "eleves_suivis": [
+      "Mohamed",
+      "Nabiyu"
+    ],
+    "nb_comptes_rendus": 6,
+    "nb_evaluations_notees": 6
   },
   {
     "id": "catherine",
