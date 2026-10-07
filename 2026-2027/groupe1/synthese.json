@@ -1,9 +1,9 @@
 {
-  "date_generation": "2026-10-07T11:33:54",
+  "date_generation": "2026-10-07T14:31:55",
   "nb_eleves": 18,
   "nb_moniteurs": 10,
-  "nb_seances": 7,
-  "nb_comptes_rendus": 56,
+  "nb_seances": 9,
+  "nb_comptes_rendus": 84,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
@@ -11,8 +11,26 @@
   },
   "acquisition_par_atelier": [
     {
+      "atelier": "dégréage",
+      "nb_evaluations": 13,
+      "moyenne": 2.62,
+      "note_min": 2.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "DBN",
+      "nb_evaluations": 12,
+      "moyenne": 3.25,
+      "note_min": 2.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": false
+    },
+    {
       "atelier": "Gréage",
-      "nb_evaluations": 10,
+      "nb_evaluations": 12,
       "moyenne": 2.0,
       "note_min": 1.0,
       "note_max": 4.0,
@@ -20,20 +38,29 @@
       "compte_dans_moyenne": true
     },
     {
-      "atelier": "DBN",
-      "nb_evaluations": 8,
-      "moyenne": 3.75,
-      "note_min": 2.0,
-      "note_max": 4.0,
+      "atelier": "Déplacements immersion",
+      "nb_evaluations": 6,
+      "moyenne": 1.67,
+      "note_min": 1.0,
+      "note_max": 2.0,
       "notable": true,
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "dégréage",
-      "nb_evaluations": 8,
-      "moyenne": 3.0,
+      "atelier": "Gestion de son matériel",
+      "nb_evaluations": 6,
+      "moyenne": 2.5,
       "note_min": 2.0,
       "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Gestion du gilet",
+      "nb_evaluations": 6,
+      "moyenne": 2.33,
+      "note_min": 2.0,
+      "note_max": 3.0,
       "notable": true,
       "compte_dans_moyenne": true
     },
@@ -47,67 +74,58 @@
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "Gestion de son matériel",
+      "atelier": "Poumon Ballast",
       "nb_evaluations": 4,
-      "moyenne": 2.75,
-      "note_min": 2.0,
-      "note_max": 4.0,
+      "moyenne": 1.75,
+      "note_min": 1.0,
+      "note_max": 2.0,
       "notable": true,
-      "compte_dans_moyenne": true
+      "compte_dans_moyenne": false
     },
     {
-      "atelier": "Gestion du gilet",
+      "atelier": "Vitesse de remontée",
       "nb_evaluations": 4,
-      "moyenne": 2.25,
-      "note_min": 2.0,
-      "note_max": 3.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Déplacements immersion",
-      "nb_evaluations": 2,
       "moyenne": 2.0,
       "note_min": 2.0,
       "note_max": 2.0,
       "notable": true,
-      "compte_dans_moyenne": false
+      "compte_dans_moyenne": true
     },
     {
       "atelier": "Mise en sécu surface",
-      "nb_evaluations": 2,
-      "moyenne": 3.0,
-      "note_min": 3.0,
+      "nb_evaluations": 3,
+      "moyenne": 2.67,
+      "note_min": 2.0,
       "note_max": 3.0,
       "notable": true,
       "compte_dans_moyenne": true
     },
     {
-      "atelier": "Poumon Ballast",
-      "nb_evaluations": 2,
-      "moyenne": 2.0,
-      "note_min": 2.0,
-      "note_max": 2.0,
-      "notable": true,
-      "compte_dans_moyenne": false
-    },
-    {
       "atelier": "Signes",
-      "nb_evaluations": 2,
-      "moyenne": 3.5,
-      "note_min": 3.0,
+      "nb_evaluations": 3,
+      "moyenne": 3.0,
+      "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
     },
     {
       "atelier": "Sortie de l'eau",
-      "nb_evaluations": 2,
-      "moyenne": 3.0,
-      "note_min": 2.0,
+      "nb_evaluations": 3,
+      "moyenne": 2.33,
+      "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Soin au materiel",
+      "nb_evaluations": 2,
+      "moyenne": 2.0,
+      "note_min": 2.0,
+      "note_max": 2.0,
+      "notable": true,
+      "compte_dans_moyenne": false
     },
     {
       "atelier": "VDM partiel",
@@ -117,15 +135,6 @@
       "note_max": 2.0,
       "notable": true,
       "compte_dans_moyenne": false
-    },
-    {
-      "atelier": "Vitesse de remontée",
-      "nb_evaluations": 2,
-      "moyenne": 2.0,
-      "note_min": 2.0,
-      "note_max": 2.0,
-      "notable": true,
-      "compte_dans_moyenne": true
     },
     {
       "atelier": "Remonté expi controlée",
@@ -150,8 +159,8 @@
     },
     {
       "eleve": "Amir",
-      "nb_ateliers_evalues": 1,
-      "moyenne_generale": 1.0
+      "nb_ateliers_evalues": 9,
+      "moyenne_generale": 2.0
     },
     {
       "eleve": "Aubrée",
@@ -180,8 +189,8 @@
     },
     {
       "eleve": "Hanane",
-      "nb_ateliers_evalues": 1,
-      "moyenne_generale": 1.0
+      "nb_ateliers_evalues": 11,
+      "moyenne_generale": 2.0
     },
     {
       "eleve": "Jean",
@@ -205,8 +214,8 @@
     },
     {
       "eleve": "Michèle",
-      "nb_ateliers_evalues": 1,
-      "moyenne_generale": null
+      "nb_ateliers_evalues": 4,
+      "moyenne_generale": 1.33
     },
     {
       "eleve": "Mohamed",
@@ -225,8 +234,8 @@
     },
     {
       "eleve": "Patricia",
-      "nb_ateliers_evalues": 1,
-      "moyenne_generale": 2.0
+      "nb_ateliers_evalues": 5,
+      "moyenne_generale": 1.8
     }
   ],
   "anomalies": {
@@ -243,13 +252,64 @@
     "moniteurs_hors_referentiel": [],
     "moniteurs_referentiel_jamais_actifs": [
       "Catherine",
-      "Hervé",
-      "Nicos",
       "Virginie",
       "Véronique"
     ],
     "ateliers_hors_referentiel": [],
-    "comptes_rendus_doublons": []
+    "comptes_rendus_doublons": [
+      {
+        "date_seance": "2026-10-06",
+        "moniteur": "Hervé",
+        "eleve": "Amir",
+        "atelier": "dégréage",
+        "occurrences": 2,
+        "lignes": [
+          76,
+          84
+        ],
+        "type": "a_verifier",
+        "details": [
+          {
+            "ligne": 76,
+            "horodatage": "2026-10-07T13:17:00.427000",
+            "note": 2.0,
+            "commentaire": "bon élevé, attentif et a une bonne restitution après les conseils a tous réussi . seul problème il a très froid rapidement vu  avec lui et son père pour l'éventuelle solution...mettre un pull over...."
+          },
+          {
+            "ligne": 84,
+            "horodatage": "2026-10-07T13:22:50.871000",
+            "note": 2.0,
+            "commentaire": "Aucun commentaire"
+          }
+        ]
+      },
+      {
+        "date_seance": "2026-10-06",
+        "moniteur": "Hervé",
+        "eleve": "Hanane",
+        "atelier": "dégréage",
+        "occurrences": 2,
+        "lignes": [
+          73,
+          85
+        ],
+        "type": "a_verifier",
+        "details": [
+          {
+            "ligne": 73,
+            "horodatage": "2026-10-07T13:12:15.322000",
+            "note": 2.0,
+            "commentaire": "elle plonge avec un shorty donc il faut lui faire prendre un bloc \"lourd\" voir lui mettre du plomb....problème de stab donc échange de matos.\npour le reste  elle est alaise. remonté dbn stabilisation mise et sortie de l'eau , capelage decap, gréage dégréa...."
+          },
+          {
+            "ligne": 85,
+            "horodatage": "2026-10-07T13:23:18.626000",
+            "note": 2.0,
+            "commentaire": "Aucun commentaire"
+          }
+        ]
+      }
+    ]
   },
   "source": {
     "classeur_url": "https://docs.google.com/spreadsheets/d/1m_UMefQrdEWToAV5RXAskr_wtbxMyc4kEbmSC6T_PLE",
