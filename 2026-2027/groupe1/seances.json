@@ -208,6 +208,66 @@
     ]
   },
   {
+    "id": "2026-10-05_carlos",
+    "date_seance": "2026-10-05",
+    "moniteur": "Carlos",
+    "nb_eleves": 2,
+    "eleves": [
+      "Mohamed",
+      "Nabiyu"
+    ],
+    "ateliers_traites": [
+      "DBN",
+      "Gestion de son matériel",
+      "dégréage"
+    ],
+    "nb_comptes_rendus": 6,
+    "comptes_rendus": [
+      {
+        "ligne": 52,
+        "eleve": "Mohamed",
+        "atelier": "Gestion de son matériel",
+        "note": 3.0,
+        "commentaire": "Pour Nábi et Mohamed, les deux très alaise dans l'eau. DBN bien maîtriser, nous avons vu les purges lente et les purges rapides. une fois que tous que c'est bien passé, nous sommes passés à la fosse et refaits les exercices. Pour le degreage c est en cours d'acquisition.  Très bonne séance..."
+      },
+      {
+        "ligne": 53,
+        "eleve": "Mohamed",
+        "atelier": "DBN",
+        "note": 4.0,
+        "commentaire": "Pour Nábi et Mohamed, les deux très alaise dans l'eau. DBN bien maîtriser, nous avons vu les purges lente et les purges rapides. une fois que tous que c'est bien passé, nous sommes passés à la fosse et refaits les exercices. Pour le degreage c est en cours d'acquisition.  Très bonne séance..."
+      },
+      {
+        "ligne": 54,
+        "eleve": "Mohamed",
+        "atelier": "dégréage",
+        "note": 3.0,
+        "commentaire": "Pour Nábi et Mohamed, les deux très alaise dans l'eau. DBN bien maîtriser, nous avons vu les purges lente et les purges rapides. une fois que tous que c'est bien passé, nous sommes passés à la fosse et refaits les exercices. Pour le degreage c est en cours d'acquisition.  Très bonne séance..."
+      },
+      {
+        "ligne": 55,
+        "eleve": "Nabiyu",
+        "atelier": "dégréage",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 56,
+        "eleve": "Nabiyu",
+        "atelier": "DBN",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 57,
+        "eleve": "Nabiyu",
+        "atelier": "Gestion de son matériel",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire"
+      }
+    ]
+  },
+  {
     "id": "2026-10-06_benoit-p",
     "date_seance": "2026-10-06",
     "moniteur": "Benoit P",
