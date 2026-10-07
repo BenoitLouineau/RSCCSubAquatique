@@ -16,7 +16,7 @@
     "caci": false,
     "nb_seances": 1,
     "dates_seances": [
-      "2026-10-05"
+      "2026-10-06"
     ],
     "moniteurs": [
       "Carine"
@@ -29,7 +29,7 @@
         "moyenne_notes": 4.0,
         "historique": [
           {
-            "date": "2026-10-05",
+            "date": "2026-10-06",
             "note": 4.0,
             "moniteur": "Carine"
           }
@@ -41,7 +41,7 @@
         "moyenne_notes": 3.0,
         "historique": [
           {
-            "date": "2026-10-05",
+            "date": "2026-10-06",
             "note": 3.0,
             "moniteur": "Carine"
           }
@@ -53,7 +53,7 @@
         "moyenne_notes": 2.0,
         "historique": [
           {
-            "date": "2026-10-05",
+            "date": "2026-10-06",
             "note": 2.0,
             "moniteur": "Carine"
           }
@@ -62,19 +62,19 @@
     },
     "commentaires": [
       {
-        "date": "2026-10-05",
+        "date": "2026-10-06",
         "moniteur": "Carine",
         "atelier": "DBN",
         "commentaire": "Aucun commentaire"
       },
       {
-        "date": "2026-10-05",
+        "date": "2026-10-06",
         "moniteur": "Carine",
         "atelier": "dégréage",
         "commentaire": "Aucun commentaire"
       },
       {
-        "date": "2026-10-05",
+        "date": "2026-10-06",
         "moniteur": "Carine",
         "atelier": "Gréage",
         "commentaire": "Aucun commentaire"
@@ -795,7 +795,7 @@
     "nb_seances": 2,
     "dates_seances": [
       "2026-09-29",
-      "2026-10-05"
+      "2026-10-06"
     ],
     "moniteurs": [
       "Benoit L",
@@ -815,7 +815,7 @@
             "moniteur": "Benoit P"
           },
           {
-            "date": "2026-10-05",
+            "date": "2026-10-06",
             "note": 3.0,
             "moniteur": "Carine"
           }
@@ -839,7 +839,7 @@
         "moyenne_notes": 4.0,
         "historique": [
           {
-            "date": "2026-10-05",
+            "date": "2026-10-06",
             "note": 4.0,
             "moniteur": "Carine"
           }
@@ -851,7 +851,7 @@
         "moyenne_notes": 4.0,
         "historique": [
           {
-            "date": "2026-10-05",
+            "date": "2026-10-06",
             "note": 4.0,
             "moniteur": "Carine"
           }
@@ -872,19 +872,19 @@
         "commentaire": "Très aquatique et certainement déjà habitué à porter des palmes et s'en servir. Encourageant pour la suite."
       },
       {
-        "date": "2026-10-05",
+        "date": "2026-10-06",
         "moniteur": "Carine",
         "atelier": "DBN",
         "commentaire": "Aucun commentaire"
       },
       {
-        "date": "2026-10-05",
+        "date": "2026-10-06",
         "moniteur": "Carine",
         "atelier": "Gréage",
         "commentaire": "Aucun commentaire"
       },
       {
-        "date": "2026-10-05",
+        "date": "2026-10-06",
         "moniteur": "Carine",
         "atelier": "dégréage",
         "commentaire": "Aucun commentaire"
@@ -1015,15 +1015,10 @@
         ]
       },
       "dégréage": {
-        "nb_evaluations": 2,
+        "nb_evaluations": 1,
         "derniere_note": 2.0,
         "moyenne_notes": 2.0,
         "historique": [
-          {
-            "date": "2026-10-06",
-            "note": 2.0,
-            "moniteur": "Hervé"
-          },
           {
             "date": "2026-10-06",
             "note": 2.0,
@@ -1110,12 +1105,6 @@
         "moniteur": "Hervé",
         "atelier": "Déplacements immersion",
         "commentaire": "elle plonge avec un shorty donc il faut lui faire prendre un bloc \"lourd\" voir lui mettre du plomb....problème de stab donc échange de matos.\npour le reste  elle est alaise. remonté dbn stabilisation mise et sortie de l'eau , capelage decap, gréage dégréa...."
-      },
-      {
-        "date": "2026-10-06",
-        "moniteur": "Hervé",
-        "atelier": "dégréage",
-        "commentaire": "Aucun commentaire"
       }
     ]
   },
@@ -1467,7 +1456,7 @@
     "nb_seances": 2,
     "dates_seances": [
       "2026-09-29",
-      "2026-10-05"
+      "2026-10-06"
     ],
     "moniteurs": [
       "Benoit L",
@@ -1499,7 +1488,7 @@
         "moyenne_notes": 3.0,
         "historique": [
           {
-            "date": "2026-10-05",
+            "date": "2026-10-06",
             "note": 3.0,
             "moniteur": "Carlos"
           }
@@ -1511,7 +1500,7 @@
         "moyenne_notes": 4.0,
         "historique": [
           {
-            "date": "2026-10-05",
+            "date": "2026-10-06",
             "note": 4.0,
             "moniteur": "Carlos"
           }
@@ -1523,7 +1512,7 @@
         "moyenne_notes": 3.0,
         "historique": [
           {
-            "date": "2026-10-05",
+            "date": "2026-10-06",
             "note": 3.0,
             "moniteur": "Carlos"
           }
@@ -1544,19 +1533,19 @@
         "commentaire": "Élève sérieux et attentif aux explications et mouvement pédalier rapidement remplacé par l'attendu du geste du palmage. C'est encourageant pour la suite."
       },
       {
-        "date": "2026-10-05",
+        "date": "2026-10-06",
         "moniteur": "Carlos",
         "atelier": "Gestion de son matériel",
         "commentaire": "Pour Nábi et Mohamed, les deux très alaise dans l'eau. DBN bien maîtriser, nous avons vu les purges lente et les purges rapides. une fois que tous que c'est bien passé, nous sommes passés à la fosse et refaits les exercices. Pour le degreage c est en cours d'acquisition.  Très bonne séance..."
       },
       {
-        "date": "2026-10-05",
+        "date": "2026-10-06",
         "moniteur": "Carlos",
         "atelier": "DBN",
         "commentaire": "Pour Nábi et Mohamed, les deux très alaise dans l'eau. DBN bien maîtriser, nous avons vu les purges lente et les purges rapides. une fois que tous que c'est bien passé, nous sommes passés à la fosse et refaits les exercices. Pour le degreage c est en cours d'acquisition.  Très bonne séance..."
       },
       {
-        "date": "2026-10-05",
+        "date": "2026-10-06",
         "moniteur": "Carlos",
         "atelier": "dégréage",
         "commentaire": "Pour Nábi et Mohamed, les deux très alaise dans l'eau. DBN bien maîtriser, nous avons vu les purges lente et les purges rapides. une fois que tous que c'est bien passé, nous sommes passés à la fosse et refaits les exercices. Pour le degreage c est en cours d'acquisition.  Très bonne séance..."
@@ -1570,7 +1559,7 @@
     "nb_seances": 2,
     "dates_seances": [
       "2026-09-29",
-      "2026-10-05"
+      "2026-10-06"
     ],
     "moniteurs": [
       "Carine",
@@ -1596,7 +1585,7 @@
         "moyenne_notes": 2.0,
         "historique": [
           {
-            "date": "2026-10-05",
+            "date": "2026-10-06",
             "note": 2.0,
             "moniteur": "Carlos"
           }
@@ -1608,7 +1597,7 @@
         "moyenne_notes": 4.0,
         "historique": [
           {
-            "date": "2026-10-05",
+            "date": "2026-10-06",
             "note": 4.0,
             "moniteur": "Carlos"
           }
@@ -1620,7 +1609,7 @@
         "moyenne_notes": 2.0,
         "historique": [
           {
-            "date": "2026-10-05",
+            "date": "2026-10-06",
             "note": 2.0,
             "moniteur": "Carlos"
           }
@@ -1635,19 +1624,19 @@
         "commentaire": "Aucun commentaire"
       },
       {
-        "date": "2026-10-05",
+        "date": "2026-10-06",
         "moniteur": "Carlos",
         "atelier": "dégréage",
         "commentaire": "Aucun commentaire"
       },
       {
-        "date": "2026-10-05",
+        "date": "2026-10-06",
         "moniteur": "Carlos",
         "atelier": "DBN",
         "commentaire": "Aucun commentaire"
       },
       {
-        "date": "2026-10-05",
+        "date": "2026-10-06",
         "moniteur": "Carlos",
         "atelier": "Gestion de son matériel",
         "commentaire": "Aucun commentaire"
