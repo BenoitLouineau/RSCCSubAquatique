@@ -498,5 +498,65 @@
     "moniteur": "Carine",
     "presence": "Présent",
     "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Mohamed",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-10-05",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Mohamed",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-10-05",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Mohamed",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-10-05",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-10-05",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-10-05",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-10-05",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
   }
 ]
