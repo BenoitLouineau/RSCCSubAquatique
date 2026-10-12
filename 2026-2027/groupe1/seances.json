@@ -311,7 +311,7 @@
     "moniteur": "Carine",
     "nb_eleves": 2,
     "eleves": [
-      "Abdou",
+      "Abderrahmane",
       "Guillaume"
     ],
     "ateliers_traites": [
@@ -344,21 +344,21 @@
       },
       {
         "ligne": 49,
-        "eleve": "Abdou",
+        "eleve": "Abderrahmane",
         "atelier": "DBN",
         "note": 4.0,
         "commentaire": "Aucun commentaire"
       },
       {
         "ligne": 50,
-        "eleve": "Abdou",
+        "eleve": "Abderrahmane",
         "atelier": "dégréage",
         "note": 3.0,
         "commentaire": "Aucun commentaire"
       },
       {
         "ligne": 51,
-        "eleve": "Abdou",
+        "eleve": "Abderrahmane",
         "atelier": "Gréage",
         "note": 2.0,
         "commentaire": "Aucun commentaire"
@@ -552,7 +552,7 @@
       "Vitesse de remontée",
       "dégréage"
     ],
-    "nb_comptes_rendus": 20,
+    "nb_comptes_rendus": 19,
     "comptes_rendus": [
       {
         "ligne": 65,
@@ -686,13 +686,6 @@
         "atelier": "Vitesse de remontée",
         "note": 2.0,
         "commentaire": "bon élevé, attentif et a une bonne restitution après les conseils a tous réussi . seul problème il a très froid rapidement vu  avec lui et son père pour l'éventuelle solution...mettre un pull over...."
-      },
-      {
-        "ligne": 84,
-        "eleve": "Amir",
-        "atelier": "dégréage",
-        "note": 2.0,
-        "commentaire": "Aucun commentaire"
       }
     ]
   },
