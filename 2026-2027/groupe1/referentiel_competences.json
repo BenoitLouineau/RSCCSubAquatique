@@ -93,7 +93,7 @@
   {
     "id": "vdm",
     "nom": "VDM",
-    "actif": false,
+    "actif": true,
     "notable": true,
     "compte_dans_moyenne": true
   },
