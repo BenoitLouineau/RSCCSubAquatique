@@ -48,7 +48,7 @@
     ],
     "nb_eleves_suivis": 5,
     "eleves_suivis": [
-      "Abdou",
+      "Abderrahmane",
       "Amir",
       "Guillaume",
       "Mohamed",
@@ -109,8 +109,8 @@
       "Amir",
       "Hanane"
     ],
-    "nb_comptes_rendus": 20,
-    "nb_evaluations_notees": 20
+    "nb_comptes_rendus": 19,
+    "nb_evaluations_notees": 19
   },
   {
     "id": "nicos",
