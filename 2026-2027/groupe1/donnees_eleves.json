@@ -818,5 +818,495 @@
     "moniteur": "Hervé",
     "presence": "Présent",
     "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Aubrée",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-10-13",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Aubrée",
+    "genre": "",
+    "categorie": "VDM partiel",
+    "competence": "VDM partiel",
+    "date": "2026-10-13",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Aubrée",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-10-13",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-10-13",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "VDM partiel",
+    "competence": "VDM partiel",
+    "date": "2026-10-13",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-10-13",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-10-13",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "VDM",
+    "competence": "VDM",
+    "date": "2026-10-13",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "VDM partiel",
+    "competence": "VDM partiel",
+    "date": "2026-10-13",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-10-13",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-10-13",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "Poumon Ballast",
+    "competence": "Poumon Ballast",
+    "date": "2026-10-13",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-10-13",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Mohamed",
+    "genre": "",
+    "categorie": "Poumon Ballast",
+    "competence": "Poumon Ballast",
+    "date": "2026-10-13",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Mohamed",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-10-13",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Mohamed",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-10-13",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Mohamed",
+    "genre": "",
+    "categorie": "VDM partiel",
+    "competence": "VDM partiel",
+    "date": "2026-10-13",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Mohamed",
+    "genre": "",
+    "categorie": "VDM",
+    "competence": "VDM",
+    "date": "2026-10-13",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Mohamed",
+    "genre": "",
+    "categorie": "Déplacements immersion",
+    "competence": "Déplacements immersion",
+    "date": "2026-10-13",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Mohamed",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-10-13",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Mohamed",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-10-13",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "Mise en sécu surface",
+    "competence": "Mise en sécu surface",
+    "date": "2026-10-13",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-10-13",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "VDM partiel",
+    "competence": "VDM partiel",
+    "date": "2026-10-13",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "Sortie de l'eau",
+    "competence": "Sortie de l'eau",
+    "date": "2026-10-13",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-10-13",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-10-13",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Hanane",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-10-13",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Hanane",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-10-13",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Hanane",
+    "genre": "",
+    "categorie": "Mise en sécu surface",
+    "competence": "Mise en sécu surface",
+    "date": "2026-10-13",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Hanane",
+    "genre": "",
+    "categorie": "VDM partiel",
+    "competence": "VDM partiel",
+    "date": "2026-10-13",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Hanane",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-10-13",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Hanane",
+    "genre": "",
+    "categorie": "Sortie de l'eau",
+    "competence": "Sortie de l'eau",
+    "date": "2026-10-13",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-10-13",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-10-13",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-10-13",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "VDM partiel",
+    "competence": "VDM partiel",
+    "date": "2026-10-13",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Michèle",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-10-13",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Michèle",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-10-13",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Michèle",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-10-13",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Michèle",
+    "genre": "",
+    "categorie": "Gestion du gilet",
+    "competence": "Gestion du gilet",
+    "date": "2026-10-13",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-10-13",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "VDM",
+    "competence": "VDM",
+    "date": "2026-10-13",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "VDM partiel",
+    "competence": "VDM partiel",
+    "date": "2026-10-13",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-10-13",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Abderrahmane",
+    "genre": "",
+    "categorie": "VDM",
+    "competence": "VDM",
+    "date": "2026-10-13",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Abderrahmane",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-10-13",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Abderrahmane",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-10-13",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Abderrahmane",
+    "genre": "",
+    "categorie": "VDM partiel",
+    "competence": "VDM partiel",
+    "date": "2026-10-13",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
   }
 ]
