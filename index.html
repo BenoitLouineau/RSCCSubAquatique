@@ -271,6 +271,14 @@ button { font-family: inherit; cursor: pointer; }
 }
 .kpi-value { font-size: 26px; font-weight: 800; }
 .kpi-label { font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+.kpi-sub { font-size: 11px; color: var(--muted); opacity: .85; margin-top: 2px; }
+.cal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.cal-item { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px 10px; background: var(--chip); display: flex; flex-direction: column; gap: 2px; }
+.cal-item.ok { border-left: 3px solid #22c55e; }
+.cal-item.ferme { border-left: 3px solid var(--muted); opacity: .75; }
+.cal-item.hors { border-left: 3px solid #f59e0b; }
+.cal-date { font-size: 12.5px; font-weight: 700; }
+.cal-detail { font-size: 11.5px; color: var(--muted); }
 
 /* ===================== ANOMALIES BANNER ===================== */
 .anomalies-banner {
@@ -3498,6 +3506,43 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     return '<div class="kpi-card"><div class="kpi-value">' + value + '</div><div class="kpi-label">' + label + '</div></div>';
   }
 
+  /** Soirées = mardis (dates distinctes) avec au moins un CR ; encadrements = couples
+   *  date + moniteur. Repli sur les données chargées si synthese.json est ancien. */
+  function getNbSoirees() {
+    const s = STATE.synthese || {};
+    if (s.nb_soirees != null) return s.nb_soirees;
+    return (STATE.allDates || []).length || (s.nb_seances != null ? s.nb_seances : '—');
+  }
+  function getNbEncadrements() {
+    const s = STATE.synthese || {};
+    return s.nb_encadrements != null ? s.nb_encadrements : (STATE.seances || []).length;
+  }
+  function soireesSousTitre() {
+    const c = (STATE.synthese || {}).calendrier;
+    if (!c) return '';
+    return '<div class="kpi-sub">sur ' + c.nb_creneaux_theoriques + ' ' + escapeHtml(c.jour_semaine) + 's' +
+      (c.nb_piscine_fermee ? ' · ' + c.nb_piscine_fermee + ' soirée(s) baptême ou séance(s) sans CR ou piscine fermée' : '') + '</div>';
+  }
+
+  /** Calendrier théorique des créneaux hebdomadaires (synthese.json > calendrier). */
+  function buildCalendrierHtml() {
+    const c = (STATE.synthese || {}).calendrier;
+    if (!c || !Array.isArray(c.dates) || !c.dates.length) return '';
+    const items = c.dates.map(function(d) {
+      const cls = d.statut === 'seance' ? 'ok' : (d.statut === 'piscine_fermee' ? 'ferme' : 'hors');
+      const detail = d.statut === 'seance'
+        ? d.nb_encadrements + ' encadrement' + (d.nb_encadrements > 1 ? 's' : '') + ' · ' + d.nb_eleves + ' élève' + (d.nb_eleves > 1 ? 's' : '')
+        : (d.statut === 'piscine_fermee' ? '🔒 Piscine fermée ou séance(s) sans CR' : '⚠ Hors ' + escapeHtml(c.jour_semaine) + ' — date à vérifier');
+      return '<div class="cal-item ' + cls + '"><span class="cal-date">' + escapeHtml(formatDateFR(d.date)) + '</span>' +
+        '<span class="cal-detail">' + detail + '</span></div>';
+    }).join('');
+    return '<div class="sub-card"><div class="sub-card-title">' + ICONS.calendrier + ' Calendrier des ' + escapeHtml(c.jour_semaine) + 's' +
+        '<span class="seances-period">depuis le ' + escapeHtml(formatDateFR(c.date_debut)) + ' · ' + c.nb_soirees + ' séance(s), ' +
+        c.nb_piscine_fermee + ' piscine fermée ou séance sans CR' + (c.nb_hors_calendrier ? ', ' + c.nb_hors_calendrier + ' hors calendrier' : '') + '</span></div>' +
+      '<p class="settings-info" style="margin:0 0 8px;">Un ' + escapeHtml(c.jour_semaine) + ' sans aucun compte rendu est compté « Piscine fermée ou sans activité ».</p>' +
+      '<div class="cal-grid">' + items + '</div></div>';
+  }
+
   function buildKPIs() {
     const s = STATE.synthese || {};
     const actifs = (STATE.eleves || []).filter(e => e.nb_seances > 0).length;
@@ -3505,7 +3550,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     return '<div class="kpi-row">' +
       kpiCard(actifs, ICONS.eleve + ' Élèves actifs') +
       kpiCard((STATE.eleves || []).length, ICONS.eleve + ' Élèves au total') +
-      kpiCard(s.nb_seances != null ? s.nb_seances : '—', ICONS.seance + ' Séances') +
+      kpiCard(getNbSoirees(), ICONS.seance + ' Séances' + soireesSousTitre()) +
       kpiCard(s.nb_competences_referencees != null ? s.nb_competences_referencees : '—', ICONS.competence + ' Compétences référencées') +
       caciKpiCard() +
     '</div>' +
@@ -5317,10 +5362,12 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       '<div class="kpi-row">' +
         kpiCard(s.nb_eleves != null ? s.nb_eleves : '—', ICONS.eleve + ' Élèves') +
         kpiCard(s.nb_moniteurs != null ? s.nb_moniteurs : '—', ICONS.moniteurLogo + ' Moniteurs') +
-        kpiCard(s.nb_seances != null ? s.nb_seances : '—', ICONS.seance + ' Séances') +
+        kpiCard(getNbSoirees(), ICONS.seance + ' Séances' + soireesSousTitre()) +
+        kpiCard(getNbEncadrements(), ICONS.moniteurLogo + ' Encadrements<div class="kpi-sub">couples date + moniteur</div>') +
         kpiCard(s.nb_comptes_rendus != null ? s.nb_comptes_rendus : '—', ICONS.crRempli + ' Comptes rendus') +
         kpiCard(s.nb_competences_referencees != null ? s.nb_competences_referencees : '—', ICONS.competence + ' Compétences référencées') +
       '</div>' +
+      buildCalendrierHtml() +
     '</div>';
   }
 
