@@ -1,8 +1,10 @@
 {
-  "date_generation": "2026-10-14T19:37:33",
+  "date_generation": "2026-10-14T20:04:41",
   "nb_eleves": 17,
   "nb_moniteurs": 10,
-  "nb_seances": 15,
+  "nb_seances": 3,
+  "nb_soirees": 3,
+  "nb_encadrements": 15,
   "nb_comptes_rendus": 131,
   "nb_competences_referencees": 44,
   "periode": {
@@ -259,6 +261,53 @@
     ],
     "ateliers_hors_referentiel": [],
     "comptes_rendus_doublons": []
+  },
+  "calendrier": {
+    "date_debut": "2026-09-08",
+    "jour_semaine": "mardi",
+    "date_reference": "2026-10-14",
+    "nb_creneaux_theoriques": 6,
+    "nb_soirees": 3,
+    "nb_piscine_fermee": 3,
+    "nb_hors_calendrier": 0,
+    "dates": [
+      {
+        "date": "2026-09-08",
+        "statut": "piscine_fermee",
+        "nb_encadrements": 0,
+        "nb_eleves": 0
+      },
+      {
+        "date": "2026-09-15",
+        "statut": "piscine_fermee",
+        "nb_encadrements": 0,
+        "nb_eleves": 0
+      },
+      {
+        "date": "2026-09-22",
+        "statut": "piscine_fermee",
+        "nb_encadrements": 0,
+        "nb_eleves": 0
+      },
+      {
+        "date": "2026-09-29",
+        "statut": "seance",
+        "nb_encadrements": 3,
+        "nb_eleves": 11
+      },
+      {
+        "date": "2026-10-06",
+        "statut": "seance",
+        "nb_encadrements": 6,
+        "nb_eleves": 12
+      },
+      {
+        "date": "2026-10-13",
+        "statut": "seance",
+        "nb_encadrements": 6,
+        "nb_eleves": 10
+      }
+    ]
   },
   "source": {
     "classeur_url": "https://docs.google.com/spreadsheets/d/1m_UMefQrdEWToAV5RXAskr_wtbxMyc4kEbmSC6T_PLE",
