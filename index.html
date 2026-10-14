@@ -276,6 +276,7 @@ button { font-family: inherit; cursor: pointer; }
 .cal-item { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px 10px; background: var(--chip); display: flex; flex-direction: column; gap: 2px; }
 .cal-item.ok { border-left: 3px solid #22c55e; }
 .cal-item.ferme { border-left: 3px solid var(--muted); opacity: .75; }
+.cal-item.sanscr { border-left: 3px solid #f59e0b; }
 .cal-item.hors { border-left: 3px solid #f59e0b; }
 .cal-date { font-size: 12.5px; font-weight: 700; }
 .cal-detail { font-size: 11.5px; color: var(--muted); }
@@ -908,6 +909,11 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 .caci-vigilance .mini-eleve-chip { cursor: pointer; }
 .caci-vigilance .mini-eleve-chip:focus-visible { outline: 2px solid var(--accent2); outline-offset: 2px; }
 .caci-chip-meta { color: var(--muted); font-size: 11px; }
+.abs-badge {
+  display: inline-block; margin-left: 8px; padding: 1px 8px; border-radius: 999px; vertical-align: middle;
+  font-size: 11px; font-weight: 700; color: #f59e0b; background: rgba(245, 158, 11, .14); border: 1px solid rgba(245, 158, 11, .35);
+}
+.abs-badge.compact { margin-left: 5px; padding: 0 5px; font-size: 10px; }
 
 /* ===================== PALMARÈS — cartes trophée ===================== */
 .trophy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-bottom: 24px; }
@@ -3573,11 +3579,22 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     const s = STATE.synthese || {};
     return s.nb_encadrements != null ? s.nb_encadrements : (STATE.seances || []).length;
   }
+  /** Comptes du calendrier : « ferme » = déclaré fermé (onglet Absenteisme, col. G) ;
+   *  « sans_cr » = aucun CR, rien de déclaré (ancien statut « piscine_fermee » assimilé). */
+  function calendrierComptes(c) {
+    const ds = c.dates || [];
+    return {
+      fermes: c.nb_fermes != null ? c.nb_fermes : ds.filter(d => d.statut === 'ferme').length,
+      sansCr: c.nb_sans_cr != null ? c.nb_sans_cr : ds.filter(d => d.statut === 'sans_cr' || d.statut === 'piscine_fermee').length,
+    };
+  }
   function soireesSousTitre() {
     const c = (STATE.synthese || {}).calendrier;
     if (!c) return '';
+    const n = calendrierComptes(c);
     return '<div class="kpi-sub">sur ' + c.nb_creneaux_theoriques + ' ' + escapeHtml(c.jour_semaine) + 's' +
-      (c.nb_piscine_fermee ? ' · ' + c.nb_piscine_fermee + ' soirée(s) baptême ou séance(s) sans CR ou piscine fermée' : '') + '</div>';
+      (n.fermes ? ' · ' + n.fermes + ' fermé(s)' : '') +
+      (n.sansCr ? ' · ' + n.sansCr + ' sans CR' : '') + '</div>';
   }
 
   /** Calendrier théorique des créneaux hebdomadaires (synthese.json > calendrier). */
@@ -3585,18 +3602,25 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     const c = (STATE.synthese || {}).calendrier;
     if (!c || !Array.isArray(c.dates) || !c.dates.length) return '';
     const items = c.dates.map(function(d) {
-      const cls = d.statut === 'seance' ? 'ok' : (d.statut === 'piscine_fermee' ? 'ferme' : 'hors');
-      const detail = d.statut === 'seance'
+      const st = d.statut === 'piscine_fermee' ? 'sans_cr' : d.statut;
+      const cls = st === 'seance' ? 'ok' : (st === 'ferme' ? 'ferme' : (st === 'sans_cr' ? 'sanscr' : 'hors'));
+      const detail = st === 'seance'
         ? d.nb_encadrements + ' encadrement' + (d.nb_encadrements > 1 ? 's' : '') + ' · ' + d.nb_eleves + ' élève' + (d.nb_eleves > 1 ? 's' : '')
-        : (d.statut === 'piscine_fermee' ? '🔒 Piscine fermée ou séance(s) sans CR' : '⚠ Hors ' + escapeHtml(c.jour_semaine) + ' — date à vérifier');
+        : st === 'ferme' ? '🔒 Fermé (déclaré)'
+        : st === 'sans_cr' ? '❓ Sans CR — à vérifier'
+        : '⚠ Hors ' + escapeHtml(c.jour_semaine) + ' — date à vérifier';
       return '<div class="cal-item ' + cls + '"><span class="cal-date">' + escapeHtml(formatDateFR(d.date)) + '</span>' +
         '<span class="cal-detail">' + detail + '</span></div>';
     }).join('');
     return '<div class="sub-card"><div class="sub-card-title">' + ICONS.calendrier + ' Calendrier des ' + escapeHtml(c.jour_semaine) + 's' +
         '<span class="seances-period">depuis le ' + escapeHtml(formatDateFR(c.date_debut)) + ' · ' + c.nb_soirees + ' séance(s), ' +
-        c.nb_piscine_fermee + ' piscine fermée ou séance sans CR' + (c.nb_hors_calendrier ? ', ' + c.nb_hors_calendrier + ' hors calendrier' : '') + '</span></div>' +
-      '<p class="settings-info" style="margin:0 0 8px;">Un ' + escapeHtml(c.jour_semaine) + ' sans aucun compte rendu est compté « Piscine fermée ou sans activité ».</p>' +
-      '<div class="cal-grid">' + items + '</div></div>';
+        calendrierComptes(c).fermes + ' fermé(s), ' + calendrierComptes(c).sansCr + ' sans CR' +
+        (c.nb_hors_calendrier ? ', ' + c.nb_hors_calendrier + ' hors calendrier' : '') + '</span></div>' +
+      '<p class="settings-info" style="margin:0 0 8px;">🔒 Fermé = date déclarée dans l\'onglet Absenteisme (colonne « Mardis sans séance »). ' +
+        '❓ Sans CR = aucun compte rendu et rien de déclaré : piscine fermée non déclarée, soirée baptême ou séance non saisie. ' +
+        'Seules les séances comptent pour la présence des élèves.</p>' +
+      '<div class="cal-grid">' + items + '</div>' +
+      buildFrequentationHtml() + '</div>';
   }
 
   function buildKPIs() {
@@ -3757,15 +3781,19 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     if (!c) return adminCard('adminMardis', '🗓️ Mardis sans compte rendu', null,
       '<p class="anom-hint">Calendrier indisponible : relancer le script d\'export (version avec calendrier des séances).</p>');
     const sans = (c.dates || []).filter(d => d.statut !== 'seance');
+    const aVerifier = sans.filter(d => d.statut !== 'ferme');
+    const icone = st => st === 'ferme' ? '🔒 ' : (st === 'hors_calendrier' ? '⚠ ' : '❓ ');
     const body = sans.length
       ? '<p class="anom-hint">Créneaux théoriques (chaque ' + escapeHtml(c.jour_semaine) + ' depuis le ' + escapeHtml(formatDateFR(c.date_debut)) +
-          ') sans aucun CR : piscine fermée, soirée baptême ou séance non saisie. À vérifier auprès des moniteurs si une séance a bien eu lieu.</p>' +
+          ') sans aucun CR. 🔒 = fermeture déclarée dans l\'onglet Absenteisme (rien à faire). ❓ = rien de déclaré : ' +
+          'déclarer la fermeture (colonne « Mardis sans séance ») ou vérifier auprès des moniteurs si une séance a eu lieu.</p>' +
         '<div class="anom-items">' + sans.map(d =>
-          '<span class="anom-item">' + (d.statut === 'hors_calendrier' ? '⚠ ' : '🔒 ') + escapeHtml(formatDateFR(d.date)) +
-          (d.statut === 'hors_calendrier' ? ' — hors ' + escapeHtml(c.jour_semaine) + ', date à vérifier' : '') + '</span>').join('') + '</div>'
+          '<span class="anom-item">' + icone(d.statut === 'piscine_fermee' ? 'sans_cr' : d.statut) + escapeHtml(formatDateFR(d.date)) +
+          (d.statut === 'ferme' ? ' — fermé (déclaré)' : d.statut === 'hors_calendrier' ? ' — hors ' + escapeHtml(c.jour_semaine) + ', date à vérifier' : ' — à vérifier') +
+          '</span>').join('') + '</div>'
       : '<p class="admin-ok">✅ Chaque ' + escapeHtml(c.jour_semaine) + ' du calendrier a au moins un compte rendu.</p>';
     return adminCard('adminMardis', '🗓️ ' + (c.jour_semaine.charAt(0).toUpperCase() + c.jour_semaine.slice(1)) + 's sans compte rendu',
-      sans.length + '/' + c.nb_creneaux_theoriques, body);
+      aVerifier.length ? aVerifier.length + ' à vérifier' : sans.length + '/' + c.nb_creneaux_theoriques, body, aVerifier.length ? 'warn' : null);
   }
 
   function buildAdminSansCommentaireHtml() {
@@ -3796,6 +3824,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       '</div>' +
       buildAdminFraicheurHtml() +
       buildAdminCaciHtml() +
+      buildAdminAbsencesHtml() +
       buildAdminAnomaliesHtml() +
       buildAdminMardisHtml() +
       buildAdminSansCommentaireHtml();
@@ -3808,6 +3837,102 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         .then(() => showToast('Signalement copié — collez-le dans votre message.', 'success'))
         .catch(() => showToast('Copie impossible dans ce navigateur.', 'error'));
     });
+  }
+
+  // =====================================================================
+  // ABSENTÉISME — compté depuis le début de saison sur les soirées réelles (dates avec au moins
+  // un CR ; les fermetures déclarées n'en font pas partie). Repris de eleves.json > absenteisme
+  // quand le script l'a calculé, sinon recalculé ici à l'identique.
+  // =====================================================================
+  const SEUIL_ALERTE_ABSENCES = 2;   // même règle que l'onglet Absenteisme du classeur
+  function getAbsenteisme(e) {
+    if (e && e.absenteisme && e.absenteisme.absences_consecutives != null) return e.absenteisme;
+    const soirees = (STATE.allDates || []).slice().sort();
+    const presentes = new Set((e && e.dates_seances) || []);
+    let serie = 0;
+    for (let i = soirees.length - 1; i >= 0; i--) { if (presentes.has(soirees[i])) break; serie++; }
+    const derniere = presentes.size ? Array.from(presentes).sort().pop() : null;
+    return { absences_consecutives: serie, derniere_presence: derniere, alerte: serie >= SEUIL_ALERTE_ABSENCES,
+             nb_soirees: soirees.length, nb_absences: soirees.filter(d => !presentes.has(d)).length };
+  }
+  function absenceBadgeHtml(e, compact) {
+    const a = getAbsenteisme(e);
+    if (!a.alerte) return '';
+    const jamais = !a.derniere_presence;
+    const txt = jamais ? 'jamais venu(e)' : a.absences_consecutives + ' absences de suite';
+    const title = jamais ? 'Aucune présence depuis le début de saison'
+      : 'Absent(e) aux ' + a.absences_consecutives + ' dernières soirées — dernière présence le ' + formatDateFR(a.derniere_presence);
+    return '<span class="abs-badge' + (compact ? ' compact' : '') + '" title="' + escapeHtml(title) + '">🚨 ' + (compact ? (jamais ? '0' : a.absences_consecutives + '×') : txt) + '</span>';
+  }
+  function getElevesEnAlerteAbsence() {
+    return (STATE.eleves || []).map(e => ({ e: e, a: getAbsenteisme(e) })).filter(x => x.a.alerte)
+      .sort((x, y) => (!x.a.derniere_presence - !y.a.derniere_presence) || (y.a.absences_consecutives - x.a.absences_consecutives) ||
+        x.e.nom.localeCompare(y.e.nom, 'fr'));
+  }
+
+  /** Fréquentation par soirée : élèves présents / inscrits (synthese.json > absenteisme, sinon recalculée). */
+  function getFrequentation() {
+    const ab = (STATE.synthese || {}).absenteisme;
+    if (ab && Array.isArray(ab.frequentation) && ab.frequentation.length) return ab.frequentation;
+    const parDate = {};
+    (STATE.seances || []).forEach(s => { (parDate[s.date_seance] = parDate[s.date_seance] || new Set()); (s.eleves || []).forEach(n => parDate[s.date_seance].add(n)); });
+    const inscrits = (STATE.eleves || []).length;
+    return Object.keys(parDate).sort().map(d => ({ date: d, nb_presents: parDate[d].size, nb_inscrits: inscrits }));
+  }
+  function buildFrequentationHtml() {
+    const f = getFrequentation();
+    if (!f.length) return '';
+    const moy = Math.round(f.reduce((n, x) => n + (x.nb_inscrits ? x.nb_presents / x.nb_inscrits : 0), 0) / f.length * 100);
+    return '<div class="sub-card"><div class="sub-card-title">📈 Fréquentation par soirée' +
+        '<span class="seances-period">moyenne ' + moy + ' % des inscrits</span></div>' +
+      '<div style="position:relative;width:100%;height:220px;"><canvas id="chartFrequentation"></canvas></div></div>';
+  }
+  function instantiateFrequentationChart() {
+    const cv = document.getElementById('chartFrequentation');
+    if (!cv || typeof Chart === 'undefined') return;
+    const f = getFrequentation();
+    const cs = getComputedStyle(document.documentElement);
+    const accent = cs.getPropertyValue('--accent2').trim() || '#22d3ee';
+    const muted = cs.getPropertyValue('--muted').trim() || '#94a3b8';
+    const grid = cs.getPropertyValue('--border').trim() || 'rgba(148,163,184,.12)';
+    activeSaisonCharts.push(new Chart(cv, {
+      type: 'line',
+      data: {
+        labels: f.map(x => formatDateFR(x.date)),
+        datasets: [
+          { label: 'Élèves présents', data: f.map(x => x.nb_presents), borderColor: accent, backgroundColor: accent,
+            tension: .25, pointRadius: 4, fill: false },
+          { label: 'Inscrits', data: f.map(x => x.nb_inscrits), borderColor: muted, borderDash: [5, 4],
+            pointRadius: 0, fill: false },
+        ],
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: { labels: { color: muted, boxWidth: 12 } },
+          tooltip: { callbacks: { afterLabel: ctx => ctx.datasetIndex === 0 && f[ctx.dataIndex].nb_inscrits
+            ? Math.round(f[ctx.dataIndex].nb_presents / f[ctx.dataIndex].nb_inscrits * 100) + ' % des inscrits' : '' } },
+        },
+        scales: {
+          y: { beginAtZero: true, ticks: { stepSize: 1, precision: 0, color: muted }, grid: { color: grid } },
+          x: { ticks: { color: muted }, grid: { display: false } },
+        },
+      },
+    }));
+  }
+
+  function buildAdminAbsencesHtml() {
+    const rows = getElevesEnAlerteAbsence();
+    const body = rows.length
+      ? '<p class="anom-hint">Élèves absents aux ' + SEUIL_ALERTE_ABSENCES + ' dernières soirées ou plus (même règle que l\'onglet Absenteisme), ' +
+          'comptés depuis le début de saison. Les fermetures déclarées ne comptent pas comme absence.</p>' +
+        '<div class="chips-wrap">' + rows.map(x =>
+          '<span class="mini-eleve-chip" data-caci-goto="' + escapeHtml(x.e.id) + '" role="button" tabindex="0" title="Aller à la fiche">' +
+            ICONS.eleve + ' ' + eleveNomCaci(x.e.nom) + ' <span class="caci-chip-meta">' +
+            (x.a.derniere_presence ? x.a.absences_consecutives + ' absences de suite · dernière présence le ' + formatDateFR(x.a.derniere_presence)
+                                   : 'jamais venu(e) cette saison') + '</span></span>').join('') + '</div>'
+      : '<p class="admin-ok">✅ Aucun élève absent ' + SEUIL_ALERTE_ABSENCES + ' soirées de suite.</p>';
+    return adminCard('adminAbsences', '🚨 Élèves absents ' + SEUIL_ALERTE_ABSENCES + ' soirées de suite ou plus', rows.length, body, rows.length ? 'warn' : 'ok');
   }
 
   function buildCacheBanner() {
@@ -4563,7 +4688,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 
     return '<div class="student-card" id="eleve-' + escapeHtml(e.id) + '">' +
       '<div class="student-head">' +
-        '<div><div class="student-name">' + ICONS.eleve + eleveExamBadge(e.nom) + ' ' + eleveNomCaci(e.nom) + '</div>' +
+        '<div><div class="student-name">' + ICONS.eleve + eleveExamBadge(e.nom) + ' ' + eleveNomCaci(e.nom) + absenceBadgeHtml(e) + '</div>' +
         '<div class="student-meta">Dernière séance : ' + formatDateFR(lastDate) + (e.moniteurs && e.moniteurs.length ? ' avec ' + e.moniteurs.map(nm => escapeHtml(nm) + chefBadge(nm)).join(', ') : '') + '</div></div>' +
         '<div class="student-stats">' +
           '<span class="stat-pill">' + ICONS.seance + ' ' + e.nb_seances + ' séance(s)</span>' +
@@ -4664,7 +4789,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         '<span class="eleve-chip-icon">' + ICONS.eleve + eleveExamBadge(e.nom) + '</span>' +
         '<div class="eleve-chip-info">' +
           '<span class="eleve-chip-name">' + eleveNomCaci(e.nom, displayNames[e.id]) + '</span>' +
-          '<span class="eleve-chip-sub">' + presence.nbPresent + '/' + presence.total + ' présences</span>' +
+          '<span class="eleve-chip-sub">' + presence.nbPresent + '/' + presence.total + ' présences' + absenceBadgeHtml(e, true) + '</span>' +
         '</div>' +
       '</div>';
     }).join('');
@@ -5832,6 +5957,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       modulesHtml;
 
     instantiateActiviteMoniteursChart();
+    instantiateFrequentationChart();
 
     const btnEditSeasonDates = $('#btnEditSeasonDates');
     if (btnEditSeasonDates) btnEditSeasonDates.addEventListener('click', openSettings);
