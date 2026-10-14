@@ -795,6 +795,11 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 .chef-badge { font-size: 13px; }
 .threshold-custom-inputs { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 10px; }
 .threshold-custom-inputs.hidden { display: none; }
+.threshold-preview { flex-basis: 100%; display: flex; flex-wrap: wrap; gap: 6px; font-size: 11.5px; font-weight: 700; }
+.threshold-preview span { padding: 2px 8px; border-radius: 999px; color: #fff; }
+.threshold-preview .tp-red { background: var(--bad); }
+.threshold-preview .tp-orange { background: var(--warn); }
+.threshold-preview .tp-green { background: var(--ok); }
 .threshold-custom-inputs label { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--text); }
 .threshold-custom-inputs input[type="number"] {
   width: 60px; padding: 5px 8px; border-radius: 6px; border: 1px solid var(--border);
@@ -866,6 +871,34 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 .kpi-caci-pct { font-size: 14px; font-weight: 700; }
 .kpi-caci-bar { height: 6px; border-radius: 999px; background: var(--donut-rest); margin-top: 10px; overflow: hidden; }
 .kpi-caci-bar > span { display: block; height: 100%; border-radius: 999px; }
+/* ===================== MODULE ADMIN (#Admin) ===================== */
+.admin-head { display: flex; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.admin-head > div { flex: 1; min-width: 220px; }
+.admin-head .export-btn { margin-left: auto; }
+.admin-sub { font-size: 12.5px; color: var(--muted); margin: 4px 0 0; line-height: 1.45; }
+.admin-sub code { font-size: 12px; padding: 1px 5px; border-radius: 4px; background: var(--chip); }
+.admin-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 14px 16px; margin-bottom: 16px; scroll-margin-top: calc(var(--header-h) + 12px);
+}
+.admin-card.warn { border-color: rgba(245, 158, 11, .45); }
+.admin-card-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.admin-card-title { font-size: 14px; font-weight: 800; }
+.admin-badge { min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 11.5px; font-weight: 800; text-align: center; background: var(--chip); border: 1px solid var(--border); }
+.admin-card.warn .admin-badge { background: rgba(245, 158, 11, .15); color: #f59e0b; border-color: transparent; }
+.admin-ok { font-size: 13px; margin: 2px 0; }
+.admin-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-bottom: 10px; }
+.admin-facts > div { display: flex; flex-direction: column; gap: 2px; }
+.admin-fact-label { font-size: 11.5px; color: var(--muted); }
+.admin-fact-value { font-size: 14px; font-weight: 700; }
+.admin-fact-value small { font-weight: 500; color: var(--muted); }
+.admin-links { display: flex; flex-wrap: wrap; gap: 8px; }
+.admin-links .notif-link { margin-top: 0; }
+.admin-table-wrap { overflow-x: auto; }
+.admin-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.admin-table th, .admin-table td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.admin-table th { font-size: 11px; text-transform: uppercase; letter-spacing: .03em; color: var(--muted); }
+#adminCaci .caci-vigilance { margin-bottom: 16px; }
 .caci-vigilance {
   margin-bottom: 18px; padding: 14px 16px; border-radius: var(--radius-sm);
   background: rgba(220, 38, 38, .08); border: 1px solid rgba(220, 38, 38, .35);
@@ -1082,6 +1115,11 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     ↑ Tableau des élèves
   </button>
 
+  <!-- Module Admin : accessible uniquement via l'adresse …/#Admin (non listé dans la navigation) -->
+  <section class="tab-panel" id="panel-admin">
+    <div id="adminContent"><div class="load-screen"><div class="spinner"></div><div>Chargement…</div></div></div>
+  </section>
+
   <section class="tab-panel" id="panel-moniteurs">
     <div id="moniteursLoadScreen" class="load-screen">
       <div class="spinner"></div>
@@ -1194,8 +1232,9 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         <p class="settings-info">S'applique partout où un % est affiché avec une couleur (acquisition, présence, couverture référentiel...).</p>
         <div id="pctThresholdOptions"></div>
         <div class="threshold-custom-inputs hidden" id="pctCustomInputs">
-          <label>🟢 Vert à partir de <input type="number" id="pctCustomGreen" min="0" max="100" step="1" /> %</label>
-          <label>🟠 Orange à partir de <input type="number" id="pctCustomOrange" min="0" max="100" step="1" /> %</label>
+          <label>🔴 Rouge de 0 à <input type="number" id="pctCustomRedMax" min="0" max="98" step="1" /> %</label>
+          <label>🟠 Orange jusqu'à <input type="number" id="pctCustomOrangeMax" min="1" max="99" step="1" /> %</label>
+          <div class="threshold-preview" id="pctCustomPreview"></div>
         </div>
       </div>
       <div class="settings-section">
@@ -2600,8 +2639,13 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       .filter(e => e.caci !== true && (e.nb_seances || 0) > 0)
       .map(e => ({ e: e, nb: e.nb_seances || 0, last: (e.dates_seances || []).slice().sort().pop() || null }))
       .sort((a, b) => (b.nb - a.nb) || String(b.last).localeCompare(String(a.last)) || a.e.nom.localeCompare(b.e.nom, 'fr'));
+    const actifs = eleves.filter(e => (e.nb_seances || 0) > 0);
+    const avecActifs = actifs.filter(e => e.caci === true).length;
     return { total: eleves.length, avec: avec, sans: eleves.length - avec,
-             taux: eleves.length ? Math.round(avec / eleves.length * 100) : 0, vigilance: vigilance };
+             taux: eleves.length ? Math.round(avec / eleves.length * 100) : 0,
+             totalActifs: actifs.length, avecActifs: avecActifs,
+             tauxActifs: actifs.length ? Math.round(avecActifs / actifs.length * 100) : 0,
+             vigilance: vigilance };
   }
 
   // =====================================================================
@@ -2829,10 +2873,10 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   }
 
   const PCT_PRESET_LABELS = {
-    strict: 'Strict (vert ≥85%, orange ≥50%)',
-    modere: 'Modéré — actuel (vert ≥70%, orange ≥30%)',
-    souple: 'Souple (vert ≥50%, orange ≥20%)',
-    perso: 'Personnalisé',
+    strict: 'Strict (rouge 0–49 % · orange 50–84 % · vert 85–100 %)',
+    modere: 'Modéré — par défaut (rouge 0–29 % · orange 30–69 % · vert 70–100 %)',
+    souple: 'Souple (rouge 0–19 % · orange 20–49 % · vert 50–100 %)',
+    perso: 'Personnalisé (plages au choix)',
   };
   function populatePctThresholdOptions() {
     const el = $('#pctThresholdOptions');
@@ -2854,20 +2898,29 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     });
     updatePctCustomVisibility();
   }
+  // Mode Personnalisé exprimé en plages : rouge 0..x, orange x+1..Y, vert Y+1..100.
+  // En interne on garde « orange à partir de x+1 » et « vert à partir de Y+1 ».
   function updatePctCustomVisibility() {
     $('#pctCustomInputs').classList.toggle('hidden', pctPreset !== 'perso');
-    $('#pctCustomGreen').value = pctCustom.green;
-    $('#pctCustomOrange').value = pctCustom.orange;
+    const redMax = Math.max(0, pctCustom.orange - 1), orangeMax = Math.max(redMax + 1, pctCustom.green - 1);
+    $('#pctCustomRedMax').value = redMax;
+    $('#pctCustomOrangeMax').value = orangeMax;
+    $('#pctCustomPreview').innerHTML =
+      '<span class="tp-red">Rouge 0–' + redMax + ' %</span>' +
+      '<span class="tp-orange">Orange ' + (redMax + 1) + '–' + orangeMax + ' %</span>' +
+      '<span class="tp-green">Vert ' + (orangeMax + 1) + '–100 %</span>';
+  }
+  function onPctCustomChange() {
+    let x = parseInt($('#pctCustomRedMax').value, 10), y = parseInt($('#pctCustomOrangeMax').value, 10);
+    x = Math.min(98, Math.max(0, isNaN(x) ? 29 : x));
+    y = Math.min(99, Math.max(x + 1, isNaN(y) ? 69 : y));   // garantit rouge < orange < vert
+    savePctCustom(y + 1, x + 1);
+    updatePctCustomVisibility();
+    refreshAllTabsForThresholds();
   }
   populatePctThresholdOptions();
-  $('#pctCustomGreen').addEventListener('change', function() {
-    savePctCustom(parseInt(this.value, 10) || 0, pctCustom.orange);
-    refreshAllTabsForThresholds();
-  });
-  $('#pctCustomOrange').addEventListener('change', function() {
-    savePctCustom(pctCustom.green, parseInt(this.value, 10) || 0);
-    refreshAllTabsForThresholds();
-  });
+  $('#pctCustomRedMax').addEventListener('change', onPctCustomChange);
+  $('#pctCustomOrangeMax').addEventListener('change', onPctCustomChange);
 
   const JOURS_PRESET_LABELS = {
     strict: 'Strict (vert ≤7j, orange ≤21j)',
@@ -3285,6 +3338,9 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   // (nav d'onglets du haut retirée — remplacée par la barre de navigation basse #bottomNav)
 
   function switchTab(name) {
+    if (name !== 'admin' && isAdminRoute()) {
+      try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch (e) {}
+    }
     activeTabKey = name;
     $$('.tab-panel').forEach(p => p.classList.toggle('active', p.id === 'panel-' + name));
     const chipsBar = $('#elevesChipsBar');
@@ -3559,11 +3615,15 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 
   function caciKpiCard() {
     const c = computeCaciStats();
-    const col = c.taux >= 90 ? 'var(--ok)' : (c.taux >= 60 ? 'var(--warn)' : 'var(--caci-ko)');
-    return '<div class="kpi-card kpi-caci" title="' + c.sans + ' élève(s) sans CACI valide enregistré">' +
-      '<div class="kpi-value">' + c.avec + '/' + c.total + '<span class="kpi-caci-pct" style="color:' + col + ';">' + c.taux + ' %</span></div>' +
-      '<div class="kpi-label">🩺 CACI valides</div>' +
-      '<div class="kpi-caci-bar" role="img" aria-label="' + c.taux + ' % des élèves ont un CACI valide"><span style="width:' + c.taux + '%;background:' + col + ';"></span></div>' +
+    // Couleur : seuils % généraux du rapport (Réglages > Général), appliqués aux élèves venus en séance.
+    const col = stoplightColor(c.tauxActifs);
+    const colInscrits = stoplightColor(c.taux);
+    return '<div class="kpi-card kpi-caci" title="' + (c.totalActifs - c.avecActifs) + ' élève(s) venu(s) en séance sans CACI valide · ' + c.sans + ' sur l\'ensemble des inscrits">' +
+      '<div class="kpi-value">' + c.avecActifs + '/' + c.totalActifs + '<span class="kpi-caci-pct" style="color:' + col + ';">' + c.tauxActifs + ' %</span></div>' +
+      '<div class="kpi-label">🩺 CACI valides — élèves venus en séance</div>' +
+      '<div class="kpi-caci-bar" role="img" aria-label="' + c.tauxActifs + ' % des élèves venus en séance ont un CACI valide"><span style="width:' + c.tauxActifs + '%;background:' + col + ';"></span></div>' +
+      '<div class="kpi-sub" style="margin-top:6px;">Tous inscrits : ' + c.avec + '/' + c.total +
+        ' · <strong style="color:' + colInscrits + ';">' + c.taux + ' %</strong></div>' +
     '</div>';
   }
 
@@ -3586,12 +3646,167 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   function bindCaciVigilance(root) {
     $$('[data-caci-goto]', root).forEach(function(chip) {
       function go() {
+        if (isAdminRoute()) {
+          closeAdmin();
+          setTimeout(function() {
+            const t = document.getElementById('eleve-' + chip.dataset.caciGoto);
+            if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 150);
+          return;
+        }
         const target = document.getElementById('eleve-' + chip.dataset.caciGoto);
         if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         else showToast('Fiche masquée par la recherche en cours.', 'info');
       }
       chip.addEventListener('click', go);
       chip.addEventListener('keydown', function(ev) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); go(); } });
+    });
+  }
+
+  // =====================================================================
+  // MODULE ADMIN — …/#Admin. Centralise ce qui est à surveiller ou à corriger
+  // dans le classeur. Non listé dans la navigation ; ce n'est PAS un accès
+  // protégé (GitHub Pages est public, comme les fichiers JSON du dépôt).
+  // =====================================================================
+  function isAdminRoute() { return /^#admin\b/i.test(window.location.hash || ''); }
+
+  function openAdmin(anchorId) {
+    if (!isAdminRoute()) window.location.hash = 'Admin';   // déclenche hashchange -> routeFromHash
+    else routeFromHash();
+    if (anchorId) setTimeout(function() {
+      const el = document.getElementById(anchorId);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 200);
+  }
+  function closeAdmin() {
+    // retire #Admin de l'adresse sans recharger ni ajouter d'entrée d'historique
+    try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch (e) { window.location.hash = ''; }
+    switchTab(tabOrder[0]);
+  }
+  function routeFromHash() {
+    if (isAdminRoute()) { switchTab('admin'); renderAdmin(); window.scrollTo(0, 0); }
+    else if (activeTabKey === 'admin') switchTab(tabOrder[0]);
+  }
+  window.addEventListener('hashchange', routeFromHash);
+
+  /** Encadrements (date + moniteur) dont tous les CR sont vides ou « Aucun commentaire ». */
+  function getSeancesSansCommentaire() {
+    const vide = c => { const t = String(c || '').trim().toLowerCase(); return !t || t === 'aucun commentaire'; };
+    const parMoniteur = {};
+    (STATE.seances || []).forEach(function(s) {
+      const m = parMoniteur[s.moniteur] || (parMoniteur[s.moniteur] = { moniteur: s.moniteur, total: 0, dates: [] });
+      m.total++;
+      const crs = s.comptes_rendus || [];
+      if (crs.length && crs.every(cr => vide(cr.commentaire))) m.dates.push(s.date_seance);
+    });
+    return Object.values(parMoniteur).filter(m => m.dates.length)
+      .map(m => Object.assign(m, { dates: m.dates.sort() }))
+      .sort((a, b) => (b.dates.length / b.total) - (a.dates.length / a.total) || a.moniteur.localeCompare(b.moniteur, 'fr'));
+  }
+
+  function adminCard(id, title, badge, body, tone) {
+    return '<div class="admin-card' + (tone ? ' ' + tone : '') + '" id="' + id + '">' +
+      '<div class="admin-card-head"><span class="admin-card-title">' + title + '</span>' +
+        (badge != null ? '<span class="admin-badge">' + badge + '</span>' : '') + '</div>' + body + '</div>';
+  }
+
+  function buildAdminFraicheurHtml() {
+    const s = STATE.synthese || {}, src = s.source || {};
+    const gen = s.date_generation ? new Date(s.date_generation) : null;
+    const jours = gen && !isNaN(gen) ? Math.floor((Date.now() - gen.getTime()) / 86400000) : null;
+    const col = daysSinceColor(jours);
+    const genTxt = gen && !isNaN(gen)
+      ? gen.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' }) + ' à ' + gen.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })
+      : '—';
+    const dernierCr = s.periode && s.periode.date_max ? formatDateFR(s.periode.date_max) : '—';
+    const body = '<div class="admin-facts">' +
+        '<div><span class="admin-fact-label">Dernier export</span><span class="admin-fact-value" style="color:' + col + ';">' + escapeHtml(genTxt) +
+          (jours != null ? ' <small>(' + (jours === 0 ? "aujourd'hui" : 'il y a ' + jours + ' j') + ')</small>' : '') + '</span></div>' +
+        '<div><span class="admin-fact-label">Dernière séance avec CR</span><span class="admin-fact-value">' + escapeHtml(dernierCr) + '</span></div>' +
+        '<div><span class="admin-fact-label">Comptes rendus</span><span class="admin-fact-value">' + (s.nb_comptes_rendus != null ? s.nb_comptes_rendus : '—') + '</span></div>' +
+      '</div>' +
+      '<div class="admin-links">' +
+        (src.classeur_url ? '<a class="notif-link" href="' + escapeHtml(src.classeur_url) + '" target="_blank" rel="noopener noreferrer">📊 Ouvrir le classeur Google ↗</a>' : '') +
+        '<a class="notif-link" href="' + escapeHtml(CONFIG.RAW_BASE + 'synthese.json') + '" target="_blank" rel="noopener noreferrer">🗂 synthese.json ↗</a>' +
+      '</div>';
+    return adminCard('adminFraicheur', '🕐 Fraîcheur des données', null, body);
+  }
+
+  function buildAdminCaciHtml() {
+    const c = computeCaciStats();
+    if (!c.vigilance.length) return adminCard('adminCaci', '🩺 CACI des élèves venus en séance', '0', '<p class="admin-ok">✅ Tous les élèves venus en séance ont un CACI valide.</p>', 'ok');
+    // Réutilise la carte d'alerte existante (pastilles cliquables vers les fiches)
+    return '<div id="adminCaci">' + buildCaciVigilance() + '</div>';
+  }
+
+  function buildAdminAnomaliesHtml() {
+    const a = (STATE.synthese && STATE.synthese.anomalies) || {};
+    const sections = grav => ANOM_CATEGORIES.filter(c => c.grav === grav && Array.isArray(a[c.key]) && a[c.key].length)
+      .map(c => buildAnomSection(c, a[c.key])).join('');
+    const nCorr = countAnomalies('corriger'), nInfo = countAnomalies('info');
+    const corriger = sections('corriger'), info = sections('info');
+    const body = '<p class="anom-intro">Écarts entre les listes de référence du classeur (onglets Eleves, Moniteurs, Ateliers) et les comptes rendus saisis. ' +
+        'Ils ne bloquent pas le rapport, mais faussent certaines fiches ou moyennes tant qu\'ils ne sont pas corrigés.</p>' +
+      (corriger ? '<div class="anom-group-title">À corriger (' + nCorr + ')</div>' + corriger : '<p class="admin-ok">✅ Rien à corriger.</p>') +
+      (info ? '<div class="anom-group-title">Pour information (' + nInfo + ')</div>' + info : '');
+    return adminCard('adminAnomalies', '⚠ Non-concordances à corriger dans le classeur', nCorr, body, nCorr ? 'warn' : 'ok');
+  }
+
+  function buildAdminMardisHtml() {
+    const c = (STATE.synthese || {}).calendrier;
+    if (!c) return adminCard('adminMardis', '🗓️ Mardis sans compte rendu', null,
+      '<p class="anom-hint">Calendrier indisponible : relancer le script d\'export (version avec calendrier des séances).</p>');
+    const sans = (c.dates || []).filter(d => d.statut !== 'seance');
+    const body = sans.length
+      ? '<p class="anom-hint">Créneaux théoriques (chaque ' + escapeHtml(c.jour_semaine) + ' depuis le ' + escapeHtml(formatDateFR(c.date_debut)) +
+          ') sans aucun CR : piscine fermée, soirée baptême ou séance non saisie. À vérifier auprès des moniteurs si une séance a bien eu lieu.</p>' +
+        '<div class="anom-items">' + sans.map(d =>
+          '<span class="anom-item">' + (d.statut === 'hors_calendrier' ? '⚠ ' : '🔒 ') + escapeHtml(formatDateFR(d.date)) +
+          (d.statut === 'hors_calendrier' ? ' — hors ' + escapeHtml(c.jour_semaine) + ', date à vérifier' : '') + '</span>').join('') + '</div>'
+      : '<p class="admin-ok">✅ Chaque ' + escapeHtml(c.jour_semaine) + ' du calendrier a au moins un compte rendu.</p>';
+    return adminCard('adminMardis', '🗓️ ' + (c.jour_semaine.charAt(0).toUpperCase() + c.jour_semaine.slice(1)) + 's sans compte rendu',
+      sans.length + '/' + c.nb_creneaux_theoriques, body);
+  }
+
+  function buildAdminSansCommentaireHtml() {
+    const rows = getSeancesSansCommentaire();
+    const total = rows.reduce((n, r) => n + r.dates.length, 0);
+    const body = rows.length
+      ? '<p class="anom-hint">Encadrements (une date + un moniteur) dont tous les comptes rendus sont vides ou « Aucun commentaire ». Les notes sont bien saisies, mais aucun retour écrit pour les élèves.</p>' +
+        '<div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Moniteur</th><th>Sans commentaire</th><th>Dates</th></tr></thead><tbody>' +
+        rows.map(r => {
+          const pct = Math.round(r.dates.length / r.total * 100);
+          return '<tr><td>' + escapeHtml(r.moniteur) + '</td>' +
+            '<td><strong style="color:' + stoplightColor(100 - pct) + ';">' + r.dates.length + '/' + r.total + '</strong></td>' +
+            '<td>' + r.dates.map(d => escapeHtml(formatDateFR(d))).join(', ') + '</td></tr>';
+        }).join('') + '</tbody></table></div>'
+      : '<p class="admin-ok">✅ Chaque encadrement comporte au moins un commentaire écrit.</p>';
+    return adminCard('adminSansCommentaire', '📝 Séances sans commentaire', total, body);
+  }
+
+  function renderAdmin() {
+    const root = $('#adminContent');
+    if (!root) return;
+    if (!STATE.eleves || !STATE.synthese) return;   // rappelé en fin de renderEleves une fois les données chargées
+    root.innerHTML =
+      '<div class="admin-head">' +
+        '<div><h2 class="section-title" style="margin:0;">🛠 Espace Admin</h2>' +
+        '<p class="admin-sub">Points à surveiller ou à corriger dans le classeur. Page accessible par l\'adresse <code>#Admin</code>, non listée dans la navigation (non protégée).</p></div>' +
+        '<button type="button" class="export-btn" id="btnAdminBack">← Retour au rapport</button>' +
+      '</div>' +
+      buildAdminFraicheurHtml() +
+      buildAdminCaciHtml() +
+      buildAdminAnomaliesHtml() +
+      buildAdminMardisHtml() +
+      buildAdminSansCommentaireHtml();
+    $('#btnAdminBack', root).addEventListener('click', closeAdmin);
+    bindCaciVigilance(root);
+    const btnCopy = $('#btnCopyDoublons', root);
+    if (btnCopy) btnCopy.addEventListener('click', function() {
+      const a = (STATE.synthese && STATE.synthese.anomalies) || {};
+      copyText(buildDoublonsReport(a.comptes_rendus_doublons || []))
+        .then(() => showToast('Signalement copié — collez-le dans votre message.', 'success'))
+        .catch(() => showToast('Copie impossible dans ce navigateur.', 'error'));
     });
   }
 
@@ -3814,8 +4029,9 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     btn.title = n + ' non-concordance' + (n > 1 ? 's' : '') + ' à corriger — cliquer pour le détail';
     if (!btn.dataset.wired) {
       btn.dataset.wired = '1';
-      btn.addEventListener('click', openAnomModal);
+      btn.addEventListener('click', function() { openAdmin('adminAnomalies'); });
     }
+    btn.title = n + ' non-concordance' + (n > 1 ? 's' : '') + ' à corriger — ouvrir l\'espace Admin';
   }
 
   function buildAnomaliesBanner() {
@@ -4491,8 +4707,6 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         '<div id="syntheseAnchor" style="scroll-margin-top:calc(var(--header-h) + 12px);"></div>' +
         buildCacheBanner() +
         buildKPIs() +
-        buildCaciVigilance() +
-        buildAnomaliesBanner() +
         '<div class="legend-row">' +
           '<strong style="color:var(--text);">Légende notes :</strong>' +
           '<span class="legend-item"><span class="note-dot n1"></span>1 — Non acquis</span>' +
@@ -4579,8 +4793,6 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
           btn.textContent = shouldOpen ? '▴ Tout replier' : '▾ Tout déplier';
         });
       });
-      const btnAnomDetail = $('#btnAnomaliesDetail');
-      if (btnAnomDetail) btnAnomDetail.addEventListener('click', openAnomModal);
 
       // Boutons d'export du tableau
       const btnPng = $('#btnExportPng'); if (btnPng) btnPng.addEventListener('click', exportTableAsPng);
@@ -4593,6 +4805,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     }
 
     draw();
+    if (isAdminRoute()) renderAdmin();   // garde le module Admin à jour (données, seuils…)
   }
 
   // =====================================================================
@@ -7018,7 +7231,8 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   // =====================================================================
   initTheme();
   setupBackToTable();
-  switchTab(tabOrder[0]);
+  // …/#Admin ouvre directement le module Admin (rendu dès que les données sont chargées)
+  switchTab(isAdminRoute() ? 'admin' : tabOrder[0]);
   const PERMANENT_PLACEHOLDER_TABS = [];
   if (PERMANENT_PLACEHOLDER_TABS.includes(tabOrder[0])) {
     showToast(
