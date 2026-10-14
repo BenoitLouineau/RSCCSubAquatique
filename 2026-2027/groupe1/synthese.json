@@ -1,5 +1,5 @@
 {
-  "date_generation": "2026-10-14T20:04:41",
+  "date_generation": "2026-10-14T22:27:16",
   "nb_eleves": 17,
   "nb_moniteurs": 10,
   "nb_seances": 3,
@@ -266,26 +266,29 @@
     "date_debut": "2026-09-08",
     "jour_semaine": "mardi",
     "date_reference": "2026-10-14",
+    "fermetures_declarees": [],
     "nb_creneaux_theoriques": 6,
     "nb_soirees": 3,
+    "nb_fermes": 0,
+    "nb_sans_cr": 3,
     "nb_piscine_fermee": 3,
     "nb_hors_calendrier": 0,
     "dates": [
       {
         "date": "2026-09-08",
-        "statut": "piscine_fermee",
+        "statut": "sans_cr",
         "nb_encadrements": 0,
         "nb_eleves": 0
       },
       {
         "date": "2026-09-15",
-        "statut": "piscine_fermee",
+        "statut": "sans_cr",
         "nb_encadrements": 0,
         "nb_eleves": 0
       },
       {
         "date": "2026-09-22",
-        "statut": "piscine_fermee",
+        "statut": "sans_cr",
         "nb_encadrements": 0,
         "nb_eleves": 0
       },
@@ -306,6 +309,60 @@
         "statut": "seance",
         "nb_encadrements": 6,
         "nb_eleves": 10
+      }
+    ]
+  },
+  "absenteisme": {
+    "seuil_alerte": 2,
+    "base": "debut_saison",
+    "nb_inscrits": 17,
+    "frequentation": [
+      {
+        "date": "2026-09-29",
+        "nb_presents": 11,
+        "nb_inscrits": 17
+      },
+      {
+        "date": "2026-10-06",
+        "nb_presents": 12,
+        "nb_inscrits": 17
+      },
+      {
+        "date": "2026-10-13",
+        "nb_presents": 10,
+        "nb_inscrits": 17
+      }
+    ],
+    "eleves_en_alerte": [
+      {
+        "eleve": "Célia",
+        "absences_consecutives": 2,
+        "derniere_presence": "2026-09-29",
+        "jamais_venu": false
+      },
+      {
+        "eleve": "Jean",
+        "absences_consecutives": 3,
+        "derniere_presence": null,
+        "jamais_venu": true
+      },
+      {
+        "eleve": "Kahina",
+        "absences_consecutives": 3,
+        "derniere_presence": null,
+        "jamais_venu": true
+      },
+      {
+        "eleve": "Kevin F",
+        "absences_consecutives": 3,
+        "derniere_presence": null,
+        "jamais_venu": true
+      },
+      {
+        "eleve": "Olivia",
+        "absences_consecutives": 3,
+        "derniere_presence": null,
+        "jamais_venu": true
       }
     ]
   },
