@@ -756,5 +756,465 @@
         "commentaire": "Aucun commentaire"
       }
     ]
+  },
+  {
+    "id": "2026-10-13_benoit-l",
+    "date_seance": "2026-10-13",
+    "moniteur": "Benoit L",
+    "nb_eleves": 2,
+    "eleves": [
+      "Kévin D",
+      "Mohamed"
+    ],
+    "ateliers_traites": [
+      "DBN",
+      "Déplacements immersion",
+      "Gestion de son matériel",
+      "Gréage",
+      "Poumon Ballast",
+      "VDM",
+      "VDM partiel",
+      "dégréage"
+    ],
+    "nb_comptes_rendus": 15,
+    "comptes_rendus": [
+      {
+        "ligne": 90,
+        "eleve": "Kévin D",
+        "atelier": "Gréage",
+        "note": 4.0,
+        "commentaire": "Élève ayant partiellement déjà fait le cursus N1 lors de l'année du covid. Attentif et capte rapidement les exercices et leurs attendus.\nTop sur dbn et vdm partiels nous amènent même au vdm total.\nBelle soirée"
+      },
+      {
+        "ligne": 91,
+        "eleve": "Kévin D",
+        "atelier": "VDM",
+        "note": 3.0,
+        "commentaire": "Élève ayant partiellement déjà fait le cursus N1 lors de l'année du covid. Attentif et capte rapidement les exercices et leurs attendus.\nTop sur dbn et vdm partiels nous amènent même au vdm total.\nBelle soirée"
+      },
+      {
+        "ligne": 92,
+        "eleve": "Kévin D",
+        "atelier": "VDM partiel",
+        "note": 3.0,
+        "commentaire": "Élève ayant partiellement déjà fait le cursus N1 lors de l'année du covid. Attentif et capte rapidement les exercices et leurs attendus.\nTop sur dbn et vdm partiels nous amènent même au vdm total.\nBelle soirée"
+      },
+      {
+        "ligne": 93,
+        "eleve": "Kévin D",
+        "atelier": "Gestion de son matériel",
+        "note": 3.0,
+        "commentaire": "Élève ayant partiellement déjà fait le cursus N1 lors de l'année du covid. Attentif et capte rapidement les exercices et leurs attendus.\nTop sur dbn et vdm partiels nous amènent même au vdm total.\nBelle soirée"
+      },
+      {
+        "ligne": 94,
+        "eleve": "Kévin D",
+        "atelier": "DBN",
+        "note": 4.0,
+        "commentaire": "Élève ayant partiellement déjà fait le cursus N1 lors de l'année du covid. Attentif et capte rapidement les exercices et leurs attendus.\nTop sur dbn et vdm partiels nous amènent même au vdm total.\nBelle soirée"
+      },
+      {
+        "ligne": 95,
+        "eleve": "Kévin D",
+        "atelier": "Poumon Ballast",
+        "note": 3.0,
+        "commentaire": "Élève ayant partiellement déjà fait le cursus N1 lors de l'année du covid. Attentif et capte rapidement les exercices et leurs attendus.\nTop sur dbn et vdm partiels nous amènent même au vdm total.\nBelle soirée"
+      },
+      {
+        "ligne": 96,
+        "eleve": "Kévin D",
+        "atelier": "dégréage",
+        "note": 4.0,
+        "commentaire": "Élève ayant partiellement déjà fait le cursus N1 lors de l'année du covid. Attentif et capte rapidement les exercices et leurs attendus.\nTop sur dbn et vdm partiels nous amènent même au vdm total.\nBelle soirée"
+      },
+      {
+        "ligne": 97,
+        "eleve": "Mohamed",
+        "atelier": "Poumon Ballast",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 98,
+        "eleve": "Mohamed",
+        "atelier": "dégréage",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 99,
+        "eleve": "Mohamed",
+        "atelier": "DBN",
+        "note": 4.0,
+        "commentaire": "Élève attentif et la réalisation des exercices dbn et vdm ont été totalement intégrés avec répétition par 3 ou 4 fois. Pas de stress et réaction correcte aux instructions et aux réalisations. Bref au top, et prometteur pour la suite."
+      },
+      {
+        "ligne": 100,
+        "eleve": "Mohamed",
+        "atelier": "VDM partiel",
+        "note": 4.0,
+        "commentaire": "Élève attentif et la réalisation des exercices dbn et vdm ont été totalement intégrés avec répétition par 3 ou 4 fois. Pas de stress et réaction correcte aux instructions et aux réalisations. Bref au top, et prometteur pour la suite."
+      },
+      {
+        "ligne": 101,
+        "eleve": "Mohamed",
+        "atelier": "VDM",
+        "note": 4.0,
+        "commentaire": "Élève attentif et la réalisation des exercices dbn et vdm ont été totalement intégrés avec répétition par 3 ou 4 fois. Pas de stress et réaction correcte aux instructions et aux réalisations. Bref au top, et prometteur pour la suite."
+      },
+      {
+        "ligne": 102,
+        "eleve": "Mohamed",
+        "atelier": "Déplacements immersion",
+        "note": 2.0,
+        "commentaire": "Élève attentif et la réalisation des exercices dbn et vdm ont été totalement intégrés avec répétition par 3 ou 4 fois. Pas de stress et réaction correcte aux instructions et aux réalisations. Bref au top, et prometteur pour la suite."
+      },
+      {
+        "ligne": 103,
+        "eleve": "Mohamed",
+        "atelier": "Gréage",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 104,
+        "eleve": "Mohamed",
+        "atelier": "Gestion de son matériel",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire"
+      }
+    ]
+  },
+  {
+    "id": "2026-10-13_benoit-p",
+    "date_seance": "2026-10-13",
+    "moniteur": "Benoit P",
+    "nb_eleves": 2,
+    "eleves": [
+      "Hanane",
+      "Nabiyu"
+    ],
+    "ateliers_traites": [
+      "Gestion de son matériel",
+      "Gréage",
+      "Mise en sécu surface",
+      "Sortie de l'eau",
+      "VDM partiel",
+      "dégréage"
+    ],
+    "nb_comptes_rendus": 12,
+    "comptes_rendus": [
+      {
+        "ligne": 105,
+        "eleve": "Nabiyu",
+        "atelier": "Mise en sécu surface",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 106,
+        "eleve": "Nabiyu",
+        "atelier": "Gestion de son matériel",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 107,
+        "eleve": "Nabiyu",
+        "atelier": "VDM partiel",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 108,
+        "eleve": "Nabiyu",
+        "atelier": "Sortie de l'eau",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 109,
+        "eleve": "Nabiyu",
+        "atelier": "dégréage",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 110,
+        "eleve": "Nabiyu",
+        "atelier": "Gréage",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 111,
+        "eleve": "Hanane",
+        "atelier": "dégréage",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 112,
+        "eleve": "Hanane",
+        "atelier": "Gréage",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 113,
+        "eleve": "Hanane",
+        "atelier": "Mise en sécu surface",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 114,
+        "eleve": "Hanane",
+        "atelier": "VDM partiel",
+        "note": 1.0,
+        "commentaire": "On a manqué de temps pour trouvé la solution sur les échecs de VDM partiel"
+      },
+      {
+        "ligne": 115,
+        "eleve": "Hanane",
+        "atelier": "Gestion de son matériel",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 116,
+        "eleve": "Hanane",
+        "atelier": "Sortie de l'eau",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire"
+      }
+    ]
+  },
+  {
+    "id": "2026-10-13_carine",
+    "date_seance": "2026-10-13",
+    "moniteur": "Carine",
+    "nb_eleves": 1,
+    "eleves": [
+      "Michèle"
+    ],
+    "ateliers_traites": [
+      "DBN",
+      "Gestion du gilet",
+      "Gréage",
+      "dégréage"
+    ],
+    "nb_comptes_rendus": 4,
+    "comptes_rendus": [
+      {
+        "ligne": 121,
+        "eleve": "Michèle",
+        "atelier": "dégréage",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 122,
+        "eleve": "Michèle",
+        "atelier": "Gréage",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 123,
+        "eleve": "Michèle",
+        "atelier": "DBN",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 124,
+        "eleve": "Michèle",
+        "atelier": "Gestion du gilet",
+        "note": 1.0,
+        "commentaire": "Aucun commentaire"
+      }
+    ]
+  },
+  {
+    "id": "2026-10-13_carlos",
+    "date_seance": "2026-10-13",
+    "moniteur": "Carlos",
+    "nb_eleves": 2,
+    "eleves": [
+      "Abderrahmane",
+      "Amir"
+    ],
+    "ateliers_traites": [
+      "DBN",
+      "Gréage",
+      "VDM",
+      "VDM partiel"
+    ],
+    "nb_comptes_rendus": 8,
+    "comptes_rendus": [
+      {
+        "ligne": 125,
+        "eleve": "Amir",
+        "atelier": "DBN",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 126,
+        "eleve": "Amir",
+        "atelier": "VDM",
+        "note": 1.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 127,
+        "eleve": "Amir",
+        "atelier": "VDM partiel",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 128,
+        "eleve": "Amir",
+        "atelier": "Gréage",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 129,
+        "eleve": "Abderrahmane",
+        "atelier": "VDM",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 130,
+        "eleve": "Abderrahmane",
+        "atelier": "DBN",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 131,
+        "eleve": "Abderrahmane",
+        "atelier": "Gréage",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 132,
+        "eleve": "Abderrahmane",
+        "atelier": "VDM partiel",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire"
+      }
+    ]
+  },
+  {
+    "id": "2026-10-13_nicos",
+    "date_seance": "2026-10-13",
+    "moniteur": "Nicos",
+    "nb_eleves": 2,
+    "eleves": [
+      "Aubrée",
+      "Patricia"
+    ],
+    "ateliers_traites": [
+      "DBN",
+      "Gréage",
+      "VDM partiel"
+    ],
+    "nb_comptes_rendus": 6,
+    "comptes_rendus": [
+      {
+        "ligne": 84,
+        "eleve": "Aubrée",
+        "atelier": "Gréage",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 85,
+        "eleve": "Aubrée",
+        "atelier": "VDM partiel",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 86,
+        "eleve": "Aubrée",
+        "atelier": "DBN",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 87,
+        "eleve": "Patricia",
+        "atelier": "Gréage",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 88,
+        "eleve": "Patricia",
+        "atelier": "VDM partiel",
+        "note": 1.0,
+        "commentaire": "Impossible de remplir le masque : Patricia expire par le nez, impossible de faire rentrer de l'eau dans le masque"
+      },
+      {
+        "ligne": 89,
+        "eleve": "Patricia",
+        "atelier": "DBN",
+        "note": 3.0,
+        "commentaire": "Impossible de remplir le masque : Patricia expire par le nez, impossible de faire rentrer de l'eau dans le masque"
+      }
+    ]
+  },
+  {
+    "id": "2026-10-13_veronique",
+    "date_seance": "2026-10-13",
+    "moniteur": "Véronique",
+    "nb_eleves": 1,
+    "eleves": [
+      "Catherine"
+    ],
+    "ateliers_traites": [
+      "DBN",
+      "Gestion de son matériel",
+      "Gréage",
+      "VDM partiel"
+    ],
+    "nb_comptes_rendus": 4,
+    "comptes_rendus": [
+      {
+        "ligne": 117,
+        "eleve": "Catherine",
+        "atelier": "Gréage",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 118,
+        "eleve": "Catherine",
+        "atelier": "Gestion de son matériel",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 119,
+        "eleve": "Catherine",
+        "atelier": "DBN",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 120,
+        "eleve": "Catherine",
+        "atelier": "VDM partiel",
+        "note": 4.0,
+        "commentaire": "Pratiqué en surface. A faire au fond."
+      }
+    ]
   }
 ]
