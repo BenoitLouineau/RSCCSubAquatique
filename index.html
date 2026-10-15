@@ -914,7 +914,29 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 .admin-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
 .admin-table th, .admin-table td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
 .admin-table th { font-size: 11px; text-transform: uppercase; letter-spacing: .03em; color: var(--muted); }
-#adminCaci .caci-vigilance { margin-bottom: 16px; }
+#adminCaci .caci-vigilance { margin-bottom: 16px; scroll-margin-top: calc(var(--header-h) + 12px); }
+#adminCaci { scroll-margin-top: calc(var(--header-h) + 12px); }
+.admin-head-actions { margin-left: auto; display: flex; gap: 8px; flex-wrap: wrap; }
+.admin-head .admin-head-actions .export-btn { margin-left: 0; }
+.admin-card.admin-flash, #adminCaci.admin-flash .caci-vigilance { box-shadow: 0 0 0 2px var(--accent2); }
+.admin-bandeau { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 14px; margin-bottom: 16px; }
+.admin-bandeau-title { font-size: 13.5px; font-weight: 800; margin-bottom: 8px; }
+.admin-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+.admin-pill { border-radius: 999px; padding: 4px 11px; font-size: 12px; cursor: pointer; border: 1px solid var(--border); background: var(--chip); color: var(--text); }
+.admin-pill.warn { border-color: rgba(245, 158, 11, .5); background: rgba(245, 158, 11, .12); }
+.admin-pill.ok { color: var(--ok); opacity: .8; }
+.admin-pill:hover { filter: brightness(1.08); }
+.admin-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+.admin-kpi { background: var(--chip); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 10px 12px; display: flex; flex-direction: column; gap: 2px; }
+.admin-kpi-value { font-size: 22px; font-weight: 800; }
+.admin-kpi-label { font-size: 12px; color: var(--muted); }
+.admin-kpi-sub { font-size: 11px; color: var(--muted); }
+.admin-trend { font-size: 11px; font-weight: 700; }
+.admin-trend.up { color: var(--ok); } .admin-trend.down { color: var(--bad); } .admin-trend.flat { color: var(--muted); }
+.admin-checklist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.admin-checklist li { display: flex; gap: 10px; font-size: 13px; }
+.admin-checklist small { color: var(--muted); font-size: 11.5px; }
+.admin-hebdo { white-space: pre-wrap; font-family: inherit; font-size: 12.5px; line-height: 1.5; background: var(--chip); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 10px 12px; margin: 0 0 10px; max-height: 320px; overflow: auto; }
 .caci-vigilance {
   margin-bottom: 18px; padding: 14px 16px; border-radius: var(--radius-sm);
   background: rgba(220, 38, 38, .08); border: 1px solid rgba(220, 38, 38, .35);
@@ -3829,6 +3851,237 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     return adminCard('adminSansCommentaire', '📝 Séances sans commentaire', total, body);
   }
 
+  // ---------------------------------------------------------------------
+  // ADMIN — compléments de pilotage : bandeau, indicateurs, compétences
+  // jamais abordées / bloquées, encadrement, paramètres, point hebdo.
+  // ---------------------------------------------------------------------
+  const SEUIL_ENCADREMENT = 4;   // élèves pour un seul moniteur au-delà duquel on alerte
+  const isoToday = () => new Date().toISOString().slice(0, 10);
+
+  /** Compétences comptant dans la moyenne (référentiel) jamais notées pour aucun élève. */
+  function getCompetencesJamaisAbordees() {
+    const ref = getReferentielMatchSet();
+    const vues = new Set();
+    (STATE.seances || []).forEach(s => (s.comptes_rendus || []).forEach(cr => { if (cr.atelier) vues.add(cr.atelier); }));
+    return Array.from(ref).filter(n => !vues.has(n)).sort((a, b) => a.localeCompare(b, 'fr'));
+  }
+
+  /** Atelier noté 1 (non acquis) aux deux dernières évaluations notées d'un élève. */
+  function getCompetencesBloquees() {
+    const out = [];
+    (STATE.eleves || []).forEach(function(e) {
+      Object.keys(e.competences || {}).forEach(function(at) {
+        const h = (e.competences[at].historique || []).filter(x => x.note != null)
+          .sort((a, b) => String(a.date).localeCompare(String(b.date)));
+        if (h.length >= 2 && h[h.length - 1].note <= 1 && h[h.length - 2].note <= 1) {
+          let n = 0; for (let i = h.length - 1; i >= 0 && h[i].note <= 1; i--) n++;
+          out.push({ e: e, atelier: at, fois: n, depuis: h[h.length - n].date, derniere: h[h.length - 1].date });
+        }
+      });
+    });
+    return out.sort((a, b) => b.fois - a.fois || a.e.nom.localeCompare(b.e.nom, 'fr'));
+  }
+
+  /** Encadrement par soirée : moniteurs, élèves, ratio et moniteur le plus chargé. */
+  function getEncadrementParSoiree() {
+    const parDate = {};
+    (STATE.seances || []).forEach(function(s) {
+      const d = parDate[s.date_seance] || (parDate[s.date_seance] = { date: s.date_seance, moniteurs: 0, eleves: new Set(), max: 0, maxMon: '' });
+      d.moniteurs++;
+      (s.eleves || []).forEach(n => d.eleves.add(n));
+      const n = (s.eleves || []).length;
+      if (n > d.max) { d.max = n; d.maxMon = s.moniteur; }
+    });
+    return Object.values(parDate).sort((a, b) => b.date.localeCompare(a.date))
+      .map(d => Object.assign(d, { nbEleves: d.eleves.size, ratio: d.moniteurs ? d.eleves.size / d.moniteurs : 0, alerte: d.max > SEUIL_ENCADREMENT }));
+  }
+
+  /** Paramètres et réglages à vérifier pour que le rapport reste juste. */
+  function getParametresChecklist() {
+    const s = STATE.synthese || {}, src = s.source || {}, c = s.calendrier;
+    const items = [];
+    const chef = typeof chefDeGroupeNom !== 'undefined' ? chefDeGroupeNom : '';
+    items.push({ ok: !!chef, label: 'Chef de groupe désigné', detail: chef ? chef : 'Aucun — Réglages › Moniteurs (nécessaire pour valider les examens)' });
+    items.push({ ok: !!src.gid_comptes_rendus, label: 'Liens directs vers les lignes du classeur',
+      detail: src.gid_comptes_rendus ? 'gid renseigné' : 'COMPTES_RENDUS_GID vide dans le script (nombre après #gid= de l\'onglet ComptesRendus)' });
+    if (c) {
+      const n = calendrierComptes(c);
+      items.push({ ok: n.sansCr === 0, label: 'Mardis sans CR expliqués',
+        detail: n.sansCr ? n.sansCr + ' mardi(s) sans CR ni fermeture déclarée — onglet Absenteisme, colonne « Mardis sans séance »'
+                         : (c.fermetures_declarees || []).length + ' fermeture(s) déclarée(s)' });
+    } else {
+      items.push({ ok: false, label: 'Calendrier des séances', detail: 'Absent de synthese.json — relancer la dernière version du script' });
+    }
+    const gen = s.date_generation ? new Date(s.date_generation) : null;
+    const age = gen && !isNaN(gen) ? Math.floor((Date.now() - gen.getTime()) / 86400000) : null;
+    items.push({ ok: age != null && age <= 7, label: 'Données à jour (moins de 7 jours)',
+      detail: age == null ? 'Date d\'export inconnue' : (age === 0 ? 'Export du jour' : 'Dernier export il y a ' + age + ' jour(s)') });
+    const b = getSeasonBounds();
+    const p = s.periode || {};
+    const dansSaison = !p.date_min || (new Date(p.date_min + 'T00:00:00') >= b.start && new Date(p.date_max + 'T00:00:00') <= b.end);
+    items.push({ ok: dansSaison, label: 'Dates de saison cohérentes',
+      detail: formatDateFR(b.start.toISOString().slice(0, 10)) + ' → ' + formatDateFR(b.end.toISOString().slice(0, 10)) +
+        (dansSaison ? '' : ' — des séances sortent de cette période (Réglages › Général)') });
+    return items;
+  }
+
+  /** % moyen de compétences acquises des élèves venus en séance, à une date donnée (incluse). */
+  function acquisitionMoyenneAu(dateMax) {
+    const ref = getReferentielMatchSet(), total = getTotalCompetencesReferentiel() || 1;
+    const actifs = (STATE.eleves || []).filter(e => (e.dates_seances || []).some(d => d <= dateMax));
+    if (!actifs.length) return null;
+    const pcts = actifs.map(function(e) {
+      let n = 0;
+      Object.keys(e.competences || {}).forEach(function(at) {
+        if (!ref.has(at)) return;
+        const h = (e.competences[at].historique || []).filter(x => x.date <= dateMax);
+        const notes = h.filter(x => x.note != null);
+        if (!notes.length) return;
+        if (isCompetenceAcquiseFromHistorique({ historique: h, derniere_note: notes[notes.length - 1].note })) n++;
+      });
+      return n / total * 100;
+    });
+    return Math.round(pcts.reduce((a, b) => a + b, 0) / pcts.length);
+  }
+  /** Part des élèves encadrés ayant reçu un vrai commentaire (une soirée, ou toute la saison si date absente). */
+  function tauxCommentes(date) {
+    let el = 0, com = 0;
+    (STATE.seances || []).filter(s => !date || s.date_seance === date).forEach(function(s) {
+      const c = new Set((s.comptes_rendus || []).filter(cr => isCommentaireReel(cr.commentaire)).map(cr => cr.eleve));
+      el += (s.eleves || []).length; com += (s.eleves || []).filter(n => c.has(n)).length;
+    });
+    return el ? Math.round(com / el * 100) : null;
+  }
+  function tendanceHtml(cur, prev, suffixe) {
+    if (cur == null || prev == null) return '';
+    const d = cur - prev;
+    if (d === 0) return '<span class="admin-trend flat">= vs soirée préc.</span>';
+    return '<span class="admin-trend ' + (d > 0 ? 'up' : 'down') + '">' + (d > 0 ? '▲ +' : '▼ ') + d + (suffixe || '') + ' vs soirée préc.</span>';
+  }
+  function buildAdminIndicateursHtml() {
+    const dates = (STATE.allDates || []).slice().sort();
+    const last = dates[dates.length - 1], prev = dates[dates.length - 2];
+    const acq = last ? acquisitionMoyenneAu(last) : null, acqPrev = prev ? acquisitionMoyenneAu(prev) : null;
+    const f = getFrequentation();
+    const pctF = x => x && x.nb_inscrits ? Math.round(x.nb_presents / x.nb_inscrits * 100) : null;
+    const fMoy = f.length ? Math.round(f.reduce((n, x) => n + (pctF(x) || 0), 0) / f.length) : null;
+    const fLast = pctF(f[f.length - 1]), fPrev = pctF(f[f.length - 2]);
+    const com = tauxCommentes(), comLast = last ? tauxCommentes(last) : null, comPrev = prev ? tauxCommentes(prev) : null;
+    const b = getSeasonBounds();
+    const ecoule = Math.max(0, Math.min(100, Math.round((Date.now() - b.start) / (b.end - b.start) * 100)));
+    const tuile = (val, label, color, sub) => '<div class="admin-kpi"><div class="admin-kpi-value" style="color:' + color + ';">' + val + '</div>' +
+      '<div class="admin-kpi-label">' + label + '</div>' + (sub || '') + '</div>';
+    const body = '<div class="admin-kpis">' +
+        tuile(acq != null ? acq + ' %' : '—', '🧩 Acquisition moyenne', acq != null ? stoplightColor(acq) : 'var(--muted)', tendanceHtml(acq, acqPrev, ' pt')) +
+        tuile(fMoy != null ? fMoy + ' %' : '—', '📈 Fréquentation moyenne', fMoy != null ? stoplightColor(fMoy) : 'var(--muted)',
+          (fLast != null ? '<span class="admin-kpi-sub">dernière soirée : ' + fLast + ' %</span>' : '') + tendanceHtml(fLast, fPrev, ' pt')) +
+        tuile(com != null ? com + ' %' : '—', '💬 Élèves commentés', com != null ? stoplightColor(com) : 'var(--muted)',
+          (comLast != null ? '<span class="admin-kpi-sub">dernière soirée : ' + comLast + ' %</span>' : '') + tendanceHtml(comLast, comPrev, ' pt')) +
+        tuile(ecoule + ' %', '🗓️ Saison écoulée', 'var(--text)', '<span class="admin-kpi-sub">' + dates.length + ' soirée(s) tenue(s)</span>') +
+      '</div>' +
+      '<p class="anom-hint" style="margin:8px 0 0;">Acquisition : part moyenne des ' + getTotalCompetencesReferentiel() +
+        ' compétences du référentiel acquises par les élèves venus en séance. Tendance : écart avec la situation à la soirée précédente.</p>';
+    return adminCard('adminIndicateurs', '📊 Indicateurs de saison', null, body);
+  }
+
+  function buildAdminJamaisAbordeesHtml() {
+    const l = getCompetencesJamaisAbordees();
+    const body = l.length
+      ? '<p class="anom-hint">Compétences du référentiel (actives, comptant dans la moyenne) qu\'aucun élève n\'a encore travaillées. À prévoir dans les prochains ateliers.</p>' +
+        '<div class="anom-items">' + l.map(n => '<span class="anom-item">🧩 ' + escapeHtml(n) + '</span>').join('') + '</div>'
+      : '<p class="admin-ok">✅ Toutes les compétences du référentiel ont été abordées au moins une fois.</p>';
+    return adminCard('adminJamais', '🧩 Compétences jamais abordées', l.length + '/' + getReferentielMatchSet().size, body, l.length ? 'warn' : 'ok');
+  }
+
+  function buildAdminBloqueesHtml() {
+    const l = getCompetencesBloquees();
+    const body = l.length
+      ? '<p class="anom-hint">Atelier noté 1 (non acquis) aux deux dernières évaluations ou plus : changer d\'approche, de moniteur ou d\'exercice.</p>' +
+        '<div class="chips-wrap">' + l.map(x =>
+          '<span class="mini-eleve-chip" data-caci-goto="' + escapeHtml(x.e.id) + '" role="button" tabindex="0" title="Aller à la fiche">' +
+            ICONS.eleve + ' ' + eleveNomCaci(x.e.nom) + ' <span class="caci-chip-meta">' + escapeHtml(x.atelier) + ' · ' + x.fois + '× non acquis depuis le ' +
+            formatDateFR(x.depuis) + '</span></span>').join('') + '</div>'
+      : '<p class="admin-ok">✅ Aucune compétence notée « non acquis » deux fois de suite.</p>';
+    return adminCard('adminBloquees', '🧱 Compétences bloquées', l.length, body, l.length ? 'warn' : 'ok');
+  }
+
+  function buildAdminEncadrementHtml() {
+    const l = getEncadrementParSoiree();
+    const nbAlertes = l.filter(d => d.alerte).length;
+    const body = l.length
+      ? '<p class="anom-hint">Élèves par moniteur à chaque soirée (d\'après les CR). Alerte si un moniteur a plus de ' + SEUIL_ENCADREMENT + ' élèves.</p>' +
+        '<div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Soirée</th><th>Moniteurs</th><th>Élèves</th><th>Élèves / moniteur</th><th>Le plus chargé</th></tr></thead><tbody>' +
+        l.map(d => '<tr><td>' + escapeHtml(formatDateFR(d.date)) + '</td><td>' + d.moniteurs + '</td><td>' + d.nbEleves + '</td>' +
+          '<td>' + d.ratio.toFixed(1).replace('.', ',') + '</td>' +
+          '<td' + (d.alerte ? ' style="color:var(--bad);font-weight:700;"' : '') + '>' + (d.alerte ? '⚠ ' : '') + escapeHtml(d.maxMon) + ' · ' + d.max + ' élève(s)</td></tr>').join('') +
+        '</tbody></table></div>'
+      : '<p class="admin-ok">Aucune soirée enregistrée.</p>';
+    return adminCard('adminEncadrement', '🤿 Encadrement par soirée', nbAlertes ? nbAlertes + ' alerte(s)' : null, body, nbAlertes ? 'warn' : null);
+  }
+
+  function buildAdminParametresHtml() {
+    const l = getParametresChecklist();
+    const ko = l.filter(x => !x.ok).length;
+    const body = '<ul class="admin-checklist">' + l.map(x =>
+      '<li class="' + (x.ok ? 'ok' : 'ko') + '"><span class="admin-check">' + (x.ok ? '✅' : '⚠️') + '</span>' +
+        '<span><strong>' + escapeHtml(x.label) + '</strong><br><small>' + escapeHtml(x.detail) + '</small></span></li>').join('') + '</ul>';
+    return adminCard('adminParametres', '⚙️ Paramètres à vérifier', ko ? ko + ' à vérifier' : '✓', body, ko ? 'warn' : 'ok');
+  }
+
+  /** Texte du point hebdo, prêt à coller dans le groupe des moniteurs. */
+  function buildPointHebdoTexte() {
+    const dates = (STATE.allDates || []).slice().sort();
+    const last = dates[dates.length - 1];
+    const f = getFrequentation(), fl = f[f.length - 1];
+    const lignes = [];
+    lignes.push('🤿 Point hebdo — ' + (CONFIG.GROUPE || 'Groupe') + ' · ' + formatDateFR(isoToday()));
+    if (last) lignes.push('', '📅 Dernière séance : ' + formatDateFR(last) + (fl ? ' — ' + fl.nb_presents + ' élève(s) présent(s) sur ' + fl.nb_inscrits : ''));
+    const caci = computeCaciStats().vigilance;
+    if (caci.length) lignes.push('', '🩺 CACI à régulariser avant la prochaine mise à l\'eau : ' + caci.map(v => v.e.nom).join(', '));
+    const abs = getElevesEnAlerteAbsence();
+    const absVenus = abs.filter(x => x.a.derniere_presence), absJamais = abs.filter(x => !x.a.derniere_presence);
+    if (absVenus.length) lignes.push('', '🚨 Absents ' + SEUIL_ALERTE_ABSENCES + ' séances de suite ou plus : ' +
+      absVenus.map(x => x.e.nom + ' (dernière venue le ' + formatDateFR(x.a.derniere_presence) + ')').join(', '));
+    if (absJamais.length) lignes.push('👻 Inscrits jamais venus : ' + absJamais.map(x => x.e.nom).join(', '));
+    const jam = getCompetencesJamaisAbordees();
+    if (jam.length) lignes.push('', '🧩 Compétences pas encore abordées : ' + jam.join(', '));
+    const bl = getCompetencesBloquees();
+    if (bl.length) lignes.push('', '🧱 À retravailler (2× non acquis de suite) : ' + bl.map(x => x.e.nom + ' — ' + x.atelier).join(', '));
+    const sansCom = getSeancesSansCommentaire().filter(r => r.dates.indexOf(last) !== -1).map(r => r.moniteur);
+    lignes.push('', '📝 Merci de compléter vos comptes rendus avec un commentaire écrit pour chaque élève' +
+      (sansCom.length ? ' (dernière séance sans commentaire : ' + sansCom.join(', ') + ')' : '') + '.');
+    lignes.push('', '📊 Rapport : ' + window.location.href.replace(/#.*$/, ''));
+    return lignes.join('\n');
+  }
+  function buildAdminPointHebdoHtml() {
+    const body = '<p class="anom-hint">Résumé prêt à coller dans le groupe des moniteurs (WhatsApp, mail…). Généré à partir des cartes de cette page.</p>' +
+      '<pre class="admin-hebdo" id="adminHebdoTexte">' + escapeHtml(buildPointHebdoTexte()) + '</pre>' +
+      '<button type="button" class="export-btn" id="btnCopyHebdo">📋 Copier le point hebdo</button>';
+    return adminCard('adminHebdo', '📣 Point hebdo à envoyer', null, body);
+  }
+
+  /** Bandeau en tête : une pastille par point de vigilance, verte à 0, cliquable vers sa carte. */
+  function buildAdminBandeauHtml() {
+    const c = (STATE.synthese || {}).calendrier;
+    const pills = [
+      { id: 'adminCaci', icon: '🩺', n: computeCaciStats().vigilance.length, label: 'CACI' },
+      { id: 'adminAbsences', icon: '🚨', n: getElevesEnAlerteAbsence().length, label: 'absences' },
+      { id: 'adminAnomalies', icon: '⚠', n: countAnomalies('corriger'), label: 'non-concordances' },
+      { id: 'adminMardis', icon: '❓', n: c ? calendrierComptes(c).sansCr : 0, label: 'mardi(s) à vérifier' },
+      { id: 'adminSansCommentaire', icon: '📝', n: getSeancesSansCommentaire().reduce((t, r) => t + r.dates.length, 0), label: 'séances sans commentaire' },
+      { id: 'adminJamais', icon: '🧩', n: getCompetencesJamaisAbordees().length, label: 'compétences jamais abordées' },
+      { id: 'adminBloquees', icon: '🧱', n: getCompetencesBloquees().length, label: 'bloquée(s)' },
+      { id: 'adminEncadrement', icon: '🤿', n: getEncadrementParSoiree().filter(d => d.alerte).length, label: 'surcharge(s) d\'encadrement' },
+      { id: 'adminParametres', icon: '⚙️', n: getParametresChecklist().filter(x => !x.ok).length, label: 'paramètre(s)' },
+    ];
+    const total = pills.reduce((t, p) => t + p.n, 0);
+    return '<div class="admin-bandeau">' +
+      '<div class="admin-bandeau-title">' + (total ? '🔎 ' + pills.filter(p => p.n).length + ' point(s) à traiter' : '✅ Rien à signaler') + '</div>' +
+      '<div class="admin-pills">' + pills.map(p =>
+        '<button type="button" class="admin-pill ' + (p.n ? 'warn' : 'ok') + '" data-admin-goto="' + p.id + '">' +
+          p.icon + ' <strong>' + p.n + '</strong> ' + escapeHtml(p.label) + '</button>').join('') + '</div></div>';
+  }
+
   function renderAdmin() {
     const root = $('#adminContent');
     if (!root) return;
@@ -3837,15 +4090,38 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       '<div class="admin-head">' +
         '<div><h2 class="section-title" style="margin:0;">🛠 Espace Admin</h2>' +
         '<p class="admin-sub">Points à surveiller ou à corriger dans le classeur. Page accessible par l\'adresse <code>#Admin</code>, non listée dans la navigation (non protégée).</p></div>' +
-        '<button type="button" class="export-btn" id="btnAdminBack">← Retour au rapport</button>' +
+        '<div class="admin-head-actions">' +
+          '<button type="button" class="export-btn" data-admin-goto="adminHebdo">📣 Point hebdo</button>' +
+          '<button type="button" class="export-btn" id="btnAdminBack">← Retour au rapport</button>' +
+        '</div>' +
       '</div>' +
+      buildAdminBandeauHtml() +
+      buildAdminIndicateursHtml() +
       buildAdminFraicheurHtml() +
       buildAdminCaciHtml() +
       buildAdminAbsencesHtml() +
+      buildAdminBloqueesHtml() +
+      buildAdminJamaisAbordeesHtml() +
+      buildAdminEncadrementHtml() +
       buildAdminAnomaliesHtml() +
       buildAdminMardisHtml() +
-      buildAdminSansCommentaireHtml();
+      buildAdminSansCommentaireHtml() +
+      buildAdminParametresHtml() +
+      buildAdminPointHebdoHtml();
     $('#btnAdminBack', root).addEventListener('click', closeAdmin);
+    $$('[data-admin-goto]', root).forEach(function(b) {
+      b.addEventListener('click', function() {
+        const el = document.getElementById(b.dataset.adminGoto);
+        if (!el) return;
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        el.classList.add('admin-flash'); setTimeout(() => el.classList.remove('admin-flash'), 1500);
+      });
+    });
+    $('#btnCopyHebdo', root).addEventListener('click', function() {
+      copyText(buildPointHebdoTexte())
+        .then(() => showToast('Point hebdo copié — collez-le dans le groupe des moniteurs.', 'success'))
+        .catch(() => showToast('Copie impossible dans ce navigateur.', 'error'));
+    });
     bindCaciVigilance(root);
     const btnCopy = $('#btnCopyDoublons', root);
     if (btnCopy) btnCopy.addEventListener('click', function() {
