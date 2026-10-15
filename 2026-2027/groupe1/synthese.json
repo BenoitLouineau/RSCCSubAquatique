@@ -1,11 +1,11 @@
 {
-  "date_generation": "2026-10-14T22:27:16",
-  "nb_eleves": 17,
+  "date_generation": "2026-10-15T21:40:14",
+  "nb_eleves": 14,
   "nb_moniteurs": 10,
   "nb_seances": 3,
   "nb_soirees": 3,
-  "nb_encadrements": 15,
-  "nb_comptes_rendus": 131,
+  "nb_encadrements": 16,
+  "nb_comptes_rendus": 140,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
@@ -14,8 +14,8 @@
   "acquisition_par_atelier": [
     {
       "atelier": "Gréage",
-      "nb_evaluations": 22,
-      "moyenne": 2.5,
+      "nb_evaluations": 23,
+      "moyenne": 2.57,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -23,8 +23,8 @@
     },
     {
       "atelier": "DBN",
-      "nb_evaluations": 20,
-      "moyenne": 3.3,
+      "nb_evaluations": 21,
+      "moyenne": 3.33,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -32,8 +32,8 @@
     },
     {
       "atelier": "dégréage",
-      "nb_evaluations": 16,
-      "moyenne": 2.88,
+      "nb_evaluations": 17,
+      "moyenne": 2.82,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -41,8 +41,8 @@
     },
     {
       "atelier": "Gestion de son matériel",
-      "nb_evaluations": 11,
-      "moyenne": 2.64,
+      "nb_evaluations": 12,
+      "moyenne": 2.67,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -50,8 +50,8 @@
     },
     {
       "atelier": "VDM partiel",
-      "nb_evaluations": 11,
-      "moyenne": 2.45,
+      "nb_evaluations": 12,
+      "moyenne": 2.58,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -59,21 +59,30 @@
     },
     {
       "atelier": "Déplacements immersion",
-      "nb_evaluations": 7,
-      "moyenne": 1.71,
+      "nb_evaluations": 8,
+      "moyenne": 1.88,
       "note_min": 1.0,
-      "note_max": 2.0,
+      "note_max": 3.0,
       "notable": true,
       "compte_dans_moyenne": false
     },
     {
       "atelier": "Gestion du gilet",
+      "nb_evaluations": 8,
+      "moyenne": 2.12,
+      "note_min": 1.0,
+      "note_max": 3.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Poumon Ballast",
       "nb_evaluations": 7,
       "moyenne": 2.14,
       "note_min": 1.0,
       "note_max": 3.0,
       "notable": true,
-      "compte_dans_moyenne": true
+      "compte_dans_moyenne": false
     },
     {
       "atelier": "Palmage",
@@ -81,15 +90,6 @@
       "moyenne": 1.33,
       "note_min": 1.0,
       "note_max": 2.0,
-      "notable": true,
-      "compte_dans_moyenne": false
-    },
-    {
-      "atelier": "Poumon Ballast",
-      "nb_evaluations": 6,
-      "moyenne": 2.17,
-      "note_min": 1.0,
-      "note_max": 3.0,
       "notable": true,
       "compte_dans_moyenne": false
     },
@@ -112,6 +112,15 @@
       "compte_dans_moyenne": true
     },
     {
+      "atelier": "Signes",
+      "nb_evaluations": 4,
+      "moyenne": 3.25,
+      "note_min": 2.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
       "atelier": "VDM",
       "nb_evaluations": 4,
       "moyenne": 2.75,
@@ -126,15 +135,6 @@
       "moyenne": 2.0,
       "note_min": 2.0,
       "note_max": 2.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Signes",
-      "nb_evaluations": 3,
-      "moyenne": 3.0,
-      "note_min": 2.0,
-      "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
     },
@@ -175,8 +175,8 @@
     },
     {
       "eleve": "Camille",
-      "nb_ateliers_evalues": 7,
-      "moyenne_generale": 3.43
+      "nb_ateliers_evalues": 10,
+      "moyenne_generale": 2.9
     },
     {
       "eleve": "Catherine",
@@ -197,16 +197,6 @@
       "eleve": "Hanane",
       "nb_ateliers_evalues": 12,
       "moyenne_generale": 2.25
-    },
-    {
-      "eleve": "Jean",
-      "nb_ateliers_evalues": 0,
-      "moyenne_generale": null
-    },
-    {
-      "eleve": "Kahina",
-      "nb_ateliers_evalues": 0,
-      "moyenne_generale": null
     },
     {
       "eleve": "Kevin F",
@@ -234,11 +224,6 @@
       "moyenne_generale": 3.0
     },
     {
-      "eleve": "Olivia",
-      "nb_ateliers_evalues": 0,
-      "moyenne_generale": null
-    },
-    {
       "eleve": "Patricia",
       "nb_ateliers_evalues": 6,
       "moyenne_generale": 2.17
@@ -249,10 +234,7 @@
     "moniteurs_noms_proches": [],
     "eleves_hors_referentiel": [],
     "eleves_referentiel_jamais_vus": [
-      "Jean",
-      "Kahina",
-      "Kevin F",
-      "Olivia"
+      "Kevin F"
     ],
     "moniteurs_hors_referentiel": [],
     "moniteurs_referentiel_jamais_actifs": [
@@ -265,7 +247,7 @@
   "calendrier": {
     "date_debut": "2026-09-08",
     "jour_semaine": "mardi",
-    "date_reference": "2026-10-14",
+    "date_reference": "2026-10-15",
     "fermetures_declarees": [],
     "nb_creneaux_theoriques": 6,
     "nb_soirees": 3,
@@ -307,30 +289,30 @@
       {
         "date": "2026-10-13",
         "statut": "seance",
-        "nb_encadrements": 6,
-        "nb_eleves": 10
+        "nb_encadrements": 7,
+        "nb_eleves": 11
       }
     ]
   },
   "absenteisme": {
     "seuil_alerte": 2,
     "base": "debut_saison",
-    "nb_inscrits": 17,
+    "nb_inscrits": 14,
     "frequentation": [
       {
         "date": "2026-09-29",
         "nb_presents": 11,
-        "nb_inscrits": 17
+        "nb_inscrits": 14
       },
       {
         "date": "2026-10-06",
         "nb_presents": 12,
-        "nb_inscrits": 17
+        "nb_inscrits": 14
       },
       {
         "date": "2026-10-13",
-        "nb_presents": 10,
-        "nb_inscrits": 17
+        "nb_presents": 11,
+        "nb_inscrits": 14
       }
     ],
     "eleves_en_alerte": [
@@ -341,25 +323,7 @@
         "jamais_venu": false
       },
       {
-        "eleve": "Jean",
-        "absences_consecutives": 3,
-        "derniere_presence": null,
-        "jamais_venu": true
-      },
-      {
-        "eleve": "Kahina",
-        "absences_consecutives": 3,
-        "derniere_presence": null,
-        "jamais_venu": true
-      },
-      {
         "eleve": "Kevin F",
-        "absences_consecutives": 3,
-        "derniere_presence": null,
-        "jamais_venu": true
-      },
-      {
-        "eleve": "Olivia",
         "absences_consecutives": 3,
         "derniere_presence": null,
         "jamais_venu": true
