@@ -1308,5 +1308,95 @@
     "moniteur": "Carlos",
     "presence": "Présent",
     "statut": "Acquis"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "Poumon Ballast",
+    "competence": "Poumon Ballast",
+    "date": "2026-10-13",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-10-13",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "Déplacements immersion",
+    "competence": "Déplacements immersion",
+    "date": "2026-10-13",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "Gestion du gilet",
+    "competence": "Gestion du gilet",
+    "date": "2026-10-13",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "VDM partiel",
+    "competence": "VDM partiel",
+    "date": "2026-10-13",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-10-13",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-10-13",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "Signes",
+    "competence": "Signes",
+    "date": "2026-10-13",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-10-13",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
   }
 ]
