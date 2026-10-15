@@ -94,17 +94,18 @@
   {
     "id": "christophe",
     "nom": "Christophe",
-    "nb_seances_animees": 1,
+    "nb_seances_animees": 2,
     "dates_seances": [
-      "2026-10-06"
+      "2026-10-06",
+      "2026-10-13"
     ],
     "nb_eleves_suivis": 2,
     "eleves_suivis": [
       "Camille",
       "Catherine"
     ],
-    "nb_comptes_rendus": 12,
-    "nb_evaluations_notees": 12
+    "nb_comptes_rendus": 21,
+    "nb_evaluations_notees": 21
   },
   {
     "id": "herve",
