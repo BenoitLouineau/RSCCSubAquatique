@@ -1112,6 +1112,92 @@
     ]
   },
   {
+    "id": "2026-10-13_christophe",
+    "date_seance": "2026-10-13",
+    "moniteur": "Christophe",
+    "nb_eleves": 1,
+    "eleves": [
+      "Camille"
+    ],
+    "ateliers_traites": [
+      "DBN",
+      "Déplacements immersion",
+      "Gestion de son matériel",
+      "Gestion du gilet",
+      "Gréage",
+      "Poumon Ballast",
+      "Signes",
+      "VDM partiel",
+      "dégréage"
+    ],
+    "nb_comptes_rendus": 9,
+    "comptes_rendus": [
+      {
+        "ligne": 133,
+        "eleve": "Camille",
+        "atelier": "Poumon Ballast",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 134,
+        "eleve": "Camille",
+        "atelier": "Gestion de son matériel",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 135,
+        "eleve": "Camille",
+        "atelier": "Déplacements immersion",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 136,
+        "eleve": "Camille",
+        "atelier": "Gestion du gilet",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 137,
+        "eleve": "Camille",
+        "atelier": "VDM partiel",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 138,
+        "eleve": "Camille",
+        "atelier": "DBN",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 139,
+        "eleve": "Camille",
+        "atelier": "Gréage",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 140,
+        "eleve": "Camille",
+        "atelier": "Signes",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "ligne": 141,
+        "eleve": "Camille",
+        "atelier": "dégréage",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire"
+      }
+    ]
+  },
+  {
     "id": "2026-10-13_nicos",
     "date_seance": "2026-10-13",
     "moniteur": "Nicos",
