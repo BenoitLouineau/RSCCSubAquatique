@@ -662,16 +662,17 @@
     "id": "camille",
     "nom": "Camille",
     "caci": true,
-    "nb_seances": 2,
+    "nb_seances": 3,
     "dates_seances": [
       "2026-09-29",
-      "2026-10-06"
+      "2026-10-06",
+      "2026-10-13"
     ],
     "moniteurs": [
       "Benoit L",
       "Christophe"
     ],
-    "nb_competences_travaillees": 7,
+    "nb_competences_travaillees": 10,
     "competences": {
       "Palmage": {
         "nb_evaluations": 1,
@@ -686,31 +687,58 @@
         ]
       },
       "Signes": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 4.0,
         "moyenne_notes": 4.0,
         "historique": [
           {
             "date": "2026-10-06",
+            "note": 4.0,
+            "moniteur": "Christophe"
+          },
+          {
+            "date": "2026-10-13",
             "note": 4.0,
             "moniteur": "Christophe"
           }
         ]
       },
       "Gréage": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 4.0,
         "moyenne_notes": 4.0,
         "historique": [
           {
             "date": "2026-10-06",
+            "note": 4.0,
+            "moniteur": "Christophe"
+          },
+          {
+            "date": "2026-10-13",
             "note": 4.0,
             "moniteur": "Christophe"
           }
         ]
       },
       "dégréage": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
+        "derniere_note": 2.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 4.0,
+            "moniteur": "Christophe"
+          },
+          {
+            "date": "2026-10-13",
+            "note": 2.0,
+            "moniteur": "Christophe"
+          }
+        ]
+      },
+      "DBN": {
+        "nb_evaluations": 2,
         "derniere_note": 4.0,
         "moyenne_notes": 4.0,
         "historique": [
@@ -718,41 +746,80 @@
             "date": "2026-10-06",
             "note": 4.0,
             "moniteur": "Christophe"
-          }
-        ]
-      },
-      "DBN": {
-        "nb_evaluations": 1,
-        "derniere_note": 4.0,
-        "moyenne_notes": 4.0,
-        "historique": [
+          },
           {
-            "date": "2026-10-06",
+            "date": "2026-10-13",
             "note": 4.0,
             "moniteur": "Christophe"
           }
         ]
       },
       "Gestion de son matériel": {
-        "nb_evaluations": 1,
-        "derniere_note": 4.0,
-        "moyenne_notes": 4.0,
+        "nb_evaluations": 2,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.5,
         "historique": [
           {
             "date": "2026-10-06",
             "note": 4.0,
             "moniteur": "Christophe"
+          },
+          {
+            "date": "2026-10-13",
+            "note": 3.0,
+            "moniteur": "Christophe"
           }
         ]
       },
       "Gestion du gilet": {
+        "nb_evaluations": 2,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.5,
+        "historique": [
+          {
+            "date": "2026-10-06",
+            "note": 3.0,
+            "moniteur": "Christophe"
+          },
+          {
+            "date": "2026-10-13",
+            "note": 2.0,
+            "moniteur": "Christophe"
+          }
+        ]
+      },
+      "Poumon Ballast": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-13",
+            "note": 2.0,
+            "moniteur": "Christophe"
+          }
+        ]
+      },
+      "Déplacements immersion": {
         "nb_evaluations": 1,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
         "historique": [
           {
-            "date": "2026-10-06",
+            "date": "2026-10-13",
             "note": 3.0,
+            "moniteur": "Christophe"
+          }
+        ]
+      },
+      "VDM partiel": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-10-13",
+            "note": 4.0,
             "moniteur": "Christophe"
           }
         ]
@@ -800,19 +867,71 @@
         "moniteur": "Christophe",
         "atelier": "Gestion du gilet",
         "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-13",
+        "moniteur": "Christophe",
+        "atelier": "Poumon Ballast",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-13",
+        "moniteur": "Christophe",
+        "atelier": "Gestion de son matériel",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-13",
+        "moniteur": "Christophe",
+        "atelier": "Déplacements immersion",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-13",
+        "moniteur": "Christophe",
+        "atelier": "Gestion du gilet",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-13",
+        "moniteur": "Christophe",
+        "atelier": "VDM partiel",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-13",
+        "moniteur": "Christophe",
+        "atelier": "DBN",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-13",
+        "moniteur": "Christophe",
+        "atelier": "Gréage",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-13",
+        "moniteur": "Christophe",
+        "atelier": "Signes",
+        "commentaire": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-13",
+        "moniteur": "Christophe",
+        "atelier": "dégréage",
+        "commentaire": "Aucun commentaire"
       }
     ],
     "absenteisme": {
       "nb_soirees": 3,
-      "nb_presences": 2,
-      "nb_absences": 1,
-      "taux_presence": 67,
-      "absences_consecutives": 1,
-      "max_absences_consecutives": 1,
-      "derniere_presence": "2026-10-06",
-      "dates_absences": [
-        "2026-10-13"
-      ],
+      "nb_presences": 3,
+      "nb_absences": 0,
+      "taux_presence": 100,
+      "absences_consecutives": 0,
+      "max_absences_consecutives": 0,
+      "derniere_presence": "2026-10-13",
+      "dates_absences": [],
       "alerte": false
     }
   },
@@ -1473,58 +1592,6 @@
       "derniere_presence": "2026-10-13",
       "dates_absences": [],
       "alerte": false
-    }
-  },
-  {
-    "id": "jean",
-    "nom": "Jean",
-    "caci": false,
-    "nb_seances": 0,
-    "dates_seances": [],
-    "moniteurs": [],
-    "nb_competences_travaillees": 0,
-    "competences": {},
-    "commentaires": [],
-    "absenteisme": {
-      "nb_soirees": 3,
-      "nb_presences": 0,
-      "nb_absences": 3,
-      "taux_presence": 0,
-      "absences_consecutives": 3,
-      "max_absences_consecutives": 3,
-      "derniere_presence": null,
-      "dates_absences": [
-        "2026-09-29",
-        "2026-10-06",
-        "2026-10-13"
-      ],
-      "alerte": true
-    }
-  },
-  {
-    "id": "kahina",
-    "nom": "Kahina",
-    "caci": false,
-    "nb_seances": 0,
-    "dates_seances": [],
-    "moniteurs": [],
-    "nb_competences_travaillees": 0,
-    "competences": {},
-    "commentaires": [],
-    "absenteisme": {
-      "nb_soirees": 3,
-      "nb_presences": 0,
-      "nb_absences": 3,
-      "taux_presence": 0,
-      "absences_consecutives": 3,
-      "max_absences_consecutives": 3,
-      "derniere_presence": null,
-      "dates_absences": [
-        "2026-09-29",
-        "2026-10-06",
-        "2026-10-13"
-      ],
-      "alerte": true
     }
   },
   {
@@ -2469,32 +2536,6 @@
       "derniere_presence": "2026-10-13",
       "dates_absences": [],
       "alerte": false
-    }
-  },
-  {
-    "id": "olivia",
-    "nom": "Olivia",
-    "caci": false,
-    "nb_seances": 0,
-    "dates_seances": [],
-    "moniteurs": [],
-    "nb_competences_travaillees": 0,
-    "competences": {},
-    "commentaires": [],
-    "absenteisme": {
-      "nb_soirees": 3,
-      "nb_presences": 0,
-      "nb_absences": 3,
-      "taux_presence": 0,
-      "absences_consecutives": 3,
-      "max_absences_consecutives": 3,
-      "derniere_presence": null,
-      "dates_absences": [
-        "2026-09-29",
-        "2026-10-06",
-        "2026-10-13"
-      ],
-      "alerte": true
     }
   },
   {
