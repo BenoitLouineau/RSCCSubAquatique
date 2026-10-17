@@ -128,20 +128,7 @@
         "atelier": "VDM partiel",
         "commentaire": "Aucun commentaire"
       }
-    ],
-    "absenteisme": {
-      "nb_soirees": 3,
-      "nb_presences": 2,
-      "nb_absences": 1,
-      "taux_presence": 67,
-      "absences_consecutives": 0,
-      "max_absences_consecutives": 1,
-      "derniere_presence": "2026-10-13",
-      "dates_absences": [
-        "2026-09-29"
-      ],
-      "alerte": false
-    }
+    ]
   },
   {
     "id": "amir",
@@ -393,18 +380,7 @@
         "atelier": "Gréage",
         "commentaire": "Aucun commentaire"
       }
-    ],
-    "absenteisme": {
-      "nb_soirees": 3,
-      "nb_presences": 3,
-      "nb_absences": 0,
-      "taux_presence": 100,
-      "absences_consecutives": 0,
-      "max_absences_consecutives": 0,
-      "derniere_presence": "2026-10-13",
-      "dates_absences": [],
-      "alerte": false
-    }
+    ]
   },
   {
     "id": "aubree",
@@ -645,18 +621,7 @@
         "atelier": "DBN",
         "commentaire": "Aucun commentaire"
       }
-    ],
-    "absenteisme": {
-      "nb_soirees": 3,
-      "nb_presences": 3,
-      "nb_absences": 0,
-      "taux_presence": 100,
-      "absences_consecutives": 0,
-      "max_absences_consecutives": 0,
-      "derniere_presence": "2026-10-13",
-      "dates_absences": [],
-      "alerte": false
-    }
+    ]
   },
   {
     "id": "camille",
@@ -922,18 +887,7 @@
         "atelier": "dégréage",
         "commentaire": "Aucun commentaire"
       }
-    ],
-    "absenteisme": {
-      "nb_soirees": 3,
-      "nb_presences": 3,
-      "nb_absences": 0,
-      "taux_presence": 100,
-      "absences_consecutives": 0,
-      "max_absences_consecutives": 0,
-      "derniere_presence": "2026-10-13",
-      "dates_absences": [],
-      "alerte": false
-    }
+    ]
   },
   {
     "id": "catherine",
@@ -1111,20 +1065,7 @@
         "atelier": "VDM partiel",
         "commentaire": "Pratiqué en surface. A faire au fond."
       }
-    ],
-    "absenteisme": {
-      "nb_soirees": 3,
-      "nb_presences": 2,
-      "nb_absences": 1,
-      "taux_presence": 67,
-      "absences_consecutives": 0,
-      "max_absences_consecutives": 1,
-      "derniere_presence": "2026-10-13",
-      "dates_absences": [
-        "2026-09-29"
-      ],
-      "alerte": false
-    }
+    ]
   },
   {
     "id": "celia",
@@ -1159,21 +1100,7 @@
         "atelier": "Palmage",
         "commentaire": "Première découverte du palmage et même remarque avec mouvement de pédalier, explication et correction apportée individuellement dans la ligne d'eau. Amélioration vue en fin de session. A continuer sur les prochaines sessions."
       }
-    ],
-    "absenteisme": {
-      "nb_soirees": 3,
-      "nb_presences": 1,
-      "nb_absences": 2,
-      "taux_presence": 33,
-      "absences_consecutives": 2,
-      "max_absences_consecutives": 2,
-      "derniere_presence": "2026-09-29",
-      "dates_absences": [
-        "2026-10-06",
-        "2026-10-13"
-      ],
-      "alerte": true
-    }
+    ]
   },
   {
     "id": "guillaume",
@@ -1276,20 +1203,7 @@
         "atelier": "dégréage",
         "commentaire": "Aucun commentaire"
       }
-    ],
-    "absenteisme": {
-      "nb_soirees": 3,
-      "nb_presences": 2,
-      "nb_absences": 1,
-      "taux_presence": 67,
-      "absences_consecutives": 1,
-      "max_absences_consecutives": 1,
-      "derniere_presence": "2026-10-06",
-      "dates_absences": [
-        "2026-10-13"
-      ],
-      "alerte": false
-    }
+    ]
   },
   {
     "id": "hanane",
@@ -1581,18 +1495,7 @@
         "atelier": "Sortie de l'eau",
         "commentaire": "Aucun commentaire"
       }
-    ],
-    "absenteisme": {
-      "nb_soirees": 3,
-      "nb_presences": 3,
-      "nb_absences": 0,
-      "taux_presence": 100,
-      "absences_consecutives": 0,
-      "max_absences_consecutives": 0,
-      "derniere_presence": "2026-10-13",
-      "dates_absences": [],
-      "alerte": false
-    }
+    ]
   },
   {
     "id": "kevin-f",
@@ -1603,22 +1506,7 @@
     "moniteurs": [],
     "nb_competences_travaillees": 0,
     "competences": {},
-    "commentaires": [],
-    "absenteisme": {
-      "nb_soirees": 3,
-      "nb_presences": 0,
-      "nb_absences": 3,
-      "taux_presence": 0,
-      "absences_consecutives": 3,
-      "max_absences_consecutives": 3,
-      "derniere_presence": null,
-      "dates_absences": [
-        "2026-09-29",
-        "2026-10-06",
-        "2026-10-13"
-      ],
-      "alerte": true
-    }
+    "commentaires": []
   },
   {
     "id": "kevin-d",
@@ -1934,18 +1822,7 @@
         "atelier": "dégréage",
         "commentaire": "Élève ayant partiellement déjà fait le cursus N1 lors de l'année du covid. Attentif et capte rapidement les exercices et leurs attendus.\nTop sur dbn et vdm partiels nous amènent même au vdm total.\nBelle soirée"
       }
-    ],
-    "absenteisme": {
-      "nb_soirees": 3,
-      "nb_presences": 3,
-      "nb_absences": 0,
-      "taux_presence": 100,
-      "absences_consecutives": 0,
-      "max_absences_consecutives": 0,
-      "derniere_presence": "2026-10-13",
-      "dates_absences": [],
-      "alerte": false
-    }
+    ]
   },
   {
     "id": "michele",
@@ -2103,18 +1980,7 @@
         "atelier": "Gestion du gilet",
         "commentaire": "Aucun commentaire"
       }
-    ],
-    "absenteisme": {
-      "nb_soirees": 3,
-      "nb_presences": 3,
-      "nb_absences": 0,
-      "taux_presence": 100,
-      "absences_consecutives": 0,
-      "max_absences_consecutives": 0,
-      "derniere_presence": "2026-10-13",
-      "dates_absences": [],
-      "alerte": false
-    }
+    ]
   },
   {
     "id": "mohamed",
@@ -2334,18 +2200,7 @@
         "atelier": "Gestion de son matériel",
         "commentaire": "Aucun commentaire"
       }
-    ],
-    "absenteisme": {
-      "nb_soirees": 3,
-      "nb_presences": 3,
-      "nb_absences": 0,
-      "taux_presence": 100,
-      "absences_consecutives": 0,
-      "max_absences_consecutives": 0,
-      "derniere_presence": "2026-10-13",
-      "dates_absences": [],
-      "alerte": false
-    }
+    ]
   },
   {
     "id": "nabiyu",
@@ -2525,18 +2380,7 @@
         "atelier": "Gréage",
         "commentaire": "Aucun commentaire"
       }
-    ],
-    "absenteisme": {
-      "nb_soirees": 3,
-      "nb_presences": 3,
-      "nb_absences": 0,
-      "taux_presence": 100,
-      "absences_consecutives": 0,
-      "max_absences_consecutives": 0,
-      "derniere_presence": "2026-10-13",
-      "dates_absences": [],
-      "alerte": false
-    }
+    ]
   },
   {
     "id": "patricia",
@@ -2686,17 +2530,6 @@
         "atelier": "DBN",
         "commentaire": "Impossible de remplir le masque : Patricia expire par le nez, impossible de faire rentrer de l'eau dans le masque"
       }
-    ],
-    "absenteisme": {
-      "nb_soirees": 3,
-      "nb_presences": 3,
-      "nb_absences": 0,
-      "taux_presence": 100,
-      "absences_consecutives": 0,
-      "max_absences_consecutives": 0,
-      "derniere_presence": "2026-10-13",
-      "dates_absences": [],
-      "alerte": false
-    }
+    ]
   }
 ]
