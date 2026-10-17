@@ -1,10 +1,8 @@
 {
-  "date_generation": "2026-10-15T21:40:14",
+  "date_generation": "2026-10-17T12:35:05",
   "nb_eleves": 14,
   "nb_moniteurs": 10,
-  "nb_seances": 3,
-  "nb_soirees": 3,
-  "nb_encadrements": 16,
+  "nb_seances": 16,
   "nb_comptes_rendus": 140,
   "nb_competences_referencees": 44,
   "periode": {
@@ -230,8 +228,6 @@
     }
   ],
   "anomalies": {
-    "eleves_noms_proches": [],
-    "moniteurs_noms_proches": [],
     "eleves_hors_referentiel": [],
     "eleves_referentiel_jamais_vus": [
       "Kevin F"
@@ -243,96 +239,5 @@
     ],
     "ateliers_hors_referentiel": [],
     "comptes_rendus_doublons": []
-  },
-  "calendrier": {
-    "date_debut": "2026-09-08",
-    "jour_semaine": "mardi",
-    "date_reference": "2026-10-15",
-    "fermetures_declarees": [],
-    "nb_creneaux_theoriques": 6,
-    "nb_soirees": 3,
-    "nb_fermes": 0,
-    "nb_sans_cr": 3,
-    "nb_piscine_fermee": 3,
-    "nb_hors_calendrier": 0,
-    "dates": [
-      {
-        "date": "2026-09-08",
-        "statut": "sans_cr",
-        "nb_encadrements": 0,
-        "nb_eleves": 0
-      },
-      {
-        "date": "2026-09-15",
-        "statut": "sans_cr",
-        "nb_encadrements": 0,
-        "nb_eleves": 0
-      },
-      {
-        "date": "2026-09-22",
-        "statut": "sans_cr",
-        "nb_encadrements": 0,
-        "nb_eleves": 0
-      },
-      {
-        "date": "2026-09-29",
-        "statut": "seance",
-        "nb_encadrements": 3,
-        "nb_eleves": 11
-      },
-      {
-        "date": "2026-10-06",
-        "statut": "seance",
-        "nb_encadrements": 6,
-        "nb_eleves": 12
-      },
-      {
-        "date": "2026-10-13",
-        "statut": "seance",
-        "nb_encadrements": 7,
-        "nb_eleves": 11
-      }
-    ]
-  },
-  "absenteisme": {
-    "seuil_alerte": 2,
-    "base": "debut_saison",
-    "nb_inscrits": 14,
-    "frequentation": [
-      {
-        "date": "2026-09-29",
-        "nb_presents": 11,
-        "nb_inscrits": 14
-      },
-      {
-        "date": "2026-10-06",
-        "nb_presents": 12,
-        "nb_inscrits": 14
-      },
-      {
-        "date": "2026-10-13",
-        "nb_presents": 11,
-        "nb_inscrits": 14
-      }
-    ],
-    "eleves_en_alerte": [
-      {
-        "eleve": "Célia",
-        "absences_consecutives": 2,
-        "derniere_presence": "2026-09-29",
-        "jamais_venu": false
-      },
-      {
-        "eleve": "Kevin F",
-        "absences_consecutives": 3,
-        "derniere_presence": null,
-        "jamais_venu": true
-      }
-    ]
-  },
-  "source": {
-    "classeur_url": "https://docs.google.com/spreadsheets/d/1m_UMefQrdEWToAV5RXAskr_wtbxMyc4kEbmSC6T_PLE",
-    "onglet_comptes_rendus": "ComptesRendus",
-    "gid_comptes_rendus": null
   }
 }
