@@ -2,16 +2,21 @@
   {
     "ligne": 1,
     "accueil": "📯 le nom de l'élève en rouge = pas de CACI valide📯",
-    "url": null
+    "palanquees": "📯le nom de l'élève en rouge = pas de CACI valide📯"
+  },
+  {
+    "ligne": 2,
+    "accueil": null,
+    "palanquees": "🚩 = Absent lors des deux dernières séances."
   },
   {
     "ligne": 3,
     "accueil": "🔥Padlet Moniteurs🔥",
-    "url": "https://padlet.com/nicolascausse/moniteurs-g1-s023q3zl63gheat4p8ga"
+    "palanquees": null
   },
   {
     "ligne": 4,
     "accueil": "🎯Suivi des stagiaires🎯",
-    "url": "https://benoitlouineau.github.io/RSCCSubAquatique/"
+    "palanquees": null
   }
 ]
