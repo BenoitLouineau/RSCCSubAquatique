@@ -566,6 +566,10 @@ table.synthese thead th.sticky-col { z-index: 4; }
   padding: 0 12px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 
+.legend-row.legend-fiche { margin: 12px 0 6px; font-size: 11.5px; gap: 10px; }
+.carnet-btn { font-weight: 700; }
+.carnet-opt { display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; cursor: pointer; }
+.carnet-go { background: var(--accent2) !important; color: #04262b !important; border-color: transparent !important; }
 .legend-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin: 4px 0 18px; font-size: 12px; color: var(--muted); }
 .legend-item { display: flex; align-items: center; gap: 6px; }
 
@@ -5016,6 +5020,279 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     });
   }
 
+  /** Légende des notes (réutilisée en haut du module Élèves et dans chaque fiche). */
+  function notesLegendItemsHtml() {
+    return '<strong style="color:var(--text);">Légende notes :</strong>' +
+      '<span class="legend-item"><span class="note-dot n1"></span>1 — Non acquis</span>' +
+      '<span class="legend-item"><span class="note-dot n2"></span>2 — En cours</span>' +
+      '<span class="legend-item"><span class="note-dot n3"></span>3 — Acquis</span>' +
+      '<span class="legend-item"><span class="note-dot n4"></span>4 — Maîtrisé</span>' +
+      '<span class="legend-item"><span class="note-dot n0"></span>Non évalué</span>';
+  }
+
+  // =====================================================================
+  // CARNET DE PROGRESSION N1 — export individuel A4 (page d'impression dédiée,
+  // « Imprimer → Enregistrer en PDF »). Compétences = référentiel « Actif + Compte dans
+  // la moyenne » : la liste s'étend automatiquement quand le chef de groupe en débloque.
+  // =====================================================================
+  const CARNET_COULEURS = { n1: '#dc2626', n2: '#f59e0b', n3: '#0891b2', n4: '#16a34a', n0: '#cbd5e1' };
+
+  function carnetStatut(comp) {
+    const notes = ((comp && comp.historique) || []).filter(h => h.note != null)
+      .sort((a, b) => String(a.date).localeCompare(String(b.date)));
+    if (!notes.length) return { cls: 'n0', label: 'Non abordée', ordre: 0, notes: [] };
+    const n = notes[notes.length - 1].note;
+    const acquis = isCompetenceAcquiseFromHistorique(comp);
+    if (acquis) return { cls: n >= 4 ? 'n4' : 'n3', label: n >= 4 ? 'Maîtrisé' : 'Acquis', ordre: n >= 4 ? 4 : 3, acquis: true, notes: notes };
+    if (n >= getSeuilCompetenceAcquise()) return { cls: 'n2', label: 'Acquis — à confirmer', ordre: 2.5, notes: notes };
+    return { cls: n >= 2 ? 'n2' : 'n1', label: n >= 2 ? 'En cours' : 'Non acquis', ordre: n, notes: notes };
+  }
+
+  /** Compétences du cursus (actives + comptant dans la moyenne), groupées par domaine, ordre du référentiel. */
+  function getCarnetDomaines() {
+    const ref = (STATE.referentiel || []).filter(c => c.actif && c.compte_dans_moyenne);
+    const ordre = [], parDom = {};
+    ref.forEach(function(c) {
+      const d = getCategorieForAtelier(c.nom) || 'Autres compétences';
+      if (!parDom[d]) { parDom[d] = []; ordre.push(d); }
+      parDom[d].push(c.nom);
+    });
+    return ordre.map(d => ({ domaine: d, competences: parDom[d] }));
+  }
+
+  function buildCarnetHtml(e, avecCommentaires) {
+    const esc = escapeHtml;
+    const domaines = getCarnetDomaines();
+    const total = domaines.reduce((n, d) => n + d.competences.length, 0);
+    const statuts = {};
+    domaines.forEach(d => d.competences.forEach(nom => { statuts[nom] = carnetStatut((e.competences || {})[nom]); }));
+    const acquises = Object.keys(statuts).filter(k => statuts[k].acquis);
+    const pct = total ? Math.round(acquises.length / total * 100) : 0;
+    const presence = buildPresenceData(e, STATE.allDates || []);
+    const abs = getAbsenteisme(e);
+    const s = STATE.synthese || {};
+    const gen = s.date_generation ? new Date(s.date_generation) : null;
+    const dateData = gen && !isNaN(gen) ? gen.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' }) : '—';
+    const today = new Date().toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' });
+    const lastDate = (e.dates_seances || []).slice().sort().pop() || null;
+    const logo = (document.querySelector('.brand-logo-light') || {}).src || '';
+    const dot = (cls, title) => '<span class="dot" style="background:' + CARNET_COULEURS[cls] + '"' + (title ? ' title="' + esc(title) + '"' : '') + '></span>';
+    const pill = st => '<span class="pill" style="--c:' + (st.cls === 'n0' ? '#94a3b8' : CARNET_COULEURS[st.cls]) + '">' + esc(st.label) + '</span>';
+    const legende = '<div class="legende">' + ['n1|1 — Non acquis', 'n2|2 — En cours', 'n3|3 — Acquis', 'n4|4 — Maîtrisé', 'n0|Non évalué']
+      .map(x => { const p = x.split('|'); return '<span>' + dot(p[0]) + esc(p[1]) + '</span>'; }).join('') + '</div>';
+
+    // 3. Compétences par domaine
+    const domainesHtml = domaines.map(function(d) {
+      const nAcq = d.competences.filter(n => statuts[n].acquis).length;
+      const rows = d.competences.map(function(nom) {
+        const st = statuts[nom], comp = (e.competences || {})[nom];
+        const last = st.notes.length ? st.notes[st.notes.length - 1] : null;
+        return '<tr><td class="c-nom">' + esc(nom) + '</td><td>' + pill(st) + '</td>' +
+          '<td class="c-histo">' + (st.notes.length ? st.notes.map(h => dot(noteClass(h.note), formatDateFR(h.date) + ' — ' + noteLabel(h.note) + (h.moniteur ? ' (' + h.moniteur + ')' : ''))).join('') : '<span class="muted">—</span>') + '</td>' +
+          '<td class="c-num">' + (comp ? comp.nb_evaluations : 0) + '</td>' +
+          '<td class="c-last">' + (last ? esc(formatDateFR(last.date)) + (last.moniteur ? '<br><span class="muted">' + esc(last.moniteur) + '</span>' : '') : '<span class="muted">—</span>') + '</td></tr>';
+      }).join('');
+      return '<div class="domaine"><div class="dom-head"><span>' + esc(d.domaine) + '</span><span class="dom-count">' + nAcq + '/' + d.competences.length + ' acquise(s)</span></div>' +
+        '<table><thead><tr><th>Compétence</th><th>Statut</th><th>Évolution</th><th>Éval.</th><th>Dernière évaluation</th></tr></thead><tbody>' + rows + '</tbody></table></div>';
+    }).join('');
+
+    // 4. Examens
+    const exams = EXAM_ITEMS_DUAL_VALIDATION.concat(EXAM_ITEMS_SIMPLES).map(function(item) {
+      const st = getExamStatus((e.competences || {})[item]);
+      const info = EXAM_STATUS_INFO[st];
+      const cls = st === 'valide' ? 'ok' : (st === 'non-presente' ? 'muted' : 'warn');
+      return '<div class="exam"><span class="exam-nom">' + esc((n => n.charAt(0).toUpperCase() + n.slice(1))(item.replace(/^Exam /, ''))) + '</span><span class="exam-st ' + cls + '">' + esc(info.label) + '</span></div>';
+    }).join('');
+
+    // 5. Assiduité & CACI
+    const pastillesPresence = presence.items.map(it => '<span class="pres ' + (it.present ? 'p' : 'a') + '" title="' + esc(formatDateFR(it.date)) + '">' +
+      esc(new Date(it.date + 'T00:00:00').toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit' })) + '</span>').join('');
+
+    // 6. Journal des séances (chronologique)
+    const entries = getCahierEntries(e).slice().reverse();
+    const journal = entries.length ? entries.map(function(en) {
+      const ateliers = en.ateliers.map(a => '<span class="at">' + dot(noteClass(a.note), noteLabel(a.note)) + esc(a.atelier) + '</span>').join('');
+      const coms = avecCommentaires && en.comments.length
+        ? en.comments.map(g => '<div class="com">« ' + esc(g.texte) + ' »' +
+            (g.ateliers.length && g.ateliers.length < en.ateliers.length ? '<div class="com-at">↳ ' + g.ateliers.map(esc).join(' · ') + '</div>' : '') + '</div>').join('')
+        : '';
+      return '<div class="seance"><div class="seance-head"><strong>' + esc(formatDateFR(en.date)) + '</strong><span class="muted"> · avec ' + esc(en.moniteur || '—') + '</span></div>' +
+        '<div class="ats">' + ateliers + '</div>' + coms + '</div>';
+    }).join('') : '<p class="muted">Aucune séance enregistrée.</p>';
+
+    // 7. Bilan
+    const noms = Object.keys(statuts);
+    const forts = noms.filter(n => statuts[n].acquis);
+    const axes = noms.filter(n => !statuts[n].acquis && statuts[n].notes.length);
+    const aAborder = noms.filter(n => !statuts[n].notes.length);
+    const liste = (arr, vide) => arr.length ? '<ul>' + arr.map(n => '<li>' + esc(n) + ' <span class="muted">— ' + esc(statuts[n].label) + '</span></li>').join('') + '</ul>' : '<p class="muted">' + vide + '</p>';
+
+    const chef = typeof chefDeGroupeNom !== 'undefined' && chefDeGroupeNom ? chefDeGroupeNom : '';
+    const sig = (role, nom) => '<div class="sig"><div class="sig-role">' + esc(role) + '</div>' +
+      '<div class="sig-line">Nom : <span>' + esc(nom || '') + '</span></div><div class="sig-line">Date : <span></span></div>' +
+      '<div class="sig-zone">Signature</div></div>';
+
+    const css = `
+      @page { size: A4 portrait; margin: 14mm 13mm 16mm;
+        @bottom-left { content: "Carnet de progression N1 — ${esc(e.nom).replace(/"/g, '')} — RSCC Subaquatique"; font: 8pt system-ui, sans-serif; color: #64748b; }
+        @bottom-right { content: "Page " counter(page) " / " counter(pages); font: 8pt system-ui, sans-serif; color: #64748b; } }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: #fff; color: #0f172a; font: 10pt/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .page { max-width: 190mm; margin: 0 auto; padding: 8mm 0; }
+      .toolbar { position: sticky; top: 0; z-index: 5; display: flex; gap: 10px; align-items: center; justify-content: center; padding: 10px; background: #0f172a; color: #fff; font-size: 13px; }
+      .toolbar button { font: inherit; font-weight: 700; padding: 7px 14px; border-radius: 8px; border: none; cursor: pointer; background: #22d3ee; color: #04262b; }
+      .toolbar .sec { background: transparent; color: #fff; border: 1px solid #475569; }
+      header.top { display: flex; align-items: center; gap: 14px; border-bottom: 3px solid #0e7490; padding-bottom: 10px; }
+      header.top img { height: 46px; }
+      .titre { flex: 1; }
+      .titre h1 { margin: 0; font-size: 18pt; letter-spacing: -.01em; color: #0e7490; }
+      .titre .sous { font-size: 10pt; color: #334155; font-weight: 600; }
+      .meta { text-align: right; font-size: 8.5pt; color: #475569; line-height: 1.5; }
+      .eleve { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 14px 0 10px; flex-wrap: wrap; }
+      .eleve h2 { margin: 0; font-size: 16pt; }
+      .badge { font-size: 8.5pt; font-weight: 700; padding: 3px 10px; border-radius: 999px; }
+      .badge.ok { background: #dcfce7; color: #166534; } .badge.ko { background: #fee2e2; color: #991b1b; }
+      h3 { font-size: 11.5pt; color: #0e7490; margin: 18px 0 8px; padding-bottom: 4px; border-bottom: 1px solid #cbd5e1; break-after: avoid; }
+      .synthese { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+      .tile { border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 10px; background: #f8fafc; }
+      .tile .v { font-size: 15pt; font-weight: 800; } .tile .l { font-size: 8pt; color: #64748b; }
+      .jauge { height: 7px; background: #e2e8f0; border-radius: 99px; overflow: hidden; margin-top: 5px; } .jauge span { display: block; height: 100%; background: #0891b2; }
+      .legende { display: flex; flex-wrap: wrap; gap: 12px; font-size: 8.5pt; color: #475569; margin: 6px 0 2px; }
+      .legende span { display: inline-flex; align-items: center; gap: 4px; }
+      .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 3px; vertical-align: middle; flex-shrink: 0; }
+      .domaine { margin-bottom: 10px; break-inside: avoid; }
+      .dom-head { display: flex; justify-content: space-between; font-weight: 700; font-size: 9.5pt; background: #ecfeff; color: #155e75; padding: 5px 8px; border-radius: 6px 6px 0 0; border: 1px solid #a5f3fc; border-bottom: none; }
+      .dom-count { font-weight: 600; }
+      table { width: 100%; border-collapse: collapse; font-size: 9pt; }
+      th { text-align: left; font-size: 7.5pt; text-transform: uppercase; letter-spacing: .03em; color: #64748b; padding: 4px 6px; border: 1px solid #e2e8f0; background: #f8fafc; }
+      td { padding: 5px 6px; border: 1px solid #e2e8f0; vertical-align: middle; }
+      .c-nom { font-weight: 600; width: 34%; } .c-num { text-align: center; width: 7%; } .c-last { width: 22%; font-size: 8.5pt; } .c-histo { width: 17%; }
+      .pill { display: inline-block; font-size: 8pt; font-weight: 700; padding: 2px 8px; border-radius: 999px; color: var(--c); border: 1px solid var(--c); background: color-mix(in srgb, var(--c) 10%, #fff); white-space: nowrap; }
+      .muted { color: #94a3b8; }
+      .exams { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+      .exam { border: 1px solid #e2e8f0; border-radius: 8px; padding: 7px 9px; display: flex; flex-direction: column; gap: 3px; }
+      .exam-nom { font-weight: 700; font-size: 9pt; } .exam-st { font-size: 8.5pt; font-weight: 600; }
+      .exam-st.ok { color: #16a34a; } .exam-st.warn { color: #b45309; } .exam-st.muted { color: #94a3b8; }
+      .assid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+      .box { border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 10px; }
+      .box .l { font-size: 8pt; color: #64748b; } .box .v { font-weight: 700; }
+      .pres-row { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+      .pres { font-size: 7.5pt; font-weight: 700; padding: 2px 6px; border-radius: 4px; }
+      .pres.p { background: #dcfce7; color: #166534; } .pres.a { background: #fee2e2; color: #991b1b; }
+      .seance { border-left: 3px solid #0891b2; padding: 4px 0 4px 10px; margin-bottom: 8px; break-inside: avoid; }
+      .seance-head { font-size: 9.5pt; margin-bottom: 3px; }
+      .ats { display: flex; flex-wrap: wrap; gap: 4px 10px; font-size: 8.5pt; }
+      .at { display: inline-flex; align-items: center; }
+      .com { font-size: 9pt; font-style: italic; color: #334155; margin-top: 4px; white-space: pre-line; }
+      .com-at { font-style: normal; font-size: 8pt; color: #64748b; }
+      .bilan { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+      .bilan .box h4 { margin: 0 0 4px; font-size: 9.5pt; }
+      .bilan ul { margin: 0; padding-left: 16px; font-size: 9pt; }
+      .bilan .forts h4 { color: #16a34a; } .bilan .axes h4 { color: #b45309; } .bilan .aborder h4 { color: #475569; }
+      .sigs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; break-inside: avoid; }
+      .sig { border: 1px solid #cbd5e1; border-radius: 8px; padding: 8px 10px; }
+      .sig-role { font-weight: 700; font-size: 9.5pt; margin-bottom: 6px; color: #0e7490; }
+      .sig-line { font-size: 8.5pt; color: #475569; border-bottom: 1px dotted #cbd5e1; padding: 4px 0; }
+      .sig-line span { color: #0f172a; font-weight: 600; }
+      .sig-zone { height: 22mm; font-size: 7.5pt; color: #94a3b8; padding-top: 4px; }
+      .pied { margin-top: 14px; font-size: 7.5pt; color: #94a3b8; text-align: center; }
+      .bloc { break-inside: avoid; }
+      @media print { .toolbar { display: none; } .page { padding: 0; max-width: none; } }
+      @media (max-width: 640px) { .synthese, .exams { grid-template-columns: 1fr 1fr; } .bilan, .sigs, .assid { grid-template-columns: 1fr; } .meta { text-align: left; } header.top { flex-wrap: wrap; } }
+    `;
+
+    return '<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">' +
+      '<title>Carnet de progression N1 — ' + esc(e.nom) + '</title><style>' + css + '</style></head><body>' +
+      '<div class="toolbar"><span>Carnet de progression — ' + esc(e.nom) + '</span>' +
+        '<button type="button" onclick="window.print()">🖨 Imprimer / Enregistrer en PDF</button>' +
+        '<button type="button" class="sec" onclick="window.close()">Fermer</button></div>' +
+      '<div class="page">' +
+        '<header class="top">' + (logo ? '<img src="' + logo + '" alt="RSCC Subaquatique">' : '') +
+          '<div class="titre"><h1>Carnet de progression</h1><div class="sous">Plongeur Niveau 1 · Cursus FFESSM</div></div>' +
+          '<div class="meta">RSCC Subaquatique<br>Saison ' + esc(CONFIG.SEASON || '') + ' · ' + esc(CONFIG.GROUPE || '') +
+            '<br>Édité le ' + esc(today) + '<br>Données au ' + esc(dateData) + '</div></header>' +
+        '<div class="eleve"><h2>' + esc(e.nom) + '</h2>' +
+          '<span class="badge ' + (e.caci === true ? 'ok' : 'ko') + '">' + (e.caci === true ? '🩺 CACI valide' : '🩺 CACI à fournir') + '</span></div>' +
+
+        '<h3>1. Synthèse</h3>' +
+        '<div class="synthese">' +
+          '<div class="tile"><div class="v">' + acquises.length + ' / ' + total + '</div><div class="l">compétences acquises (' + pct + ' %)</div><div class="jauge"><span style="width:' + pct + '%"></span></div></div>' +
+          '<div class="tile"><div class="v">' + (e.nb_seances || 0) + '</div><div class="l">séance(s) suivie(s)</div></div>' +
+          '<div class="tile"><div class="v">' + presence.pct + ' %</div><div class="l">présence (' + presence.nbPresent + '/' + presence.total + ' soirées)</div></div>' +
+          '<div class="tile"><div class="v" style="font-size:11pt;">' + esc(lastDate ? formatDateFR(lastDate) : '—') + '</div><div class="l">dernière séance</div></div>' +
+        '</div>' +
+        '<p style="font-size:8.5pt;color:#475569;margin:6px 0 0;">Moniteurs rencontrés : ' + esc((e.moniteurs || []).join(', ') || '—') + '</p>' +
+
+        '<h3>2. Compétences du cursus, par domaine</h3>' + legende +
+        '<p style="font-size:8pt;color:#64748b;margin:2px 0 8px;">Compétences actuellement ouvertes par le chef de groupe (' + total + '). « Évolution » = notes successives, de la plus ancienne à la plus récente. ' +
+          (isRobustesseActive() ? 'Une compétence est acquise quand plusieurs moniteurs l\'ont validée (mode renforcé).' : 'Une compétence est acquise à partir de la note ' + getSeuilCompetenceAcquise() + '.') + '</p>' +
+        domainesHtml +
+
+        '<h3>3. Examens</h3><div class="exams bloc">' + exams + '</div>' +
+
+        '<h3>4. Assiduité &amp; CACI</h3><div class="assid bloc">' +
+          '<div class="box"><div class="l">Présence aux soirées</div><div class="v">' + presence.nbPresent + ' présent(s) · ' + presence.nbAbsent + ' absent(s)</div>' +
+            '<div class="l" style="margin-top:3px;">' + (abs.absences_consecutives ? abs.absences_consecutives + ' absence(s) consécutive(s) en cours' : 'Aucune absence en cours') +
+            (abs.derniere_presence ? ' · dernière présence le ' + esc(formatDateFR(abs.derniere_presence)) : '') + '</div>' +
+            '<div class="pres-row">' + pastillesPresence + '</div></div>' +
+          '<div class="box"><div class="l">Certificat d\'absence de contre-indication (CACI)</div><div class="v" style="color:' + (e.caci === true ? '#16a34a' : '#dc2626') + ';">' +
+            (e.caci === true ? 'Valide — enregistré au club' : 'Non enregistré — à fournir avant la prochaine mise à l\'eau') + '</div></div>' +
+        '</div>' +
+
+        '<h3>5. Bilan</h3><div class="bilan bloc">' +
+          '<div class="box forts"><h4>✔ Points forts</h4>' + liste(forts, 'Pas encore de compétence acquise.') + '</div>' +
+          '<div class="box axes"><h4>➜ Axes de travail</h4>' + liste(axes, 'Aucun axe en cours.') + '</div>' +
+          '<div class="box aborder"><h4>○ Encore à aborder</h4>' + liste(aAborder, 'Toutes les compétences ont été abordées.') + '</div>' +
+        '</div>' +
+
+        '<h3>6. Journal des séances' + (avecCommentaires ? '' : ' <span style="font-weight:400;font-size:8.5pt;color:#64748b;">(sans commentaires)</span>') + '</h3>' + journal +
+
+        '<h3>7. Visas</h3><div class="sigs">' +
+          sig('Moniteur référent', '') + sig('Chef de groupe', chef) + sig('Élève', e.nom) +
+        '</div>' +
+        '<div class="pied">Document établi d\'après les comptes rendus de séance saisis par les moniteurs — données au ' + esc(dateData) + '. ' +
+          'Il ne se substitue pas au livret pédagogique officiel ni à la délivrance du brevet par la FFESSM.</div>' +
+      '</div></body></html>';
+  }
+
+  /** Petite boîte de dialogue : inclure ou non les commentaires, puis ouverture du carnet. */
+  function openCarnetDialog(eleveId) {
+    const e = (STATE.eleves || []).find(x => x.id === eleveId);
+    if (!e) return;
+    let ov = document.getElementById('carnetOverlay');
+    if (!ov) {
+      ov = document.createElement('div');
+      ov.id = 'carnetOverlay';
+      ov.className = 'anom-overlay hidden';
+      document.body.appendChild(ov);
+      ov.addEventListener('click', ev => { if (ev.target === ov) ov.classList.add('hidden'); });
+    }
+    ov.innerHTML = '<div class="anom-modal" role="dialog" aria-modal="true" style="max-width:440px;">' +
+      '<div class="anom-modal-head"><span class="anom-modal-title">📄 Carnet de progression</span>' +
+        '<button type="button" class="anom-modal-close" aria-label="Fermer">×</button></div>' +
+      '<p class="anom-intro">Carnet individuel de <strong>' + escapeHtml(e.nom) + '</strong> au format A4, prêt à imprimer ou à enregistrer en PDF.</p>' +
+      '<label class="carnet-opt"><input type="checkbox" id="carnetAvecCom"> Inclure les commentaires des moniteurs</label>' +
+      '<p class="anom-hint" style="margin:4px 0 14px;">À décocher si le carnet est remis à l\'élève et que certains commentaires sont personnels.</p>' +
+      '<div style="display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;">' +
+        '<button type="button" class="export-btn" id="carnetAnnuler">Annuler</button>' +
+        '<button type="button" class="export-btn carnet-go" id="carnetGo">📄 Ouvrir le carnet</button></div></div>';
+    ov.classList.remove('hidden');
+    ov.querySelector('.anom-modal-close').onclick = () => ov.classList.add('hidden');
+    ov.querySelector('#carnetAnnuler').onclick = () => ov.classList.add('hidden');
+    ov.querySelector('#carnetGo').onclick = function() {
+      const html = buildCarnetHtml(e, ov.querySelector('#carnetAvecCom').checked);
+      const w = window.open('', '_blank');
+      if (!w) { showToast('Fenêtre bloquée par le navigateur : autorisez les fenêtres pour ce site.', 'error'); return; }
+      w.document.open(); w.document.write(html); w.document.close();
+      ov.classList.add('hidden');
+      setTimeout(function() { try { w.focus(); w.print(); } catch (err) {} }, 600);
+    };
+  }
+  document.addEventListener('click', function(ev) {
+    const b = ev.target.closest && ev.target.closest('[data-carnet]');
+    if (b) { ev.preventDefault(); openCarnetDialog(b.dataset.carnet); }
+  });
+
   function buildStudentCard(e) {
     // Regroupe les compétences par catégorie (référentiel_categories.json si disponible, sinon
     // repli sur ATELIER_CATEGORIE_FALLBACK) — évite un mur de 40+ cartes à faire défiler d'un
@@ -5066,11 +5343,13 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         '<div class="student-stats">' +
           '<span class="stat-pill">' + ICONS.seance + ' ' + e.nb_seances + ' séance(s)</span>' +
           '<span class="stat-pill">' + ICONS.competence + ' ' + e.nb_competences_travaillees + ' compétence(s) travaillée(s)</span>' +
+          '<button type="button" class="export-btn carnet-btn" data-carnet="' + escapeHtml(e.id) + '" title="Carnet de progression A4 — imprimer ou enregistrer en PDF">📄 Carnet de progression</button>' +
         '</div>' +
       '</div>' +
       presenceSectionHtml +
       (compsHtml
-        ? '<div class="comp-section-toolbar">' +
+        ? '<div class="legend-row legend-fiche">' + notesLegendItemsHtml() + '</div>' +
+          '<div class="comp-section-toolbar">' +
             '<button type="button" class="comp-expand-all-btn" data-expand-target="eleve-' + escapeHtml(e.id) + '" data-state="' + (isMobile ? 'collapsed' : 'expanded') + '">' +
               (isMobile ? '▾ Tout déplier' : '▴ Tout replier') +
             '</button>' +
@@ -5206,12 +5485,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         buildCacheBanner() +
         buildKPIs() +
         '<div class="legend-row">' +
-          '<strong style="color:var(--text);">Légende notes :</strong>' +
-          '<span class="legend-item"><span class="note-dot n1"></span>1 — Non acquis</span>' +
-          '<span class="legend-item"><span class="note-dot n2"></span>2 — En cours</span>' +
-          '<span class="legend-item"><span class="note-dot n3"></span>3 — Acquis</span>' +
-          '<span class="legend-item"><span class="note-dot n4"></span>4 — Maîtrisé</span>' +
-          '<span class="legend-item"><span class="note-dot n0"></span>Non évalué</span>' +
+          notesLegendItemsHtml() +
           '<span class="legend-item"><span class="caci-dot caci-dot-ok" style="margin:0;">✓</span>CACI valide</span>' +
           '<span class="legend-item"><span class="caci-dot caci-dot-ko" style="margin:0;">!</span><span style="color:var(--caci-ko);font-weight:700;">Nom en rouge</span>&nbsp;= pas de CACI valide</span>' +
         '</div>' +
