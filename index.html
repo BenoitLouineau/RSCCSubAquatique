@@ -891,6 +891,38 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 .kpi-caci-pct { font-size: 14px; font-weight: 700; }
 .kpi-caci-bar { height: 6px; border-radius: 999px; background: var(--donut-rest); margin-top: 10px; overflow: hidden; }
 .kpi-caci-bar > span { display: block; height: 100%; border-radius: 999px; }
+/* ===================== VUE ÉLÈVES (#Student) ===================== */
+.st-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--card); }
+.st-table { border-collapse: separate; border-spacing: 0; table-layout: fixed; }
+.st-row > * { border-bottom: 1px solid var(--border); vertical-align: top; padding: 10px 4px; }
+.st-name { position: sticky; left: 0; z-index: 2; background: var(--card); width: 130px; min-width: 130px; text-align: center; padding: 10px 8px !important; border-right: 1px solid var(--border); }
+.st-name-link { display: block; font-size: 14px; font-weight: 800; color: var(--text); text-decoration: none; }
+.st-name-link:hover { text-decoration: underline; }
+.st-sub { display: block; font-size: 11px; color: var(--muted); font-weight: 500; margin: 2px 0 4px; }
+.st-cell { width: 92px; min-width: 92px; max-width: 92px; text-align: center; }
+.st-last {
+  height: 46px; display: flex; align-items: center; justify-content: center; padding: 3px 4px; border-radius: 6px;
+  font-size: 11.5px; font-weight: 700; line-height: 1.2; overflow: hidden; word-break: break-word; hyphens: auto;
+}
+.st-last.n1, .st-date.n1 { background: var(--bad); color: #fff; }
+.st-last.n2, .st-date.n2 { background: var(--warn); color: #3b2300; }
+.st-last.n3, .st-date.n3 { background: var(--accent); color: #032a30; }
+.st-last.n4, .st-date.n4 { background: var(--ok); color: #fff; }
+.st-last.n0 { background: transparent; color: var(--muted); border: 1px dashed var(--border); font-weight: 600; }
+.st-date.n0 { color: var(--muted); }
+.st-arrow { border: none; background: transparent; color: var(--text); font-size: 16px; line-height: 1; cursor: pointer; padding: 4px 8px; }
+.st-arrow:disabled { opacity: .25; cursor: default; }
+.st-all { font-size: 20px; }
+.st-dates { display: flex; flex-direction: column; gap: 3px; margin-top: 2px; }
+.st-date { font-size: 11.5px; font-weight: 700; padding: 3px 2px; border-radius: 4px; }
+.st-empty { padding: 16px; color: var(--muted); }
+@media (max-width: 640px) {
+  .st-name { width: 92px; min-width: 92px; padding: 8px 4px !important; }
+  .st-name-link { font-size: 12.5px; }
+  .st-cell { width: 80px; min-width: 80px; max-width: 80px; }
+  .st-last { height: 42px; font-size: 10.5px; }
+}
+
 /* ===================== MODULE ADMIN (#Admin) ===================== */
 .admin-head { display: flex; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
 .admin-head > div { flex: 1; min-width: 220px; }
@@ -1165,6 +1197,11 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   </button>
 
   <!-- Module Admin : accessible uniquement via l'adresse …/#Admin (non listé dans la navigation) -->
+  <!-- Vue élèves …/#Student (tous) ou …/#Student/Prénom (un seul) — non listée dans la navigation -->
+  <section class="tab-panel" id="panel-student">
+    <div id="studentContent"><div class="load-screen"><div class="spinner"></div><div>Chargement…</div></div></div>
+  </section>
+
   <section class="tab-panel" id="panel-admin">
     <div id="adminContent"><div class="load-screen"><div class="spinner"></div><div>Chargement…</div></div></div>
   </section>
@@ -3387,7 +3424,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   // (nav d'onglets du haut retirée — remplacée par la barre de navigation basse #bottomNav)
 
   function switchTab(name) {
-    if (name !== 'admin' && isAdminRoute()) {
+    if ((name !== 'admin' && isAdminRoute()) || (name !== 'student' && isStudentRoute())) {
       try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch (e) {}
     }
     activeTabKey = name;
@@ -3750,11 +3787,126 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch (e) { window.location.hash = ''; }
     switchTab(tabOrder[0]);
   }
+  function isStudentRoute() { return /^#student\b/i.test(window.location.hash || ''); }
   function routeFromHash() {
     if (isAdminRoute()) { switchTab('admin'); renderAdmin(); window.scrollTo(0, 0); }
-    else if (activeTabKey === 'admin') switchTab(tabOrder[0]);
+    else if (isStudentRoute()) { switchTab('student'); renderStudentView(); window.scrollTo(0, 0); }
+    else if (activeTabKey === 'admin' || activeTabKey === 'student') switchTab(tabOrder[0]);
   }
   window.addEventListener('hashchange', routeFromHash);
+
+  // =====================================================================
+  // VUE ÉLÈVES « #Student » — une bande par élève, une case par atelier ACTIF du
+  // référentiel (colonnes alignées pour tous ; s'étend dès qu'un atelier passe à actif).
+  // Case = couleur de la dernière note. Flèche sous l'atelier : dates d'évaluation
+  // (plus récente en premier). Flèche sous le nom : tout déplier / tout replier.
+  // =====================================================================
+  let studentQuery = '';
+  function getStudentColonnes() {
+    return (STATE.referentiel || []).filter(c => c.actif && c.notable !== false).map(c => c.nom);
+  }
+  function studentSlug(txt) {
+    return String(txt || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  }
+  /** Élève ciblé par #Student/<id ou prénom>, sinon null (= tous les élèves). */
+  function getStudentCible() {
+    const m = (window.location.hash || '').match(/^#student\/(.+)$/i);
+    if (!m) return null;
+    const cle = studentSlug(decodeURIComponent(m[1]));
+    const eleves = STATE.eleves || [];
+    const noms = buildDisplayNames(eleves);
+    return eleves.find(e => e.id === cle) || eleves.find(e => studentSlug(e.nom) === cle) ||
+      eleves.find(e => studentSlug(noms[e.id]) === cle) || { introuvable: decodeURIComponent(m[1]) };
+  }
+  /** Évaluations d'un atelier regroupées par date (meilleure note du jour), plus récente en premier. */
+  function studentEvaluations(comp) {
+    const parDate = {};
+    ((comp && comp.historique) || []).forEach(function(h) {
+      if (h.note == null) return;
+      const d = parDate[h.date] || (parDate[h.date] = { date: h.date, note: h.note, details: [] });
+      d.note = Math.max(d.note, h.note);
+      d.details.push(noteLabel(h.note) + (h.moniteur ? ' — ' + h.moniteur : ''));
+    });
+    return Object.values(parDate).sort((a, b) => b.date.localeCompare(a.date));
+  }
+  function studentBandeHtml(e, colonnes, nomAffiche) {
+    const cells = colonnes.map(function(at) {
+      const evals = studentEvaluations((e.competences || {})[at]);
+      const last = evals[0];
+      const cls = last ? noteClass(last.note) : 'n0';
+      const titre = at + ' — ' + (last ? 'dernière note : ' + noteLabel(last.note) + ' le ' + formatDateFR(last.date) : 'non évalué');
+      const dates = evals.length
+        ? evals.map(x => '<div class="st-date ' + noteClass(x.note) + '" title="' + escapeHtml(x.details.join(' · ')) + '">' +
+            escapeHtml(new Date(x.date + 'T00:00:00').toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' })) + '</div>').join('')
+        : '<div class="st-date n0">—</div>';
+      return '<td class="st-cell">' +
+        '<div class="st-last ' + cls + '" title="' + escapeHtml(titre) + '">' + escapeHtml(at) + '</div>' +
+        '<button type="button" class="st-arrow" aria-expanded="false" aria-label="Dates d\'évaluation — ' + escapeHtml(at) + '"' +
+          (evals.length ? '' : ' disabled') + '>▽</button>' +
+        '<div class="st-dates hidden">' + dates + '</div>' +
+      '</td>';
+    }).join('');
+    return '<tr class="st-row" data-student="' + escapeHtml(e.id) + '">' +
+      '<th class="st-name" scope="row">' +
+        '<a href="#Student/' + encodeURIComponent(e.id) + '" class="st-name-link">' + eleveNomCaci(e.nom, nomAffiche) + '</a>' +
+        '<span class="st-sub">' + (e.nb_seances || 0) + ' séance(s)</span>' +
+        '<button type="button" class="st-arrow st-all" aria-expanded="false" title="Tout déplier / tout replier">▽</button>' +
+      '</th>' + cells + '</tr>';
+  }
+  function renderStudentView() {
+    const root = $('#studentContent');
+    if (!root || !STATE.eleves || !STATE.referentiel) return;
+    const colonnes = getStudentColonnes();
+    const noms = buildDisplayNames(STATE.eleves);
+    const cible = getStudentCible();
+    let eleves = (STATE.eleves || []).slice().sort((a, b) => (noms[a.id] || a.nom).localeCompare(noms[b.id] || b.nom, 'fr', { sensitivity: 'base' }));
+    let titre = '🏊 Suivi des compétences — tous les élèves';
+    if (cible && cible.introuvable) {
+      root.innerHTML = '<div class="admin-card"><p>Élève « ' + escapeHtml(cible.introuvable) + ' » introuvable.</p><a href="#Student">Voir tous les élèves</a></div>';
+      return;
+    }
+    if (cible) { eleves = [cible]; titre = '🏊 Suivi des compétences — ' + escapeHtml(cible.nom); }
+    const q = studentSlug(studentQuery);
+    const visibles = cible || !q ? eleves : eleves.filter(e => studentSlug(e.nom + ' ' + (noms[e.id] || '')).indexOf(q) !== -1);
+    root.innerHTML =
+      '<div class="admin-head"><div><h2 class="section-title" style="margin:0;">' + titre + '</h2>' +
+        '<p class="admin-sub">Chaque case montre la <strong>dernière note obtenue</strong>. ▽ sous un atelier : ses dates d\'évaluation · ▽ sous le nom : tout déplier / tout replier. ' +
+        colonnes.length + ' atelier(s) actif(s) au référentiel.</p></div>' +
+        '<div class="admin-head-actions">' + (cible ? '<a class="export-btn" href="#Student">👥 Tous les élèves</a>' : '') +
+          '<button type="button" class="export-btn" id="btnStudentBack">← Retour au rapport</button></div></div>' +
+      '<div class="legend-row legend-fiche">' + notesLegendItemsHtml() + '</div>' +
+      (cible ? '' : '<div class="toolbar"><input type="text" class="search-input" id="studentSearch" placeholder="🔍 Rechercher un élève…" value="' + escapeHtml(studentQuery) + '"></div>') +
+      '<div class="st-wrap"><table class="st-table"><tbody>' +
+        (visibles.length ? visibles.map(e => studentBandeHtml(e, colonnes, noms[e.id])).join('')
+                         : '<tr><td class="st-empty">Aucun élève ne correspond à la recherche.</td></tr>') +
+      '</tbody></table></div>';
+    $('#btnStudentBack', root).addEventListener('click', function() {
+      try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch (err) {}
+      switchTab(tabOrder[0]);
+    });
+    const search = $('#studentSearch', root);
+    if (search) search.addEventListener('input', function() {
+      studentQuery = search.value; renderStudentView();
+      const s2 = $('#studentSearch'); if (s2) { s2.focus(); s2.setSelectionRange(s2.value.length, s2.value.length); }
+    });
+  }
+  // Flèches (délégation) : une colonne, ou toute la bande de l'élève
+  document.addEventListener('click', function(ev) {
+    const btn = ev.target.closest && ev.target.closest('.st-arrow');
+    if (!btn || btn.disabled) return;
+    const setOpen = (b, open) => {
+      b.setAttribute('aria-expanded', open ? 'true' : 'false'); b.textContent = open ? '△' : '▽';
+      const d = b.parentElement.querySelector('.st-dates'); if (d) d.classList.toggle('hidden', !open);
+    };
+    if (btn.classList.contains('st-all')) {
+      const row = btn.closest('.st-row');
+      const open = btn.getAttribute('aria-expanded') !== 'true';
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false'); btn.textContent = open ? '△' : '▽';
+      $$('.st-cell .st-arrow:not([disabled])', row).forEach(b => setOpen(b, open));
+      return;
+    }
+    setOpen(btn, btn.getAttribute('aria-expanded') !== 'true');
+  });
 
   /** Encadrements (date + moniteur) dont tous les CR sont vides ou « Aucun commentaire ». */
   function getSeancesSansCommentaire() {
@@ -5578,6 +5730,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 
     draw();
     if (isAdminRoute()) renderAdmin();   // garde le module Admin à jour (données, seuils…)
+    if (isStudentRoute()) renderStudentView();
   }
 
   // =====================================================================
@@ -8036,7 +8189,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   initTheme();
   setupBackToTable();
   // …/#Admin ouvre directement le module Admin (rendu dès que les données sont chargées)
-  switchTab(isAdminRoute() ? 'admin' : tabOrder[0]);
+  switchTab(isAdminRoute() ? 'admin' : (isStudentRoute() ? 'student' : tabOrder[0]));
   const PERMANENT_PLACEHOLDER_TABS = [];
   if (PERMANENT_PLACEHOLDER_TABS.includes(tabOrder[0])) {
     showToast(
