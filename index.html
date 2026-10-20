@@ -892,10 +892,16 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 .kpi-caci-bar { height: 6px; border-radius: 999px; background: var(--donut-rest); margin-top: 10px; overflow: hidden; }
 .kpi-caci-bar > span { display: block; height: 100%; border-radius: 999px; }
 /* ===================== VUE ÉLÈVES (#Student) ===================== */
-.st-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--card); }
+.st-wrap { border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--card); overflow: hidden; }
+.st-row { display: flex; align-items: stretch; border-bottom: 1px solid var(--border); }
+.st-row:last-child { border-bottom: none; }
+.st-name { flex: 0 0 130px; width: 130px; text-align: center; padding: 10px 8px; border-right: 1px solid var(--border); }
+.st-scroll { flex: 1; min-width: 0; overflow-x: auto; overflow-y: hidden; padding-bottom: 4px; scrollbar-width: thin; scrollbar-color: var(--muted) var(--chip); }
+.st-scroll::-webkit-scrollbar { height: 8px; }
+.st-scroll::-webkit-scrollbar-track { background: var(--chip); border-radius: 99px; }
+.st-scroll::-webkit-scrollbar-thumb { background: var(--muted); border-radius: 99px; }
 .st-table { border-collapse: separate; border-spacing: 0; table-layout: fixed; }
-.st-row > * { border-bottom: 1px solid var(--border); vertical-align: top; padding: 10px 4px; }
-.st-name { position: sticky; left: 0; z-index: 2; background: var(--card); width: 130px; min-width: 130px; text-align: center; padding: 10px 8px !important; border-right: 1px solid var(--border); }
+.st-table td { vertical-align: top; padding: 10px 4px 6px; }
 .st-name-link { display: block; font-size: 14px; font-weight: 800; color: var(--text); text-decoration: none; }
 .st-name-link:hover { text-decoration: underline; }
 .st-sub { display: block; font-size: 11px; color: var(--muted); font-weight: 500; margin: 2px 0 4px; }
@@ -916,8 +922,20 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 .st-dates { display: flex; flex-direction: column; gap: 3px; margin-top: 2px; }
 .st-date { font-size: 11.5px; font-weight: 700; padding: 3px 2px; border-radius: 4px; }
 .st-empty { padding: 16px; color: var(--muted); }
+.st-date { position: relative; cursor: help; }
+.st-date:focus-visible { outline: 2px solid var(--accent2); outline-offset: 1px; }
+.st-com-mark { font-size: 9px; margin-left: 3px; vertical-align: 1px; }
+.st-tip {
+  position: fixed; z-index: 400; max-width: 300px; padding: 9px 11px; border-radius: 8px;
+  background: var(--surface); color: var(--text); border: 1px solid var(--border); box-shadow: var(--shadow);
+  font-size: 12px; line-height: 1.45; pointer-events: none;
+}
+.st-tip.hidden { display: none; }
+.st-tip-line { display: flex; align-items: center; gap: 6px; }
+.st-tip-line + .st-tip-line, .st-tip-com + .st-tip-line { margin-top: 6px; }
+.st-tip-com { margin-top: 3px; font-style: italic; color: var(--muted); white-space: pre-line; max-height: 220px; overflow: hidden; }
 @media (max-width: 640px) {
-  .st-name { width: 92px; min-width: 92px; padding: 8px 4px !important; }
+  .st-name { flex-basis: 92px; width: 92px; padding: 8px 4px; }
   .st-name-link { font-size: 12.5px; }
   .st-cell { width: 80px; min-width: 80px; max-width: 80px; }
   .st-last { height: 42px; font-size: 10.5px; }
@@ -3802,6 +3820,17 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   // (plus récente en premier). Flèche sous le nom : tout déplier / tout replier.
   // =====================================================================
   let studentQuery = '';
+  let studentScrollLeft = 0;     // position horizontale partagée par toutes les bandes
+  let studentSyncing = false;
+  // Synchronise le défilement horizontal de toutes les bandes : les ateliers restent alignés
+  document.addEventListener('scroll', function(ev) {
+    const sc = ev.target;
+    if (studentSyncing || !sc.classList || !sc.classList.contains('st-scroll')) return;
+    studentSyncing = true;
+    studentScrollLeft = sc.scrollLeft;
+    $$('#studentContent .st-scroll').forEach(o => { if (o !== sc && o.scrollLeft !== sc.scrollLeft) o.scrollLeft = sc.scrollLeft; });
+    requestAnimationFrame(() => { studentSyncing = false; });
+  }, true);
   function getStudentColonnes() {
     return (STATE.referentiel || []).filter(c => c.actif && c.notable !== false).map(c => c.nom);
   }
@@ -3819,25 +3848,40 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       eleves.find(e => studentSlug(noms[e.id]) === cle) || { introuvable: decodeURIComponent(m[1]) };
   }
   /** Évaluations d'un atelier regroupées par date (meilleure note du jour), plus récente en premier. */
-  function studentEvaluations(comp) {
+  function studentEvaluations(comp, e, atelier) {
     const parDate = {};
+    const commentaire = (date, moniteur) => {
+      const c = ((e && e.commentaires) || []).find(x => x.date === date && x.atelier === atelier &&
+        (!moniteur || x.moniteur === moniteur) && isCommentaireReel(x.commentaire));
+      return c ? String(c.commentaire).trim() : '';
+    };
     ((comp && comp.historique) || []).forEach(function(h) {
       if (h.note == null) return;
       const d = parDate[h.date] || (parDate[h.date] = { date: h.date, note: h.note, details: [] });
       d.note = Math.max(d.note, h.note);
-      d.details.push(noteLabel(h.note) + (h.moniteur ? ' — ' + h.moniteur : ''));
+      d.details.push({ note: h.note, moniteur: h.moniteur || '', commentaire: commentaire(h.date, h.moniteur) });
     });
     return Object.values(parDate).sort((a, b) => b.date.localeCompare(a.date));
   }
   function studentBandeHtml(e, colonnes, nomAffiche) {
     const cells = colonnes.map(function(at) {
-      const evals = studentEvaluations((e.competences || {})[at]);
+      const evals = studentEvaluations((e.competences || {})[at], e, at);
       const last = evals[0];
       const cls = last ? noteClass(last.note) : 'n0';
       const titre = at + ' — ' + (last ? 'dernière note : ' + noteLabel(last.note) + ' le ' + formatDateFR(last.date) : 'non évalué');
       const dates = evals.length
-        ? evals.map(x => '<div class="st-date ' + noteClass(x.note) + '" title="' + escapeHtml(x.details.join(' · ')) + '">' +
-            escapeHtml(new Date(x.date + 'T00:00:00').toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' })) + '</div>').join('')
+        ? evals.map(function(x) {
+            const aCom = x.details.some(d => d.commentaire);
+            // Contenu de l'info-bulle (lu au survol ou au toucher) : note · moniteur · commentaire du CR
+            const tip = x.details.map(d => '<div class="st-tip-line"><span class="note-dot ' + noteClass(d.note) + '"></span><strong>' +
+                escapeHtml(noteLabel(d.note).replace('Note ', '')) + '</strong>' + (d.moniteur ? ' — ' + escapeHtml(d.moniteur) : '') + '</div>' +
+                (d.commentaire ? '<div class="st-tip-com">💬 « ' + escapeHtml(d.commentaire) + ' »</div>' : '')).join('');
+            return '<div class="st-date ' + noteClass(x.note) + (aCom ? ' has-com' : '') + '" tabindex="0" data-tip="' + escapeHtml(tip) + '"' +
+              ' aria-label="' + escapeHtml(formatDateFR(x.date) + ' — ' + x.details.map(d => noteLabel(d.note) + (d.moniteur ? ', ' + d.moniteur : '') +
+                (d.commentaire ? ', commentaire : ' + d.commentaire : '')).join(' ; ')) + '">' +
+              escapeHtml(new Date(x.date + 'T00:00:00').toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' })) +
+              (aCom ? '<span class="st-com-mark" aria-hidden="true">💬</span>' : '') + '</div>';
+          }).join('')
         : '<div class="st-date n0">—</div>';
       return '<td class="st-cell">' +
         '<div class="st-last ' + cls + '" title="' + escapeHtml(titre) + '">' + escapeHtml(at) + '</div>' +
@@ -3846,12 +3890,14 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         '<div class="st-dates hidden">' + dates + '</div>' +
       '</td>';
     }).join('');
-    return '<tr class="st-row" data-student="' + escapeHtml(e.id) + '">' +
-      '<th class="st-name" scope="row">' +
+    return '<div class="st-row" data-student="' + escapeHtml(e.id) + '">' +
+      '<div class="st-name">' +
         '<a href="#Student/' + encodeURIComponent(e.id) + '" class="st-name-link">' + eleveNomCaci(e.nom, nomAffiche) + '</a>' +
         '<span class="st-sub">' + (e.nb_seances || 0) + ' séance(s)</span>' +
         '<button type="button" class="st-arrow st-all" aria-expanded="false" title="Tout déplier / tout replier">▽</button>' +
-      '</th>' + cells + '</tr>';
+      '</div>' +
+      '<div class="st-scroll"><table class="st-table"><tbody><tr>' + cells + '</tr></tbody></table></div>' +
+    '</div>';
   }
   function renderStudentView() {
     const root = $('#studentContent');
@@ -3876,10 +3922,12 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
           '<button type="button" class="export-btn" id="btnStudentBack">← Retour au rapport</button></div></div>' +
       '<div class="legend-row legend-fiche">' + notesLegendItemsHtml() + '</div>' +
       (cible ? '' : '<div class="toolbar"><input type="text" class="search-input" id="studentSearch" placeholder="🔍 Rechercher un élève…" value="' + escapeHtml(studentQuery) + '"></div>') +
-      '<div class="st-wrap"><table class="st-table"><tbody>' +
+      '<div class="st-wrap">' +
         (visibles.length ? visibles.map(e => studentBandeHtml(e, colonnes, noms[e.id])).join('')
-                         : '<tr><td class="st-empty">Aucun élève ne correspond à la recherche.</td></tr>') +
-      '</tbody></table></div>';
+                         : '<div class="st-empty">Aucun élève ne correspond à la recherche.</div>') +
+      '</div>';
+    // Restaure la position horizontale commune après un re-rendu (recherche, export…)
+    $$('.st-scroll', root).forEach(sc => { sc.scrollLeft = studentScrollLeft; });
     $('#btnStudentBack', root).addEventListener('click', function() {
       try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch (err) {}
       switchTab(tabOrder[0]);
@@ -3890,6 +3938,45 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       const s2 = $('#studentSearch'); if (s2) { s2.focus(); s2.setSelectionRange(s2.value.length, s2.value.length); }
     });
   }
+  // Info-bulle des dates : survol à la souris, toucher sur mobile, focus au clavier
+  function studentTip() {
+    let t = document.getElementById('stTip');
+    if (!t) { t = document.createElement('div'); t.id = 'stTip'; t.className = 'st-tip hidden'; t.setAttribute('role', 'tooltip'); document.body.appendChild(t); }
+    return t;
+  }
+  function showStudentTip(el) {
+    const t = studentTip();
+    t.innerHTML = el.dataset.tip;
+    t.classList.remove('hidden');
+    const r = el.getBoundingClientRect(), w = t.offsetWidth, h = t.offsetHeight;
+    let left = Math.max(8, Math.min(window.innerWidth - w - 8, r.left + r.width / 2 - w / 2));
+    let top = r.bottom + 8;
+    if (top + h > window.innerHeight - 8) top = Math.max(8, r.top - h - 8);
+    t.style.left = left + 'px'; t.style.top = top + 'px';
+    t.dataset.for = el.dataset.tip;
+  }
+  function hideStudentTip() { const t = document.getElementById('stTip'); if (t) t.classList.add('hidden'); }
+  document.addEventListener('mouseover', function(ev) {
+    const d = ev.target.closest && ev.target.closest('.st-date[data-tip]');
+    if (d) showStudentTip(d);
+  });
+  document.addEventListener('mouseout', function(ev) {
+    const d = ev.target.closest && ev.target.closest('.st-date[data-tip]');
+    if (d && !(ev.relatedTarget && d.contains(ev.relatedTarget))) hideStudentTip();
+  });
+  document.addEventListener('focusin', function(ev) {
+    const d = ev.target.closest && ev.target.closest('.st-date[data-tip]');
+    if (d) showStudentTip(d);
+  });
+  document.addEventListener('focusout', function(ev) { if (ev.target.closest && ev.target.closest('.st-date[data-tip]')) hideStudentTip(); });
+  document.addEventListener('click', function(ev) {
+    const d = ev.target.closest && ev.target.closest('.st-date[data-tip]');
+    const t = document.getElementById('stTip');
+    if (d) { if (t && !t.classList.contains('hidden') && t.dataset.for === d.dataset.tip) hideStudentTip(); else showStudentTip(d); return; }
+    if (!(ev.target.closest && ev.target.closest('#stTip'))) hideStudentTip();
+  });
+  document.addEventListener('scroll', hideStudentTip, true);
+
   // Flèches (délégation) : une colonne, ou toute la bande de l'élève
   document.addEventListener('click', function(ev) {
     const btn = ev.target.closest && ev.target.closest('.st-arrow');
