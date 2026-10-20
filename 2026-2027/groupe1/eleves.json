@@ -133,7 +133,7 @@
   {
     "id": "amir",
     "nom": "Amir",
-    "caci": false,
+    "caci": true,
     "nb_seances": 3,
     "dates_seances": [
       "2026-09-29",
