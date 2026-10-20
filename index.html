@@ -892,10 +892,16 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 .kpi-caci-bar { height: 6px; border-radius: 999px; background: var(--donut-rest); margin-top: 10px; overflow: hidden; }
 .kpi-caci-bar > span { display: block; height: 100%; border-radius: 999px; }
 /* ===================== VUE ÉLÈVES (#Student) ===================== */
-.st-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--card); }
+.st-wrap { border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--card); overflow: hidden; }
+.st-row { display: flex; align-items: stretch; border-bottom: 1px solid var(--border); }
+.st-row:last-child { border-bottom: none; }
+.st-name { flex: 0 0 130px; width: 130px; text-align: center; padding: 10px 8px; border-right: 1px solid var(--border); }
+.st-scroll { flex: 1; min-width: 0; overflow-x: auto; overflow-y: hidden; padding-bottom: 4px; scrollbar-width: thin; scrollbar-color: var(--muted) var(--chip); }
+.st-scroll::-webkit-scrollbar { height: 8px; }
+.st-scroll::-webkit-scrollbar-track { background: var(--chip); border-radius: 99px; }
+.st-scroll::-webkit-scrollbar-thumb { background: var(--muted); border-radius: 99px; }
 .st-table { border-collapse: separate; border-spacing: 0; table-layout: fixed; }
-.st-row > * { border-bottom: 1px solid var(--border); vertical-align: top; padding: 10px 4px; }
-.st-name { position: sticky; left: 0; z-index: 2; background: var(--card); width: 130px; min-width: 130px; text-align: center; padding: 10px 8px !important; border-right: 1px solid var(--border); }
+.st-table td { vertical-align: top; padding: 10px 4px 6px; }
 .st-name-link { display: block; font-size: 14px; font-weight: 800; color: var(--text); text-decoration: none; }
 .st-name-link:hover { text-decoration: underline; }
 .st-sub { display: block; font-size: 11px; color: var(--muted); font-weight: 500; margin: 2px 0 4px; }
@@ -917,7 +923,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 .st-date { font-size: 11.5px; font-weight: 700; padding: 3px 2px; border-radius: 4px; }
 .st-empty { padding: 16px; color: var(--muted); }
 @media (max-width: 640px) {
-  .st-name { width: 92px; min-width: 92px; padding: 8px 4px !important; }
+  .st-name { flex-basis: 92px; width: 92px; padding: 8px 4px; }
   .st-name-link { font-size: 12.5px; }
   .st-cell { width: 80px; min-width: 80px; max-width: 80px; }
   .st-last { height: 42px; font-size: 10.5px; }
@@ -3802,6 +3808,17 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   // (plus récente en premier). Flèche sous le nom : tout déplier / tout replier.
   // =====================================================================
   let studentQuery = '';
+  let studentScrollLeft = 0;     // position horizontale partagée par toutes les bandes
+  let studentSyncing = false;
+  // Synchronise le défilement horizontal de toutes les bandes : les ateliers restent alignés
+  document.addEventListener('scroll', function(ev) {
+    const sc = ev.target;
+    if (studentSyncing || !sc.classList || !sc.classList.contains('st-scroll')) return;
+    studentSyncing = true;
+    studentScrollLeft = sc.scrollLeft;
+    $$('#studentContent .st-scroll').forEach(o => { if (o !== sc && o.scrollLeft !== sc.scrollLeft) o.scrollLeft = sc.scrollLeft; });
+    requestAnimationFrame(() => { studentSyncing = false; });
+  }, true);
   function getStudentColonnes() {
     return (STATE.referentiel || []).filter(c => c.actif && c.notable !== false).map(c => c.nom);
   }
@@ -3846,12 +3863,14 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         '<div class="st-dates hidden">' + dates + '</div>' +
       '</td>';
     }).join('');
-    return '<tr class="st-row" data-student="' + escapeHtml(e.id) + '">' +
-      '<th class="st-name" scope="row">' +
+    return '<div class="st-row" data-student="' + escapeHtml(e.id) + '">' +
+      '<div class="st-name">' +
         '<a href="#Student/' + encodeURIComponent(e.id) + '" class="st-name-link">' + eleveNomCaci(e.nom, nomAffiche) + '</a>' +
         '<span class="st-sub">' + (e.nb_seances || 0) + ' séance(s)</span>' +
         '<button type="button" class="st-arrow st-all" aria-expanded="false" title="Tout déplier / tout replier">▽</button>' +
-      '</th>' + cells + '</tr>';
+      '</div>' +
+      '<div class="st-scroll"><table class="st-table"><tbody><tr>' + cells + '</tr></tbody></table></div>' +
+    '</div>';
   }
   function renderStudentView() {
     const root = $('#studentContent');
@@ -3876,10 +3895,12 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
           '<button type="button" class="export-btn" id="btnStudentBack">← Retour au rapport</button></div></div>' +
       '<div class="legend-row legend-fiche">' + notesLegendItemsHtml() + '</div>' +
       (cible ? '' : '<div class="toolbar"><input type="text" class="search-input" id="studentSearch" placeholder="🔍 Rechercher un élève…" value="' + escapeHtml(studentQuery) + '"></div>') +
-      '<div class="st-wrap"><table class="st-table"><tbody>' +
+      '<div class="st-wrap">' +
         (visibles.length ? visibles.map(e => studentBandeHtml(e, colonnes, noms[e.id])).join('')
-                         : '<tr><td class="st-empty">Aucun élève ne correspond à la recherche.</td></tr>') +
-      '</tbody></table></div>';
+                         : '<div class="st-empty">Aucun élève ne correspond à la recherche.</div>') +
+      '</div>';
+    // Restaure la position horizontale commune après un re-rendu (recherche, export…)
+    $$('.st-scroll', root).forEach(sc => { sc.scrollLeft = studentScrollLeft; });
     $('#btnStudentBack', root).addEventListener('click', function() {
       try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch (err) {}
       switchTab(tabOrder[0]);
