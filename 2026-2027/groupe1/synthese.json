@@ -1,19 +1,19 @@
 {
-  "date_generation": "2026-10-21T22:55:12",
+  "date_generation": "2026-10-23T21:08:15",
   "nb_eleves": 14,
   "nb_moniteurs": 10,
-  "nb_seances": 16,
-  "nb_comptes_rendus": 140,
+  "nb_seances": 17,
+  "nb_comptes_rendus": 142,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
-    "date_max": "2026-10-13"
+    "date_max": "2026-10-20"
   },
   "acquisition_par_atelier": [
     {
       "atelier": "Gréage",
-      "nb_evaluations": 23,
-      "moyenne": 2.57,
+      "nb_evaluations": 24,
+      "moyenne": 2.5,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -21,9 +21,9 @@
     },
     {
       "atelier": "DBN",
-      "nb_evaluations": 21,
-      "moyenne": 3.33,
-      "note_min": 2.0,
+      "nb_evaluations": 22,
+      "moyenne": 3.23,
+      "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": false
@@ -209,7 +209,7 @@
     {
       "eleve": "Michèle",
       "nb_ateliers_evalues": 7,
-      "moyenne_generale": 1.5
+      "moyenne_generale": 1.17
     },
     {
       "eleve": "Mohamed",
