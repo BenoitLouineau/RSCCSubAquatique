@@ -508,6 +508,12 @@ table.synthese thead th.sticky-col { z-index: 4; }
 .cdb-comment-tags { font-size: 11px; color: var(--muted); margin-top: 3px; }
 .cdb-more { border: none; background: none; color: var(--brand); font-size: 12px; font-weight: 700; cursor: pointer; padding: 0; }
 .cdb-nocomment { font-size: 12px; color: var(--muted); font-style: italic; }
+.cdb-at-coms { display: flex; flex-direction: column; gap: 5px; }
+.cdb-at-com { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; font-size: 12.5px; }
+.cdb-at-com .note-dot { align-self: center; }
+.cdb-at-text { color: var(--text); font-style: italic; white-space: pre-line; }
+.cdb-bilan-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin-top: 2px; }
+.comp-comment-date { font-style: normal; color: var(--muted); font-size: 10.5px; }
 .cdb-short.hidden, .cdb-full.hidden, .cdb-body.hidden { display: none; }
 .comp-comment-link { display: inline-block; font-size: 11px; margin-top: 7px; padding-top: 6px; border-top: 1px dashed var(--border); color: var(--brand); text-decoration: none; font-weight: 600; }
 .comp-comment-link:hover { text-decoration: underline; }
@@ -1559,7 +1565,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   // Ordre des onglets du menu — réglable, persisté. Le 1er onglet de la liste devient
   // l'onglet actif par défaut au chargement de la page.
   const LS_TAB_ORDER = 'rscc_v2_tab_order';
-  const TAB_DEFAULT_ORDER = ['eleves', 'student', 'palanquees', 'crseance', 'moniteurs', 'examens', 'saison', 'analyse', 'palmares'];
+  const TAB_DEFAULT_ORDER = ['student', 'eleves', 'palanquees', 'crseance', 'moniteurs', 'examens', 'saison', 'analyse', 'palmares'];
   const TAB_LABELS = {
     eleves: '🏊 Élèves',
     student: '🧩 Synthèse Élèves',
@@ -3859,11 +3865,8 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   /** Évaluations d'un atelier regroupées par date (meilleure note du jour), plus récente en premier. */
   function studentEvaluations(comp, e, atelier) {
     const parDate = {};
-    const commentaire = (date, moniteur) => {
-      const c = ((e && e.commentaires) || []).find(x => x.date === date && x.atelier === atelier &&
-        (!moniteur || x.moniteur === moniteur) && isCommentaireReel(x.commentaire));
-      return c ? String(c.commentaire).trim() : '';
-    };
+    // Info-bulle : commentaire PROPRE à l'atelier (commentaire_atelier), pas le bilan global
+    const commentaire = (date, moniteur) => e ? getCommentaireAtelier(e.nom, date, moniteur, atelier) : '';
     ((comp && comp.historique) || []).forEach(function(h) {
       if (h.note == null) return;
       const d = parDate[h.date] || (parDate[h.date] = { date: h.date, note: h.note, details: [] });
@@ -3884,12 +3887,12 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
             // Contenu de l'info-bulle (lu au survol ou au toucher) : note · moniteur · commentaire du CR
             const tip = x.details.map(d => '<div class="st-tip-line"><span class="note-dot ' + noteClass(d.note) + '"></span><strong>' +
                 escapeHtml(noteLabel(d.note).replace('Note ', '')) + '</strong>' + (d.moniteur ? ' — ' + escapeHtml(d.moniteur) : '') + '</div>' +
-                (d.commentaire ? '<div class="st-tip-com">💬 « ' + escapeHtml(d.commentaire) + ' »</div>' : '')).join('');
+                (d.commentaire ? '<div class="st-tip-com">🎯 « ' + escapeHtml(d.commentaire) + ' »</div>' : '')).join('');
             return '<div class="st-date ' + noteClass(x.note) + (aCom ? ' has-com' : '') + '" tabindex="0" data-tip="' + escapeHtml(tip) + '"' +
               ' aria-label="' + escapeHtml(formatDateFR(x.date) + ' — ' + x.details.map(d => noteLabel(d.note) + (d.moniteur ? ', ' + d.moniteur : '') +
-                (d.commentaire ? ', commentaire : ' + d.commentaire : '')).join(' ; ')) + '">' +
+                (d.commentaire ? ', commentaire d\'atelier : ' + d.commentaire : '')).join(' ; ')) + '">' +
               escapeHtml(new Date(x.date + 'T00:00:00').toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' })) +
-              (aCom ? '<span class="st-com-mark" aria-hidden="true">💬</span>' : '') + '</div>';
+              (aCom ? '<span class="st-com-mark" aria-hidden="true">🎯</span>' : '') + '</div>';
           }).join('')
         : '<div class="st-date n0">—</div>';
       return '<td class="st-cell">' +
@@ -4845,10 +4848,15 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     const dots = histo.map(h => '<span class="note-dot ' + noteClass(h.note) + '" title="' + escapeHtml(h.date) + ' — ' + noteLabel(h.note) + '"></span>').join('');
     // latestComment = { id, date } : lien vers la séance du cahier de bord (texte non recopié ici,
     // l'application de saisie le dupliquant sur chaque atelier)
-    const commentHtml = latestComment && latestComment.id
-      ? '<a href="#" class="comp-comment-link" data-cdb-goto="' + escapeHtml(latestComment.id) + '">💬 voir le commentaire du ' +
-          escapeHtml(formatDateFR(latestComment.date)) + '</a>'
-      : '';
+    // latestComment = { atelier: {texte, date, moniteur} | null, id, date } :
+    // commentaire propre à l'atelier affiché tel quel + lien vers le bilan de séance du cahier
+    const at = latestComment && latestComment.atelier;
+    const commentHtml = (at ? '<div class="comp-comment">🎯 « ' + escapeHtml(truncate(at.texte, 160)) + ' »' +
+          '<span class="comp-comment-date"> — ' + escapeHtml(formatDateFR(at.date)) + (at.moniteur ? ', ' + escapeHtml(at.moniteur) : '') + '</span></div>' : '') +
+      (latestComment && latestComment.id
+        ? '<a href="#" class="comp-comment-link" data-cdb-goto="' + escapeHtml(latestComment.id) + '">💬 bilan de séance du ' +
+            escapeHtml(formatDateFR(latestComment.date)) + '</a>'
+        : '');
     const catHtml = categorie ? '<div class="comp-categorie">🏷️ ' + escapeHtml(categorie) + '</div>' : '';
     return '<div class="comp-card">' +
       '<div class="comp-name"><span>' + escapeHtml(atelier) + '</span><span class="note-dot ' + noteClass(data.derniere_note) + '" title="' + noteLabel(data.derniere_note) + '"></span></div>' +
@@ -4875,6 +4883,27 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       .replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-');
   }
   /** Séances de l'élève, de la plus récente à la plus ancienne. */
+  // ---------------------------------------------------------------------
+  // COMMENTAIRES — depuis la nouvelle structure des CR :
+  //   commentaire          = bilan GLOBAL de la séance pour l'élève (recopié sur chaque ligne)
+  //   commentaire_atelier  = commentaire PROPRE à l'atelier
+  // Les commentaires d'atelier sont lus dans seances.json (indépendant de la version de eleves.json).
+  // ---------------------------------------------------------------------
+  let crIndexSource = null, crIndex = {};
+  function getCommentaireAtelier(eleve, date, moniteur, atelier) {
+    if (crIndexSource !== STATE.seances) {
+      crIndexSource = STATE.seances; crIndex = {};
+      (STATE.seances || []).forEach(function(s) {
+        (s.comptes_rendus || []).forEach(function(cr) {
+          if (isCommentaireReel(cr.commentaire_atelier)) {
+            crIndex[[s.date_seance, s.moniteur, cr.eleve, cr.atelier].join('|')] = String(cr.commentaire_atelier).trim();
+          }
+        });
+      });
+    }
+    return crIndex[[date, moniteur, eleve, atelier].join('|')] || '';
+  }
+
   function getCahierEntries(e) {
     const map = {};
     const key = (d, m) => d + '|' + (m || '');
@@ -4882,7 +4911,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       (e.competences[atelier].historique || []).forEach(function(h) {
         const k = key(h.date, h.moniteur);
         const en = map[k] || (map[k] = { date: h.date, moniteur: h.moniteur, ateliers: [], comments: [] });
-        en.ateliers.push({ atelier: atelier, note: h.note });
+        en.ateliers.push({ atelier: atelier, note: h.note, comAtelier: getCommentaireAtelier(e.nom, h.date, h.moniteur, atelier) });
       });
     });
     (e.commentaires || []).forEach(function(c) {
@@ -4916,7 +4945,9 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       const ouvert = en.date === derniereDate;   // dernière séance dépliée, les autres repliées
       const pastilles = en.ateliers.map(a =>
         '<span class="cdb-pill"><span class="note-dot ' + noteClass(a.note) + '" title="' + noteLabel(a.note) + '"></span>' + escapeHtml(a.atelier) + '</span>').join('');
-      const resume = en.comments.length ? '💬 ' + en.comments.length + ' commentaire' + (en.comments.length > 1 ? 's' : '') : 'sans commentaire écrit';
+      const comAt = en.ateliers.filter(a => a.comAtelier);
+      const resume = [en.comments.length ? '💬 bilan de séance' : '',
+        comAt.length ? '🎯 ' + comAt.length + ' commentaire' + (comAt.length > 1 ? 's' : '') + ' d\'atelier' : ''].filter(Boolean).join(' · ') || 'sans commentaire écrit';
       return '<div class="cdb-entry' + (ouvert ? ' open' : '') + '" id="' + escapeHtml(cdbEntryId(e, en.date, en.moniteur)) + '">' +
         '<button type="button" class="cdb-head">' +
           '<span class="cdb-date">' + ICONS.seance + ' ' + formatDateFR(en.date) + '</span>' +
@@ -4926,8 +4957,11 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         '</button>' +
         '<div class="cdb-body' + (ouvert ? '' : ' hidden') + '">' +
           '<div class="cdb-pills">' + pastilles + '</div>' +
-          (en.comments.length ? en.comments.map(g => cdbCommentHtml(g, en.ateliers.length)).join('')
-                              : '<div class="cdb-nocomment">Pas de commentaire écrit pour cette séance.</div>') +
+          (comAt.length ? '<div class="cdb-at-coms">' + comAt.map(a =>
+              '<div class="cdb-at-com"><span class="note-dot ' + noteClass(a.note) + '"></span><strong>' + escapeHtml(a.atelier) + '</strong>' +
+              '<span class="cdb-at-text">🎯 « ' + escapeHtml(a.comAtelier) + ' »</span></div>').join('') + '</div>' : '') +
+          (en.comments.length ? '<div class="cdb-bilan-label">💬 Bilan de séance</div>' + en.comments.map(g => cdbCommentHtml(g, en.ateliers.length)).join('')
+                              : (comAt.length ? '' : '<div class="cdb-nocomment">Pas de commentaire écrit pour cette séance.</div>')) +
         '</div>' +
       '</div>';
     }).join('');
@@ -5362,10 +5396,12 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     const entries = getCahierEntries(e).slice().reverse();
     const journal = entries.length ? entries.map(function(en) {
       const ateliers = en.ateliers.map(a => '<span class="at">' + dot(noteClass(a.note), noteLabel(a.note)) + esc(a.atelier) + '</span>').join('');
-      const coms = avecCommentaires && en.comments.length
-        ? en.comments.map(g => '<div class="com">« ' + esc(g.texte) + ' »' +
+      const comsAt = avecCommentaires ? en.ateliers.filter(a => a.comAtelier).map(a =>
+          '<div class="com"><span class="com-label">' + esc(a.atelier) + ' :</span> « ' + esc(a.comAtelier) + ' »</div>').join('') : '';
+      const coms = comsAt + (avecCommentaires && en.comments.length
+        ? '<div class="com-titre">Bilan de séance</div>' + en.comments.map(g => '<div class="com">« ' + esc(g.texte) + ' »' +
             (g.ateliers.length && g.ateliers.length < en.ateliers.length ? '<div class="com-at">↳ ' + g.ateliers.map(esc).join(' · ') + '</div>' : '') + '</div>').join('')
-        : '';
+        : '');
       return '<div class="seance"><div class="seance-head"><strong>' + esc(formatDateFR(en.date)) + '</strong><span class="muted"> · avec ' + esc(en.moniteur || '—') + '</span></div>' +
         '<div class="ats">' + ateliers + '</div>' + coms + '</div>';
     }).join('') : '<p class="muted">Aucune séance enregistrée.</p>';
@@ -5435,6 +5471,8 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       .at { display: inline-flex; align-items: center; }
       .com { font-size: 9pt; font-style: italic; color: #334155; margin-top: 4px; white-space: pre-line; }
       .com-at { font-style: normal; font-size: 8pt; color: #64748b; }
+      .com-label { font-style: normal; font-weight: 700; color: #0f172a; }
+      .com-titre { font-size: 8pt; font-weight: 700; color: #0e7490; text-transform: uppercase; letter-spacing: .03em; margin-top: 5px; }
       .bilan { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
       .bilan .box h4 { margin: 0 0 4px; font-size: 9.5pt; }
       .bilan ul { margin: 0; padding-left: 16px; font-size: 9pt; }
@@ -5568,7 +5606,14 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         const related = (e.commentaires || []).filter(c => c.atelier === k && isCommentaireReel(c.commentaire))
           .sort((x, y) => String(x.date).localeCompare(String(y.date)));
         const last = related.length ? related[related.length - 1] : null;
-        const latest = last ? { id: cdbEntryId(e, last.date, last.moniteur), date: last.date } : null;
+        const histoAt = ((e.competences[k] || {}).historique || []).slice()
+          .sort((x, y) => String(y.date).localeCompare(String(x.date)))
+          .map(h => ({ date: h.date, moniteur: h.moniteur, texte: getCommentaireAtelier(e.nom, h.date, h.moniteur, k) }))
+          .filter(x => x.texte);
+        const latest = (last || histoAt.length) ? {
+          id: last ? cdbEntryId(e, last.date, last.moniteur) : null, date: last ? last.date : null,
+          atelier: histoAt[0] || null,
+        } : null;
         return buildCompCard(k, e.competences[k], latest, null); // catégorie déjà dans l'en-tête du groupe
       }).join('');
       const nbAcquis = items.filter(function(k) { return isCompetenceAcquiseFromHistorique(e.competences[k]); }).length;
