@@ -941,6 +941,14 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 .st-tip.hidden { display: none; }
 .st-tip-line { display: flex; align-items: center; gap: 6px; }
 .st-tip-line + .st-tip-line, .st-tip-com + .st-tip-line { margin-top: 6px; }
+.st-tip-bilan { margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--border); font-size: 11px; font-style: italic; color: var(--muted); white-space: pre-line; max-height: 160px; overflow: hidden; }
+.st-tip-bilan-label { display: block; font-style: normal; font-weight: 700; font-size: 10.5px; margin-bottom: 2px; }
+.comp-bilan { margin-top: 6px; padding-top: 6px; border-top: 1px dashed var(--border); font-size: 11.5px; font-style: italic; color: var(--muted); }
+.comp-bilan-label { display: block; font-style: normal; font-weight: 700; font-size: 10.5px; margin-bottom: 2px; }
+.comp-bilan .comp-comment-link { display: inline; margin: 0; padding: 0; border: 0; font-style: normal; white-space: nowrap; }
+.histo-dot { cursor: help; }
+.histo-dot.has-com { box-shadow: 0 0 0 2px var(--surface), 0 0 0 3.5px var(--accent2); }
+.histo-dot:focus-visible { outline: 2px solid var(--accent2); outline-offset: 2px; }
 .st-tip-com { margin-top: 3px; font-style: italic; color: var(--muted); white-space: pre-line; max-height: 220px; overflow: hidden; }
 @media (max-width: 640px) {
   .st-name { flex-basis: 92px; width: 92px; padding: 8px 4px; }
@@ -3875,7 +3883,10 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       d.note = Math.max(d.note, h.note);
       d.details.push({ note: h.note, moniteur: h.moniteur || '', commentaire: commentaire(h.date, h.moniteur) });
     });
-    return Object.values(parDate).sort((a, b) => b.date.localeCompare(a.date));
+    const res = Object.values(parDate).sort((a, b) => b.date.localeCompare(a.date));
+    // Bilan global de séance : uniquement pour la date la plus récente (bulle courte)
+    if (res[0] && e) res[0].details.forEach(d => { d.bilan = getBilanSeance(e, res[0].date, d.moniteur); });
+    return res;
   }
   function studentBandeHtml(e, colonnes, nomAffiche) {
     const cells = colonnes.map(function(at) {
@@ -3886,15 +3897,17 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       const dates = evals.length
         ? evals.map(function(x) {
             const aCom = x.details.some(d => d.commentaire);
+            const aBilan = x.details.some(d => d.bilan);
             // Contenu de l'info-bulle (lu au survol ou au toucher) : note · moniteur · commentaire du CR
             const tip = x.details.map(d => '<div class="st-tip-line"><span class="note-dot ' + noteClass(d.note) + '"></span><strong>' +
                 escapeHtml(noteLabel(d.note).replace('Note ', '')) + '</strong>' + (d.moniteur ? ' — ' + escapeHtml(d.moniteur) : '') + '</div>' +
-                (d.commentaire ? '<div class="st-tip-com">🎯 « ' + escapeHtml(d.commentaire) + ' »</div>' : '')).join('');
-            return '<div class="st-date ' + noteClass(x.note) + (aCom ? ' has-com' : '') + '" tabindex="0" data-tip="' + escapeHtml(tip) + '"' +
+                tipCommentairesHtml(d.commentaire, d.bilan)).join('');
+            return '<div class="st-date ' + noteClass(x.note) + (aCom || aBilan ? ' has-com' : '') + '" tabindex="0" data-tip="' + escapeHtml(tip) + '"' +
               ' aria-label="' + escapeHtml(formatDateFR(x.date) + ' — ' + x.details.map(d => noteLabel(d.note) + (d.moniteur ? ', ' + d.moniteur : '') +
-                (d.commentaire ? ', commentaire d\'atelier : ' + d.commentaire : '')).join(' ; ')) + '">' +
+                (d.commentaire ? ', commentaire d\'atelier : ' + d.commentaire : '') + (d.bilan ? ', bilan de séance : ' + d.bilan : '')).join(' ; ')) + '">' +
               escapeHtml(new Date(x.date + 'T00:00:00').toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' })) +
-              (aCom ? '<span class="st-com-mark" aria-hidden="true">🎯</span>' : '') + '</div>';
+              (aCom ? '<span class="st-com-mark" aria-hidden="true">🎯</span>' : '') +
+              (aBilan ? '<span class="st-com-mark" aria-hidden="true">💬</span>' : '') + '</div>';
           }).join('')
         : '<div class="st-date n0">—</div>';
       return '<td class="st-cell">' +
@@ -3973,20 +3986,20 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   }
   function hideStudentTip() { const t = document.getElementById('stTip'); if (t) t.classList.add('hidden'); }
   document.addEventListener('mouseover', function(ev) {
-    const d = ev.target.closest && ev.target.closest('.st-date[data-tip]');
+    const d = ev.target.closest && ev.target.closest('[data-tip]');
     if (d) showStudentTip(d);
   });
   document.addEventListener('mouseout', function(ev) {
-    const d = ev.target.closest && ev.target.closest('.st-date[data-tip]');
+    const d = ev.target.closest && ev.target.closest('[data-tip]');
     if (d && !(ev.relatedTarget && d.contains(ev.relatedTarget))) hideStudentTip();
   });
   document.addEventListener('focusin', function(ev) {
-    const d = ev.target.closest && ev.target.closest('.st-date[data-tip]');
+    const d = ev.target.closest && ev.target.closest('[data-tip]');
     if (d) showStudentTip(d);
   });
-  document.addEventListener('focusout', function(ev) { if (ev.target.closest && ev.target.closest('.st-date[data-tip]')) hideStudentTip(); });
+  document.addEventListener('focusout', function(ev) { if (ev.target.closest && ev.target.closest('[data-tip]')) hideStudentTip(); });
   document.addEventListener('click', function(ev) {
-    const d = ev.target.closest && ev.target.closest('.st-date[data-tip]');
+    const d = ev.target.closest && ev.target.closest('[data-tip]');
     const t = document.getElementById('stTip');
     if (d) { if (t && !t.classList.contains('hidden') && t.dataset.for === d.dataset.tip) hideStudentTip(); else showStudentTip(d); return; }
     if (!(ev.target.closest && ev.target.closest('#stTip'))) hideStudentTip();
@@ -4845,9 +4858,17 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     return ATELIER_CATEGORIE_FALLBACK[atelierNom] || null;
   }
 
-  function buildCompCard(atelier, data, latestComment, categorie) {
+  function buildCompCard(atelier, data, latestComment, categorie, e) {
     const histo = (data.historique || []).slice(-8);
-    const dots = histo.map(h => '<span class="note-dot ' + noteClass(h.note) + '" title="' + escapeHtml(h.date) + ' — ' + noteLabel(h.note) + '"></span>').join('');
+    const lastH = histo.length ? histo.reduce((a, b) => (String(b.date) >= String(a.date) ? b : a)) : null;
+    const dots = histo.map(function(h) {
+      const comAt = e ? getCommentaireAtelier(e.nom, h.date, h.moniteur, atelier) : '';
+      const bilan = e && h === lastH ? getBilanSeance(e, h.date, h.moniteur) : '';
+      const tip = '<div class="st-tip-line"><span class="note-dot ' + noteClass(h.note) + '"></span><strong>' + escapeHtml(formatDateFR(h.date)) + '</strong> — ' +
+        escapeHtml(noteLabel(h.note)) + (h.moniteur ? ' — ' + escapeHtml(h.moniteur) : '') + '</div>' + tipCommentairesHtml(comAt, bilan);
+      return '<span class="note-dot histo-dot ' + noteClass(h.note) + (comAt || bilan ? ' has-com' : '') + '" tabindex="0" data-tip="' + escapeHtml(tip) + '"' +
+        ' aria-label="' + escapeHtml(formatDateFR(h.date) + ' — ' + noteLabel(h.note) + (comAt ? ', commentaire d\'atelier : ' + comAt : '') + (bilan ? ', bilan de séance : ' + bilan : '')) + '"></span>';
+    }).join('');
     // latestComment = { id, date } : lien vers la séance du cahier de bord (texte non recopié ici,
     // l'application de saisie le dupliquant sur chaque atelier)
     // latestComment = { atelier: {texte, date, moniteur} | null, id, date } :
@@ -4855,9 +4876,10 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     const at = latestComment && latestComment.atelier;
     const commentHtml = (at ? '<div class="comp-comment">🎯 « ' + escapeHtml(truncate(at.texte, 160)) + ' »' +
           '<span class="comp-comment-date"> — ' + escapeHtml(formatDateFR(at.date)) + (at.moniteur ? ', ' + escapeHtml(at.moniteur) : '') + '</span></div>' : '') +
-      (latestComment && latestComment.id
-        ? '<a href="#" class="comp-comment-link" data-cdb-goto="' + escapeHtml(latestComment.id) + '">💬 bilan de séance du ' +
-            escapeHtml(formatDateFR(latestComment.date)) + '</a>'
+      (latestComment && latestComment.bilan
+        ? '<div class="comp-bilan"><span class="comp-bilan-label">💬 Bilan de séance du ' + escapeHtml(formatDateFR(latestComment.date)) + '</span>' +
+            '« ' + escapeHtml(truncate(latestComment.bilan, 200)) + ' »' +
+            (latestComment.id ? ' <a href="#" class="comp-comment-link" data-cdb-goto="' + escapeHtml(latestComment.id) + '">voir dans le cahier →</a>' : '') + '</div>'
         : '');
     const catHtml = categorie ? '<div class="comp-categorie">🏷️ ' + escapeHtml(categorie) + '</div>' : '';
     return '<div class="comp-card">' +
@@ -4906,6 +4928,16 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     return crIndex[[date, moniteur, eleve, atelier].join('|')] || '';
   }
 
+  /** Bilan GLOBAL de la séance (champ commentaire) d'un élève pour une date + moniteur ; '' si « Aucun commentaire ». */
+  function getBilanSeance(e, date, moniteur) {
+    const c = (e && e.commentaires || []).find(x => x.date === date && (!moniteur || x.moniteur === moniteur) && isCommentaireReel(x.commentaire));
+    return c ? String(c.commentaire).trim() : '';
+  }
+  /** Bloc d'info-bulle : 🎯 atelier puis 💬 bilan (plus discret, séparé par un trait). */
+  function tipCommentairesHtml(comAtelier, bilan) {
+    return (comAtelier ? '<div class="st-tip-com">🎯 « ' + escapeHtml(comAtelier) + ' »</div>' : '') +
+      (bilan ? '<div class="st-tip-bilan"><span class="st-tip-bilan-label">💬 Bilan de séance</span>« ' + escapeHtml(truncate(bilan, 280)) + ' »</div>' : '');
+  }
   function getCahierEntries(e) {
     const map = {};
     const key = (d, m) => d + '|' + (m || '');
@@ -5605,18 +5637,19 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     const compsHtml = catNames.map(function(cat, idx) {
       const items = groups[cat];
       const cardsHtml = items.map(function(k) {
-        const related = (e.commentaires || []).filter(c => c.atelier === k && isCommentaireReel(c.commentaire))
-          .sort((x, y) => String(x.date).localeCompare(String(y.date)));
-        const last = related.length ? related[related.length - 1] : null;
         const histoAt = ((e.competences[k] || {}).historique || []).slice()
           .sort((x, y) => String(y.date).localeCompare(String(x.date)))
           .map(h => ({ date: h.date, moniteur: h.moniteur, texte: getCommentaireAtelier(e.nom, h.date, h.moniteur, k) }))
           .filter(x => x.texte);
-        const latest = (last || histoAt.length) ? {
-          id: last ? cdbEntryId(e, last.date, last.moniteur) : null, date: last ? last.date : null,
-          atelier: histoAt[0] || null,
+        // Bilan global : celui de la DERNIÈRE évaluation de la compétence seulement
+        const derniere = ((e.competences[k] || {}).historique || []).slice()
+          .sort((x, y) => String(y.date).localeCompare(String(x.date)))[0];
+        const bilan = derniere ? getBilanSeance(e, derniere.date, derniere.moniteur) : '';
+        const latest = (bilan || histoAt.length) ? {
+          id: bilan ? cdbEntryId(e, derniere.date, derniere.moniteur) : null, date: derniere ? derniere.date : null,
+          bilan: bilan, atelier: histoAt[0] || null,
         } : null;
-        return buildCompCard(k, e.competences[k], latest, null); // catégorie déjà dans l'en-tête du groupe
+        return buildCompCard(k, e.competences[k], latest, null, e); // catégorie déjà dans l'en-tête du groupe
       }).join('');
       const nbAcquis = items.filter(function(k) { return isCompetenceAcquiseFromHistorique(e.competences[k]); }).length;
       const startOpen = !isMobile || idx === 0;
