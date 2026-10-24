@@ -1122,8 +1122,8 @@
         "date": "2026-10-13",
         "moniteur": "Véronique",
         "atelier": "VDM partiel",
-        "commentaire": "Pratiqué en surface. A faire au fond.",
-        "commentaire_atelier": "Aucun commentaire"
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Pratiqué en surface. A faire au fond."
       }
     ]
   },
