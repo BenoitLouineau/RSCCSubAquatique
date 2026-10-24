@@ -797,6 +797,8 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 .mode-card-title { font-size: 14px; font-weight: 800; margin-bottom: 6px; }
 .mode-card-desc { font-size: 12px; color: var(--muted); line-height: 1.4; }
 
+.mini-eleve-chip.pal-moved { box-shadow: 0 0 0 2px var(--accent2); }
+.result-badge.moved { background: rgba(34, 211, 238, .15); color: var(--accent2); }
 .palanquee-actions { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
 .btn-primary-action {
   padding: 10px 20px; border-radius: 10px; border: 1px solid var(--accent2); background: var(--accent2);
@@ -7316,12 +7318,30 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 
   /** Score de désirabilité d'un binôme (plus haut = plus souhaitable) : bonus si le pairing est
    *  ancien ou inexistant, forte pénalité si le seuil anti-répétition (Réglages) est déjà atteint. */
+  // Variante demandée par « Régénérer » : petit bruit aléatoire, FIXE pendant une génération,
+  // ajouté aux scores (±12) et aux niveaux (±0,06) + ordre des moniteurs mélangé. Il départage
+  // les choix quasi équivalents sans jamais lever une pénalité de répétition (≥ 1000).
+  let PAL_VARIATION = null;
+  function palNoise(map, key, amp) {
+    if (!PAL_VARIATION) return 0;
+    if (!map.has(key)) map.set(key, (Math.random() - 0.5) * 2 * amp);
+    return map.get(key);
+  }
   function scorePalanqueePair(timeline, moniteurNom, streakN) {
     const streak = computeStreakFromTimeline(timeline, moniteurNom);
     const gap = computeGapFromTimeline(timeline, moniteurNom);
     const gapScore = gap === Infinity ? 60 : Math.min(gap, 10) * 6;
     const streakPenalty = streak >= streakN ? 1000 + streak * 100 : streak * 20;
-    return gapScore - streakPenalty;
+    let bruit = 0;
+    if (PAL_VARIATION) {
+      const m = PAL_VARIATION.score.get(timeline) || new Map();
+      PAL_VARIATION.score.set(timeline, m);
+      bruit = palNoise(m, moniteurNom, 12);
+    }
+    return gapScore - streakPenalty + bruit;
+  }
+  function niveauPourAffectation(e) {
+    return getEffectiveNiveauScore(e) + (PAL_VARIATION ? palNoise(PAL_VARIATION.niveau, e, 0.06) : 0);
   }
 
   function checkPalanqueeCapacity(moniteurs, eleves) {
@@ -7496,7 +7516,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
    *  une tranche par moniteur dans l'ordre de sélection de l'étape 1 → groupes homogènes. */
   function assignCompatibiliteNiveau(moniteurs, eleves, timelines, streakN, ratioMax) {
     const capacity = computeBalancedCapacity(moniteurs, eleves.length, ratioMax);
-    const scored = eleves.map(e => ({ e, niveau: getEffectiveNiveauScore(e) }));
+    const scored = eleves.map(e => ({ e, niveau: niveauPourAffectation(e) }));
     scored.sort((a, b) => b.niveau - a.niveau);
     const assigned = {};
     let cursor = 0;
@@ -7531,7 +7551,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
    *  niveau décroissant → chaque groupe reçoit un mélange volontaire de niveaux. */
   function assignMixageHeterogene(moniteurs, eleves, timelines, streakN, ratioMax) {
     const capacity = computeBalancedCapacity(moniteurs, eleves.length, ratioMax);
-    const scored = eleves.map(e => ({ e, niveau: getEffectiveNiveauScore(e) }));
+    const scored = eleves.map(e => ({ e, niveau: niveauPourAffectation(e) }));
     scored.sort((a, b) => b.niveau - a.niveau);
     const seq = buildSnakeSequence(moniteurs, capacity, scored.length);
     const assigned = {};
@@ -7544,12 +7564,47 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     const timelines = {};
     eleves.forEach(e => { timelines[e] = buildEleveTimeline(e); });
     const themesArr = Array.from(PALANQUEE_STATE.themes);
-    if (themesArr.length >= 2) return assignParTheme(moniteurs, eleves, timelines, streakN, ratioMax, themesArr, mode);
-    if (mode === 'diversite') return assignDiversite(moniteurs, eleves, timelines, streakN, ratioMax);
-    if (mode === 'aleatoire') return assignAleatoire(moniteurs, eleves, timelines, streakN, ratioMax);
-    if (mode === 'niveau') return assignCompatibiliteNiveau(moniteurs, eleves, timelines, streakN, ratioMax);
-    if (mode === 'mixte') return assignMixageHeterogene(moniteurs, eleves, timelines, streakN, ratioMax);
-    return assignEquilibre(moniteurs, eleves, timelines, streakN, ratioMax);
+    // Variante : l'ordre des moniteurs (tranches de niveau, serpent, places en plus) est mélangé
+    if (PAL_VARIATION) moniteurs = moniteurs.slice().sort(() => Math.random() - 0.5);
+    let assigned;
+    if (themesArr.length >= 2) assigned = assignParTheme(moniteurs, eleves, timelines, streakN, ratioMax, themesArr, mode);
+    else if (mode === 'diversite') assigned = assignDiversite(moniteurs, eleves, timelines, streakN, ratioMax);
+    else if (mode === 'aleatoire') assigned = assignAleatoire(moniteurs, eleves, timelines, streakN, ratioMax);
+    else if (mode === 'niveau') assigned = assignCompatibiliteNiveau(moniteurs, eleves, timelines, streakN, ratioMax);
+    else if (mode === 'mixte') assigned = assignMixageHeterogene(moniteurs, eleves, timelines, streakN, ratioMax);
+    else assigned = assignEquilibre(moniteurs, eleves, timelines, streakN, ratioMax);
+    // Règle commune à TOUS les modes : chaque moniteur sélectionné encadre au moins un élève
+    return ensureTousMoniteursAffectes(assigned, moniteurs, eleves, timelines, streakN, ratioMax);
+  }
+
+  /** Post-traitement appliqué quel que soit le mode (et le mode Thème(s)) :
+   *  1) tout élève resté sans moniteur est placé chez le moniteur le moins chargé (ratio max respecté) ;
+   *  2) tant qu'un moniteur sélectionné n'a aucun élève, on lui transfère un élève pris chez le
+   *     moniteur le plus chargé (≥ 2 élèves) — celui pour qui ce changement est le meilleur au
+   *     regard de l'anti-répétition. La logique propre au mode est ainsi conservée au maximum.
+   *  Nécessite au moins autant d'élèves que de moniteurs (contrôlé avant la génération). */
+  function ensureTousMoniteursAffectes(assigned, moniteurs, eleves, timelines, streakN, ratioMax) {
+    const hardCap = ratioMax === 'illimite' ? Infinity : parseInt(ratioMax, 10);
+    const count = () => { const c = {}; moniteurs.forEach(m => { c[m] = 0; }); eleves.forEach(e => { if (assigned[e] != null) c[assigned[e]]++; }); return c; };
+    let c = count();
+    eleves.forEach(function(e) {
+      if (assigned[e] != null && moniteurs.indexOf(assigned[e]) !== -1) return;
+      const m = moniteurs.filter(x => c[x] < hardCap).sort((a, b) => c[a] - c[b])[0];
+      if (m) { assigned[e] = m; c[m]++; }
+    });
+    let guard = moniteurs.length * 2 + 5;
+    while (guard-- > 0) {
+      c = count();
+      const vide = moniteurs.find(m => c[m] === 0);
+      if (!vide) break;
+      const donneur = moniteurs.filter(m => c[m] >= 2).sort((a, b) => c[b] - c[a])[0];
+      if (!donneur) break;   // pas assez d'élèves pour tout le monde
+      const candidats = eleves.filter(e => assigned[e] === donneur);
+      candidats.sort((a, b) => (scorePalanqueePair(timelines[b], vide, streakN) - scorePalanqueePair(timelines[b], donneur, streakN)) -
+                               (scorePalanqueePair(timelines[a], vide, streakN) - scorePalanqueePair(timelines[a], donneur, streakN)));
+      assigned[candidats[0]] = vide;
+    }
+    return assigned;
   }
 
   /** Remplissage de secours (score anti-répétition simple) pour les élèves restants après le
@@ -7669,9 +7724,13 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         '<span class="table-toolbar-label">' + PALANQUEE_STATE.eleves.size + ' sélectionné(s)</span>' +
       '</div>' +
       '<div class="selection-grid">' + buildSelectionGridHtml(eleves, PALANQUEE_STATE.eleves, 'pal-eleve', false, true) + '</div>' +
+      (PALANQUEE_STATE.eleves.size > 0 && PALANQUEE_STATE.eleves.size < PALANQUEE_STATE.moniteurs.size
+        ? '<div class="anomalies-banner" style="margin:12px 0 0;">⚠ Chaque moniteur doit encadrer au moins un élève : ' + PALANQUEE_STATE.eleves.size +
+            ' élève(s) pour ' + PALANQUEE_STATE.moniteurs.size + ' moniteur(s). Ajoute des élèves ou retire un moniteur à l\'étape 1.</div>' : '') +
       '<div class="palanquee-actions">' +
         '<button type="button" class="btn-secondary-action" id="palPrevStep2">← Précédent</button>' +
-        '<button type="button" class="btn-primary-action" id="palNextStep2"' + (PALANQUEE_STATE.eleves.size === 0 ? ' disabled' : '') + '>Suivant →</button>' +
+        '<button type="button" class="btn-primary-action" id="palNextStep2"' +
+          (PALANQUEE_STATE.eleves.size === 0 || PALANQUEE_STATE.eleves.size < PALANQUEE_STATE.moniteurs.size ? ' disabled' : '') + '>Suivant →</button>' +
       '</div>' +
     '</div>';
   }
@@ -7791,7 +7850,9 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         const themeBadge = (themesArr.length && eleveABesoinDuTheme(e, themesArr))
           ? '<span class="niveau-badge tier-moyen">🎯 À travailler</span>'
           : '';
-        return '<span class="mini-eleve-chip' + eleveExamRowClass(e) + '">' + eleveExamBadge(e).trim() + ' ' + eleveNomCaci(e) + niveauBadge + themeBadge + badge + '</span>';
+        const deplace = (result.moved || []).indexOf(e) !== -1;
+        return '<span class="mini-eleve-chip' + eleveExamRowClass(e) + (deplace ? ' pal-moved' : '') + '"' + (deplace ? ' title="Changé de moniteur par rapport à la proposition précédente"' : '') + '>' +
+          eleveExamBadge(e).trim() + ' ' + eleveNomCaci(e) + niveauBadge + themeBadge + badge + (deplace ? '<span class="result-badge moved">↻ déplacé</span>' : '') + '</span>';
       }).join('');
       return '<div class="student-card palanquee-result-card">' +
         '<div class="student-head"><div class="student-name">' + ICONS.moniteurLogo + ' ' + escapeHtml(m) + chefBadge(m) + '</div>' +
@@ -7802,7 +7863,8 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 
     return '<div class="cr-summary-card palanquee-panel">' +
       '<div class="cr-summary-header"><h2 class="section-title" style="margin:0;">' + ICONS.palanquee + ' Palanquées proposées</h2>' +
-      '<span class="cr-summary-lastdate">Mode : ' + escapeHtml(PALANQUEE_MODE_INFO[PALANQUEE_STATE.mode].label) + '</span></div>' +
+      '<span class="cr-summary-lastdate">Mode : ' + escapeHtml(PALANQUEE_MODE_INFO[PALANQUEE_STATE.mode].label) +
+        ' · Proposition n°' + (result.variante || 1) + '</span></div>' +
       '<div class="cr-chips-row">' +
         '<div class="cr-chip"><div class="cr-chip-value">' + moniteurs.length + '</div><div class="cr-chip-label">Moniteurs</div></div>' +
         '<div class="cr-chip"><div class="cr-chip-value">' + Object.keys(assignments).length + '</div><div class="cr-chip-label">Élèves affectés</div></div>' +
@@ -7810,24 +7872,50 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         '<div class="cr-chip' + (nbRepetes > 0 ? ' cr-chip-alert' : '') + '"><div class="cr-chip-value">' + nbRepetes + '</div><div class="cr-chip-label">' + ICONS.repeteBinome + ' Binômes déjà formés</div></div>' +
       '</div>' +
       '<div class="student-grid">' + cardsHtml + '</div>' +
+      '<p class="settings-info" style="margin-top:10px;">« Autre proposition » cherche une répartition différente qui respecte toujours le mode choisi, ' +
+        'l\'anti-répétition et la règle d\'au moins un élève par moniteur. Les élèves changés sont marqués ↻.</p>' +
       '<div class="palanquee-actions">' +
         '<button type="button" class="btn-secondary-action" id="palBackToMode">← Changer de mode</button>' +
-        '<button type="button" class="btn-primary-action" id="palRegenerateBtn">🔄 Régénérer</button>' +
+        '<button type="button" class="btn-primary-action" id="palRegenerateBtn" title="Propose une autre répartition équivalente (même mode, mêmes élèves et moniteurs)">🔄 Autre proposition</button>' +
         '<button type="button" class="btn-secondary-action" id="palRestartBtn">↺ Recommencer</button>' +
       '</div>' +
     '</div>';
   }
 
-  function runPalanqueeGeneration() {
+  function runPalanqueeGeneration(ev) {
+    const regen = !!(ev && ev.currentTarget && ev.currentTarget.id === 'palRegenerateBtn');
     const moniteurs = Array.from(PALANQUEE_STATE.moniteurs);
     const eleves = Array.from(PALANQUEE_STATE.eleves);
+    if (eleves.length < moniteurs.length) {
+      showToast('Il faut au moins un élève par moniteur : ' + eleves.length + ' élève(s) pour ' + moniteurs.length + ' moniteur(s). Retire un moniteur ou ajoute un élève.', 'error');
+      return;
+    }
     const cap = checkPalanqueeCapacity(moniteurs, eleves);
     if (!cap.ok) {
       showToast('Capacité insuffisante : ' + cap.totalCap + ' place(s) pour ' + eleves.length + ' élève(s) présent(s).', 'error');
       return;
     }
-    const assignments = generatePalanqueeAssignments(moniteurs, eleves, PALANQUEE_STATE.mode, palanqueeStreakN, palanqueeRatioMax);
-    PALANQUEE_STATE.result = { assignments, generatedAt: new Date() };
+    const prev = PALANQUEE_STATE.result;
+    let assignments, moved = [];
+    if (regen && prev) {
+      // « Régénérer » : cherche une répartition DIFFÉRENTE de la précédente (jusqu'à 25 essais)
+      for (let essai = 0; essai < 25; essai++) {
+        PAL_VARIATION = { score: new Map(), niveau: new Map() };
+        try { assignments = generatePalanqueeAssignments(moniteurs, eleves, PALANQUEE_STATE.mode, palanqueeStreakN, palanqueeRatioMax); }
+        finally { PAL_VARIATION = null; }
+        moved = eleves.filter(e => assignments[e] !== prev.assignments[e]);
+        if (moved.length) break;
+      }
+      if (!moved.length) {
+        showToast('Aucune autre répartition possible avec ces moniteurs, ces élèves et ce mode.', 'info');
+        return;
+      }
+    } else {
+      assignments = generatePalanqueeAssignments(moniteurs, eleves, PALANQUEE_STATE.mode, palanqueeStreakN, palanqueeRatioMax);
+    }
+    const variante = regen && prev ? (prev.variante || 1) + 1 : 1;
+    PALANQUEE_STATE.result = { assignments, generatedAt: new Date(), variante: variante, moved: moved };
+    if (regen) showToast('Proposition n°' + variante + ' : ' + moved.length + ' élève(s) changent de moniteur.', 'success');
     PALANQUEE_STATE.step = 5;
     renderPalanquees();
   }
