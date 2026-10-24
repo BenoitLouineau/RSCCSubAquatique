@@ -1298,8 +1298,8 @@
         "eleve": "Catherine",
         "atelier": "VDM partiel",
         "note": 4.0,
-        "commentaire": "Pratiqué en surface. A faire au fond.",
-        "commentaire_atelier": "Aucun commentaire"
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Pratiqué en surface. A faire au fond."
       }
     ]
   },
