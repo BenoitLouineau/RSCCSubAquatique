@@ -1929,12 +1929,11 @@
     "id": "michele",
     "nom": "Michèle",
     "caci": false,
-    "nb_seances": 4,
+    "nb_seances": 3,
     "dates_seances": [
       "2026-09-29",
       "2026-10-06",
-      "2026-10-13",
-      "2026-10-20"
+      "2026-10-13"
     ],
     "moniteurs": [
       "Benoit L",
@@ -1956,9 +1955,9 @@
         ]
       },
       "DBN": {
-        "nb_evaluations": 3,
-        "derniere_note": 1.0,
-        "moyenne_notes": 1.67,
+        "nb_evaluations": 2,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
         "historique": [
           {
             "date": "2026-10-06",
@@ -1969,11 +1968,6 @@
             "date": "2026-10-13",
             "note": 2.0,
             "moniteur": "Carine"
-          },
-          {
-            "date": "2026-10-20",
-            "note": 1.0,
-            "moniteur": "Nicos"
           }
         ]
       },
@@ -2014,19 +2008,14 @@
         ]
       },
       "Gréage": {
-        "nb_evaluations": 2,
-        "derniere_note": 1.0,
-        "moyenne_notes": 1.5,
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
         "historique": [
           {
             "date": "2026-10-13",
             "note": 2.0,
             "moniteur": "Carine"
-          },
-          {
-            "date": "2026-10-20",
-            "note": 1.0,
-            "moniteur": "Nicos"
           }
         ]
       },
@@ -2099,20 +2088,6 @@
         "atelier": "Gestion du gilet",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
-      },
-      {
-        "date": "2026-10-20",
-        "moniteur": "Nicos",
-        "atelier": "DBN",
-        "commentaire": "Test com global",
-        "commentaire_atelier": "Test com DBN"
-      },
-      {
-        "date": "2026-10-20",
-        "moniteur": "Nicos",
-        "atelier": "Gréage",
-        "commentaire": "Test com global",
-        "commentaire_atelier": "Test commentaire gréage"
       }
     ]
   },
