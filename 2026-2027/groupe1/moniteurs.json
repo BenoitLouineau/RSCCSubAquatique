@@ -125,11 +125,10 @@
   {
     "id": "nicos",
     "nom": "Nicos",
-    "nb_seances_animees": 3,
+    "nb_seances_animees": 2,
     "dates_seances": [
       "2026-10-06",
-      "2026-10-13",
-      "2026-10-20"
+      "2026-10-13"
     ],
     "nb_eleves_suivis": 3,
     "eleves_suivis": [
@@ -137,8 +136,8 @@
       "Michèle",
       "Patricia"
     ],
-    "nb_comptes_rendus": 15,
-    "nb_evaluations_notees": 15
+    "nb_comptes_rendus": 13,
+    "nb_evaluations_notees": 13
   },
   {
     "id": "virginie",
