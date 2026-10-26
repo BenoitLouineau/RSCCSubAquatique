@@ -1302,35 +1302,5 @@
         "commentaire_atelier": "Pratiqué en surface. A faire au fond."
       }
     ]
-  },
-  {
-    "id": "2026-10-20_nicos",
-    "date_seance": "2026-10-20",
-    "moniteur": "Nicos",
-    "nb_eleves": 1,
-    "eleves": [
-      "Michèle"
-    ],
-    "ateliers_traites": [
-      "DBN",
-      "Gréage"
-    ],
-    "nb_comptes_rendus": 2,
-    "comptes_rendus": [
-      {
-        "eleve": "Michèle",
-        "atelier": "DBN",
-        "note": 1.0,
-        "commentaire": "Test com global",
-        "commentaire_atelier": "Test com DBN"
-      },
-      {
-        "eleve": "Michèle",
-        "atelier": "Gréage",
-        "note": 1.0,
-        "commentaire": "Test com global",
-        "commentaire_atelier": "Test commentaire gréage"
-      }
-    ]
   }
 ]
