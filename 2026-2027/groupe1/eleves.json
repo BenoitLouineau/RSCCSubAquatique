@@ -1583,13 +1583,285 @@
   {
     "id": "kevin-f",
     "nom": "Kevin F",
-    "caci": false,
-    "nb_seances": 0,
-    "dates_seances": [],
-    "moniteurs": [],
-    "nb_competences_travaillees": 0,
-    "competences": {},
-    "commentaires": []
+    "caci": true,
+    "nb_seances": 1,
+    "dates_seances": [
+      "2026-10-27"
+    ],
+    "moniteurs": [
+      "Benoit P"
+    ],
+    "nb_competences_travaillees": 14,
+    "competences": {
+      "Gestion du gilet": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 2.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "Vitesse de remontée": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "360°": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 2.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "Déplacements immersion": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 2.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "Mise en sécu surface": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "Sortie de l'eau": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "Signes": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 2.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "Saut droit PMT": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 4.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "Poumon Ballast": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "VDM partiel": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 4.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "VDM": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 2.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "dégréage": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "Gréage": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 2.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "DBN": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 4.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      }
+    },
+    "commentaires": [
+      {
+        "date": "2026-10-27",
+        "moniteur": "Benoit P",
+        "atelier": "Gestion du gilet",
+        "commentaire": "Prochaine fois VDM a refaire : il reussi mais on sent qu'il a besoin de bcp de concentration. Seul la répétition le mettra a l'aise.\nAttention a la descente, il est un peu trop agressif sur la purge lente.il faut qu'il comprenne l'inertie.\nHonnêtement le programme était balaise mais il etait volontaire et a l'aise.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Benoit P",
+        "atelier": "Vitesse de remontée",
+        "commentaire": "Prochaine fois VDM a refaire : il reussi mais on sent qu'il a besoin de bcp de concentration. Seul la répétition le mettra a l'aise.\nAttention a la descente, il est un peu trop agressif sur la purge lente.il faut qu'il comprenne l'inertie.\nHonnêtement le programme était balaise mais il etait volontaire et a l'aise.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Benoit P",
+        "atelier": "360°",
+        "commentaire": "Prochaine fois VDM a refaire : il reussi mais on sent qu'il a besoin de bcp de concentration. Seul la répétition le mettra a l'aise.\nAttention a la descente, il est un peu trop agressif sur la purge lente.il faut qu'il comprenne l'inertie.\nHonnêtement le programme était balaise mais il etait volontaire et a l'aise.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Benoit P",
+        "atelier": "Déplacements immersion",
+        "commentaire": "Prochaine fois VDM a refaire : il reussi mais on sent qu'il a besoin de bcp de concentration. Seul la répétition le mettra a l'aise.\nAttention a la descente, il est un peu trop agressif sur la purge lente.il faut qu'il comprenne l'inertie.\nHonnêtement le programme était balaise mais il etait volontaire et a l'aise.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Benoit P",
+        "atelier": "Mise en sécu surface",
+        "commentaire": "Prochaine fois VDM a refaire : il reussi mais on sent qu'il a besoin de bcp de concentration. Seul la répétition le mettra a l'aise.\nAttention a la descente, il est un peu trop agressif sur la purge lente.il faut qu'il comprenne l'inertie.\nHonnêtement le programme était balaise mais il etait volontaire et a l'aise.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Benoit P",
+        "atelier": "Sortie de l'eau",
+        "commentaire": "Prochaine fois VDM a refaire : il reussi mais on sent qu'il a besoin de bcp de concentration. Seul la répétition le mettra a l'aise.\nAttention a la descente, il est un peu trop agressif sur la purge lente.il faut qu'il comprenne l'inertie.\nHonnêtement le programme était balaise mais il etait volontaire et a l'aise.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Benoit P",
+        "atelier": "Signes",
+        "commentaire": "Prochaine fois VDM a refaire : il reussi mais on sent qu'il a besoin de bcp de concentration. Seul la répétition le mettra a l'aise.\nAttention a la descente, il est un peu trop agressif sur la purge lente.il faut qu'il comprenne l'inertie.\nHonnêtement le programme était balaise mais il etait volontaire et a l'aise.",
+        "commentaire_atelier": "Ok, pas ok, froid, monter, descendre, palmer, indiquer conso + 100bars + reserve"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Benoit P",
+        "atelier": "Saut droit PMT",
+        "commentaire": "Prochaine fois VDM a refaire : il reussi mais on sent qu'il a besoin de bcp de concentration. Seul la répétition le mettra a l'aise.\nAttention a la descente, il est un peu trop agressif sur la purge lente.il faut qu'il comprenne l'inertie.\nHonnêtement le programme était balaise mais il etait volontaire et a l'aise.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Benoit P",
+        "atelier": "Poumon Ballast",
+        "commentaire": "Prochaine fois VDM a refaire : il reussi mais on sent qu'il a besoin de bcp de concentration. Seul la répétition le mettra a l'aise.\nAttention a la descente, il est un peu trop agressif sur la purge lente.il faut qu'il comprenne l'inertie.\nHonnêtement le programme était balaise mais il etait volontaire et a l'aise.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Benoit P",
+        "atelier": "VDM partiel",
+        "commentaire": "Prochaine fois VDM a refaire : il reussi mais on sent qu'il a besoin de bcp de concentration. Seul la répétition le mettra a l'aise.\nAttention a la descente, il est un peu trop agressif sur la purge lente.il faut qu'il comprenne l'inertie.\nHonnêtement le programme était balaise mais il etait volontaire et a l'aise.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Benoit P",
+        "atelier": "VDM",
+        "commentaire": "Prochaine fois VDM a refaire : il reussi mais on sent qu'il a besoin de bcp de concentration. Seul la répétition le mettra a l'aise.\nAttention a la descente, il est un peu trop agressif sur la purge lente.il faut qu'il comprenne l'inertie.\nHonnêtement le programme était balaise mais il etait volontaire et a l'aise.",
+        "commentaire_atelier": "Lui rappeler que le VDM de masque peut se faire en plusieurs fois. Il préfère les yeux fermés (no problemo)"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Benoit P",
+        "atelier": "dégréage",
+        "commentaire": "Prochaine fois VDM a refaire : il reussi mais on sent qu'il a besoin de bcp de concentration. Seul la répétition le mettra a l'aise.\nAttention a la descente, il est un peu trop agressif sur la purge lente.il faut qu'il comprenne l'inertie.\nHonnêtement le programme était balaise mais il etait volontaire et a l'aise.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Benoit P",
+        "atelier": "Gréage",
+        "commentaire": "Prochaine fois VDM a refaire : il reussi mais on sent qu'il a besoin de bcp de concentration. Seul la répétition le mettra a l'aise.\nAttention a la descente, il est un peu trop agressif sur la purge lente.il faut qu'il comprenne l'inertie.\nHonnêtement le programme était balaise mais il etait volontaire et a l'aise.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Benoit P",
+        "atelier": "DBN",
+        "commentaire": "Prochaine fois VDM a refaire : il reussi mais on sent qu'il a besoin de bcp de concentration. Seul la répétition le mettra a l'aise.\nAttention a la descente, il est un peu trop agressif sur la purge lente.il faut qu'il comprenne l'inertie.\nHonnêtement le programme était balaise mais il etait volontaire et a l'aise.",
+        "commentaire_atelier": "Aucun commentaire"
+      }
+    ]
   },
   {
     "id": "kevin-d",
@@ -2518,21 +2790,23 @@
     "id": "patricia",
     "nom": "Patricia",
     "caci": true,
-    "nb_seances": 3,
+    "nb_seances": 4,
     "dates_seances": [
       "2026-09-29",
       "2026-10-06",
-      "2026-10-13"
+      "2026-10-13",
+      "2026-10-27"
     ],
     "moniteurs": [
+      "Benoit L",
       "Benoit P",
       "Nicos"
     ],
-    "nb_competences_travaillees": 6,
+    "nb_competences_travaillees": 7,
     "competences": {
       "Gréage": {
-        "nb_evaluations": 2,
-        "derniere_note": 4.0,
+        "nb_evaluations": 3,
+        "derniere_note": 3.0,
         "moyenne_notes": 3.0,
         "historique": [
           {
@@ -2544,18 +2818,28 @@
             "date": "2026-10-13",
             "note": 4.0,
             "moniteur": "Nicos"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
       "dégréage": {
-        "nb_evaluations": 1,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.0,
+        "nb_evaluations": 2,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.5,
         "historique": [
           {
             "date": "2026-10-06",
             "note": 2.0,
             "moniteur": "Nicos"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
@@ -2584,9 +2868,9 @@
         ]
       },
       "DBN": {
-        "nb_evaluations": 2,
-        "derniere_note": 3.0,
-        "moyenne_notes": 2.5,
+        "nb_evaluations": 3,
+        "derniere_note": 1.0,
+        "moyenne_notes": 2.0,
         "historique": [
           {
             "date": "2026-10-06",
@@ -2597,11 +2881,16 @@
             "date": "2026-10-13",
             "note": 3.0,
             "moniteur": "Nicos"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 1.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
       "VDM partiel": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 1.0,
         "moyenne_notes": 1.0,
         "historique": [
@@ -2609,6 +2898,23 @@
             "date": "2026-10-13",
             "note": 1.0,
             "moniteur": "Nicos"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 1.0,
+            "moniteur": "Benoit L"
+          }
+        ]
+      },
+      "Gestion de son matériel": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Benoit L"
           }
         ]
       }
@@ -2669,6 +2975,41 @@
         "atelier": "DBN",
         "commentaire": "Impossible de remplir le masque : Patricia expire par le nez, impossible de faire rentrer de l'eau dans le masque",
         "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Benoit L",
+        "atelier": "dégréage",
+        "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
+        "commentaire_atelier": "Arrivée surface Patricia sait correctement si gérer pour se dégréer sans stress et sans erreur. Sait aussi gérer le bloc à allonger dès que le matériel est complètement dégréé"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Benoit L",
+        "atelier": "VDM partiel",
+        "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
+        "commentaire_atelier": "Par manque de maîtrise de la dbn le vdm ne peut être tenté qu'en approche de la surface et devient une épreuve trop stressante pour Patricia"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Benoit L",
+        "atelier": "Gréage",
+        "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
+        "commentaire_atelier": "Sais monter les éléments,  mettre sous pression et tester son matériel"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Benoit L",
+        "atelier": "DBN",
+        "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
+        "commentaire_atelier": "N'arrive pas à discerner la gestion de la respiration inspiration expiration par la bouche"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Benoit L",
+        "atelier": "Gestion de son matériel",
+        "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
+        "commentaire_atelier": "S'équipe dans une zone restreinte sans étaler ses affaires, repose son bloc allongé après vérification et rassemble tout son matériel"
       }
     ]
   }
