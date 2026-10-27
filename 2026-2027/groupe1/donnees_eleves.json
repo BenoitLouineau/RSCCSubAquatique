@@ -1398,5 +1398,195 @@
     "moniteur": "Christophe",
     "presence": "Présent",
     "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Kevin F",
+    "genre": "",
+    "categorie": "Gestion du gilet",
+    "competence": "Gestion du gilet",
+    "date": "2026-10-27",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Kevin F",
+    "genre": "",
+    "categorie": "Vitesse de remontée",
+    "competence": "Vitesse de remontée",
+    "date": "2026-10-27",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kevin F",
+    "genre": "",
+    "categorie": "360°",
+    "competence": "360°",
+    "date": "2026-10-27",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Kevin F",
+    "genre": "",
+    "categorie": "Déplacements immersion",
+    "competence": "Déplacements immersion",
+    "date": "2026-10-27",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Kevin F",
+    "genre": "",
+    "categorie": "Mise en sécu surface",
+    "competence": "Mise en sécu surface",
+    "date": "2026-10-27",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kevin F",
+    "genre": "",
+    "categorie": "Sortie de l'eau",
+    "competence": "Sortie de l'eau",
+    "date": "2026-10-27",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kevin F",
+    "genre": "",
+    "categorie": "Signes",
+    "competence": "Signes",
+    "date": "2026-10-27",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Kevin F",
+    "genre": "",
+    "categorie": "Saut droit PMT",
+    "competence": "Saut droit PMT",
+    "date": "2026-10-27",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kevin F",
+    "genre": "",
+    "categorie": "Poumon Ballast",
+    "competence": "Poumon Ballast",
+    "date": "2026-10-27",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kevin F",
+    "genre": "",
+    "categorie": "VDM partiel",
+    "competence": "VDM partiel",
+    "date": "2026-10-27",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kevin F",
+    "genre": "",
+    "categorie": "VDM",
+    "competence": "VDM",
+    "date": "2026-10-27",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Kevin F",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-10-27",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kevin F",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-10-27",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Kevin F",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-10-27",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-10-27",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "VDM partiel",
+    "competence": "VDM partiel",
+    "date": "2026-10-27",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-10-27",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-10-27",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-10-27",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Acquis"
   }
 ]
