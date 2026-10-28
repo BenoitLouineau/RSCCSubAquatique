@@ -129,19 +129,21 @@
   {
     "id": "nicos",
     "nom": "Nicos",
-    "nb_seances_animees": 2,
+    "nb_seances_animees": 3,
     "dates_seances": [
       "2026-10-06",
-      "2026-10-13"
+      "2026-10-13",
+      "2026-10-27"
     ],
-    "nb_eleves_suivis": 3,
+    "nb_eleves_suivis": 4,
     "eleves_suivis": [
       "Aubrée",
+      "Guillaume",
       "Michèle",
       "Patricia"
     ],
-    "nb_comptes_rendus": 13,
-    "nb_evaluations_notees": 13
+    "nb_comptes_rendus": 35,
+    "nb_evaluations_notees": 35
   },
   {
     "id": "virginie",
@@ -156,15 +158,18 @@
   {
     "id": "veronique",
     "nom": "Véronique",
-    "nb_seances_animees": 1,
+    "nb_seances_animees": 2,
     "dates_seances": [
-      "2026-10-13"
+      "2026-10-13",
+      "2026-10-27"
     ],
-    "nb_eleves_suivis": 1,
+    "nb_eleves_suivis": 3,
     "eleves_suivis": [
+      "Amir",
+      "Camille",
       "Catherine"
     ],
-    "nb_comptes_rendus": 4,
-    "nb_evaluations_notees": 4
+    "nb_comptes_rendus": 12,
+    "nb_evaluations_notees": 12
   }
 ]
