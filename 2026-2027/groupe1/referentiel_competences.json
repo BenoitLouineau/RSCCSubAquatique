@@ -30,7 +30,7 @@
   {
     "id": "bascule-arriere-pmt",
     "nom": "Bascule Arrière PMT",
-    "actif": true,
+    "actif": false,
     "notable": true,
     "compte_dans_moyenne": false
   },
@@ -239,7 +239,7 @@
   },
   {
     "id": "degreage",
-    "nom": "Dégréage",
+    "nom": "dégréage",
     "actif": true,
     "notable": true,
     "compte_dans_moyenne": true
