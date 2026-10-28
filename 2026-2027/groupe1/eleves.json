@@ -141,23 +141,25 @@
     "id": "amir",
     "nom": "Amir",
     "caci": true,
-    "nb_seances": 3,
+    "nb_seances": 4,
     "dates_seances": [
       "2026-09-29",
       "2026-10-06",
-      "2026-10-13"
+      "2026-10-13",
+      "2026-10-27"
     ],
     "moniteurs": [
       "Carine",
       "Carlos",
-      "Hervé"
+      "Hervé",
+      "Véronique"
     ],
-    "nb_competences_travaillees": 11,
+    "nb_competences_travaillees": 12,
     "competences": {
       "Gréage": {
-        "nb_evaluations": 3,
-        "derniere_note": 2.0,
-        "moyenne_notes": 1.67,
+        "nb_evaluations": 4,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.0,
         "historique": [
           {
             "date": "2026-09-29",
@@ -173,6 +175,11 @@
             "date": "2026-10-13",
             "note": 2.0,
             "moniteur": "Carlos"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Véronique"
           }
         ]
       },
@@ -278,14 +285,24 @@
         ]
       },
       "VDM": {
-        "nb_evaluations": 1,
-        "derniere_note": 1.0,
-        "moyenne_notes": 1.0,
+        "nb_evaluations": 3,
+        "derniere_note": 4.0,
+        "moyenne_notes": 3.0,
         "historique": [
           {
             "date": "2026-10-13",
             "note": 1.0,
             "moniteur": "Carlos"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 4.0,
+            "moniteur": "Véronique"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 4.0,
+            "moniteur": "Véronique"
           }
         ]
       },
@@ -298,6 +315,18 @@
             "date": "2026-10-13",
             "note": 3.0,
             "moniteur": "Carlos"
+          }
+        ]
+      },
+      "Saut droit PMT": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Véronique"
           }
         ]
       }
@@ -400,6 +429,34 @@
         "atelier": "Gréage",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Véronique",
+        "atelier": "Gréage",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Véronique",
+        "atelier": "Saut droit PMT",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Véronique",
+        "atelier": "VDM",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Véronique",
+        "atelier": "VDM",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
       }
     ]
   },
@@ -407,18 +464,19 @@
     "id": "aubree",
     "nom": "Aubrée",
     "caci": true,
-    "nb_seances": 3,
+    "nb_seances": 4,
     "dates_seances": [
       "2026-09-29",
       "2026-10-06",
-      "2026-10-13"
+      "2026-10-13",
+      "2026-10-27"
     ],
     "moniteurs": [
       "Benoit L",
       "Benoit P",
       "Nicos"
     ],
-    "nb_competences_travaillees": 11,
+    "nb_competences_travaillees": 14,
     "competences": {
       "Palmage": {
         "nb_evaluations": 1,
@@ -433,19 +491,24 @@
         ]
       },
       "Mise en sécu surface": {
-        "nb_evaluations": 1,
-        "derniere_note": 3.0,
-        "moyenne_notes": 3.0,
+        "nb_evaluations": 2,
+        "derniere_note": 4.0,
+        "moyenne_notes": 3.5,
         "historique": [
           {
             "date": "2026-10-06",
             "note": 3.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 4.0,
+            "moniteur": "Nicos"
           }
         ]
       },
       "Poumon Ballast": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 2.0,
         "moyenne_notes": 2.0,
         "historique": [
@@ -453,30 +516,45 @@
             "date": "2026-10-06",
             "note": 2.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 2.0,
+            "moniteur": "Nicos"
           }
         ]
       },
       "Déplacements immersion": {
-        "nb_evaluations": 1,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.0,
+        "nb_evaluations": 2,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.5,
         "historique": [
           {
             "date": "2026-10-06",
             "note": 2.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Nicos"
           }
         ]
       },
       "Vitesse de remontée": {
-        "nb_evaluations": 1,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.0,
+        "nb_evaluations": 2,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.5,
         "historique": [
           {
             "date": "2026-10-06",
             "note": 2.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Nicos"
           }
         ]
       },
@@ -493,7 +571,7 @@
         ]
       },
       "dégréage": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
         "historique": [
@@ -501,11 +579,16 @@
             "date": "2026-10-06",
             "note": 3.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Nicos"
           }
         ]
       },
       "Sortie de l'eau": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 4.0,
         "moyenne_notes": 4.0,
         "historique": [
@@ -513,13 +596,18 @@
             "date": "2026-10-06",
             "note": 4.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 4.0,
+            "moniteur": "Nicos"
           }
         ]
       },
       "VDM partiel": {
-        "nb_evaluations": 2,
-        "derniere_note": 2.0,
-        "moyenne_notes": 1.5,
+        "nb_evaluations": 3,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.0,
         "historique": [
           {
             "date": "2026-10-06",
@@ -529,6 +617,11 @@
           {
             "date": "2026-10-13",
             "note": 2.0,
+            "moniteur": "Nicos"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
             "moniteur": "Nicos"
           }
         ]
@@ -551,13 +644,54 @@
         ]
       },
       "Gréage": {
-        "nb_evaluations": 1,
-        "derniere_note": 4.0,
-        "moyenne_notes": 4.0,
+        "nb_evaluations": 2,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.5,
         "historique": [
           {
             "date": "2026-10-13",
             "note": 4.0,
+            "moniteur": "Nicos"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Nicos"
+          }
+        ]
+      },
+      "Saut droit PMT": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 2.0,
+            "moniteur": "Nicos"
+          }
+        ]
+      },
+      "Gestion de son matériel": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Nicos"
+          }
+        ]
+      },
+      "360°": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 2.0,
             "moniteur": "Nicos"
           }
         ]
@@ -654,6 +788,83 @@
         "atelier": "DBN",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Nicos",
+        "atelier": "Déplacements immersion",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Nicos",
+        "atelier": "Vitesse de remontée",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Nicos",
+        "atelier": "VDM partiel",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Eau à 1/4 du masque"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Nicos",
+        "atelier": "Saut droit PMT",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Nicos",
+        "atelier": "Poumon Ballast",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Nicos",
+        "atelier": "Gréage",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Nicos",
+        "atelier": "Mise en sécu surface",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Nicos",
+        "atelier": "dégréage",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Nicos",
+        "atelier": "Sortie de l'eau",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Nicos",
+        "atelier": "Gestion de son matériel",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Nicos",
+        "atelier": "360°",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
       }
     ]
   },
@@ -661,17 +872,19 @@
     "id": "camille",
     "nom": "Camille",
     "caci": true,
-    "nb_seances": 3,
+    "nb_seances": 4,
     "dates_seances": [
       "2026-09-29",
       "2026-10-06",
-      "2026-10-13"
+      "2026-10-13",
+      "2026-10-27"
     ],
     "moniteurs": [
       "Benoit L",
-      "Christophe"
+      "Christophe",
+      "Véronique"
     ],
-    "nb_competences_travaillees": 10,
+    "nb_competences_travaillees": 12,
     "competences": {
       "Palmage": {
         "nb_evaluations": 1,
@@ -703,7 +916,7 @@
         ]
       },
       "Gréage": {
-        "nb_evaluations": 2,
+        "nb_evaluations": 3,
         "derniere_note": 4.0,
         "moyenne_notes": 4.0,
         "historique": [
@@ -716,6 +929,11 @@
             "date": "2026-10-13",
             "note": 4.0,
             "moniteur": "Christophe"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 4.0,
+            "moniteur": "Véronique"
           }
         ]
       },
@@ -820,6 +1038,35 @@
             "date": "2026-10-13",
             "note": 4.0,
             "moniteur": "Christophe"
+          }
+        ]
+      },
+      "Saut droit PMT": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Véronique"
+          }
+        ]
+      },
+      "VDM": {
+        "nb_evaluations": 2,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Véronique"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Véronique"
           }
         ]
       }
@@ -935,6 +1182,34 @@
         "moniteur": "Christophe",
         "atelier": "dégréage",
         "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Véronique",
+        "atelier": "Gréage",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Véronique",
+        "atelier": "Saut droit PMT",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Véronique",
+        "atelier": "VDM",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Véronique",
+        "atelier": "VDM",
+        "commentaire": "N'a pas osé enlever le masque complètement, ok avec beaucoup d'eau dedans.",
         "commentaire_atelier": "Aucun commentaire"
       }
     ]
@@ -1167,22 +1442,24 @@
     "id": "guillaume",
     "nom": "Guillaume",
     "caci": true,
-    "nb_seances": 2,
+    "nb_seances": 3,
     "dates_seances": [
       "2026-09-29",
-      "2026-10-06"
+      "2026-10-06",
+      "2026-10-27"
     ],
     "moniteurs": [
       "Benoit L",
       "Benoit P",
-      "Carine"
+      "Carine",
+      "Nicos"
     ],
-    "nb_competences_travaillees": 4,
+    "nb_competences_travaillees": 13,
     "competences": {
       "Gréage": {
-        "nb_evaluations": 2,
+        "nb_evaluations": 3,
         "derniere_note": 3.0,
-        "moyenne_notes": 2.5,
+        "moyenne_notes": 2.67,
         "historique": [
           {
             "date": "2026-09-29",
@@ -1193,6 +1470,11 @@
             "date": "2026-10-06",
             "note": 3.0,
             "moniteur": "Carine"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Nicos"
           }
         ]
       },
@@ -1221,7 +1503,7 @@
         ]
       },
       "dégréage": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 4.0,
         "moyenne_notes": 4.0,
         "historique": [
@@ -1229,6 +1511,119 @@
             "date": "2026-10-06",
             "note": 4.0,
             "moniteur": "Carine"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 4.0,
+            "moniteur": "Nicos"
+          }
+        ]
+      },
+      "Déplacements immersion": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Nicos"
+          }
+        ]
+      },
+      "Sortie de l'eau": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Nicos"
+          }
+        ]
+      },
+      "VDM partiel": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Nicos"
+          }
+        ]
+      },
+      "Saut droit PMT": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Nicos"
+          }
+        ]
+      },
+      "Poumon Ballast": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Nicos"
+          }
+        ]
+      },
+      "360°": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Nicos"
+          }
+        ]
+      },
+      "Gestion de son matériel": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Nicos"
+          }
+        ]
+      },
+      "Mise en sécu surface": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 4.0,
+            "moniteur": "Nicos"
+          }
+        ]
+      },
+      "Vitesse de remontée": {
+        "nb_evaluations": 1,
+        "derniere_note": 1.0,
+        "moyenne_notes": 1.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 1.0,
+            "moniteur": "Nicos"
           }
         ]
       }
@@ -1268,6 +1663,83 @@
         "atelier": "dégréage",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Nicos",
+        "atelier": "dégréage",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Nicos",
+        "atelier": "Gréage",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Nicos",
+        "atelier": "Déplacements immersion",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Nicos",
+        "atelier": "Sortie de l'eau",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Nicos",
+        "atelier": "VDM partiel",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Nicos",
+        "atelier": "Saut droit PMT",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Nicos",
+        "atelier": "Poumon Ballast",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Nicos",
+        "atelier": "360°",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Nicos",
+        "atelier": "Gestion de son matériel",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Nicos",
+        "atelier": "Mise en sécu surface",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Nicos",
+        "atelier": "Vitesse de remontée",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Pratique l'apnée. Risque de suppression pulmonaire échangé avec lui"
       }
     ]
   },
