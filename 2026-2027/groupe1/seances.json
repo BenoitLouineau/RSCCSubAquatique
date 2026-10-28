@@ -1482,5 +1482,259 @@
         "commentaire_atelier": "Aucun commentaire"
       }
     ]
+  },
+  {
+    "id": "2026-10-27_nicos",
+    "date_seance": "2026-10-27",
+    "moniteur": "Nicos",
+    "nb_eleves": 2,
+    "eleves": [
+      "Aubrée",
+      "Guillaume"
+    ],
+    "ateliers_traites": [
+      "360°",
+      "Déplacements immersion",
+      "Gestion de son matériel",
+      "Gréage",
+      "Mise en sécu surface",
+      "Poumon Ballast",
+      "Saut droit PMT",
+      "Sortie de l'eau",
+      "VDM partiel",
+      "Vitesse de remontée",
+      "dégréage"
+    ],
+    "nb_comptes_rendus": 22,
+    "comptes_rendus": [
+      {
+        "eleve": "Guillaume",
+        "atelier": "dégréage",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Gréage",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Déplacements immersion",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Sortie de l'eau",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "VDM partiel",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Saut droit PMT",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Poumon Ballast",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "360°",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Gestion de son matériel",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Mise en sécu surface",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Vitesse de remontée",
+        "note": 1.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Pratique l'apnée. Risque de suppression pulmonaire échangé avec lui"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Déplacements immersion",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Vitesse de remontée",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "VDM partiel",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Eau à 1/4 du masque"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Saut droit PMT",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Poumon Ballast",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Gréage",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Mise en sécu surface",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "dégréage",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Sortie de l'eau",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Gestion de son matériel",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "360°",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      }
+    ]
+  },
+  {
+    "id": "2026-10-27_veronique",
+    "date_seance": "2026-10-27",
+    "moniteur": "Véronique",
+    "nb_eleves": 2,
+    "eleves": [
+      "Amir",
+      "Camille"
+    ],
+    "ateliers_traites": [
+      "Gréage",
+      "Saut droit PMT",
+      "VDM"
+    ],
+    "nb_comptes_rendus": 8,
+    "comptes_rendus": [
+      {
+        "eleve": "Amir",
+        "atelier": "Gréage",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "Saut droit PMT",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "VDM",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "Gréage",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "Saut droit PMT",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "VDM",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "VDM",
+        "note": 3.0,
+        "commentaire": "N'a pas osé enlever le masque complètement, ok avec beaucoup d'eau dedans.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "VDM",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      }
+    ]
   }
 ]
