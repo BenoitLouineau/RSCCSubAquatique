@@ -1,5 +1,5 @@
 {
-  "date_generation": "2026-10-28T00:41:52",
+  "date_generation": "2026-10-28T07:18:55",
   "nb_eleves": 14,
   "nb_moniteurs": 10,
   "nb_seances": 18,
@@ -34,8 +34,8 @@
       "moyenne": 2.84,
       "note_min": 2.0,
       "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": true
+      "notable": false,
+      "compte_dans_moyenne": false
     },
     {
       "atelier": "VDM partiel",
@@ -253,7 +253,9 @@
       "Catherine",
       "Virginie"
     ],
-    "ateliers_hors_referentiel": [],
+    "ateliers_hors_referentiel": [
+      "dégréage"
+    ],
     "comptes_rendus_doublons": []
   }
 }
