@@ -1,9 +1,9 @@
 {
-  "date_generation": "2026-10-28T07:23:26",
+  "date_generation": "2026-10-28T20:32:19",
   "nb_eleves": 14,
   "nb_moniteurs": 10,
-  "nb_seances": 18,
-  "nb_comptes_rendus": 159,
+  "nb_seances": 20,
+  "nb_comptes_rendus": 189,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
@@ -12,8 +12,8 @@
   "acquisition_par_atelier": [
     {
       "atelier": "Gréage",
-      "nb_evaluations": 25,
-      "moyenne": 2.56,
+      "nb_evaluations": 29,
+      "moyenne": 2.66,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -30,17 +30,17 @@
     },
     {
       "atelier": "dégréage",
-      "nb_evaluations": 19,
-      "moyenne": 2.84,
+      "nb_evaluations": 21,
+      "moyenne": 2.9,
       "note_min": 2.0,
       "note_max": 4.0,
-      "notable": false,
-      "compte_dans_moyenne": false
+      "notable": true,
+      "compte_dans_moyenne": true
     },
     {
       "atelier": "VDM partiel",
-      "nb_evaluations": 14,
-      "moyenne": 2.57,
+      "nb_evaluations": 16,
+      "moyenne": 2.62,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -48,8 +48,8 @@
     },
     {
       "atelier": "Gestion de son matériel",
-      "nb_evaluations": 13,
-      "moyenne": 2.69,
+      "nb_evaluations": 15,
+      "moyenne": 2.73,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -57,8 +57,17 @@
     },
     {
       "atelier": "Déplacements immersion",
-      "nb_evaluations": 9,
-      "moyenne": 1.89,
+      "nb_evaluations": 11,
+      "moyenne": 2.09,
+      "note_min": 1.0,
+      "note_max": 3.0,
+      "notable": true,
+      "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "Poumon Ballast",
+      "nb_evaluations": 10,
+      "moyenne": 2.3,
       "note_min": 1.0,
       "note_max": 3.0,
       "notable": true,
@@ -74,19 +83,37 @@
       "compte_dans_moyenne": true
     },
     {
-      "atelier": "Poumon Ballast",
-      "nb_evaluations": 8,
-      "moyenne": 2.25,
+      "atelier": "VDM",
+      "nb_evaluations": 9,
+      "moyenne": 3.0,
       "note_min": 1.0,
-      "note_max": 3.0,
+      "note_max": 4.0,
       "notable": true,
-      "compte_dans_moyenne": false
+      "compte_dans_moyenne": true
     },
     {
       "atelier": "Mise en sécu surface",
-      "nb_evaluations": 6,
-      "moyenne": 2.5,
+      "nb_evaluations": 8,
+      "moyenne": 2.88,
       "note_min": 2.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Sortie de l'eau",
+      "nb_evaluations": 8,
+      "moyenne": 2.88,
+      "note_min": 1.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Vitesse de remontée",
+      "nb_evaluations": 7,
+      "moyenne": 2.14,
+      "note_min": 1.0,
       "note_max": 3.0,
       "notable": true,
       "compte_dans_moyenne": true
@@ -101,13 +128,13 @@
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "Sortie de l'eau",
-      "nb_evaluations": 6,
-      "moyenne": 2.67,
-      "note_min": 1.0,
+      "atelier": "Saut droit PMT",
+      "nb_evaluations": 5,
+      "moyenne": 3.0,
+      "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
-      "compte_dans_moyenne": true
+      "compte_dans_moyenne": false
     },
     {
       "atelier": "Signes",
@@ -119,18 +146,9 @@
       "compte_dans_moyenne": true
     },
     {
-      "atelier": "VDM",
-      "nb_evaluations": 5,
-      "moyenne": 2.6,
-      "note_min": 1.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Vitesse de remontée",
-      "nb_evaluations": 5,
-      "moyenne": 2.2,
+      "atelier": "360°",
+      "nb_evaluations": 3,
+      "moyenne": 2.33,
       "note_min": 2.0,
       "note_max": 3.0,
       "notable": true,
@@ -146,15 +164,6 @@
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "360°",
-      "nb_evaluations": 1,
-      "moyenne": 2.0,
-      "note_min": 2.0,
-      "note_max": 2.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
       "atelier": "Remonté expi controlée",
       "nb_evaluations": 1,
       "moyenne": 2.0,
@@ -162,15 +171,6 @@
       "note_max": 2.0,
       "notable": true,
       "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Saut droit PMT",
-      "nb_evaluations": 1,
-      "moyenne": 4.0,
-      "note_min": 4.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": false
     }
   ],
   "progression_par_eleve": [
@@ -181,18 +181,18 @@
     },
     {
       "eleve": "Amir",
-      "nb_ateliers_evalues": 11,
-      "moyenne_generale": 2.09
+      "nb_ateliers_evalues": 12,
+      "moyenne_generale": 2.5
     },
     {
       "eleve": "Aubrée",
-      "nb_ateliers_evalues": 11,
-      "moyenne_generale": 2.55
+      "nb_ateliers_evalues": 14,
+      "moyenne_generale": 2.71
     },
     {
       "eleve": "Camille",
-      "nb_ateliers_evalues": 10,
-      "moyenne_generale": 2.9
+      "nb_ateliers_evalues": 12,
+      "moyenne_generale": 2.92
     },
     {
       "eleve": "Catherine",
@@ -206,8 +206,8 @@
     },
     {
       "eleve": "Guillaume",
-      "nb_ateliers_evalues": 4,
-      "moyenne_generale": 3.25
+      "nb_ateliers_evalues": 13,
+      "moyenne_generale": 3.0
     },
     {
       "eleve": "Hanane",
@@ -253,9 +253,22 @@
       "Catherine",
       "Virginie"
     ],
-    "ateliers_hors_referentiel": [
-      "dégréage"
-    ],
-    "comptes_rendus_doublons": []
+    "ateliers_hors_referentiel": [],
+    "comptes_rendus_doublons": [
+      {
+        "date_seance": "2026-10-27",
+        "moniteur": "Véronique",
+        "eleve": "Amir",
+        "atelier": "VDM",
+        "occurrences": 2
+      },
+      {
+        "date_seance": "2026-10-27",
+        "moniteur": "Véronique",
+        "eleve": "Camille",
+        "atelier": "VDM",
+        "occurrences": 2
+      }
+    ]
   }
 }
