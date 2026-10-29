@@ -1,9 +1,9 @@
 {
-  "date_generation": "2026-10-28T23:51:38",
+  "date_generation": "2026-10-29T20:33:16",
   "nb_eleves": 14,
   "nb_moniteurs": 10,
-  "nb_seances": 20,
-  "nb_comptes_rendus": 189,
+  "nb_seances": 21,
+  "nb_comptes_rendus": 203,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
@@ -12,8 +12,8 @@
   "acquisition_par_atelier": [
     {
       "atelier": "Gréage",
-      "nb_evaluations": 29,
-      "moyenne": 2.66,
+      "nb_evaluations": 31,
+      "moyenne": 2.68,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -21,8 +21,8 @@
     },
     {
       "atelier": "DBN",
-      "nb_evaluations": 23,
-      "moyenne": 3.26,
+      "nb_evaluations": 25,
+      "moyenne": 3.32,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -30,8 +30,8 @@
     },
     {
       "atelier": "dégréage",
-      "nb_evaluations": 21,
-      "moyenne": 2.9,
+      "nb_evaluations": 23,
+      "moyenne": 2.91,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -39,8 +39,8 @@
     },
     {
       "atelier": "VDM partiel",
-      "nb_evaluations": 16,
-      "moyenne": 2.62,
+      "nb_evaluations": 18,
+      "moyenne": 2.78,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -56,6 +56,15 @@
       "compte_dans_moyenne": true
     },
     {
+      "atelier": "Poumon Ballast",
+      "nb_evaluations": 12,
+      "moyenne": 2.42,
+      "note_min": 1.0,
+      "note_max": 3.0,
+      "notable": true,
+      "compte_dans_moyenne": false
+    },
+    {
       "atelier": "Déplacements immersion",
       "nb_evaluations": 11,
       "moyenne": 2.09,
@@ -65,13 +74,13 @@
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "Poumon Ballast",
-      "nb_evaluations": 10,
-      "moyenne": 2.3,
+      "atelier": "VDM",
+      "nb_evaluations": 11,
+      "moyenne": 3.18,
       "note_min": 1.0,
-      "note_max": 3.0,
+      "note_max": 4.0,
       "notable": true,
-      "compte_dans_moyenne": false
+      "compte_dans_moyenne": true
     },
     {
       "atelier": "Gestion du gilet",
@@ -79,15 +88,6 @@
       "moyenne": 2.11,
       "note_min": 1.0,
       "note_max": 3.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "VDM",
-      "nb_evaluations": 9,
-      "moyenne": 3.0,
-      "note_min": 1.0,
-      "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
     },
@@ -110,6 +110,15 @@
       "compte_dans_moyenne": true
     },
     {
+      "atelier": "Saut droit PMT",
+      "nb_evaluations": 7,
+      "moyenne": 3.0,
+      "note_min": 2.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": false
+    },
+    {
       "atelier": "Vitesse de remontée",
       "nb_evaluations": 7,
       "moyenne": 2.14,
@@ -124,15 +133,6 @@
       "moyenne": 1.33,
       "note_min": 1.0,
       "note_max": 2.0,
-      "notable": true,
-      "compte_dans_moyenne": false
-    },
-    {
-      "atelier": "Saut droit PMT",
-      "nb_evaluations": 5,
-      "moyenne": 3.0,
-      "note_min": 2.0,
-      "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": false
     },
@@ -176,8 +176,8 @@
   "progression_par_eleve": [
     {
       "eleve": "Abderrahmane",
-      "nb_ateliers_evalues": 5,
-      "moyenne_generale": 3.2
+      "nb_ateliers_evalues": 7,
+      "moyenne_generale": 3.43
     },
     {
       "eleve": "Amir",
@@ -236,8 +236,8 @@
     },
     {
       "eleve": "Nabiyu",
-      "nb_ateliers_evalues": 7,
-      "moyenne_generale": 3.0
+      "nb_ateliers_evalues": 10,
+      "moyenne_generale": 3.2
     },
     {
       "eleve": "Patricia",
