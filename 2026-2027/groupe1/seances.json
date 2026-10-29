@@ -1484,6 +1484,126 @@
     ]
   },
   {
+    "id": "2026-10-27_carlos",
+    "date_seance": "2026-10-27",
+    "moniteur": "Carlos",
+    "nb_eleves": 2,
+    "eleves": [
+      "Abderrahmane",
+      "Nabiyu"
+    ],
+    "ateliers_traites": [
+      "DBN",
+      "Gréage",
+      "Poumon Ballast",
+      "Saut droit PMT",
+      "VDM",
+      "VDM partiel",
+      "dégréage"
+    ],
+    "nb_comptes_rendus": 14,
+    "comptes_rendus": [
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "Saut droit PMT",
+        "note": 3.0,
+        "commentaire": "Très volontaire, mais il a du mal à comprendre les consignes du premier coups...sinon, rien à  signaler.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "DBN",
+        "note": 4.0,
+        "commentaire": "Très volontaire, mais il a du mal à comprendre les consignes du premier coups...sinon, rien à  signaler.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "Poumon Ballast",
+        "note": 3.0,
+        "commentaire": "Très volontaire, mais il a du mal à comprendre les consignes du premier coups...sinon, rien à  signaler.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "VDM",
+        "note": 4.0,
+        "commentaire": "Très volontaire, mais il a du mal à comprendre les consignes du premier coups...sinon, rien à  signaler.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "Gréage",
+        "note": 3.0,
+        "commentaire": "Très volontaire, mais il a du mal à comprendre les consignes du premier coups...sinon, rien à  signaler.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "dégréage",
+        "note": 3.0,
+        "commentaire": "Très volontaire, mais il a du mal à comprendre les consignes du premier coups...sinon, rien à  signaler.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "VDM partiel",
+        "note": 4.0,
+        "commentaire": "Très volontaire, mais il a du mal à comprendre les consignes du premier coups...sinon, rien à  signaler.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "DBN",
+        "note": 4.0,
+        "commentaire": "Rien à signaler. Il est toujours à l'écoute et bien concentré.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Saut droit PMT",
+        "note": 3.0,
+        "commentaire": "Rien à signaler. Il est toujours à l'écoute et bien concentré.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "VDM",
+        "note": 4.0,
+        "commentaire": "Rien à signaler. Il est toujours à l'écoute et bien concentré.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Poumon Ballast",
+        "note": 3.0,
+        "commentaire": "Rien à signaler. Il est toujours à l'écoute et bien concentré.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "VDM partiel",
+        "note": 4.0,
+        "commentaire": "Rien à signaler. Il est toujours à l'écoute et bien concentré.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Gréage",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "dégréage",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      }
+    ]
+  },
+  {
     "id": "2026-10-27_nicos",
     "date_seance": "2026-10-27",
     "moniteur": "Nicos",
