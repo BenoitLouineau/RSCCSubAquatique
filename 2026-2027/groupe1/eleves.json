@@ -3,19 +3,20 @@
     "id": "abderrahmane",
     "nom": "Abderrahmane",
     "caci": true,
-    "nb_seances": 2,
+    "nb_seances": 3,
     "dates_seances": [
       "2026-10-06",
-      "2026-10-13"
+      "2026-10-13",
+      "2026-10-27"
     ],
     "moniteurs": [
       "Carine",
       "Carlos"
     ],
-    "nb_competences_travaillees": 5,
+    "nb_competences_travaillees": 7,
     "competences": {
       "DBN": {
-        "nb_evaluations": 2,
+        "nb_evaluations": 3,
         "derniere_note": 4.0,
         "moyenne_notes": 4.0,
         "historique": [
@@ -28,11 +29,16 @@
             "date": "2026-10-13",
             "note": 4.0,
             "moniteur": "Carlos"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 4.0,
+            "moniteur": "Carlos"
           }
         ]
       },
       "dégréage": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
         "historique": [
@@ -40,13 +46,18 @@
             "date": "2026-10-06",
             "note": 3.0,
             "moniteur": "Carine"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Carlos"
           }
         ]
       },
       "Gréage": {
-        "nb_evaluations": 2,
+        "nb_evaluations": 3,
         "derniere_note": 3.0,
-        "moyenne_notes": 2.5,
+        "moyenne_notes": 2.67,
         "historique": [
           {
             "date": "2026-10-06",
@@ -57,28 +68,67 @@
             "date": "2026-10-13",
             "note": 3.0,
             "moniteur": "Carlos"
-          }
-        ]
-      },
-      "VDM": {
-        "nb_evaluations": 1,
-        "derniere_note": 3.0,
-        "moyenne_notes": 3.0,
-        "historique": [
+          },
           {
-            "date": "2026-10-13",
+            "date": "2026-10-27",
             "note": 3.0,
             "moniteur": "Carlos"
           }
         ]
       },
+      "VDM": {
+        "nb_evaluations": 2,
+        "derniere_note": 4.0,
+        "moyenne_notes": 3.5,
+        "historique": [
+          {
+            "date": "2026-10-13",
+            "note": 3.0,
+            "moniteur": "Carlos"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 4.0,
+            "moniteur": "Carlos"
+          }
+        ]
+      },
       "VDM partiel": {
+        "nb_evaluations": 2,
+        "derniere_note": 4.0,
+        "moyenne_notes": 3.5,
+        "historique": [
+          {
+            "date": "2026-10-13",
+            "note": 3.0,
+            "moniteur": "Carlos"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 4.0,
+            "moniteur": "Carlos"
+          }
+        ]
+      },
+      "Saut droit PMT": {
         "nb_evaluations": 1,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
         "historique": [
           {
-            "date": "2026-10-13",
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Carlos"
+          }
+        ]
+      },
+      "Poumon Ballast": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
             "note": 3.0,
             "moniteur": "Carlos"
           }
@@ -133,6 +183,55 @@
         "moniteur": "Carlos",
         "atelier": "VDM partiel",
         "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Carlos",
+        "atelier": "Saut droit PMT",
+        "commentaire": "Très volontaire, mais il a du mal à comprendre les consignes du premier coups...sinon, rien à  signaler.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Carlos",
+        "atelier": "DBN",
+        "commentaire": "Très volontaire, mais il a du mal à comprendre les consignes du premier coups...sinon, rien à  signaler.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Carlos",
+        "atelier": "Poumon Ballast",
+        "commentaire": "Très volontaire, mais il a du mal à comprendre les consignes du premier coups...sinon, rien à  signaler.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Carlos",
+        "atelier": "VDM",
+        "commentaire": "Très volontaire, mais il a du mal à comprendre les consignes du premier coups...sinon, rien à  signaler.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Carlos",
+        "atelier": "Gréage",
+        "commentaire": "Très volontaire, mais il a du mal à comprendre les consignes du premier coups...sinon, rien à  signaler.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Carlos",
+        "atelier": "dégréage",
+        "commentaire": "Très volontaire, mais il a du mal à comprendre les consignes du premier coups...sinon, rien à  signaler.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Carlos",
+        "atelier": "VDM partiel",
+        "commentaire": "Très volontaire, mais il a du mal à comprendre les consignes du premier coups...sinon, rien à  signaler.",
         "commentaire_atelier": "Aucun commentaire"
       }
     ]
@@ -3072,23 +3171,24 @@
     "id": "nabiyu",
     "nom": "Nabiyu",
     "caci": true,
-    "nb_seances": 3,
+    "nb_seances": 4,
     "dates_seances": [
       "2026-09-29",
       "2026-10-06",
-      "2026-10-13"
+      "2026-10-13",
+      "2026-10-27"
     ],
     "moniteurs": [
       "Benoit P",
       "Carine",
       "Carlos"
     ],
-    "nb_competences_travaillees": 7,
+    "nb_competences_travaillees": 10,
     "competences": {
       "Gréage": {
-        "nb_evaluations": 2,
+        "nb_evaluations": 3,
         "derniere_note": 3.0,
-        "moyenne_notes": 2.0,
+        "moyenne_notes": 2.33,
         "historique": [
           {
             "date": "2026-09-29",
@@ -3099,13 +3199,18 @@
             "date": "2026-10-13",
             "note": 3.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Carlos"
           }
         ]
       },
       "dégréage": {
-        "nb_evaluations": 2,
+        "nb_evaluations": 3,
         "derniere_note": 3.0,
-        "moyenne_notes": 2.5,
+        "moyenne_notes": 2.67,
         "historique": [
           {
             "date": "2026-10-06",
@@ -3116,16 +3221,26 @@
             "date": "2026-10-13",
             "note": 3.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Carlos"
           }
         ]
       },
       "DBN": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 4.0,
         "moyenne_notes": 4.0,
         "historique": [
           {
             "date": "2026-10-06",
+            "note": 4.0,
+            "moniteur": "Carlos"
+          },
+          {
+            "date": "2026-10-27",
             "note": 4.0,
             "moniteur": "Carlos"
           }
@@ -3161,14 +3276,19 @@
         ]
       },
       "VDM partiel": {
-        "nb_evaluations": 1,
-        "derniere_note": 3.0,
-        "moyenne_notes": 3.0,
+        "nb_evaluations": 2,
+        "derniere_note": 4.0,
+        "moyenne_notes": 3.5,
         "historique": [
           {
             "date": "2026-10-13",
             "note": 3.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 4.0,
+            "moniteur": "Carlos"
           }
         ]
       },
@@ -3181,6 +3301,42 @@
             "date": "2026-10-13",
             "note": 3.0,
             "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "Saut droit PMT": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Carlos"
+          }
+        ]
+      },
+      "VDM": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 4.0,
+            "moniteur": "Carlos"
+          }
+        ]
+      },
+      "Poumon Ballast": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Carlos"
           }
         ]
       }
@@ -3253,6 +3409,55 @@
         "date": "2026-10-13",
         "moniteur": "Benoit P",
         "atelier": "Gréage",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Carlos",
+        "atelier": "DBN",
+        "commentaire": "Rien à signaler. Il est toujours à l'écoute et bien concentré.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Carlos",
+        "atelier": "Saut droit PMT",
+        "commentaire": "Rien à signaler. Il est toujours à l'écoute et bien concentré.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Carlos",
+        "atelier": "VDM",
+        "commentaire": "Rien à signaler. Il est toujours à l'écoute et bien concentré.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Carlos",
+        "atelier": "Poumon Ballast",
+        "commentaire": "Rien à signaler. Il est toujours à l'écoute et bien concentré.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Carlos",
+        "atelier": "VDM partiel",
+        "commentaire": "Rien à signaler. Il est toujours à l'écoute et bien concentré.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Carlos",
+        "atelier": "Gréage",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Carlos",
+        "atelier": "dégréage",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
       }
