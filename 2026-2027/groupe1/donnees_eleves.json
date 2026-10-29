@@ -1888,5 +1888,145 @@
     "moniteur": "Véronique",
     "presence": "Présent",
     "statut": "Acquis"
+  },
+  {
+    "eleve": "Abderrahmane",
+    "genre": "",
+    "categorie": "Saut droit PMT",
+    "competence": "Saut droit PMT",
+    "date": "2026-10-27",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Abderrahmane",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-10-27",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Abderrahmane",
+    "genre": "",
+    "categorie": "Poumon Ballast",
+    "competence": "Poumon Ballast",
+    "date": "2026-10-27",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Abderrahmane",
+    "genre": "",
+    "categorie": "VDM",
+    "competence": "VDM",
+    "date": "2026-10-27",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Abderrahmane",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-10-27",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Abderrahmane",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-10-27",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Abderrahmane",
+    "genre": "",
+    "categorie": "VDM partiel",
+    "competence": "VDM partiel",
+    "date": "2026-10-27",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-10-27",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "Saut droit PMT",
+    "competence": "Saut droit PMT",
+    "date": "2026-10-27",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "VDM",
+    "competence": "VDM",
+    "date": "2026-10-27",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "Poumon Ballast",
+    "competence": "Poumon Ballast",
+    "date": "2026-10-27",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "VDM partiel",
+    "competence": "VDM partiel",
+    "date": "2026-10-27",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-10-27",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "dégréage",
+    "competence": "dégréage",
+    "date": "2026-10-27",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
   }
 ]
