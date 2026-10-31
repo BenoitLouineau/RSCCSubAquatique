@@ -1,9 +1,9 @@
 {
-  "date_generation": "2026-11-01T00:07:56",
+  "date_generation": "2026-11-01T00:18:41",
   "nb_eleves": 14,
   "nb_moniteurs": 10,
   "nb_seances": 21,
-  "nb_comptes_rendus": 203,
+  "nb_comptes_rendus": 206,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
@@ -48,8 +48,8 @@
     },
     {
       "atelier": "Gestion de son matériel",
-      "nb_evaluations": 15,
-      "moyenne": 2.73,
+      "nb_evaluations": 16,
+      "moyenne": 2.75,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -92,19 +92,19 @@
       "compte_dans_moyenne": true
     },
     {
-      "atelier": "Mise en sécu surface",
-      "nb_evaluations": 8,
-      "moyenne": 2.88,
-      "note_min": 2.0,
+      "atelier": "Sortie de l'eau",
+      "nb_evaluations": 9,
+      "moyenne": 2.89,
+      "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
     },
     {
-      "atelier": "Sortie de l'eau",
+      "atelier": "Mise en sécu surface",
       "nb_evaluations": 8,
       "moyenne": 2.88,
-      "note_min": 1.0,
+      "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
@@ -138,7 +138,7 @@
     },
     {
       "atelier": "Signes",
-      "nb_evaluations": 5,
+      "nb_evaluations": 6,
       "moyenne": 3.0,
       "note_min": 2.0,
       "note_max": 4.0,
@@ -241,8 +241,8 @@
     },
     {
       "eleve": "Patricia",
-      "nb_ateliers_evalues": 7,
-      "moyenne_generale": 2.0
+      "nb_ateliers_evalues": 9,
+      "moyenne_generale": 2.22
     }
   ],
   "anomalies": {
@@ -274,6 +274,13 @@
         "moniteur": "Véronique",
         "eleve": "Camille",
         "atelier": "VDM",
+        "occurrences": 2
+      },
+      {
+        "date_seance": "2026-10-27",
+        "moniteur": "Benoit L",
+        "eleve": "Patricia",
+        "atelier": "Gestion de son matériel",
         "occurrences": 2
       }
     ]
