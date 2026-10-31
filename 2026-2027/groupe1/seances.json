@@ -1317,10 +1317,11 @@
       "Gestion de son matériel",
       "Gréage",
       "Signes",
+      "Soin au materiel",
       "Sortie de l'eau",
       "VDM partiel"
     ],
-    "nb_comptes_rendus": 7,
+    "nb_comptes_rendus": 8,
     "comptes_rendus": [
       {
         "eleve": "Patricia",
@@ -1356,6 +1357,13 @@
         "note": 3.0,
         "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
         "commentaire_atelier": "Ensemble des signes connu et compris pour les ateliers travaillés ce soir"
+      },
+      {
+        "eleve": "Patricia",
+        "atelier": "Soin au materiel",
+        "note": 4.0,
+        "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
+        "commentaire_atelier": "Patricia apporte un soin particulier à l'organisation de son matériel sur le bord du bassin tout au long des ateliers 1ère et seconde partie de soirée"
       },
       {
         "eleve": "Patricia",
