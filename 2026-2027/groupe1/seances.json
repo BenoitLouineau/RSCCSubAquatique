@@ -1316,9 +1316,11 @@
       "Dégréage",
       "Gestion de son matériel",
       "Gréage",
+      "Signes",
+      "Sortie de l'eau",
       "VDM partiel"
     ],
-    "nb_comptes_rendus": 5,
+    "nb_comptes_rendus": 8,
     "comptes_rendus": [
       {
         "eleve": "Patricia",
@@ -1340,6 +1342,27 @@
         "note": 3.0,
         "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
         "commentaire_atelier": "Sais monter les éléments,  mettre sous pression et tester son matériel"
+      },
+      {
+        "eleve": "Patricia",
+        "atelier": "Gestion de son matériel",
+        "note": 3.0,
+        "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
+        "commentaire_atelier": "Ensemble de matériel rangé et organisé sur le bord du bassin"
+      },
+      {
+        "eleve": "Patricia",
+        "atelier": "Signes",
+        "note": 3.0,
+        "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
+        "commentaire_atelier": "Ensemble des signes connu et compris pour les ateliers travaillés ce soir"
+      },
+      {
+        "eleve": "Patricia",
+        "atelier": "Sortie de l'eau",
+        "note": 3.0,
+        "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
+        "commentaire_atelier": "Arrivée en surface, Patricia est autonome pour dégréer et sortir de l'eau"
       },
       {
         "eleve": "Patricia",
