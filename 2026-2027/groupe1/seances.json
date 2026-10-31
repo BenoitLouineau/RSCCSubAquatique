@@ -1517,7 +1517,7 @@
       "VDM",
       "VDM partiel"
     ],
-    "nb_comptes_rendus": 14,
+    "nb_comptes_rendus": 13,
     "comptes_rendus": [
       {
         "eleve": "Abderrahmane",
@@ -1544,13 +1544,6 @@
         "eleve": "Abderrahmane",
         "atelier": "VDM",
         "note": 4.0,
-        "commentaire": "Très volontaire, mais il a du mal à comprendre les consignes du premier coups...sinon, rien à  signaler.",
-        "commentaire_atelier": "Aucun commentaire"
-      },
-      {
-        "eleve": "Abderrahmane",
-        "atelier": "Dégréage",
-        "note": 3.0,
         "commentaire": "Très volontaire, mais il a du mal à comprendre les consignes du premier coups...sinon, rien à  signaler.",
         "commentaire_atelier": "Aucun commentaire"
       },
@@ -1813,7 +1806,7 @@
       "Saut droit PMT",
       "VDM"
     ],
-    "nb_comptes_rendus": 8,
+    "nb_comptes_rendus": 6,
     "comptes_rendus": [
       {
         "eleve": "Amir",
@@ -1830,13 +1823,6 @@
         "commentaire_atelier": "Aucun commentaire"
       },
       {
-        "eleve": "Amir",
-        "atelier": "VDM",
-        "note": 4.0,
-        "commentaire": "Aucun commentaire",
-        "commentaire_atelier": "Aucun commentaire"
-      },
-      {
         "eleve": "Camille",
         "atelier": "Gréage",
         "note": 4.0,
@@ -1846,13 +1832,6 @@
       {
         "eleve": "Camille",
         "atelier": "Saut droit PMT",
-        "note": 3.0,
-        "commentaire": "Aucun commentaire",
-        "commentaire_atelier": "Aucun commentaire"
-      },
-      {
-        "eleve": "Camille",
-        "atelier": "VDM",
         "note": 3.0,
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
