@@ -1,9 +1,9 @@
 {
-  "date_generation": "2026-11-01T00:27:49",
+  "date_generation": "2026-11-01T00:29:39",
   "nb_eleves": 14,
   "nb_moniteurs": 10,
   "nb_seances": 21,
-  "nb_comptes_rendus": 205,
+  "nb_comptes_rendus": 202,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
@@ -30,8 +30,8 @@
     },
     {
       "atelier": "Dégréage",
-      "nb_evaluations": 24,
-      "moyenne": 2.92,
+      "nb_evaluations": 23,
+      "moyenne": 2.91,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -74,15 +74,6 @@
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "VDM",
-      "nb_evaluations": 11,
-      "moyenne": 3.18,
-      "note_min": 1.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
       "atelier": "Gestion du gilet",
       "nb_evaluations": 9,
       "moyenne": 2.11,
@@ -95,6 +86,15 @@
       "atelier": "Sortie de l'eau",
       "nb_evaluations": 9,
       "moyenne": 2.89,
+      "note_min": 1.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "VDM",
+      "nb_evaluations": 9,
+      "moyenne": 3.11,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -254,28 +254,6 @@
       "Virginie"
     ],
     "ateliers_hors_referentiel": [],
-    "comptes_rendus_doublons": [
-      {
-        "date_seance": "2026-10-27",
-        "moniteur": "Carlos",
-        "eleve": "Abderrahmane",
-        "atelier": "Dégréage",
-        "occurrences": 2
-      },
-      {
-        "date_seance": "2026-10-27",
-        "moniteur": "Véronique",
-        "eleve": "Amir",
-        "atelier": "VDM",
-        "occurrences": 2
-      },
-      {
-        "date_seance": "2026-10-27",
-        "moniteur": "Véronique",
-        "eleve": "Camille",
-        "atelier": "VDM",
-        "occurrences": 2
-      }
-    ]
+    "comptes_rendus_doublons": []
   }
 }
