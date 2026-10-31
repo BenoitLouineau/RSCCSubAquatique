@@ -38,7 +38,7 @@
         ]
       },
       "Dégréage": {
-        "nb_evaluations": 3,
+        "nb_evaluations": 2,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
         "historique": [
@@ -46,11 +46,6 @@
             "date": "2026-10-06",
             "note": 3.0,
             "moniteur": "Carine"
-          },
-          {
-            "date": "2026-10-27",
-            "note": 3.0,
-            "moniteur": "Carlos"
           },
           {
             "date": "2026-10-27",
@@ -223,13 +218,6 @@
       {
         "date": "2026-10-27",
         "moniteur": "Carlos",
-        "atelier": "Dégréage",
-        "commentaire": "Très volontaire, mais il a du mal à comprendre les consignes du premier coups...sinon, rien à  signaler.",
-        "commentaire_atelier": "Aucun commentaire"
-      },
-      {
-        "date": "2026-10-27",
-        "moniteur": "Carlos",
         "atelier": "VDM partiel",
         "commentaire": "Très volontaire, mais il a du mal à comprendre les consignes du premier coups...sinon, rien à  signaler.",
         "commentaire_atelier": "Aucun commentaire"
@@ -384,19 +372,14 @@
         ]
       },
       "VDM": {
-        "nb_evaluations": 3,
+        "nb_evaluations": 2,
         "derniere_note": 4.0,
-        "moyenne_notes": 3.0,
+        "moyenne_notes": 2.5,
         "historique": [
           {
             "date": "2026-10-13",
             "note": 1.0,
             "moniteur": "Carlos"
-          },
-          {
-            "date": "2026-10-27",
-            "note": 4.0,
-            "moniteur": "Véronique"
           },
           {
             "date": "2026-10-27",
@@ -540,13 +523,6 @@
         "date": "2026-10-27",
         "moniteur": "Véronique",
         "atelier": "Saut droit PMT",
-        "commentaire": "Aucun commentaire",
-        "commentaire_atelier": "Aucun commentaire"
-      },
-      {
-        "date": "2026-10-27",
-        "moniteur": "Véronique",
-        "atelier": "VDM",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
       },
@@ -1153,15 +1129,10 @@
         ]
       },
       "VDM": {
-        "nb_evaluations": 2,
+        "nb_evaluations": 1,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
         "historique": [
-          {
-            "date": "2026-10-27",
-            "note": 3.0,
-            "moniteur": "Véronique"
-          },
           {
             "date": "2026-10-27",
             "note": 3.0,
@@ -1294,13 +1265,6 @@
         "date": "2026-10-27",
         "moniteur": "Véronique",
         "atelier": "Saut droit PMT",
-        "commentaire": "Aucun commentaire",
-        "commentaire_atelier": "Aucun commentaire"
-      },
-      {
-        "date": "2026-10-27",
-        "moniteur": "Véronique",
-        "atelier": "VDM",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
       },
