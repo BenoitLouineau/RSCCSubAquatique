@@ -1,9 +1,9 @@
 {
-  "date_generation": "2026-11-01T00:35:10",
+  "date_generation": "2026-11-01T00:39:48",
   "nb_eleves": 14,
   "nb_moniteurs": 10,
   "nb_seances": 21,
-  "nb_comptes_rendus": 203,
+  "nb_comptes_rendus": 204,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
@@ -110,6 +110,15 @@
       "compte_dans_moyenne": true
     },
     {
+      "atelier": "Palmage",
+      "nb_evaluations": 7,
+      "moyenne": 1.43,
+      "note_min": 1.0,
+      "note_max": 2.0,
+      "notable": true,
+      "compte_dans_moyenne": false
+    },
+    {
       "atelier": "Saut droit PMT",
       "nb_evaluations": 7,
       "moyenne": 3.0,
@@ -126,15 +135,6 @@
       "note_max": 3.0,
       "notable": true,
       "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Palmage",
-      "nb_evaluations": 6,
-      "moyenne": 1.33,
-      "note_min": 1.0,
-      "note_max": 2.0,
-      "notable": true,
-      "compte_dans_moyenne": false
     },
     {
       "atelier": "Signes",
@@ -241,8 +241,8 @@
     },
     {
       "eleve": "Patricia",
-      "nb_ateliers_evalues": 10,
-      "moyenne_generale": 2.3
+      "nb_ateliers_evalues": 11,
+      "moyenne_generale": 2.27
     }
   ],
   "anomalies": {
