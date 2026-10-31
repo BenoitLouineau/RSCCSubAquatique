@@ -3479,7 +3479,7 @@
       "Benoit P",
       "Nicos"
     ],
-    "nb_competences_travaillees": 7,
+    "nb_competences_travaillees": 9,
     "competences": {
       "Gréage": {
         "nb_evaluations": 3,
@@ -3584,6 +3584,35 @@
         ]
       },
       "Gestion de son matériel": {
+        "nb_evaluations": 2,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Benoit L"
+          }
+        ]
+      },
+      "Signes": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Benoit L"
+          }
+        ]
+      },
+      "Sortie de l'eau": {
         "nb_evaluations": 1,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
@@ -3673,6 +3702,27 @@
         "atelier": "Gréage",
         "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
         "commentaire_atelier": "Sais monter les éléments,  mettre sous pression et tester son matériel"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Benoit L",
+        "atelier": "Gestion de son matériel",
+        "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
+        "commentaire_atelier": "Ensemble de matériel rangé et organisé sur le bord du bassin"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Benoit L",
+        "atelier": "Signes",
+        "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
+        "commentaire_atelier": "Ensemble des signes connu et compris pour les ateliers travaillés ce soir"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Benoit L",
+        "atelier": "Sortie de l'eau",
+        "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
+        "commentaire_atelier": "Arrivée en surface, Patricia est autonome pour dégréer et sortir de l'eau"
       },
       {
         "date": "2026-10-27",
