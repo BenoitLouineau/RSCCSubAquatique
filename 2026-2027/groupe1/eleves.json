@@ -777,8 +777,8 @@
         "date": "2026-09-29",
         "moniteur": "Benoit L",
         "atelier": "Palmage",
-        "commentaire": "Première découverte du palmage. Beaucoup de mouvement de pédalier comme beaucoup de débutants. Explications données individuellement dans leur ligne d'eau pour un mouvement idéal attendu. Un mieux noté pour la fin de session. Encourageant pour la suite.",
-        "commentaire_atelier": "Aucun commentaire"
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Première découverte du palmage. Beaucoup de mouvement de pédalier comme beaucoup de débutants. Explications données individuellement dans leur ligne d'eau pour un mouvement idéal attendu. Un mieux noté pour la fin de session. Encourageant pour la suite."
       },
       {
         "date": "2026-10-06",
@@ -1146,8 +1146,8 @@
         "date": "2026-09-29",
         "moniteur": "Benoit L",
         "atelier": "Palmage",
-        "commentaire": "Première séance de palmage avec mouvement de pédalier là aussi. Explications et correction apportée dans la ligne d'eau. Un léger mieux constaté en fin de séance",
-        "commentaire_atelier": "Aucun commentaire"
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Première séance de palmage avec mouvement de pédalier là aussi. Explications et correction apportée dans la ligne d'eau. Un léger mieux constaté en fin de séance"
       },
       {
         "date": "2026-10-06",
@@ -1496,8 +1496,8 @@
         "date": "2026-09-29",
         "moniteur": "Benoit L",
         "atelier": "Palmage",
-        "commentaire": "Première découverte du palmage et même remarque avec mouvement de pédalier, explication et correction apportée individuellement dans la ligne d'eau. Amélioration vue en fin de session. A continuer sur les prochaines sessions.",
-        "commentaire_atelier": "Aucun commentaire"
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Première découverte du palmage et même remarque avec mouvement de pédalier, explication et correction apportée individuellement dans la ligne d'eau. Amélioration vue en fin de session. A continuer sur les prochaines sessions."
       }
     ]
   },
@@ -1696,15 +1696,15 @@
         "date": "2026-09-29",
         "moniteur": "Benoit P",
         "atelier": "Gréage",
-        "commentaire": "Vif d'esprit",
-        "commentaire_atelier": "Aucun commentaire"
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Vif d'esprit"
       },
       {
         "date": "2026-09-29",
         "moniteur": "Benoit L",
         "atelier": "Palmage",
-        "commentaire": "Très aquatique et certainement déjà habitué à porter des palmes et s'en servir. Encourageant pour la suite.",
-        "commentaire_atelier": "Aucun commentaire"
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Très aquatique et certainement déjà habitué à porter des palmes et s'en servir. Encourageant pour la suite."
       },
       {
         "date": "2026-10-06",
@@ -1998,8 +1998,8 @@
         "date": "2026-09-29",
         "moniteur": "Benoit L",
         "atelier": "Palmage",
-        "commentaire": "Première séance de palmage avec mouvement de pédalier là aussi. Explications et correction apportée dans la ligne d'eau. Un léger mieux constaté en fin de séance",
-        "commentaire_atelier": "Aucun commentaire"
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Première séance de palmage avec mouvement de pédalier là aussi. Explications et correction apportée dans la ligne d'eau. Un léger mieux constaté en fin de séance"
       },
       {
         "date": "2026-10-06",
@@ -2608,8 +2608,8 @@
         "date": "2026-09-29",
         "moniteur": "Benoit L",
         "atelier": "Palmage",
-        "commentaire": "Léger mouvement de pédale mais après explication dans la ligne d'eau, le mouvement a été vite corrigé et ce jusqu'à la fin de la session. Élève sérieux dans l'apprentissage et semble très aquatique. C'est encourageant pour la suite.",
-        "commentaire_atelier": "Aucun commentaire"
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Léger mouvement de pédale mais après explication dans la ligne d'eau, le mouvement a été vite corrigé et ce jusqu'à la fin de la session. Élève sérieux dans l'apprentissage et semble très aquatique. C'est encourageant pour la suite."
       },
       {
         "date": "2026-10-06",
@@ -3049,8 +3049,8 @@
         "date": "2026-09-29",
         "moniteur": "Benoit L",
         "atelier": "Gréage",
-        "commentaire": "Élève sérieux et attentif aux explications et mouvement pédalier rapidement remplacé par l'attendu du geste du palmage. C'est encourageant pour la suite.",
-        "commentaire_atelier": "Aucun commentaire"
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Élève sérieux et attentif aux explications et mouvement pédalier rapidement remplacé par l'attendu du geste du palmage. C'est encourageant pour la suite."
       },
       {
         "date": "2026-10-06",
@@ -3443,7 +3443,7 @@
       "Benoit P",
       "Nicos"
     ],
-    "nb_competences_travaillees": 10,
+    "nb_competences_travaillees": 11,
     "competences": {
       "Gréage": {
         "nb_evaluations": 3,
@@ -3463,6 +3463,18 @@
           {
             "date": "2026-10-27",
             "note": 3.0,
+            "moniteur": "Benoit L"
+          }
+        ]
+      },
+      "Palmage": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-09-29",
+            "note": 2.0,
             "moniteur": "Benoit L"
           }
         ]
@@ -3601,8 +3613,15 @@
         "date": "2026-09-29",
         "moniteur": "Benoit P",
         "atelier": "Gréage",
-        "commentaire": "Laisse transparaître des peurs, on sent qu'elle a déjà eu quelqu'un qui lui a expliqué des éléments (boucle 0213) 😉",
-        "commentaire_atelier": "Aucun commentaire"
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Laisse transparaître des peurs, on sent qu'elle a déjà eu quelqu'un qui lui a expliqué des éléments (boucle 0213) 😉"
+      },
+      {
+        "date": "2026-09-29",
+        "moniteur": "Benoit L",
+        "atelier": "Palmage",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Des petits mouvements de type pédalier de temps en temps mais sait se reprendre pour s'appliquer au mouvement de palmage pointe de pied tendu"
       },
       {
         "date": "2026-10-06",
