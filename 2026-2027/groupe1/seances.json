@@ -1320,7 +1320,7 @@
       "Sortie de l'eau",
       "VDM partiel"
     ],
-    "nb_comptes_rendus": 8,
+    "nb_comptes_rendus": 7,
     "comptes_rendus": [
       {
         "eleve": "Patricia",
@@ -1370,13 +1370,6 @@
         "note": 1.0,
         "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
         "commentaire_atelier": "N'arrive pas à discerner la gestion de la respiration inspiration expiration par la bouche"
-      },
-      {
-        "eleve": "Patricia",
-        "atelier": "Gestion de son matériel",
-        "note": 3.0,
-        "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
-        "commentaire_atelier": "S'équipe dans une zone restreinte sans étaler ses affaires, repose son bloc allongé après vérification et rassemble tout son matériel"
       }
     ]
   },
