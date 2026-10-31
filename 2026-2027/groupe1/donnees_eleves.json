@@ -1850,16 +1850,6 @@
     "statut": "Acquis"
   },
   {
-    "eleve": "Amir",
-    "genre": "",
-    "categorie": "VDM",
-    "competence": "VDM",
-    "date": "2026-10-27",
-    "moniteur": "Véronique",
-    "presence": "Présent",
-    "statut": "Acquis"
-  },
-  {
     "eleve": "Camille",
     "genre": "",
     "categorie": "Gréage",
@@ -1874,16 +1864,6 @@
     "genre": "",
     "categorie": "Saut droit PMT",
     "competence": "Saut droit PMT",
-    "date": "2026-10-27",
-    "moniteur": "Véronique",
-    "presence": "Présent",
-    "statut": "Acquis"
-  },
-  {
-    "eleve": "Camille",
-    "genre": "",
-    "categorie": "VDM",
-    "competence": "VDM",
     "date": "2026-10-27",
     "moniteur": "Véronique",
     "presence": "Présent",
@@ -1944,16 +1924,6 @@
     "genre": "",
     "categorie": "VDM",
     "competence": "VDM",
-    "date": "2026-10-27",
-    "moniteur": "Carlos",
-    "presence": "Présent",
-    "statut": "Acquis"
-  },
-  {
-    "eleve": "Abderrahmane",
-    "genre": "",
-    "categorie": "Dégréage",
-    "competence": "Dégréage",
     "date": "2026-10-27",
     "moniteur": "Carlos",
     "presence": "Présent",
