@@ -158,6 +158,7 @@
     ],
     "ateliers_traites": [
       "DBN",
+      "Dégréage",
       "Déplacements immersion",
       "Gestion du gilet",
       "Mise en sécu surface",
@@ -165,8 +166,7 @@
       "Remonté expi controlée",
       "Sortie de l'eau",
       "VDM partiel",
-      "Vitesse de remontée",
-      "dégréage"
+      "Vitesse de remontée"
     ],
     "nb_comptes_rendus": 19,
     "comptes_rendus": [
@@ -207,7 +207,7 @@
       },
       {
         "eleve": "Aubrée",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "note": 3.0,
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
@@ -235,7 +235,7 @@
       },
       {
         "eleve": "Kévin D",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "note": 3.0,
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
@@ -316,8 +316,8 @@
     ],
     "ateliers_traites": [
       "DBN",
-      "Gréage",
-      "dégréage"
+      "Dégréage",
+      "Gréage"
     ],
     "nb_comptes_rendus": 6,
     "comptes_rendus": [
@@ -337,7 +337,7 @@
       },
       {
         "eleve": "Guillaume",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "note": 4.0,
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
@@ -351,7 +351,7 @@
       },
       {
         "eleve": "Abderrahmane",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "note": 3.0,
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
@@ -376,8 +376,8 @@
     ],
     "ateliers_traites": [
       "DBN",
-      "Gestion de son matériel",
-      "dégréage"
+      "Dégréage",
+      "Gestion de son matériel"
     ],
     "nb_comptes_rendus": 6,
     "comptes_rendus": [
@@ -397,14 +397,14 @@
       },
       {
         "eleve": "Mohamed",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "note": 3.0,
         "commentaire": "Pour Nábi et Mohamed, les deux très alaise dans l'eau. DBN bien maîtriser, nous avons vu les purges lente et les purges rapides. une fois que tous que c'est bien passé, nous sommes passés à la fosse et refaits les exercices. Pour le degreage c est en cours d'acquisition.  Très bonne séance...",
         "commentaire_atelier": "Aucun commentaire"
       },
       {
         "eleve": "Nabiyu",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "note": 2.0,
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
@@ -436,11 +436,11 @@
     ],
     "ateliers_traites": [
       "DBN",
+      "Dégréage",
       "Gestion de son matériel",
       "Gestion du gilet",
       "Gréage",
-      "Signes",
-      "dégréage"
+      "Signes"
     ],
     "nb_comptes_rendus": 12,
     "comptes_rendus": [
@@ -481,7 +481,7 @@
       },
       {
         "eleve": "Catherine",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "note": 2.0,
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
@@ -502,7 +502,7 @@
       },
       {
         "eleve": "Camille",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "note": 4.0,
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
@@ -541,6 +541,7 @@
     ],
     "ateliers_traites": [
       "DBN",
+      "Dégréage",
       "Déplacements immersion",
       "Gestion de son matériel",
       "Gestion du gilet",
@@ -549,8 +550,7 @@
       "Signes",
       "Soin au materiel",
       "Sortie de l'eau",
-      "Vitesse de remontée",
-      "dégréage"
+      "Vitesse de remontée"
     ],
     "nb_comptes_rendus": 19,
     "comptes_rendus": [
@@ -612,7 +612,7 @@
       },
       {
         "eleve": "Hanane",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "note": 2.0,
         "commentaire": "elle plonge avec un shorty donc il faut lui faire prendre un bloc \"lourd\" voir lui mettre du plomb....problème de stab donc échange de matos.\npour le reste  elle est alaise. remonté dbn stabilisation mise et sortie de l'eau , capelage decap, gréage dégréa....",
         "commentaire_atelier": "Aucun commentaire"
@@ -633,7 +633,7 @@
       },
       {
         "eleve": "Amir",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "note": 2.0,
         "commentaire": "bon élevé, attentif et a une bonne restitution après les conseils a tous réussi . seul problème il a très froid rapidement vu  avec lui et son père pour l'éventuelle solution...mettre un pull over....",
         "commentaire_atelier": "Aucun commentaire"
@@ -700,9 +700,9 @@
     ],
     "ateliers_traites": [
       "DBN",
+      "Dégréage",
       "Déplacements immersion",
-      "Poumon Ballast",
-      "dégréage"
+      "Poumon Ballast"
     ],
     "nb_comptes_rendus": 7,
     "comptes_rendus": [
@@ -729,7 +729,7 @@
       },
       {
         "eleve": "Patricia",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "note": 2.0,
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
@@ -768,13 +768,13 @@
     ],
     "ateliers_traites": [
       "DBN",
+      "Dégréage",
       "Déplacements immersion",
       "Gestion de son matériel",
       "Gréage",
       "Poumon Ballast",
       "VDM",
-      "VDM partiel",
-      "dégréage"
+      "VDM partiel"
     ],
     "nb_comptes_rendus": 15,
     "comptes_rendus": [
@@ -822,7 +822,7 @@
       },
       {
         "eleve": "Kévin D",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "note": 4.0,
         "commentaire": "Élève ayant partiellement déjà fait le cursus N1 lors de l'année du covid. Attentif et capte rapidement les exercices et leurs attendus.\nTop sur dbn et vdm partiels nous amènent même au vdm total.\nBelle soirée",
         "commentaire_atelier": "Aucun commentaire"
@@ -836,7 +836,7 @@
       },
       {
         "eleve": "Mohamed",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "note": 4.0,
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
@@ -895,12 +895,12 @@
       "Nabiyu"
     ],
     "ateliers_traites": [
+      "Dégréage",
       "Gestion de son matériel",
       "Gréage",
       "Mise en sécu surface",
       "Sortie de l'eau",
-      "VDM partiel",
-      "dégréage"
+      "VDM partiel"
     ],
     "nb_comptes_rendus": 12,
     "comptes_rendus": [
@@ -934,7 +934,7 @@
       },
       {
         "eleve": "Nabiyu",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "note": 3.0,
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
@@ -948,7 +948,7 @@
       },
       {
         "eleve": "Hanane",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "note": 3.0,
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
@@ -1000,15 +1000,15 @@
     ],
     "ateliers_traites": [
       "DBN",
+      "Dégréage",
       "Gestion du gilet",
-      "Gréage",
-      "dégréage"
+      "Gréage"
     ],
     "nb_comptes_rendus": 4,
     "comptes_rendus": [
       {
         "eleve": "Michèle",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "note": 2.0,
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
@@ -1121,14 +1121,14 @@
     ],
     "ateliers_traites": [
       "DBN",
+      "Dégréage",
       "Déplacements immersion",
       "Gestion de son matériel",
       "Gestion du gilet",
       "Gréage",
       "Poumon Ballast",
       "Signes",
-      "VDM partiel",
-      "dégréage"
+      "VDM partiel"
     ],
     "nb_comptes_rendus": 9,
     "comptes_rendus": [
@@ -1190,7 +1190,7 @@
       },
       {
         "eleve": "Camille",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "note": 2.0,
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
@@ -1313,16 +1313,16 @@
     ],
     "ateliers_traites": [
       "DBN",
+      "Dégréage",
       "Gestion de son matériel",
       "Gréage",
-      "VDM partiel",
-      "dégréage"
+      "VDM partiel"
     ],
     "nb_comptes_rendus": 5,
     "comptes_rendus": [
       {
         "eleve": "Patricia",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "note": 3.0,
         "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
         "commentaire_atelier": "Arrivée surface Patricia sait correctement si gérer pour se dégréer sans stress et sans erreur. Sait aussi gérer le bloc à allonger dès que le matériel est complètement dégréé"
@@ -1368,6 +1368,7 @@
     "ateliers_traites": [
       "360°",
       "DBN",
+      "Dégréage",
       "Déplacements immersion",
       "Gestion du gilet",
       "Gréage",
@@ -1378,8 +1379,7 @@
       "Sortie de l'eau",
       "VDM",
       "VDM partiel",
-      "Vitesse de remontée",
-      "dégréage"
+      "Vitesse de remontée"
     ],
     "nb_comptes_rendus": 14,
     "comptes_rendus": [
@@ -1462,7 +1462,7 @@
       },
       {
         "eleve": "Kevin F",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "note": 3.0,
         "commentaire": "Prochaine fois VDM a refaire : il reussi mais on sent qu'il a besoin de bcp de concentration. Seul la répétition le mettra a l'aise.\nAttention a la descente, il est un peu trop agressif sur la purge lente.il faut qu'il comprenne l'inertie.\nHonnêtement le programme était balaise mais il etait volontaire et a l'aise.",
         "commentaire_atelier": "Aucun commentaire"
@@ -1494,12 +1494,12 @@
     ],
     "ateliers_traites": [
       "DBN",
+      "Dégréage",
       "Gréage",
       "Poumon Ballast",
       "Saut droit PMT",
       "VDM",
-      "VDM partiel",
-      "dégréage"
+      "VDM partiel"
     ],
     "nb_comptes_rendus": 14,
     "comptes_rendus": [
@@ -1533,14 +1533,14 @@
       },
       {
         "eleve": "Abderrahmane",
-        "atelier": "Gréage",
+        "atelier": "Dégréage",
         "note": 3.0,
         "commentaire": "Très volontaire, mais il a du mal à comprendre les consignes du premier coups...sinon, rien à  signaler.",
         "commentaire_atelier": "Aucun commentaire"
       },
       {
         "eleve": "Abderrahmane",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "note": 3.0,
         "commentaire": "Très volontaire, mais il a du mal à comprendre les consignes du premier coups...sinon, rien à  signaler.",
         "commentaire_atelier": "Aucun commentaire"
@@ -1596,7 +1596,7 @@
       },
       {
         "eleve": "Nabiyu",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "note": 3.0,
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
@@ -1614,6 +1614,7 @@
     ],
     "ateliers_traites": [
       "360°",
+      "Dégréage",
       "Déplacements immersion",
       "Gestion de son matériel",
       "Gréage",
@@ -1622,14 +1623,13 @@
       "Saut droit PMT",
       "Sortie de l'eau",
       "VDM partiel",
-      "Vitesse de remontée",
-      "dégréage"
+      "Vitesse de remontée"
     ],
     "nb_comptes_rendus": 22,
     "comptes_rendus": [
       {
         "eleve": "Guillaume",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "note": 4.0,
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
@@ -1755,7 +1755,7 @@
       },
       {
         "eleve": "Aubrée",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "note": 3.0,
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
