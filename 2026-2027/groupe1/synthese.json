@@ -1,9 +1,9 @@
 {
-  "date_generation": "2026-11-01T00:29:39",
+  "date_generation": "2026-11-01T00:33:18",
   "nb_eleves": 14,
   "nb_moniteurs": 10,
   "nb_seances": 21,
-  "nb_comptes_rendus": 202,
+  "nb_comptes_rendus": 203,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
@@ -156,10 +156,10 @@
     },
     {
       "atelier": "Soin au materiel",
-      "nb_evaluations": 2,
-      "moyenne": 2.0,
+      "nb_evaluations": 3,
+      "moyenne": 2.67,
       "note_min": 2.0,
-      "note_max": 2.0,
+      "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": false
     },
@@ -241,8 +241,8 @@
     },
     {
       "eleve": "Patricia",
-      "nb_ateliers_evalues": 9,
-      "moyenne_generale": 2.22
+      "nb_ateliers_evalues": 10,
+      "moyenne_generale": 2.4
     }
   ],
   "anomalies": {
