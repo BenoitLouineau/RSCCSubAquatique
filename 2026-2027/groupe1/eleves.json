@@ -3443,7 +3443,7 @@
       "Benoit P",
       "Nicos"
     ],
-    "nb_competences_travaillees": 9,
+    "nb_competences_travaillees": 10,
     "competences": {
       "Gréage": {
         "nb_evaluations": 3,
@@ -3571,6 +3571,18 @@
           }
         ]
       },
+      "Soin au materiel": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 4.0,
+            "moniteur": "Benoit L"
+          }
+        ]
+      },
       "Sortie de l'eau": {
         "nb_evaluations": 1,
         "derniere_note": 3.0,
@@ -3675,6 +3687,13 @@
         "atelier": "Signes",
         "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
         "commentaire_atelier": "Ensemble des signes connu et compris pour les ateliers travaillés ce soir"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Benoit L",
+        "atelier": "Soin au materiel",
+        "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
+        "commentaire_atelier": "Patricia apporte un soin particulier à l'organisation de son matériel sur le bord du bassin tout au long des ateliers 1ère et seconde partie de soirée"
       },
       {
         "date": "2026-10-27",
