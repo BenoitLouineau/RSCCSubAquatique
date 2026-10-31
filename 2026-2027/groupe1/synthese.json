@@ -1,5 +1,5 @@
 {
-  "date_generation": "2026-10-31T23:12:30",
+  "date_generation": "2026-10-31T23:24:55",
   "nb_eleves": 14,
   "nb_moniteurs": 10,
   "nb_seances": 21,
@@ -12,8 +12,8 @@
   "acquisition_par_atelier": [
     {
       "atelier": "Gréage",
-      "nb_evaluations": 31,
-      "moyenne": 2.68,
+      "nb_evaluations": 30,
+      "moyenne": 2.67,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -29,9 +29,9 @@
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "dégréage",
-      "nb_evaluations": 23,
-      "moyenne": 2.91,
+      "atelier": "Dégréage",
+      "nb_evaluations": 24,
+      "moyenne": 2.92,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -255,6 +255,13 @@
     ],
     "ateliers_hors_referentiel": [],
     "comptes_rendus_doublons": [
+      {
+        "date_seance": "2026-10-27",
+        "moniteur": "Carlos",
+        "eleve": "Abderrahmane",
+        "atelier": "Dégréage",
+        "occurrences": 2
+      },
       {
         "date_seance": "2026-10-27",
         "moniteur": "Véronique",
