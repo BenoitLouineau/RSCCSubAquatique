@@ -37,8 +37,8 @@
           }
         ]
       },
-      "dégréage": {
-        "nb_evaluations": 2,
+      "Dégréage": {
+        "nb_evaluations": 3,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
         "historique": [
@@ -51,13 +51,18 @@
             "date": "2026-10-27",
             "note": 3.0,
             "moniteur": "Carlos"
+          },
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
+            "moniteur": "Carlos"
           }
         ]
       },
       "Gréage": {
-        "nb_evaluations": 3,
+        "nb_evaluations": 2,
         "derniere_note": 3.0,
-        "moyenne_notes": 2.67,
+        "moyenne_notes": 2.5,
         "historique": [
           {
             "date": "2026-10-06",
@@ -66,11 +71,6 @@
           },
           {
             "date": "2026-10-13",
-            "note": 3.0,
-            "moniteur": "Carlos"
-          },
-          {
-            "date": "2026-10-27",
             "note": 3.0,
             "moniteur": "Carlos"
           }
@@ -146,7 +146,7 @@
       {
         "date": "2026-10-06",
         "moniteur": "Carine",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
       },
@@ -216,14 +216,14 @@
       {
         "date": "2026-10-27",
         "moniteur": "Carlos",
-        "atelier": "Gréage",
+        "atelier": "Dégréage",
         "commentaire": "Très volontaire, mais il a du mal à comprendre les consignes du premier coups...sinon, rien à  signaler.",
         "commentaire_atelier": "Aucun commentaire"
       },
       {
         "date": "2026-10-27",
         "moniteur": "Carlos",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "commentaire": "Très volontaire, mais il a du mal à comprendre les consignes du premier coups...sinon, rien à  signaler.",
         "commentaire_atelier": "Aucun commentaire"
       },
@@ -294,7 +294,7 @@
           }
         ]
       },
-      "dégréage": {
+      "Dégréage": {
         "nb_evaluations": 1,
         "derniere_note": 2.0,
         "moyenne_notes": 2.0,
@@ -448,7 +448,7 @@
       {
         "date": "2026-10-06",
         "moniteur": "Hervé",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "commentaire": "bon élevé, attentif et a une bonne restitution après les conseils a tous réussi . seul problème il a très froid rapidement vu  avec lui et son père pour l'éventuelle solution...mettre un pull over....",
         "commentaire_atelier": "Aucun commentaire"
       },
@@ -669,7 +669,7 @@
           }
         ]
       },
-      "dégréage": {
+      "Dégréage": {
         "nb_evaluations": 2,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
@@ -842,7 +842,7 @@
       {
         "date": "2026-10-06",
         "moniteur": "Benoit P",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
       },
@@ -940,7 +940,7 @@
       {
         "date": "2026-10-27",
         "moniteur": "Nicos",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
       },
@@ -1036,7 +1036,7 @@
           }
         ]
       },
-      "dégréage": {
+      "Dégréage": {
         "nb_evaluations": 2,
         "derniere_note": 2.0,
         "moyenne_notes": 3.0,
@@ -1195,7 +1195,7 @@
       {
         "date": "2026-10-06",
         "moniteur": "Christophe",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
       },
@@ -1279,7 +1279,7 @@
       {
         "date": "2026-10-13",
         "moniteur": "Christophe",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
       },
@@ -1403,7 +1403,7 @@
           }
         ]
       },
-      "dégréage": {
+      "Dégréage": {
         "nb_evaluations": 1,
         "derniere_note": 2.0,
         "moyenne_notes": 2.0,
@@ -1467,7 +1467,7 @@
       {
         "date": "2026-10-06",
         "moniteur": "Christophe",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
       },
@@ -1601,7 +1601,7 @@
           }
         ]
       },
-      "dégréage": {
+      "Dégréage": {
         "nb_evaluations": 2,
         "derniere_note": 4.0,
         "moyenne_notes": 4.0,
@@ -1759,14 +1759,14 @@
       {
         "date": "2026-10-06",
         "moniteur": "Carine",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
       },
       {
         "date": "2026-10-27",
         "moniteur": "Nicos",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
       },
@@ -1987,7 +1987,7 @@
           }
         ]
       },
-      "dégréage": {
+      "Dégréage": {
         "nb_evaluations": 2,
         "derniere_note": 3.0,
         "moyenne_notes": 2.5,
@@ -2096,7 +2096,7 @@
       {
         "date": "2026-10-06",
         "moniteur": "Hervé",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "commentaire": "elle plonge avec un shorty donc il faut lui faire prendre un bloc \"lourd\" voir lui mettre du plomb....problème de stab donc échange de matos.\npour le reste  elle est alaise. remonté dbn stabilisation mise et sortie de l'eau , capelage decap, gréage dégréa....",
         "commentaire_atelier": "Aucun commentaire"
       },
@@ -2110,7 +2110,7 @@
       {
         "date": "2026-10-13",
         "moniteur": "Benoit P",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
       },
@@ -2296,7 +2296,7 @@
           }
         ]
       },
-      "dégréage": {
+      "Dégréage": {
         "nb_evaluations": 1,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
@@ -2414,7 +2414,7 @@
       {
         "date": "2026-10-27",
         "moniteur": "Benoit P",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "commentaire": "Prochaine fois VDM a refaire : il reussi mais on sent qu'il a besoin de bcp de concentration. Seul la répétition le mettra a l'aise.\nAttention a la descente, il est un peu trop agressif sur la purge lente.il faut qu'il comprenne l'inertie.\nHonnêtement le programme était balaise mais il etait volontaire et a l'aise.",
         "commentaire_atelier": "Aucun commentaire"
       },
@@ -2462,7 +2462,7 @@
           }
         ]
       },
-      "dégréage": {
+      "Dégréage": {
         "nb_evaluations": 2,
         "derniere_note": 4.0,
         "moyenne_notes": 3.5,
@@ -2650,7 +2650,7 @@
       {
         "date": "2026-10-06",
         "moniteur": "Benoit P",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
       },
@@ -2762,7 +2762,7 @@
       {
         "date": "2026-10-13",
         "moniteur": "Benoit L",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "commentaire": "Élève ayant partiellement déjà fait le cursus N1 lors de l'année du covid. Attentif et capte rapidement les exercices et leurs attendus.\nTop sur dbn et vdm partiels nous amènent même au vdm total.\nBelle soirée",
         "commentaire_atelier": "Aucun commentaire"
       }
@@ -2838,7 +2838,7 @@
           }
         ]
       },
-      "dégréage": {
+      "Dégréage": {
         "nb_evaluations": 1,
         "derniere_note": 2.0,
         "moyenne_notes": 2.0,
@@ -2907,7 +2907,7 @@
       {
         "date": "2026-10-13",
         "moniteur": "Carine",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
       },
@@ -3007,7 +3007,7 @@
           }
         ]
       },
-      "dégréage": {
+      "Dégréage": {
         "nb_evaluations": 2,
         "derniere_note": 4.0,
         "moyenne_notes": 3.5,
@@ -3105,7 +3105,7 @@
       {
         "date": "2026-10-06",
         "moniteur": "Carlos",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "commentaire": "Pour Nábi et Mohamed, les deux très alaise dans l'eau. DBN bien maîtriser, nous avons vu les purges lente et les purges rapides. une fois que tous que c'est bien passé, nous sommes passés à la fosse et refaits les exercices. Pour le degreage c est en cours d'acquisition.  Très bonne séance...",
         "commentaire_atelier": "Aucun commentaire"
       },
@@ -3119,7 +3119,7 @@
       {
         "date": "2026-10-13",
         "moniteur": "Benoit L",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
       },
@@ -3207,7 +3207,7 @@
           }
         ]
       },
-      "dégréage": {
+      "Dégréage": {
         "nb_evaluations": 3,
         "derniere_note": 3.0,
         "moyenne_notes": 2.67,
@@ -3352,7 +3352,7 @@
       {
         "date": "2026-10-06",
         "moniteur": "Carlos",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
       },
@@ -3401,7 +3401,7 @@
       {
         "date": "2026-10-13",
         "moniteur": "Benoit P",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
       },
@@ -3457,7 +3457,7 @@
       {
         "date": "2026-10-27",
         "moniteur": "Carlos",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
       }
@@ -3503,7 +3503,7 @@
           }
         ]
       },
-      "dégréage": {
+      "Dégréage": {
         "nb_evaluations": 2,
         "derniere_note": 3.0,
         "moyenne_notes": 2.5,
@@ -3607,7 +3607,7 @@
       {
         "date": "2026-10-06",
         "moniteur": "Nicos",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
       },
@@ -3656,7 +3656,7 @@
       {
         "date": "2026-10-27",
         "moniteur": "Benoit L",
-        "atelier": "dégréage",
+        "atelier": "Dégréage",
         "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
         "commentaire_atelier": "Arrivée surface Patricia sait correctement si gérer pour se dégréer sans stress et sans erreur. Sait aussi gérer le bloc à allonger dès que le matériel est complètement dégréé"
       },
