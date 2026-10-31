@@ -1,9 +1,9 @@
 {
-  "date_generation": "2026-11-01T00:21:27",
+  "date_generation": "2026-11-01T00:23:34",
   "nb_eleves": 14,
   "nb_moniteurs": 10,
   "nb_seances": 21,
-  "nb_comptes_rendus": 206,
+  "nb_comptes_rendus": 205,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
@@ -48,8 +48,8 @@
     },
     {
       "atelier": "Gestion de son matériel",
-      "nb_evaluations": 16,
-      "moyenne": 2.75,
+      "nb_evaluations": 15,
+      "moyenne": 2.73,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -274,13 +274,6 @@
         "moniteur": "Véronique",
         "eleve": "Camille",
         "atelier": "VDM",
-        "occurrences": 2
-      },
-      {
-        "date_seance": "2026-10-27",
-        "moniteur": "Benoit L",
-        "eleve": "Patricia",
-        "atelier": "Gestion de son matériel",
         "occurrences": 2
       }
     ]
