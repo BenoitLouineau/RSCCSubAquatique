@@ -1592,6 +1592,16 @@
   {
     "eleve": "Patricia",
     "genre": "",
+    "categorie": "Soin au materiel",
+    "competence": "Soin au materiel",
+    "date": "2026-10-27",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
     "categorie": "Sortie de l'eau",
     "competence": "Sortie de l'eau",
     "date": "2026-10-27",
