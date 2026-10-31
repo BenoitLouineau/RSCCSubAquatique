@@ -3584,15 +3584,10 @@
         ]
       },
       "Gestion de son matériel": {
-        "nb_evaluations": 2,
+        "nb_evaluations": 1,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
         "historique": [
-          {
-            "date": "2026-10-27",
-            "note": 3.0,
-            "moniteur": "Benoit L"
-          },
           {
             "date": "2026-10-27",
             "note": 3.0,
@@ -3730,13 +3725,6 @@
         "atelier": "DBN",
         "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
         "commentaire_atelier": "N'arrive pas à discerner la gestion de la respiration inspiration expiration par la bouche"
-      },
-      {
-        "date": "2026-10-27",
-        "moniteur": "Benoit L",
-        "atelier": "Gestion de son matériel",
-        "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
-        "commentaire_atelier": "S'équipe dans une zone restreinte sans étaler ses affaires, repose son bloc allongé après vérification et rassemble tout son matériel"
       }
     ]
   }
