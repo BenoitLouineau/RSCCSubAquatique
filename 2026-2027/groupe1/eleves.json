@@ -3573,12 +3573,12 @@
       },
       "Soin au materiel": {
         "nb_evaluations": 1,
-        "derniere_note": 4.0,
-        "moyenne_notes": 4.0,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
         "historique": [
           {
             "date": "2026-10-27",
-            "note": 4.0,
+            "note": 3.0,
             "moniteur": "Benoit L"
           }
         ]
