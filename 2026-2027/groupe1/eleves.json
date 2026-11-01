@@ -3443,7 +3443,7 @@
       "Benoit P",
       "Nicos"
     ],
-    "nb_competences_travaillees": 11,
+    "nb_competences_travaillees": 12,
     "competences": {
       "Gréage": {
         "nb_evaluations": 3,
@@ -3555,6 +3555,18 @@
           {
             "date": "2026-10-27",
             "note": 1.0,
+            "moniteur": "Benoit L"
+          }
+        ]
+      },
+      "Gestion du gilet": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-10-27",
+            "note": 3.0,
             "moniteur": "Benoit L"
           }
         ]
@@ -3692,6 +3704,13 @@
         "atelier": "Gréage",
         "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
         "commentaire_atelier": "Sais monter les éléments,  mettre sous pression et tester son matériel"
+      },
+      {
+        "date": "2026-10-27",
+        "moniteur": "Benoit L",
+        "atelier": "Gestion du gilet",
+        "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
+        "commentaire_atelier": "Sais utilisé correctement sa purge lente pour les exercices de la séance (monter et descendre)"
       },
       {
         "date": "2026-10-27",
