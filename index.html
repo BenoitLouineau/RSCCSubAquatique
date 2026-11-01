@@ -799,6 +799,10 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 
 .mini-eleve-chip.pal-moved { box-shadow: 0 0 0 2px var(--accent2); }
 .result-badge.moved { background: rgba(34, 211, 238, .15); color: var(--accent2); }
+.arretes-list { display: flex; flex-direction: column; gap: 8px; }
+.arrete-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; }
+.arrete-main { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.arrete-chip { opacity: .7; font-style: italic; }
 .palanquee-actions { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
 .btn-primary-action {
   padding: 10px 20px; border-radius: 10px; border: 1px solid var(--accent2); background: var(--accent2);
@@ -3583,6 +3587,42 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     }
   }
 
+  // =====================================================================
+  // ÉLÈVES AYANT ARRÊTÉ — retirés de l'onglet Eleves mais présents dans des CR
+  // (synthese.anomalies.eleves_hors_referentiel). Leurs CR restent dans les JSON et comptent
+  // toujours pour les moniteurs (séances, encadrements, régularité CR) ; seul l'élève est
+  // masqué : fiches, Synthèse Élèves, Palanquées, Examens, Analyse, absentéisme, puces de noms.
+  // On le retrouve dans #Admin (carte « Élèves ayant arrêté », avec son carnet).
+  // =====================================================================
+  let ELEVES_ARRETES = new Set();
+  function isEleveArrete(nom) { return ELEVES_ARRETES.has(nom); }
+  function applyElevesArretes() {
+    const syn = STATE.synthese || {};
+    const noms = ((syn.anomalies || {}).eleves_hors_referentiel || []).slice();
+    if (!noms.length && !ELEVES_ARRETES.size) { STATE.elevesArretes = []; return; }
+    ELEVES_ARRETES = new Set(noms.concat(Array.from(ELEVES_ARRETES)));
+    const tous = (STATE.eleves || []).concat(STATE.elevesArretes || []);
+    STATE.elevesArretes = tous.filter(e => isEleveArrete(e.nom));
+    STATE.eleves = tous.filter(e => !isEleveArrete(e.nom));
+    const s2 = Object.assign({}, syn);
+    // Ce n'est plus une non-concordance à corriger : c'est un départ (carte dédiée dans #Admin)
+    s2.anomalies = Object.assign({}, syn.anomalies || {}, { eleves_hors_referentiel: [] });
+    s2.nb_eleves = STATE.eleves.length;
+    if (Array.isArray(s2.progression_par_eleve)) s2.progression_par_eleve = s2.progression_par_eleve.filter(x => !isEleveArrete(x.eleve));
+    if (s2.absenteisme && typeof s2.absenteisme === 'object') {
+      const ab = Object.assign({}, s2.absenteisme);
+      if (Array.isArray(ab.eleves_en_alerte)) ab.eleves_en_alerte = ab.eleves_en_alerte.filter(x => !isEleveArrete(x.eleve));
+      if (Array.isArray(ab.frequentation)) ab.frequentation = ab.frequentation.map(function(f) {
+        const pres = new Set();
+        (STATE.seances || []).filter(se => se.date_seance === f.date)
+          .forEach(se => (se.eleves || []).forEach(n => { if (!isEleveArrete(n)) pres.add(n); }));
+        return Object.assign({}, f, { nb_presents: pres.size, nb_inscrits: STATE.eleves.length });
+      });
+      s2.absenteisme = ab;
+    }
+    STATE.synthese = s2;
+  }
+
   async function loadAll() {
     try {
       const [eleves, synthese, referentiel, seances, moniteurs] = await Promise.all([
@@ -3597,6 +3637,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       STATE.referentiel = referentiel;
       STATE.seances = seances;
       STATE.moniteurs = moniteurs;
+      ELEVES_ARRETES = new Set(); STATE.elevesArretes = []; applyElevesArretes();
       STATE.allDates = Array.from(new Set(seances.map(s => s.date_seance))).sort();
       updateFreshnessDisplay();
 
@@ -3678,7 +3719,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
           else if (file.name.includes('eleves')) STATE.eleves = ensureUniqueEleveIds(data);
         } catch (err) { console.error('JSON invalide :', file.name, err); }
         pending--;
-        if (pending === 0 && STATE.eleves) { renderEleves(); if (STATE.moniteurs) { renderMoniteurs(); enableMoniteursTab(); renderSaison(); enableSaisonTab(); renderAnalyse(); enableAnalyseTab(); enablePalanqueesTab(); enablePalmaresTab(); enableExamensTab(); } }
+        if (pending === 0 && STATE.eleves) { applyElevesArretes(); renderEleves(); if (STATE.moniteurs) { renderMoniteurs(); enableMoniteursTab(); renderSaison(); enableSaisonTab(); renderAnalyse(); enableAnalyseTab(); enablePalanqueesTab(); enablePalmaresTab(); enableExamensTab(); } }
       };
       reader.readAsText(file);
     });
@@ -4372,6 +4413,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       buildAdminFraicheurHtml() +
       buildAdminCaciHtml() +
       buildAdminAbsencesHtml() +
+      buildAdminArretesHtml() +
       buildAdminBloqueesHtml() +
       buildAdminJamaisAbordeesHtml() +
       buildAdminEncadrementHtml() +
@@ -4440,7 +4482,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     const ab = (STATE.synthese || {}).absenteisme;
     if (ab && Array.isArray(ab.frequentation) && ab.frequentation.length) return ab.frequentation;
     const parDate = {};
-    (STATE.seances || []).forEach(s => { (parDate[s.date_seance] = parDate[s.date_seance] || new Set()); (s.eleves || []).forEach(n => parDate[s.date_seance].add(n)); });
+    (STATE.seances || []).forEach(s => { (parDate[s.date_seance] = parDate[s.date_seance] || new Set()); (s.eleves || []).forEach(n => { if (!isEleveArrete(n)) parDate[s.date_seance].add(n); }); });
     const inscrits = (STATE.eleves || []).length;
     return Object.keys(parDate).sort().map(d => ({ date: d, nb_presents: parDate[d].size, nb_inscrits: inscrits }));
   }
@@ -4498,6 +4540,27 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
                                    : 'jamais venu(e) cette saison') + '</span></span>').join('') + '</div>'
       : '<p class="admin-ok">✅ Aucun élève absent ' + SEUIL_ALERTE_ABSENCES + ' soirées de suite.</p>';
     return adminCard('adminAbsences', '🚨 Élèves absents ' + SEUIL_ALERTE_ABSENCES + ' soirées de suite ou plus', rows.length, body, rows.length ? 'warn' : 'ok');
+  }
+
+  function buildAdminArretesHtml() {
+    const rows = (STATE.elevesArretes || []).slice()
+      .sort((a, b) => String((b.dates_seances || []).slice(-1)[0] || '').localeCompare(String((a.dates_seances || []).slice(-1)[0] || '')));
+    const body = rows.length
+      ? '<p class="anom-hint">Élèves présents dans des comptes rendus mais retirés de l\'onglet <em>Eleves</em> : masqués de tout le rapport. ' +
+          'Leurs CR restent dans les données et comptent toujours pour les moniteurs. Pour réafficher un élève, remettez-le dans l\'onglet Eleves. ' +
+          'Un prénom inconnu ici est sans doute une faute de saisie dans un CR : corrigez-la dans le classeur.</p>' +
+        '<div class="arretes-list">' + rows.map(function(e) {
+          const der = (e.dates_seances || []).slice(-1)[0];
+          return '<div class="arrete-row">' +
+            '<div class="arrete-main"><strong>' + ICONS.eleve + ' ' + escapeHtml(e.nom) + '</strong>' +
+              '<span class="caci-chip-meta">' + (e.nb_seances || 0) + ' séance(s)' + (der ? ' · dernière le ' + formatDateFR(der) : '') +
+                (e.moniteurs && e.moniteurs.length ? ' · avec ' + e.moniteurs.map(escapeHtml).join(', ') : '') +
+                ' · ' + (e.nb_competences_travaillees || 0) + ' compétence(s) travaillée(s)</span></div>' +
+            '<button type="button" class="export-btn carnet-btn" data-carnet="' + escapeHtml(e.id) + '" title="Carnet de progression A4 — imprimer ou enregistrer en PDF">📄 Carnet</button>' +
+          '</div>';
+        }).join('') + '</div>'
+      : '<p class="admin-ok">✅ Aucun élève masqué : tous les élèves des comptes rendus figurent dans l\'onglet Eleves.</p>';
+    return adminCard('adminArretes', '🚪 Élèves ayant arrêté', rows.length, body, rows.length ? 'info' : 'ok');
   }
 
   function buildCacheBanner() {
@@ -5579,7 +5642,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 
   /** Petite boîte de dialogue : inclure ou non les commentaires, puis ouverture du carnet. */
   function openCarnetDialog(eleveId) {
-    const e = (STATE.eleves || []).find(x => x.id === eleveId);
+    const e = (STATE.eleves || []).concat(STATE.elevesArretes || []).find(x => x.id === eleveId);
     if (!e) return;
     let ov = document.getElementById('carnetOverlay');
     if (!ov) {
@@ -5970,7 +6033,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     seancesM.forEach(function(s) {
       const hasCR = (s.comptes_rendus || []).some(cr => cr.commentaire);
       if (hasCR) crRemplis++; else missingDates.push(s.date_seance);
-      (s.eleves || []).forEach(el => elevesSet.add(el));
+      (s.eleves || []).forEach(el => { if (!isEleveArrete(el)) elevesSet.add(el); });
     });
     const nbSeances = seancesM.length;
     const crManquants = nbSeances - crRemplis;
@@ -6057,7 +6120,10 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       '<div class="seance-mini-head"><span class="seance-mini-date">' + date + '</span>' +
         (MON_SEANCES.cr ? seanceCrBadge(s) : '') + '</div>' +
       (MON_SEANCES.ateliers && seanceAteliersHtml(s) ? '<div class="seance-mini-ateliers">' + seanceAteliersHtml(s) + '</div>' : '') +
-      '<div class="seance-mini-chips">' + (s.eleves || []).map(el => eleveChipHtml(el, nameByNom)).join('') + '</div>' +
+      '<div class="seance-mini-chips">' + (s.eleves || []).filter(el => !isEleveArrete(el)).map(el => eleveChipHtml(el, nameByNom)).join('') +
+        (function() { const n = (s.eleves || []).filter(isEleveArrete).length;
+          return n ? '<span class="mini-eleve-chip arrete-chip" title="Élève(s) ayant arrêté, masqué(s) du rapport">🚪 ' + n + ' ancien' + (n > 1 ? 's' : '') + ' élève' + (n > 1 ? 's' : '') + '</span>' : ''; })() +
+      '</div>' +
     '</div>';
   }
 
