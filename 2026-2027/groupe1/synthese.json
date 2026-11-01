@@ -1,9 +1,9 @@
 {
-  "date_generation": "2026-11-01T10:59:17",
+  "date_generation": "2026-11-01T11:02:21",
   "nb_eleves": 14,
   "nb_moniteurs": 10,
   "nb_seances": 21,
-  "nb_comptes_rendus": 204,
+  "nb_comptes_rendus": 205,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
@@ -75,8 +75,8 @@
     },
     {
       "atelier": "Gestion du gilet",
-      "nb_evaluations": 9,
-      "moyenne": 2.11,
+      "nb_evaluations": 10,
+      "moyenne": 2.2,
       "note_min": 1.0,
       "note_max": 3.0,
       "notable": true,
@@ -241,8 +241,8 @@
     },
     {
       "eleve": "Patricia",
-      "nb_ateliers_evalues": 11,
-      "moyenne_generale": 2.27
+      "nb_ateliers_evalues": 12,
+      "moyenne_generale": 2.33
     }
   ],
   "anomalies": {
