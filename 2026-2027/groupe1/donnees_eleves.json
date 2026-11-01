@@ -1582,6 +1582,16 @@
   {
     "eleve": "Patricia",
     "genre": "",
+    "categorie": "Gestion du gilet",
+    "competence": "Gestion du gilet",
+    "date": "2026-10-27",
+    "moniteur": "Benoit L",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
     "categorie": "Gestion de son matériel",
     "competence": "Gestion de son matériel",
     "date": "2026-10-27",
