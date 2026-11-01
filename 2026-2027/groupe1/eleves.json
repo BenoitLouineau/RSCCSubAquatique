@@ -2735,7 +2735,7 @@
   {
     "id": "michele",
     "nom": "Michèle",
-    "caci": null,
+    "caci": false,
     "nb_seances": 3,
     "dates_seances": [
       "2026-09-29",
