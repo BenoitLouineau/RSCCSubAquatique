@@ -1,5 +1,5 @@
 {
-  "date_generation": "2026-11-01T12:35:59",
+  "date_generation": "2026-11-01T12:47:24",
   "nb_eleves": 14,
   "nb_moniteurs": 10,
   "nb_seances": 21,
@@ -246,7 +246,9 @@
     }
   ],
   "anomalies": {
-    "eleves_hors_referentiel": [],
+    "eleves_hors_referentiel": [
+      "Michèle"
+    ],
     "eleves_referentiel_jamais_vus": [],
     "moniteurs_hors_referentiel": [],
     "moniteurs_referentiel_jamais_actifs": [
