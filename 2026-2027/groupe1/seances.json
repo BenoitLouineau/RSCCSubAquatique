@@ -1323,13 +1323,14 @@
       "DBN",
       "Dégréage",
       "Gestion de son matériel",
+      "Gestion du gilet",
       "Gréage",
       "Signes",
       "Soin au materiel",
       "Sortie de l'eau",
       "VDM partiel"
     ],
-    "nb_comptes_rendus": 8,
+    "nb_comptes_rendus": 9,
     "comptes_rendus": [
       {
         "eleve": "Patricia",
@@ -1351,6 +1352,13 @@
         "note": 3.0,
         "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
         "commentaire_atelier": "Sais monter les éléments,  mettre sous pression et tester son matériel"
+      },
+      {
+        "eleve": "Patricia",
+        "atelier": "Gestion du gilet",
+        "note": 3.0,
+        "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
+        "commentaire_atelier": "Sais utilisé correctement sa purge lente pour les exercices de la séance (monter et descendre)"
       },
       {
         "eleve": "Patricia",
