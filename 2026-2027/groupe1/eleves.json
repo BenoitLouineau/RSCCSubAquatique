@@ -3447,8 +3447,8 @@
     "competences": {
       "Gréage": {
         "nb_evaluations": 3,
-        "derniere_note": 3.0,
-        "moyenne_notes": 3.0,
+        "derniere_note": 4.0,
+        "moyenne_notes": 3.33,
         "historique": [
           {
             "date": "2026-09-29",
@@ -3462,7 +3462,7 @@
           },
           {
             "date": "2026-10-27",
-            "note": 3.0,
+            "note": 4.0,
             "moniteur": "Benoit L"
           }
         ]
