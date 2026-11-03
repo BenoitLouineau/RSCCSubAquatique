@@ -539,19 +539,20 @@
     "id": "aubree",
     "nom": "Aubrée",
     "caci": true,
-    "nb_seances": 4,
+    "nb_seances": 5,
     "dates_seances": [
       "2026-09-29",
       "2026-10-06",
       "2026-10-13",
-      "2026-10-27"
+      "2026-10-27",
+      "2026-11-03"
     ],
     "moniteurs": [
       "Benoit L",
       "Benoit P",
       "Nicos"
     ],
-    "nb_competences_travaillees": 14,
+    "nb_competences_travaillees": 16,
     "competences": {
       "Palmage": {
         "nb_evaluations": 1,
@@ -583,9 +584,9 @@
         ]
       },
       "Poumon Ballast": {
-        "nb_evaluations": 2,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.0,
+        "nb_evaluations": 3,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.33,
         "historique": [
           {
             "date": "2026-10-06",
@@ -596,13 +597,18 @@
             "date": "2026-10-27",
             "note": 2.0,
             "moniteur": "Nicos"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 3.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
       "Déplacements immersion": {
-        "nb_evaluations": 2,
-        "derniere_note": 3.0,
-        "moyenne_notes": 2.5,
+        "nb_evaluations": 3,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.33,
         "historique": [
           {
             "date": "2026-10-06",
@@ -613,6 +619,11 @@
             "date": "2026-10-27",
             "note": 3.0,
             "moniteur": "Nicos"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 2.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
@@ -634,21 +645,26 @@
         ]
       },
       "Gestion du gilet": {
-        "nb_evaluations": 1,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.0,
+        "nb_evaluations": 2,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.5,
         "historique": [
           {
             "date": "2026-10-06",
             "note": 2.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 3.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
       "Dégréage": {
-        "nb_evaluations": 2,
-        "derniere_note": 3.0,
-        "moyenne_notes": 3.0,
+        "nb_evaluations": 3,
+        "derniere_note": 4.0,
+        "moyenne_notes": 3.33,
         "historique": [
           {
             "date": "2026-10-06",
@@ -659,6 +675,11 @@
             "date": "2026-10-27",
             "note": 3.0,
             "moniteur": "Nicos"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 4.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
@@ -680,9 +701,9 @@
         ]
       },
       "VDM partiel": {
-        "nb_evaluations": 3,
-        "derniere_note": 3.0,
-        "moyenne_notes": 2.0,
+        "nb_evaluations": 4,
+        "derniere_note": 4.0,
+        "moyenne_notes": 2.5,
         "historique": [
           {
             "date": "2026-10-06",
@@ -698,6 +719,11 @@
             "date": "2026-10-27",
             "note": 3.0,
             "moniteur": "Nicos"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 4.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
@@ -719,9 +745,9 @@
         ]
       },
       "Gréage": {
-        "nb_evaluations": 2,
-        "derniere_note": 3.0,
-        "moyenne_notes": 3.5,
+        "nb_evaluations": 3,
+        "derniere_note": 4.0,
+        "moyenne_notes": 3.67,
         "historique": [
           {
             "date": "2026-10-13",
@@ -732,30 +758,45 @@
             "date": "2026-10-27",
             "note": 3.0,
             "moniteur": "Nicos"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 4.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
       "Saut droit PMT": {
-        "nb_evaluations": 1,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.0,
+        "nb_evaluations": 2,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.5,
         "historique": [
           {
             "date": "2026-10-27",
             "note": 2.0,
             "moniteur": "Nicos"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 3.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
       "Gestion de son matériel": {
-        "nb_evaluations": 1,
-        "derniere_note": 3.0,
-        "moyenne_notes": 3.0,
+        "nb_evaluations": 2,
+        "derniere_note": 4.0,
+        "moyenne_notes": 3.5,
         "historique": [
           {
             "date": "2026-10-27",
             "note": 3.0,
             "moniteur": "Nicos"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 4.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
@@ -768,6 +809,30 @@
             "date": "2026-10-27",
             "note": 2.0,
             "moniteur": "Nicos"
+          }
+        ]
+      },
+      "VDM": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-11-03",
+            "note": 2.0,
+            "moniteur": "Benoit L"
+          }
+        ]
+      },
+      "Soin au materiel": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-11-03",
+            "note": 4.0,
+            "moniteur": "Benoit L"
           }
         ]
       }
@@ -940,6 +1005,76 @@
         "atelier": "360°",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Benoit L",
+        "atelier": "Poumon Ballast",
+        "commentaire": "Le matériel est soigneusement sorti / ranger après séance. On sent de l'organisation maitrisée.",
+        "commentaire_atelier": "Après démo, a su reproduire le mouvement de pompe avec le poumon ballast"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Benoit L",
+        "atelier": "Saut droit PMT",
+        "commentaire": "Le matériel est soigneusement sorti / ranger après séance. On sent de l'organisation maitrisée.",
+        "commentaire_atelier": "Légèrement incliné sur 1er saut mais a su entendre les correctifs pour mieux réaliser en second et troisième essai"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Benoit L",
+        "atelier": "Déplacements immersion",
+        "commentaire": "Le matériel est soigneusement sorti / ranger après séance. On sent de l'organisation maitrisée.",
+        "commentaire_atelier": "Pour une première séance avec moi, les bases sont là, a retravailler pour la suite de l'acquisition de cette compétence"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Benoit L",
+        "atelier": "Dégréage",
+        "commentaire": "Le matériel est soigneusement sorti / ranger après séance. On sent de l'organisation maitrisée.",
+        "commentaire_atelier": "Arrivée en surface sais se mettre sur le dos, gonfler son gilet pour maintenir la flottaison pour se déséquiper."
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Benoit L",
+        "atelier": "VDM",
+        "commentaire": "Le matériel est soigneusement sorti / ranger après séance. On sent de l'organisation maitrisée.",
+        "commentaire_atelier": "difficulté à la remise du masque car la sangle s'est coincé dans son chignon, à la quatrième tentative, une fois le masque sur le visage, la dbn n'a pas fonctionné et a pris la tasse.\nA revoir dans le temps sans trop insister pour éviter que la situation ne se reproduise."
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Benoit L",
+        "atelier": "Gréage",
+        "commentaire": "Le matériel est soigneusement sorti / ranger après séance. On sent de l'organisation maitrisée.",
+        "commentaire_atelier": "Matériel connu et nommé, sait gréer et gérer son matériel autour du bassin"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Benoit L",
+        "atelier": "Soin au materiel",
+        "commentaire": "Le matériel est soigneusement sorti / ranger après séance. On sent de l'organisation maitrisée.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Benoit L",
+        "atelier": "Gestion du gilet",
+        "commentaire": "Le matériel est soigneusement sorti / ranger après séance. On sent de l'organisation maitrisée.",
+        "commentaire_atelier": "apprentissage 1ère séance des purges rapides. A su trouver et utiliser en confiance pour sa première descente contrôlée avec purge rapide."
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Benoit L",
+        "atelier": "VDM partiel",
+        "commentaire": "Le matériel est soigneusement sorti / ranger après séance. On sent de l'organisation maitrisée.",
+        "commentaire_atelier": "1er essai en partiel nickel,  a su appréhender l'instant de la réalisation.\nVidé en une fois"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Benoit L",
+        "atelier": "Gestion de son matériel",
+        "commentaire": "Le matériel est soigneusement sorti / ranger après séance. On sent de l'organisation maitrisée.",
+        "commentaire_atelier": "Sais reconnaître et utiliser son matériel"
       }
     ]
   },
@@ -2700,23 +2835,24 @@
     "id": "mohamed",
     "nom": "Mohamed",
     "caci": true,
-    "nb_seances": 3,
+    "nb_seances": 4,
     "dates_seances": [
       "2026-09-29",
       "2026-10-06",
-      "2026-10-13"
+      "2026-10-13",
+      "2026-11-03"
     ],
     "moniteurs": [
       "Benoit L",
       "Carine",
       "Carlos"
     ],
-    "nb_competences_travaillees": 8,
+    "nb_competences_travaillees": 12,
     "competences": {
       "Gréage": {
-        "nb_evaluations": 3,
+        "nb_evaluations": 4,
         "derniere_note": 4.0,
-        "moyenne_notes": 2.33,
+        "moyenne_notes": 2.75,
         "historique": [
           {
             "date": "2026-09-29",
@@ -2732,11 +2868,16 @@
             "date": "2026-10-13",
             "note": 4.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 4.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
       "Gestion de son matériel": {
-        "nb_evaluations": 2,
+        "nb_evaluations": 3,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
         "historique": [
@@ -2747,13 +2888,18 @@
           },
           {
             "date": "2026-10-13",
+            "note": 3.0,
+            "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-03",
             "note": 3.0,
             "moniteur": "Benoit L"
           }
         ]
       },
       "DBN": {
-        "nb_evaluations": 2,
+        "nb_evaluations": 3,
         "derniere_note": 4.0,
         "moyenne_notes": 4.0,
         "historique": [
@@ -2766,13 +2912,18 @@
             "date": "2026-10-13",
             "note": 4.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 4.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
       "Dégréage": {
-        "nb_evaluations": 2,
+        "nb_evaluations": 3,
         "derniere_note": 4.0,
-        "moyenne_notes": 3.5,
+        "moyenne_notes": 3.67,
         "historique": [
           {
             "date": "2026-10-06",
@@ -2783,11 +2934,16 @@
             "date": "2026-10-13",
             "note": 4.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 4.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
       "Poumon Ballast": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
         "historique": [
@@ -2795,11 +2951,16 @@
             "date": "2026-10-13",
             "note": 3.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 3.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
       "VDM partiel": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 4.0,
         "moyenne_notes": 4.0,
         "historique": [
@@ -2807,16 +2968,26 @@
             "date": "2026-10-13",
             "note": 4.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 4.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
       "VDM": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 4.0,
         "moyenne_notes": 4.0,
         "historique": [
           {
             "date": "2026-10-13",
+            "note": 4.0,
+            "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-03",
             "note": 4.0,
             "moniteur": "Benoit L"
           }
@@ -2830,6 +3001,54 @@
           {
             "date": "2026-10-13",
             "note": 2.0,
+            "moniteur": "Benoit L"
+          }
+        ]
+      },
+      "Saut droit PMT": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-11-03",
+            "note": 3.0,
+            "moniteur": "Benoit L"
+          }
+        ]
+      },
+      "Gestion du gilet": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-11-03",
+            "note": 2.0,
+            "moniteur": "Benoit L"
+          }
+        ]
+      },
+      "Soin au materiel": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-11-03",
+            "note": 3.0,
+            "moniteur": "Benoit L"
+          }
+        ]
+      },
+      "Sortie de l'eau": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-11-03",
+            "note": 3.0,
             "moniteur": "Benoit L"
           }
         ]
@@ -2926,6 +3145,83 @@
         "atelier": "Gestion de son matériel",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Benoit L",
+        "atelier": "Gréage",
+        "commentaire": "Prend soin de son matériel avant et après plongée",
+        "commentaire_atelier": "connait, nomme son matériel, gréage ok sans pb"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Benoit L",
+        "atelier": "VDM",
+        "commentaire": "Prend soin de son matériel avant et après plongée",
+        "commentaire_atelier": "Idem en VDM complète, aucun soucis"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Benoit L",
+        "atelier": "Saut droit PMT",
+        "commentaire": "Prend soin de son matériel avant et après plongée",
+        "commentaire_atelier": "On n'est plus très loin d'un geste OK"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Benoit L",
+        "atelier": "Gestion du gilet",
+        "commentaire": "Prend soin de son matériel avant et après plongée",
+        "commentaire_atelier": "Nouvelle stab car changement de gilet en soute fait ce soir. Les purges rapide pas bien trouvée ce soir mais reste très prometteur pour les prochaines séances"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Benoit L",
+        "atelier": "Dégréage",
+        "commentaire": "Prend soin de son matériel avant et après plongée",
+        "commentaire_atelier": "Pour moi c'est compris acquis et validé"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Benoit L",
+        "atelier": "Poumon Ballast",
+        "commentaire": "Prend soin de son matériel avant et après plongée",
+        "commentaire_atelier": "Apprentissage du Poumon ballast acquis et comprend l'attendu avec l'exo des pompes faites ce jour"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Benoit L",
+        "atelier": "DBN",
+        "commentaire": "Prend soin de son matériel avant et après plongée",
+        "commentaire_atelier": "Aucun pb et compétence largement acquise selon moi"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Benoit L",
+        "atelier": "Gestion de son matériel",
+        "commentaire": "Prend soin de son matériel avant et après plongée",
+        "commentaire_atelier": "Elève consciencieux tet méthodique, parfait pour la suite"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Benoit L",
+        "atelier": "Soin au materiel",
+        "commentaire": "Prend soin de son matériel avant et après plongée",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Benoit L",
+        "atelier": "VDM partiel",
+        "commentaire": "Prend soin de son matériel avant et après plongée",
+        "commentaire_atelier": "A cette seconde séance, le vdm est très bien perçu et bien réalisé, pas de stress et mouvement bien méthodique et bien réalisé"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Benoit L",
+        "atelier": "Sortie de l'eau",
+        "commentaire": "Prend soin de son matériel avant et après plongée",
+        "commentaire_atelier": "Sais revenir et se sécuriser en surface puis la sortie est correcte. pas de pb constaté"
       }
     ]
   },
