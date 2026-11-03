@@ -1792,6 +1792,180 @@
     ]
   },
   {
+    "id": "2026-11-03_benoit-l",
+    "date_seance": "2026-11-03",
+    "moniteur": "Benoit L",
+    "nb_eleves": 2,
+    "eleves": [
+      "Aubrée",
+      "Mohamed"
+    ],
+    "ateliers_traites": [
+      "DBN",
+      "Dégréage",
+      "Déplacements immersion",
+      "Gestion de son matériel",
+      "Gestion du gilet",
+      "Gréage",
+      "Poumon Ballast",
+      "Saut droit PMT",
+      "Soin au materiel",
+      "Sortie de l'eau",
+      "VDM",
+      "VDM partiel"
+    ],
+    "nb_comptes_rendus": 21,
+    "comptes_rendus": [
+      {
+        "eleve": "Mohamed",
+        "atelier": "Gréage",
+        "note": 4.0,
+        "commentaire": "Prend soin de son matériel avant et après plongée",
+        "commentaire_atelier": "connait, nomme son matériel, gréage ok sans pb"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "VDM",
+        "note": 4.0,
+        "commentaire": "Prend soin de son matériel avant et après plongée",
+        "commentaire_atelier": "Idem en VDM complète, aucun soucis"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Saut droit PMT",
+        "note": 3.0,
+        "commentaire": "Prend soin de son matériel avant et après plongée",
+        "commentaire_atelier": "On n'est plus très loin d'un geste OK"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Gestion du gilet",
+        "note": 2.0,
+        "commentaire": "Prend soin de son matériel avant et après plongée",
+        "commentaire_atelier": "Nouvelle stab car changement de gilet en soute fait ce soir. Les purges rapide pas bien trouvée ce soir mais reste très prometteur pour les prochaines séances"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Dégréage",
+        "note": 4.0,
+        "commentaire": "Prend soin de son matériel avant et après plongée",
+        "commentaire_atelier": "Pour moi c'est compris acquis et validé"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Poumon Ballast",
+        "note": 3.0,
+        "commentaire": "Prend soin de son matériel avant et après plongée",
+        "commentaire_atelier": "Apprentissage du Poumon ballast acquis et comprend l'attendu avec l'exo des pompes faites ce jour"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "DBN",
+        "note": 4.0,
+        "commentaire": "Prend soin de son matériel avant et après plongée",
+        "commentaire_atelier": "Aucun pb et compétence largement acquise selon moi"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Gestion de son matériel",
+        "note": 3.0,
+        "commentaire": "Prend soin de son matériel avant et après plongée",
+        "commentaire_atelier": "Elève consciencieux tet méthodique, parfait pour la suite"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Soin au materiel",
+        "note": 3.0,
+        "commentaire": "Prend soin de son matériel avant et après plongée",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "VDM partiel",
+        "note": 4.0,
+        "commentaire": "Prend soin de son matériel avant et après plongée",
+        "commentaire_atelier": "A cette seconde séance, le vdm est très bien perçu et bien réalisé, pas de stress et mouvement bien méthodique et bien réalisé"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Sortie de l'eau",
+        "note": 3.0,
+        "commentaire": "Prend soin de son matériel avant et après plongée",
+        "commentaire_atelier": "Sais revenir et se sécuriser en surface puis la sortie est correcte. pas de pb constaté"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Poumon Ballast",
+        "note": 3.0,
+        "commentaire": "Le matériel est soigneusement sorti / ranger après séance. On sent de l'organisation maitrisée.",
+        "commentaire_atelier": "Après démo, a su reproduire le mouvement de pompe avec le poumon ballast"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Saut droit PMT",
+        "note": 3.0,
+        "commentaire": "Le matériel est soigneusement sorti / ranger après séance. On sent de l'organisation maitrisée.",
+        "commentaire_atelier": "Légèrement incliné sur 1er saut mais a su entendre les correctifs pour mieux réaliser en second et troisième essai"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Déplacements immersion",
+        "note": 2.0,
+        "commentaire": "Le matériel est soigneusement sorti / ranger après séance. On sent de l'organisation maitrisée.",
+        "commentaire_atelier": "Pour une première séance avec moi, les bases sont là, a retravailler pour la suite de l'acquisition de cette compétence"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Dégréage",
+        "note": 4.0,
+        "commentaire": "Le matériel est soigneusement sorti / ranger après séance. On sent de l'organisation maitrisée.",
+        "commentaire_atelier": "Arrivée en surface sais se mettre sur le dos, gonfler son gilet pour maintenir la flottaison pour se déséquiper."
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "VDM",
+        "note": 2.0,
+        "commentaire": "Le matériel est soigneusement sorti / ranger après séance. On sent de l'organisation maitrisée.",
+        "commentaire_atelier": "difficulté à la remise du masque car la sangle s'est coincé dans son chignon, à la quatrième tentative, une fois le masque sur le visage, la dbn n'a pas fonctionné et a pris la tasse.\nA revoir dans le temps sans trop insister pour éviter que la situation ne se reproduise."
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Gréage",
+        "note": 4.0,
+        "commentaire": "Le matériel est soigneusement sorti / ranger après séance. On sent de l'organisation maitrisée.",
+        "commentaire_atelier": "Matériel connu et nommé, sait gréer et gérer son matériel autour du bassin"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Soin au materiel",
+        "note": 4.0,
+        "commentaire": "Le matériel est soigneusement sorti / ranger après séance. On sent de l'organisation maitrisée.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Gestion du gilet",
+        "note": 3.0,
+        "commentaire": "Le matériel est soigneusement sorti / ranger après séance. On sent de l'organisation maitrisée.",
+        "commentaire_atelier": "apprentissage 1ère séance des purges rapides. A su trouver et utiliser en confiance pour sa première descente contrôlée avec purge rapide."
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "VDM partiel",
+        "note": 4.0,
+        "commentaire": "Le matériel est soigneusement sorti / ranger après séance. On sent de l'organisation maitrisée.",
+        "commentaire_atelier": "1er essai en partiel nickel,  a su appréhender l'instant de la réalisation.\nVidé en une fois"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Gestion de son matériel",
+        "note": 4.0,
+        "commentaire": "Le matériel est soigneusement sorti / ranger après séance. On sent de l'organisation maitrisée.",
+        "commentaire_atelier": "Sais reconnaître et utiliser son matériel"
+      }
+    ]
+  },
+  {
     "id": "2026-11-03_benoit-p",
     "date_seance": "2026-11-03",
     "moniteur": "Benoit P",
