@@ -1790,5 +1790,123 @@
         "commentaire_atelier": "Aucun commentaire"
       }
     ]
+  },
+  {
+    "id": "2026-11-03_benoit-p",
+    "date_seance": "2026-11-03",
+    "moniteur": "Benoit P",
+    "nb_eleves": 1,
+    "eleves": [
+      "Nabiyu"
+    ],
+    "ateliers_traites": [
+      "360°",
+      "Dégréage",
+      "Déplacements immersion",
+      "Gestion de son matériel",
+      "Gréage",
+      "Mise en sécu surface",
+      "Poumon Ballast",
+      "Remonté expi controlée",
+      "Saut droit PMT",
+      "Signes",
+      "Sortie de l'eau",
+      "VDM",
+      "Vitesse de remontée"
+    ],
+    "nb_comptes_rendus": 13,
+    "comptes_rendus": [
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Gréage",
+        "note": 4.0,
+        "commentaire": "Ca imprime vite chez nabiyu. Il etait content de lui (a juste titre).",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Sortie de l'eau",
+        "note": 4.0,
+        "commentaire": "Ca imprime vite chez nabiyu. Il etait content de lui (a juste titre).",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Saut droit PMT",
+        "note": 3.0,
+        "commentaire": "Ca imprime vite chez nabiyu. Il etait content de lui (a juste titre).",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Remonté expi controlée",
+        "note": 3.0,
+        "commentaire": "Ca imprime vite chez nabiyu. Il etait content de lui (a juste titre).",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Déplacements immersion",
+        "note": 4.0,
+        "commentaire": "Ca imprime vite chez nabiyu. Il etait content de lui (a juste titre).",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Vitesse de remontée",
+        "note": 3.0,
+        "commentaire": "Ca imprime vite chez nabiyu. Il etait content de lui (a juste titre).",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Mise en sécu surface",
+        "note": 4.0,
+        "commentaire": "Ca imprime vite chez nabiyu. Il etait content de lui (a juste titre).",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Gestion de son matériel",
+        "note": 4.0,
+        "commentaire": "Ca imprime vite chez nabiyu. Il etait content de lui (a juste titre).",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Signes",
+        "note": 3.0,
+        "commentaire": "Ca imprime vite chez nabiyu. Il etait content de lui (a juste titre).",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "VDM",
+        "note": 4.0,
+        "commentaire": "Ca imprime vite chez nabiyu. Il etait content de lui (a juste titre).",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Dégréage",
+        "note": 4.0,
+        "commentaire": "Ca imprime vite chez nabiyu. Il etait content de lui (a juste titre).",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Poumon Ballast",
+        "note": 4.0,
+        "commentaire": "Ca imprime vite chez nabiyu. Il etait content de lui (a juste titre).",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "360°",
+        "note": 3.0,
+        "commentaire": "Ca imprime vite chez nabiyu. Il etait content de lui (a juste titre).",
+        "commentaire_atelier": "Aucun commentaire"
+      }
+    ]
   }
 ]
