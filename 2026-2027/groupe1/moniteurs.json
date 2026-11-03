@@ -8,20 +8,18 @@
       "2026-10-13",
       "2026-10-27"
     ],
-    "nb_eleves_suivis": 9,
+    "nb_eleves_suivis": 7,
     "eleves_suivis": [
       "Aubrée",
       "Camille",
-      "Célia",
       "Guillaume",
       "Hanane",
       "Kévin D",
-      "Michèle",
       "Mohamed",
       "Patricia"
     ],
-    "nb_comptes_rendus": 33,
-    "nb_evaluations_notees": 32
+    "nb_comptes_rendus": 31,
+    "nb_evaluations_notees": 31
   },
   {
     "id": "benoit-p",
@@ -49,23 +47,21 @@
   {
     "id": "carine",
     "nom": "Carine",
-    "nb_seances_animees": 3,
+    "nb_seances_animees": 2,
     "dates_seances": [
       "2026-09-29",
-      "2026-10-06",
-      "2026-10-13"
+      "2026-10-06"
     ],
-    "nb_eleves_suivis": 6,
+    "nb_eleves_suivis": 5,
     "eleves_suivis": [
       "Abderrahmane",
       "Amir",
       "Guillaume",
-      "Michèle",
       "Mohamed",
       "Nabiyu"
     ],
-    "nb_comptes_rendus": 13,
-    "nb_evaluations_notees": 13
+    "nb_comptes_rendus": 9,
+    "nb_evaluations_notees": 9
   },
   {
     "id": "carlos",
@@ -136,15 +132,14 @@
       "2026-10-13",
       "2026-10-27"
     ],
-    "nb_eleves_suivis": 4,
+    "nb_eleves_suivis": 3,
     "eleves_suivis": [
       "Aubrée",
       "Guillaume",
-      "Michèle",
       "Patricia"
     ],
-    "nb_comptes_rendus": 35,
-    "nb_evaluations_notees": 35
+    "nb_comptes_rendus": 32,
+    "nb_evaluations_notees": 32
   },
   {
     "id": "virginie",
