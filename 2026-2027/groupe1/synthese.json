@@ -1,19 +1,19 @@
 {
-  "date_generation": "2026-11-03T23:23:03",
+  "date_generation": "2026-11-03T23:43:02",
   "nb_eleves": 12,
   "nb_moniteurs": 10,
-  "nb_seances": 20,
-  "nb_comptes_rendus": 196,
+  "nb_seances": 21,
+  "nb_comptes_rendus": 209,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
-    "date_max": "2026-10-27"
+    "date_max": "2026-11-03"
   },
   "acquisition_par_atelier": [
     {
       "atelier": "Gréage",
-      "nb_evaluations": 29,
-      "moyenne": 2.72,
+      "nb_evaluations": 30,
+      "moyenne": 2.77,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -30,8 +30,8 @@
     },
     {
       "atelier": "Dégréage",
-      "nb_evaluations": 22,
-      "moyenne": 2.95,
+      "nb_evaluations": 23,
+      "moyenne": 3.0,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -48,8 +48,8 @@
     },
     {
       "atelier": "Gestion de son matériel",
-      "nb_evaluations": 15,
-      "moyenne": 2.73,
+      "nb_evaluations": 16,
+      "moyenne": 2.81,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -57,21 +57,39 @@
     },
     {
       "atelier": "Poumon Ballast",
-      "nb_evaluations": 11,
-      "moyenne": 2.55,
+      "nb_evaluations": 12,
+      "moyenne": 2.67,
       "note_min": 2.0,
-      "note_max": 3.0,
+      "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": false
     },
     {
       "atelier": "Déplacements immersion",
-      "nb_evaluations": 10,
-      "moyenne": 2.2,
+      "nb_evaluations": 11,
+      "moyenne": 2.36,
       "note_min": 1.0,
-      "note_max": 3.0,
+      "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "Sortie de l'eau",
+      "nb_evaluations": 10,
+      "moyenne": 3.0,
+      "note_min": 1.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "VDM",
+      "nb_evaluations": 10,
+      "moyenne": 3.2,
+      "note_min": 1.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
     },
     {
       "atelier": "Gestion du gilet",
@@ -83,27 +101,9 @@
       "compte_dans_moyenne": true
     },
     {
-      "atelier": "Sortie de l'eau",
-      "nb_evaluations": 9,
-      "moyenne": 2.89,
-      "note_min": 1.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "VDM",
-      "nb_evaluations": 9,
-      "moyenne": 3.11,
-      "note_min": 1.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
       "atelier": "Mise en sécu surface",
-      "nb_evaluations": 8,
-      "moyenne": 2.88,
+      "nb_evaluations": 9,
+      "moyenne": 3.0,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -111,7 +111,7 @@
     },
     {
       "atelier": "Saut droit PMT",
-      "nb_evaluations": 7,
+      "nb_evaluations": 8,
       "moyenne": 3.0,
       "note_min": 2.0,
       "note_max": 4.0,
@@ -120,10 +120,19 @@
     },
     {
       "atelier": "Vitesse de remontée",
-      "nb_evaluations": 7,
-      "moyenne": 2.14,
+      "nb_evaluations": 8,
+      "moyenne": 2.25,
       "note_min": 1.0,
       "note_max": 3.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Signes",
+      "nb_evaluations": 7,
+      "moyenne": 3.0,
+      "note_min": 2.0,
+      "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
     },
@@ -137,18 +146,9 @@
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "Signes",
-      "nb_evaluations": 6,
-      "moyenne": 3.0,
-      "note_min": 2.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
       "atelier": "360°",
-      "nb_evaluations": 3,
-      "moyenne": 2.33,
+      "nb_evaluations": 4,
+      "moyenne": 2.5,
       "note_min": 2.0,
       "note_max": 3.0,
       "notable": true,
@@ -165,10 +165,10 @@
     },
     {
       "atelier": "Remonté expi controlée",
-      "nb_evaluations": 1,
-      "moyenne": 2.0,
+      "nb_evaluations": 2,
+      "moyenne": 2.5,
       "note_min": 2.0,
-      "note_max": 2.0,
+      "note_max": 3.0,
       "notable": true,
       "compte_dans_moyenne": true
     }
@@ -226,8 +226,8 @@
     },
     {
       "eleve": "Nabiyu",
-      "nb_ateliers_evalues": 10,
-      "moyenne_generale": 3.2
+      "nb_ateliers_evalues": 15,
+      "moyenne_generale": 3.67
     },
     {
       "eleve": "Patricia",
