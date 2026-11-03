@@ -50,16 +50,6 @@
     "statut": "Non acquis"
   },
   {
-    "eleve": "Célia",
-    "genre": "",
-    "categorie": "Palmage",
-    "competence": "Palmage",
-    "date": "2026-09-29",
-    "moniteur": "Benoit L",
-    "presence": "Présent",
-    "statut": "Non acquis"
-  },
-  {
     "eleve": "Hanane",
     "genre": "",
     "categorie": "Palmage",
@@ -118,16 +108,6 @@
     "moniteur": "Benoit L",
     "presence": "Présent",
     "statut": "En cours d'acquisition"
-  },
-  {
-    "eleve": "Michèle",
-    "genre": "",
-    "categorie": "Pas d'atelier",
-    "competence": "Pas d'atelier",
-    "date": "2026-09-29",
-    "moniteur": "Benoit L",
-    "presence": "Présent",
-    "statut": "Non évalué"
   },
   {
     "eleve": "Camille",
@@ -570,36 +550,6 @@
     "statut": "En cours d'acquisition"
   },
   {
-    "eleve": "Michèle",
-    "genre": "",
-    "categorie": "DBN",
-    "competence": "DBN",
-    "date": "2026-10-06",
-    "moniteur": "Nicos",
-    "presence": "Présent",
-    "statut": "En cours d'acquisition"
-  },
-  {
-    "eleve": "Michèle",
-    "genre": "",
-    "categorie": "Déplacements immersion",
-    "competence": "Déplacements immersion",
-    "date": "2026-10-06",
-    "moniteur": "Nicos",
-    "presence": "Présent",
-    "statut": "Non acquis"
-  },
-  {
-    "eleve": "Michèle",
-    "genre": "",
-    "categorie": "Poumon Ballast",
-    "competence": "Poumon Ballast",
-    "date": "2026-10-06",
-    "moniteur": "Nicos",
-    "presence": "Présent",
-    "statut": "Non acquis"
-  },
-  {
     "eleve": "Patricia",
     "genre": "",
     "categorie": "Dégréage",
@@ -1198,46 +1148,6 @@
     "moniteur": "Véronique",
     "presence": "Présent",
     "statut": "Acquis"
-  },
-  {
-    "eleve": "Michèle",
-    "genre": "",
-    "categorie": "Dégréage",
-    "competence": "Dégréage",
-    "date": "2026-10-13",
-    "moniteur": "Carine",
-    "presence": "Présent",
-    "statut": "En cours d'acquisition"
-  },
-  {
-    "eleve": "Michèle",
-    "genre": "",
-    "categorie": "Gréage",
-    "competence": "Gréage",
-    "date": "2026-10-13",
-    "moniteur": "Carine",
-    "presence": "Présent",
-    "statut": "En cours d'acquisition"
-  },
-  {
-    "eleve": "Michèle",
-    "genre": "",
-    "categorie": "DBN",
-    "competence": "DBN",
-    "date": "2026-10-13",
-    "moniteur": "Carine",
-    "presence": "Présent",
-    "statut": "En cours d'acquisition"
-  },
-  {
-    "eleve": "Michèle",
-    "genre": "",
-    "categorie": "Gestion du gilet",
-    "competence": "Gestion du gilet",
-    "date": "2026-10-13",
-    "moniteur": "Carine",
-    "presence": "Présent",
-    "statut": "Non acquis"
   },
   {
     "eleve": "Amir",
