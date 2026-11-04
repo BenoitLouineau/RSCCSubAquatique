@@ -2082,5 +2082,415 @@
         "commentaire_atelier": "Aucun commentaire"
       }
     ]
+  },
+  {
+    "id": "2026-11-03_nicos",
+    "date_seance": "2026-11-03",
+    "moniteur": "Nicos",
+    "nb_eleves": 1,
+    "eleves": [
+      "Kévin D"
+    ],
+    "ateliers_traites": [
+      "360°",
+      "Dégréage",
+      "Déplacements immersion",
+      "Gestion de son matériel",
+      "Gréage",
+      "Mise en sécu surface",
+      "Remonté expi controlée",
+      "Saut droit PMT",
+      "Sortie de l'eau",
+      "VDM",
+      "VDM partiel",
+      "Vitesse de remontée"
+    ],
+    "nb_comptes_rendus": 12,
+    "comptes_rendus": [
+      {
+        "eleve": "Kévin D",
+        "atelier": "VDM",
+        "note": 3.0,
+        "commentaire": "1 er saut droit pmt sur cette séance, à refaire avant saut droit avec bloc",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "Remonté expi controlée",
+        "note": 3.0,
+        "commentaire": "1 er saut droit pmt sur cette séance, à refaire avant saut droit avec bloc",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "Déplacements immersion",
+        "note": 3.0,
+        "commentaire": "1 er saut droit pmt sur cette séance, à refaire avant saut droit avec bloc",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "Vitesse de remontée",
+        "note": 2.0,
+        "commentaire": "1 er saut droit pmt sur cette séance, à refaire avant saut droit avec bloc",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "Sortie de l'eau",
+        "note": 3.0,
+        "commentaire": "1 er saut droit pmt sur cette séance, à refaire avant saut droit avec bloc",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "VDM partiel",
+        "note": 4.0,
+        "commentaire": "1 er saut droit pmt sur cette séance, à refaire avant saut droit avec bloc",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "360°",
+        "note": 2.0,
+        "commentaire": "1 er saut droit pmt sur cette séance, à refaire avant saut droit avec bloc",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "Gestion de son matériel",
+        "note": 3.0,
+        "commentaire": "1 er saut droit pmt sur cette séance, à refaire avant saut droit avec bloc",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "Mise en sécu surface",
+        "note": 3.0,
+        "commentaire": "1 er saut droit pmt sur cette séance, à refaire avant saut droit avec bloc",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "Saut droit PMT",
+        "note": 3.0,
+        "commentaire": "1 er saut droit pmt sur cette séance, à refaire avant saut droit avec bloc",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "Dégréage",
+        "note": 3.0,
+        "commentaire": "1 er saut droit pmt sur cette séance, à refaire avant saut droit avec bloc",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "Gréage",
+        "note": 3.0,
+        "commentaire": "1 er saut droit pmt sur cette séance, à refaire avant saut droit avec bloc",
+        "commentaire_atelier": "Aucun commentaire"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-03_virginie",
+    "date_seance": "2026-11-03",
+    "moniteur": "Virginie",
+    "nb_eleves": 2,
+    "eleves": [
+      "Amir",
+      "Guillaume"
+    ],
+    "ateliers_traites": [
+      "360°",
+      "DBN",
+      "Dégréage",
+      "Déplacements immersion",
+      "Gestion de son matériel",
+      "Gestion du gilet",
+      "Gréage",
+      "Mise en sécu surface",
+      "Palmage",
+      "Phoque",
+      "Poumon Ballast",
+      "Remonté expi controlée",
+      "Saut droit PMT",
+      "Signes",
+      "Soin au materiel",
+      "Sortie de l'eau",
+      "VDM",
+      "VDM partiel",
+      "Vitesse de remontée"
+    ],
+    "nb_comptes_rendus": 38,
+    "comptes_rendus": [
+      {
+        "eleve": "Amir",
+        "atelier": "Dégréage",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "Palmage",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "360°",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "Phoque",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "Soin au materiel",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "DBN",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "VDM",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "Gestion du gilet",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "Poumon Ballast",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "Gestion de son matériel",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "Remonté expi controlée",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "Sortie de l'eau",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "VDM partiel",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "Signes",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "Déplacements immersion",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "Saut droit PMT",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "Gréage",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "Mise en sécu surface",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "Vitesse de remontée",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Gestion de son matériel",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Remonté expi controlée",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Signes",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Vitesse de remontée",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "360°",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Palmage",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "DBN",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Mise en sécu surface",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Gestion du gilet",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Gréage",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Déplacements immersion",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Sortie de l'eau",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "VDM",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Soin au materiel",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Saut droit PMT",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Phoque",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "VDM partiel",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Dégréage",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Poumon Ballast",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      }
+    ]
   }
 ]
