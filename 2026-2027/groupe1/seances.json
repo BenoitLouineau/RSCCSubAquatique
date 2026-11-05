@@ -2492,5 +2492,81 @@
         "commentaire_atelier": "Aucun commentaire"
       }
     ]
+  },
+  {
+    "id": "2026-11-03_veronique",
+    "date_seance": "2026-11-03",
+    "moniteur": "Véronique",
+    "nb_eleves": 1,
+    "eleves": [
+      "Catherine"
+    ],
+    "ateliers_traites": [
+      "Dégréage",
+      "Déplacements immersion",
+      "Gestion de son matériel",
+      "Gréage",
+      "Saut droit PMT",
+      "VDM partiel"
+    ],
+    "nb_comptes_rendus": 8,
+    "comptes_rendus": [
+      {
+        "eleve": "Catherine",
+        "atelier": "Gréage",
+        "note": 2.0,
+        "commentaire": "4eme séance pour Catherine. Encore hésitante",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Gestion de son matériel",
+        "note": 3.0,
+        "commentaire": "En fin de plongée, ok",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Gréage",
+        "note": 2.0,
+        "commentaire": "3eme séance pour Catherine. Difficile pour elle de gérer plusieurs choses à la fois encore. Vasalva et purge pour la descente par exemple. Équilibre au fond à consolider. Se laisse entraîner par son bloc. Froid assez rapidement. Du stress pour faire le mieux possible. Accompagnement tranquille pour la rassurer.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "VDM partiel",
+        "note": 3.0,
+        "commentaire": "3eme séance pour Catherine. Difficile pour elle de gérer plusieurs choses à la fois encore. Vasalva et purge pour la descente par exemple. Équilibre au fond à consolider. Se laisse entraîner par son bloc. Froid assez rapidement. Du stress pour faire le mieux possible. Accompagnement tranquille pour la rassurer.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Dégréage",
+        "note": 2.0,
+        "commentaire": "3eme séance pour Catherine. Difficile pour elle de gérer plusieurs choses à la fois encore. Vasalva et purge pour la descente par exemple. Équilibre au fond à consolider. Se laisse entraîner par son bloc. Froid assez rapidement. Du stress pour faire le mieux possible. Accompagnement tranquille pour la rassurer.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Déplacements immersion",
+        "note": 2.0,
+        "commentaire": "3eme séance pour Catherine. Difficile pour elle de gérer plusieurs choses à la fois encore. Vasalva et purge pour la descente par exemple. Équilibre au fond à consolider. Se laisse entraîner par son bloc. Froid assez rapidement. Du stress pour faire le mieux possible. Accompagnement tranquille pour la rassurer.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Saut droit PMT",
+        "note": 2.0,
+        "commentaire": "3eme séance pour Catherine. Difficile pour elle de gérer plusieurs choses à la fois encore. Vasalva et purge pour la descente par exemple. Équilibre au fond à consolider. Se laisse entraîner par son bloc. Froid assez rapidement. Du stress pour faire le mieux possible. Accompagnement tranquille pour la rassurer.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Gestion de son matériel",
+        "note": 2.0,
+        "commentaire": "3eme séance pour Catherine. Difficile pour elle de gérer plusieurs choses à la fois encore. Vasalva et purge pour la descente par exemple. Équilibre au fond à consolider. Se laisse entraîner par son bloc. Froid assez rapidement. Du stress pour faire le mieux possible. Accompagnement tranquille pour la rassurer.",
+        "commentaire_atelier": "Aucun commentaire"
+      }
+    ]
   }
 ]
