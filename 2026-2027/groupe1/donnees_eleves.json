@@ -2798,5 +2798,85 @@
     "moniteur": "Virginie",
     "presence": "Présent",
     "statut": "Acquis"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-11-03",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-11-03",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-11-03",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "VDM partiel",
+    "competence": "VDM partiel",
+    "date": "2026-11-03",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Dégréage",
+    "competence": "Dégréage",
+    "date": "2026-11-03",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Déplacements immersion",
+    "competence": "Déplacements immersion",
+    "date": "2026-11-03",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Saut droit PMT",
+    "competence": "Saut droit PMT",
+    "date": "2026-11-03",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-11-03",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
   }
 ]
