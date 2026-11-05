@@ -1,9 +1,9 @@
 {
-  "date_generation": "2026-11-05T07:27:49",
+  "date_generation": "2026-11-05T21:40:04",
   "nb_eleves": 12,
   "nb_moniteurs": 10,
-  "nb_seances": 24,
-  "nb_comptes_rendus": 280,
+  "nb_seances": 25,
+  "nb_comptes_rendus": 288,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
@@ -12,8 +12,8 @@
   "acquisition_par_atelier": [
     {
       "atelier": "Gréage",
-      "nb_evaluations": 35,
-      "moyenne": 2.89,
+      "nb_evaluations": 37,
+      "moyenne": 2.84,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -21,8 +21,8 @@
     },
     {
       "atelier": "Dégréage",
-      "nb_evaluations": 28,
-      "moyenne": 3.14,
+      "nb_evaluations": 29,
+      "moyenne": 3.1,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -39,7 +39,7 @@
     },
     {
       "atelier": "VDM partiel",
-      "nb_evaluations": 23,
+      "nb_evaluations": 24,
       "moyenne": 3.0,
       "note_min": 1.0,
       "note_max": 4.0,
@@ -48,27 +48,27 @@
     },
     {
       "atelier": "Gestion de son matériel",
-      "nb_evaluations": 21,
-      "moyenne": 2.95,
+      "nb_evaluations": 23,
+      "moyenne": 2.91,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
     },
     {
-      "atelier": "Poumon Ballast",
+      "atelier": "Déplacements immersion",
       "nb_evaluations": 16,
-      "moyenne": 2.75,
-      "note_min": 2.0,
+      "moyenne": 2.38,
+      "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "Déplacements immersion",
-      "nb_evaluations": 15,
-      "moyenne": 2.4,
-      "note_min": 1.0,
+      "atelier": "Poumon Ballast",
+      "nb_evaluations": 16,
+      "moyenne": 2.75,
+      "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": false
@@ -81,6 +81,15 @@
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Saut droit PMT",
+      "nb_evaluations": 14,
+      "moyenne": 2.93,
+      "note_min": 2.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": false
     },
     {
       "atelier": "Sortie de l'eau",
@@ -99,15 +108,6 @@
       "note_max": 3.0,
       "notable": true,
       "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Saut droit PMT",
-      "nb_evaluations": 13,
-      "moyenne": 3.0,
-      "note_min": 2.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": false
     },
     {
       "atelier": "Mise en sécu surface",
@@ -205,8 +205,8 @@
     },
     {
       "eleve": "Catherine",
-      "nb_ateliers_evalues": 7,
-      "moyenne_generale": 2.86
+      "nb_ateliers_evalues": 9,
+      "moyenne_generale": 2.44
     },
     {
       "eleve": "Guillaume",
@@ -252,6 +252,21 @@
       "Catherine"
     ],
     "ateliers_hors_referentiel": [],
-    "comptes_rendus_doublons": []
+    "comptes_rendus_doublons": [
+      {
+        "date_seance": "2026-11-03",
+        "moniteur": "Véronique",
+        "eleve": "Catherine",
+        "atelier": "Gréage",
+        "occurrences": 2
+      },
+      {
+        "date_seance": "2026-11-03",
+        "moniteur": "Véronique",
+        "eleve": "Catherine",
+        "atelier": "Gestion de son matériel",
+        "occurrences": 2
+      }
+    ]
   }
 }
