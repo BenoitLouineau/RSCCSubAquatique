@@ -163,10 +163,11 @@
   {
     "id": "veronique",
     "nom": "Véronique",
-    "nb_seances_animees": 2,
+    "nb_seances_animees": 3,
     "dates_seances": [
       "2026-10-13",
-      "2026-10-27"
+      "2026-10-27",
+      "2026-11-03"
     ],
     "nb_eleves_suivis": 3,
     "eleves_suivis": [
@@ -174,7 +175,7 @@
       "Camille",
       "Catherine"
     ],
-    "nb_comptes_rendus": 10,
-    "nb_evaluations_notees": 10
+    "nb_comptes_rendus": 18,
+    "nb_evaluations_notees": 18
   }
 ]
