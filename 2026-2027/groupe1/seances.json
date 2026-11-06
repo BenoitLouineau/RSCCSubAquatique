@@ -2084,6 +2084,52 @@
     ]
   },
   {
+    "id": "2026-11-03_catherine",
+    "date_seance": "2026-11-03",
+    "moniteur": "Catherine",
+    "nb_eleves": 1,
+    "eleves": [
+      "Patricia"
+    ],
+    "ateliers_traites": [
+      "DBN",
+      "Dégréage",
+      "Gréage",
+      "VDM partiel"
+    ],
+    "nb_comptes_rendus": 4,
+    "comptes_rendus": [
+      {
+        "eleve": "Patricia",
+        "atelier": "DBN",
+        "note": 3.0,
+        "commentaire": "Elle était contente de sa séance \nApprenante sympa et sans doute anxieuse de bien faire",
+        "commentaire_atelier": "J’ai refais les éducatifs de l’DBN \nTout s’est bien passé \nPour moi elle valide la DBN"
+      },
+      {
+        "eleve": "Patricia",
+        "atelier": "Dégréage",
+        "note": 2.0,
+        "commentaire": "Elle était contente de sa séance \nApprenante sympa et sans doute anxieuse de bien faire",
+        "commentaire_atelier": "Pour Gréage / Dégréage encore besoin de conseils mais c’est en cours d’acquisition"
+      },
+      {
+        "eleve": "Patricia",
+        "atelier": "VDM partiel",
+        "note": 2.0,
+        "commentaire": "Elle était contente de sa séance \nApprenante sympa et sans doute anxieuse de bien faire",
+        "commentaire_atelier": "On a même fait un VDM qui s’est bien passé et à refaire"
+      },
+      {
+        "eleve": "Patricia",
+        "atelier": "Gréage",
+        "note": 2.0,
+        "commentaire": "Elle était contente de sa séance \nApprenante sympa et sans doute anxieuse de bien faire",
+        "commentaire_atelier": "Pour Gréage / Dégréage encore besoin de conseils mais c’est en cours d’acquisition"
+      }
+    ]
+  },
+  {
     "id": "2026-11-03_nicos",
     "date_seance": "2026-11-03",
     "moniteur": "Nicos",
