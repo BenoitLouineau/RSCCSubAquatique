@@ -2509,28 +2509,21 @@
       "Saut droit PMT",
       "VDM partiel"
     ],
-    "nb_comptes_rendus": 8,
+    "nb_comptes_rendus": 6,
     "comptes_rendus": [
       {
         "eleve": "Catherine",
         "atelier": "Gréage",
         "note": 2.0,
-        "commentaire": "4eme séance pour Catherine. Encore hésitante",
-        "commentaire_atelier": "Aucun commentaire"
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "4eme séance pour Catherine. Encore hésitante"
       },
       {
         "eleve": "Catherine",
         "atelier": "Gestion de son matériel",
         "note": 3.0,
-        "commentaire": "En fin de plongée, ok",
-        "commentaire_atelier": "Aucun commentaire"
-      },
-      {
-        "eleve": "Catherine",
-        "atelier": "Gréage",
-        "note": 2.0,
-        "commentaire": "3eme séance pour Catherine. Difficile pour elle de gérer plusieurs choses à la fois encore. Vasalva et purge pour la descente par exemple. Équilibre au fond à consolider. Se laisse entraîner par son bloc. Froid assez rapidement. Du stress pour faire le mieux possible. Accompagnement tranquille pour la rassurer.",
-        "commentaire_atelier": "Aucun commentaire"
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "En fin de plongée, ok"
       },
       {
         "eleve": "Catherine",
@@ -2556,13 +2549,6 @@
       {
         "eleve": "Catherine",
         "atelier": "Saut droit PMT",
-        "note": 2.0,
-        "commentaire": "3eme séance pour Catherine. Difficile pour elle de gérer plusieurs choses à la fois encore. Vasalva et purge pour la descente par exemple. Équilibre au fond à consolider. Se laisse entraîner par son bloc. Froid assez rapidement. Du stress pour faire le mieux possible. Accompagnement tranquille pour la rassurer.",
-        "commentaire_atelier": "Aucun commentaire"
-      },
-      {
-        "eleve": "Catherine",
-        "atelier": "Gestion de son matériel",
         "note": 2.0,
         "commentaire": "3eme séance pour Catherine. Difficile pour elle de gérer plusieurs choses à la fois encore. Vasalva et purge pour la descente par exemple. Équilibre au fond à consolider. Se laisse entraîner par son bloc. Froid assez rapidement. Du stress pour faire le mieux possible. Accompagnement tranquille pour la rassurer.",
         "commentaire_atelier": "Aucun commentaire"
