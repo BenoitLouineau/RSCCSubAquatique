@@ -1,9 +1,9 @@
 {
-  "date_generation": "2026-11-06T05:52:14",
+  "date_generation": "2026-11-06T05:56:43",
   "nb_eleves": 12,
   "nb_moniteurs": 10,
   "nb_seances": 25,
-  "nb_comptes_rendus": 288,
+  "nb_comptes_rendus": 286,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
@@ -12,8 +12,8 @@
   "acquisition_par_atelier": [
     {
       "atelier": "Gréage",
-      "nb_evaluations": 37,
-      "moyenne": 2.84,
+      "nb_evaluations": 36,
+      "moyenne": 2.86,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -48,8 +48,8 @@
     },
     {
       "atelier": "Gestion de son matériel",
-      "nb_evaluations": 23,
-      "moyenne": 2.91,
+      "nb_evaluations": 22,
+      "moyenne": 2.95,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -206,7 +206,7 @@
     {
       "eleve": "Catherine",
       "nb_ateliers_evalues": 9,
-      "moyenne_generale": 2.44
+      "moyenne_generale": 2.56
     },
     {
       "eleve": "Guillaume",
@@ -252,21 +252,6 @@
       "Catherine"
     ],
     "ateliers_hors_referentiel": [],
-    "comptes_rendus_doublons": [
-      {
-        "date_seance": "2026-11-03",
-        "moniteur": "Véronique",
-        "eleve": "Catherine",
-        "atelier": "Gréage",
-        "occurrences": 2
-      },
-      {
-        "date_seance": "2026-11-03",
-        "moniteur": "Véronique",
-        "eleve": "Catherine",
-        "atelier": "Gestion de son matériel",
-        "occurrences": 2
-      }
-    ]
+    "comptes_rendus_doublons": []
   }
 }
