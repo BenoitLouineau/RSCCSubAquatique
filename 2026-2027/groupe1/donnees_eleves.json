@@ -2858,5 +2858,45 @@
     "moniteur": "Véronique",
     "presence": "Présent",
     "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-11-03",
+    "moniteur": "Catherine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "Dégréage",
+    "competence": "Dégréage",
+    "date": "2026-11-03",
+    "moniteur": "Catherine",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "VDM partiel",
+    "competence": "VDM partiel",
+    "date": "2026-11-03",
+    "moniteur": "Catherine",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-11-03",
+    "moniteur": "Catherine",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
   }
 ]
