@@ -1,9 +1,9 @@
 {
-  "date_generation": "2026-11-06T19:00:52",
+  "date_generation": "2026-11-06T19:16:17",
   "nb_eleves": 12,
   "nb_moniteurs": 10,
-  "nb_seances": 25,
-  "nb_comptes_rendus": 286,
+  "nb_seances": 26,
+  "nb_comptes_rendus": 290,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
@@ -12,8 +12,8 @@
   "acquisition_par_atelier": [
     {
       "atelier": "Gréage",
-      "nb_evaluations": 36,
-      "moyenne": 2.86,
+      "nb_evaluations": 37,
+      "moyenne": 2.84,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -21,8 +21,8 @@
     },
     {
       "atelier": "Dégréage",
-      "nb_evaluations": 29,
-      "moyenne": 3.1,
+      "nb_evaluations": 30,
+      "moyenne": 3.07,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -30,8 +30,8 @@
     },
     {
       "atelier": "DBN",
-      "nb_evaluations": 26,
-      "moyenne": 3.5,
+      "nb_evaluations": 27,
+      "moyenne": 3.48,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -39,8 +39,8 @@
     },
     {
       "atelier": "VDM partiel",
-      "nb_evaluations": 24,
-      "moyenne": 3.0,
+      "nb_evaluations": 25,
+      "moyenne": 2.96,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -248,9 +248,7 @@
     "eleves_hors_referentiel": [],
     "eleves_referentiel_jamais_vus": [],
     "moniteurs_hors_referentiel": [],
-    "moniteurs_referentiel_jamais_actifs": [
-      "Catherine"
-    ],
+    "moniteurs_referentiel_jamais_actifs": [],
     "ateliers_hors_referentiel": [],
     "comptes_rendus_doublons": []
   }
