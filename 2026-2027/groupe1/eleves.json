@@ -4515,24 +4515,26 @@
     "id": "patricia",
     "nom": "Patricia",
     "caci": true,
-    "nb_seances": 4,
+    "nb_seances": 5,
     "dates_seances": [
       "2026-09-29",
       "2026-10-06",
       "2026-10-13",
-      "2026-10-27"
+      "2026-10-27",
+      "2026-11-03"
     ],
     "moniteurs": [
       "Benoit L",
       "Benoit P",
+      "Catherine",
       "Nicos"
     ],
     "nb_competences_travaillees": 12,
     "competences": {
       "Gréage": {
-        "nb_evaluations": 3,
-        "derniere_note": 4.0,
-        "moyenne_notes": 3.33,
+        "nb_evaluations": 4,
+        "derniere_note": 2.0,
+        "moyenne_notes": 3.0,
         "historique": [
           {
             "date": "2026-09-29",
@@ -4548,6 +4550,11 @@
             "date": "2026-10-27",
             "note": 4.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 2.0,
+            "moniteur": "Catherine"
           }
         ]
       },
@@ -4564,9 +4571,9 @@
         ]
       },
       "Dégréage": {
-        "nb_evaluations": 2,
-        "derniere_note": 3.0,
-        "moyenne_notes": 2.5,
+        "nb_evaluations": 3,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.33,
         "historique": [
           {
             "date": "2026-10-06",
@@ -4577,6 +4584,11 @@
             "date": "2026-10-27",
             "note": 3.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 2.0,
+            "moniteur": "Catherine"
           }
         ]
       },
@@ -4605,9 +4617,9 @@
         ]
       },
       "DBN": {
-        "nb_evaluations": 3,
-        "derniere_note": 1.0,
-        "moyenne_notes": 2.0,
+        "nb_evaluations": 4,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.25,
         "historique": [
           {
             "date": "2026-10-06",
@@ -4623,13 +4635,18 @@
             "date": "2026-10-27",
             "note": 1.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 3.0,
+            "moniteur": "Catherine"
           }
         ]
       },
       "VDM partiel": {
-        "nb_evaluations": 2,
-        "derniere_note": 1.0,
-        "moyenne_notes": 1.0,
+        "nb_evaluations": 3,
+        "derniere_note": 2.0,
+        "moyenne_notes": 1.33,
         "historique": [
           {
             "date": "2026-10-13",
@@ -4640,6 +4657,11 @@
             "date": "2026-10-27",
             "note": 1.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 2.0,
+            "moniteur": "Catherine"
           }
         ]
       },
@@ -4830,6 +4852,34 @@
         "atelier": "DBN",
         "commentaire": "Soirée difficile pour Patricia qui semble rester bloquée sur cette compétence et se met trop la pression pour bien faire.\nUne approche différente doit être étudiée et mise en place pour la suite de sa formation",
         "commentaire_atelier": "N'arrive pas à discerner la gestion de la respiration inspiration expiration par la bouche"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Catherine",
+        "atelier": "DBN",
+        "commentaire": "Elle était contente de sa séance \nApprenante sympa et sans doute anxieuse de bien faire",
+        "commentaire_atelier": "J’ai refais les éducatifs de l’DBN \nTout s’est bien passé \nPour moi elle valide la DBN"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Catherine",
+        "atelier": "Dégréage",
+        "commentaire": "Elle était contente de sa séance \nApprenante sympa et sans doute anxieuse de bien faire",
+        "commentaire_atelier": "Pour Gréage / Dégréage encore besoin de conseils mais c’est en cours d’acquisition"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Catherine",
+        "atelier": "VDM partiel",
+        "commentaire": "Elle était contente de sa séance \nApprenante sympa et sans doute anxieuse de bien faire",
+        "commentaire_atelier": "On a même fait un VDM qui s’est bien passé et à refaire"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Catherine",
+        "atelier": "Gréage",
+        "commentaire": "Elle était contente de sa séance \nApprenante sympa et sans doute anxieuse de bien faire",
+        "commentaire_atelier": "Pour Gréage / Dégréage encore besoin de conseils mais c’est en cours d’acquisition"
       }
     ]
   }
