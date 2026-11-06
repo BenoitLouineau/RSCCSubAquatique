@@ -2856,14 +2856,16 @@
     "id": "kevin-f",
     "nom": "Kevin F",
     "caci": true,
-    "nb_seances": 1,
+    "nb_seances": 2,
     "dates_seances": [
-      "2026-10-27"
+      "2026-10-27",
+      "2026-11-03"
     ],
     "moniteurs": [
-      "Benoit P"
+      "Benoit P",
+      "Christophe"
     ],
-    "nb_competences_travaillees": 14,
+    "nb_competences_travaillees": 16,
     "competences": {
       "Gestion du gilet": {
         "nb_evaluations": 1,
@@ -2890,7 +2892,7 @@
         ]
       },
       "360°": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 2.0,
         "moyenne_notes": 2.0,
         "historique": [
@@ -2898,18 +2900,28 @@
             "date": "2026-10-27",
             "note": 2.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 2.0,
+            "moniteur": "Christophe"
           }
         ]
       },
       "Déplacements immersion": {
-        "nb_evaluations": 1,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.0,
+        "nb_evaluations": 2,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.5,
         "historique": [
           {
             "date": "2026-10-27",
             "note": 2.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 3.0,
+            "moniteur": "Christophe"
           }
         ]
       },
@@ -2938,7 +2950,7 @@
         ]
       },
       "Signes": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 2.0,
         "moyenne_notes": 2.0,
         "historique": [
@@ -2946,42 +2958,62 @@
             "date": "2026-10-27",
             "note": 2.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 2.0,
+            "moniteur": "Christophe"
           }
         ]
       },
       "Saut droit PMT": {
-        "nb_evaluations": 1,
-        "derniere_note": 4.0,
-        "moyenne_notes": 4.0,
+        "nb_evaluations": 2,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.5,
         "historique": [
           {
             "date": "2026-10-27",
             "note": 4.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 3.0,
+            "moniteur": "Christophe"
           }
         ]
       },
       "Poumon Ballast": {
-        "nb_evaluations": 1,
-        "derniere_note": 3.0,
-        "moyenne_notes": 3.0,
+        "nb_evaluations": 2,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.5,
         "historique": [
           {
             "date": "2026-10-27",
             "note": 3.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 2.0,
+            "moniteur": "Christophe"
           }
         ]
       },
       "VDM partiel": {
-        "nb_evaluations": 1,
-        "derniere_note": 4.0,
-        "moyenne_notes": 4.0,
+        "nb_evaluations": 2,
+        "derniere_note": 2.0,
+        "moyenne_notes": 3.0,
         "historique": [
           {
             "date": "2026-10-27",
             "note": 4.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 2.0,
+            "moniteur": "Christophe"
           }
         ]
       },
@@ -2998,7 +3030,7 @@
         ]
       },
       "Dégréage": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
         "historique": [
@@ -3006,30 +3038,69 @@
             "date": "2026-10-27",
             "note": 3.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 3.0,
+            "moniteur": "Christophe"
           }
         ]
       },
       "Gréage": {
-        "nb_evaluations": 1,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.0,
+        "nb_evaluations": 2,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.5,
         "historique": [
           {
             "date": "2026-10-27",
             "note": 2.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 3.0,
+            "moniteur": "Christophe"
           }
         ]
       },
       "DBN": {
-        "nb_evaluations": 1,
-        "derniere_note": 4.0,
-        "moyenne_notes": 4.0,
+        "nb_evaluations": 2,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.5,
         "historique": [
           {
             "date": "2026-10-27",
             "note": 4.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 3.0,
+            "moniteur": "Christophe"
+          }
+        ]
+      },
+      "Palmage": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-11-03",
+            "note": 3.0,
+            "moniteur": "Christophe"
+          }
+        ]
+      },
+      "Gestion de son matériel": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-11-03",
+            "note": 3.0,
+            "moniteur": "Christophe"
           }
         ]
       }
@@ -3131,6 +3202,83 @@
         "moniteur": "Benoit P",
         "atelier": "DBN",
         "commentaire": "Prochaine fois VDM a refaire : il reussi mais on sent qu'il a besoin de bcp de concentration. Seul la répétition le mettra a l'aise.\nAttention a la descente, il est un peu trop agressif sur la purge lente.il faut qu'il comprenne l'inertie.\nHonnêtement le programme était balaise mais il etait volontaire et a l'aise.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Christophe",
+        "atelier": "Déplacements immersion",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Christophe",
+        "atelier": "DBN",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Christophe",
+        "atelier": "Gréage",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Christophe",
+        "atelier": "Dégréage",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Christophe",
+        "atelier": "Signes",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Christophe",
+        "atelier": "Saut droit PMT",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Christophe",
+        "atelier": "Palmage",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Christophe",
+        "atelier": "VDM partiel",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Christophe",
+        "atelier": "Poumon Ballast",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Christophe",
+        "atelier": "Gestion de son matériel",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-03",
+        "moniteur": "Christophe",
+        "atelier": "360°",
+        "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
       }
     ]
