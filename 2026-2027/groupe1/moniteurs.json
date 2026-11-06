@@ -87,12 +87,16 @@
   {
     "id": "catherine",
     "nom": "Catherine",
-    "nb_seances_animees": 0,
-    "dates_seances": [],
-    "nb_eleves_suivis": 0,
-    "eleves_suivis": [],
-    "nb_comptes_rendus": 0,
-    "nb_evaluations_notees": 0
+    "nb_seances_animees": 1,
+    "dates_seances": [
+      "2026-11-03"
+    ],
+    "nb_eleves_suivis": 1,
+    "eleves_suivis": [
+      "Patricia"
+    ],
+    "nb_comptes_rendus": 4,
+    "nb_evaluations_notees": 4
   },
   {
     "id": "christophe",
