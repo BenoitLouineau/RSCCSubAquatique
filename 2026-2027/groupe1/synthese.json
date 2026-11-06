@@ -1,9 +1,9 @@
 {
-  "date_generation": "2026-11-06T19:20:48",
+  "date_generation": "2026-11-06T19:40:48",
   "nb_eleves": 12,
   "nb_moniteurs": 10,
-  "nb_seances": 26,
-  "nb_comptes_rendus": 290,
+  "nb_seances": 27,
+  "nb_comptes_rendus": 301,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
@@ -12,7 +12,7 @@
   "acquisition_par_atelier": [
     {
       "atelier": "Gréage",
-      "nb_evaluations": 37,
+      "nb_evaluations": 38,
       "moyenne": 2.84,
       "note_min": 1.0,
       "note_max": 4.0,
@@ -21,8 +21,8 @@
     },
     {
       "atelier": "Dégréage",
-      "nb_evaluations": 30,
-      "moyenne": 3.07,
+      "nb_evaluations": 31,
+      "moyenne": 3.06,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -30,8 +30,8 @@
     },
     {
       "atelier": "DBN",
-      "nb_evaluations": 27,
-      "moyenne": 3.48,
+      "nb_evaluations": 28,
+      "moyenne": 3.46,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -39,8 +39,8 @@
     },
     {
       "atelier": "VDM partiel",
-      "nb_evaluations": 25,
-      "moyenne": 2.96,
+      "nb_evaluations": 26,
+      "moyenne": 2.92,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -48,8 +48,8 @@
     },
     {
       "atelier": "Gestion de son matériel",
-      "nb_evaluations": 22,
-      "moyenne": 2.95,
+      "nb_evaluations": 23,
+      "moyenne": 2.96,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -57,8 +57,8 @@
     },
     {
       "atelier": "Déplacements immersion",
-      "nb_evaluations": 16,
-      "moyenne": 2.38,
+      "nb_evaluations": 17,
+      "moyenne": 2.41,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -66,8 +66,17 @@
     },
     {
       "atelier": "Poumon Ballast",
-      "nb_evaluations": 16,
-      "moyenne": 2.75,
+      "nb_evaluations": 17,
+      "moyenne": 2.71,
+      "note_min": 2.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "Saut droit PMT",
+      "nb_evaluations": 15,
+      "moyenne": 2.93,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -81,15 +90,6 @@
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Saut droit PMT",
-      "nb_evaluations": 14,
-      "moyenne": 2.93,
-      "note_min": 2.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": false
     },
     {
       "atelier": "Sortie de l'eau",
@@ -129,8 +129,8 @@
     },
     {
       "atelier": "Signes",
-      "nb_evaluations": 9,
-      "moyenne": 3.0,
+      "nb_evaluations": 10,
+      "moyenne": 2.9,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -138,8 +138,8 @@
     },
     {
       "atelier": "Palmage",
-      "nb_evaluations": 8,
-      "moyenne": 1.75,
+      "nb_evaluations": 9,
+      "moyenne": 1.89,
       "note_min": 1.0,
       "note_max": 3.0,
       "notable": true,
@@ -147,8 +147,8 @@
     },
     {
       "atelier": "360°",
-      "nb_evaluations": 7,
-      "moyenne": 2.43,
+      "nb_evaluations": 8,
+      "moyenne": 2.38,
       "note_min": 2.0,
       "note_max": 3.0,
       "notable": true,
@@ -220,8 +220,8 @@
     },
     {
       "eleve": "Kevin F",
-      "nb_ateliers_evalues": 14,
-      "moyenne_generale": 2.79
+      "nb_ateliers_evalues": 16,
+      "moyenne_generale": 2.62
     },
     {
       "eleve": "Kévin D",
