@@ -1708,9 +1708,9 @@
     "nb_competences_travaillees": 9,
     "competences": {
       "Gestion de son matériel": {
-        "nb_evaluations": 4,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.5,
+        "nb_evaluations": 3,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.67,
         "historique": [
           {
             "date": "2026-10-06",
@@ -1725,11 +1725,6 @@
           {
             "date": "2026-11-03",
             "note": 3.0,
-            "moniteur": "Véronique"
-          },
-          {
-            "date": "2026-11-03",
-            "note": 2.0,
             "moniteur": "Véronique"
           }
         ]
@@ -1752,7 +1747,7 @@
         ]
       },
       "Gréage": {
-        "nb_evaluations": 4,
+        "nb_evaluations": 3,
         "derniere_note": 2.0,
         "moyenne_notes": 2.0,
         "historique": [
@@ -1763,11 +1758,6 @@
           },
           {
             "date": "2026-10-13",
-            "note": 2.0,
-            "moniteur": "Véronique"
-          },
-          {
-            "date": "2026-11-03",
             "note": 2.0,
             "moniteur": "Véronique"
           },
@@ -1936,22 +1926,15 @@
         "date": "2026-11-03",
         "moniteur": "Véronique",
         "atelier": "Gréage",
-        "commentaire": "4eme séance pour Catherine. Encore hésitante",
-        "commentaire_atelier": "Aucun commentaire"
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "4eme séance pour Catherine. Encore hésitante"
       },
       {
         "date": "2026-11-03",
         "moniteur": "Véronique",
         "atelier": "Gestion de son matériel",
-        "commentaire": "En fin de plongée, ok",
-        "commentaire_atelier": "Aucun commentaire"
-      },
-      {
-        "date": "2026-11-03",
-        "moniteur": "Véronique",
-        "atelier": "Gréage",
-        "commentaire": "3eme séance pour Catherine. Difficile pour elle de gérer plusieurs choses à la fois encore. Vasalva et purge pour la descente par exemple. Équilibre au fond à consolider. Se laisse entraîner par son bloc. Froid assez rapidement. Du stress pour faire le mieux possible. Accompagnement tranquille pour la rassurer.",
-        "commentaire_atelier": "Aucun commentaire"
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "En fin de plongée, ok"
       },
       {
         "date": "2026-11-03",
@@ -1978,13 +1961,6 @@
         "date": "2026-11-03",
         "moniteur": "Véronique",
         "atelier": "Saut droit PMT",
-        "commentaire": "3eme séance pour Catherine. Difficile pour elle de gérer plusieurs choses à la fois encore. Vasalva et purge pour la descente par exemple. Équilibre au fond à consolider. Se laisse entraîner par son bloc. Froid assez rapidement. Du stress pour faire le mieux possible. Accompagnement tranquille pour la rassurer.",
-        "commentaire_atelier": "Aucun commentaire"
-      },
-      {
-        "date": "2026-11-03",
-        "moniteur": "Véronique",
-        "atelier": "Gestion de son matériel",
         "commentaire": "3eme séance pour Catherine. Difficile pour elle de gérer plusieurs choses à la fois encore. Vasalva et purge pour la descente par exemple. Équilibre au fond à consolider. Se laisse entraîner par son bloc. Froid assez rapidement. Du stress pour faire le mieux possible. Accompagnement tranquille pour la rassurer.",
         "commentaire_atelier": "Aucun commentaire"
       }
