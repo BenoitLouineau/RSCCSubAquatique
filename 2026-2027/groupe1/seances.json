@@ -2130,6 +2130,108 @@
     ]
   },
   {
+    "id": "2026-11-03_christophe",
+    "date_seance": "2026-11-03",
+    "moniteur": "Christophe",
+    "nb_eleves": 1,
+    "eleves": [
+      "Kevin F"
+    ],
+    "ateliers_traites": [
+      "360°",
+      "DBN",
+      "Dégréage",
+      "Déplacements immersion",
+      "Gestion de son matériel",
+      "Gréage",
+      "Palmage",
+      "Poumon Ballast",
+      "Saut droit PMT",
+      "Signes",
+      "VDM partiel"
+    ],
+    "nb_comptes_rendus": 11,
+    "comptes_rendus": [
+      {
+        "eleve": "Kevin F",
+        "atelier": "Déplacements immersion",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kevin F",
+        "atelier": "DBN",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kevin F",
+        "atelier": "Gréage",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kevin F",
+        "atelier": "Dégréage",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kevin F",
+        "atelier": "Signes",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kevin F",
+        "atelier": "Saut droit PMT",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kevin F",
+        "atelier": "Palmage",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kevin F",
+        "atelier": "VDM partiel",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kevin F",
+        "atelier": "Poumon Ballast",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kevin F",
+        "atelier": "Gestion de son matériel",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kevin F",
+        "atelier": "360°",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      }
+    ]
+  },
+  {
     "id": "2026-11-03_nicos",
     "date_seance": "2026-11-03",
     "moniteur": "Nicos",
