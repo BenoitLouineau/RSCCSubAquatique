@@ -575,6 +575,19 @@ table.synthese thead th.sticky-col { z-index: 4; }
 .legend-row.legend-fiche { margin: 12px 0 6px; font-size: 11.5px; gap: 10px; }
 .carnet-btn { font-weight: 700; }
 .carnet-opt { display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; cursor: pointer; }
+.palmares-toolbar { display: flex; justify-content: flex-end; margin-bottom: 12px; }
+.pal-exp-titre { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: var(--muted); margin: 12px 0 6px; }
+.pal-exp-radios { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.pal-exp-radio { display: flex; gap: 8px; align-items: flex-start; padding: 8px 10px; border: 1px solid var(--border); border-radius: 10px; cursor: pointer; }
+.pal-exp-radio:has(input:checked) { border-color: var(--accent2); background: rgba(34, 211, 238, .08); }
+.pal-exp-radio span { display: flex; flex-direction: column; font-size: 13px; }
+.pal-exp-radio small { color: var(--muted); font-size: 11.5px; }
+.pal-exp-sec { margin: 6px 0; }
+.pal-exp-sub { margin: 2px 0 8px 26px; }
+.pal-exp-sub .pal-exp-radio { padding: 6px 8px; }
+.pal-exp-tag { font-size: 10.5px; font-weight: 700; padding: 1px 7px; border-radius: 999px; background: rgba(245, 158, 11, .15); color: #f59e0b; }
+.pal-exp-sec.disabled, .pal-exp-sub.disabled { opacity: .45; }
+@media (max-width: 520px) { .pal-exp-radios { grid-template-columns: 1fr; } }
 .carnet-go { background: var(--accent2) !important; color: #04262b !important; border-color: transparent !important; }
 .legend-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin: 4px 0 18px; font-size: 12px; color: var(--muted); }
 .legend-item { display: flex; align-items: center; gap: 6px; }
@@ -3270,7 +3283,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       'rscc_v2_bg_dark', 'rscc_v2_bg_light', 'rscc_v2_text_dark', 'rscc_v2_text_light',
       'rscc_v2_notif_breakpoint', 'rscc_v2_synth_sort', 'rscc_v2_synth_sort_memo',
       'rscc_v2_synth_sans_seance_fin', 'rscc_v2_moniteur_seances_range', 'rscc_v2_moniteur_seances_ateliers',
-      'rscc_v2_moniteur_seances_cr', 'rscc_v2_moniteur_seances_compact',
+      'rscc_v2_moniteur_seances_cr', 'rscc_v2_moniteur_seances_compact', 'rscc_v2_palmares_export',
     ];
     ALL_SETTINGS_LS_KEYS.forEach(function(key) { try { localStorage.removeItem(key); } catch (e) {} });
     window.location.reload();
@@ -8280,8 +8293,11 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       return;
     }
     el.innerHTML = '<div id="palmaresAnchor" style="scroll-margin-top:calc(var(--header-h) + 12px);"></div>' +
+      '<div class="palmares-toolbar"><button type="button" class="export-btn carnet-btn" id="btnPalmaresPdf" title="Palmarès complet au format A4 — imprimer ou enregistrer en PDF">📄 Exporter en PDF</button></div>' +
       buildPalmaresCollectifHtml() + buildMurLaureatsN1Html() + buildPalmaresIndividuelHtml() + buildPalmaresCompetitifHtml();
     wirePalmaresToggles();
+    const bPdf = $('#btnPalmaresPdf', el);
+    if (bPdf) bPdf.addEventListener('click', openPalmaresExportDialog);
   }
 
   // =====================================================================
@@ -8494,6 +8510,282 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         ' séance(s) encadrée(s) — la moitié des ' + (STATE.allDates || []).length + ' soirées de la saison.', computeClassementMoniteursCR()) +
       buildBadgesPaliersHtml() +
       buildBingoCompetencesHtml();
+  }
+
+  // =====================================================================
+  // EXPORT PDF DU PALMARÈS — même présentation que le carnet de progression (A4, en-tête club,
+  // sections numérotées, pied de page). Tout ce qui est replié ou au survol à l'écran est
+  // déplié dans le PDF : listes complètes des classements, bingo numéroté + légende, légende CACI.
+  // Deux versions : interne (équipe des moniteurs) ou élèves (affichage : sans CACI ni classement CR).
+  // =====================================================================
+  const LS_PALMARES_EXPORT = 'rscc_v2_palmares_export';
+  const PALMARES_EXPORT_SECTIONS = [
+    { k: 'records', label: '🏆 Records du groupe' },
+    { k: 'laureats', label: '🎓 Mur des lauréats N1' },
+    { k: 'tempsforts', label: '⭐ Temps forts de la saison' },
+    { k: 'classements', label: '🏁 Classements élèves (4)' },
+    { k: 'moniteurscr', label: '📋 Classement moniteurs — régularité CR', interne: true },
+    { k: 'badges', label: '🎖️ Badges de palier' },
+    { k: 'bingo', label: '🎲 Bingo des compétences' },
+  ];
+  function loadPalmaresExportOpts() {
+    const def = { version: 'interne', listes: 'completes', records: true, laureats: true, tempsforts: true, classements: true, moniteurscr: true, badges: true, bingo: true };
+    try { return Object.assign(def, JSON.parse(localStorage.getItem(LS_PALMARES_EXPORT) || '{}')); } catch (e) { return def; }
+  }
+  function savePalmaresExportOpts(o) { try { localStorage.setItem(LS_PALMARES_EXPORT, JSON.stringify(o)); } catch (e) {} }
+
+  /** Transforme une carte HTML de l'écran en bloc imprimable : titre → h4, tout déplié. */
+  function palPdfFromScreen(html, opts, titreNiveau) {
+    const box = document.createElement('div');
+    box.innerHTML = html;
+    box.querySelectorAll('[data-ranking-toggle], [data-bingo-toggle]').forEach(b => b.remove());
+    box.querySelectorAll('.hidden').forEach(x => x.classList.remove('hidden'));
+    if (opts.listes === 'podiums') box.querySelectorAll('.ranking-full-list').forEach(x => x.remove());
+    box.querySelectorAll('.ranking-full-list').forEach(function(x) {
+      x.insertAdjacentHTML('beforebegin', '<div class="list-titre">Classement complet</div>');
+    });
+    if (opts.version === 'eleves') {
+      box.querySelectorAll('.caci-dot').forEach(x => x.remove());
+      box.querySelectorAll('.caci-ko').forEach(x => x.classList.remove('caci-ko'));
+      box.querySelectorAll('.trophy-card').forEach(function(c) {
+        const l = c.querySelector('.trophy-label');
+        if (l && /taux de retour CR/i.test(l.textContent)) c.remove();
+      });
+    }
+    box.querySelectorAll('[title]').forEach(x => x.removeAttribute('title'));
+    box.querySelectorAll('.cr-summary-card').forEach(function(card) {
+      const t = card.querySelector('.section-title');
+      if (t) { const h = document.createElement(titreNiveau || 'h4'); h.innerHTML = t.innerHTML; t.replaceWith(h); }
+      const st = card.querySelector('.section-subtitle');
+      if (st) st.className = 'sub';
+      card.className = 'pal-bloc';
+    });
+    return box.innerHTML;
+  }
+
+  function buildPalmaresBingoPdfHtml(opts) {
+    const esc = escapeHtml;
+    const pool = (STATE.referentiel || []).filter(c => c.actif && c.notable);
+    const names = buildDisplayNames(STATE.eleves || []);
+    const eligibles = (STATE.eleves || []).filter(e => (e.nb_seances || 0) > 0);
+    if (!pool.length || !eligibles.length) return '<p class="muted">Aucune donnée pour le bingo.</p>';
+    const rows = eligibles.map(function(e) {
+      const acq = new Set(Object.keys(e.competences || {}).filter(a => isCompetenceAcquiseFromHistorique(e.competences[a])));
+      const n = pool.filter(c => acq.has(c.nom)).length;
+      return { e: e, acq: acq, n: n };
+    }).sort((a, b) => b.n - a.n || String(names[a.e.id] || a.e.nom).localeCompare(String(names[b.e.id] || b.e.nom), 'fr'));
+    const blocs = rows.map(function(r) {
+      const pct = Math.round(r.n / pool.length * 100);
+      const nom = (hasBothExamsValidated(r.e.nom) ? '✅ ' : '') + esc(names[r.e.id] || r.e.nom) +
+        (opts.version === 'interne' && r.e.caci !== true ? ' <span class="caci-ko-pdf">!</span>' : '');
+      return '<div class="bingo-bloc"><div class="bingo-head"><strong>' + nom + '</strong><span>' + r.n + ' / ' + pool.length + ' (' + pct + ' %)</span></div>' +
+        '<div class="jauge"><span style="width:' + pct + '%"></span></div>' +
+        '<div class="bingo-cases">' + pool.map((c, i) => '<span class="bc' + (r.acq.has(c.nom) ? ' ok' : '') + '">' + (i + 1) + '</span>').join('') + '</div></div>';
+    }).join('');
+    const legende = '<div class="bingo-legende bloc"><div class="list-titre">Légende des cases</div>' +
+      '<div class="legende"><span><span class="bc ok mini">n°</span> compétence acquise</span><span><span class="bc mini">n°</span> pas encore acquise</span></div>' +
+      '<ol class="bingo-ol">' + pool.map(c => '<li>' + esc(c.nom) + '</li>').join('') + '</ol></div>';
+    return '<p class="sub">Une case par compétence notable du référentiel ; case verte = acquise (note ≥ ' + getSeuilCompetenceAcquise() + '). Élèves triés du plus avancé au moins avancé.</p>' +
+      '<div class="bingo-liste">' + blocs + '</div>' + legende;
+  }
+
+  function buildPalmaresPdfHtml(opts) {
+    const esc = escapeHtml;
+    const interne = opts.version === 'interne';
+    const s = STATE.synthese || {};
+    const gen = s.date_generation ? new Date(s.date_generation) : null;
+    const dateData = gen && !isNaN(gen) ? gen.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' }) : '—';
+    const today = new Date().toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' });
+    const logo = (document.querySelector('.brand-logo-light') || {}).src || '';
+    let num = 0;
+    // Les grandes sections (classements, bingo) commencent sur une nouvelle page : jamais de titre orphelin en bas de page
+    const section = (titre, corps, cls) => corps ? '<section class="pal-section' + (cls ? ' ' + cls : '') + '"><h3>' + (++num) + '. ' + titre + '</h3>' + corps + '</section>' : '';
+    const parts = [];
+    if (opts.records) parts.push(section('Records du groupe', palPdfFromScreen(buildPalmaresCollectifHtml(), opts).replace(/<h4>[\s\S]*?<\/h4>/, '')));
+    if (opts.laureats) {
+      const h = buildMurLaureatsN1Html();
+      parts.push(section('Mur des lauréats N1', h ? palPdfFromScreen(h, opts).replace(/<h4>[\s\S]*?<\/h4>/, '') : '<p class="muted">Aucun élève en cours de validation ou validé pour le moment.</p>'));
+    }
+    if (opts.tempsforts) {
+      const h = buildPalmaresIndividuelHtml();
+      if (h) parts.push(section('Temps forts de la saison', palPdfFromScreen(h, opts).replace(/<h4>[\s\S]*?<\/h4>/, '')));
+    }
+    if (opts.classements) {
+      parts.push(section('Classements élèves',
+        '<p class="sub">Seuil minimum : ' + CLASSEMENT_MIN_SEANCES + ' séances pour figurer dans un classement.' +
+          (opts.listes === 'podiums' ? ' Podiums seuls.' : ' Podium puis classement complet.') + '</p>' +
+        palPdfFromScreen(
+          buildClassementCardHtml('acquises', '🧩', 'Top compétences acquises', 'Nombre total de compétences validées (note ≥ ' + getSeuilCompetenceAcquise() + ').', computeClassementCompetencesAcquises()) +
+          buildClassementCardHtml('assiduite', '📅', 'Top assiduité', '% de présence sur l\'ensemble de la saison.', computeClassementAssiduite()) +
+          buildClassementCardHtml('progression', '🚀', 'Top progression récente', 'Compétences nouvellement acquises sur le trimestre en cours.', computeClassementProgressionRecente()) +
+          buildClassementCardHtml('efficacite', '⚡', 'Top efficacité', 'Compétences acquises par séance assistée — récompense la qualité, pas seulement le volume.', computeClassementEfficacite()),
+          opts), 'saut'));
+    }
+    if (opts.moniteurscr && interne) {
+      parts.push(section('Classement moniteurs — régularité CR', palPdfFromScreen(
+        buildClassementCardHtml('moniteurscr', '📋', 'Top moniteurs — régularité CR',
+          'Part des élèves encadrés ayant reçu un vrai commentaire écrit (« Aucun commentaire » ne compte pas). À égalité, le plus grand nombre d\'élèves commentés l\'emporte. ' +
+          'Podium à partir de ' + getMinSeancesPodiumCR() + ' séance(s) encadrée(s) — la moitié des ' + (STATE.allDates || []).length + ' soirées de la saison.',
+          computeClassementMoniteursCR()), opts).replace(/<h4>[\s\S]*?<\/h4>/, '')));
+    }
+    if (opts.badges) parts.push(section('Badges de palier', palPdfFromScreen(buildBadgesPaliersHtml(), opts).replace(/<h4>[\s\S]*?<\/h4>/, '') +
+      '<div class="legende">' + BADGE_TIERS_ACQUIS.concat([{ icon: '💯', label: '100 % de présence' }, { icon: '🔥', label: '3 séances ou plus d\'affilée' },
+        { icon: '🎓', label: 'N1 validé' }, { icon: '📘', label: 'N1 en cours (1/2)' }]).map(b => '<span>' + b.icon + ' ' + esc(b.label) + '</span>').join('') + '</div>'));
+    if (opts.bingo) parts.push(section('Bingo des compétences', buildPalmaresBingoPdfHtml(opts), 'saut'));
+
+    const legendeNoms = '<div class="legende legende-noms">' +
+      '<span><span class="exam-ok-mark">✅</span> N1 validé (2 examens)</span><span>🧭 chef de groupe</span>' +
+      (interne ? '<span><span class="caci-dot caci-dot-ok">✓</span> CACI valide</span><span><span class="caci-dot caci-dot-ko">!</span> CACI à fournir</span>' : '') + '</div>';
+
+    const versionLabel = interne ? 'Version interne — équipe des moniteurs' : 'Version élèves';
+    const css = `
+      @page { size: A4 portrait; margin: 14mm 13mm 16mm;
+        @bottom-left { content: "Palmarès de la saison — ${esc(CONFIG.GROUPE || '').replace(/"/g, '')} — RSCC Subaquatique"; font: 8pt system-ui, sans-serif; color: #64748b; }
+        @bottom-right { content: "Page " counter(page) " / " counter(pages); font: 8pt system-ui, sans-serif; color: #64748b; } }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: #fff; color: #0f172a; font: 10pt/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .page { max-width: 190mm; margin: 0 auto; padding: 8mm 0; }
+      .toolbar { position: sticky; top: 0; z-index: 5; display: flex; gap: 10px; align-items: center; justify-content: center; padding: 10px; background: #0f172a; color: #fff; font-size: 13px; flex-wrap: wrap; }
+      .toolbar button { font: inherit; font-weight: 700; padding: 7px 14px; border-radius: 8px; border: none; cursor: pointer; background: #22d3ee; color: #04262b; }
+      .toolbar .sec { background: transparent; color: #fff; border: 1px solid #475569; }
+      header.top { display: flex; align-items: center; gap: 14px; border-bottom: 3px solid #0e7490; padding-bottom: 10px; }
+      header.top img { height: 46px; }
+      .titre { flex: 1; } .titre h1 { margin: 0; font-size: 18pt; letter-spacing: -.01em; color: #0e7490; }
+      .titre .sous { font-size: 10pt; color: #334155; font-weight: 600; }
+      .meta { text-align: right; font-size: 8.5pt; color: #475569; line-height: 1.5; }
+      .version { display: inline-block; margin: 12px 0 2px; font-size: 8.5pt; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: ${interne ? '#fef3c7; color: #92400e' : '#dcfce7; color: #166534'}; }
+      h3 { font-size: 12pt; color: #0e7490; margin: 20px 0 8px; padding-bottom: 4px; border-bottom: 1px solid #cbd5e1; break-after: avoid; }
+      h4 { font-size: 10.5pt; margin: 14px 0 2px; color: #0f172a; break-after: avoid; }
+      .sub { font-size: 8.5pt; color: #64748b; margin: 0 0 8px; }
+      .muted { color: #94a3b8; }
+      .legende { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 8.5pt; color: #475569; margin: 8px 0 2px; }
+      .legende span { display: inline-flex; align-items: center; gap: 4px; }
+      .pal-bloc { break-inside: avoid; margin-bottom: 6px; }
+      .trophy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 6px 0 4px; }
+      .trophy-card { border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 10px; background: #f8fafc; break-inside: avoid; }
+      .trophy-icon { font-size: 16pt; line-height: 1.2; }
+      .trophy-value { font-size: 12pt; font-weight: 800; line-height: 1.25; }
+      .trophy-label { font-size: 8pt; color: #64748b; }
+      .trophy-detail { font-size: 8pt; color: #475569; margin-top: 2px; }
+      .trophy-empty { font-size: 9pt; color: #94a3b8; padding: 6px 0; }
+      .list-titre { font-size: 8pt; font-weight: 700; color: #0e7490; text-transform: uppercase; letter-spacing: .03em; margin: 8px 0 4px; }
+      .ranking-full-list { border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; }
+      .ranking-row { display: flex; align-items: center; gap: 10px; padding: 4px 10px; font-size: 9pt; border-top: 1px solid #e2e8f0; break-inside: avoid; }
+      .ranking-row:first-child { border-top: none; }
+      .ranking-row:nth-child(even) { background: #f8fafc; }
+      .ranking-row.hors-podium { color: #64748b; }
+      .ranking-rank { width: 24px; text-align: center; font-weight: 800; }
+      .ranking-name { flex: 1; font-weight: 600; }
+      .ranking-note { font-size: 8pt; font-weight: 400; color: #94a3b8; }
+      .ranking-value { font-size: 8.5pt; color: #475569; white-space: nowrap; }
+      .laureat-subtitle { font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: #64748b; margin: 10px 0 4px; }
+      .laureat-row { display: flex; align-items: center; gap: 10px; padding: 5px 10px; border-radius: 6px; margin-bottom: 4px; font-size: 9.5pt; break-inside: avoid; }
+      .laureat-valide { background: #dcfce7; border: 1px solid #86efac; } .laureat-en-cours { background: #f8fafc; border: 1px solid #e2e8f0; }
+      .laureat-name { flex: 1; font-weight: 700; } .laureat-date { font-size: 8.5pt; color: #475569; }
+      .badge-pill-row { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 10px; }
+      .badge-pill { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 9pt; font-weight: 600; padding: 4px 8px; border: 1px solid #e2e8f0; border-radius: 6px; break-inside: avoid; }
+      .badge-pill span[style] { font-size: 8pt; color: #64748b !important; }
+      .bp-icons { font-size: 11pt; } .bp-empty { color: #94a3b8; font-weight: 400; }
+      .eleve-exam-ok { background: #f0fdf4 !important; }
+      .caci-dot { display: inline-flex; align-items: center; justify-content: center; width: 12px; height: 12px; border-radius: 50%; font-size: 7.5pt; font-weight: 800; margin-left: 4px; vertical-align: middle; color: #fff; }
+      .caci-dot-ok { background: #16a34a; } .caci-dot-ko, .caci-ko-pdf { background: #dc2626; }
+      .caci-ko-pdf { display: inline-flex; width: 12px; height: 12px; border-radius: 50%; color: #fff; font-size: 7.5pt; align-items: center; justify-content: center; font-weight: 800; }
+      .caci-ko { color: inherit; }
+      .jauge { height: 5px; background: #e2e8f0; border-radius: 99px; overflow: hidden; margin: 3px 0 5px; } .jauge span { display: block; height: 100%; background: #16a34a; }
+      .bingo-liste { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 14px; }
+      .bingo-bloc { border: 1px solid #e2e8f0; border-radius: 8px; padding: 6px 8px; break-inside: avoid; }
+      .bingo-head { display: flex; justify-content: space-between; gap: 8px; font-size: 9pt; }
+      .bingo-head span { color: #475569; font-size: 8.5pt; white-space: nowrap; }
+      .bingo-cases { display: grid; grid-template-columns: repeat(11, 1fr); gap: 2px; }
+      .bc { display: inline-flex; align-items: center; justify-content: center; height: 15px; min-width: 15px; font-size: 6.5pt; font-weight: 700; border: 1px solid #cbd5e1; border-radius: 3px; color: #94a3b8; background: #fff; }
+      .bc.ok { background: #16a34a; border-color: #16a34a; color: #fff; }
+      .bc.mini { width: 20px; }
+      .bingo-legende { margin-top: 12px; }
+      .bingo-ol { columns: 3; column-gap: 14px; font-size: 8pt; margin: 4px 0 0; padding-left: 22px; }
+      .bingo-ol li { break-inside: avoid; padding: 1px 0; }
+      .pied { margin-top: 16px; font-size: 7.5pt; color: #94a3b8; text-align: center; }
+      .bloc { break-inside: avoid; }
+      .sub { break-after: avoid; }
+      @media print { .toolbar { display: none; } .page { padding: 0; max-width: none; } .pal-section.saut { break-before: page; } .pal-section.saut h3 { margin-top: 0; } }
+      @media (max-width: 640px) { .trophy-grid, .bingo-liste, .badge-pill-row { grid-template-columns: 1fr 1fr; } .bingo-ol { columns: 2; } .meta { text-align: left; } header.top { flex-wrap: wrap; } }
+    `;
+    return '<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">' +
+      '<title>Palmarès de la saison — ' + esc(CONFIG.GROUPE || '') + '</title><style>' + css + '</style></head><body>' +
+      '<div class="toolbar"><span>Palmarès de la saison — ' + esc(versionLabel) + '</span>' +
+        '<button type="button" onclick="window.print()">🖨 Imprimer / Enregistrer en PDF</button>' +
+        '<button type="button" class="sec" onclick="window.close()">Fermer</button></div>' +
+      '<div class="page">' +
+        '<header class="top">' + (logo ? '<img src="' + logo + '" alt="RSCC Subaquatique">' : '') +
+          '<div class="titre"><h1>Palmarès de la saison</h1><div class="sous">Plongeur Niveau 1 · Cursus FFESSM</div></div>' +
+          '<div class="meta">RSCC Subaquatique<br>Saison ' + esc(CONFIG.SEASON || '') + ' · ' + esc(CONFIG.GROUPE || '') +
+            '<br>Édité le ' + esc(today) + '<br>Données au ' + esc(dateData) + '</div></header>' +
+        '<span class="version">' + (interne ? '🔒 ' : '🎉 ') + esc(versionLabel) + '</span>' +
+        legendeNoms +
+        (parts.join('') || '<p class="muted">Aucune section sélectionnée.</p>') +
+        '<div class="pied">Palmarès établi d\'après les comptes rendus de séance saisis par les moniteurs — données au ' + esc(dateData) + '. ' +
+          (interne ? 'Document interne à l\'équipe d\'encadrement.' : 'Bravo à toutes et à tous pour cette saison !') + '</div>' +
+      '</div></body></html>';
+  }
+
+  function openPalmaresExportDialog() {
+    const o = loadPalmaresExportOpts();
+    let ov = document.getElementById('palmaresExportOverlay');
+    if (!ov) {
+      ov = document.createElement('div');
+      ov.id = 'palmaresExportOverlay';
+      ov.className = 'anom-overlay hidden';
+      document.body.appendChild(ov);
+      ov.addEventListener('click', ev => { if (ev.target === ov) ov.classList.add('hidden'); });
+    }
+    const radio = (name, val, label, hint) => '<label class="pal-exp-radio"><input type="radio" name="' + name + '" value="' + val + '"' + (o[name] === val ? ' checked' : '') + '>' +
+      '<span><strong>' + label + '</strong><small>' + hint + '</small></span></label>';
+    ov.innerHTML = '<div class="anom-modal" role="dialog" aria-modal="true" style="max-width:480px;">' +
+      '<div class="anom-modal-head"><span class="anom-modal-title">📄 Exporter le palmarès</span>' +
+        '<button type="button" class="anom-modal-close" aria-label="Fermer">×</button></div>' +
+      '<p class="anom-intro">Document A4 au style du carnet de progression, prêt à imprimer ou à enregistrer en PDF. Tout ce qui est replié à l\'écran y est déplié.</p>' +
+      '<div class="pal-exp-titre">Pour qui ?</div>' +
+      '<div class="pal-exp-radios">' +
+        radio('version', 'interne', '🔒 Équipe des moniteurs', 'CACI et classement CR inclus') +
+        radio('version', 'eleves', '🎉 Élèves / affichage', 'Sans CACI ni classement des moniteurs') +
+      '</div>' +
+      '<div class="pal-exp-titre">Sections</div>' +
+      PALMARES_EXPORT_SECTIONS.map(sec => '<label class="carnet-opt pal-exp-sec" data-sec="' + sec.k + '"><input type="checkbox" data-pal-exp="' + sec.k + '"' + (o[sec.k] ? ' checked' : '') + '> ' + sec.label +
+        (sec.interne ? ' <span class="pal-exp-tag">interne</span>' : '') + '</label>' +
+        (sec.k === 'classements' ? '<div class="pal-exp-radios pal-exp-sub">' +
+          radio('listes', 'completes', 'Podium + classement complet', 'Tous les élèves classés') +
+          radio('listes', 'podiums', 'Podiums seuls', 'Les 3 premiers uniquement') + '</div>' : '')).join('') +
+      '<div style="display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-top:14px;">' +
+        '<button type="button" class="export-btn" id="palExpAnnuler">Annuler</button>' +
+        '<button type="button" class="export-btn carnet-go" id="palExpGo">📄 Générer le PDF</button></div></div>';
+    ov.classList.remove('hidden');
+    const read = function() {
+      const r = { version: (ov.querySelector('input[name="version"]:checked') || {}).value || 'interne',
+        listes: (ov.querySelector('input[name="listes"]:checked') || {}).value || 'completes' };
+      ov.querySelectorAll('[data-pal-exp]').forEach(c => { r[c.dataset.palExp] = c.checked; });
+      return r;
+    };
+    const sync = function() {
+      const r = read();
+      const mcr = ov.querySelector('[data-sec="moniteurscr"]');
+      mcr.classList.toggle('disabled', r.version === 'eleves');
+      mcr.querySelector('input').disabled = r.version === 'eleves';
+      ov.querySelector('.pal-exp-sub').classList.toggle('disabled', !r.classements);
+      ov.querySelectorAll('input[name="listes"]').forEach(i => { i.disabled = !r.classements; });
+      ov.querySelector('#palExpGo').disabled = !PALMARES_EXPORT_SECTIONS.some(sec => r[sec.k] && !(sec.interne && r.version === 'eleves'));
+    };
+    ov.querySelectorAll('input').forEach(i => i.addEventListener('change', sync));
+    sync();
+    ov.querySelector('.anom-modal-close').onclick = () => ov.classList.add('hidden');
+    ov.querySelector('#palExpAnnuler').onclick = () => ov.classList.add('hidden');
+    ov.querySelector('#palExpGo').onclick = function() {
+      const r = read();
+      savePalmaresExportOpts(r);
+      const w = window.open('', '_blank');
+      if (!w) { showToast('Fenêtre bloquée par le navigateur : autorisez les fenêtres pour ce site.', 'error'); return; }
+      w.document.open(); w.document.write(buildPalmaresPdfHtml(r)); w.document.close();
+      ov.classList.add('hidden');
+      setTimeout(function() { try { w.focus(); w.print(); } catch (err) {} }, 600);
+    };
   }
 
   function wirePalmaresToggles() {
