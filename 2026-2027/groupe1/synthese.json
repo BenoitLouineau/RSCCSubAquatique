@@ -1,7 +1,7 @@
 {
-  "date_generation": "2026-11-08T20:48:57",
+  "date_generation": "2026-11-10T18:05:39",
   "nb_eleves": 12,
-  "nb_moniteurs": 10,
+  "nb_moniteurs": 12,
   "nb_seances": 27,
   "nb_comptes_rendus": 301,
   "nb_competences_referencees": 44,
@@ -248,7 +248,10 @@
     "eleves_hors_referentiel": [],
     "eleves_referentiel_jamais_vus": [],
     "moniteurs_hors_referentiel": [],
-    "moniteurs_referentiel_jamais_actifs": [],
+    "moniteurs_referentiel_jamais_actifs": [
+      "Renfort 1",
+      "Renfort 2"
+    ],
     "ateliers_hors_referentiel": [],
     "comptes_rendus_doublons": []
   }
