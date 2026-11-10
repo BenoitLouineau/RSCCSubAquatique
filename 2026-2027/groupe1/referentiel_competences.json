@@ -23,7 +23,7 @@
   {
     "id": "saut-droit",
     "nom": "Saut droit",
-    "actif": false,
+    "actif": true,
     "notable": true,
     "compte_dans_moyenne": true
   },
