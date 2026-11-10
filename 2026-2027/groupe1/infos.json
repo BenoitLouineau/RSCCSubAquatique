@@ -12,11 +12,16 @@
   {
     "ligne": 3,
     "accueil": "🔥Padlet Moniteurs🔥",
-    "palanquees": null
+    "palanquees": "⚠️ Fermeture piscine les 15, 22 et 29 janvier ⚠️"
   },
   {
     "ligne": 4,
     "accueil": "🎯Suivi des stagiaires🎯",
+    "palanquees": null
+  },
+  {
+    "ligne": 5,
+    "accueil": "⚠️ Fermeture piscine les 15, 22 et 29 janvier ⚠️",
     "palanquees": null
   }
 ]
