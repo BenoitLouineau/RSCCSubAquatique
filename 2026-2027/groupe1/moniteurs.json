@@ -2,12 +2,13 @@
   {
     "id": "benoit-l",
     "nom": "Benoit L",
-    "nb_seances_animees": 4,
+    "nb_seances_animees": 5,
     "dates_seances": [
       "2026-09-29",
       "2026-10-13",
       "2026-10-27",
-      "2026-11-03"
+      "2026-11-03",
+      "2026-11-10"
     ],
     "nb_eleves_suivis": 7,
     "eleves_suivis": [
@@ -19,8 +20,8 @@
       "Mohamed",
       "Patricia"
     ],
-    "nb_comptes_rendus": 52,
-    "nb_evaluations_notees": 52
+    "nb_comptes_rendus": 94,
+    "nb_evaluations_notees": 94
   },
   {
     "id": "benoit-p",
