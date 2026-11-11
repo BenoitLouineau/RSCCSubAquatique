@@ -2702,5 +2702,329 @@
         "commentaire_atelier": "Aucun commentaire"
       }
     ]
+  },
+  {
+    "id": "2026-11-10_benoit-l",
+    "date_seance": "2026-11-10",
+    "moniteur": "Benoit L",
+    "nb_eleves": 3,
+    "eleves": [
+      "Guillaume",
+      "Kévin D",
+      "Mohamed"
+    ],
+    "ateliers_traites": [
+      "360°",
+      "DBN",
+      "Dégréage",
+      "Déplacements immersion",
+      "Gestion de son matériel",
+      "Gestion du gilet",
+      "Gréage",
+      "Poumon Ballast",
+      "Saut droit",
+      "Saut droit PMT",
+      "Signes",
+      "Sortie de l'eau",
+      "VDM",
+      "VDM partiel"
+    ],
+    "nb_comptes_rendus": 42,
+    "comptes_rendus": [
+      {
+        "eleve": "Guillaume",
+        "atelier": "VDM partiel",
+        "note": 4.0,
+        "commentaire": "Bilan très positif de la soirée, élève qui comprend vite et les réalisations des exo de la séance sont tous fait sans appréhension ni stress. On sens le sérieux et l'envie de progresser vite",
+        "commentaire_atelier": "Réalise à la demande, exo maîtrisé et fait à la demande sans stress, bravo"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Signes",
+        "note": 3.0,
+        "commentaire": "Bilan très positif de la soirée, élève qui comprend vite et les réalisations des exo de la séance sont tous fait sans appréhension ni stress. On sens le sérieux et l'envie de progresser vite",
+        "commentaire_atelier": "RAS pour la séance et exo du programme réalisé"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Dégréage",
+        "note": 4.0,
+        "commentaire": "Bilan très positif de la soirée, élève qui comprend vite et les réalisations des exo de la séance sont tous fait sans appréhension ni stress. On sens le sérieux et l'envie de progresser vite",
+        "commentaire_atelier": "Ok pour moi RAS"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "360°",
+        "note": 3.0,
+        "commentaire": "Bilan très positif de la soirée, élève qui comprend vite et les réalisations des exo de la séance sont tous fait sans appréhension ni stress. On sens le sérieux et l'envie de progresser vite",
+        "commentaire_atelier": "Comprend et réalise sans difficulté"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Poumon Ballast",
+        "note": 3.0,
+        "commentaire": "Bilan très positif de la soirée, élève qui comprend vite et les réalisations des exo de la séance sont tous fait sans appréhension ni stress. On sens le sérieux et l'envie de progresser vite",
+        "commentaire_atelier": "Comprend l'effet du poumon ballast, RAS pour moi"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "DBN",
+        "note": 4.0,
+        "commentaire": "Bilan très positif de la soirée, élève qui comprend vite et les réalisations des exo de la séance sont tous fait sans appréhension ni stress. On sens le sérieux et l'envie de progresser vite",
+        "commentaire_atelier": "RAS et ok pour moi"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Saut droit PMT",
+        "note": 4.0,
+        "commentaire": "Bilan très positif de la soirée, élève qui comprend vite et les réalisations des exo de la séance sont tous fait sans appréhension ni stress. On sens le sérieux et l'envie de progresser vite",
+        "commentaire_atelier": "Les 3 exo ont été réalisé, comprend et réalise bien le geste ==> passage vers exo équipé"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Gestion de son matériel",
+        "note": 3.0,
+        "commentaire": "Bilan très positif de la soirée, élève qui comprend vite et les réalisations des exo de la séance sont tous fait sans appréhension ni stress. On sens le sérieux et l'envie de progresser vite",
+        "commentaire_atelier": "RAS pour moi"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "VDM",
+        "note": 4.0,
+        "commentaire": "Bilan très positif de la soirée, élève qui comprend vite et les réalisations des exo de la séance sont tous fait sans appréhension ni stress. On sens le sérieux et l'envie de progresser vite",
+        "commentaire_atelier": "Même en VDM complète, idem OK RAS pour moi"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Déplacements immersion",
+        "note": 3.0,
+        "commentaire": "Bilan très positif de la soirée, élève qui comprend vite et les réalisations des exo de la séance sont tous fait sans appréhension ni stress. On sens le sérieux et l'envie de progresser vite",
+        "commentaire_atelier": "Introduction à la stabilisation, en mode allongé, a refaire pour poursuite d'apprentissage et meilleure gestion de l'effet yoyo a corriger, légère variations constatée ce soir"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Gestion du gilet",
+        "note": 3.0,
+        "commentaire": "Bilan très positif de la soirée, élève qui comprend vite et les réalisations des exo de la séance sont tous fait sans appréhension ni stress. On sens le sérieux et l'envie de progresser vite",
+        "commentaire_atelier": "Pas de soucis sur les exo et utilisation de son gilet"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Sortie de l'eau",
+        "note": 4.0,
+        "commentaire": "Bilan très positif de la soirée, élève qui comprend vite et les réalisations des exo de la séance sont tous fait sans appréhension ni stress. On sens le sérieux et l'envie de progresser vite",
+        "commentaire_atelier": "Ok pour moi RAS"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Saut droit",
+        "note": 4.0,
+        "commentaire": "Bilan très positif de la soirée, élève qui comprend vite et les réalisations des exo de la séance sont tous fait sans appréhension ni stress. On sens le sérieux et l'envie de progresser vite",
+        "commentaire_atelier": "Idem le saut a été très efficace et sans erreur"
+      },
+      {
+        "eleve": "Guillaume",
+        "atelier": "Gréage",
+        "note": 4.0,
+        "commentaire": "Bilan très positif de la soirée, élève qui comprend vite et les réalisations des exo de la séance sont tous fait sans appréhension ni stress. On sens le sérieux et l'envie de progresser vite",
+        "commentaire_atelier": "Sais nommer et gréer son matériel, RAS et ok pour moi"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "Gréage",
+        "note": 3.0,
+        "commentaire": "Séance une nouvelle fois agréable, efficace au exercice et son ressenti était très bon. Pas vraiment de point bloquant et donc très encourageant pour la suite de son parcours",
+        "commentaire_atelier": "A su s'appercevoir seul que le gilet était à l'envers puis a corrigé"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "Saut droit PMT",
+        "note": 3.0,
+        "commentaire": "Séance une nouvelle fois agréable, efficace au exercice et son ressenti était très bon. Pas vraiment de point bloquant et donc très encourageant pour la suite de son parcours",
+        "commentaire_atelier": "2ème séance, 1er saut moyen, 2ème puis 3ème OK"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "Sortie de l'eau",
+        "note": 3.0,
+        "commentaire": "Séance une nouvelle fois agréable, efficace au exercice et son ressenti était très bon. Pas vraiment de point bloquant et donc très encourageant pour la suite de son parcours",
+        "commentaire_atelier": "Sais se mettre en position et gonfler suffisamment pour gérer sa sortie"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "Dégréage",
+        "note": 4.0,
+        "commentaire": "Séance une nouvelle fois agréable, efficace au exercice et son ressenti était très bon. Pas vraiment de point bloquant et donc très encourageant pour la suite de son parcours",
+        "commentaire_atelier": "Ok pour moi RAS"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "Poumon Ballast",
+        "note": 3.0,
+        "commentaire": "Séance une nouvelle fois agréable, efficace au exercice et son ressenti était très bon. Pas vraiment de point bloquant et donc très encourageant pour la suite de son parcours",
+        "commentaire_atelier": "Comprend la notion et voit l'effet"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "Signes",
+        "note": 3.0,
+        "commentaire": "Séance une nouvelle fois agréable, efficace au exercice et son ressenti était très bon. Pas vraiment de point bloquant et donc très encourageant pour la suite de son parcours",
+        "commentaire_atelier": "Sais reconnaitre et répondre au demande"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "Gestion de son matériel",
+        "note": 3.0,
+        "commentaire": "Séance une nouvelle fois agréable, efficace au exercice et son ressenti était très bon. Pas vraiment de point bloquant et donc très encourageant pour la suite de son parcours",
+        "commentaire_atelier": "RAS Ok"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "Saut droit",
+        "note": 3.0,
+        "commentaire": "Séance une nouvelle fois agréable, efficace au exercice et son ressenti était très bon. Pas vraiment de point bloquant et donc très encourageant pour la suite de son parcours",
+        "commentaire_atelier": "Equipé, le 1er a été OK"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "VDM",
+        "note": 4.0,
+        "commentaire": "Séance une nouvelle fois agréable, efficace au exercice et son ressenti était très bon. Pas vraiment de point bloquant et donc très encourageant pour la suite de son parcours",
+        "commentaire_atelier": "Réalisé à la demande et complet avec soin, ok pour moi"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "Déplacements immersion",
+        "note": 3.0,
+        "commentaire": "Séance une nouvelle fois agréable, efficace au exercice et son ressenti était très bon. Pas vraiment de point bloquant et donc très encourageant pour la suite de son parcours",
+        "commentaire_atelier": "Introduction à la stabilisation, en mode allongé, a refaire pour poursuite d'apprentissage et meilleure gestion de l'effet yoyo a corriger, les variations été plus importantes que ses binomes de palanquée"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "360°",
+        "note": 2.0,
+        "commentaire": "Séance une nouvelle fois agréable, efficace au exercice et son ressenti était très bon. Pas vraiment de point bloquant et donc très encourageant pour la suite de son parcours",
+        "commentaire_atelier": "Introduction de cette notion, à refaire"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "Gestion du gilet",
+        "note": 3.0,
+        "commentaire": "Séance une nouvelle fois agréable, efficace au exercice et son ressenti était très bon. Pas vraiment de point bloquant et donc très encourageant pour la suite de son parcours",
+        "commentaire_atelier": "Sais utilisé DS et son fonctionnement pour les exercices de cette séance"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "DBN",
+        "note": 4.0,
+        "commentaire": "Séance une nouvelle fois agréable, efficace au exercice et son ressenti était très bon. Pas vraiment de point bloquant et donc très encourageant pour la suite de son parcours",
+        "commentaire_atelier": "Maitrisé"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "VDM partiel",
+        "note": 4.0,
+        "commentaire": "Séance une nouvelle fois agréable, efficace au exercice et son ressenti était très bon. Pas vraiment de point bloquant et donc très encourageant pour la suite de son parcours",
+        "commentaire_atelier": "RAS ok pour moi"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "360°",
+        "note": 3.0,
+        "commentaire": "Reprise suite à 2 séances d'absence et finalement l'ensemble des exo du programme de la séance ont été tous réalisé sans vraiment de stress ni d'appréhension. Elève discret et sérieux, que du +++ pour la suite de sa formation.",
+        "commentaire_atelier": "Introduction à la notion et RAS pour ce soir"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Signes",
+        "note": 3.0,
+        "commentaire": "Reprise suite à 2 séances d'absence et finalement l'ensemble des exo du programme de la séance ont été tous réalisé sans vraiment de stress ni d'appréhension. Elève discret et sérieux, que du +++ pour la suite de sa formation.",
+        "commentaire_atelier": "Sais reconnaître et répondre à la demande dans le contexte des exo de la sénace"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Gréage",
+        "note": 3.0,
+        "commentaire": "Reprise suite à 2 séances d'absence et finalement l'ensemble des exo du programme de la séance ont été tous réalisé sans vraiment de stress ni d'appréhension. Elève discret et sérieux, que du +++ pour la suite de sa formation.",
+        "commentaire_atelier": "malgré 2 semaines d'absence consécutives, pas vraiment de problème, sais reconnaitre et nommer à la demande les éléments"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "VDM partiel",
+        "note": 4.0,
+        "commentaire": "Reprise suite à 2 séances d'absence et finalement l'ensemble des exo du programme de la séance ont été tous réalisé sans vraiment de stress ni d'appréhension. Elève discret et sérieux, que du +++ pour la suite de sa formation.",
+        "commentaire_atelier": "RAS"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Sortie de l'eau",
+        "note": 3.0,
+        "commentaire": "Reprise suite à 2 séances d'absence et finalement l'ensemble des exo du programme de la séance ont été tous réalisé sans vraiment de stress ni d'appréhension. Elève discret et sérieux, que du +++ pour la suite de sa formation.",
+        "commentaire_atelier": "Sais se mettre en surface et gérer sa sortie, RAS pour ce soir"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Gestion de son matériel",
+        "note": 3.0,
+        "commentaire": "Reprise suite à 2 séances d'absence et finalement l'ensemble des exo du programme de la séance ont été tous réalisé sans vraiment de stress ni d'appréhension. Elève discret et sérieux, que du +++ pour la suite de sa formation.",
+        "commentaire_atelier": "RAS"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "VDM",
+        "note": 4.0,
+        "commentaire": "Reprise suite à 2 séances d'absence et finalement l'ensemble des exo du programme de la séance ont été tous réalisé sans vraiment de stress ni d'appréhension. Elève discret et sérieux, que du +++ pour la suite de sa formation.",
+        "commentaire_atelier": "Son absence de pratique sur 2 semaines n'est pas un frein et la réalisation est maitrisée, bravo !"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Gestion du gilet",
+        "note": 3.0,
+        "commentaire": "Reprise suite à 2 séances d'absence et finalement l'ensemble des exo du programme de la séance ont été tous réalisé sans vraiment de stress ni d'appréhension. Elève discret et sérieux, que du +++ pour la suite de sa formation.",
+        "commentaire_atelier": "RAS, même en phase d'immersion magé ses 2 séances d'absences"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "DBN",
+        "note": 4.0,
+        "commentaire": "Reprise suite à 2 séances d'absence et finalement l'ensemble des exo du programme de la séance ont été tous réalisé sans vraiment de stress ni d'appréhension. Elève discret et sérieux, que du +++ pour la suite de sa formation.",
+        "commentaire_atelier": "RAS"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Saut droit",
+        "note": 3.0,
+        "commentaire": "Reprise suite à 2 séances d'absence et finalement l'ensemble des exo du programme de la séance ont été tous réalisé sans vraiment de stress ni d'appréhension. Elève discret et sérieux, que du +++ pour la suite de sa formation.",
+        "commentaire_atelier": "Suite aux exo PMT, le 1er saut équipé est ok"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Dégréage",
+        "note": 4.0,
+        "commentaire": "Reprise suite à 2 séances d'absence et finalement l'ensemble des exo du programme de la séance ont été tous réalisé sans vraiment de stress ni d'appréhension. Elève discret et sérieux, que du +++ pour la suite de sa formation.",
+        "commentaire_atelier": "RAS , OK pour moi"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Poumon Ballast",
+        "note": 3.0,
+        "commentaire": "Reprise suite à 2 séances d'absence et finalement l'ensemble des exo du programme de la séance ont été tous réalisé sans vraiment de stress ni d'appréhension. Elève discret et sérieux, que du +++ pour la suite de sa formation.",
+        "commentaire_atelier": "Commence a bien percevoir l'effet et comprend le geste"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Déplacements immersion",
+        "note": 3.0,
+        "commentaire": "Reprise suite à 2 séances d'absence et finalement l'ensemble des exo du programme de la séance ont été tous réalisé sans vraiment de stress ni d'appréhension. Elève discret et sérieux, que du +++ pour la suite de sa formation.",
+        "commentaire_atelier": "Introduction à la stabilisation, en mode allongé, j'ai trouvé qu'il avait été le meilleur de sa palanqué avec finalement peu de grosse variation, Bravo !"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Saut droit PMT",
+        "note": 3.0,
+        "commentaire": "Reprise suite à 2 séances d'absence et finalement l'ensemble des exo du programme de la séance ont été tous réalisé sans vraiment de stress ni d'appréhension. Elève discret et sérieux, que du +++ pour la suite de sa formation.",
+        "commentaire_atelier": "1ère séance et malgré cela, dès le 2ème saut le geste est bien perçus, validé sur le second et 3ème"
+      }
+    ]
   }
 ]
