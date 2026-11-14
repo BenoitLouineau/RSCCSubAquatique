@@ -1,9 +1,9 @@
 {
-  "date_generation": "2026-11-15T00:25:14",
+  "date_generation": "2026-11-15T00:30:14",
   "nb_eleves": 12,
   "nb_moniteurs": 10,
-  "nb_seances": 30,
-  "nb_comptes_rendus": 378,
+  "nb_seances": 31,
+  "nb_comptes_rendus": 391,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
@@ -12,7 +12,7 @@
   "acquisition_par_atelier": [
     {
       "atelier": "Gréage",
-      "nb_evaluations": 45,
+      "nb_evaluations": 46,
       "moyenne": 2.96,
       "note_min": 1.0,
       "note_max": 4.0,
@@ -21,8 +21,8 @@
     },
     {
       "atelier": "Dégréage",
-      "nb_evaluations": 37,
-      "moyenne": 3.19,
+      "nb_evaluations": 38,
+      "moyenne": 3.18,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -30,8 +30,8 @@
     },
     {
       "atelier": "VDM partiel",
-      "nb_evaluations": 32,
-      "moyenne": 3.06,
+      "nb_evaluations": 33,
+      "moyenne": 3.0,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -48,7 +48,7 @@
     },
     {
       "atelier": "Gestion de son matériel",
-      "nb_evaluations": 27,
+      "nb_evaluations": 28,
       "moyenne": 3.0,
       "note_min": 2.0,
       "note_max": 4.0,
@@ -57,8 +57,8 @@
     },
     {
       "atelier": "Déplacements immersion",
-      "nb_evaluations": 22,
-      "moyenne": 2.45,
+      "nb_evaluations": 23,
+      "moyenne": 2.43,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -66,8 +66,8 @@
     },
     {
       "atelier": "Saut droit PMT",
-      "nb_evaluations": 22,
-      "moyenne": 2.95,
+      "nb_evaluations": 23,
+      "moyenne": 2.96,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -75,8 +75,8 @@
     },
     {
       "atelier": "Poumon Ballast",
-      "nb_evaluations": 21,
-      "moyenne": 2.76,
+      "nb_evaluations": 22,
+      "moyenne": 2.73,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -92,6 +92,15 @@
       "compte_dans_moyenne": true
     },
     {
+      "atelier": "Gestion du gilet",
+      "nb_evaluations": 19,
+      "moyenne": 2.42,
+      "note_min": 1.0,
+      "note_max": 3.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
       "atelier": "Sortie de l'eau",
       "nb_evaluations": 19,
       "moyenne": 3.26,
@@ -101,17 +110,8 @@
       "compte_dans_moyenne": true
     },
     {
-      "atelier": "Gestion du gilet",
-      "nb_evaluations": 18,
-      "moyenne": 2.44,
-      "note_min": 1.0,
-      "note_max": 3.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
       "atelier": "Signes",
-      "nb_evaluations": 16,
+      "nb_evaluations": 17,
       "moyenne": 2.94,
       "note_min": 2.0,
       "note_max": 4.0,
@@ -120,8 +120,8 @@
     },
     {
       "atelier": "Mise en sécu surface",
-      "nb_evaluations": 15,
-      "moyenne": 3.13,
+      "nb_evaluations": 16,
+      "moyenne": 3.06,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -129,8 +129,8 @@
     },
     {
       "atelier": "360°",
-      "nb_evaluations": 13,
-      "moyenne": 2.54,
+      "nb_evaluations": 14,
+      "moyenne": 2.5,
       "note_min": 2.0,
       "note_max": 3.0,
       "notable": true,
@@ -147,8 +147,8 @@
     },
     {
       "atelier": "Palmage",
-      "nb_evaluations": 9,
-      "moyenne": 1.89,
+      "nb_evaluations": 10,
+      "moyenne": 1.9,
       "note_min": 1.0,
       "note_max": 3.0,
       "notable": true,
@@ -192,6 +192,15 @@
     },
     {
       "atelier": "LRE expiration",
+      "nb_evaluations": 1,
+      "moyenne": 4.0,
+      "note_min": 4.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "LRE surpression",
       "nb_evaluations": 1,
       "moyenne": 4.0,
       "note_min": 4.0,
@@ -258,8 +267,8 @@
     },
     {
       "eleve": "Patricia",
-      "nb_ateliers_evalues": 12,
-      "moyenne_generale": 2.42
+      "nb_ateliers_evalues": 16,
+      "moyenne_generale": 2.56
     }
   ],
   "anomalies": {
@@ -303,7 +312,7 @@
       "DP": 2
     },
     "derniere_declaration": "2026-11-12T19:19:48",
-    "taux_retour_cr": 75,
+    "taux_retour_cr": 76,
     "par_moniteur": [
       {
         "moniteur": "Benoit L",
@@ -330,8 +339,8 @@
         "moniteur": "Christophe",
         "nb": 1,
         "nb_dp": 0,
-        "nb_seances_avec_cr": 3,
-        "taux_retour_cr": 75
+        "nb_seances_avec_cr": 4,
+        "taux_retour_cr": 80
       },
       {
         "moniteur": "Hervé",
