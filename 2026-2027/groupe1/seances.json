@@ -1797,8 +1797,8 @@
     "moniteur": "Benoit L",
     "nb_eleves": 2,
     "eleves": [
-      "Aubrée",
-      "Mohamed"
+      "Abderrahmane",
+      "Aubrée"
     ],
     "ateliers_traites": [
       "DBN",
@@ -1817,77 +1817,77 @@
     "nb_comptes_rendus": 21,
     "comptes_rendus": [
       {
-        "eleve": "Mohamed",
+        "eleve": "Abderrahmane",
         "atelier": "Gréage",
         "note": 4.0,
         "commentaire": "Prend soin de son matériel avant et après plongée",
         "commentaire_atelier": "connait, nomme son matériel, gréage ok sans pb"
       },
       {
-        "eleve": "Mohamed",
+        "eleve": "Abderrahmane",
         "atelier": "VDM",
         "note": 4.0,
         "commentaire": "Prend soin de son matériel avant et après plongée",
         "commentaire_atelier": "Idem en VDM complète, aucun soucis"
       },
       {
-        "eleve": "Mohamed",
+        "eleve": "Abderrahmane",
         "atelier": "Saut droit PMT",
         "note": 3.0,
         "commentaire": "Prend soin de son matériel avant et après plongée",
         "commentaire_atelier": "On n'est plus très loin d'un geste OK"
       },
       {
-        "eleve": "Mohamed",
+        "eleve": "Abderrahmane",
         "atelier": "Gestion du gilet",
         "note": 2.0,
         "commentaire": "Prend soin de son matériel avant et après plongée",
         "commentaire_atelier": "Nouvelle stab car changement de gilet en soute fait ce soir. Les purges rapide pas bien trouvée ce soir mais reste très prometteur pour les prochaines séances"
       },
       {
-        "eleve": "Mohamed",
+        "eleve": "Abderrahmane",
         "atelier": "Dégréage",
         "note": 4.0,
         "commentaire": "Prend soin de son matériel avant et après plongée",
         "commentaire_atelier": "Pour moi c'est compris acquis et validé"
       },
       {
-        "eleve": "Mohamed",
+        "eleve": "Abderrahmane",
         "atelier": "Poumon Ballast",
         "note": 3.0,
         "commentaire": "Prend soin de son matériel avant et après plongée",
         "commentaire_atelier": "Apprentissage du Poumon ballast acquis et comprend l'attendu avec l'exo des pompes faites ce jour"
       },
       {
-        "eleve": "Mohamed",
+        "eleve": "Abderrahmane",
         "atelier": "DBN",
         "note": 4.0,
         "commentaire": "Prend soin de son matériel avant et après plongée",
         "commentaire_atelier": "Aucun pb et compétence largement acquise selon moi"
       },
       {
-        "eleve": "Mohamed",
+        "eleve": "Abderrahmane",
         "atelier": "Gestion de son matériel",
         "note": 3.0,
         "commentaire": "Prend soin de son matériel avant et après plongée",
         "commentaire_atelier": "Elève consciencieux tet méthodique, parfait pour la suite"
       },
       {
-        "eleve": "Mohamed",
+        "eleve": "Abderrahmane",
         "atelier": "Soin au materiel",
         "note": 3.0,
         "commentaire": "Prend soin de son matériel avant et après plongée",
         "commentaire_atelier": "Aucun commentaire"
       },
       {
-        "eleve": "Mohamed",
+        "eleve": "Abderrahmane",
         "atelier": "VDM partiel",
         "note": 4.0,
         "commentaire": "Prend soin de son matériel avant et après plongée",
         "commentaire_atelier": "A cette seconde séance, le vdm est très bien perçu et bien réalisé, pas de stress et mouvement bien méthodique et bien réalisé"
       },
       {
-        "eleve": "Mohamed",
+        "eleve": "Abderrahmane",
         "atelier": "Sortie de l'eau",
         "note": 3.0,
         "commentaire": "Prend soin de son matériel avant et après plongée",
@@ -3024,6 +3024,302 @@
         "note": 3.0,
         "commentaire": "Reprise suite à 2 séances d'absence et finalement l'ensemble des exo du programme de la séance ont été tous réalisé sans vraiment de stress ni d'appréhension. Elève discret et sérieux, que du +++ pour la suite de sa formation.",
         "commentaire_atelier": "1ère séance et malgré cela, dès le 2ème saut le geste est bien perçus, validé sur le second et 3ème"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-10_benoit-p",
+    "date_seance": "2026-11-10",
+    "moniteur": "Benoit P",
+    "nb_eleves": 2,
+    "eleves": [
+      "Abderrahmane",
+      "Catherine"
+    ],
+    "ateliers_traites": [
+      "360°",
+      "Dégréage",
+      "Déplacements immersion",
+      "Gestion du gilet",
+      "Gréage",
+      "Mise en sécu surface",
+      "Saut droit PMT",
+      "Signes",
+      "Sortie de l'eau",
+      "VDM partiel",
+      "Vitesse de remontée"
+    ],
+    "nb_comptes_rendus": 22,
+    "comptes_rendus": [
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "Gestion du gilet",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "Signes",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "Gréage",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "VDM partiel",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "Sortie de l'eau",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "Déplacements immersion",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "Dégréage",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "Vitesse de remontée",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "360°",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "Mise en sécu surface",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "Saut droit PMT",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Gréage",
+        "note": 4.0,
+        "commentaire": "Dans la mesure du possible a prendre en 1 pour 1,  dans le stress (qui est assez constant toute la séance) elle ne tient pas compte des demandes ou conseils donnés. Le stress crée une bulle",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Gestion du gilet",
+        "note": 1.0,
+        "commentaire": "Dans la mesure du possible a prendre en 1 pour 1,  dans le stress (qui est assez constant toute la séance) elle ne tient pas compte des demandes ou conseils donnés. Le stress crée une bulle",
+        "commentaire_atelier": "Elle reste bloqué sur la purge lente, même en lui retirant le doigt à plusieurs reprise elle purgeait non-stop.\nImpérativement travailler cet atelier de descente contrôlée.\nElle m'a dit qu'elle avait eu mal aux oreilles la semaine précédente, attention a pas se faire surprendre."
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Mise en sécu surface",
+        "note": 2.0,
+        "commentaire": "Dans la mesure du possible a prendre en 1 pour 1,  dans le stress (qui est assez constant toute la séance) elle ne tient pas compte des demandes ou conseils donnés. Le stress crée une bulle",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "360°",
+        "note": 3.0,
+        "commentaire": "Dans la mesure du possible a prendre en 1 pour 1,  dans le stress (qui est assez constant toute la séance) elle ne tient pas compte des demandes ou conseils donnés. Le stress crée une bulle",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Déplacements immersion",
+        "note": 1.0,
+        "commentaire": "Dans la mesure du possible a prendre en 1 pour 1,  dans le stress (qui est assez constant toute la séance) elle ne tient pas compte des demandes ou conseils donnés. Le stress crée une bulle",
+        "commentaire_atelier": "Palmage vélo, palme a la descente même quand tu lui demande d'arrêter"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "VDM partiel",
+        "note": 2.0,
+        "commentaire": "Dans la mesure du possible a prendre en 1 pour 1,  dans le stress (qui est assez constant toute la séance) elle ne tient pas compte des demandes ou conseils donnés. Le stress crée une bulle",
+        "commentaire_atelier": "Elle y arrive mais c'est compliqué, elle a bu la tasse sur un des 2 VDM partiels. A retravailler"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Signes",
+        "note": 2.0,
+        "commentaire": "Dans la mesure du possible a prendre en 1 pour 1,  dans le stress (qui est assez constant toute la séance) elle ne tient pas compte des demandes ou conseils donnés. Le stress crée une bulle",
+        "commentaire_atelier": "Elle connais les signes, mais elle m'a pas fait le signe froid (sauf a la surface en claquant des dents)"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Vitesse de remontée",
+        "note": 1.0,
+        "commentaire": "Dans la mesure du possible a prendre en 1 pour 1,  dans le stress (qui est assez constant toute la séance) elle ne tient pas compte des demandes ou conseils donnés. Le stress crée une bulle",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Dégréage",
+        "note": 4.0,
+        "commentaire": "Dans la mesure du possible a prendre en 1 pour 1,  dans le stress (qui est assez constant toute la séance) elle ne tient pas compte des demandes ou conseils donnés. Le stress crée une bulle",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Saut droit PMT",
+        "note": 2.0,
+        "commentaire": "Dans la mesure du possible a prendre en 1 pour 1,  dans le stress (qui est assez constant toute la séance) elle ne tient pas compte des demandes ou conseils donnés. Le stress crée une bulle",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Sortie de l'eau",
+        "note": 4.0,
+        "commentaire": "Dans la mesure du possible a prendre en 1 pour 1,  dans le stress (qui est assez constant toute la séance) elle ne tient pas compte des demandes ou conseils donnés. Le stress crée une bulle",
+        "commentaire_atelier": "Aucun commentaire"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-10_veronique",
+    "date_seance": "2026-11-10",
+    "moniteur": "Véronique",
+    "nb_eleves": 2,
+    "eleves": [
+      "Aubrée",
+      "Kevin F"
+    ],
+    "ateliers_traites": [
+      "Dégréage",
+      "Gestion de son matériel",
+      "Gréage",
+      "LRE expiration",
+      "Mise en sécu surface",
+      "Poumon Ballast",
+      "Saut droit PMT",
+      "Signes",
+      "VDM",
+      "VDM partiel"
+    ],
+    "nb_comptes_rendus": 13,
+    "comptes_rendus": [
+      {
+        "eleve": "Aubrée",
+        "atelier": "Gréage",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Gestion de son matériel",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Saut droit PMT",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Signes",
+        "note": 4.0,
+        "commentaire": "Signe \"oreille\" fait à propos et spontanément. Par contre remontée rapide seule jusqu'à la surface. Debriefé mais à rappeler.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kevin F",
+        "atelier": "Gréage",
+        "note": 3.0,
+        "commentaire": "Hauteur de la stab sur le bloc, rangement des accessoires, vocabulaire encore incertain.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kevin F",
+        "atelier": "Saut droit PMT",
+        "note": 3.0,
+        "commentaire": "Un peu précipité, oubli du maintien du masque. Entrée dans l'eau pourrait être plus verticale. En a eu conscience.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kevin F",
+        "atelier": "VDM partiel",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kevin F",
+        "atelier": "VDM",
+        "note": 4.0,
+        "commentaire": "Pour desembuer son masque, motivé !",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kevin F",
+        "atelier": "VDM",
+        "note": 4.0,
+        "commentaire": "Pour desembuer son masque, motivé !",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kevin F",
+        "atelier": "Dégréage",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kevin F",
+        "atelier": "Mise en sécu surface",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kevin F",
+        "atelier": "Poumon Ballast",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kevin F",
+        "atelier": "LRE expiration",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
       }
     ]
   }
