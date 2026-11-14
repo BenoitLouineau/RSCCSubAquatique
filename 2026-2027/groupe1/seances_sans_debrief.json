@@ -1,0 +1,132 @@
+[
+  {
+    "id": "2026-09-29_benoit-l",
+    "date_seance": "2026-09-29",
+    "moniteur": "Benoit L",
+    "mention": "",
+    "role_dp": false,
+    "horodatage": "2026-11-12T19:19:48",
+    "nb_declarations": 1,
+    "a_des_cr": true
+  },
+  {
+    "id": "2026-09-29_benoit-p",
+    "date_seance": "2026-09-29",
+    "moniteur": "Benoit P",
+    "mention": "",
+    "role_dp": false,
+    "horodatage": "2026-11-12T19:19:48",
+    "nb_declarations": 1,
+    "a_des_cr": true
+  },
+  {
+    "id": "2026-09-29_carine",
+    "date_seance": "2026-09-29",
+    "moniteur": "Carine",
+    "mention": "",
+    "role_dp": false,
+    "horodatage": "2026-11-12T19:19:48",
+    "nb_declarations": 1,
+    "a_des_cr": true
+  },
+  {
+    "id": "2026-09-29_carlos",
+    "date_seance": "2026-09-29",
+    "moniteur": "Carlos",
+    "mention": "",
+    "role_dp": false,
+    "horodatage": "2026-11-12T19:19:48",
+    "nb_declarations": 1,
+    "a_des_cr": false
+  },
+  {
+    "id": "2026-09-29_catherine",
+    "date_seance": "2026-09-29",
+    "moniteur": "Catherine",
+    "mention": "",
+    "role_dp": false,
+    "horodatage": "2026-11-12T19:19:48",
+    "nb_declarations": 1,
+    "a_des_cr": false
+  },
+  {
+    "id": "2026-09-29_christophe",
+    "date_seance": "2026-09-29",
+    "moniteur": "Christophe",
+    "mention": "",
+    "role_dp": false,
+    "horodatage": "2026-11-12T19:19:48",
+    "nb_declarations": 1,
+    "a_des_cr": false
+  },
+  {
+    "id": "2026-09-29_herve",
+    "date_seance": "2026-09-29",
+    "moniteur": "Hervé",
+    "mention": "",
+    "role_dp": false,
+    "horodatage": "2026-11-12T19:19:48",
+    "nb_declarations": 1,
+    "a_des_cr": false
+  },
+  {
+    "id": "2026-09-29_nicos",
+    "date_seance": "2026-09-29",
+    "moniteur": "Nicos",
+    "mention": "",
+    "role_dp": false,
+    "horodatage": "2026-11-12T19:19:48",
+    "nb_declarations": 1,
+    "a_des_cr": false
+  },
+  {
+    "id": "2026-09-29_virginie",
+    "date_seance": "2026-09-29",
+    "moniteur": "Virginie",
+    "mention": "",
+    "role_dp": false,
+    "horodatage": "2026-11-12T19:19:48",
+    "nb_declarations": 1,
+    "a_des_cr": false
+  },
+  {
+    "id": "2026-09-29_veronique",
+    "date_seance": "2026-09-29",
+    "moniteur": "Véronique",
+    "mention": "",
+    "role_dp": false,
+    "horodatage": "2026-11-12T19:19:48",
+    "nb_declarations": 1,
+    "a_des_cr": false
+  },
+  {
+    "id": "2026-10-06_benoit-l",
+    "date_seance": "2026-10-06",
+    "moniteur": "Benoit L",
+    "mention": "DP",
+    "role_dp": true,
+    "horodatage": "2026-11-12T19:18:10",
+    "nb_declarations": 1,
+    "a_des_cr": false
+  },
+  {
+    "id": "2026-11-03_carlos",
+    "date_seance": "2026-11-03",
+    "moniteur": "Carlos",
+    "mention": "",
+    "role_dp": false,
+    "horodatage": "2026-11-12T18:18:02",
+    "nb_declarations": 1,
+    "a_des_cr": false
+  },
+  {
+    "id": "2026-11-10_nicos",
+    "date_seance": "2026-11-10",
+    "moniteur": "Nicos",
+    "mention": "DP",
+    "role_dp": true,
+    "horodatage": "2026-11-12T18:52:23",
+    "nb_declarations": 1,
+    "a_des_cr": false
+  }
+]
