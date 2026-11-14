@@ -1,5 +1,5 @@
 {
-  "date_generation": "2026-11-14T20:50:30",
+  "date_generation": "2026-11-14T20:57:23",
   "nb_eleves": 12,
   "nb_moniteurs": 10,
   "nb_seances": 30,
@@ -275,6 +275,127 @@
         "eleve": "Kevin F",
         "atelier": "VDM",
         "occurrences": 2
+      }
+    ],
+    "sans_debrief_moniteurs_hors_referentiel": [],
+    "sans_debrief_avec_cr": [
+      {
+        "date_seance": "2026-09-29",
+        "moniteur": "Benoit L"
+      },
+      {
+        "date_seance": "2026-09-29",
+        "moniteur": "Benoit P"
+      },
+      {
+        "date_seance": "2026-09-29",
+        "moniteur": "Carine"
+      }
+    ]
+  },
+  "sans_debrief": {
+    "onglet_present": true,
+    "nb_declarations": 13,
+    "nb_sans_cr": 10,
+    "nb_incoherences": 3,
+    "nb_dp": 2,
+    "mentions": {
+      "DP": 2
+    },
+    "derniere_declaration": "2026-11-12T19:19:48",
+    "taux_retour_cr": 75,
+    "par_moniteur": [
+      {
+        "moniteur": "Benoit L",
+        "nb": 1,
+        "nb_dp": 1,
+        "nb_seances_avec_cr": 5,
+        "taux_retour_cr": 83
+      },
+      {
+        "moniteur": "Carlos",
+        "nb": 2,
+        "nb_dp": 0,
+        "nb_seances_avec_cr": 3,
+        "taux_retour_cr": 60
+      },
+      {
+        "moniteur": "Catherine",
+        "nb": 1,
+        "nb_dp": 0,
+        "nb_seances_avec_cr": 1,
+        "taux_retour_cr": 50
+      },
+      {
+        "moniteur": "Christophe",
+        "nb": 1,
+        "nb_dp": 0,
+        "nb_seances_avec_cr": 3,
+        "taux_retour_cr": 75
+      },
+      {
+        "moniteur": "Hervé",
+        "nb": 1,
+        "nb_dp": 0,
+        "nb_seances_avec_cr": 1,
+        "taux_retour_cr": 50
+      },
+      {
+        "moniteur": "Nicos",
+        "nb": 2,
+        "nb_dp": 1,
+        "nb_seances_avec_cr": 4,
+        "taux_retour_cr": 67
+      },
+      {
+        "moniteur": "Virginie",
+        "nb": 1,
+        "nb_dp": 0,
+        "nb_seances_avec_cr": 1,
+        "taux_retour_cr": 50
+      },
+      {
+        "moniteur": "Véronique",
+        "nb": 1,
+        "nb_dp": 0,
+        "nb_seances_avec_cr": 4,
+        "taux_retour_cr": 80
+      }
+    ],
+    "par_date": [
+      {
+        "date": "2026-09-29",
+        "nb": 7,
+        "moniteurs": [
+          "Carlos",
+          "Catherine",
+          "Christophe",
+          "Hervé",
+          "Nicos",
+          "Virginie",
+          "Véronique"
+        ]
+      },
+      {
+        "date": "2026-10-06",
+        "nb": 1,
+        "moniteurs": [
+          "Benoit L"
+        ]
+      },
+      {
+        "date": "2026-11-03",
+        "nb": 1,
+        "moniteurs": [
+          "Carlos"
+        ]
+      },
+      {
+        "date": "2026-11-10",
+        "nb": 1,
+        "moniteurs": [
+          "Nicos"
+        ]
       }
     ]
   }
