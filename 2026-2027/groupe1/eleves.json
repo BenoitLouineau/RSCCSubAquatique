@@ -5739,25 +5739,27 @@
     "id": "patricia",
     "nom": "Patricia",
     "caci": true,
-    "nb_seances": 5,
+    "nb_seances": 6,
     "dates_seances": [
       "2026-09-29",
       "2026-10-06",
       "2026-10-13",
       "2026-10-27",
-      "2026-11-03"
+      "2026-11-03",
+      "2026-11-09"
     ],
     "moniteurs": [
       "Benoit L",
       "Benoit P",
       "Catherine",
+      "Christophe",
       "Nicos"
     ],
-    "nb_competences_travaillees": 12,
+    "nb_competences_travaillees": 16,
     "competences": {
       "Gréage": {
-        "nb_evaluations": 4,
-        "derniere_note": 2.0,
+        "nb_evaluations": 5,
+        "derniere_note": 3.0,
         "moyenne_notes": 3.0,
         "historique": [
           {
@@ -5779,11 +5781,16 @@
             "date": "2026-11-03",
             "note": 2.0,
             "moniteur": "Catherine"
+          },
+          {
+            "date": "2026-11-09",
+            "note": 3.0,
+            "moniteur": "Christophe"
           }
         ]
       },
       "Palmage": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 2.0,
         "moyenne_notes": 2.0,
         "historique": [
@@ -5791,13 +5798,18 @@
             "date": "2026-09-29",
             "note": 2.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-09",
+            "note": 2.0,
+            "moniteur": "Christophe"
           }
         ]
       },
       "Dégréage": {
-        "nb_evaluations": 3,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.33,
+        "nb_evaluations": 4,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.5,
         "historique": [
           {
             "date": "2026-10-06",
@@ -5813,11 +5825,16 @@
             "date": "2026-11-03",
             "note": 2.0,
             "moniteur": "Catherine"
+          },
+          {
+            "date": "2026-11-09",
+            "note": 3.0,
+            "moniteur": "Christophe"
           }
         ]
       },
       "Poumon Ballast": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 2.0,
         "moyenne_notes": 2.0,
         "historique": [
@@ -5825,18 +5842,28 @@
             "date": "2026-10-06",
             "note": 2.0,
             "moniteur": "Nicos"
+          },
+          {
+            "date": "2026-11-09",
+            "note": 2.0,
+            "moniteur": "Christophe"
           }
         ]
       },
       "Déplacements immersion": {
-        "nb_evaluations": 1,
-        "derniere_note": 1.0,
-        "moyenne_notes": 1.0,
+        "nb_evaluations": 2,
+        "derniere_note": 2.0,
+        "moyenne_notes": 1.5,
         "historique": [
           {
             "date": "2026-10-06",
             "note": 1.0,
             "moniteur": "Nicos"
+          },
+          {
+            "date": "2026-11-09",
+            "note": 2.0,
+            "moniteur": "Christophe"
           }
         ]
       },
@@ -5868,9 +5895,9 @@
         ]
       },
       "VDM partiel": {
-        "nb_evaluations": 3,
-        "derniere_note": 2.0,
-        "moyenne_notes": 1.33,
+        "nb_evaluations": 4,
+        "derniere_note": 1.0,
+        "moyenne_notes": 1.25,
         "historique": [
           {
             "date": "2026-10-13",
@@ -5886,23 +5913,33 @@
             "date": "2026-11-03",
             "note": 2.0,
             "moniteur": "Catherine"
+          },
+          {
+            "date": "2026-11-09",
+            "note": 1.0,
+            "moniteur": "Christophe"
           }
         ]
       },
       "Gestion du gilet": {
-        "nb_evaluations": 1,
-        "derniere_note": 3.0,
-        "moyenne_notes": 3.0,
+        "nb_evaluations": 2,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.5,
         "historique": [
           {
             "date": "2026-10-27",
             "note": 3.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-09",
+            "note": 2.0,
+            "moniteur": "Christophe"
           }
         ]
       },
       "Gestion de son matériel": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
         "historique": [
@@ -5910,11 +5947,16 @@
             "date": "2026-10-27",
             "note": 3.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-09",
+            "note": 3.0,
+            "moniteur": "Christophe"
           }
         ]
       },
       "Signes": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
         "historique": [
@@ -5922,6 +5964,11 @@
             "date": "2026-10-27",
             "note": 3.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-09",
+            "note": 3.0,
+            "moniteur": "Christophe"
           }
         ]
       },
@@ -5946,6 +5993,54 @@
             "date": "2026-10-27",
             "note": 3.0,
             "moniteur": "Benoit L"
+          }
+        ]
+      },
+      "Saut droit PMT": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-11-09",
+            "note": 3.0,
+            "moniteur": "Christophe"
+          }
+        ]
+      },
+      "360°": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-11-09",
+            "note": 2.0,
+            "moniteur": "Christophe"
+          }
+        ]
+      },
+      "LRE surpression": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-11-09",
+            "note": 4.0,
+            "moniteur": "Christophe"
+          }
+        ]
+      },
+      "Mise en sécu surface": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-11-09",
+            "note": 2.0,
+            "moniteur": "Christophe"
           }
         ]
       }
@@ -6104,6 +6199,97 @@
         "atelier": "Gréage",
         "commentaire": "Elle était contente de sa séance \nApprenante sympa et sans doute anxieuse de bien faire",
         "commentaire_atelier": "Pour Gréage / Dégréage encore besoin de conseils mais c’est en cours d’acquisition"
+      },
+      {
+        "date": "2026-11-09",
+        "moniteur": "Christophe",
+        "atelier": "Poumon Ballast",
+        "commentaire": "LRE sous 20cm d eau puis au fond. Exercice réalisé plusieurs fois. \nPas de lestage sur cette séance , Patricia s est détendue durant la séance et arrivait à expirer d elle même pour être en flottabilité négative. \n« faux » visages de masque. Posée au fond nous simulions le visage de masque sans mettre d eau dans le masque. Doigts sur le haut du masque, tête légèrement en arrière et expiration nasale. \nContinuer au moins 1 séance sans eau dans le masque. Se focaliser sur la respiration , le poumon balaste et l aisance e aquatique. \nSignes : mano avec échange de la pression dans les blocs. Bonne communication. \n360, mise en secu surface. Ok \nAttention répéter pas de vasalva à la remontée.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-09",
+        "moniteur": "Christophe",
+        "atelier": "Palmage",
+        "commentaire": "LRE sous 20cm d eau puis au fond. Exercice réalisé plusieurs fois. \nPas de lestage sur cette séance , Patricia s est détendue durant la séance et arrivait à expirer d elle même pour être en flottabilité négative. \n« faux » visages de masque. Posée au fond nous simulions le visage de masque sans mettre d eau dans le masque. Doigts sur le haut du masque, tête légèrement en arrière et expiration nasale. \nContinuer au moins 1 séance sans eau dans le masque. Se focaliser sur la respiration , le poumon balaste et l aisance e aquatique. \nSignes : mano avec échange de la pression dans les blocs. Bonne communication. \n360, mise en secu surface. Ok \nAttention répéter pas de vasalva à la remontée.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-09",
+        "moniteur": "Christophe",
+        "atelier": "Déplacements immersion",
+        "commentaire": "LRE sous 20cm d eau puis au fond. Exercice réalisé plusieurs fois. \nPas de lestage sur cette séance , Patricia s est détendue durant la séance et arrivait à expirer d elle même pour être en flottabilité négative. \n« faux » visages de masque. Posée au fond nous simulions le visage de masque sans mettre d eau dans le masque. Doigts sur le haut du masque, tête légèrement en arrière et expiration nasale. \nContinuer au moins 1 séance sans eau dans le masque. Se focaliser sur la respiration , le poumon balaste et l aisance e aquatique. \nSignes : mano avec échange de la pression dans les blocs. Bonne communication. \n360, mise en secu surface. Ok \nAttention répéter pas de vasalva à la remontée.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-09",
+        "moniteur": "Christophe",
+        "atelier": "Dégréage",
+        "commentaire": "LRE sous 20cm d eau puis au fond. Exercice réalisé plusieurs fois. \nPas de lestage sur cette séance , Patricia s est détendue durant la séance et arrivait à expirer d elle même pour être en flottabilité négative. \n« faux » visages de masque. Posée au fond nous simulions le visage de masque sans mettre d eau dans le masque. Doigts sur le haut du masque, tête légèrement en arrière et expiration nasale. \nContinuer au moins 1 séance sans eau dans le masque. Se focaliser sur la respiration , le poumon balaste et l aisance e aquatique. \nSignes : mano avec échange de la pression dans les blocs. Bonne communication. \n360, mise en secu surface. Ok \nAttention répéter pas de vasalva à la remontée.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-09",
+        "moniteur": "Christophe",
+        "atelier": "Gestion de son matériel",
+        "commentaire": "LRE sous 20cm d eau puis au fond. Exercice réalisé plusieurs fois. \nPas de lestage sur cette séance , Patricia s est détendue durant la séance et arrivait à expirer d elle même pour être en flottabilité négative. \n« faux » visages de masque. Posée au fond nous simulions le visage de masque sans mettre d eau dans le masque. Doigts sur le haut du masque, tête légèrement en arrière et expiration nasale. \nContinuer au moins 1 séance sans eau dans le masque. Se focaliser sur la respiration , le poumon balaste et l aisance e aquatique. \nSignes : mano avec échange de la pression dans les blocs. Bonne communication. \n360, mise en secu surface. Ok \nAttention répéter pas de vasalva à la remontée.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-09",
+        "moniteur": "Christophe",
+        "atelier": "Saut droit PMT",
+        "commentaire": "LRE sous 20cm d eau puis au fond. Exercice réalisé plusieurs fois. \nPas de lestage sur cette séance , Patricia s est détendue durant la séance et arrivait à expirer d elle même pour être en flottabilité négative. \n« faux » visages de masque. Posée au fond nous simulions le visage de masque sans mettre d eau dans le masque. Doigts sur le haut du masque, tête légèrement en arrière et expiration nasale. \nContinuer au moins 1 séance sans eau dans le masque. Se focaliser sur la respiration , le poumon balaste et l aisance e aquatique. \nSignes : mano avec échange de la pression dans les blocs. Bonne communication. \n360, mise en secu surface. Ok \nAttention répéter pas de vasalva à la remontée.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-09",
+        "moniteur": "Christophe",
+        "atelier": "Gestion du gilet",
+        "commentaire": "LRE sous 20cm d eau puis au fond. Exercice réalisé plusieurs fois. \nPas de lestage sur cette séance , Patricia s est détendue durant la séance et arrivait à expirer d elle même pour être en flottabilité négative. \n« faux » visages de masque. Posée au fond nous simulions le visage de masque sans mettre d eau dans le masque. Doigts sur le haut du masque, tête légèrement en arrière et expiration nasale. \nContinuer au moins 1 séance sans eau dans le masque. Se focaliser sur la respiration , le poumon balaste et l aisance e aquatique. \nSignes : mano avec échange de la pression dans les blocs. Bonne communication. \n360, mise en secu surface. Ok \nAttention répéter pas de vasalva à la remontée.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-09",
+        "moniteur": "Christophe",
+        "atelier": "Gréage",
+        "commentaire": "LRE sous 20cm d eau puis au fond. Exercice réalisé plusieurs fois. \nPas de lestage sur cette séance , Patricia s est détendue durant la séance et arrivait à expirer d elle même pour être en flottabilité négative. \n« faux » visages de masque. Posée au fond nous simulions le visage de masque sans mettre d eau dans le masque. Doigts sur le haut du masque, tête légèrement en arrière et expiration nasale. \nContinuer au moins 1 séance sans eau dans le masque. Se focaliser sur la respiration , le poumon balaste et l aisance e aquatique. \nSignes : mano avec échange de la pression dans les blocs. Bonne communication. \n360, mise en secu surface. Ok \nAttention répéter pas de vasalva à la remontée.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-09",
+        "moniteur": "Christophe",
+        "atelier": "360°",
+        "commentaire": "LRE sous 20cm d eau puis au fond. Exercice réalisé plusieurs fois. \nPas de lestage sur cette séance , Patricia s est détendue durant la séance et arrivait à expirer d elle même pour être en flottabilité négative. \n« faux » visages de masque. Posée au fond nous simulions le visage de masque sans mettre d eau dans le masque. Doigts sur le haut du masque, tête légèrement en arrière et expiration nasale. \nContinuer au moins 1 séance sans eau dans le masque. Se focaliser sur la respiration , le poumon balaste et l aisance e aquatique. \nSignes : mano avec échange de la pression dans les blocs. Bonne communication. \n360, mise en secu surface. Ok \nAttention répéter pas de vasalva à la remontée.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-09",
+        "moniteur": "Christophe",
+        "atelier": "Signes",
+        "commentaire": "LRE sous 20cm d eau puis au fond. Exercice réalisé plusieurs fois. \nPas de lestage sur cette séance , Patricia s est détendue durant la séance et arrivait à expirer d elle même pour être en flottabilité négative. \n« faux » visages de masque. Posée au fond nous simulions le visage de masque sans mettre d eau dans le masque. Doigts sur le haut du masque, tête légèrement en arrière et expiration nasale. \nContinuer au moins 1 séance sans eau dans le masque. Se focaliser sur la respiration , le poumon balaste et l aisance e aquatique. \nSignes : mano avec échange de la pression dans les blocs. Bonne communication. \n360, mise en secu surface. Ok \nAttention répéter pas de vasalva à la remontée.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-09",
+        "moniteur": "Christophe",
+        "atelier": "LRE surpression",
+        "commentaire": "LRE sous 20cm d eau puis au fond. Exercice réalisé plusieurs fois. \nPas de lestage sur cette séance , Patricia s est détendue durant la séance et arrivait à expirer d elle même pour être en flottabilité négative. \n« faux » visages de masque. Posée au fond nous simulions le visage de masque sans mettre d eau dans le masque. Doigts sur le haut du masque, tête légèrement en arrière et expiration nasale. \nContinuer au moins 1 séance sans eau dans le masque. Se focaliser sur la respiration , le poumon balaste et l aisance e aquatique. \nSignes : mano avec échange de la pression dans les blocs. Bonne communication. \n360, mise en secu surface. Ok \nAttention répéter pas de vasalva à la remontée.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-09",
+        "moniteur": "Christophe",
+        "atelier": "Mise en sécu surface",
+        "commentaire": "LRE sous 20cm d eau puis au fond. Exercice réalisé plusieurs fois. \nPas de lestage sur cette séance , Patricia s est détendue durant la séance et arrivait à expirer d elle même pour être en flottabilité négative. \n« faux » visages de masque. Posée au fond nous simulions le visage de masque sans mettre d eau dans le masque. Doigts sur le haut du masque, tête légèrement en arrière et expiration nasale. \nContinuer au moins 1 séance sans eau dans le masque. Se focaliser sur la respiration , le poumon balaste et l aisance e aquatique. \nSignes : mano avec échange de la pression dans les blocs. Bonne communication. \n360, mise en secu surface. Ok \nAttention répéter pas de vasalva à la remontée.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-09",
+        "moniteur": "Christophe",
+        "atelier": "VDM partiel",
+        "commentaire": "LRE sous 20cm d eau puis au fond. Exercice réalisé plusieurs fois. \nPas de lestage sur cette séance , Patricia s est détendue durant la séance et arrivait à expirer d elle même pour être en flottabilité négative. \n« faux » visages de masque. Posée au fond nous simulions le visage de masque sans mettre d eau dans le masque. Doigts sur le haut du masque, tête légèrement en arrière et expiration nasale. \nContinuer au moins 1 séance sans eau dans le masque. Se focaliser sur la respiration , le poumon balaste et l aisance e aquatique. \nSignes : mano avec échange de la pression dans les blocs. Bonne communication. \n360, mise en secu surface. Ok \nAttention répéter pas de vasalva à la remontée.",
+        "commentaire_atelier": "Aucun commentaire"
       }
     ]
   }
