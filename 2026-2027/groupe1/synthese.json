@@ -1,9 +1,9 @@
 {
-  "date_generation": "2026-11-11T08:41:26",
+  "date_generation": "2026-11-14T16:47:01",
   "nb_eleves": 12,
-  "nb_moniteurs": 12,
-  "nb_seances": 28,
-  "nb_comptes_rendus": 343,
+  "nb_moniteurs": 10,
+  "nb_seances": 30,
+  "nb_comptes_rendus": 378,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
@@ -12,8 +12,8 @@
   "acquisition_par_atelier": [
     {
       "atelier": "Gréage",
-      "nb_evaluations": 41,
-      "moyenne": 2.88,
+      "nb_evaluations": 45,
+      "moyenne": 2.96,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -21,9 +21,18 @@
     },
     {
       "atelier": "Dégréage",
-      "nb_evaluations": 34,
-      "moyenne": 3.15,
+      "nb_evaluations": 37,
+      "moyenne": 3.19,
       "note_min": 2.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "VDM partiel",
+      "nb_evaluations": 32,
+      "moyenne": 3.06,
+      "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
@@ -38,18 +47,9 @@
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "VDM partiel",
-      "nb_evaluations": 29,
-      "moyenne": 3.03,
-      "note_min": 1.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
       "atelier": "Gestion de son matériel",
-      "nb_evaluations": 26,
-      "moyenne": 2.96,
+      "nb_evaluations": 27,
+      "moyenne": 3.0,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -57,26 +57,26 @@
     },
     {
       "atelier": "Déplacements immersion",
-      "nb_evaluations": 20,
-      "moyenne": 2.5,
+      "nb_evaluations": 22,
+      "moyenne": 2.45,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "Poumon Ballast",
-      "nb_evaluations": 20,
-      "moyenne": 2.75,
+      "atelier": "Saut droit PMT",
+      "nb_evaluations": 22,
+      "moyenne": 2.95,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "Saut droit PMT",
-      "nb_evaluations": 18,
-      "moyenne": 3.0,
+      "atelier": "Poumon Ballast",
+      "nb_evaluations": 21,
+      "moyenne": 2.76,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -84,8 +84,8 @@
     },
     {
       "atelier": "VDM",
-      "nb_evaluations": 18,
-      "moyenne": 3.28,
+      "nb_evaluations": 20,
+      "moyenne": 3.35,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -93,8 +93,8 @@
     },
     {
       "atelier": "Sortie de l'eau",
-      "nb_evaluations": 17,
-      "moyenne": 3.18,
+      "nb_evaluations": 19,
+      "moyenne": 3.26,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -102,17 +102,17 @@
     },
     {
       "atelier": "Gestion du gilet",
-      "nb_evaluations": 16,
-      "moyenne": 2.5,
-      "note_min": 2.0,
+      "nb_evaluations": 18,
+      "moyenne": 2.44,
+      "note_min": 1.0,
       "note_max": 3.0,
       "notable": true,
       "compte_dans_moyenne": true
     },
     {
       "atelier": "Signes",
-      "nb_evaluations": 13,
-      "moyenne": 2.92,
+      "nb_evaluations": 16,
+      "moyenne": 2.94,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -120,8 +120,8 @@
     },
     {
       "atelier": "Mise en sécu surface",
-      "nb_evaluations": 12,
-      "moyenne": 3.17,
+      "nb_evaluations": 15,
+      "moyenne": 3.13,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -129,8 +129,8 @@
     },
     {
       "atelier": "360°",
-      "nb_evaluations": 11,
-      "moyenne": 2.45,
+      "nb_evaluations": 13,
+      "moyenne": 2.54,
       "note_min": 2.0,
       "note_max": 3.0,
       "notable": true,
@@ -138,10 +138,10 @@
     },
     {
       "atelier": "Vitesse de remontée",
-      "nb_evaluations": 11,
-      "moyenne": 2.27,
+      "nb_evaluations": 13,
+      "moyenne": 2.31,
       "note_min": 1.0,
-      "note_max": 3.0,
+      "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
     },
@@ -189,13 +189,22 @@
       "note_max": 3.0,
       "notable": true,
       "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "LRE expiration",
+      "nb_evaluations": 1,
+      "moyenne": 4.0,
+      "note_min": 4.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
     }
   ],
   "progression_par_eleve": [
     {
       "eleve": "Abderrahmane",
-      "nb_ateliers_evalues": 7,
-      "moyenne_generale": 3.43
+      "nb_ateliers_evalues": 16,
+      "moyenne_generale": 3.5
     },
     {
       "eleve": "Amir",
@@ -204,8 +213,8 @@
     },
     {
       "eleve": "Aubrée",
-      "nb_ateliers_evalues": 16,
-      "moyenne_generale": 3.12
+      "nb_ateliers_evalues": 17,
+      "moyenne_generale": 3.18
     },
     {
       "eleve": "Camille",
@@ -214,8 +223,8 @@
     },
     {
       "eleve": "Catherine",
-      "nb_ateliers_evalues": 9,
-      "moyenne_generale": 2.56
+      "nb_ateliers_evalues": 13,
+      "moyenne_generale": 2.54
     },
     {
       "eleve": "Guillaume",
@@ -229,8 +238,8 @@
     },
     {
       "eleve": "Kevin F",
-      "nb_ateliers_evalues": 16,
-      "moyenne_generale": 2.62
+      "nb_ateliers_evalues": 17,
+      "moyenne_generale": 3.0
     },
     {
       "eleve": "Kévin D",
@@ -239,8 +248,8 @@
     },
     {
       "eleve": "Mohamed",
-      "nb_ateliers_evalues": 15,
-      "moyenne_generale": 3.27
+      "nb_ateliers_evalues": 14,
+      "moyenne_generale": 3.29
     },
     {
       "eleve": "Nabiyu",
@@ -257,11 +266,16 @@
     "eleves_hors_referentiel": [],
     "eleves_referentiel_jamais_vus": [],
     "moniteurs_hors_referentiel": [],
-    "moniteurs_referentiel_jamais_actifs": [
-      "Renfort 1",
-      "Renfort 2"
-    ],
+    "moniteurs_referentiel_jamais_actifs": [],
     "ateliers_hors_referentiel": [],
-    "comptes_rendus_doublons": []
+    "comptes_rendus_doublons": [
+      {
+        "date_seance": "2026-11-10",
+        "moniteur": "Véronique",
+        "eleve": "Kevin F",
+        "atelier": "VDM",
+        "occurrences": 2
+      }
+    ]
   }
 }
