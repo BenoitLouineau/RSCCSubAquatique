@@ -694,6 +694,16 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 .seance-cr { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; white-space: nowrap; background: var(--chip); border: 1px solid var(--border); }
 .seance-cr.ok { color: #22c55e; border-color: rgba(34,197,94,.35); background: rgba(34,197,94,.10); }
 .seance-cr.partiel { color: #f59e0b; border-color: rgba(245,158,11,.35); background: rgba(245,158,11,.10); }
+.seance-cr.sd { color: #94a3b8; border-color: rgba(148,163,184,.45); background: rgba(148,163,184,.12); }
+[data-theme="light"] .seance-cr.sd { color: #475569; }
+.sd-dp { font-size: 10px; font-weight: 800; padding: 1px 6px; border-radius: 999px; margin-left: 4px; white-space: nowrap;
+  color: #60a5fa; border: 1px solid rgba(59,130,246,.45); background: rgba(59,130,246,.12); }
+[data-theme="light"] .sd-dp { color: #1d4ed8; }
+.sd-mention { font-size: 10px; margin-left: 4px; color: var(--muted); }
+.sd-badges { margin-left: auto; display: inline-flex; align-items: center; flex-wrap: wrap; gap: 2px; }
+.seance-mini-card.sans-debrief { opacity: .9; border-style: dashed; }
+.cal-item.sansdebrief { border-left: 3px solid #94a3b8; }
+.cr-missing-item.sd { opacity: .85; }
 .seance-cr.ko { color: #ef4444; border-color: rgba(239,68,68,.35); background: rgba(239,68,68,.10); }
 .seances-list.compact { border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 8px; }
 .seance-compact { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 8px 12px; background: var(--chip); font-size: 12.5px; }
@@ -1554,6 +1564,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   CONFIG.URL_REFERENTIEL_CATEGORIES = CONFIG.RAW_BASE + 'referentiel_categories.json';
   CONFIG.URL_SYNTHESE    = CONFIG.RAW_BASE + 'synthese.json';
   CONFIG.URL_INFOS       = CONFIG.RAW_BASE + 'infos.json';
+  CONFIG.URL_SANS_DEBRIEF = CONFIG.RAW_BASE + 'seances_sans_debrief.json';
   CONFIG.URL_CR_SEANCE   = 'https://script.google.com/macros/s/AKfycbwAINN9KmZCwMSqio7H_i0fF00h5tRjDuGMsMBOq-u-nZ87Q8XcWKJznNPg2xnnrAq8/exec';
 
   // Icônes utilisées de façon cohérente dans toute la page
@@ -1888,6 +1899,67 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     compact: monLsFlag(LS_MON_SEANCES_COMPACT, false),
   };
 
+  // =====================================================================
+  // SÉANCES SANS DÉBRIEF — onglet SeancesSansDebrief du classeur : un moniteur présent
+  // qui n'a saisi aucun compte rendu le déclare. Ces séances n'ont aucun élève connu :
+  // elles ne comptent JAMAIS pour la présence des élèves (STATE.allDates n'est pas modifié),
+  // mais elles comptent dans le taux de retour CR, le calendrier et la fiche du moniteur.
+  // =====================================================================
+  const LS_SANS_DEBRIEF = 'rscc_v2_sans_debrief';
+  let SANS_DEBRIEF_ON = monLsFlag(LS_SANS_DEBRIEF, true);
+  function sdKey(date, moniteur) { return date + '|' + moniteur; }
+  function sdIsDp(e) { return !!e && (e.role_dp === true || /^\s*dp\b/i.test(String(e.mention || ''))); }
+  /** Déclarations « sans débrief » dont le moniteur n'a AUCUN CR à cette date (dédoublonnées). */
+  function getSansDebriefPurs() {
+    if (!SANS_DEBRIEF_ON || !Array.isArray(STATE.sansDebrief)) return [];
+    const avecCr = new Set((STATE.seances || []).map(se => sdKey(se.date_seance, se.moniteur)));
+    const vus = new Set(), out = [];
+    STATE.sansDebrief.forEach(function(e) {
+      if (!e || !e.date_seance || !e.moniteur) return;
+      const k = sdKey(e.date_seance, e.moniteur);
+      if (avecCr.has(k) || vus.has(k)) return;
+      vus.add(k); out.push(e);
+    });
+    return out;
+  }
+  /** Incohérences : déclaré « sans débrief » alors qu'un CR existe à la même date. */
+  function getSansDebriefAvecCr() {
+    if (!SANS_DEBRIEF_ON || !Array.isArray(STATE.sansDebrief)) return [];
+    const avecCr = new Set((STATE.seances || []).map(se => sdKey(se.date_seance, se.moniteur)));
+    const vus = new Set(), out = [];
+    STATE.sansDebrief.forEach(function(e) {
+      if (!e || !e.date_seance || !e.moniteur) return;
+      const k = sdKey(e.date_seance, e.moniteur);
+      if (!avecCr.has(k) || vus.has(k)) return;
+      vus.add(k); out.push({ date_seance: e.date_seance, moniteur: e.moniteur });
+    });
+    return out.sort((a, b) => a.date_seance.localeCompare(b.date_seance) || a.moniteur.localeCompare(b.moniteur, 'fr'));
+  }
+  /** Dates pour le suivi de CR : soirées avec CR + soirées déclarées sans débrief. */
+  function getCrDates() {
+    const set = new Set(STATE.allDates || []);
+    getSansDebriefPurs().forEach(e => set.add(e.date_seance));
+    return Array.from(set).sort();
+  }
+  /** Non-concordances : celles du script + celles calculées ici (sans débrief). */
+  function getAnomalies() {
+    const a = Object.assign({}, (STATE.synthese && STATE.synthese.anomalies) || {});
+    Object.keys(a).forEach(function(k) { if (k.indexOf('sans_debrief_') === 0 && !SANS_DEBRIEF_ON) delete a[k]; });
+    if (SANS_DEBRIEF_ON) a.sans_debrief_avec_cr = getSansDebriefAvecCr();
+    return a;
+  }
+  function sdPillHtml(e) {
+    return '<span class="seance-cr sd" title="Le moniteur était présent mais n\'a saisi aucun compte rendu (déclaré dans le classeur)">🚫 Sans débrief</span>' +
+      (sdIsDp(e) ? '<span class="sd-dp" title="Directeur de plongée">DP</span>'
+        : (e && e.mention ? '<span class="sd-mention">' + escapeHtml(e.mention) + '</span>' : ''));
+  }
+  /** Rafraîchit les modules concernés quand le réglage change. */
+  function refreshSansDebrief() {
+    [renderEleves, renderMoniteurs, renderSaison, renderAdmin].forEach(function(fn) {
+      try { if (STATE.eleves && STATE.synthese) fn(); } catch (e) { console.warn('Rafraîchissement :', e); }
+    });
+  }
+
   function populateMoniteurSeancesOptions() {
     const el = $('#moniteurSeancesOptions');
     if (!el) return;
@@ -1905,6 +1977,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         check('optMonAteliers', MON_SEANCES.ateliers, 'Afficher les ateliers traités', 'Ex. « Palmage · Gréage ».') +
         check('optMonCr', MON_SEANCES.cr, 'Afficher l\'indicateur de commentaires', 'Nombre d\'élèves ayant un compte rendu commenté (même règle que « Suivi de CR »).') +
         check('optMonCompact', MON_SEANCES.compact, 'Présentation compacte', 'Une ligne par séance, sans la liste des élèves.') +
+        check('optSansDebrief', SANS_DEBRIEF_ON, 'Prendre en compte les séances « sans débrief »', 'Onglet SeancesSansDebrief : taux de retour CR, fiches moniteur, calendrier, Admin.') +
       '</div>';
     const refresh = () => { if (STATE.moniteurs) renderMoniteurs(); };
     $$('input[name="moniteurSeancesRange"]', el).forEach(function(radio) {
@@ -1914,6 +1987,11 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         try { localStorage.setItem(LS_MON_SEANCES_RANGE, radio.value); } catch (e) {}
         refresh();
       });
+    });
+    $('#optSansDebrief', el).addEventListener('change', function(ev) {
+      SANS_DEBRIEF_ON = ev.target.checked;
+      try { localStorage.setItem(LS_SANS_DEBRIEF, SANS_DEBRIEF_ON ? '1' : '0'); } catch (e) {}
+      refreshSansDebrief();
     });
     [['optMonAteliers', 'ateliers', LS_MON_SEANCES_ATELIERS], ['optMonCr', 'cr', LS_MON_SEANCES_CR],
      ['optMonCompact', 'compact', LS_MON_SEANCES_COMPACT]].forEach(function(t) {
@@ -3670,6 +3748,14 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         console.warn('Fichier infos.json indisponible :', e.message);
         STATE.infos = [];
       }
+      // Séances déclarées « sans débrief » (onglet SeancesSansDebrief) : optionnel, idem.
+      try {
+        const sd = await fetchJSON(CONFIG.URL_SANS_DEBRIEF, 'sans_debrief');
+        STATE.sansDebrief = Array.isArray(sd) ? sd : [];
+      } catch (e) {
+        console.info('Fichier seances_sans_debrief.json indisponible :', e.message);
+        STATE.sansDebrief = null;
+      }
       initNotifications();
       const orphans = detectUncategorizedCompetences();
       if (orphans.length) {
@@ -3756,6 +3842,37 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     const s = STATE.synthese || {};
     return s.nb_encadrements != null ? s.nb_encadrements : (STATE.seances || []).length;
   }
+  /** Calendrier du script, complété par les séances déclarées « sans débrief » : un mardi sans CR
+   *  mais avec une déclaration n'est plus « à vérifier » (la séance a eu lieu, sans compte rendu). */
+  function getCalendrier() {
+    const c = (STATE.synthese || {}).calendrier;
+    if (!c || !Array.isArray(c.dates)) return c;
+    const purs = getSansDebriefPurs();
+    if (!purs.length) return c;
+    const byDate = {};
+    purs.forEach(function(e) { (byDate[e.date_seance] = byDate[e.date_seance] || []).push(e); });
+    const vues = new Set();
+    let sansCr = 0, nbSd = 0;
+    const dates = c.dates.map(function(d) {
+      vues.add(d.date);
+      const st = d.statut === 'piscine_fermee' ? 'sans_cr' : d.statut;
+      const sd = byDate[d.date];
+      if (!sd) { if (st === 'sans_cr') sansCr++; return d; }
+      const extra = { nb_sans_debrief: sd.length, sd_moniteurs: sd.map(e => e.moniteur), nb_dp: sd.filter(sdIsDp).length };
+      if (st === 'seance') return Object.assign({}, d, extra);
+      nbSd++;
+      return Object.assign({}, d, extra, { statut: 'sans_debrief', etait: st });
+    });
+    Object.keys(byDate).forEach(function(date) {
+      if (vues.has(date)) return;
+      const sd = byDate[date]; nbSd++;
+      dates.push({ date: date, statut: 'sans_debrief', etait: 'hors_calendrier', nb_sans_debrief: sd.length,
+        sd_moniteurs: sd.map(e => e.moniteur), nb_dp: sd.filter(sdIsDp).length });
+    });
+    dates.sort((a, b) => a.date.localeCompare(b.date));
+    return Object.assign({}, c, { dates: dates, nb_sans_cr: sansCr, nb_sans_debrief: nbSd, nb_declarations_sd: purs.length });
+  }
+
   /** Comptes du calendrier : « ferme » = déclaré fermé (onglet Absenteisme, col. G) ;
    *  « sans_cr » = aucun CR, rien de déclaré (ancien statut « piscine_fermee » assimilé). */
   function calendrierComptes(c) {
@@ -3766,23 +3883,26 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     };
   }
   function soireesSousTitre() {
-    const c = (STATE.synthese || {}).calendrier;
+    const c = getCalendrier();
     if (!c) return '';
     const n = calendrierComptes(c);
     return '<div class="kpi-sub">sur ' + c.nb_creneaux_theoriques + ' ' + escapeHtml(c.jour_semaine) + 's' +
       (n.fermes ? ' · ' + n.fermes + ' fermé(s)' : '') +
-      (n.sansCr ? ' · ' + n.sansCr + ' sans CR' : '') + '</div>';
+      (n.sansCr ? ' · ' + n.sansCr + ' sans CR' : '') +
+      (c.nb_declarations_sd ? ' · ' + c.nb_declarations_sd + ' moniteur(s) sans débrief' : '') + '</div>';
   }
 
   /** Calendrier théorique des créneaux hebdomadaires (synthese.json > calendrier). */
   function buildCalendrierHtml() {
-    const c = (STATE.synthese || {}).calendrier;
+    const c = getCalendrier();
     if (!c || !Array.isArray(c.dates) || !c.dates.length) return '';
     const items = c.dates.map(function(d) {
       const st = d.statut === 'piscine_fermee' ? 'sans_cr' : d.statut;
-      const cls = st === 'seance' ? 'ok' : (st === 'ferme' ? 'ferme' : (st === 'sans_cr' ? 'sanscr' : 'hors'));
+      const cls = st === 'seance' ? 'ok' : (st === 'ferme' ? 'ferme' : (st === 'sans_cr' ? 'sanscr' : (st === 'sans_debrief' ? 'sansdebrief' : 'hors')));
+      const sdTxt = d.nb_sans_debrief ? '🚫 ' + d.nb_sans_debrief + ' sans débrief' + (d.nb_dp ? ' (dont ' + d.nb_dp + ' DP)' : '') : '';
       const detail = st === 'seance'
-        ? d.nb_encadrements + ' encadrement' + (d.nb_encadrements > 1 ? 's' : '') + ' · ' + d.nb_eleves + ' élève' + (d.nb_eleves > 1 ? 's' : '')
+        ? d.nb_encadrements + ' encadrement' + (d.nb_encadrements > 1 ? 's' : '') + ' · ' + d.nb_eleves + ' élève' + (d.nb_eleves > 1 ? 's' : '') + (sdTxt ? ' · ' + sdTxt : '')
+        : st === 'sans_debrief' ? '🚫 Séance sans débrief — ' + (d.sd_moniteurs || []).map(escapeHtml).join(', ') + (d.nb_dp ? ' (' + d.nb_dp + ' DP)' : '')
         : st === 'ferme' ? '🔒 Fermé (déclaré)'
         : st === 'sans_cr' ? '❓ Sans CR — à vérifier'
         : '⚠ Hors ' + escapeHtml(c.jour_semaine) + ' — date à vérifier';
@@ -3792,9 +3912,11 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     return '<div class="sub-card"><div class="sub-card-title">' + ICONS.calendrier + ' Calendrier des ' + escapeHtml(c.jour_semaine) + 's' +
         '<span class="seances-period">depuis le ' + escapeHtml(formatDateFR(c.date_debut)) + ' · ' + c.nb_soirees + ' séance(s), ' +
         calendrierComptes(c).fermes + ' fermé(s), ' + calendrierComptes(c).sansCr + ' sans CR' +
+        (c.nb_declarations_sd ? ', ' + c.nb_declarations_sd + ' moniteur(s) sans débrief' : '') +
         (c.nb_hors_calendrier ? ', ' + c.nb_hors_calendrier + ' hors calendrier' : '') + '</span></div>' +
       '<p class="settings-info" style="margin:0 0 8px;">🔒 Fermé = date déclarée dans l\'onglet Absenteisme (colonne « Mardis sans séance »). ' +
         '❓ Sans CR = aucun compte rendu et rien de déclaré : piscine fermée non déclarée, soirée baptême ou séance non saisie. ' +
+        '🚫 Sans débrief = séance déclarée par le moniteur dans l\'onglet SeancesSansDebrief (aucun CR, élèves inconnus). ' +
         'Seules les séances comptent pour la présence des élèves.</p>' +
       '<div class="cal-grid">' + items + '</div>' +
       buildFrequentationHtml() + '</div>';
@@ -4129,7 +4251,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   }
 
   function buildAdminAnomaliesHtml() {
-    const a = (STATE.synthese && STATE.synthese.anomalies) || {};
+    const a = getAnomalies();
     const sections = grav => ANOM_CATEGORIES.filter(c => c.grav === grav && Array.isArray(a[c.key]) && a[c.key].length)
       .map(c => buildAnomSection(c, a[c.key])).join('');
     const nCorr = countAnomalies('corriger'), nInfo = countAnomalies('info');
@@ -4142,23 +4264,45 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   }
 
   function buildAdminMardisHtml() {
-    const c = (STATE.synthese || {}).calendrier;
+    const c = getCalendrier();
     if (!c) return adminCard('adminMardis', '🗓️ Mardis sans compte rendu', null,
       '<p class="anom-hint">Calendrier indisponible : relancer le script d\'export (version avec calendrier des séances).</p>');
     const sans = (c.dates || []).filter(d => d.statut !== 'seance');
-    const aVerifier = sans.filter(d => d.statut !== 'ferme');
-    const icone = st => st === 'ferme' ? '🔒 ' : (st === 'hors_calendrier' ? '⚠ ' : '❓ ');
+    const aVerifier = sans.filter(d => d.statut !== 'ferme' && d.statut !== 'sans_debrief');
+    const icone = st => st === 'ferme' ? '🔒 ' : (st === 'sans_debrief' ? '🚫 ' : (st === 'hors_calendrier' ? '⚠ ' : '❓ '));
     const body = sans.length
       ? '<p class="anom-hint">Créneaux théoriques (chaque ' + escapeHtml(c.jour_semaine) + ' depuis le ' + escapeHtml(formatDateFR(c.date_debut)) +
           ') sans aucun CR. 🔒 = fermeture déclarée dans l\'onglet Absenteisme (rien à faire). ❓ = rien de déclaré : ' +
           'déclarer la fermeture (colonne « Mardis sans séance ») ou vérifier auprès des moniteurs si une séance a eu lieu.</p>' +
         '<div class="anom-items">' + sans.map(d =>
           '<span class="anom-item">' + icone(d.statut === 'piscine_fermee' ? 'sans_cr' : d.statut) + escapeHtml(formatDateFR(d.date)) +
-          (d.statut === 'ferme' ? ' — fermé (déclaré)' : d.statut === 'hors_calendrier' ? ' — hors ' + escapeHtml(c.jour_semaine) + ', date à vérifier' : ' — à vérifier') +
+          (d.statut === 'ferme' ? ' — fermé (déclaré)' : d.statut === 'sans_debrief' ? ' — séance sans débrief (déclarée)' : d.statut === 'hors_calendrier' ? ' — hors ' + escapeHtml(c.jour_semaine) + ', date à vérifier' : ' — à vérifier') +
           '</span>').join('') + '</div>'
       : '<p class="admin-ok">✅ Chaque ' + escapeHtml(c.jour_semaine) + ' du calendrier a au moins un compte rendu.</p>';
     return adminCard('adminMardis', '🗓️ ' + (c.jour_semaine.charAt(0).toUpperCase() + c.jour_semaine.slice(1)) + 's sans compte rendu',
       aVerifier.length ? aVerifier.length + ' à vérifier' : sans.length + '/' + c.nb_creneaux_theoriques, body, aVerifier.length ? 'warn' : null);
+  }
+
+  function buildAdminSansDebriefHtml() {
+    if (!SANS_DEBRIEF_ON) return '';
+    if (!Array.isArray(STATE.sansDebrief)) return adminCard('adminSansDebrief', '🚫 Séances sans débrief', null,
+      '<p class="anom-hint">Données indisponibles : relancer le script d\'export (version avec l\'onglet SeancesSansDebrief).</p>');
+    const purs = getSansDebriefPurs(), avec = getSansDebriefAvecCr();
+    const parDate = {};
+    purs.forEach(function(e) { (parDate[e.date_seance] = parDate[e.date_seance] || []).push(e); });
+    const dates = Object.keys(parDate).sort().reverse();
+    const body = dates.length
+      ? '<p class="anom-hint">Séances où le moniteur était présent mais n\'a saisi aucun compte rendu (onglet SeancesSansDebrief). ' +
+          'Elles comptent comme CR manquants dans le taux de retour CR ; les élèves présents ne sont pas connus, la présence des élèves n\'est donc pas modifiée.</p>' +
+        '<div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Date</th><th>Moniteurs sans débrief</th></tr></thead><tbody>' +
+        dates.map(function(d) {
+          return '<tr><td>' + escapeHtml(formatDateFR(d)) + '</td><td>' + parDate[d].map(function(e) {
+            return '<span class="anom-item">' + escapeHtml(e.moniteur) + (sdIsDp(e) ? ' <span class="sd-dp" title="Directeur de plongée">DP</span>' : '') + '</span>';
+          }).join(' ') + '</td></tr>';
+        }).join('') + '</tbody></table></div>' +
+        (avec.length ? '<p class="anom-hint" style="margin-top:8px;">⚠ ' + avec.length + ' déclaration(s) concernent un moniteur ayant pourtant des CR à la même date : voir « Non-concordances » ci-dessus (non comptées ici).</p>' : '')
+      : '<p class="admin-ok">✅ Aucune séance déclarée sans débrief.' + (avec.length ? ' (' + avec.length + ' incohérence(s) : voir « Non-concordances »)' : '') + '</p>';
+    return adminCard('adminSansDebrief', '🚫 Séances sans débrief', purs.length, body, purs.length ? 'warn' : 'ok');
   }
 
   function buildAdminSansCommentaireHtml() {
@@ -4224,7 +4368,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 
   /** Paramètres et réglages à vérifier pour que le rapport reste juste. */
   function getParametresChecklist() {
-    const s = STATE.synthese || {}, src = s.source || {}, c = s.calendrier;
+    const s = STATE.synthese || {}, src = s.source || {}, c = getCalendrier();
     const items = [];
     const chef = typeof chefDeGroupeNom !== 'undefined' ? chefDeGroupeNom : '';
     items.push({ ok: !!chef, label: 'Chef de groupe désigné', detail: chef ? chef : 'Aucun — Réglages › Moniteurs (nécessaire pour valider les examens)' });
@@ -4388,12 +4532,13 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 
   /** Bandeau en tête : une pastille par point de vigilance, verte à 0, cliquable vers sa carte. */
   function buildAdminBandeauHtml() {
-    const c = (STATE.synthese || {}).calendrier;
+    const c = getCalendrier();
     const pills = [
       { id: 'adminCaci', icon: '🩺', n: computeCaciStats().vigilance.length, label: 'CACI' },
       { id: 'adminAbsences', icon: '🚨', n: getElevesEnAlerteAbsence().length, label: 'absences' },
       { id: 'adminAnomalies', icon: '⚠', n: countAnomalies('corriger'), label: 'non-concordances' },
       { id: 'adminMardis', icon: '❓', n: c ? calendrierComptes(c).sansCr : 0, label: 'mardi(s) à vérifier' },
+      { id: 'adminSansDebrief', icon: '🚫', n: getSansDebriefPurs().length, label: 'séance(s) sans débrief' },
       { id: 'adminSansCommentaire', icon: '📝', n: getSeancesSansCommentaire().reduce((t, r) => t + r.dates.length, 0), label: 'séances sans commentaire' },
       { id: 'adminJamais', icon: '🧩', n: getCompetencesJamaisAbordees().length, label: 'compétences jamais abordées' },
       { id: 'adminBloquees', icon: '🧱', n: getCompetencesBloquees().length, label: 'bloquée(s)' },
@@ -4432,6 +4577,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       buildAdminEncadrementHtml() +
       buildAdminAnomaliesHtml() +
       buildAdminMardisHtml() +
+      buildAdminSansDebriefHtml() +
       buildAdminSansCommentaireHtml() +
       buildAdminParametresHtml() +
       buildAdminPointHebdoHtml();
@@ -4606,12 +4752,16 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       hint: 'Ces évaluations ne sont pas reliées au référentiel de compétences : vérifier le libellé exact.' },
     { key: 'eleves_referentiel_jamais_vus', grav: 'corriger', label: '📋 Élèves inscrits jamais vus en séance',
       hint: 'Aucun compte rendu pour ces élèves : absence réelle, ou nom saisi différemment dans les comptes rendus ?' },
+    { key: 'sans_debrief_avec_cr', grav: 'corriger', label: '🚫 Séances déclarées « sans débrief » mais avec des comptes rendus',
+      hint: 'Le moniteur figure dans l\'onglet SeancesSansDebrief alors qu\'il a saisi des CR à la même date : supprimer la ligne de SeancesSansDebrief, ou vérifier la date et le nom. Ces séances sont comptées comme avec CR.' },
+    { key: 'sans_debrief_moniteurs_hors_referentiel', grav: 'corriger', label: '🤿 Moniteurs de SeancesSansDebrief absents de l\'onglet Moniteurs',
+      hint: 'Ajouter le moniteur à l\'onglet Moniteurs, ou corriger la faute de frappe dans SeancesSansDebrief.' },
     { key: 'moniteurs_referentiel_jamais_actifs', grav: 'info', label: '📋 Moniteurs n\'ayant encore animé aucune séance',
       hint: 'Pour information uniquement — normal en début de saison.' }
   ];
 
   function countAnomalies(grav) {
-    const a = (STATE.synthese && STATE.synthese.anomalies) || {};
+    const a = getAnomalies();
     return ANOM_CATEGORIES.filter(c => c.grav === grav)
       .reduce((sum, c) => sum + (Array.isArray(a[c.key]) ? a[c.key].length : 0), 0);
   }
@@ -4621,6 +4771,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       return eleveNomCaci(v.eleve) + ' · ' + escapeHtml(v.atelier || '—') + ' · ' + escapeHtml(formatAnomDate(v.date_seance)) +
         ' · ' + escapeHtml(v.moniteur) + ' (×' + (v.occurrences || 2) + ')';
     }
+    if (key === 'sans_debrief_avec_cr') return escapeHtml(v.moniteur) + ' · ' + escapeHtml(formatAnomDate(v.date_seance));
     if (key === 'eleves_noms_proches') return (v.noms || []).map(n => eleveNomCaci(n)).join(' ≈ ');
     if (key === 'moniteurs_noms_proches') return (v.noms || []).map(escapeHtml).join(' ≈ ');
     if (key.indexOf('eleves_') === 0) return eleveNomCaci(v);
@@ -4758,7 +4909,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 
   function openAnomModal() {
     const overlay = ensureAnomModal();
-    const a = (STATE.synthese && STATE.synthese.anomalies) || {};
+    const a = getAnomalies();
     const sections = function(grav) {
       return ANOM_CATEGORIES.filter(c => c.grav === grav && Array.isArray(a[c.key]) && a[c.key].length)
         .map(c => buildAnomSection(c, a[c.key])).join('');
@@ -6049,12 +6200,15 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       (s.eleves || []).forEach(el => { if (!isEleveArrete(el)) elevesSet.add(el); });
     });
     const nbSeances = seancesM.length;
-    const crManquants = nbSeances - crRemplis;
-    const tauxCR = nbSeances ? Math.round((crRemplis / nbSeances) * 100) : null;
-    return { nbSeances, crRemplis, crManquants, tauxCR, encadrement: elevesSet.size, missingDates };
+    // Séances déclarées « sans débrief » : comptées comme CR manquants et dans le dénominateur du taux
+    const sd = getSansDebriefPurs().filter(e => e.moniteur === moniteurNom && periodSet.has(e.date_seance));
+    sd.forEach(e => missingDates.push(e.date_seance));
+    const sansDebrief = sd.length;
+    const crManquants = nbSeances - crRemplis + sansDebrief;
+    const total = nbSeances + sansDebrief;
+    const tauxCR = total ? Math.round((crRemplis / total) * 100) : null;
+    return { nbSeances, crRemplis, crManquants, sansDebrief, tauxCR, encadrement: elevesSet.size, missingDates };
   }
-
-  /** Statistiques CR globales (tous moniteurs confondus) sur une période donnée. */
   function computeGlobalCrStats(periodDates) {
     const periodSet = new Set(periodDates);
     const seancesP = (STATE.seances || []).filter(s => periodSet.has(s.date_seance));
@@ -6064,10 +6218,13 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       const hasCR = (s.comptes_rendus || []).some(cr => cr.commentaire);
       if (hasCR) crRemplis++; else missing.push({ moniteur: s.moniteur, date: s.date_seance });
     });
+    const sd = getSansDebriefPurs().filter(e => periodSet.has(e.date_seance));
+    sd.forEach(e => missing.push({ moniteur: e.moniteur, date: e.date_seance, sansDebrief: true, dp: sdIsDp(e) }));
     const nbSeances = seancesP.length;
-    const tauxRetour = nbSeances ? Math.round((crRemplis / nbSeances) * 100) : 0;
+    const total = nbSeances + sd.length;
+    const tauxRetour = total ? Math.round((crRemplis / total) * 100) : 0;
     missing.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
-    return { nbSeances, crRemplis, crManquants: nbSeances - crRemplis, tauxRetour, missing };
+    return { nbSeances, crRemplis, crManquants: total - crRemplis, sansDebrief: sd.length, tauxRetour, missing };
   }
 
   function getElevesSuivisParMoniteur(moniteurNom) {
@@ -6088,8 +6245,13 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 
   /** Toutes les séances animées par un moniteur, de la plus récente à la plus ancienne. */
   function getSeancesMoniteur(moniteurNom) {
+    const sd = getSansDebriefPurs().filter(e => e.moniteur === moniteurNom).map(function(e) {
+      return { id: 'sd_' + sdKey(e.date_seance, e.moniteur), date_seance: e.date_seance, moniteur: e.moniteur,
+               eleves: [], comptes_rendus: [], sans_debrief: true, entree: e };
+    });
     return (STATE.seances || [])
       .filter(s => s.moniteur === moniteurNom)
+      .concat(sd)
       .slice()
       .sort((a, b) => (b.date_seance || '').localeCompare(a.date_seance || ''));
   }
@@ -6121,6 +6283,12 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   function seanceItemHtml(s, nameByNom) {
     const nb = (s.eleves || []).length;
     const date = ICONS.calendrier + ' ' + formatDateFR(s.date_seance);
+    if (s.sans_debrief) {
+      return MON_SEANCES.compact
+        ? '<div class="seance-compact"><span class="seance-compact-date">' + date + '</span>' + sdPillHtml(s.entree) + '</div>'
+        : '<div class="seance-mini-card sans-debrief"><div class="seance-mini-head"><span class="seance-mini-date">' + date + '</span>' +
+            '<span class="sd-badges">' + sdPillHtml(s.entree) + '</span></div></div>';
+    }
     if (MON_SEANCES.compact) {
       return '<div class="seance-compact">' +
         '<span class="seance-compact-date">' + date + '</span>' +
@@ -6226,6 +6394,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     { key: 'nbEleves', label: ICONS.moniteur + ' Nb élèves', exportLabel: 'Nb élèves' },
     { key: 'crRempli', label: ICONS.crRempli + ' CR séance annoté', exportLabel: 'CR séance annoté' },
     { key: 'crManquant', label: ICONS.crManquant + ' CR manquants', exportLabel: 'CR manquants' },
+    { key: 'sansDebrief', label: '🚫 dont sans débrief', exportLabel: 'dont sans débrief' },
     { key: 'tauxCR', label: ICONS.tauxCR + ' % Taux de retour CR', exportLabel: '% Taux de retour CR' },
   ];
   let currentCrTableRows = []; // dernière liste calculée (période active), pour les exports
@@ -6245,7 +6414,10 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   function saveVisibleCrColumns() {
     try { localStorage.setItem(LS_CR_COLUMNS, JSON.stringify(visibleCrColumns)); } catch (e) {}
   }
-  function isCrColVisible(col) { return col.mandatory || visibleCrColumns[col.key] !== false; }
+  function isCrColVisible(col) {
+    if (col.key === 'sansDebrief' && !SANS_DEBRIEF_ON) return false;
+    return col.mandatory || visibleCrColumns[col.key] !== false;
+  }
 
   function exportCrTableAsCsv() {
     const cols = CR_TABLE_COLS.filter(isCrColVisible);
@@ -6258,6 +6430,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
           case 'nbEleves': return s.encadrement;
           case 'crRempli': return s.crRemplis;
           case 'crManquant': return s.crManquants;
+          case 'sansDebrief': return s.sansDebrief;
           case 'tauxCR': return s.tauxCR === null ? '—' : s.tauxCR + '%';
           default: return '';
         }
@@ -6279,6 +6452,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
           case 'nbEleves': return s.encadrement;
           case 'crRempli': return s.crRemplis;
           case 'crManquant': return s.crManquants;
+          case 'sansDebrief': return s.sansDebrief;
           case 'tauxCR': return s.tauxCR === null ? '—' : s.tauxCR + '%';
           default: return '';
         }
@@ -6298,19 +6472,21 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       case 'nbEleves': return String(s.encadrement);
       case 'crRempli': return String(s.crRemplis);
       case 'crManquant': return String(s.crManquants);
+      case 'sansDebrief': return String(s.sansDebrief);
       case 'tauxCR': return s.tauxCR === null ? '—' : s.tauxCR + '%';
       default: return '';
     }
   }
 
   function buildCrSummaryCard() {
-    const periodDates = filterDatesByRange(STATE.allDates, crFilterMode);
+    const crDates = getCrDates();
+    const periodDates = filterDatesByRange(crDates, crFilterMode);
     const global = computeGlobalCrStats(periodDates);
     const perMoniteur = (STATE.moniteurs || []).map(function(m) {
       return { m: m, stats: computeMoniteurPeriodStats(m.nom, periodDates) };
     });
     currentCrTableRows = perMoniteur;
-    const lastDate = STATE.allDates.length ? STATE.allDates[STATE.allDates.length - 1] : null;
+    const lastDate = crDates.length ? crDates[crDates.length - 1] : null;
 
     const cols = CR_TABLE_COLS.filter(isCrColVisible);
     const headerCells = cols.map(function(col) {
@@ -6329,6 +6505,11 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 
     const missingHtml = global.missing.length
       ? global.missing.map(function(mi) {
+          if (mi.sansDebrief) {
+            return '<div class="cr-missing-item sd"><span class="cmi-date">' + formatDateFR(mi.date) + '</span>' +
+              '<span>' + ICONS.moniteurLogo + ' ' + escapeHtml(mi.moniteur) + chefBadge(mi.moniteur) + ' — séance sans débrief (déclaré)</span>' +
+              (mi.dp ? '<span class="sd-dp" title="Directeur de plongée">DP</span>' : '') + '</div>';
+          }
           return '<div class="cr-missing-item"><span class="cmi-date">' + formatDateFR(mi.date) + '</span>' +
             '<span>' + ICONS.moniteurLogo + ' ' + escapeHtml(mi.moniteur) + chefBadge(mi.moniteur) + ' — CR non saisi</span>' +
             '<a class="cr-missing-saisie" href="' + CONFIG.URL_CR_SEANCE + '" target="_blank" rel="noopener">📝 Saisir</a></div>';
@@ -6357,6 +6538,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         '<div class="cr-chip"><span class="cr-chip-value" style="color:' + stoplightColor(global.tauxRetour) + ';">' + global.tauxRetour + '%</span><span class="cr-chip-label">% Taux de retour CR</span></div>' +
         '<div class="cr-chip"><span class="cr-chip-value">' + global.nbSeances + '</span><span class="cr-chip-label">Séances couvertes</span></div>' +
         '<div class="cr-chip cr-chip-alert"><span class="cr-chip-value">' + global.crManquants + '</span><span class="cr-chip-label">CR manquant</span></div>' +
+        (global.sansDebrief ? '<div class="cr-chip"><span class="cr-chip-value">' + global.sansDebrief + '</span><span class="cr-chip-label">dont sans débrief</span></div>' : '') +
       '</div>' +
       '<div class="table-toolbar">' +
         '<span class="table-toolbar-label">Exporter le tableau :</span>' +
@@ -6389,7 +6571,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   }
 
   function buildMoniteurCard(m, nameByNom) {
-    const seasonStats = computeMoniteurPeriodStats(m.nom, STATE.allDates);
+    const seasonStats = computeMoniteurPeriodStats(m.nom, getCrDates());
     const totalEleves = (STATE.eleves || []).length;
     const tauxCouverture = totalEleves ? Math.round((seasonStats.encadrement / totalEleves) * 100) : 0;
     const tauxPresenceMoniteur = STATE.allDates.length ? Math.round((seasonStats.nbSeances / STATE.allDates.length) * 100) : 0;
@@ -6444,7 +6626,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     if (!track) return;
     const moniteurs = STATE.moniteurs || [];
     track.innerHTML = moniteurs.map(function(m) {
-      const stats = computeMoniteurPeriodStats(m.nom, STATE.allDates);
+      const stats = computeMoniteurPeriodStats(m.nom, getCrDates());
       return '<div class="eleve-chip" data-id="' + escapeHtml(m.id) + '">' +
         '<span class="eleve-chip-icon">' + ICONS.moniteurLogo + '</span>' +
         '<div class="eleve-chip-info">' +
@@ -8126,7 +8308,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   }
 
   function computeMeilleurTauxCR() {
-    const rows = (STATE.moniteurs || []).map(m => ({ m: m, stats: computeMoniteurPeriodStats(m.nom, STATE.allDates) }))
+    const rows = (STATE.moniteurs || []).map(m => ({ m: m, stats: computeMoniteurPeriodStats(m.nom, getCrDates()) }))
       .filter(r => r.stats.tauxCR != null);
     if (!rows.length) return null;
     rows.sort((a, b) => b.stats.tauxCR - a.stats.tauxCR);
