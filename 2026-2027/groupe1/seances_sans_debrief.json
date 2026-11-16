@@ -40,16 +40,6 @@
     "a_des_cr": false
   },
   {
-    "id": "2026-09-29_catherine",
-    "date_seance": "2026-09-29",
-    "moniteur": "Catherine",
-    "mention": "",
-    "role_dp": false,
-    "horodatage": "2026-11-12T19:19:48",
-    "nb_declarations": 1,
-    "a_des_cr": false
-  },
-  {
     "id": "2026-09-29_christophe",
     "date_seance": "2026-09-29",
     "moniteur": "Christophe",
