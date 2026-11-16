@@ -1,5 +1,5 @@
 {
-  "date_generation": "2026-11-15T20:38:14",
+  "date_generation": "2026-11-16T21:57:24",
   "nb_eleves": 12,
   "nb_moniteurs": 10,
   "nb_seances": 31,
@@ -304,15 +304,15 @@
   },
   "sans_debrief": {
     "onglet_present": true,
-    "nb_declarations": 13,
-    "nb_sans_cr": 10,
+    "nb_declarations": 12,
+    "nb_sans_cr": 9,
     "nb_incoherences": 3,
     "nb_dp": 2,
     "mentions": {
       "DP": 2
     },
     "derniere_declaration": "2026-11-12T19:19:48",
-    "taux_retour_cr": 76,
+    "taux_retour_cr": 78,
     "par_moniteur": [
       {
         "moniteur": "Benoit L",
@@ -327,13 +327,6 @@
         "nb_dp": 0,
         "nb_seances_avec_cr": 3,
         "taux_retour_cr": 60
-      },
-      {
-        "moniteur": "Catherine",
-        "nb": 1,
-        "nb_dp": 0,
-        "nb_seances_avec_cr": 1,
-        "taux_retour_cr": 50
       },
       {
         "moniteur": "Christophe",
@@ -374,10 +367,9 @@
     "par_date": [
       {
         "date": "2026-09-29",
-        "nb": 7,
+        "nb": 6,
         "moniteurs": [
           "Carlos",
-          "Catherine",
           "Christophe",
           "Hervé",
           "Nicos",
