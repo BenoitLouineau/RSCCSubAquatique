@@ -1359,7 +1359,7 @@
     ],
     "nb_competences_travaillees": 20,
     "competences": {
-      "Palmage": {
+      "Palmage ( nage)": {
         "nb_evaluations": 1,
         "derniere_note": 1.0,
         "moyenne_notes": 1.0,
@@ -1749,7 +1749,7 @@
       {
         "date": "2026-09-29",
         "moniteur": "Benoit L",
-        "atelier": "Palmage",
+        "atelier": "Palmage ( nage)",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Première découverte du palmage. Beaucoup de mouvement de pédalier comme beaucoup de débutants. Explications données individuellement dans leur ligne d'eau pour un mouvement idéal attendu. Un mieux noté pour la fin de session. Encourageant pour la suite."
       },
@@ -2109,7 +2109,7 @@
     ],
     "nb_competences_travaillees": 12,
     "competences": {
-      "Palmage": {
+      "Palmage ( nage)": {
         "nb_evaluations": 1,
         "derniere_note": 1.0,
         "moyenne_notes": 1.0,
@@ -2293,7 +2293,7 @@
       {
         "date": "2026-09-29",
         "moniteur": "Benoit L",
-        "atelier": "Palmage",
+        "atelier": "Palmage ( nage)",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Première séance de palmage avec mouvement de pédalier là aussi. Explications et correction apportée dans la ligne d'eau. Un léger mieux constaté en fin de séance"
       },
@@ -2881,7 +2881,7 @@
       "Nicos",
       "Virginie"
     ],
-    "nb_competences_travaillees": 20,
+    "nb_competences_travaillees": 21,
     "competences": {
       "Gréage": {
         "nb_evaluations": 5,
@@ -2915,20 +2915,15 @@
           }
         ]
       },
-      "Palmage": {
-        "nb_evaluations": 2,
-        "derniere_note": 3.0,
-        "moyenne_notes": 2.5,
+      "Palmage ( nage)": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
         "historique": [
           {
             "date": "2026-09-29",
             "note": 2.0,
             "moniteur": "Benoit L"
-          },
-          {
-            "date": "2026-11-03",
-            "note": 3.0,
-            "moniteur": "Virginie"
           }
         ]
       },
@@ -3198,6 +3193,18 @@
           }
         ]
       },
+      "Palmage": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-11-03",
+            "note": 3.0,
+            "moniteur": "Virginie"
+          }
+        ]
+      },
       "Gestion du gilet": {
         "nb_evaluations": 2,
         "derniere_note": 3.0,
@@ -3280,7 +3287,7 @@
       {
         "date": "2026-09-29",
         "moniteur": "Benoit L",
-        "atelier": "Palmage",
+        "atelier": "Palmage ( nage)",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Très aquatique et certainement déjà habitué à porter des palmes et s'en servir. Encourageant pour la suite."
       },
@@ -3632,7 +3639,7 @@
     ],
     "nb_competences_travaillees": 12,
     "competences": {
-      "Palmage": {
+      "Palmage ( nage)": {
         "nb_evaluations": 1,
         "derniere_note": 1.0,
         "moyenne_notes": 1.0,
@@ -3806,7 +3813,7 @@
       {
         "date": "2026-09-29",
         "moniteur": "Benoit L",
-        "atelier": "Palmage",
+        "atelier": "Palmage ( nage)",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Première séance de palmage avec mouvement de pédalier là aussi. Explications et correction apportée dans la ligne d'eau. Un léger mieux constaté en fin de séance"
       },
@@ -4493,7 +4500,7 @@
     ],
     "nb_competences_travaillees": 20,
     "competences": {
-      "Palmage": {
+      "Palmage ( nage)": {
         "nb_evaluations": 1,
         "derniere_note": 2.0,
         "moyenne_notes": 2.0,
@@ -4908,7 +4915,7 @@
       {
         "date": "2026-09-29",
         "moniteur": "Benoit L",
-        "atelier": "Palmage",
+        "atelier": "Palmage ( nage)",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Léger mouvement de pédale mais après explication dans la ligne d'eau, le mouvement a été vite corrigé et ce jusqu'à la fin de la session. Élève sérieux dans l'apprentissage et semble très aquatique. C'est encourageant pour la suite."
       },
@@ -6380,7 +6387,7 @@
       "Christophe",
       "Nicos"
     ],
-    "nb_competences_travaillees": 16,
+    "nb_competences_travaillees": 17,
     "competences": {
       "Gréage": {
         "nb_evaluations": 5,
@@ -6414,8 +6421,8 @@
           }
         ]
       },
-      "Palmage": {
-        "nb_evaluations": 2,
+      "Palmage ( nage)": {
+        "nb_evaluations": 1,
         "derniere_note": 2.0,
         "moyenne_notes": 2.0,
         "historique": [
@@ -6423,11 +6430,6 @@
             "date": "2026-09-29",
             "note": 2.0,
             "moniteur": "Benoit L"
-          },
-          {
-            "date": "2026-11-10",
-            "note": 2.0,
-            "moniteur": "Christophe"
           }
         ]
       },
@@ -6621,6 +6623,18 @@
           }
         ]
       },
+      "Palmage": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-11-10",
+            "note": 2.0,
+            "moniteur": "Christophe"
+          }
+        ]
+      },
       "Saut droit PMT": {
         "nb_evaluations": 1,
         "derniere_note": 3.0,
@@ -6681,7 +6695,7 @@
       {
         "date": "2026-09-29",
         "moniteur": "Benoit L",
-        "atelier": "Palmage",
+        "atelier": "Palmage ( nage)",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Des petits mouvements de type pédalier de temps en temps mais sait se reprendre pour s'appliquer au mouvement de palmage pointe de pied tendu"
       },
