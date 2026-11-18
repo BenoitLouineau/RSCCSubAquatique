@@ -15,34 +15,34 @@
     ],
     "ateliers_traites": [
       "Gréage",
-      "Palmage"
+      "Palmage ( nage)"
     ],
     "nb_comptes_rendus": 7,
     "comptes_rendus": [
       {
         "eleve": "Hanane",
-        "atelier": "Palmage",
+        "atelier": "Palmage ( nage)",
         "note": 1.0,
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Première séance de palmage avec mouvement de pédalier là aussi. Explications et correction apportée dans la ligne d'eau. Un léger mieux constaté en fin de séance"
       },
       {
         "eleve": "Patricia",
-        "atelier": "Palmage",
+        "atelier": "Palmage ( nage)",
         "note": 2.0,
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Des petits mouvements de type pédalier de temps en temps mais sait se reprendre pour s'appliquer au mouvement de palmage pointe de pied tendu"
       },
       {
         "eleve": "Aubrée",
-        "atelier": "Palmage",
+        "atelier": "Palmage ( nage)",
         "note": 1.0,
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Première découverte du palmage. Beaucoup de mouvement de pédalier comme beaucoup de débutants. Explications données individuellement dans leur ligne d'eau pour un mouvement idéal attendu. Un mieux noté pour la fin de session. Encourageant pour la suite."
       },
       {
         "eleve": "Kévin D",
-        "atelier": "Palmage",
+        "atelier": "Palmage ( nage)",
         "note": 2.0,
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Léger mouvement de pédale mais après explication dans la ligne d'eau, le mouvement a été vite corrigé et ce jusqu'à la fin de la session. Élève sérieux dans l'apprentissage et semble très aquatique. C'est encourageant pour la suite."
@@ -56,14 +56,14 @@
       },
       {
         "eleve": "Guillaume",
-        "atelier": "Palmage",
+        "atelier": "Palmage ( nage)",
         "note": 2.0,
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Très aquatique et certainement déjà habitué à porter des palmes et s'en servir. Encourageant pour la suite."
       },
       {
         "eleve": "Camille",
-        "atelier": "Palmage",
+        "atelier": "Palmage ( nage)",
         "note": 1.0,
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Première séance de palmage avec mouvement de pédalier là aussi. Explications et correction apportée dans la ligne d'eau. Un léger mieux constaté en fin de séance"
