@@ -4112,19 +4112,14 @@
         ]
       },
       "VDM": {
-        "nb_evaluations": 3,
+        "nb_evaluations": 2,
         "derniere_note": 4.0,
-        "moyenne_notes": 3.33,
+        "moyenne_notes": 3.0,
         "historique": [
           {
             "date": "2026-10-27",
             "note": 2.0,
             "moniteur": "Benoit P"
-          },
-          {
-            "date": "2026-11-10",
-            "note": 4.0,
-            "moniteur": "Véronique"
           },
           {
             "date": "2026-11-10",
@@ -4426,13 +4421,6 @@
         "moniteur": "Véronique",
         "atelier": "VDM partiel",
         "commentaire": "Aucun commentaire",
-        "commentaire_atelier": "Aucun commentaire"
-      },
-      {
-        "date": "2026-11-10",
-        "moniteur": "Véronique",
-        "atelier": "VDM",
-        "commentaire": "Pour desembuer son masque, motivé !",
         "commentaire_atelier": "Aucun commentaire"
       },
       {
