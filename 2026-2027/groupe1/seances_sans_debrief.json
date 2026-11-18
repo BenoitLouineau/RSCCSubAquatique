@@ -118,5 +118,15 @@
     "horodatage": "2026-11-12T18:52:23",
     "nb_declarations": 1,
     "a_des_cr": false
+  },
+  {
+    "id": "2026-11-17_benoit-l",
+    "date_seance": "2026-11-17",
+    "moniteur": "Benoit L",
+    "mention": "",
+    "role_dp": false,
+    "horodatage": "2026-11-18T00:57:53",
+    "nb_declarations": 1,
+    "a_des_cr": false
   }
 ]
