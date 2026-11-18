@@ -559,27 +559,29 @@
     "id": "amir",
     "nom": "Amir",
     "caci": true,
-    "nb_seances": 5,
+    "nb_seances": 6,
     "dates_seances": [
       "2026-09-29",
       "2026-10-06",
       "2026-10-13",
       "2026-10-27",
-      "2026-11-03"
+      "2026-11-03",
+      "2026-11-17"
     ],
     "moniteurs": [
       "Carine",
       "Carlos",
       "Hervé",
+      "Nicos",
       "Virginie",
       "Véronique"
     ],
-    "nb_competences_travaillees": 19,
+    "nb_competences_travaillees": 22,
     "competences": {
       "Gréage": {
-        "nb_evaluations": 5,
+        "nb_evaluations": 6,
         "derniere_note": 3.0,
-        "moyenne_notes": 2.2,
+        "moyenne_notes": 2.33,
         "historique": [
           {
             "date": "2026-09-29",
@@ -605,6 +607,11 @@
             "date": "2026-11-03",
             "note": 3.0,
             "moniteur": "Virginie"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Nicos"
           }
         ]
       },
@@ -626,9 +633,9 @@
         ]
       },
       "Dégréage": {
-        "nb_evaluations": 2,
+        "nb_evaluations": 3,
         "derniere_note": 4.0,
-        "moyenne_notes": 3.0,
+        "moyenne_notes": 3.33,
         "historique": [
           {
             "date": "2026-10-06",
@@ -639,13 +646,18 @@
             "date": "2026-11-03",
             "note": 4.0,
             "moniteur": "Virginie"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Nicos"
           }
         ]
       },
       "Gestion de son matériel": {
-        "nb_evaluations": 2,
-        "derniere_note": 3.0,
-        "moyenne_notes": 2.5,
+        "nb_evaluations": 3,
+        "derniere_note": 4.0,
+        "moyenne_notes": 3.0,
         "historique": [
           {
             "date": "2026-10-06",
@@ -656,13 +668,18 @@
             "date": "2026-11-03",
             "note": 3.0,
             "moniteur": "Virginie"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Nicos"
           }
         ]
       },
       "Soin au materiel": {
-        "nb_evaluations": 2,
+        "nb_evaluations": 3,
         "derniere_note": 3.0,
-        "moyenne_notes": 2.5,
+        "moyenne_notes": 2.67,
         "historique": [
           {
             "date": "2026-10-06",
@@ -673,13 +690,18 @@
             "date": "2026-11-03",
             "note": 3.0,
             "moniteur": "Virginie"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Nicos"
           }
         ]
       },
       "Déplacements immersion": {
-        "nb_evaluations": 2,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.0,
+        "nb_evaluations": 3,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.33,
         "historique": [
           {
             "date": "2026-10-06",
@@ -690,13 +712,18 @@
             "date": "2026-11-03",
             "note": 2.0,
             "moniteur": "Virginie"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Nicos"
           }
         ]
       },
       "Signes": {
-        "nb_evaluations": 2,
+        "nb_evaluations": 3,
         "derniere_note": 3.0,
-        "moyenne_notes": 2.5,
+        "moyenne_notes": 2.67,
         "historique": [
           {
             "date": "2026-10-06",
@@ -707,6 +734,11 @@
             "date": "2026-11-03",
             "note": 3.0,
             "moniteur": "Virginie"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Nicos"
           }
         ]
       },
@@ -733,9 +765,9 @@
         ]
       },
       "Vitesse de remontée": {
-        "nb_evaluations": 2,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.0,
+        "nb_evaluations": 3,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.33,
         "historique": [
           {
             "date": "2026-10-06",
@@ -746,13 +778,18 @@
             "date": "2026-11-03",
             "note": 2.0,
             "moniteur": "Virginie"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Nicos"
           }
         ]
       },
       "VDM": {
-        "nb_evaluations": 3,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.33,
+        "nb_evaluations": 4,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.5,
         "historique": [
           {
             "date": "2026-10-13",
@@ -768,6 +805,11 @@
             "date": "2026-11-03",
             "note": 2.0,
             "moniteur": "Virginie"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Nicos"
           }
         ]
       },
@@ -818,14 +860,19 @@
         ]
       },
       "360°": {
-        "nb_evaluations": 1,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.0,
+        "nb_evaluations": 2,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.5,
         "historique": [
           {
             "date": "2026-11-03",
             "note": 2.0,
             "moniteur": "Virginie"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Nicos"
           }
         ]
       },
@@ -854,14 +901,19 @@
         ]
       },
       "Remonté expi controlée": {
-        "nb_evaluations": 1,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.0,
+        "nb_evaluations": 2,
+        "derniere_note": 4.0,
+        "moyenne_notes": 3.0,
         "historique": [
           {
             "date": "2026-11-03",
             "note": 2.0,
             "moniteur": "Virginie"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Nicos"
           }
         ]
       },
@@ -878,14 +930,55 @@
         ]
       },
       "Mise en sécu surface": {
-        "nb_evaluations": 1,
-        "derniere_note": 4.0,
-        "moyenne_notes": 4.0,
+        "nb_evaluations": 2,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.5,
         "historique": [
           {
             "date": "2026-11-03",
             "note": 4.0,
             "moniteur": "Virginie"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Nicos"
+          }
+        ]
+      },
+      "LRE expiration": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Nicos"
+          }
+        ]
+      },
+      "Saut droit": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Nicos"
+          }
+        ]
+      },
+      "LRE surpression": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Nicos"
           }
         ]
       }
@@ -1142,6 +1235,104 @@
         "atelier": "Vitesse de remontée",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Nicos",
+        "atelier": "LRE expiration",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Bien mais appréhension perceptible"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Nicos",
+        "atelier": "Vitesse de remontée",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Nicos",
+        "atelier": "360°",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Nicos",
+        "atelier": "Gestion de son matériel",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Nicos",
+        "atelier": "Gréage",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Nicos",
+        "atelier": "Déplacements immersion",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Nicos",
+        "atelier": "Saut droit",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Nicos",
+        "atelier": "LRE surpression",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Bien mais appréhension perceptible"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Nicos",
+        "atelier": "Soin au materiel",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Nicos",
+        "atelier": "Signes",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Nicos",
+        "atelier": "Remonté expi controlée",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Nicos",
+        "atelier": "VDM",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Vidage en 2 fois"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Nicos",
+        "atelier": "Dégréage",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Nicos",
+        "atelier": "Mise en sécu surface",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
       }
     ]
   },
@@ -1149,22 +1340,24 @@
     "id": "aubree",
     "nom": "Aubrée",
     "caci": true,
-    "nb_seances": 6,
+    "nb_seances": 7,
     "dates_seances": [
       "2026-09-29",
       "2026-10-06",
       "2026-10-13",
       "2026-10-27",
       "2026-11-03",
-      "2026-11-10"
+      "2026-11-10",
+      "2026-11-17"
     ],
     "moniteurs": [
       "Benoit L",
       "Benoit P",
+      "Carine",
       "Nicos",
       "Véronique"
     ],
-    "nb_competences_travaillees": 17,
+    "nb_competences_travaillees": 20,
     "competences": {
       "Palmage": {
         "nb_evaluations": 1,
@@ -1196,9 +1389,9 @@
         ]
       },
       "Poumon Ballast": {
-        "nb_evaluations": 3,
-        "derniere_note": 3.0,
-        "moyenne_notes": 2.33,
+        "nb_evaluations": 4,
+        "derniere_note": 4.0,
+        "moyenne_notes": 2.75,
         "historique": [
           {
             "date": "2026-10-06",
@@ -1214,13 +1407,18 @@
             "date": "2026-11-03",
             "note": 3.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Carine"
           }
         ]
       },
       "Déplacements immersion": {
-        "nb_evaluations": 3,
+        "nb_evaluations": 4,
         "derniere_note": 2.0,
-        "moyenne_notes": 2.33,
+        "moyenne_notes": 2.25,
         "historique": [
           {
             "date": "2026-10-06",
@@ -1236,6 +1434,11 @@
             "date": "2026-11-03",
             "note": 2.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 2.0,
+            "moniteur": "Carine"
           }
         ]
       },
@@ -1274,9 +1477,9 @@
         ]
       },
       "Dégréage": {
-        "nb_evaluations": 3,
+        "nb_evaluations": 4,
         "derniere_note": 4.0,
-        "moyenne_notes": 3.33,
+        "moyenne_notes": 3.5,
         "historique": [
           {
             "date": "2026-10-06",
@@ -1292,13 +1495,18 @@
             "date": "2026-11-03",
             "note": 4.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Carine"
           }
         ]
       },
       "Sortie de l'eau": {
-        "nb_evaluations": 2,
-        "derniere_note": 4.0,
-        "moyenne_notes": 4.0,
+        "nb_evaluations": 3,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.67,
         "historique": [
           {
             "date": "2026-10-06",
@@ -1309,6 +1517,11 @@
             "date": "2026-10-27",
             "note": 4.0,
             "moniteur": "Nicos"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Carine"
           }
         ]
       },
@@ -1357,9 +1570,9 @@
         ]
       },
       "Gréage": {
-        "nb_evaluations": 4,
+        "nb_evaluations": 5,
         "derniere_note": 4.0,
-        "moyenne_notes": 3.75,
+        "moyenne_notes": 3.8,
         "historique": [
           {
             "date": "2026-10-13",
@@ -1380,6 +1593,11 @@
             "date": "2026-11-10",
             "note": 4.0,
             "moniteur": "Véronique"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Carine"
           }
         ]
       },
@@ -1406,9 +1624,9 @@
         ]
       },
       "Gestion de son matériel": {
-        "nb_evaluations": 3,
+        "nb_evaluations": 4,
         "derniere_note": 4.0,
-        "moyenne_notes": 3.67,
+        "moyenne_notes": 3.75,
         "historique": [
           {
             "date": "2026-10-27",
@@ -1424,6 +1642,11 @@
             "date": "2026-11-10",
             "note": 4.0,
             "moniteur": "Véronique"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Carine"
           }
         ]
       },
@@ -1440,14 +1663,19 @@
         ]
       },
       "VDM": {
-        "nb_evaluations": 1,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.0,
+        "nb_evaluations": 2,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.5,
         "historique": [
           {
             "date": "2026-11-03",
             "note": 2.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Carine"
           }
         ]
       },
@@ -1464,7 +1692,7 @@
         ]
       },
       "Signes": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 4.0,
         "moyenne_notes": 4.0,
         "historique": [
@@ -1472,6 +1700,47 @@
             "date": "2026-11-10",
             "note": 4.0,
             "moniteur": "Véronique"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Carine"
+          }
+        ]
+      },
+      "Saut droit": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Carine"
+          }
+        ]
+      },
+      "LRE surpression": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Carine"
+          }
+        ]
+      },
+      "Remonté expi controlée": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": 2.0,
+            "moniteur": "Carine"
           }
         ]
       }
@@ -1741,6 +2010,83 @@
         "moniteur": "Véronique",
         "atelier": "Signes",
         "commentaire": "Signe \"oreille\" fait à propos et spontanément. Par contre remontée rapide seule jusqu'à la surface. Debriefé mais à rappeler.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Carine",
+        "atelier": "Sortie de l'eau",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Carine",
+        "atelier": "Dégréage",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Carine",
+        "atelier": "Signes",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Carine",
+        "atelier": "Déplacements immersion",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Carine",
+        "atelier": "Gestion de son matériel",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Carine",
+        "atelier": "Saut droit",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Carine",
+        "atelier": "Gréage",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Carine",
+        "atelier": "LRE surpression",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Carine",
+        "atelier": "Remonté expi controlée",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Carine",
+        "atelier": "Poumon Ballast",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Carine",
+        "atelier": "VDM",
+        "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
       }
     ]
@@ -3272,7 +3618,7 @@
   {
     "id": "hanane",
     "nom": "Hanane",
-    "caci": false,
+    "caci": true,
     "nb_seances": 3,
     "dates_seances": [
       "2026-09-29",
@@ -4130,20 +4476,22 @@
     "id": "kevin-d",
     "nom": "Kévin D",
     "caci": true,
-    "nb_seances": 5,
+    "nb_seances": 6,
     "dates_seances": [
       "2026-09-29",
       "2026-10-06",
       "2026-10-13",
       "2026-11-03",
-      "2026-11-10"
+      "2026-11-10",
+      "2026-11-17"
     ],
     "moniteurs": [
       "Benoit L",
       "Benoit P",
+      "Catherine",
       "Nicos"
     ],
-    "nb_competences_travaillees": 18,
+    "nb_competences_travaillees": 20,
     "competences": {
       "Palmage": {
         "nb_evaluations": 1,
@@ -4158,9 +4506,9 @@
         ]
       },
       "Dégréage": {
-        "nb_evaluations": 4,
+        "nb_evaluations": 5,
         "derniere_note": 4.0,
-        "moyenne_notes": 3.5,
+        "moyenne_notes": 3.6,
         "historique": [
           {
             "date": "2026-10-06",
@@ -4181,6 +4529,11 @@
             "date": "2026-11-10",
             "note": 4.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Catherine"
           }
         ]
       },
@@ -4246,9 +4599,9 @@
         ]
       },
       "Remonté expi controlée": {
-        "nb_evaluations": 2,
-        "derniere_note": 3.0,
-        "moyenne_notes": 2.5,
+        "nb_evaluations": 3,
+        "derniere_note": 4.0,
+        "moyenne_notes": 3.0,
         "historique": [
           {
             "date": "2026-10-06",
@@ -4259,6 +4612,11 @@
             "date": "2026-11-03",
             "note": 3.0,
             "moniteur": "Nicos"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Catherine"
           }
         ]
       },
@@ -4307,9 +4665,9 @@
         ]
       },
       "Vitesse de remontée": {
-        "nb_evaluations": 2,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.0,
+        "nb_evaluations": 3,
+        "derniere_note": 4.0,
+        "moyenne_notes": 2.67,
         "historique": [
           {
             "date": "2026-10-06",
@@ -4320,13 +4678,18 @@
             "date": "2026-11-03",
             "note": 2.0,
             "moniteur": "Nicos"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Catherine"
           }
         ]
       },
       "Sortie de l'eau": {
-        "nb_evaluations": 3,
-        "derniere_note": 3.0,
-        "moyenne_notes": 2.67,
+        "nb_evaluations": 4,
+        "derniere_note": 4.0,
+        "moyenne_notes": 3.0,
         "historique": [
           {
             "date": "2026-10-06",
@@ -4342,13 +4705,18 @@
             "date": "2026-11-10",
             "note": 3.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Catherine"
           }
         ]
       },
       "Déplacements immersion": {
-        "nb_evaluations": 3,
-        "derniere_note": 3.0,
-        "moyenne_notes": 2.67,
+        "nb_evaluations": 4,
+        "derniere_note": 4.0,
+        "moyenne_notes": 3.0,
         "historique": [
           {
             "date": "2026-10-06",
@@ -4364,6 +4732,11 @@
             "date": "2026-11-10",
             "note": 3.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Catherine"
           }
         ]
       },
@@ -4390,9 +4763,9 @@
         ]
       },
       "VDM": {
-        "nb_evaluations": 3,
+        "nb_evaluations": 4,
         "derniere_note": 4.0,
-        "moyenne_notes": 3.33,
+        "moyenne_notes": 3.5,
         "historique": [
           {
             "date": "2026-10-13",
@@ -4408,6 +4781,11 @@
             "date": "2026-11-10",
             "note": 4.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Catherine"
           }
         ]
       },
@@ -4434,9 +4812,9 @@
         ]
       },
       "360°": {
-        "nb_evaluations": 2,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.0,
+        "nb_evaluations": 3,
+        "derniere_note": 4.0,
+        "moyenne_notes": 2.67,
         "historique": [
           {
             "date": "2026-11-03",
@@ -4447,6 +4825,11 @@
             "date": "2026-11-10",
             "note": 2.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Catherine"
           }
         ]
       },
@@ -4480,14 +4863,43 @@
         ]
       },
       "Saut droit": {
-        "nb_evaluations": 1,
-        "derniere_note": 3.0,
-        "moyenne_notes": 3.0,
+        "nb_evaluations": 2,
+        "derniere_note": 4.0,
+        "moyenne_notes": 3.5,
         "historique": [
           {
             "date": "2026-11-10",
             "note": 3.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Catherine"
+          }
+        ]
+      },
+      "Soin au materiel": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": 2.0,
+            "moniteur": "Catherine"
+          }
+        ]
+      },
+      "LRE surpression": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Catherine"
           }
         ]
       }
@@ -4800,6 +5212,76 @@
         "atelier": "VDM partiel",
         "commentaire": "Séance une nouvelle fois agréable, efficace au exercice et son ressenti était très bon. Pas vraiment de point bloquant et donc très encourageant pour la suite de son parcours",
         "commentaire_atelier": "RAS ok pour moi"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Catherine",
+        "atelier": "Soin au materiel",
+        "commentaire": "Kevin n’a pas de difficulté repérées. Il avait fait plus d’un trimestre au moment du Covid et cela se voit. Très motivé",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Catherine",
+        "atelier": "Déplacements immersion",
+        "commentaire": "Kevin n’a pas de difficulté repérées. Il avait fait plus d’un trimestre au moment du Covid et cela se voit. Très motivé",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Catherine",
+        "atelier": "Remonté expi controlée",
+        "commentaire": "Kevin n’a pas de difficulté repérées. Il avait fait plus d’un trimestre au moment du Covid et cela se voit. Très motivé",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Catherine",
+        "atelier": "Dégréage",
+        "commentaire": "Kevin n’a pas de difficulté repérées. Il avait fait plus d’un trimestre au moment du Covid et cela se voit. Très motivé",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Catherine",
+        "atelier": "Vitesse de remontée",
+        "commentaire": "Kevin n’a pas de difficulté repérées. Il avait fait plus d’un trimestre au moment du Covid et cela se voit. Très motivé",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Catherine",
+        "atelier": "VDM",
+        "commentaire": "Kevin n’a pas de difficulté repérées. Il avait fait plus d’un trimestre au moment du Covid et cela se voit. Très motivé",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Catherine",
+        "atelier": "360°",
+        "commentaire": "Kevin n’a pas de difficulté repérées. Il avait fait plus d’un trimestre au moment du Covid et cela se voit. Très motivé",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Catherine",
+        "atelier": "LRE surpression",
+        "commentaire": "Kevin n’a pas de difficulté repérées. Il avait fait plus d’un trimestre au moment du Covid et cela se voit. Très motivé",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Catherine",
+        "atelier": "Sortie de l'eau",
+        "commentaire": "Kevin n’a pas de difficulté repérées. Il avait fait plus d’un trimestre au moment du Covid et cela se voit. Très motivé",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Catherine",
+        "atelier": "Saut droit",
+        "commentaire": "Kevin n’a pas de difficulté repérées. Il avait fait plus d’un trimestre au moment du Covid et cela se voit. Très motivé",
+        "commentaire_atelier": "Aucun commentaire"
       }
     ]
   },
@@ -5251,25 +5733,27 @@
     "id": "nabiyu",
     "nom": "Nabiyu",
     "caci": true,
-    "nb_seances": 5,
+    "nb_seances": 6,
     "dates_seances": [
       "2026-09-29",
       "2026-10-06",
       "2026-10-13",
       "2026-10-27",
-      "2026-11-03"
+      "2026-11-03",
+      "2026-11-17"
     ],
     "moniteurs": [
       "Benoit P",
       "Carine",
-      "Carlos"
+      "Carlos",
+      "Véronique"
     ],
-    "nb_competences_travaillees": 15,
+    "nb_competences_travaillees": 18,
     "competences": {
       "Gréage": {
-        "nb_evaluations": 4,
+        "nb_evaluations": 5,
         "derniere_note": 4.0,
-        "moyenne_notes": 2.75,
+        "moyenne_notes": 3.0,
         "historique": [
           {
             "date": "2026-09-29",
@@ -5290,13 +5774,18 @@
             "date": "2026-11-03",
             "note": 4.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Véronique"
           }
         ]
       },
       "Dégréage": {
-        "nb_evaluations": 4,
+        "nb_evaluations": 5,
         "derniere_note": 4.0,
-        "moyenne_notes": 3.0,
+        "moyenne_notes": 3.2,
         "historique": [
           {
             "date": "2026-10-06",
@@ -5317,6 +5806,11 @@
             "date": "2026-11-03",
             "note": 4.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Véronique"
           }
         ]
       },
@@ -5338,9 +5832,9 @@
         ]
       },
       "Gestion de son matériel": {
-        "nb_evaluations": 3,
+        "nb_evaluations": 4,
         "derniere_note": 4.0,
-        "moyenne_notes": 3.0,
+        "moyenne_notes": 3.25,
         "historique": [
           {
             "date": "2026-10-06",
@@ -5356,6 +5850,11 @@
             "date": "2026-11-03",
             "note": 4.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Véronique"
           }
         ]
       },
@@ -5428,9 +5927,9 @@
         ]
       },
       "VDM": {
-        "nb_evaluations": 2,
-        "derniere_note": 4.0,
-        "moyenne_notes": 4.0,
+        "nb_evaluations": 3,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.67,
         "historique": [
           {
             "date": "2026-10-27",
@@ -5441,13 +5940,18 @@
             "date": "2026-11-03",
             "note": 4.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Véronique"
           }
         ]
       },
       "Poumon Ballast": {
-        "nb_evaluations": 2,
+        "nb_evaluations": 3,
         "derniere_note": 4.0,
-        "moyenne_notes": 3.5,
+        "moyenne_notes": 3.67,
         "historique": [
           {
             "date": "2026-10-27",
@@ -5458,11 +5962,16 @@
             "date": "2026-11-03",
             "note": 4.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Véronique"
           }
         ]
       },
       "Remonté expi controlée": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
         "historique": [
@@ -5470,6 +5979,11 @@
             "date": "2026-11-03",
             "note": 3.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Véronique"
           }
         ]
       },
@@ -5510,14 +6024,55 @@
         ]
       },
       "360°": {
-        "nb_evaluations": 1,
-        "derniere_note": 3.0,
-        "moyenne_notes": 3.0,
+        "nb_evaluations": 2,
+        "derniere_note": 4.0,
+        "moyenne_notes": 3.5,
         "historique": [
           {
             "date": "2026-11-03",
             "note": 3.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Véronique"
+          }
+        ]
+      },
+      "Saut droit": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Véronique"
+          }
+        ]
+      },
+      "Phoque": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Véronique"
+          }
+        ]
+      },
+      "LRE expiration": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Véronique"
           }
         ]
       }
@@ -5731,6 +6286,76 @@
         "moniteur": "Benoit P",
         "atelier": "360°",
         "commentaire": "Ca imprime vite chez nabiyu. Il etait content de lui (a juste titre).",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Véronique",
+        "atelier": "Saut droit",
+        "commentaire": "Masque pas très adapté, au premier VDM, il a bu la tasse. Il en a refait 1 ensuite à la fin de la séance, mieux. A revoir avec un bon masque.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Véronique",
+        "atelier": "360°",
+        "commentaire": "Masque pas très adapté, au premier VDM, il a bu la tasse. Il en a refait 1 ensuite à la fin de la séance, mieux. A revoir avec un bon masque.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Véronique",
+        "atelier": "VDM",
+        "commentaire": "Masque pas très adapté, au premier VDM, il a bu la tasse. Il en a refait 1 ensuite à la fin de la séance, mieux. A revoir avec un bon masque.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Véronique",
+        "atelier": "Gestion de son matériel",
+        "commentaire": "Masque pas très adapté, au premier VDM, il a bu la tasse. Il en a refait 1 ensuite à la fin de la séance, mieux. A revoir avec un bon masque.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Véronique",
+        "atelier": "Gréage",
+        "commentaire": "Masque pas très adapté, au premier VDM, il a bu la tasse. Il en a refait 1 ensuite à la fin de la séance, mieux. A revoir avec un bon masque.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Véronique",
+        "atelier": "Phoque",
+        "commentaire": "Masque pas très adapté, au premier VDM, il a bu la tasse. Il en a refait 1 ensuite à la fin de la séance, mieux. A revoir avec un bon masque.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Véronique",
+        "atelier": "Poumon Ballast",
+        "commentaire": "Masque pas très adapté, au premier VDM, il a bu la tasse. Il en a refait 1 ensuite à la fin de la séance, mieux. A revoir avec un bon masque.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Véronique",
+        "atelier": "Remonté expi controlée",
+        "commentaire": "Masque pas très adapté, au premier VDM, il a bu la tasse. Il en a refait 1 ensuite à la fin de la séance, mieux. A revoir avec un bon masque.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Véronique",
+        "atelier": "Dégréage",
+        "commentaire": "Masque pas très adapté, au premier VDM, il a bu la tasse. Il en a refait 1 ensuite à la fin de la séance, mieux. A revoir avec un bon masque.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Véronique",
+        "atelier": "LRE expiration",
+        "commentaire": "Masque pas très adapté, au premier VDM, il a bu la tasse. Il en a refait 1 ensuite à la fin de la séance, mieux. A revoir avec un bon masque.",
         "commentaire_atelier": "Aucun commentaire"
       }
     ]
