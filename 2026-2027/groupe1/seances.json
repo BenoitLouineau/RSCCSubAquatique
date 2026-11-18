@@ -3346,7 +3346,7 @@
       "VDM",
       "VDM partiel"
     ],
-    "nb_comptes_rendus": 13,
+    "nb_comptes_rendus": 12,
     "comptes_rendus": [
       {
         "eleve": "Aubrée",
@@ -3395,13 +3395,6 @@
         "atelier": "VDM partiel",
         "note": 4.0,
         "commentaire": "Aucun commentaire",
-        "commentaire_atelier": "Aucun commentaire"
-      },
-      {
-        "eleve": "Kevin F",
-        "atelier": "VDM",
-        "note": 4.0,
-        "commentaire": "Pour desembuer son masque, motivé !",
         "commentaire_atelier": "Aucun commentaire"
       },
       {
