@@ -1,9 +1,9 @@
 {
-  "date_generation": "2026-11-18T17:09:37",
+  "date_generation": "2026-11-18T17:14:38",
   "nb_eleves": 12,
   "nb_moniteurs": 10,
   "nb_seances": 35,
-  "nb_comptes_rendus": 436,
+  "nb_comptes_rendus": 435,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
@@ -74,15 +74,6 @@
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "VDM",
-      "nb_evaluations": 24,
-      "moyenne": 3.33,
-      "note_min": 1.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
       "atelier": "Saut droit PMT",
       "nb_evaluations": 23,
       "moyenne": 2.96,
@@ -90,6 +81,15 @@
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "VDM",
+      "nb_evaluations": 23,
+      "moyenne": 3.3,
+      "note_min": 1.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
     },
     {
       "atelier": "Sortie de l'eau",
@@ -277,15 +277,7 @@
     "moniteurs_hors_referentiel": [],
     "moniteurs_referentiel_jamais_actifs": [],
     "ateliers_hors_referentiel": [],
-    "comptes_rendus_doublons": [
-      {
-        "date_seance": "2026-11-10",
-        "moniteur": "Véronique",
-        "eleve": "Kevin F",
-        "atelier": "VDM",
-        "occurrences": 2
-      }
-    ],
+    "comptes_rendus_doublons": [],
     "sans_debrief_moniteurs_hors_referentiel": [],
     "sans_debrief_avec_cr": [
       {
