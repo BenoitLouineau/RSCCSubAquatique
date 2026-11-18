@@ -54,21 +54,23 @@
   {
     "id": "carine",
     "nom": "Carine",
-    "nb_seances_animees": 2,
+    "nb_seances_animees": 3,
     "dates_seances": [
       "2026-09-29",
-      "2026-10-06"
+      "2026-10-06",
+      "2026-11-17"
     ],
-    "nb_eleves_suivis": 5,
+    "nb_eleves_suivis": 6,
     "eleves_suivis": [
       "Abderrahmane",
       "Amir",
+      "Aubrée",
       "Guillaume",
       "Mohamed",
       "Nabiyu"
     ],
-    "nb_comptes_rendus": 9,
-    "nb_evaluations_notees": 9
+    "nb_comptes_rendus": 20,
+    "nb_evaluations_notees": 20
   },
   {
     "id": "carlos",
@@ -92,16 +94,18 @@
   {
     "id": "catherine",
     "nom": "Catherine",
-    "nb_seances_animees": 1,
+    "nb_seances_animees": 2,
     "dates_seances": [
-      "2026-11-03"
+      "2026-11-03",
+      "2026-11-17"
     ],
-    "nb_eleves_suivis": 1,
+    "nb_eleves_suivis": 2,
     "eleves_suivis": [
+      "Kévin D",
       "Patricia"
     ],
-    "nb_comptes_rendus": 4,
-    "nb_evaluations_notees": 4
+    "nb_comptes_rendus": 14,
+    "nb_evaluations_notees": 14
   },
   {
     "id": "christophe",
@@ -141,22 +145,24 @@
   {
     "id": "nicos",
     "nom": "Nicos",
-    "nb_seances_animees": 4,
+    "nb_seances_animees": 5,
     "dates_seances": [
       "2026-10-06",
       "2026-10-13",
       "2026-10-27",
-      "2026-11-03"
+      "2026-11-03",
+      "2026-11-17"
     ],
-    "nb_eleves_suivis": 4,
+    "nb_eleves_suivis": 5,
     "eleves_suivis": [
+      "Amir",
       "Aubrée",
       "Guillaume",
       "Kévin D",
       "Patricia"
     ],
-    "nb_comptes_rendus": 44,
-    "nb_evaluations_notees": 44
+    "nb_comptes_rendus": 58,
+    "nb_evaluations_notees": 58
   },
   {
     "id": "virginie",
@@ -176,22 +182,24 @@
   {
     "id": "veronique",
     "nom": "Véronique",
-    "nb_seances_animees": 4,
+    "nb_seances_animees": 5,
     "dates_seances": [
       "2026-10-13",
       "2026-10-27",
       "2026-11-03",
-      "2026-11-10"
+      "2026-11-10",
+      "2026-11-17"
     ],
-    "nb_eleves_suivis": 5,
+    "nb_eleves_suivis": 6,
     "eleves_suivis": [
       "Amir",
       "Aubrée",
       "Camille",
       "Catherine",
-      "Kevin F"
+      "Kevin F",
+      "Nabiyu"
     ],
-    "nb_comptes_rendus": 29,
-    "nb_evaluations_notees": 29
+    "nb_comptes_rendus": 39,
+    "nb_evaluations_notees": 39
   }
 ]
