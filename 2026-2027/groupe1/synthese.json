@@ -1,5 +1,5 @@
 {
-  "date_generation": "2026-11-18T16:54:37",
+  "date_generation": "2026-11-18T16:57:44",
   "nb_eleves": 12,
   "nb_moniteurs": 10,
   "nb_seances": 35,
@@ -146,6 +146,15 @@
       "compte_dans_moyenne": true
     },
     {
+      "atelier": "Palmage ( nage)",
+      "nb_evaluations": 10,
+      "moyenne": 1.9,
+      "note_min": 1.0,
+      "note_max": 3.0,
+      "notable": true,
+      "compte_dans_moyenne": false
+    },
+    {
       "atelier": "Remonté expi controlée",
       "nb_evaluations": 9,
       "moyenne": 2.78,
@@ -173,15 +182,6 @@
       "compte_dans_moyenne": true
     },
     {
-      "atelier": "Palmage ( nage)",
-      "nb_evaluations": 6,
-      "moyenne": 1.5,
-      "note_min": 1.0,
-      "note_max": 2.0,
-      "notable": true,
-      "compte_dans_moyenne": false
-    },
-    {
       "atelier": "LRE surpression",
       "nb_evaluations": 4,
       "moyenne": 3.75,
@@ -189,15 +189,6 @@
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Palmage",
-      "nb_evaluations": 4,
-      "moyenne": 2.5,
-      "note_min": 2.0,
-      "note_max": 3.0,
-      "notable": false,
-      "compte_dans_moyenne": false
     },
     {
       "atelier": "LRE expiration",
@@ -246,8 +237,8 @@
     },
     {
       "eleve": "Guillaume",
-      "nb_ateliers_evalues": 21,
-      "moyenne_generale": 3.33
+      "nb_ateliers_evalues": 20,
+      "moyenne_generale": 3.4
     },
     {
       "eleve": "Hanane",
@@ -276,8 +267,8 @@
     },
     {
       "eleve": "Patricia",
-      "nb_ateliers_evalues": 17,
-      "moyenne_generale": 2.53
+      "nb_ateliers_evalues": 16,
+      "moyenne_generale": 2.56
     }
   ],
   "anomalies": {
@@ -285,9 +276,7 @@
     "eleves_referentiel_jamais_vus": [],
     "moniteurs_hors_referentiel": [],
     "moniteurs_referentiel_jamais_actifs": [],
-    "ateliers_hors_referentiel": [
-      "Palmage"
-    ],
+    "ateliers_hors_referentiel": [],
     "comptes_rendus_doublons": [
       {
         "date_seance": "2026-11-10",
