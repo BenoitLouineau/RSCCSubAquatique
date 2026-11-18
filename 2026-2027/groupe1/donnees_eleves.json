@@ -3908,5 +3908,455 @@
     "moniteur": "Christophe",
     "presence": "Présent",
     "statut": "Non acquis"
+  },
+  {
+    "eleve": "Aubrée",
+    "genre": "",
+    "categorie": "Sortie de l'eau",
+    "competence": "Sortie de l'eau",
+    "date": "2026-11-17",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Aubrée",
+    "genre": "",
+    "categorie": "Dégréage",
+    "competence": "Dégréage",
+    "date": "2026-11-17",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Aubrée",
+    "genre": "",
+    "categorie": "Signes",
+    "competence": "Signes",
+    "date": "2026-11-17",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Aubrée",
+    "genre": "",
+    "categorie": "Déplacements immersion",
+    "competence": "Déplacements immersion",
+    "date": "2026-11-17",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Aubrée",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-11-17",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Aubrée",
+    "genre": "",
+    "categorie": "Saut droit",
+    "competence": "Saut droit",
+    "date": "2026-11-17",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Aubrée",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-11-17",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Aubrée",
+    "genre": "",
+    "categorie": "LRE surpression",
+    "competence": "LRE surpression",
+    "date": "2026-11-17",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Aubrée",
+    "genre": "",
+    "categorie": "Remonté expi controlée",
+    "competence": "Remonté expi controlée",
+    "date": "2026-11-17",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Aubrée",
+    "genre": "",
+    "categorie": "Poumon Ballast",
+    "competence": "Poumon Ballast",
+    "date": "2026-11-17",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Aubrée",
+    "genre": "",
+    "categorie": "VDM",
+    "competence": "VDM",
+    "date": "2026-11-17",
+    "moniteur": "Carine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "LRE expiration",
+    "competence": "LRE expiration",
+    "date": "2026-11-17",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "Vitesse de remontée",
+    "competence": "Vitesse de remontée",
+    "date": "2026-11-17",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "360°",
+    "competence": "360°",
+    "date": "2026-11-17",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-11-17",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-11-17",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "Déplacements immersion",
+    "competence": "Déplacements immersion",
+    "date": "2026-11-17",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "Saut droit",
+    "competence": "Saut droit",
+    "date": "2026-11-17",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "LRE surpression",
+    "competence": "LRE surpression",
+    "date": "2026-11-17",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "Soin au materiel",
+    "competence": "Soin au materiel",
+    "date": "2026-11-17",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "Signes",
+    "competence": "Signes",
+    "date": "2026-11-17",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "Remonté expi controlée",
+    "competence": "Remonté expi controlée",
+    "date": "2026-11-17",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "VDM",
+    "competence": "VDM",
+    "date": "2026-11-17",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "Dégréage",
+    "competence": "Dégréage",
+    "date": "2026-11-17",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "Mise en sécu surface",
+    "competence": "Mise en sécu surface",
+    "date": "2026-11-17",
+    "moniteur": "Nicos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "Soin au materiel",
+    "competence": "Soin au materiel",
+    "date": "2026-11-17",
+    "moniteur": "Catherine",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "Déplacements immersion",
+    "competence": "Déplacements immersion",
+    "date": "2026-11-17",
+    "moniteur": "Catherine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "Remonté expi controlée",
+    "competence": "Remonté expi controlée",
+    "date": "2026-11-17",
+    "moniteur": "Catherine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "Dégréage",
+    "competence": "Dégréage",
+    "date": "2026-11-17",
+    "moniteur": "Catherine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "Vitesse de remontée",
+    "competence": "Vitesse de remontée",
+    "date": "2026-11-17",
+    "moniteur": "Catherine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "VDM",
+    "competence": "VDM",
+    "date": "2026-11-17",
+    "moniteur": "Catherine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "360°",
+    "competence": "360°",
+    "date": "2026-11-17",
+    "moniteur": "Catherine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "LRE surpression",
+    "competence": "LRE surpression",
+    "date": "2026-11-17",
+    "moniteur": "Catherine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "Sortie de l'eau",
+    "competence": "Sortie de l'eau",
+    "date": "2026-11-17",
+    "moniteur": "Catherine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "Saut droit",
+    "competence": "Saut droit",
+    "date": "2026-11-17",
+    "moniteur": "Catherine",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "Saut droit",
+    "competence": "Saut droit",
+    "date": "2026-11-17",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "360°",
+    "competence": "360°",
+    "date": "2026-11-17",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "VDM",
+    "competence": "VDM",
+    "date": "2026-11-17",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-11-17",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-11-17",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "Phoque",
+    "competence": "Phoque",
+    "date": "2026-11-17",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "Poumon Ballast",
+    "competence": "Poumon Ballast",
+    "date": "2026-11-17",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "Remonté expi controlée",
+    "competence": "Remonté expi controlée",
+    "date": "2026-11-17",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "Dégréage",
+    "competence": "Dégréage",
+    "date": "2026-11-17",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "LRE expiration",
+    "competence": "LRE expiration",
+    "date": "2026-11-17",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "Acquis"
   }
 ]
