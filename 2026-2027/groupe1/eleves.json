@@ -847,7 +847,7 @@
           }
         ]
       },
-      "Palmage": {
+      "Palmage ( nage)": {
         "nb_evaluations": 1,
         "derniere_note": 2.0,
         "moyenne_notes": 2.0,
@@ -1113,7 +1113,7 @@
       {
         "date": "2026-11-03",
         "moniteur": "Virginie",
-        "atelier": "Palmage",
+        "atelier": "Palmage ( nage)",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
       },
@@ -2881,7 +2881,7 @@
       "Nicos",
       "Virginie"
     ],
-    "nb_competences_travaillees": 21,
+    "nb_competences_travaillees": 20,
     "competences": {
       "Gréage": {
         "nb_evaluations": 5,
@@ -2916,14 +2916,19 @@
         ]
       },
       "Palmage ( nage)": {
-        "nb_evaluations": 1,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.0,
+        "nb_evaluations": 2,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.5,
         "historique": [
           {
             "date": "2026-09-29",
             "note": 2.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-03",
+            "note": 3.0,
+            "moniteur": "Virginie"
           }
         ]
       },
@@ -3193,18 +3198,6 @@
           }
         ]
       },
-      "Palmage": {
-        "nb_evaluations": 1,
-        "derniere_note": 3.0,
-        "moyenne_notes": 3.0,
-        "historique": [
-          {
-            "date": "2026-11-03",
-            "note": 3.0,
-            "moniteur": "Virginie"
-          }
-        ]
-      },
       "Gestion du gilet": {
         "nb_evaluations": 2,
         "derniere_note": 3.0,
@@ -3427,7 +3420,7 @@
       {
         "date": "2026-11-03",
         "moniteur": "Virginie",
-        "atelier": "Palmage",
+        "atelier": "Palmage ( nage)",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
       },
@@ -4201,7 +4194,7 @@
           }
         ]
       },
-      "Palmage": {
+      "Palmage ( nage)": {
         "nb_evaluations": 1,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
@@ -4382,7 +4375,7 @@
       {
         "date": "2026-11-03",
         "moniteur": "Christophe",
-        "atelier": "Palmage",
+        "atelier": "Palmage ( nage)",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
       },
@@ -6387,7 +6380,7 @@
       "Christophe",
       "Nicos"
     ],
-    "nb_competences_travaillees": 17,
+    "nb_competences_travaillees": 16,
     "competences": {
       "Gréage": {
         "nb_evaluations": 5,
@@ -6422,7 +6415,7 @@
         ]
       },
       "Palmage ( nage)": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 2.0,
         "moyenne_notes": 2.0,
         "historique": [
@@ -6430,6 +6423,11 @@
             "date": "2026-09-29",
             "note": 2.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-10",
+            "note": 2.0,
+            "moniteur": "Christophe"
           }
         ]
       },
@@ -6620,18 +6618,6 @@
             "date": "2026-10-27",
             "note": 3.0,
             "moniteur": "Benoit L"
-          }
-        ]
-      },
-      "Palmage": {
-        "nb_evaluations": 1,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.0,
-        "historique": [
-          {
-            "date": "2026-11-10",
-            "note": 2.0,
-            "moniteur": "Christophe"
           }
         ]
       },
@@ -6849,7 +6835,7 @@
       {
         "date": "2026-11-10",
         "moniteur": "Christophe",
-        "atelier": "Palmage",
+        "atelier": "Palmage ( nage)",
         "commentaire": "LRE sous 20cm d eau puis au fond. Exercice réalisé plusieurs fois. \nPas de lestage sur cette séance , Patricia s est détendue durant la séance et arrivait à expirer d elle même pour être en flottabilité négative. \n« faux » visages de masque. Posée au fond nous simulions le visage de masque sans mettre d eau dans le masque. Doigts sur le haut du masque, tête légèrement en arrière et expiration nasale. \nContinuer au moins 1 séance sans eau dans le masque. Se focaliser sur la respiration , le poumon balaste et l aisance e aquatique. \nSignes : mano avec échange de la pression dans les blocs. Bonne communication. \n360, mise en secu surface. Ok \nAttention répéter pas de vasalva à la remontée.",
         "commentaire_atelier": "Aucun commentaire"
       },
