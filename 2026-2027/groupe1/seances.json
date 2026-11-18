@@ -3440,5 +3440,421 @@
         "commentaire_atelier": "Aucun commentaire"
       }
     ]
+  },
+  {
+    "id": "2026-11-17_carine",
+    "date_seance": "2026-11-17",
+    "moniteur": "Carine",
+    "nb_eleves": 1,
+    "eleves": [
+      "Aubrée"
+    ],
+    "ateliers_traites": [
+      "Dégréage",
+      "Déplacements immersion",
+      "Gestion de son matériel",
+      "Gréage",
+      "LRE surpression",
+      "Poumon Ballast",
+      "Remonté expi controlée",
+      "Saut droit",
+      "Signes",
+      "Sortie de l'eau",
+      "VDM"
+    ],
+    "nb_comptes_rendus": 11,
+    "comptes_rendus": [
+      {
+        "eleve": "Aubrée",
+        "atelier": "Sortie de l'eau",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Dégréage",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Signes",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Déplacements immersion",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Gestion de son matériel",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Saut droit",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Gréage",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "LRE surpression",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Remonté expi controlée",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Poumon Ballast",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "VDM",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-17_catherine",
+    "date_seance": "2026-11-17",
+    "moniteur": "Catherine",
+    "nb_eleves": 1,
+    "eleves": [
+      "Kévin D"
+    ],
+    "ateliers_traites": [
+      "360°",
+      "Dégréage",
+      "Déplacements immersion",
+      "LRE surpression",
+      "Remonté expi controlée",
+      "Saut droit",
+      "Soin au materiel",
+      "Sortie de l'eau",
+      "VDM",
+      "Vitesse de remontée"
+    ],
+    "nb_comptes_rendus": 10,
+    "comptes_rendus": [
+      {
+        "eleve": "Kévin D",
+        "atelier": "Soin au materiel",
+        "note": 2.0,
+        "commentaire": "Kevin n’a pas de difficulté repérées. Il avait fait plus d’un trimestre au moment du Covid et cela se voit. Très motivé",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "Déplacements immersion",
+        "note": 4.0,
+        "commentaire": "Kevin n’a pas de difficulté repérées. Il avait fait plus d’un trimestre au moment du Covid et cela se voit. Très motivé",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "Remonté expi controlée",
+        "note": 4.0,
+        "commentaire": "Kevin n’a pas de difficulté repérées. Il avait fait plus d’un trimestre au moment du Covid et cela se voit. Très motivé",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "Dégréage",
+        "note": 4.0,
+        "commentaire": "Kevin n’a pas de difficulté repérées. Il avait fait plus d’un trimestre au moment du Covid et cela se voit. Très motivé",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "Vitesse de remontée",
+        "note": 4.0,
+        "commentaire": "Kevin n’a pas de difficulté repérées. Il avait fait plus d’un trimestre au moment du Covid et cela se voit. Très motivé",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "VDM",
+        "note": 4.0,
+        "commentaire": "Kevin n’a pas de difficulté repérées. Il avait fait plus d’un trimestre au moment du Covid et cela se voit. Très motivé",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "360°",
+        "note": 4.0,
+        "commentaire": "Kevin n’a pas de difficulté repérées. Il avait fait plus d’un trimestre au moment du Covid et cela se voit. Très motivé",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "LRE surpression",
+        "note": 4.0,
+        "commentaire": "Kevin n’a pas de difficulté repérées. Il avait fait plus d’un trimestre au moment du Covid et cela se voit. Très motivé",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "Sortie de l'eau",
+        "note": 4.0,
+        "commentaire": "Kevin n’a pas de difficulté repérées. Il avait fait plus d’un trimestre au moment du Covid et cela se voit. Très motivé",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "Saut droit",
+        "note": 4.0,
+        "commentaire": "Kevin n’a pas de difficulté repérées. Il avait fait plus d’un trimestre au moment du Covid et cela se voit. Très motivé",
+        "commentaire_atelier": "Aucun commentaire"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-17_nicos",
+    "date_seance": "2026-11-17",
+    "moniteur": "Nicos",
+    "nb_eleves": 1,
+    "eleves": [
+      "Amir"
+    ],
+    "ateliers_traites": [
+      "360°",
+      "Dégréage",
+      "Déplacements immersion",
+      "Gestion de son matériel",
+      "Gréage",
+      "LRE expiration",
+      "LRE surpression",
+      "Mise en sécu surface",
+      "Remonté expi controlée",
+      "Saut droit",
+      "Signes",
+      "Soin au materiel",
+      "VDM",
+      "Vitesse de remontée"
+    ],
+    "nb_comptes_rendus": 14,
+    "comptes_rendus": [
+      {
+        "eleve": "Amir",
+        "atelier": "LRE expiration",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Bien mais appréhension perceptible"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "Vitesse de remontée",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "360°",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "Gestion de son matériel",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "Gréage",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "Déplacements immersion",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "Saut droit",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "LRE surpression",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Bien mais appréhension perceptible"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "Soin au materiel",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "Signes",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "Remonté expi controlée",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "VDM",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Vidage en 2 fois"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "Dégréage",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "Mise en sécu surface",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-17_veronique",
+    "date_seance": "2026-11-17",
+    "moniteur": "Véronique",
+    "nb_eleves": 1,
+    "eleves": [
+      "Nabiyu"
+    ],
+    "ateliers_traites": [
+      "360°",
+      "Dégréage",
+      "Gestion de son matériel",
+      "Gréage",
+      "LRE expiration",
+      "Phoque",
+      "Poumon Ballast",
+      "Remonté expi controlée",
+      "Saut droit",
+      "VDM"
+    ],
+    "nb_comptes_rendus": 10,
+    "comptes_rendus": [
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Saut droit",
+        "note": 4.0,
+        "commentaire": "Masque pas très adapté, au premier VDM, il a bu la tasse. Il en a refait 1 ensuite à la fin de la séance, mieux. A revoir avec un bon masque.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "360°",
+        "note": 4.0,
+        "commentaire": "Masque pas très adapté, au premier VDM, il a bu la tasse. Il en a refait 1 ensuite à la fin de la séance, mieux. A revoir avec un bon masque.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "VDM",
+        "note": 3.0,
+        "commentaire": "Masque pas très adapté, au premier VDM, il a bu la tasse. Il en a refait 1 ensuite à la fin de la séance, mieux. A revoir avec un bon masque.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Gestion de son matériel",
+        "note": 4.0,
+        "commentaire": "Masque pas très adapté, au premier VDM, il a bu la tasse. Il en a refait 1 ensuite à la fin de la séance, mieux. A revoir avec un bon masque.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Gréage",
+        "note": 4.0,
+        "commentaire": "Masque pas très adapté, au premier VDM, il a bu la tasse. Il en a refait 1 ensuite à la fin de la séance, mieux. A revoir avec un bon masque.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Phoque",
+        "note": 4.0,
+        "commentaire": "Masque pas très adapté, au premier VDM, il a bu la tasse. Il en a refait 1 ensuite à la fin de la séance, mieux. A revoir avec un bon masque.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Poumon Ballast",
+        "note": 4.0,
+        "commentaire": "Masque pas très adapté, au premier VDM, il a bu la tasse. Il en a refait 1 ensuite à la fin de la séance, mieux. A revoir avec un bon masque.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Remonté expi controlée",
+        "note": 3.0,
+        "commentaire": "Masque pas très adapté, au premier VDM, il a bu la tasse. Il en a refait 1 ensuite à la fin de la séance, mieux. A revoir avec un bon masque.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Dégréage",
+        "note": 4.0,
+        "commentaire": "Masque pas très adapté, au premier VDM, il a bu la tasse. Il en a refait 1 ensuite à la fin de la séance, mieux. A revoir avec un bon masque.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "LRE expiration",
+        "note": 4.0,
+        "commentaire": "Masque pas très adapté, au premier VDM, il a bu la tasse. Il en a refait 1 ensuite à la fin de la séance, mieux. A revoir avec un bon masque.",
+        "commentaire_atelier": "Aucun commentaire"
+      }
+    ]
   }
 ]
