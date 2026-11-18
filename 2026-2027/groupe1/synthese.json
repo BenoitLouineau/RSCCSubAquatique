@@ -1,19 +1,19 @@
 {
-  "date_generation": "2026-11-17T19:16:16",
+  "date_generation": "2026-11-18T15:39:42",
   "nb_eleves": 12,
   "nb_moniteurs": 10,
-  "nb_seances": 31,
-  "nb_comptes_rendus": 391,
+  "nb_seances": 35,
+  "nb_comptes_rendus": 436,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
-    "date_max": "2026-11-10"
+    "date_max": "2026-11-17"
   },
   "acquisition_par_atelier": [
     {
       "atelier": "Gréage",
-      "nb_evaluations": 46,
-      "moyenne": 2.96,
+      "nb_evaluations": 49,
+      "moyenne": 3.0,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -21,8 +21,8 @@
     },
     {
       "atelier": "Dégréage",
-      "nb_evaluations": 38,
-      "moyenne": 3.18,
+      "nb_evaluations": 42,
+      "moyenne": 3.26,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -48,8 +48,8 @@
     },
     {
       "atelier": "Gestion de son matériel",
-      "nb_evaluations": 28,
-      "moyenne": 3.0,
+      "nb_evaluations": 31,
+      "moyenne": 3.1,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -57,12 +57,30 @@
     },
     {
       "atelier": "Déplacements immersion",
-      "nb_evaluations": 23,
-      "moyenne": 2.43,
+      "nb_evaluations": 26,
+      "moyenne": 2.5,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "Poumon Ballast",
+      "nb_evaluations": 24,
+      "moyenne": 2.83,
+      "note_min": 2.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": false
+    },
+    {
+      "atelier": "VDM",
+      "nb_evaluations": 24,
+      "moyenne": 3.33,
+      "note_min": 1.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
     },
     {
       "atelier": "Saut droit PMT",
@@ -74,18 +92,9 @@
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "Poumon Ballast",
-      "nb_evaluations": 22,
-      "moyenne": 2.73,
-      "note_min": 2.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": false
-    },
-    {
-      "atelier": "VDM",
-      "nb_evaluations": 20,
-      "moyenne": 3.35,
+      "atelier": "Sortie de l'eau",
+      "nb_evaluations": 21,
+      "moyenne": 3.29,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -101,27 +110,9 @@
       "compte_dans_moyenne": true
     },
     {
-      "atelier": "Sortie de l'eau",
-      "nb_evaluations": 19,
-      "moyenne": 3.26,
-      "note_min": 1.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
       "atelier": "Signes",
-      "nb_evaluations": 17,
-      "moyenne": 2.94,
-      "note_min": 2.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Mise en sécu surface",
-      "nb_evaluations": 16,
-      "moyenne": 3.06,
+      "nb_evaluations": 19,
+      "moyenne": 3.0,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -129,17 +120,26 @@
     },
     {
       "atelier": "360°",
-      "nb_evaluations": 14,
-      "moyenne": 2.5,
+      "nb_evaluations": 17,
+      "moyenne": 2.71,
       "note_min": 2.0,
-      "note_max": 3.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Mise en sécu surface",
+      "nb_evaluations": 17,
+      "moyenne": 3.06,
+      "note_min": 2.0,
+      "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
     },
     {
       "atelier": "Vitesse de remontée",
-      "nb_evaluations": 13,
-      "moyenne": 2.31,
+      "nb_evaluations": 15,
+      "moyenne": 2.47,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -151,31 +151,49 @@
       "moyenne": 1.9,
       "note_min": 1.0,
       "note_max": 3.0,
-      "notable": true,
+      "notable": false,
       "compte_dans_moyenne": false
     },
     {
+      "atelier": "Remonté expi controlée",
+      "nb_evaluations": 9,
+      "moyenne": 2.78,
+      "note_min": 2.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
       "atelier": "Soin au materiel",
-      "nb_evaluations": 7,
-      "moyenne": 2.86,
+      "nb_evaluations": 9,
+      "moyenne": 2.78,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "Remonté expi controlée",
-      "nb_evaluations": 5,
-      "moyenne": 2.4,
-      "note_min": 2.0,
-      "note_max": 3.0,
+      "atelier": "Saut droit",
+      "nb_evaluations": 7,
+      "moyenne": 3.57,
+      "note_min": 3.0,
+      "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
     },
     {
-      "atelier": "Saut droit",
+      "atelier": "LRE surpression",
+      "nb_evaluations": 4,
+      "moyenne": 3.75,
+      "note_min": 3.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "LRE expiration",
       "nb_evaluations": 3,
-      "moyenne": 3.33,
+      "moyenne": 3.67,
       "note_min": 3.0,
       "note_max": 4.0,
       "notable": true,
@@ -183,27 +201,9 @@
     },
     {
       "atelier": "Phoque",
-      "nb_evaluations": 2,
-      "moyenne": 2.5,
+      "nb_evaluations": 3,
+      "moyenne": 3.0,
       "note_min": 2.0,
-      "note_max": 3.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "LRE expiration",
-      "nb_evaluations": 1,
-      "moyenne": 4.0,
-      "note_min": 4.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "LRE surpression",
-      "nb_evaluations": 1,
-      "moyenne": 4.0,
-      "note_min": 4.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
@@ -217,13 +217,13 @@
     },
     {
       "eleve": "Amir",
-      "nb_ateliers_evalues": 19,
-      "moyenne_generale": 2.79
+      "nb_ateliers_evalues": 22,
+      "moyenne_generale": 3.09
     },
     {
       "eleve": "Aubrée",
-      "nb_ateliers_evalues": 17,
-      "moyenne_generale": 3.18
+      "nb_ateliers_evalues": 20,
+      "moyenne_generale": 3.25
     },
     {
       "eleve": "Camille",
@@ -252,8 +252,8 @@
     },
     {
       "eleve": "Kévin D",
-      "nb_ateliers_evalues": 18,
-      "moyenne_generale": 3.06
+      "nb_ateliers_evalues": 20,
+      "moyenne_generale": 3.45
     },
     {
       "eleve": "Mohamed",
@@ -262,8 +262,8 @@
     },
     {
       "eleve": "Nabiyu",
-      "nb_ateliers_evalues": 15,
-      "moyenne_generale": 3.67
+      "nb_ateliers_evalues": 18,
+      "moyenne_generale": 3.72
     },
     {
       "eleve": "Patricia",
@@ -276,7 +276,9 @@
     "eleves_referentiel_jamais_vus": [],
     "moniteurs_hors_referentiel": [],
     "moniteurs_referentiel_jamais_actifs": [],
-    "ateliers_hors_referentiel": [],
+    "ateliers_hors_referentiel": [
+      "Palmage"
+    ],
     "comptes_rendus_doublons": [
       {
         "date_seance": "2026-11-10",
@@ -304,22 +306,22 @@
   },
   "sans_debrief": {
     "onglet_present": true,
-    "nb_declarations": 12,
-    "nb_sans_cr": 9,
+    "nb_declarations": 13,
+    "nb_sans_cr": 10,
     "nb_incoherences": 3,
     "nb_dp": 2,
     "mentions": {
       "DP": 2
     },
-    "derniere_declaration": "2026-11-12T19:19:48",
+    "derniere_declaration": "2026-11-18T00:57:53",
     "taux_retour_cr": 78,
     "par_moniteur": [
       {
         "moniteur": "Benoit L",
-        "nb": 1,
+        "nb": 2,
         "nb_dp": 1,
         "nb_seances_avec_cr": 5,
-        "taux_retour_cr": 83
+        "taux_retour_cr": 71
       },
       {
         "moniteur": "Carlos",
@@ -346,8 +348,8 @@
         "moniteur": "Nicos",
         "nb": 2,
         "nb_dp": 1,
-        "nb_seances_avec_cr": 4,
-        "taux_retour_cr": 67
+        "nb_seances_avec_cr": 5,
+        "taux_retour_cr": 71
       },
       {
         "moniteur": "Virginie",
@@ -360,8 +362,8 @@
         "moniteur": "Véronique",
         "nb": 1,
         "nb_dp": 0,
-        "nb_seances_avec_cr": 4,
-        "taux_retour_cr": 80
+        "nb_seances_avec_cr": 5,
+        "taux_retour_cr": 83
       }
     ],
     "par_date": [
@@ -396,6 +398,13 @@
         "nb": 1,
         "moniteurs": [
           "Nicos"
+        ]
+      },
+      {
+        "date": "2026-11-17",
+        "nb": 1,
+        "moniteurs": [
+          "Benoit L"
         ]
       }
     ]
