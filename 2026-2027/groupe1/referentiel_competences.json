@@ -252,15 +252,15 @@
     "compte_dans_moyenne": false
   },
   {
-    "id": "palmage",
-    "nom": "Palmage",
+    "id": "palmage-nage",
+    "nom": "Palmage ( nage)",
     "actif": true,
     "notable": true,
     "compte_dans_moyenne": false
   },
   {
-    "id": "vidage-tuba",
-    "nom": "Vidage tuba",
+    "id": "vidage-tuba-nage",
+    "nom": "Vidage tuba (nage)",
     "actif": true,
     "notable": true,
     "compte_dans_moyenne": false
