@@ -4348,5 +4348,85 @@
     "moniteur": "Véronique",
     "presence": "Présent",
     "statut": "Acquis"
+  },
+  {
+    "eleve": "Nabiyu",
+    "genre": "",
+    "categorie": "Théorie",
+    "competence": "Théorie",
+    "date": "2026-11-17",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "Non évalué"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "Théorie",
+    "competence": "Théorie",
+    "date": "2026-11-17",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "Non évalué"
+  },
+  {
+    "eleve": "Hanane",
+    "genre": "",
+    "categorie": "Théorie",
+    "competence": "Théorie",
+    "date": "2026-11-17",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "Non évalué"
+  },
+  {
+    "eleve": "Kévin D",
+    "genre": "",
+    "categorie": "Théorie",
+    "competence": "Théorie",
+    "date": "2026-11-17",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "Non évalué"
+  },
+  {
+    "eleve": "Aubrée",
+    "genre": "",
+    "categorie": "Théorie",
+    "competence": "Théorie",
+    "date": "2026-11-17",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "Non évalué"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "Théorie",
+    "competence": "Théorie",
+    "date": "2026-11-17",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "Non évalué"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Théorie",
+    "competence": "Théorie",
+    "date": "2026-11-17",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "Non évalué"
+  },
+  {
+    "eleve": "Amir",
+    "genre": "",
+    "categorie": "Théorie",
+    "competence": "Théorie",
+    "date": "2026-11-17",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "Non évalué"
   }
 ]
