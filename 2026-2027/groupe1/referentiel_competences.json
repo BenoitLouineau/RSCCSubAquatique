@@ -268,7 +268,7 @@
   {
     "id": "theorie",
     "nom": "Théorie",
-    "actif": false,
+    "actif": true,
     "notable": false,
     "compte_dans_moyenne": false
   },
