@@ -3631,6 +3631,84 @@
     ]
   },
   {
+    "id": "2026-11-17_christophe",
+    "date_seance": "2026-11-17",
+    "moniteur": "Christophe",
+    "nb_eleves": 8,
+    "eleves": [
+      "Amir",
+      "Aubrée",
+      "Camille",
+      "Catherine",
+      "Hanane",
+      "Kévin D",
+      "Nabiyu",
+      "Patricia"
+    ],
+    "ateliers_traites": [
+      "Théorie"
+    ],
+    "nb_comptes_rendus": 8,
+    "comptes_rendus": [
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Théorie",
+        "note": null,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "PMT"
+      },
+      {
+        "eleve": "Patricia",
+        "atelier": "Théorie",
+        "note": null,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "PMT"
+      },
+      {
+        "eleve": "Hanane",
+        "atelier": "Théorie",
+        "note": null,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "PMT"
+      },
+      {
+        "eleve": "Kévin D",
+        "atelier": "Théorie",
+        "note": null,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "PMT"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Théorie",
+        "note": null,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "PMT"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "Théorie",
+        "note": null,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "PMT"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Théorie",
+        "note": null,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "PMT"
+      },
+      {
+        "eleve": "Amir",
+        "atelier": "Théorie",
+        "note": null,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "PMT"
+      }
+    ]
+  },
+  {
     "id": "2026-11-17_nicos",
     "date_seance": "2026-11-17",
     "moniteur": "Nicos",
