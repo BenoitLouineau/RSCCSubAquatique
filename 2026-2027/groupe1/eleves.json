@@ -571,12 +571,13 @@
     "moniteurs": [
       "Carine",
       "Carlos",
+      "Christophe",
       "Hervé",
       "Nicos",
       "Virginie",
       "Véronique"
     ],
-    "nb_competences_travaillees": 22,
+    "nb_competences_travaillees": 23,
     "competences": {
       "Gréage": {
         "nb_evaluations": 6,
@@ -981,6 +982,18 @@
             "moniteur": "Nicos"
           }
         ]
+      },
+      "Théorie": {
+        "nb_evaluations": 1,
+        "derniere_note": null,
+        "moyenne_notes": null,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": null,
+            "moniteur": "Christophe"
+          }
+        ]
       }
     },
     "commentaires": [
@@ -1333,6 +1346,13 @@
         "atelier": "Mise en sécu surface",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Christophe",
+        "atelier": "Théorie",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "PMT"
       }
     ]
   },
@@ -1354,10 +1374,11 @@
       "Benoit L",
       "Benoit P",
       "Carine",
+      "Christophe",
       "Nicos",
       "Véronique"
     ],
-    "nb_competences_travaillees": 20,
+    "nb_competences_travaillees": 21,
     "competences": {
       "Palmage ( nage)": {
         "nb_evaluations": 1,
@@ -1743,6 +1764,18 @@
             "moniteur": "Carine"
           }
         ]
+      },
+      "Théorie": {
+        "nb_evaluations": 1,
+        "derniere_note": null,
+        "moyenne_notes": null,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": null,
+            "moniteur": "Christophe"
+          }
+        ]
       }
     },
     "commentaires": [
@@ -2088,6 +2121,13 @@
         "atelier": "VDM",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Christophe",
+        "atelier": "Théorie",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "PMT"
       }
     ]
   },
@@ -2095,19 +2135,20 @@
     "id": "camille",
     "nom": "Camille",
     "caci": true,
-    "nb_seances": 4,
+    "nb_seances": 5,
     "dates_seances": [
       "2026-09-29",
       "2026-10-06",
       "2026-10-13",
-      "2026-10-27"
+      "2026-10-27",
+      "2026-11-17"
     ],
     "moniteurs": [
       "Benoit L",
       "Christophe",
       "Véronique"
     ],
-    "nb_competences_travaillees": 12,
+    "nb_competences_travaillees": 13,
     "competences": {
       "Palmage ( nage)": {
         "nb_evaluations": 1,
@@ -2287,6 +2328,18 @@
             "moniteur": "Véronique"
           }
         ]
+      },
+      "Théorie": {
+        "nb_evaluations": 1,
+        "derniere_note": null,
+        "moyenne_notes": null,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": null,
+            "moniteur": "Christophe"
+          }
+        ]
       }
     },
     "commentaires": [
@@ -2422,6 +2475,13 @@
         "atelier": "VDM",
         "commentaire": "N'a pas osé enlever le masque complètement, ok avec beaucoup d'eau dedans.",
         "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Christophe",
+        "atelier": "Théorie",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "PMT"
       }
     ]
   },
@@ -2429,19 +2489,20 @@
     "id": "catherine",
     "nom": "Catherine",
     "caci": true,
-    "nb_seances": 4,
+    "nb_seances": 5,
     "dates_seances": [
       "2026-10-06",
       "2026-10-13",
       "2026-11-03",
-      "2026-11-10"
+      "2026-11-10",
+      "2026-11-17"
     ],
     "moniteurs": [
       "Benoit P",
       "Christophe",
       "Véronique"
     ],
-    "nb_competences_travaillees": 13,
+    "nb_competences_travaillees": 14,
     "competences": {
       "Gestion de son matériel": {
         "nb_evaluations": 3,
@@ -2668,6 +2729,18 @@
             "moniteur": "Benoit P"
           }
         ]
+      },
+      "Théorie": {
+        "nb_evaluations": 1,
+        "derniere_note": null,
+        "moyenne_notes": null,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": null,
+            "moniteur": "Christophe"
+          }
+        ]
       }
     },
     "commentaires": [
@@ -2859,6 +2932,13 @@
         "atelier": "Sortie de l'eau",
         "commentaire": "Dans la mesure du possible a prendre en 1 pour 1,  dans le stress (qui est assez constant toute la séance) elle ne tient pas compte des demandes ou conseils donnés. Le stress crée une bulle",
         "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Christophe",
+        "atelier": "Théorie",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "PMT"
       }
     ]
   },
@@ -3619,18 +3699,20 @@
     "id": "hanane",
     "nom": "Hanane",
     "caci": true,
-    "nb_seances": 3,
+    "nb_seances": 4,
     "dates_seances": [
       "2026-09-29",
       "2026-10-06",
-      "2026-10-13"
+      "2026-10-13",
+      "2026-11-17"
     ],
     "moniteurs": [
       "Benoit L",
       "Benoit P",
+      "Christophe",
       "Hervé"
     ],
-    "nb_competences_travaillees": 12,
+    "nb_competences_travaillees": 13,
     "competences": {
       "Palmage ( nage)": {
         "nb_evaluations": 1,
@@ -3800,6 +3882,18 @@
             "moniteur": "Benoit P"
           }
         ]
+      },
+      "Théorie": {
+        "nb_evaluations": 1,
+        "derniere_note": null,
+        "moyenne_notes": null,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": null,
+            "moniteur": "Christophe"
+          }
+        ]
       }
     },
     "commentaires": [
@@ -3921,6 +4015,13 @@
         "atelier": "Sortie de l'eau",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Christophe",
+        "atelier": "Théorie",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "PMT"
       }
     ]
   },
@@ -4477,9 +4578,10 @@
       "Benoit L",
       "Benoit P",
       "Catherine",
+      "Christophe",
       "Nicos"
     ],
-    "nb_competences_travaillees": 20,
+    "nb_competences_travaillees": 21,
     "competences": {
       "Palmage ( nage)": {
         "nb_evaluations": 1,
@@ -4890,6 +4992,18 @@
             "moniteur": "Catherine"
           }
         ]
+      },
+      "Théorie": {
+        "nb_evaluations": 1,
+        "derniere_note": null,
+        "moyenne_notes": null,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": null,
+            "moniteur": "Christophe"
+          }
+        ]
       }
     },
     "commentaires": [
@@ -5270,6 +5384,13 @@
         "atelier": "Saut droit",
         "commentaire": "Kevin n’a pas de difficulté repérées. Il avait fait plus d’un trimestre au moment du Covid et cela se voit. Très motivé",
         "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Christophe",
+        "atelier": "Théorie",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "PMT"
       }
     ]
   },
@@ -5734,9 +5855,10 @@
       "Benoit P",
       "Carine",
       "Carlos",
+      "Christophe",
       "Véronique"
     ],
-    "nb_competences_travaillees": 18,
+    "nb_competences_travaillees": 19,
     "competences": {
       "Gréage": {
         "nb_evaluations": 5,
@@ -6063,6 +6185,18 @@
             "moniteur": "Véronique"
           }
         ]
+      },
+      "Théorie": {
+        "nb_evaluations": 1,
+        "derniere_note": null,
+        "moyenne_notes": null,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": null,
+            "moniteur": "Christophe"
+          }
+        ]
       }
     },
     "commentaires": [
@@ -6345,6 +6479,13 @@
         "atelier": "LRE expiration",
         "commentaire": "Masque pas très adapté, au premier VDM, il a bu la tasse. Il en a refait 1 ensuite à la fin de la séance, mieux. A revoir avec un bon masque.",
         "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Christophe",
+        "atelier": "Théorie",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "PMT"
       }
     ]
   },
@@ -6352,14 +6493,15 @@
     "id": "patricia",
     "nom": "Patricia",
     "caci": true,
-    "nb_seances": 6,
+    "nb_seances": 7,
     "dates_seances": [
       "2026-09-29",
       "2026-10-06",
       "2026-10-13",
       "2026-10-27",
       "2026-11-03",
-      "2026-11-10"
+      "2026-11-10",
+      "2026-11-17"
     ],
     "moniteurs": [
       "Benoit L",
@@ -6368,7 +6510,7 @@
       "Christophe",
       "Nicos"
     ],
-    "nb_competences_travaillees": 16,
+    "nb_competences_travaillees": 17,
     "competences": {
       "Gréage": {
         "nb_evaluations": 5,
@@ -6656,6 +6798,18 @@
             "moniteur": "Christophe"
           }
         ]
+      },
+      "Théorie": {
+        "nb_evaluations": 1,
+        "derniere_note": null,
+        "moyenne_notes": null,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": null,
+            "moniteur": "Christophe"
+          }
+        ]
       }
     },
     "commentaires": [
@@ -6903,6 +7057,13 @@
         "atelier": "VDM partiel",
         "commentaire": "LRE sous 20cm d eau puis au fond. Exercice réalisé plusieurs fois. \nPas de lestage sur cette séance , Patricia s est détendue durant la séance et arrivait à expirer d elle même pour être en flottabilité négative. \n« faux » visages de masque. Posée au fond nous simulions le visage de masque sans mettre d eau dans le masque. Doigts sur le haut du masque, tête légèrement en arrière et expiration nasale. \nContinuer au moins 1 séance sans eau dans le masque. Se focaliser sur la respiration , le poumon balaste et l aisance e aquatique. \nSignes : mano avec échange de la pression dans les blocs. Bonne communication. \n360, mise en secu surface. Ok \nAttention répéter pas de vasalva à la remontée.",
         "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Christophe",
+        "atelier": "Théorie",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "PMT"
       }
     ]
   }
