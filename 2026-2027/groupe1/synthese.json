@@ -1,9 +1,9 @@
 {
-  "date_generation": "2026-11-18T22:31:37",
+  "date_generation": "2026-11-19T10:43:00",
   "nb_eleves": 12,
   "nb_moniteurs": 10,
-  "nb_seances": 35,
-  "nb_comptes_rendus": 435,
+  "nb_seances": 36,
+  "nb_comptes_rendus": 443,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
@@ -217,22 +217,22 @@
     },
     {
       "eleve": "Amir",
-      "nb_ateliers_evalues": 22,
+      "nb_ateliers_evalues": 23,
       "moyenne_generale": 3.09
     },
     {
       "eleve": "Aubrée",
-      "nb_ateliers_evalues": 20,
+      "nb_ateliers_evalues": 21,
       "moyenne_generale": 3.25
     },
     {
       "eleve": "Camille",
-      "nb_ateliers_evalues": 12,
+      "nb_ateliers_evalues": 13,
       "moyenne_generale": 2.92
     },
     {
       "eleve": "Catherine",
-      "nb_ateliers_evalues": 13,
+      "nb_ateliers_evalues": 14,
       "moyenne_generale": 2.54
     },
     {
@@ -242,7 +242,7 @@
     },
     {
       "eleve": "Hanane",
-      "nb_ateliers_evalues": 12,
+      "nb_ateliers_evalues": 13,
       "moyenne_generale": 2.25
     },
     {
@@ -252,7 +252,7 @@
     },
     {
       "eleve": "Kévin D",
-      "nb_ateliers_evalues": 20,
+      "nb_ateliers_evalues": 21,
       "moyenne_generale": 3.45
     },
     {
@@ -262,12 +262,12 @@
     },
     {
       "eleve": "Nabiyu",
-      "nb_ateliers_evalues": 18,
+      "nb_ateliers_evalues": 19,
       "moyenne_generale": 3.72
     },
     {
       "eleve": "Patricia",
-      "nb_ateliers_evalues": 16,
+      "nb_ateliers_evalues": 17,
       "moyenne_generale": 2.56
     }
   ],
@@ -324,8 +324,8 @@
         "moniteur": "Christophe",
         "nb": 1,
         "nb_dp": 0,
-        "nb_seances_avec_cr": 4,
-        "taux_retour_cr": 80
+        "nb_seances_avec_cr": 5,
+        "taux_retour_cr": 83
       },
       {
         "moniteur": "Hervé",
