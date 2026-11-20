@@ -1,10 +1,5 @@
 [
   {
-    "ligne": 1,
-    "accueil": "📯 le nom de l'élève en rouge = pas de CACI valide📯",
-    "palanquees": "📯le nom de l'élève en rouge = pas de CACI valide📯"
-  },
-  {
     "ligne": 2,
     "accueil": null,
     "palanquees": "🚩 = Absent lors des deux dernières séances."
