@@ -4741,7 +4741,7 @@
           }
         ]
       },
-      "Palmage ( nage)": {
+      "Palmage (nage)": {
         "nb_evaluations": 1,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
@@ -4922,7 +4922,7 @@
       {
         "date": "2026-11-03",
         "moniteur": "Christophe",
-        "atelier": "Palmage ( nage)",
+        "atelier": "Palmage (nage)",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
       },
