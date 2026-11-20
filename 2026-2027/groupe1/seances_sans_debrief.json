@@ -128,5 +128,15 @@
     "horodatage": "2026-11-18T00:57:53",
     "nb_declarations": 1,
     "a_des_cr": false
+  },
+  {
+    "id": "2026-11-17_herve",
+    "date_seance": "2026-11-17",
+    "moniteur": "Hervé",
+    "mention": "",
+    "role_dp": false,
+    "horodatage": "2026-11-19T20:12:45",
+    "nb_declarations": 1,
+    "a_des_cr": false
   }
 ]
