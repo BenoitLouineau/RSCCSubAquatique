@@ -4428,5 +4428,315 @@
     "moniteur": "Christophe",
     "presence": "Présent",
     "statut": "Non évalué"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-11-17",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "Sortie de l'eau",
+    "competence": "Sortie de l'eau",
+    "date": "2026-11-17",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "Dégréage",
+    "competence": "Dégréage",
+    "date": "2026-11-17",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "Vitesse de remontée",
+    "competence": "Vitesse de remontée",
+    "date": "2026-11-17",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "Phoque",
+    "competence": "Phoque",
+    "date": "2026-11-17",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "LRE surpression",
+    "competence": "LRE surpression",
+    "date": "2026-11-17",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "VDM partiel",
+    "competence": "VDM partiel",
+    "date": "2026-11-17",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "Saut droit PMT",
+    "competence": "Saut droit PMT",
+    "date": "2026-11-17",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "360°",
+    "competence": "360°",
+    "date": "2026-11-17",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "Mise en sécu surface",
+    "competence": "Mise en sécu surface",
+    "date": "2026-11-17",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "Signes",
+    "competence": "Signes",
+    "date": "2026-11-17",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "Gestion du gilet",
+    "competence": "Gestion du gilet",
+    "date": "2026-11-17",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Camille",
+    "genre": "",
+    "categorie": "Remonté expi controlée",
+    "competence": "Remonté expi controlée",
+    "date": "2026-11-17",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Hanane",
+    "genre": "",
+    "categorie": "Dégréage",
+    "competence": "Dégréage",
+    "date": "2026-11-17",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Hanane",
+    "genre": "",
+    "categorie": "Déplacements immersion",
+    "competence": "Déplacements immersion",
+    "date": "2026-11-17",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Hanane",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-11-17",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Hanane",
+    "genre": "",
+    "categorie": "VDM partiel",
+    "competence": "VDM partiel",
+    "date": "2026-11-17",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Hanane",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-11-17",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Hanane",
+    "genre": "",
+    "categorie": "Signes",
+    "competence": "Signes",
+    "date": "2026-11-17",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Hanane",
+    "genre": "",
+    "categorie": "Saut droit PMT",
+    "competence": "Saut droit PMT",
+    "date": "2026-11-17",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Hanane",
+    "genre": "",
+    "categorie": "Mise en sécu surface",
+    "competence": "Mise en sécu surface",
+    "date": "2026-11-17",
+    "moniteur": "Christophe",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Signes",
+    "competence": "Signes",
+    "date": "2026-11-17",
+    "moniteur": "Virginie",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Mise en sécu surface",
+    "competence": "Mise en sécu surface",
+    "date": "2026-11-17",
+    "moniteur": "Virginie",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Remonté expi controlée",
+    "competence": "Remonté expi controlée",
+    "date": "2026-11-17",
+    "moniteur": "Virginie",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Sortie de l'eau",
+    "competence": "Sortie de l'eau",
+    "date": "2026-11-17",
+    "moniteur": "Virginie",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Dégréage",
+    "competence": "Dégréage",
+    "date": "2026-11-17",
+    "moniteur": "Virginie",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-11-17",
+    "moniteur": "Virginie",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Saut droit PMT",
+    "competence": "Saut droit PMT",
+    "date": "2026-11-17",
+    "moniteur": "Virginie",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Soin au materiel",
+    "competence": "Soin au materiel",
+    "date": "2026-11-17",
+    "moniteur": "Virginie",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Gestion du gilet",
+    "competence": "Gestion du gilet",
+    "date": "2026-11-17",
+    "moniteur": "Virginie",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-11-17",
+    "moniteur": "Virginie",
+    "presence": "Présent",
+    "statut": "Acquis"
   }
 ]
