@@ -4,307 +4,439 @@
     "nom": "Gréage",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": "Prépa materiel"
   },
   {
     "id": "gestion-de-son-materiel",
     "nom": "Gestion de son matériel",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": "Prépa materiel"
   },
   {
     "id": "saut-droit-pmt",
     "nom": "Saut droit PMT",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": false
+    "compte_dans_moyenne": false,
+    "compte_dans_stats": true,
+    "frioul": false,
+    "groupe": null
   },
   {
     "id": "saut-droit",
     "nom": "Saut droit",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": "Mise à l'eau"
   },
   {
     "id": "bascule-arriere-pmt",
     "nom": "Bascule Arrière PMT",
     "actif": false,
     "notable": true,
-    "compte_dans_moyenne": false
+    "compte_dans_moyenne": false,
+    "compte_dans_stats": true,
+    "frioul": false,
+    "groupe": null
   },
   {
     "id": "bascule-arriere",
     "nom": "Bascule Arrière",
     "actif": false,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": "Mise à l'eau"
   },
   {
     "id": "bascule-avant-pmt",
     "nom": "**Bascule Avant PMT",
     "actif": false,
     "notable": true,
-    "compte_dans_moyenne": false
+    "compte_dans_moyenne": false,
+    "compte_dans_stats": true,
+    "frioul": false,
+    "groupe": null
   },
   {
     "id": "bascule-avant",
     "nom": "**Bascule Avant",
     "actif": false,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": "Mise à l'eau"
   },
   {
     "id": "phoque",
     "nom": "Phoque",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": "Immersion"
   },
   {
     "id": "canard-pmt",
     "nom": "Canard PMT",
     "actif": false,
     "notable": true,
-    "compte_dans_moyenne": false
+    "compte_dans_moyenne": false,
+    "compte_dans_stats": true,
+    "frioul": false,
+    "groupe": null
   },
   {
     "id": "canard",
     "nom": "Canard",
     "actif": false,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": "Immersion"
   },
   {
     "id": "dbn",
     "nom": "DBN",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": false
+    "compte_dans_moyenne": false,
+    "compte_dans_stats": true,
+    "frioul": false,
+    "groupe": null
   },
   {
     "id": "vdm-partiel",
     "nom": "VDM partiel",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": false,
+    "groupe": null
   },
   {
     "id": "vdm",
     "nom": "VDM",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": null
   },
   {
     "id": "vdm-equilibre",
     "nom": "**VDM équilibré",
     "actif": false,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": null
   },
   {
     "id": "lre-surpression",
     "nom": "LRE surpression",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": "LRE"
   },
   {
     "id": "lre-expiration",
     "nom": "LRE expiration",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": "LRE"
   },
   {
     "id": "signes",
     "nom": "Signes",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": null
   },
   {
     "id": "pa-recoit-octo",
     "nom": "PA - reçoit octo",
     "actif": false,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": "Panne d'air"
   },
   {
     "id": "pa-donne-octo",
     "nom": "PA - donne octo",
     "actif": false,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": "Panne d'air"
   },
   {
     "id": "pa-recoit-echange",
     "nom": "PA - reçoit échange",
     "actif": false,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": "Panne d'air"
   },
   {
     "id": "pa-donne-echange",
     "nom": "PA - donne échange",
     "actif": false,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": "Panne d'air"
   },
   {
     "id": "essoufflement-etre-pris-en-charge",
     "nom": "Essoufflement - être pris en charge",
     "actif": false,
     "notable": true,
-    "compte_dans_moyenne": false
+    "compte_dans_moyenne": false,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": "Essoufflement"
   },
   {
     "id": "poumon-ballast",
     "nom": "Poumon Ballast",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": false
+    "compte_dans_moyenne": false,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": "Équilibrage"
   },
   {
     "id": "gestion-du-gilet",
     "nom": "Gestion du gilet",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": "Équilibrage"
   },
   {
     "id": "stabilisation-statique",
     "nom": "Stabilisation statique",
     "actif": false,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": "Équilibrage"
   },
   {
     "id": "stabilisation-dynamique",
     "nom": "Stabilisation dynamique",
     "actif": false,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": "Équilibrage"
   },
   {
     "id": "deplacements-immersion",
     "nom": "Déplacements immersion",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": false
+    "compte_dans_moyenne": false,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": null
   },
   {
     "id": "vitesse-de-remontee",
     "nom": "Vitesse de remontée",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": "Remontée"
   },
   {
     "id": "tenue-palier",
     "nom": "Tenue palier",
     "actif": false,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": "Remontée"
   },
   {
     "id": "360",
     "nom": "360°",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": "Remontée"
   },
   {
     "id": "mise-en-secu-surface",
     "nom": "Mise en sécu surface",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": "Fin de plongée surface"
   },
   {
     "id": "remonte-expi-controlee",
     "nom": "Remonté expi controlée",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": "Remontée"
   },
   {
     "id": "sortie-de-l-eau",
     "nom": "Sortie de l'eau",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": "Fin de plongée surface"
   },
   {
     "id": "degreage",
     "nom": "Dégréage",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": true
+    "compte_dans_moyenne": true,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": "Materiel fin de plongée"
   },
   {
     "id": "soin-au-materiel",
     "nom": "Soin au materiel",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": false
+    "compte_dans_moyenne": false,
+    "compte_dans_stats": true,
+    "frioul": true,
+    "groupe": "Materiel fin de plongée"
   },
   {
     "id": "palmage-nage",
     "nom": "Palmage (nage)",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": false
+    "compte_dans_moyenne": false,
+    "compte_dans_stats": false,
+    "frioul": false,
+    "groupe": null
   },
   {
     "id": "vidage-tuba-nage",
     "nom": "Vidage tuba (nage)",
     "actif": true,
     "notable": true,
-    "compte_dans_moyenne": false
+    "compte_dans_moyenne": false,
+    "compte_dans_stats": false,
+    "frioul": false,
+    "groupe": null
   },
   {
     "id": "theorie",
     "nom": "Théorie",
     "actif": true,
     "notable": false,
-    "compte_dans_moyenne": false
+    "compte_dans_moyenne": false,
+    "compte_dans_stats": false,
+    "frioul": false,
+    "groupe": null
   },
   {
     "id": "exam-theorie",
     "nom": "Exam Théorie",
     "actif": false,
     "notable": true,
-    "compte_dans_moyenne": false
+    "compte_dans_moyenne": false,
+    "compte_dans_stats": true,
+    "frioul": false,
+    "groupe": null
   },
   {
     "id": "exam-pmt-100m",
     "nom": "Exam PMT 100m",
     "actif": false,
     "notable": false,
-    "compte_dans_moyenne": false
+    "compte_dans_moyenne": false,
+    "compte_dans_stats": true,
+    "frioul": false,
+    "groupe": null
   },
   {
     "id": "exam-capele-50m",
     "nom": "Exam capelé 50m",
     "actif": false,
     "notable": false,
-    "compte_dans_moyenne": false
+    "compte_dans_moyenne": false,
+    "compte_dans_stats": true,
+    "frioul": false,
+    "groupe": null
   },
   {
     "id": "exam-pratique",
     "nom": "Exam pratique",
     "actif": false,
     "notable": true,
-    "compte_dans_moyenne": false
+    "compte_dans_moyenne": false,
+    "compte_dans_stats": true,
+    "frioul": false,
+    "groupe": null
   },
   {
     "id": "pas-d-atelier",
     "nom": "Pas d'atelier",
     "actif": true,
     "notable": false,
-    "compte_dans_moyenne": false
+    "compte_dans_moyenne": false,
+    "compte_dans_stats": true,
+    "frioul": false,
+    "groupe": null
   }
 ]
