@@ -737,20 +737,24 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 .analyse-eleve-sub { font-size: 11.5px; color: var(--muted); margin-bottom: 10px; }
 .radar-hint { font-size: 10.5px; color: var(--muted); text-align: center; margin-top: 4px; }
 .analyse-chips-band { margin-bottom: 18px; }
+.chips-track.analyse-chips-wrap { flex-wrap: wrap; overflow: visible; }
 
 /* ===================== SAISON — frise chronologique ===================== */
 .saison-frise { display: flex; gap: 10px; overflow-x: auto; padding: 6px 2px 10px; }
 .sf-item {
   flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 5px;
-  padding: 12px 16px; border: 1px solid var(--border); border-radius: var(--radius-sm);
-  background: var(--chip); min-width: 118px;
+  padding: 12px 12px; border: 1px solid var(--border); border-radius: var(--radius-sm);
+  background: var(--chip); width: 156px; cursor: help;
 }
+.sf-item:focus-visible { outline: 2px solid var(--accent2); outline-offset: 2px; }
+.sf-moniteurs-count { font-size: 10.5px; font-weight: 700; color: var(--muted); }
 .sf-date { font-size: 11.5px; font-weight: 700; text-align: center; line-height: 1.3; }
 .sf-cr-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
 .sf-cr-dot.complet { background: var(--ok); }
 .sf-cr-dot.partiel { background: var(--warn); }
 .sf-cr-dot.manquant { background: var(--bad); }
-.sf-moniteurs { font-size: 10.5px; color: var(--text); text-align: center; }
+.sf-moniteurs { font-size: 10.5px; line-height: 1.35; color: var(--text); text-align: center;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.7em; }
 .sf-eleves { font-size: 10.5px; color: var(--muted); }
 .sf-legend-item { display: inline-flex; align-items: center; gap: 5px; margin-right: 14px; font-size: 12px; color: var(--muted); }
 
@@ -843,6 +847,84 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 .st-focus-hint { font-size: 11.5px; color: var(--muted); margin: 8px 0 0; }
 .st-cell.st-focus-col { box-shadow: inset 0 0 0 2px #f59e0b; border-radius: 8px; }
 .pal-synth-row { display: flex; justify-content: flex-end; margin-top: 10px; }
+.frioul-box { border: 1px solid var(--border); border-left: 4px solid var(--fr-c, var(--accent2)); border-radius: 10px; padding: 10px 12px; margin: 10px 0 12px; background: var(--card); }
+.fz-rouge { --fr-c: var(--bad); } .fz-orange { --fr-c: var(--warn); } .fz-vert { --fr-c: var(--ok); }
+.fa-pret { --fa-c: var(--ok); } .fa-presque { --fa-c: var(--ok); } .fa-loin { --fa-c: var(--warn); }
+.frioul-info-btn { font: inherit; font-size: 11.5px; font-weight: 600; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--border); background: transparent; color: var(--accent2); cursor: pointer; }
+.frioul-info-btn:hover { border-color: var(--accent2); }
+.frioul-info-btn:focus-visible { outline: 2px solid var(--accent2); outline-offset: 2px; }
+.frioul-borne { font-weight: 400; font-size: 11.5px; color: var(--muted); }
+.anom-modal.fa-modal { max-width: 780px; max-height: calc(100vh - 100px); display: flex; flex-direction: column; }
+.fa-liste { display: flex; flex-direction: column; min-height: 0; overflow-y: auto; border: 1px solid var(--border); border-radius: 10px; padding: 0 10px 6px; }
+.fa-legende { display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: center; font-size: 12px; margin: 4px 0 10px; }
+.fa-legende span { display: inline-flex; align-items: center; gap: 5px; }
+.fa-legende i { display: inline-block; width: 18px; height: 6px; border-radius: 99px; }
+.fa-groupe { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin: 10px 0 2px; }
+.fa-ligne { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(200px, 1.1fr); align-items: center; gap: 12px; padding: 6px 2px; font-size: 13px; }
+.fa-entete { position: sticky; top: 0; z-index: 1; background: var(--surface); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); padding: 8px 2px 6px; border-bottom: 2px solid var(--border); }
+.fa-item { border-bottom: 1px solid var(--border); }
+.fa-item > summary { list-style: none; cursor: pointer; border-radius: 6px; }
+.fa-item > summary::-webkit-details-marker { display: none; }
+.fa-item > summary:hover { background: var(--chip); }
+.fa-item > summary:focus-visible { outline: 2px solid var(--accent2); outline-offset: 1px; }
+.fa-chev { display: inline-block; width: 14px; color: var(--muted); transition: transform .15s; }
+.fa-item[open] .fa-chev { transform: rotate(90deg); }
+.fa-nom { font-weight: 600; min-width: 0; } .fa-cat { font-size: 12px; color: var(--muted); min-width: 0; }
+.fa-val { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.fa-bar { flex: 1; min-width: 50px; height: 7px; background: var(--chip); border-radius: 99px; overflow: hidden; } .fa-bar > span { display: block; height: 100%; background: var(--fr-c); }
+.fa-nb { font-size: 12px; white-space: nowrap; color: var(--muted); } .fa-nb strong { color: var(--text); }
+.fa-detail { display: flex; flex-direction: column; gap: 6px; padding: 4px 4px 10px 18px; font-size: 12.5px; }
+.fa-detail > div { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; }
+.fa-d-t { font-weight: 700; font-size: 12px; margin-right: 2px; } .fa-d-t.ok { color: var(--ok); } .fa-d-t.ko { color: var(--bad); }
+.fa-inactives { margin-top: 10px; font-size: 12px; color: var(--muted); }
+.fa-inactives summary { cursor: pointer; } .fa-inactives p { margin: 4px 0 0; }
+.fa-lock { margin: 8px 0 0; font-size: 11.5px; color: var(--muted); }
+.fa-actions { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.fp-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.fp-row label { display: flex; flex-direction: column; gap: 3px; font-size: 12px; color: var(--muted); flex: 1; min-width: 150px; }
+.fp-row input { font: inherit; font-size: 13px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--card); color: var(--text); }
+.fp-raccourcis { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.fp-eleves { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 4px 10px; max-height: 34vh; overflow-y: auto; padding: 6px 8px; border: 1px solid var(--border); border-radius: 10px; }
+.fp-el { display: flex; align-items: center; gap: 6px; font-size: 13px; cursor: pointer; }
+.fp-pct { margin-left: auto; font-size: 11.5px; font-weight: 700; }
+.fa-el { display: inline-flex; align-items: center; gap: 4px; } .fa-el-note { color: var(--muted); font-size: 11.5px; }
+@media (max-width: 640px) {
+  .anom-modal.fa-modal { padding: 14px 12px; }
+  /* Mobile : chaque compétence sur 2 niveaux, jamais de défilement horizontal */
+  .fa-ligne { grid-template-columns: 1fr; gap: 3px; }
+  .fa-entete { display: none; }
+  .fa-cat { padding-left: 14px; }
+  .fa-val { padding-left: 14px; }
+  .fa-detail { padding-left: 14px; }
+}
+.frioul-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 13.5px; }
+.frioul-score { font-weight: 700; font-size: 12.5px; color: var(--text); }
+.frioul-niveau { margin-left: auto; font-size: 12px; font-weight: 600; color: var(--fr-c); }
+.frioul-bar { height: 7px; background: var(--chip); border-radius: 99px; overflow: hidden; margin: 7px 0; }
+.frioul-bar > span { display: block; height: 100%; background: var(--fr-c, var(--accent2)); border-radius: 99px; }
+.frioul-reste { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; font-size: 12.5px; }
+.frioul-reste-label { color: var(--muted); font-weight: 600; }
+.frioul-item { display: inline-flex; align-items: center; gap: 5px; }
+.frioul-note { color: var(--muted); font-size: 11.5px; }
+.st-frioul { display: inline-flex; flex-direction: column; align-items: center; gap: 3px; margin-top: 6px; font-size: 11px; font-weight: 700; color: var(--fr-c); cursor: help; }
+.st-frioul-bar { display: block; width: 64px; height: 4px; background: var(--chip); border-radius: 99px; overflow: hidden; }
+.st-frioul-bar > span { display: block; height: 100%; background: var(--fr-c); }
+.st-frioul:focus-visible { outline: 2px solid var(--accent2); outline-offset: 2px; border-radius: 4px; }
+.st-colfilters { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 12px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 12px; background: var(--card); }
+.st-colsep { width: 1px; align-self: stretch; background: var(--border); margin: 0 4px; }
+.st-col-chip { font: inherit; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); background: transparent; color: var(--text); cursor: pointer; }
+.st-col-chip.muted { color: var(--muted); font-style: italic; }
+.st-col-chip.on { background: var(--accent2); border-color: var(--accent2); color: #04262b; font-style: normal; }
+.st-col-chip.frioul:not(.on) { border-color: var(--accent); }
+.st-col-chip:focus-visible { outline: 2px solid var(--accent2); outline-offset: 2px; }
+.comp-groupe-title { grid-column: 1 / -1; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); padding: 6px 2px 2px; border-bottom: 1px dashed var(--border); }
+.frioul-admin-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.frioul-admin-group { border: 1px solid var(--border); border-top: 3px solid var(--fa-c); border-radius: 10px; padding: 8px 10px; }
+.frioul-admin-title { font-weight: 700; font-size: 13px; margin-bottom: 6px; }
+.frioul-admin-row { padding: 6px 0; border-top: 1px solid var(--border); }
+.frioul-admin-row:first-of-type { border-top: none; }
+.frioul-admin-name { display: flex; justify-content: space-between; gap: 8px; font-size: 13px; }
+.frioul-admin-manque { font-size: 11.5px; color: var(--muted); }
 .palanquee-actions { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
 .btn-primary-action {
   padding: 10px 20px; border-radius: 10px; border: 1px solid var(--accent2); background: var(--accent2);
@@ -944,7 +1026,25 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 .kpi-caci-bar { height: 6px; border-radius: 999px; background: var(--donut-rest); margin-top: 10px; overflow: hidden; }
 .kpi-caci-bar > span { display: block; height: 100%; border-radius: 999px; }
 /* ===================== VUE ÉLÈVES (#Student) ===================== */
-.st-wrap { border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--card); overflow: hidden; }
+.st-wrap { border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--card); overflow: clip; }
+/* Groupes : bandeau d'en-tête (reste visible en haut quand on fait défiler) + cadre pointillé par groupe */
+.st-ghead { position: sticky; top: var(--header-h, 0px); z-index: 4; background: var(--surface); border-bottom: 1px solid var(--border); }
+.st-ghead-name { display: flex; align-items: center; justify-content: center; padding: 6px 8px !important; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+.st-ghead .st-scroll { overflow-x: hidden; padding-bottom: 0; }
+.st-ghead-track { display: flex; padding: 6px 0; }
+.st-ghead-cell { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; padding: 4px 6px; border: 1.5px dashed var(--accent2); border-radius: 8px;
+  font-size: 11px; font-weight: 700; color: var(--text); background: color-mix(in srgb, var(--accent2) 8%, transparent); text-align: center; line-height: 1.2; }
+.st-ghead-cell span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.st-ghead-cell.none { border-color: var(--border); color: var(--muted); font-style: italic; background: transparent; }
+.st-ghead-spacer, .st-gspacer { flex: 0 0 8px; width: 8px; min-width: 8px; padding: 0 !important; }
+.st-table td.st-cell { border: 1px dashed transparent; }
+.st-table td.st-g { border-top-color: var(--accent2); border-bottom-color: var(--accent2); }
+.st-table td.st-g.st-g-first { border-left-color: var(--accent2); border-top-left-radius: 8px; border-bottom-left-radius: 8px; }
+.st-table td.st-g.st-g-last { border-right-color: var(--accent2); border-top-right-radius: 8px; border-bottom-right-radius: 8px; }
+.st-table td.st-g-none { border-top-color: var(--border); border-bottom-color: var(--border); }
+.st-table td.st-g-none.st-g-first { border-left-color: var(--border); border-top-left-radius: 8px; border-bottom-left-radius: 8px; }
+.st-table td.st-g-none.st-g-last { border-right-color: var(--border); border-top-right-radius: 8px; border-bottom-right-radius: 8px; }
+.st-col-tick { display: inline-flex; align-items: center; justify-content: center; width: 14px; height: 14px; margin-right: 5px; border-radius: 50%; background: #04262b; color: var(--accent2); font-size: 9px; }
 .st-row { display: flex; align-items: stretch; border-bottom: 1px solid var(--border); }
 .st-row:last-child { border-bottom: none; }
 .st-name { flex: 0 0 130px; width: 130px; text-align: center; padding: 10px 8px; border-right: 1px solid var(--border); }
@@ -1421,6 +1521,15 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
           <label>🔴 Rouge de 0 à <input type="number" id="pctCustomRedMax" min="0" max="98" step="1" /> %</label>
           <label>🟠 Orange jusqu'à <input type="number" id="pctCustomOrangeMax" min="1" max="99" step="1" /> %</label>
           <div class="threshold-preview" id="pctCustomPreview"></div>
+        </div>
+      </div>
+      <div class="settings-section">
+        <div class="settings-section-title">🏝 Objectif Frioul — couleurs de la jauge</div>
+        <p class="settings-info">Colore la jauge « Objectif Frioul » partout dans le rapport (fiche élève, Synthèse Élèves, #Admin, carnet PDF). La zone verte correspond aux élèves « presque prêts » ; « prêt » = 100 %.</p>
+        <div class="threshold-custom-inputs">
+          <label>🔴 Rouge de 0 à <input type="number" id="frioulRougeMax" min="0" max="97" step="1" /> %</label>
+          <label>🟠 Orange jusqu'à <input type="number" id="frioulOrangeMax" min="1" max="98" step="1" /> %</label>
+          <div class="threshold-preview" id="frioulPreview"></div>
         </div>
       </div>
       <div class="settings-section">
@@ -3057,6 +3166,20 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   populateMoniteurSeancesOptions();
 
   // Réglages seuils de couleur (%, jours) + règle "compétence acquise"
+  // Couleurs de la jauge (Réglages) : rouge 0..rougeMax, orange ..orangeMax, vert au-delà.
+  // Le début de la zone verte sert aussi de seuil « presque prêt » ; « prêt » = 100 %.
+  const LS_FRIOUL_COULEURS = 'rscc_v2_frioul_couleurs';
+  let frioulCouleurs = (function() {
+    try {
+      const o = JSON.parse(localStorage.getItem(LS_FRIOUL_COULEURS) || 'null');
+      if (o && o.rougeMax >= 0 && o.orangeMax > o.rougeMax && o.orangeMax < 99) return o;
+    } catch (e) {}
+    return { rougeMax: 49, orangeMax: 79 };
+  })();
+  function frioulZone(pct) { return pct <= frioulCouleurs.rougeMax ? 'rouge' : (pct <= frioulCouleurs.orangeMax ? 'orange' : 'vert'); }
+  const FRIOUL_ZONE_CSS = { rouge: 'var(--bad)', orange: 'var(--warn)', vert: 'var(--ok)' };
+  const FRIOUL_ZONE_HEX = { rouge: '#dc2626', orange: '#d97706', vert: '#16a34a' };
+  function getFrioulSeuilPresque() { return frioulCouleurs.orangeMax + 1; }
   function refreshAllTabsForThresholds() {
     if (STATE.eleves) renderEleves();
     if (STATE.moniteurs) renderMoniteurs();
@@ -3113,6 +3236,25 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     refreshAllTabsForThresholds();
   }
   populatePctThresholdOptions();
+  function updateFrioulCouleursUi() {
+    const r = frioulCouleurs.rougeMax, o = frioulCouleurs.orangeMax;
+    $('#frioulRougeMax').value = r; $('#frioulOrangeMax').value = o;
+    $('#frioulPreview').innerHTML = '<span class="tp-red">Rouge 0–' + r + ' %</span><span class="tp-orange">Orange ' + (r + 1) + '–' + o + ' %</span>' +
+      '<span class="tp-green">Vert ' + (o + 1) + '–100 % (presque prêt)</span>';
+  }
+  function onFrioulCouleursChange() {
+    let r = parseInt($('#frioulRougeMax').value, 10), o = parseInt($('#frioulOrangeMax').value, 10);
+    r = Math.min(97, Math.max(0, isNaN(r) ? 49 : r));
+    o = Math.min(98, Math.max(r + 1, isNaN(o) ? 79 : o));
+    frioulCouleurs = { rougeMax: r, orangeMax: o };
+    try { localStorage.setItem(LS_FRIOUL_COULEURS, JSON.stringify(frioulCouleurs)); } catch (e) {}
+    updateFrioulCouleursUi();
+    refreshAllTabsForThresholds();
+    if (typeof renderAdmin === 'function' && isAdminRoute()) renderAdmin();
+  }
+  updateFrioulCouleursUi();
+  $('#frioulRougeMax').addEventListener('change', onFrioulCouleursChange);
+  $('#frioulOrangeMax').addEventListener('change', onFrioulCouleursChange);
   $('#pctCustomRedMax').addEventListener('change', onPctCustomChange);
   $('#pctCustomOrangeMax').addEventListener('change', onPctCustomChange);
 
@@ -3332,7 +3474,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       'rscc_v2_bg_dark', 'rscc_v2_bg_light', 'rscc_v2_text_dark', 'rscc_v2_text_light',
       'rscc_v2_notif_breakpoint', 'rscc_v2_synth_sort', 'rscc_v2_synth_sort_memo',
       'rscc_v2_synth_sans_seance_fin', 'rscc_v2_moniteur_seances_range', 'rscc_v2_moniteur_seances_ateliers',
-      'rscc_v2_moniteur_seances_cr', 'rscc_v2_moniteur_seances_compact', 'rscc_v2_palmares_export',
+      'rscc_v2_moniteur_seances_cr', 'rscc_v2_moniteur_seances_compact', 'rscc_v2_palmares_export', 'rscc_v2_frioul_couleurs', 'rscc_v2_frioul_pdf',
     ];
     ALL_SETTINGS_LS_KEYS.forEach(function(key) { try { localStorage.removeItem(key); } catch (e) {} });
     window.location.reload();
@@ -3951,6 +4093,8 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   let studentSelection = null;          // Set de noms d'élèves, ou null
   let studentAteliersUtiles = false;    // masquer les ateliers déjà acquis par tous les élèves sélectionnés
   let studentFocusAtelier = null;       // atelier surligné depuis le bandeau « à travailler »
+  let studentFiltreFrioul = false;      // n'afficher que les colonnes Frioul
+  let studentFiltreGroupes = new Set(); // groupes choisis (vide = tous) ; SANS_GROUPE pour « Sans groupe »
   let studentChipsOpen = null;          // liste des prénoms dépliée ? (null = dépliée sur ordinateur, repliée sur mobile)
   /** Palanquées de la dernière génération (onglet Palanquées) : [{ moniteur, eleves: [noms] }] */
   function getPalanqueesGenerees() {
@@ -3977,6 +4121,64 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     $$('#studentContent .st-scroll').forEach(o => { if (o !== sc && o.scrollLeft !== sc.scrollLeft) o.scrollLeft = sc.scrollLeft; });
     requestAnimationFrame(() => { studentSyncing = false; });
   }, true);
+  /** Ordonne les colonnes par groupe (ordre de l'onglet Ateliers), « Sans groupe » à la fin. */
+  function ordonnerColonnesParGroupe(cols) {
+    const ordre = getGroupesOrdre();
+    if (!ordre.length) return cols;
+    const rang = at => { const g = getGroupeForAtelier(at); return g ? ordre.indexOf(g) : ordre.length; };
+    return cols.map((at, i) => ({ at: at, i: i })).sort((a, b) => rang(a.at) - rang(b.at) || a.i - b.i).map(x => x.at);
+  }
+  /** Découpe les colonnes en blocs consécutifs de même groupe. */
+  function blocsGroupes(cols) {
+    const blocs = [];
+    cols.forEach(function(at) {
+      const g = getGroupeForAtelier(at);
+      const last = blocs[blocs.length - 1];
+      if (last && last.groupe === g) last.cols.push(at); else blocs.push({ groupe: g, cols: [at] });
+    });
+    return blocs;
+  }
+  /** Classes CSS du cadre pointillé par colonne + positions des espaceurs entre groupes. */
+  function studentCadresGroupes(cols) {
+    const res = { __spacerAfter: {} };
+    if (!getGroupesOrdre().length) return res;
+    let idx = 0;
+    const blocs = blocsGroupes(cols);
+    blocs.forEach(function(b, bi) {
+      b.cols.forEach(function(at, k) {
+        let cls = b.groupe ? ' st-g' : ' st-g-none';
+        if (k === 0) cls += ' st-g-first';
+        if (k === b.cols.length - 1) cls += ' st-g-last';
+        res[at] = cls;
+        if (k === b.cols.length - 1 && bi < blocs.length - 1) res.__spacerAfter[idx] = true;
+        idx++;
+      });
+    });
+    return res;
+  }
+  /** Bandeau des groupes au-dessus des bandes (aligné et synchronisé avec le défilement). */
+  function studentGroupesHeadHtml(cols) {
+    if (!getGroupesOrdre().length || !cols.length) return '';
+    const blocs = blocsGroupes(cols);
+    return '<div class="st-row st-ghead" aria-hidden="true"><div class="st-name st-ghead-name">Groupes</div>' +
+      '<div class="st-scroll"><div class="st-ghead-track">' +
+        blocs.map((b, i) => '<div class="st-ghead-cell' + (b.groupe ? '' : ' none') + '" style="width:' + (b.cols.length * 102) + 'px">' +
+          '<span>' + escapeHtml(b.groupe || 'Sans groupe') + '</span></div>' + (i < blocs.length - 1 ? '<div class="st-ghead-spacer"></div>' : '')).join('') +
+      '</div></div></div>';
+  }
+  /** Cale la largeur de chaque bloc du bandeau sur les vraies cellules (la largeur varie selon l'écran). */
+  function alignStudentGroupesHead(root) {
+    const head = root && root.querySelector('.st-ghead');
+    const row = root && root.querySelector('.st-row:not(.st-ghead) .st-table tr');
+    if (!head || !row) return;
+    const firsts = row.querySelectorAll('td.st-g-first'), lasts = row.querySelectorAll('td.st-g-last');
+    const sp = row.querySelector('td.st-gspacer');
+    head.querySelectorAll('.st-ghead-cell').forEach(function(c, i) {
+      if (firsts[i] && lasts[i]) c.style.width = (lasts[i].getBoundingClientRect().right - firsts[i].getBoundingClientRect().left) + 'px';
+    });
+    if (sp) head.querySelectorAll('.st-ghead-spacer').forEach(x => { x.style.flexBasis = sp.getBoundingClientRect().width + 'px'; });
+  }
+  window.addEventListener('resize', function() { alignStudentGroupesHead($('#studentContent')); });
   function getStudentColonnes() {
     return (STATE.referentiel || []).filter(c => c.actif && c.notable !== false).map(c => c.nom);
   }
@@ -4010,7 +4212,9 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     return res;
   }
   function studentBandeHtml(e, colonnes, nomAffiche) {
-    const cells = colonnes.map(function(at) {
+    // Cadre pointillé autour des compétences d'un même groupe (colonne Groupe de l'onglet Ateliers)
+    const cadres = studentCadresGroupes(colonnes);
+    const cells = colonnes.map(function(at, i) {
       const evals = studentEvaluations((e.competences || {})[at], e, at);
       const last = evals[0];
       const cls = last ? noteClass(last.note) : 'n0';
@@ -4046,17 +4250,27 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
               (aBilan ? '<span class="st-com-mark" aria-hidden="true">💬</span>' : '') + '</div>';
           }).join('')
         : '<div class="st-date n0">—</div>';
-      return '<td class="st-cell">' +
+      return '<td class="st-cell' + (cadres[at] || '') + '">' +
         '<div class="st-last ' + cls + '" title="' + escapeHtml(titre) + '">' + escapeHtml(at) + '</div>' +
         '<button type="button" class="st-arrow" aria-expanded="false" aria-label="Dates d\'évaluation — ' + escapeHtml(at) + '"' +
           (toutesDates.length ? '' : ' disabled') + '>▽</button>' +
         '<div class="st-dates hidden">' + dates + '</div>' +
-      '</td>';
+      '</td>' + (cadres.__spacerAfter && cadres.__spacerAfter[i] ? '<td class="st-gspacer" aria-hidden="true"></td>' : '');
     }).join('');
     return '<div class="st-row" data-student="' + escapeHtml(e.id) + '">' +
       '<div class="st-name">' +
         '<a href="#Student/' + encodeURIComponent(e.id) + '" class="st-name-link">' + eleveNomCaci(e.nom, nomAffiche) + '</a>' +
         '<span class="st-sub">' + (e.nb_seances || 0) + ' séance(s)</span>' +
+        (function() {
+          const f = computeFrioul(e);
+          if (!f) return '';
+          const tip = '<div class="st-tip-line"><strong>🏝 Objectif Frioul — ' + f.acquises.length + '/' + f.total + ' (' + f.pct + ' %)</strong></div>' +
+            '<div class="st-tip-com">' + escapeHtml(FRIOUL_NIVEAUX[f.niveau].icon + ' ' + FRIOUL_NIVEAUX[f.niveau].label) + '</div>' +
+            (f.manquantes.length ? '<div class="st-tip-bilan"><span class="st-tip-bilan-label">Reste à acquérir (dernière note)</span>' + escapeHtml(frioulManquantesTexte(f)) + '</div>' : '');
+          return '<span class="st-frioul fz-' + f.zone + '" tabindex="0" data-tip="' + escapeHtml(tip) + '" aria-label="' +
+            escapeHtml('Objectif Frioul : ' + f.acquises.length + ' sur ' + f.total + (f.manquantes.length ? '. Reste : ' + frioulManquantesTexte(f) : '')) + '">' +
+            '🏝 ' + f.acquises.length + '/' + f.total + '<span class="st-frioul-bar"><span style="width:' + f.pct + '%"></span></span></span>';
+        })() +
         '<button type="button" class="st-arrow st-all" aria-expanded="false" title="Tout déplier / tout replier">▽</button>' +
         '<div class="st-view-toggle hidden" role="group" aria-label="Vue de la bande dépliée">' +
           '<button type="button" class="on" data-st-view="dates" aria-pressed="true">📋 Dates</button>' +
@@ -4081,7 +4295,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   }
   /** Dernière note de chaque compétence (0 = non évaluée) puis moyenne par catégorie. */
   function studentRadarData(e, axes) {
-    const comps = studentRadarColonnes.map(function(at) {
+    const comps = studentRadarColonnes.filter(at => !isHorsStats(at)).map(function(at) {
       const last = studentEvaluations((e.competences || {})[at], null, at)[0];
       return { label: at, note: last ? last.note : 0, date: last ? last.date : null, cat: getCategorieForAtelier(at) || 'Autres' };
     });
@@ -4153,7 +4367,35 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   function renderStudentView() {
     const root = $('#studentContent');
     if (!root || !STATE.eleves || !STATE.referentiel) return;
-    const colonnes = getStudentColonnes();
+    const toutesColonnes = ordonnerColonnesParGroupe(getStudentColonnes());
+    const frioulSet = new Set(getFrioulCompetences());
+    // Filtres de colonnes (cumulables) : Frioul ET groupes choisis
+    const colonnes = toutesColonnes.filter(function(at) {
+      if (studentFiltreFrioul && !frioulSet.has(at)) return false;
+      if (studentFiltreGroupes.size) {
+        const g = getGroupeForAtelier(at) || SANS_GROUPE;
+        if (!studentFiltreGroupes.has(g)) return false;
+      }
+      return true;
+    });
+    const groupesDispo = getGroupesOrdre().filter(g => toutesColonnes.some(at => getGroupeForAtelier(at) === g));
+    const aSansGroupe = groupesDispo.length && toutesColonnes.some(at => !getGroupeForAtelier(at));
+    const filtresActifs = studentFiltreFrioul || studentFiltreGroupes.size > 0;
+    const filtresColonnesHtml = (frioulSet.size || groupesDispo.length)
+      ? '<div class="st-colfilters">' +
+          '<span class="st-select-label">Ateliers affichés : <strong>' + colonnes.length + ' / ' + toutesColonnes.length + '</strong></span>' +
+          '<button type="button" class="st-col-chip' + (filtresActifs ? '' : ' on') + '" data-st-col="tous">Tous</button>' +
+          (frioulSet.size ? '<button type="button" class="st-col-chip frioul' + (studentFiltreFrioul ? ' on' : '') + '" data-st-col="frioul" aria-pressed="' + studentFiltreFrioul + '">' + (studentFiltreFrioul ? '<span class="st-col-tick" aria-hidden="true">✔</span>' : '') + '🏝 Frioul (' +
+            toutesColonnes.filter(at => frioulSet.has(at)).length + ')</button>' +
+            '<button type="button" class="frioul-info-btn" data-frioul-attendus title="Voir les compétences attendues pour le Frioul">ℹ️ Attendus</button>' +
+            '<button type="button" class="frioul-info-btn" data-frioul-pdf title="PDF pour les encadrants de la sortie en mer">📄 PDF sortie</button>' : '') +
+          (groupesDispo.length ? '<span class="st-colsep" aria-hidden="true"></span><span class="st-select-label">Groupes :</span>' +
+            groupesDispo.map(g => '<button type="button" class="st-col-chip' + (studentFiltreGroupes.has(g) ? ' on' : '') + '" data-st-groupe="' + escapeHtml(g) + '" aria-pressed="' + studentFiltreGroupes.has(g) + '">' +
+              (studentFiltreGroupes.has(g) ? '<span class="st-col-tick" aria-hidden="true">✔</span>' : '') + escapeHtml(g) + '</button>').join('') +
+            (aSansGroupe ? '<button type="button" class="st-col-chip muted' + (studentFiltreGroupes.has(SANS_GROUPE) ? ' on' : '') + '" data-st-groupe="' + SANS_GROUPE + '" aria-pressed="' + studentFiltreGroupes.has(SANS_GROUPE) + '">' +
+              (studentFiltreGroupes.has(SANS_GROUPE) ? '<span class="st-col-tick" aria-hidden="true">✔</span>' : '') + 'Sans groupe</button>' : '') : '') +
+        '</div>'
+      : '';
     const noms = buildDisplayNames(STATE.eleves);
     const cible = getStudentCible();
     let eleves = (STATE.eleves || []).slice().sort((a, b) => (noms[a.id] || a.nom).localeCompare(noms[b.id] || b.nom, 'fr', { sensitivity: 'base' }));
@@ -4167,11 +4409,12 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     const visibles = sel ? eleves.filter(e => sel.has(e.nom)) : eleves;
     const sousEnsemble = !!(sel && visibles.length);
     // Compétences non acquises par au moins un élève affiché (bandeau + option « ateliers utiles »)
-    const aTravailler = sousEnsemble ? colonnes.map(function(at) {
+    const aTravailler = sousEnsemble ? colonnes.filter(at => !isHorsStats(at)).map(function(at) {
       const nonAcq = visibles.filter(e => !isCompetenceAcquiseFromHistorique((e.competences || {})[at]));
       return { at: at, n: nonAcq.length, noms: nonAcq.map(e => noms[e.id] || e.nom) };
     }).filter(x => x.n > 0).sort((a, b) => b.n - a.n || colonnes.indexOf(a.at) - colonnes.indexOf(b.at)) : [];
-    const colonnesAffichees = sousEnsemble && studentAteliersUtiles ? colonnes.filter(at => aTravailler.some(x => x.at === at)) : colonnes;
+    const colonnesAffichees = sousEnsemble && studentAteliersUtiles
+      ? colonnes.filter(at => visibles.some(e => !isCompetenceAcquiseFromHistorique((e.competences || {})[at]))) : colonnes;
     // Sélecteur : palanquées générées + une puce par élève
     const pals = cible ? [] : getPalanqueesGenerees();
     const selNoms = sel ? Array.from(sel) : eleves.map(e => e.nom);
@@ -4213,11 +4456,13 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
           // « Retour » seulement quand la vue est ouverte par l'adresse #Student (inutile dans l'onglet)
           (isStudentRoute() ? '<button type="button" class="export-btn" id="btnStudentBack">← Retour au rapport</button>' : '') + '</div></div>' +
       '<div class="legend-row legend-fiche">' + notesLegendItemsHtml() + '</div>' +
-      selecteurHtml + bandeauHtml +
+      selecteurHtml + filtresColonnesHtml + bandeauHtml +
       '<div class="st-wrap">' +
+        (visibles.length ? studentGroupesHeadHtml(colonnesAffichees) : '') +
         (visibles.length ? (destroyStudentRadars(), studentRadarColonnes = colonnesAffichees, visibles.map(e => studentBandeHtml(e, colonnesAffichees, noms[e.id])).join(''))
                          : '<div class="st-empty">Aucun élève sélectionné : touchez un prénom ou « Tous ».</div>') +
       '</div>';
+    alignStudentGroupesHead(root);
     // Restaure la position horizontale commune après un re-rendu (recherche, export…)
     $$('.st-scroll', root).forEach(sc => { sc.scrollLeft = studentScrollLeft; });
     const btnBack = $('#btnStudentBack', root);
@@ -4239,6 +4484,16 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     $$('[data-st-pal]', root).forEach(b => b.addEventListener('click', function() {
       const p = pals[Number(b.dataset.stPal)];
       if (p) { setStudentSelection(p.eleves); renderStudentView(); }
+    }));
+    $$('[data-st-col]', root).forEach(b => b.addEventListener('click', function() {
+      if (b.dataset.stCol === 'tous') { studentFiltreFrioul = false; studentFiltreGroupes = new Set(); }
+      else studentFiltreFrioul = !studentFiltreFrioul;
+      studentFocusAtelier = null; renderStudentView();
+    }));
+    $$('[data-st-groupe]', root).forEach(b => b.addEventListener('click', function() {
+      const g = b.dataset.stGroupe;
+      if (studentFiltreGroupes.has(g)) studentFiltreGroupes.delete(g); else studentFiltreGroupes.add(g);
+      studentFocusAtelier = null; renderStudentView();
     }));
     const tg = $('.st-chips-toggle', root);
     if (tg) tg.addEventListener('click', function() { studentChipsOpen = !chipsOpen; renderStudentView(); });
@@ -4685,6 +4940,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       buildAdminFraicheurHtml() +
       buildAdminCaciHtml() +
       buildAdminAbsencesHtml() +
+      buildAdminFrioulHtml() +
       buildAdminArretesHtml() +
       buildAdminBloqueesHtml() +
       buildAdminJamaisAbordeesHtml() +
@@ -4813,6 +5069,334 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       : '<p class="admin-ok">✅ Aucun élève absent ' + SEUIL_ALERTE_ABSENCES + ' soirées de suite.</p>';
     return adminCard('adminAbsences', '🚨 Élèves absents ' + SEUIL_ALERTE_ABSENCES + ' soirées de suite ou plus', rows.length, body, rows.length ? 'warn' : 'ok');
   }
+
+  function buildAdminFrioulHtml() {
+    if (!getFrioulCompetences().length) return '';
+    const names = buildDisplayNames(STATE.eleves || []);
+    const rows = (STATE.eleves || []).map(e => ({ e: e, f: computeFrioul(e) })).filter(x => x.f)
+      .sort((a, b) => b.f.pct - a.f.pct || String(names[a.e.id] || a.e.nom).localeCompare(String(names[b.e.id] || b.e.nom), 'fr'));
+    const bloc = function(niv) {
+      const r = rows.filter(x => x.f.niveau === niv);
+      const borne = niv === 'pret' ? '100 %' : (niv === 'presque' ? getFrioulSeuilPresque() + '–99 %' : '0–' + (getFrioulSeuilPresque() - 1) + ' %');
+      return '<div class="frioul-admin-group fa-' + niv + '"><div class="frioul-admin-title">' + FRIOUL_NIVEAUX[niv].icon + ' ' + FRIOUL_NIVEAUX[niv].label + ' <span class="frioul-borne">' + borne + '</span>' +
+        ' <span class="admin-count">' + r.length + '</span></div>' +
+        (r.length ? r.map(x => '<div class="frioul-admin-row fz-' + x.f.zone + '"><div class="frioul-admin-name"><strong>' + eleveNomCaci(x.e.nom, names[x.e.id] || x.e.nom) + '</strong>' +
+            '<span class="frioul-score">' + x.f.acquises.length + '/' + x.f.total + ' · ' + x.f.pct + ' %</span></div>' +
+            '<div class="frioul-bar"><span style="width:' + x.f.pct + '%"></span></div>' +
+            (x.f.manquantes.length ? '<div class="frioul-admin-manque">Reste : ' + escapeHtml(frioulManquantesTexte(x.f)) + '</div>' : '') + '</div>').join('')
+          : '<p class="anom-hint">Aucun élève.</p>') + '</div>';
+    };
+    const body = '<p class="anom-hint">' + getFrioulCompetences().length + ' compétence(s) prérequise(s) à la sortie en mer (colonne <em>Frioul</em> de l\'onglet Ateliers, compétences actives). ' +
+        'Entre parenthèses : dernière note (— = jamais évaluée). Couleurs et seuil « presque prêt » : Réglages › Objectif Frioul. ' +
+        '<button type="button" class="frioul-info-btn" data-frioul-attendus>ℹ️ Ce qui est attendu</button> ' +
+        '<button type="button" class="frioul-info-btn" data-frioul-pdf>📄 PDF sortie Frioul</button></p>' +
+      '<div class="frioul-admin-grid">' + bloc('pret') + bloc('presque') + bloc('loin') + '</div>';
+    const nbPrets = rows.filter(x => x.f.niveau === 'pret').length;
+    return adminCard('adminFrioul', '🏝 Prêts pour le Frioul', nbPrets + '/' + rows.length, body, nbPrets === rows.length && rows.length ? 'ok' : 'info');
+  }
+  // =====================================================================
+  // PDF « SORTIE FRIOUL » — fiche destinée aux encadrants (E2, N4, MF1) de la sortie en mer.
+  // Style du carnet de progression : en-tête club, sections numérotées, A4.
+  //   1. Vue d'ensemble (page paysage) : élèves × compétences Frioul, case = dernière note
+  //   2. Fiche par élève : jauge, « à surveiller en mer » (non acquises), acquises, CACI, présence
+  //   3. Ce qui est attendu : les compétences Frioul par groupe, avec le critère d'acquisition
+  // =====================================================================
+  const LS_FRIOUL_PDF = 'rscc_v2_frioul_pdf';
+  function buildFrioulPdfHtml(opts) {
+    const esc = escapeHtml;
+    const noms = getFrioulCompetences();
+    const names = buildDisplayNames(STATE.eleves || []);
+    const eleves = (STATE.eleves || []).filter(e => opts.eleves.indexOf(e.nom) !== -1)
+      .map(e => ({ e: e, f: computeFrioul(e) }))
+      .sort((a, b) => b.f.pct - a.f.pct || String(names[a.e.id] || a.e.nom).localeCompare(String(names[b.e.id] || b.e.nom), 'fr'));
+    const s = STATE.synthese || {};
+    const gen = s.date_generation ? new Date(s.date_generation) : null;
+    const dateData = gen && !isNaN(gen) ? gen.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' }) : '—';
+    const today = new Date().toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' });
+    const dateSortie = opts.dateSortie ? new Date(opts.dateSortie + 'T00:00:00').toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) : '';
+    const logo = (document.querySelector('.brand-logo-light') || {}).src || '';
+    const C = CARNET_COULEURS, Z = FRIOUL_ZONE_HEX;
+    const nomE = x => esc(names[x.e.id] || x.e.nom);
+    const lastH = comp => ((comp && comp.historique) || []).filter(h => h.note != null).sort((a, b) => String(a.date).localeCompare(String(b.date))).pop() || null;
+    const groupes = grouperParGroupe(noms);
+    const nb = { pret: 0, presque: 0, loin: 0 };
+    eleves.forEach(x => { nb[x.f.niveau]++; });
+
+    // 1. Vue d'ensemble
+    const thGroupes = groupes.map(g => '<th colspan="' + g.items.length + '" class="tg">' + esc(g.groupe || 'Sans groupe') + '</th>').join('');
+    const thComp = groupes.map(g => g.items.map(n => '<th class="tc"><span>' + esc(n) + '</span></th>').join('')).join('');
+    const lignes = eleves.map(function(x) {
+      const cells = groupes.map(g => g.items.map(function(n) {
+        const comp = (x.e.competences || {})[n];
+        const st = carnetStatut(comp);
+        const h = lastH(comp);
+        return '<td class="nc" style="background:' + (h ? C[st.cls] : '#fff') + ';color:' + (h ? '#fff' : '#94a3b8') + '">' +
+          (h ? h.note : '—') + (st.acquis ? '' : (h ? '' : '')) + '</td>';
+      }).join('')).join('');
+      return '<tr><td class="ne">' + nomE(x) + (x.e.caci !== true ? ' <span class="caci-ko">CACI !</span>' : '') + '</td>' + cells +
+        '<td class="fj"><div class="mini"><span style="width:' + x.f.pct + '%;background:' + Z[x.f.zone] + '"></span></div>' + x.f.acquises.length + '/' + x.f.total + '</td></tr>';
+    }).join('');
+    const vue = '<section class="paysage"><h3>2. Vue d\'ensemble — ' + eleves.length + ' élève(s) × ' + noms.length + ' compétences attendues</h3>' +
+      '<div class="legende">' + ['n4|4 — Maîtrisé', 'n3|3 — Acquis', 'n2|2 — En cours', 'n1|1 — Non acquis'].map(v => { const p = v.split('|'); return '<span><i style="background:' + C[p[0]] + '"></i>' + p[1] + '</span>'; }).join('') +
+        '<span><i style="background:#fff;border:1px solid #cbd5e1"></i>— jamais évalué</span><span class="muted">Case = dernière note ; une compétence est acquise à partir de ' + getSeuilCompetenceAcquise() +
+        (isRobustesseActive() ? ' validée par plusieurs moniteurs' : '') + '.</span></div>' +
+      '<table class="matrice"><thead><tr><th class="ne" rowspan="2">Élève</th>' + thGroupes + '<th class="fj" rowspan="2">Objectif<br>Frioul</th></tr><tr>' + thComp + '</tr></thead><tbody>' + lignes + '</tbody></table></section>';
+
+    // 2. Fiches par élève
+    const fiches = eleves.map(function(x) {
+      const pres = buildPresenceData(x.e, STATE.allDates || []);
+      const der = (x.e.dates_seances || []).slice().sort().pop();
+      const surveiller = x.f.manquantes.map(function(m) {
+        const comp = (x.e.competences || {})[m.nom];
+        const h = lastH(comp);
+        const st = carnetStatut(comp);
+        const com = opts.commentaires && h ? getCommentaireAtelier(x.e.nom, h.date, h.moniteur, m.nom) : '';
+        return '<tr><td class="c-nom">' + esc(m.nom) + '</td><td><span class="pill" style="--c:' + (h ? C[st.cls] : '#94a3b8') + '">' + (h ? h.note + ' — ' + esc(st.label) : 'Jamais évaluée') + '</span></td>' +
+          '<td class="c-last">' + (h ? esc(formatDateFR(h.date)) + (h.moniteur ? ' · ' + esc(h.moniteur) : '') : '—') +
+            (com ? '<div class="com">« ' + esc(com) + ' »</div>' : '') + '</td></tr>';
+      }).join('');
+      const acquises = x.f.acquises.map(function(n) {
+        const h = lastH((x.e.competences || {})[n]);
+        return '<span class="acq"><i style="background:' + C[h && h.note >= 4 ? 'n4' : 'n3'] + '"></i>' + esc(n) + (h ? ' <b>' + h.note + '</b>' : '') + '</span>';
+      }).join('');
+      return '<div class="fiche">' +
+        '<div class="f-head"><strong class="f-nom">' + nomE(x) + '</strong>' +
+          '<span class="badge ' + (x.e.caci === true ? 'ok' : 'ko') + '">' + (x.e.caci === true ? '🩺 CACI valide' : '🩺 CACI à fournir') + '</span>' +
+          '<span class="f-meta">Présence ' + pres.nbPresent + '/' + pres.total + ' · dernière séance ' + esc(der ? formatDateFR(der) : '—') + '</span></div>' +
+        '<div class="f-jauge"><span class="f-score" style="color:' + Z[x.f.zone] + '">🏝 ' + x.f.acquises.length + ' / ' + x.f.total + ' (' + x.f.pct + ' %) — ' + esc(FRIOUL_NIVEAUX[x.f.niveau].label) + '</span>' +
+          '<div class="jauge"><span style="width:' + x.f.pct + '%;background:' + Z[x.f.zone] + '"></span></div></div>' +
+        (surveiller ? '<div class="f-t ko">⚠ À surveiller en mer (' + x.f.manquantes.length + ')</div>' +
+            '<table class="f-tab"><thead><tr><th>Compétence</th><th>Dernière note</th><th>Dernière évaluation' + (opts.commentaires ? ' · commentaire' : '') + '</th></tr></thead><tbody>' + surveiller + '</tbody></table>'
+          : '<div class="f-t ok">✅ Toutes les compétences attendues sont acquises.</div>') +
+        (acquises ? '<div class="f-t ok">✔ Acquises (' + x.f.acquises.length + ')</div><div class="acqs">' + acquises + '</div>' : '') +
+        (x.e.moniteurs && x.e.moniteurs.length ? '<div class="f-mon">Moniteurs rencontrés : ' + x.e.moniteurs.map(esc).join(', ') + '</div>' : '') +
+      '</div>';
+    }).join('');
+
+    // 3. Ce qui est attendu
+    const attendus = groupes.map(function(g) {
+      return '<div class="att-g"><div class="att-t">' + esc(g.groupe || 'Sans groupe') + '</div>' + g.items.map(function(n) {
+        const k = eleves.filter(x => x.f.acquises.indexOf(n) !== -1).length;
+        const pct = eleves.length ? Math.round(k / eleves.length * 100) : 0;
+        return '<div class="att-l"><span class="att-n">' + esc(n) + '</span><span class="att-c">' + esc(getCategorieForAtelier(n) || '') + '</span>' +
+          '<span class="att-v"><span class="mini"><span style="width:' + pct + '%;background:' + Z[frioulZone(pct)] + '"></span></span>' + k + ' / ' + eleves.length + '</span></div>';
+      }).join('') + '</div>';
+    }).join('');
+
+    const css = `
+      @page { size: A4 portrait; margin: 13mm 12mm 15mm;
+        @bottom-left { content: "Sortie Frioul — fiche encadrants — ${esc(CONFIG.GROUPE || '').replace(/"/g, '')} — RSCC Subaquatique"; font: 8pt system-ui, sans-serif; color: #64748b; }
+        @bottom-right { content: "Page " counter(page) " / " counter(pages); font: 8pt system-ui, sans-serif; color: #64748b; } }
+      @page paysage { size: A4 landscape; margin: 10mm 10mm 14mm; }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: #fff; color: #0f172a; font: 9.5pt/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .page { max-width: 270mm; margin: 0 auto; padding: 8mm 6mm; }
+      .toolbar { position: sticky; top: 0; z-index: 5; display: flex; gap: 10px; align-items: center; justify-content: center; padding: 10px; background: #0f172a; color: #fff; font-size: 13px; flex-wrap: wrap; }
+      .toolbar button { font: inherit; font-weight: 700; padding: 7px 14px; border-radius: 8px; border: none; cursor: pointer; background: #22d3ee; color: #04262b; }
+      .toolbar .sec { background: transparent; color: #fff; border: 1px solid #475569; }
+      header.top { display: flex; align-items: center; gap: 14px; border-bottom: 3px solid #0e7490; padding-bottom: 10px; }
+      header.top img { height: 46px; } .titre { flex: 1; } .titre h1 { margin: 0; font-size: 18pt; color: #0e7490; } .titre .sous { font-size: 10pt; color: #334155; font-weight: 600; }
+      .meta { text-align: right; font-size: 8.5pt; color: #475569; line-height: 1.5; }
+      .intro { margin: 10px 0; padding: 8px 12px; border-left: 4px solid #0e7490; background: #f0f9ff; border-radius: 6px; font-size: 9pt; }
+      .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 8px 0 4px; }
+      .tile { border: 1px solid #e2e8f0; border-radius: 8px; padding: 6px 10px; } .tile .v { font-size: 14pt; font-weight: 800; } .tile .l { font-size: 8pt; color: #64748b; }
+      h3 { font-size: 12pt; color: #0e7490; margin: 16px 0 8px; padding-bottom: 4px; border-bottom: 1px solid #cbd5e1; break-after: avoid; }
+      .muted { color: #94a3b8; }
+      .legende { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 8pt; color: #475569; margin-bottom: 6px; align-items: center; }
+      .legende i, .acq i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 4px; vertical-align: -1px; }
+      section.paysage { page: paysage; break-before: page; break-after: page; }
+      table.matrice { border-collapse: collapse; width: 100%; table-layout: fixed; font-size: 8pt; }
+      table.matrice th, table.matrice td { border: 1px solid #e2e8f0; text-align: center; padding: 2px; }
+      table.matrice th.ne, table.matrice td.ne { width: 30mm; text-align: left; padding-left: 5px; font-weight: 700; }
+      table.matrice th.fj, table.matrice td.fj { width: 20mm; font-weight: 700; }
+      th.tg { background: #ecfeff; color: #0e7490; font-size: 7pt; text-transform: uppercase; letter-spacing: .03em; border-left: 2px dashed #0e7490 !important; border-right: 2px dashed #0e7490 !important; }
+      th.tc { height: 30mm; vertical-align: bottom; background: #f8fafc; }
+      th.tc span { writing-mode: vertical-rl; transform: rotate(180deg); font-size: 7.5pt; font-weight: 600; white-space: nowrap; display: inline-block; max-height: 29mm; overflow: hidden; }
+      td.nc { font-weight: 800; font-size: 9pt; height: 7mm; }
+      table.matrice tbody tr { break-inside: avoid; }
+      .caci-ko { font-size: 6.5pt; color: #dc2626; font-weight: 800; }
+      .mini { display: block; height: 4px; background: #e2e8f0; border-radius: 99px; overflow: hidden; margin: 1px 0 2px; } .mini span { display: block; height: 100%; }
+      .fiche { border: 1px solid #e2e8f0; border-radius: 10px; padding: 8px 10px; margin-bottom: 10px; break-inside: avoid; }
+      .f-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; } .f-nom { font-size: 12pt; }
+      .f-meta { margin-left: auto; font-size: 8pt; color: #475569; }
+      .badge { font-size: 7.5pt; font-weight: 700; padding: 2px 8px; border-radius: 999px; } .badge.ok { background: #dcfce7; color: #166534; } .badge.ko { background: #fee2e2; color: #991b1b; }
+      .f-jauge { margin: 4px 0 2px; } .f-score { font-weight: 800; font-size: 9.5pt; }
+      .jauge { height: 6px; background: #e2e8f0; border-radius: 99px; overflow: hidden; margin-top: 3px; } .jauge span { display: block; height: 100%; }
+      .f-t { font-size: 8pt; font-weight: 800; text-transform: uppercase; letter-spacing: .03em; margin: 7px 0 3px; } .f-t.ko { color: #b45309; } .f-t.ok { color: #15803d; }
+      .f-tab { width: 100%; border-collapse: collapse; font-size: 8.5pt; } .f-tab th { text-align: left; font-size: 7.5pt; color: #64748b; font-weight: 700; border-bottom: 1px solid #cbd5e1; padding: 2px 4px; }
+      .f-tab td { border-bottom: 1px solid #f1f5f9; padding: 3px 4px; vertical-align: top; } .c-nom { font-weight: 600; width: 34%; } .c-last { color: #475569; }
+      .pill { display: inline-block; font-size: 7.5pt; font-weight: 700; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--c); color: var(--c); white-space: nowrap; }
+      .com { font-style: italic; color: #334155; margin-top: 1px; }
+      .acqs { display: flex; flex-wrap: wrap; gap: 3px 12px; font-size: 8.5pt; } .acq b { color: #475569; }
+      .f-mon { font-size: 7.5pt; color: #94a3b8; margin-top: 5px; }
+      .att-g { break-inside: avoid; margin-bottom: 6px; } .att-t { font-size: 8pt; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; color: #0e7490; margin: 8px 0 2px; }
+      .att-l { display: grid; grid-template-columns: 1.3fr 1fr 34mm; gap: 8px; align-items: center; padding: 3px 0; border-bottom: 1px solid #f1f5f9; font-size: 9pt; }
+      .att-n { font-weight: 600; } .att-c { color: #64748b; font-size: 8pt; } .att-v { font-size: 8pt; font-weight: 700; display: grid; grid-template-columns: 1fr auto; gap: 6px; align-items: center; }
+      .lock { font-size: 7.5pt; color: #94a3b8; margin-top: 6px; }
+      .sigs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; break-inside: avoid; }
+      .sig { border: 1px solid #cbd5e1; border-radius: 8px; padding: 8px 10px; height: 26mm; font-size: 8pt; color: #475569; }
+      @media print { .toolbar { display: none; } .page { padding: 0; max-width: none; } }
+    `;
+    return '<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">' +
+      '<title>Sortie Frioul — fiche encadrants — ' + esc(CONFIG.GROUPE || '') + '</title><style>' + css + '</style></head><body>' +
+      '<div class="toolbar"><span>Sortie Frioul — fiche encadrants</span><button type="button" onclick="window.print()">🖨 Imprimer / Enregistrer en PDF</button>' +
+        '<button type="button" class="sec" onclick="window.close()">Fermer</button></div>' +
+      '<div class="page">' +
+        '<header class="top">' + (logo ? '<img src="' + logo + '" alt="RSCC Subaquatique">' : '') +
+          '<div class="titre"><h1>Sortie en mer — ' + esc(opts.lieu || 'Frioul') + '</h1><div class="sous">Fiche encadrants · élèves Plongeur Niveau 1</div></div>' +
+          '<div class="meta">RSCC Subaquatique<br>Saison ' + esc(CONFIG.SEASON || '') + ' · ' + esc(CONFIG.GROUPE || '') +
+            (dateSortie ? '<br><strong>Sortie : ' + esc(dateSortie) + '</strong>' : '') + '<br>Édité le ' + esc(today) + ' · données au ' + esc(dateData) + '</div></header>' +
+        '<div class="intro">Document destiné aux encadrants de la sortie (E2, N4, MF1). Il présente, pour chaque élève, l\'état des <strong>' + noms.length +
+          ' compétences attendues</strong> avant la sortie en mer, d\'après les comptes rendus de séance en piscine. ' +
+          'Les compétences « à surveiller » ne sont pas encore acquises : à observer en priorité pendant les plongées.</div>' +
+        '<div class="tiles"><div class="tile"><div class="v">' + eleves.length + '</div><div class="l">élève(s)</div></div>' +
+          '<div class="tile"><div class="v" style="color:#16a34a">' + nb.pret + '</div><div class="l">' + FRIOUL_NIVEAUX.pret.label + ' (100 %)</div></div>' +
+          '<div class="tile"><div class="v" style="color:#16a34a">' + nb.presque + '</div><div class="l">' + FRIOUL_NIVEAUX.presque.label + ' (≥ ' + getFrioulSeuilPresque() + ' %)</div></div>' +
+          '<div class="tile"><div class="v" style="color:#d97706">' + nb.loin + '</div><div class="l">' + FRIOUL_NIVEAUX.loin.label + '</div></div></div>' +
+        // Page 1 : attendus ; page 2 (paysage) : vue d'ensemble ; puis une fiche par élève
+        '<h3>1. Ce qui est attendu pour la sortie</h3>' +
+        '<p style="font-size:8.5pt;color:#475569;margin:0 0 4px;">L\'élève est prêt quand les ' + noms.length + ' compétences sont acquises (note ≥ ' + getSeuilCompetenceAcquise() +
+          (isRobustesseActive() ? ', validée par plusieurs moniteurs' : '') + '). À droite : élèves de ce document qui l\'ont acquise.</p>' + attendus +
+        '<p class="lock">Liste issue de la colonne Frioul de l\'onglet Ateliers (compétences actives).</p>' +
+        vue +
+        '<h3>3. Fiches élèves</h3>' + (fiches || '<p class="muted">Aucun élève sélectionné.</p>') +
+        '<div class="sigs"><div class="sig">Chef de groupe' + (typeof chefDeGroupeNom !== 'undefined' && chefDeGroupeNom ? ' — ' + esc(chefDeGroupeNom) : '') + '</div><div class="sig">Directeur de plongée de la sortie</div></div>' +
+      '</div></body></html>';
+  }
+
+  function openFrioulPdfDialog() {
+    if (!getFrioulCompetences().length) return;
+    const names = buildDisplayNames(STATE.eleves || []);
+    const eleves = (STATE.eleves || []).filter(e => (e.nb_seances || 0) > 0)
+      .sort((a, b) => String(names[a.id] || a.nom).localeCompare(String(names[b.id] || b.nom), 'fr'));
+    let o = {}; try { o = JSON.parse(localStorage.getItem(LS_FRIOUL_PDF) || '{}'); } catch (e) {}
+    let ov = document.getElementById('frioulPdfOverlay');
+    if (!ov) {
+      ov = document.createElement('div'); ov.id = 'frioulPdfOverlay'; ov.className = 'anom-overlay hidden';
+      document.body.appendChild(ov);
+      ov.addEventListener('click', ev => { if (ev.target === ov) ov.classList.add('hidden'); });
+      document.addEventListener('keydown', ev => { if (ev.key === 'Escape') ov.classList.add('hidden'); });
+    }
+    const pals = getPalanqueesGenerees();
+    ov.innerHTML = '<div class="anom-modal" role="dialog" aria-modal="true" style="max-width:560px;">' +
+      '<div class="anom-modal-head"><span class="anom-modal-title">📄 PDF sortie Frioul — encadrants</span><button type="button" class="anom-modal-close" aria-label="Fermer">×</button></div>' +
+      '<p class="anom-intro">Fiche A4 au style du carnet, pour les encadrants de la sortie (E2, N4, MF1) : vue d\'ensemble, fiche par élève et liste des attendus.</p>' +
+      '<div class="pal-exp-titre">Sortie</div>' +
+      '<div class="fp-row"><label>Lieu <input type="text" id="fpLieu" value="' + escapeHtml(o.lieu || 'Frioul') + '"></label>' +
+        '<label>Date <input type="date" id="fpDate" value="' + escapeHtml(o.dateSortie || '') + '"></label></div>' +
+      '<div class="pal-exp-titre">Élèves <span id="fpCount"></span></div>' +
+      '<div class="fp-raccourcis"><button type="button" class="st-col-chip" data-fp="tous">Tous</button><button type="button" class="st-col-chip" data-fp="aucun">Aucun</button>' +
+        '<button type="button" class="st-col-chip" data-fp="prets">✅🟢 Prêts + presque prêts</button>' +
+        pals.map((p, i) => '<button type="button" class="st-col-chip" data-fp-pal="' + i + '">🥽 ' + escapeHtml(p.moniteur) + ' (' + p.eleves.length + ')</button>').join('') + '</div>' +
+      '<div class="fp-eleves">' + eleves.map(function(e) {
+        const f = computeFrioul(e);
+        return '<label class="fp-el"><input type="checkbox" value="' + escapeHtml(e.nom) + '" checked> ' + escapeHtml(names[e.id] || e.nom) +
+          ' <span class="fp-pct" style="color:' + FRIOUL_ZONE_CSS[f.zone] + '">' + f.pct + ' %</span></label>';
+      }).join('') + '</div>' +
+      '<div class="pal-exp-titre">Commentaires</div>' +
+      '<label class="carnet-opt"><input type="checkbox" id="fpCom"' + (o.commentaires ? ' checked' : '') + '> Inclure le dernier commentaire d\'atelier des compétences à surveiller</label>' +
+      '<div style="display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-top:14px;">' +
+        '<button type="button" class="export-btn" id="fpAnnuler">Annuler</button><button type="button" class="export-btn carnet-go" id="fpGo">📄 Générer le PDF</button></div></div>';
+    ov.classList.remove('hidden');
+    const boxes = () => Array.from(ov.querySelectorAll('.fp-el input'));
+    const majCount = function() {
+      const n = boxes().filter(b => b.checked).length;
+      ov.querySelector('#fpCount').textContent = '(' + n + ' / ' + eleves.length + ')';
+      ov.querySelector('#fpGo').disabled = !n;
+    };
+    const cocher = fn => { boxes().forEach(b => { b.checked = fn(b.value); }); majCount(); };
+    ov.querySelectorAll('[data-fp]').forEach(b => b.addEventListener('click', function() {
+      if (b.dataset.fp === 'tous') cocher(() => true);
+      else if (b.dataset.fp === 'aucun') cocher(() => false);
+      else cocher(nom => { const e = eleves.find(x => x.nom === nom); const f = computeFrioul(e); return f && f.niveau !== 'loin'; });
+    }));
+    ov.querySelectorAll('[data-fp-pal]').forEach(b => b.addEventListener('click', function() {
+      const p = pals[Number(b.dataset.fpPal)]; if (p) cocher(nom => p.eleves.indexOf(nom) !== -1);
+    }));
+    boxes().forEach(b => b.addEventListener('change', majCount));
+    majCount();
+    ov.querySelector('.anom-modal-close').onclick = () => ov.classList.add('hidden');
+    ov.querySelector('#fpAnnuler').onclick = () => ov.classList.add('hidden');
+    ov.querySelector('#fpGo').onclick = function() {
+      const opts = { lieu: ov.querySelector('#fpLieu').value.trim() || 'Frioul', dateSortie: ov.querySelector('#fpDate').value,
+        commentaires: ov.querySelector('#fpCom').checked, eleves: boxes().filter(b => b.checked).map(b => b.value) };
+      try { localStorage.setItem(LS_FRIOUL_PDF, JSON.stringify({ lieu: opts.lieu, dateSortie: opts.dateSortie, commentaires: opts.commentaires })); } catch (e) {}
+      const w = window.open('', '_blank');
+      if (!w) { showToast('Fenêtre bloquée par le navigateur : autorisez les fenêtres pour ce site.', 'error'); return; }
+      w.document.open(); w.document.write(buildFrioulPdfHtml(opts)); w.document.close();
+      ov.classList.add('hidden');
+      setTimeout(function() { try { w.focus(); w.print(); } catch (err) {} }, 600);
+    };
+  }
+  document.addEventListener('click', function(ev) {
+    const b = ev.target.closest && ev.target.closest('[data-frioul-pdf]');
+    if (!b) return;
+    ev.preventDefault();
+    const fa = document.getElementById('frioulAttendusOverlay'); if (fa) fa.classList.add('hidden');
+    openFrioulPdfDialog();
+  });
+
+  // ---------- Focus « Ce qui est attendu pour le Frioul » (lecture seule) ----------
+  function openFrioulAttendus() {
+    const noms = getFrioulCompetences();
+    if (!noms.length) return;
+    const eleves = (STATE.eleves || []).filter(e => (e.nb_seances || 0) > 0);
+    const inactives = (STATE.referentiel || []).filter(c => c.frioul === true && !c.actif).map(c => c.nom);
+    const names = buildDisplayNames(STATE.eleves || []);
+    const nomEleve = e => escapeHtml(names[e.id] || e.nom);
+    const lignes = grouperParGroupe(noms).map(function(g) {
+      return '<div class="fa-groupe">' + escapeHtml(g.groupe || 'Sans groupe') + '</div>' + g.items.map(function(n) {
+        const acq = [], manq = [];
+        eleves.forEach(function(e) {
+          const comp = (e.competences || {})[n];
+          const note = comp && comp.derniere_note != null ? comp.derniere_note : null;
+          (isCompetenceAcquiseFromHistorique(comp) ? acq : manq).push({ e: e, note: note });
+        });
+        const pct = eleves.length ? Math.round(acq.length / eleves.length * 100) : 0;
+        const liste = arr => arr.map(x => '<span class="fa-el"><span class="note-dot ' + (x.note != null ? noteClass(x.note) : 'n0') + '"></span>' +
+          nomEleve(x.e) + ' <span class="fa-el-note">(' + (x.note != null ? x.note : '—') + ')</span></span>').join('');
+        // Ligne dépliable : un clic montre qui l'a acquise et qui ne l'a pas encore (dernière note)
+        return '<details class="fa-item fz-' + frioulZone(pct) + '"><summary class="fa-ligne">' +
+            '<span class="fa-nom"><span class="fa-chev" aria-hidden="true">▸</span>' + escapeHtml(n) + '</span>' +
+            '<span class="fa-cat">' + escapeHtml(getCategorieForAtelier(n) || '—') + '</span>' +
+            '<span class="fa-val"><span class="fa-bar"><span style="width:' + pct + '%"></span></span>' +
+              '<span class="fa-nb"><strong>' + acq.length + ' / ' + eleves.length + '</strong> élèves · ' + pct + ' %</span></span>' +
+          '</summary>' +
+          '<div class="fa-detail">' +
+            '<div><span class="fa-d-t ok">✔ Acquise (' + acq.length + ')</span>' + (acq.length ? liste(acq) : '<span class="fa-el-note">personne pour l\'instant</span>') + '</div>' +
+            '<div><span class="fa-d-t ko">✖ Pas encore (' + manq.length + ')</span>' + (manq.length ? liste(manq) : '<span class="fa-el-note">tout le monde l\'a acquise</span>') + '</div>' +
+          '</div></details>';
+      }).join('');
+    }).join('');
+    const legendeZones = '<div class="fa-legende"><span><i style="background:var(--bad)"></i>0–' + frioulCouleurs.rougeMax + ' %</span>' +
+      '<span><i style="background:var(--warn)"></i>' + (frioulCouleurs.rougeMax + 1) + '–' + frioulCouleurs.orangeMax + ' %</span>' +
+      '<span><i style="background:var(--ok)"></i>' + (frioulCouleurs.orangeMax + 1) + '–100 %</span>' +
+      '<span class="fa-el-note">part des élèves ayant acquis la compétence</span></div>';
+    let ov = document.getElementById('frioulAttendusOverlay');
+    if (!ov) {
+      ov = document.createElement('div'); ov.id = 'frioulAttendusOverlay'; ov.className = 'anom-overlay hidden';
+      document.body.appendChild(ov);
+      ov.addEventListener('click', ev => { if (ev.target === ov || ev.target.closest('.anom-modal-close')) ov.classList.add('hidden'); });
+      document.addEventListener('keydown', ev => { if (ev.key === 'Escape') ov.classList.add('hidden'); });
+    }
+    ov.innerHTML = '<div class="anom-modal fa-modal" role="dialog" aria-modal="true" aria-labelledby="faTitre">' +
+      '<div class="anom-modal-head"><span class="anom-modal-title" id="faTitre">🏝 Ce qui est attendu pour le Frioul</span>' +
+        '<button type="button" class="anom-modal-close" aria-label="Fermer">×</button></div>' +
+      '<p class="anom-intro">Pour être prêt pour la sortie en mer, l\'élève doit avoir <strong>acquis les ' + noms.length + ' compétences</strong> ci-dessous ' +
+        '(note ≥ ' + getSeuilCompetenceAcquise() + (isRobustesseActive() ? ', validée par plusieurs moniteurs' : '') + '). ' +
+        'Pour chacune : combien d\'élèves du groupe (' + eleves.length + ' élèves suivis) l\'ont déjà acquise. Touchez une compétence pour voir le détail par élève.</p>' +
+      legendeZones +
+      '<div class="fa-liste"><div class="fa-ligne fa-entete" aria-hidden="true"><span>Compétence</span><span class="fa-cat">Catégorie</span><span>Acquise par</span></div>' + lignes + '</div>' +
+      (inactives.length ? '<details class="fa-inactives"><summary>' + inactives.length + ' compétence(s) cochée(s) Frioul mais pas encore ouvertes (inactives), non comptées</summary>' +
+        '<p>' + inactives.map(escapeHtml).join(', ') + '.</p></details>' : '') +
+      '<div class="fa-actions"><p class="fa-lock">🔒 Liste lue dans la colonne <em>Frioul</em> de l\'onglet Ateliers du classeur — non modifiable depuis le rapport.</p>' +
+        '<button type="button" class="export-btn carnet-go" data-frioul-pdf>📄 PDF sortie Frioul (encadrants)</button></div></div>';
+    ov.classList.remove('hidden');
+  }
+  document.addEventListener('click', function(ev) {
+    const b = ev.target.closest && ev.target.closest('[data-frioul-attendus]');
+    if (b) { ev.preventDefault(); ev.stopPropagation(); openFrioulAttendus(); }
+  });
 
   function buildAdminArretesHtml() {
     const rows = (STATE.elevesArretes || []).slice()
@@ -5401,9 +5985,83 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
    *  de progression) — compte les compétences actives ET marquées "compte dans la moyenne"
    *  dans le référentiel, indépendamment du nombre de compétences déjà travaillées.
    */
+  // ---------- Colonnes de l'onglet Ateliers (script ≥ 20/11) ----------
+  // compte_dans_stats = false : compétence visible (fiches, Synthèse, carnet) mais ignorée de
+  // toutes les statistiques (%, Analyse, Palmarès, bingo, radar, bandeau « À travailler »).
+  // Champ absent (anciens JSON) = compte dans les stats.
+  function estDansStats(c) { return !!c && c.compte_dans_stats !== false; }
+  function isHorsStats(nom) {
+    const c = (STATE.referentiel || []).find(x => x.nom === nom);
+    return !!c && c.compte_dans_stats === false;
+  }
+  // ---------- Objectif Frioul : compétences actives cochées « Frioul » (prérequis sortie mer) ----------
+  function getFrioulCompetences() {
+    return (STATE.referentiel || []).filter(c => c.actif && c.frioul === true).map(c => c.nom);
+  }
+  /** { total, acquises: [noms], manquantes: [{nom, note}], pct, niveau: 'pret'|'presque'|'loin' } ou null si aucun Frioul. */
+  function computeFrioul(e) {
+    const noms = getFrioulCompetences();
+    if (!noms.length || !e) return null;
+    const acquises = [], manquantes = [];
+    noms.forEach(function(n) {
+      const comp = (e.competences || {})[n];
+      if (isCompetenceAcquiseFromHistorique(comp)) acquises.push(n);
+      else manquantes.push({ nom: n, note: comp && comp.derniere_note != null ? comp.derniere_note : null });
+    });
+    const pct = Math.round(acquises.length / noms.length * 100);
+    return { total: noms.length, acquises: acquises, manquantes: manquantes, pct: pct,
+      zone: frioulZone(pct),
+      niveau: pct >= 100 ? 'pret' : (pct >= getFrioulSeuilPresque() ? 'presque' : 'loin') };
+  }
+  const FRIOUL_NIVEAUX = {
+    pret: { label: 'Prêt pour le Frioul', icon: '✅' },
+    presque: { label: 'Presque prêt', icon: '🟢' },
+    loin: { label: 'À travailler', icon: '🎯' },
+  };
+  function frioulManquantesTexte(f) {
+    return f.manquantes.map(m => m.nom + ' (' + (m.note != null ? m.note : '—') + ')').join(' · ');
+  }
+  /** Jauge de la fiche élève : barre + compétences restantes avec leur dernière note. */
+  function buildFrioulFicheHtml(e) {
+    const f = computeFrioul(e);
+    if (!f) return '';
+    return '<div class="frioul-box fz-' + f.zone + '">' +
+      '<div class="frioul-head"><strong>🏝 Objectif Frioul</strong><span class="frioul-score">' + f.acquises.length + ' / ' + f.total + ' (' + f.pct + ' %)</span>' +
+        '<span class="frioul-niveau">' + FRIOUL_NIVEAUX[f.niveau].icon + ' ' + FRIOUL_NIVEAUX[f.niveau].label + '</span>' +
+        '<button type="button" class="frioul-info-btn" data-frioul-attendus title="Voir les compétences attendues pour le Frioul">ℹ️ Ce qui est attendu</button></div>' +
+      '<div class="frioul-bar"><span style="width:' + f.pct + '%"></span></div>' +
+      (f.manquantes.length
+        ? '<div class="frioul-reste"><span class="frioul-reste-label">Reste à acquérir :</span> ' + f.manquantes.map(m =>
+            '<span class="frioul-item"><span class="note-dot ' + (m.note != null ? noteClass(m.note) : 'n0') + '"></span>' + escapeHtml(m.nom) +
+            ' <span class="frioul-note">(' + (m.note != null ? m.note : '—') + ')</span></span>').join('') + '</div>'
+        : '<div class="frioul-reste">Toutes les compétences prérequises sont acquises.</div>') +
+    '</div>';
+  }
+  // ---------- Colonne « Groupe » de l'onglet Ateliers (à côté des catégories) ----------
+  const SANS_GROUPE = '__sans_groupe__';
+  function getGroupeForAtelier(nom) {
+    const c = (STATE.referentiel || []).find(x => x.nom === nom);
+    return c && c.groupe ? String(c.groupe) : '';
+  }
+  /** Groupes dans l'ordre de l'onglet Ateliers. */
+  function getGroupesOrdre() {
+    const ordre = [];
+    (STATE.referentiel || []).forEach(c => { if (c.groupe && ordre.indexOf(c.groupe) === -1) ordre.push(c.groupe); });
+    return ordre;
+  }
+  /** Trie une liste de compétences par groupe (ordre de l'onglet), sans groupe à la fin ; renvoie [{groupe, items}]. */
+  function grouperParGroupe(noms) {
+    const ordre = getGroupesOrdre();
+    const par = {};
+    noms.forEach(n => { const g = getGroupeForAtelier(n); (par[g] = par[g] || []).push(n); });
+    const res = ordre.filter(g => par[g]).map(g => ({ groupe: g, items: par[g] }));
+    if (par['']) res.push({ groupe: '', items: par[''] });
+    return res;
+  }
+
   function getTotalCompetencesReferentiel() {
     const ref = STATE.referentiel || [];
-    const n = ref.filter(c => c.actif && c.compte_dans_moyenne).length;
+    const n = ref.filter(c => c.actif && c.compte_dans_moyenne && estDansStats(c)).length;
     return n || ref.length; // repli si le référentiel n'a pas ces indicateurs
   }
 
@@ -5411,7 +6069,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
    *  (actif && compte_dans_moyenne) — même filtre que getTotalCompetencesReferentiel(). */
   function getReferentielMatchSet() {
     const ref = STATE.referentiel || [];
-    return new Set(ref.filter(c => c.actif && c.compte_dans_moyenne).map(c => c.nom));
+    return new Set(ref.filter(c => c.actif && c.compte_dans_moyenne && estDansStats(c)).map(c => c.nom));
   }
 
   function buildAcquisitionData(e) {
@@ -5526,6 +6184,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   function buildRadarDataForEleve(e) {
     const parCategorie = {};
     Object.keys(e.competences || {}).forEach(function(atelier) {
+      if (isHorsStats(atelier)) return;
       const cat = getCategorieForAtelier(atelier);
       if (!cat) return;
       if (!parCategorie[cat]) parCategorie[cat] = { touched: 0, acquis: 0 };
@@ -5546,7 +6205,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
    */
   function buildDetailRadarDataForEleve(e, categorie) {
     const items = (STATE.referentiel || []).filter(function(c) {
-      if (!(c.actif && c.notable)) return false;
+      if (!(c.actif && c.notable && estDansStats(c))) return false;
       const cat = (STATE.referentielCategories || []).find(x => x.id === c.id);
       return cat && cat.categorie === categorie;
     });
@@ -5566,7 +6225,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   function getCategoriesWithDetail() {
     return getAllCategories().filter(function(cat) {
       return (STATE.referentiel || []).some(function(c) {
-        if (!(c.actif && c.notable)) return false;
+        if (!(c.actif && c.notable && estDansStats(c))) return false;
         const catEntry = (STATE.referentielCategories || []).find(x => x.id === c.id);
         return catEntry && catEntry.categorie === cat;
       });
@@ -5737,14 +6396,19 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     // 3. Compétences par domaine
     const domainesHtml = domaines.map(function(d) {
       const nAcq = d.competences.filter(n => statuts[n].acquis).length;
-      const rows = d.competences.map(function(nom) {
+      const parGroupe = grouperParGroupe(d.competences);
+      const avecIntertitres = parGroupe.some(g => g.groupe);
+      const ligne = function(nom) {
         const st = statuts[nom], comp = (e.competences || {})[nom];
         const last = st.notes.length ? st.notes[st.notes.length - 1] : null;
         return '<tr><td class="c-nom">' + esc(nom) + '</td><td>' + pill(st) + '</td>' +
           '<td class="c-histo">' + (st.notes.length ? st.notes.map(h => dot(noteClass(h.note), formatDateFR(h.date) + ' — ' + noteLabel(h.note) + (h.moniteur ? ' (' + h.moniteur + ')' : ''))).join('') : '<span class="muted">—</span>') + '</td>' +
           '<td class="c-num">' + (comp ? comp.nb_evaluations : 0) + '</td>' +
           '<td class="c-last">' + (last ? esc(formatDateFR(last.date)) + (last.moniteur ? '<br><span class="muted">' + esc(last.moniteur) + '</span>' : '') : '<span class="muted">—</span>') + '</td></tr>';
-      }).join('');
+      };
+      // Intertitres par groupe (colonne Groupe de l'onglet Ateliers) quand le domaine en contient
+      const rows = parGroupe.map(g => (avecIntertitres ? '<tr class="grp"><td colspan="5">' + esc(g.groupe || 'Sans groupe') + '</td></tr>' : '') +
+        g.items.map(ligne).join('')).join('');
       return '<div class="domaine"><div class="dom-head"><span>' + esc(d.domaine) + '</span><span class="dom-count">' + nAcq + '/' + d.competences.length + ' acquise(s)</span></div>' +
         '<table><thead><tr><th>Compétence</th><th>Statut</th><th>Évolution</th><th>Éval.</th><th>Dernière évaluation</th></tr></thead><tbody>' + rows + '</tbody></table></div>';
     }).join('');
@@ -5816,6 +6480,10 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       .legende span { display: inline-flex; align-items: center; gap: 4px; }
       .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 3px; vertical-align: middle; flex-shrink: 0; }
       .domaine { margin-bottom: 10px; break-inside: avoid; }
+      tr.grp td { background: #f1f5f9; font-size: 7.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: #475569; padding: 3px 6px; }
+      .frioul { margin-top: 10px; border: 1px solid var(--fc); border-left: 4px solid var(--fc); border-radius: 8px; padding: 8px 10px; }
+      .frioul-h { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; font-size: 9.5pt; }
+      .frioul-h span { color: #334155; } .frioul-r { font-size: 8.5pt; color: #334155; margin-top: 4px; }
       .dom-head { display: flex; justify-content: space-between; font-weight: 700; font-size: 9.5pt; background: #ecfeff; color: #155e75; padding: 5px 8px; border-radius: 6px 6px 0 0; border: 1px solid #a5f3fc; border-bottom: none; }
       .dom-count { font-weight: 600; }
       table { width: 100%; border-collapse: collapse; font-size: 9pt; }
@@ -5846,7 +6514,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       .bilan .box h4 { margin: 0 0 4px; font-size: 9.5pt; }
       .bilan ul { margin: 0; padding-left: 16px; font-size: 9pt; }
       .bilan .forts h4 { color: #16a34a; } .bilan .axes h4 { color: #b45309; } .bilan .aborder h4 { color: #475569; }
-      .sigs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; break-inside: avoid; }
+      .sigs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; break-inside: avoid; }
       .sig { border: 1px solid #cbd5e1; border-radius: 8px; padding: 8px 10px; }
       .sig-role { font-weight: 700; font-size: 9.5pt; margin-bottom: 6px; color: #0e7490; }
       .sig-line { font-size: 8.5pt; color: #475569; border-bottom: 1px dotted #cbd5e1; padding: 4px 0; }
@@ -5879,6 +6547,17 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
           '<div class="tile"><div class="v" style="font-size:11pt;">' + esc(lastDate ? formatDateFR(lastDate) : '—') + '</div><div class="l">dernière séance</div></div>' +
         '</div>' +
         '<p style="font-size:8.5pt;color:#475569;margin:6px 0 0;">Moniteurs rencontrés : ' + esc((e.moniteurs || []).join(', ') || '—') + '</p>' +
+        (function() {
+          const f = computeFrioul(e);
+          if (!f) return '';
+          const coul = FRIOUL_ZONE_HEX[f.zone];
+          return '<div class="frioul bloc" style="--fc:' + coul + '"><div class="frioul-h"><strong>🏝 Objectif Frioul</strong>' +
+            '<span>' + f.acquises.length + ' / ' + f.total + ' compétences prérequises (' + f.pct + ' %) — ' + esc(FRIOUL_NIVEAUX[f.niveau].label) + '</span></div>' +
+            '<div class="jauge"><span style="width:' + f.pct + '%;background:' + coul + '"></span></div>' +
+            (f.manquantes.length ? '<div class="frioul-r"><strong>Reste à acquérir</strong> (dernière note) : ' +
+              f.manquantes.map(m => esc(m.nom) + ' <span class="muted">(' + (m.note != null ? m.note : '—') + ')</span>').join(' · ') + '</div>'
+              : '<div class="frioul-r">Toutes les compétences prérequises à la sortie en mer sont acquises.</div>') + '</div>';
+        })() +
 
         '<h3>2. Compétences du cursus, par domaine</h3>' + legende +
         '<p style="font-size:8pt;color:#64748b;margin:2px 0 8px;">Compétences actuellement ouvertes par le chef de groupe (' + total + '). « Évolution » = notes successives, de la plus ancienne à la plus récente. ' +
@@ -5905,7 +6584,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         '<h3>6. Journal des séances' + (avecCommentaires ? '' : ' <span style="font-weight:400;font-size:8.5pt;color:#64748b;">(sans commentaires)</span>') + '</h3>' + journal +
 
         '<h3>7. Visas</h3><div class="sigs">' +
-          sig('Moniteur référent', '') + sig('Chef de groupe', chef) + sig('Élève', e.nom) +
+          sig('Chef de groupe', chef) + sig('Élève', e.nom) +
         '</div>' +
         '<div class="pied">Document établi d\'après les comptes rendus de séance saisis par les moniteurs — données au ' + esc(dateData) + '. ' +
           'Il ne se substitue pas au livret pédagogique officiel ni à la délivrance du brevet par la FFESSM.</div>' +
@@ -5971,7 +6650,9 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     const isMobile = window.innerWidth <= 720;
     const compsHtml = catNames.map(function(cat, idx) {
       const items = groups[cat];
-      const cardsHtml = items.map(function(k) {
+      const parGroupe = grouperParGroupe(items);
+      const avecIntertitres = parGroupe.some(g => g.groupe);
+      const carteHtml = function(k) {
         const histoAt = ((e.competences[k] || {}).historique || []).slice()
           .sort((x, y) => String(y.date).localeCompare(String(x.date)))
           .map(h => ({ date: h.date, moniteur: h.moniteur, texte: getCommentaireAtelier(e.nom, h.date, h.moniteur, k) }))
@@ -5985,7 +6666,11 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
           bilan: bilan, atelier: histoAt[0] || null,
         } : null;
         return buildCompCard(k, e.competences[k], latest, null, e); // catégorie déjà dans l'en-tête du groupe
-      }).join('');
+      };
+      // Intertitres par groupe (colonne Groupe de l'onglet Ateliers) quand la catégorie en contient
+      const cardsHtml = parGroupe.map(g =>
+        (avecIntertitres ? '<div class="comp-groupe-title">' + (g.groupe ? escapeHtml(g.groupe) : 'Sans groupe') + '</div>' : '') +
+        g.items.map(carteHtml).join('')).join('');
       const nbAcquis = items.filter(function(k) { return isCompetenceAcquiseFromHistorique(e.competences[k]); }).length;
       const startOpen = !isMobile || idx === 0;
       return '<div class="comp-category-block">' +
@@ -6012,6 +6697,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         '</div>' +
       '</div>' +
       presenceSectionHtml +
+      buildFrioulFicheHtml(e) +
       (compsHtml
         ? '<div class="legend-row legend-fiche">' + notesLegendItemsHtml() + '</div>' +
           '<div class="comp-section-toolbar">' +
@@ -6892,10 +7578,15 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     const data = buildFriseSaisonData();
     if (!data.length) return '<div class="presence-empty">Aucune séance enregistrée pour le moment.</div>';
     const items = data.map(function(d) {
-      return '<div class="sf-item">' +
+      // Largeur fixe, moniteurs sur 2 lignes maximum ; liste complète dans l'info-bulle (survol ou toucher)
+      const tip = '<div class="st-tip-line"><strong>' + escapeHtml(formatDateFR(d.date)) + '</strong> — ' + SF_STATUS_LABELS[d.status] + ' (' + d.nbCR + '/' + d.totalSeances + ')</div>' +
+        '<div class="st-tip-com">' + d.moniteurs.length + ' moniteur(s) : ' + d.moniteurs.map(escapeHtml).join(', ') + '</div>' +
+        '<div class="st-tip-line">' + d.nbEleves + ' élève(s)</div>';
+      return '<div class="sf-item" tabindex="0" data-tip="' + escapeHtml(tip) + '">' +
         '<span class="sf-date">' + formatDateStacked(d.date) + '</span>' +
-        '<span class="sf-cr-dot ' + d.status + '" title="' + SF_STATUS_LABELS[d.status] + ' (' + d.nbCR + '/' + d.totalSeances + ')"></span>' +
-        '<span class="sf-moniteurs">' + ICONS.moniteurLogo + ' ' + d.moniteurs.map(nm => escapeHtml(nm) + chefBadge(nm)).join(', ') + '</span>' +
+        '<span class="sf-cr-dot ' + d.status + '"></span>' +
+        '<span class="sf-moniteurs-count">' + ICONS.moniteurLogo + ' ' + d.moniteurs.length + ' moniteur' + (d.moniteurs.length > 1 ? 's' : '') + '</span>' +
+        '<span class="sf-moniteurs">' + d.moniteurs.map(nm => escapeHtml(nm) + chefBadge(nm)).join(', ') + '</span>' +
         '<span class="sf-eleves">' + ICONS.eleve + ' ' + d.nbEleves + '</span>' +
       '</div>';
     }).join('');
@@ -6911,7 +7602,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
    *  d'absence réelle d'activité. Les ateliers "orphelins" sont listés pour le rendre lisible.
    */
   function buildReferentielCoverage() {
-    const refBase = (STATE.referentiel || []).filter(c => c.actif && c.notable);
+    const refBase = (STATE.referentiel || []).filter(c => c.actif && c.notable && estDansStats(c));
     const ateliersUtilises = new Set();
     (STATE.eleves || []).forEach(function(e) {
       Object.keys(e.competences || {}).forEach(a => ateliersUtilises.add(a));
@@ -7312,6 +8003,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   function getAcquisitionEventsForEleve(e) {
     const events = [];
     Object.keys(e.competences || {}).forEach(function(atelier) {
+      if (isHorsStats(atelier)) return;
       const date = findDateAcquisitionFromHistorique(e.competences[atelier]);
       if (date) events.push(date);
     });
@@ -7560,7 +8252,8 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     const displayNamesEleves = buildDisplayNames(STATE.eleves || []);
     (STATE.eleves || []).forEach(function(e) { nameByNom[e.nom] = displayNamesEleves[e.id]; });
     return '<div class="analyse-chips-band">' +
-      '<div class="chips-track" id="analyseChipsTrack" style="overflow-x:auto;">' +
+      // Les puces passent à la ligne : tous les élèves restent visibles, sans défilement caché
+      '<div class="chips-track analyse-chips-wrap" id="analyseChipsTrack">' +
         evalues.map(function(e) {
           return '<div class="eleve-chip" data-analyse-chip="' + escapeHtml(e.id) + '" style="cursor:pointer;">' +
             '<span class="eleve-chip-icon">' + ICONS.eleve + '</span>' +
@@ -8370,7 +9063,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   }
 
   function computeAtelierExtremes() {
-    const rows = (STATE.synthese && STATE.synthese.acquisition_par_atelier) || [];
+    const rows = ((STATE.synthese && STATE.synthese.acquisition_par_atelier) || []).filter(r => !isHorsStats(r.atelier));
     if (!rows.length) return null;
     const byNbEval = rows.slice().sort((a, b) => b.nb_evaluations - a.nb_evaluations);
     const plusTravaille = byNbEval[0];
@@ -8729,7 +9422,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 
   // --- Bingo des compétences -----------------------------------------------------
   function buildBingoCellsHtml(e) {
-    const pool = (STATE.referentiel || []).filter(c => c.actif && c.notable);
+    const pool = (STATE.referentiel || []).filter(c => c.actif && c.notable && estDansStats(c));
     const acquisSet = new Set();
     Object.keys(e.competences || {}).forEach(function(atelier) {
       if (isCompetenceAcquiseFromHistorique(e.competences[atelier])) acquisSet.add(atelier);
@@ -8834,7 +9527,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
 
   function buildPalmaresBingoPdfHtml(opts) {
     const esc = escapeHtml;
-    const pool = (STATE.referentiel || []).filter(c => c.actif && c.notable);
+    const pool = (STATE.referentiel || []).filter(c => c.actif && c.notable && estDansStats(c));
     const names = buildDisplayNames(STATE.eleves || []);
     const eligibles = (STATE.eleves || []).filter(e => (e.nb_seances || 0) > 0);
     if (!pool.length || !eligibles.length) return '<p class="muted">Aucune donnée pour le bingo.</p>';
