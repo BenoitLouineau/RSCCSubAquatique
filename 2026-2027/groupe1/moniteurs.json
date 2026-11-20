@@ -27,19 +27,21 @@
   {
     "id": "benoit-p",
     "nom": "Benoit P",
-    "nb_seances_animees": 6,
+    "nb_seances_animees": 7,
     "dates_seances": [
       "2026-09-29",
       "2026-10-06",
       "2026-10-13",
       "2026-10-27",
       "2026-11-03",
-      "2026-11-10"
+      "2026-11-10",
+      "2026-11-17"
     ],
-    "nb_eleves_suivis": 9,
+    "nb_eleves_suivis": 10,
     "eleves_suivis": [
       "Abderrahmane",
       "Aubrée",
+      "Camille",
       "Catherine",
       "Guillaume",
       "Hanane",
@@ -48,8 +50,8 @@
       "Nabiyu",
       "Patricia"
     ],
-    "nb_comptes_rendus": 82,
-    "nb_evaluations_notees": 82
+    "nb_comptes_rendus": 95,
+    "nb_evaluations_notees": 95
   },
   {
     "id": "carine",
@@ -130,8 +132,8 @@
       "Nabiyu",
       "Patricia"
     ],
-    "nb_comptes_rendus": 53,
-    "nb_evaluations_notees": 45
+    "nb_comptes_rendus": 61,
+    "nb_evaluations_notees": 53
   },
   {
     "id": "herve",
@@ -173,17 +175,19 @@
   {
     "id": "virginie",
     "nom": "Virginie",
-    "nb_seances_animees": 1,
+    "nb_seances_animees": 2,
     "dates_seances": [
-      "2026-11-03"
+      "2026-11-03",
+      "2026-11-17"
     ],
-    "nb_eleves_suivis": 2,
+    "nb_eleves_suivis": 3,
     "eleves_suivis": [
       "Amir",
+      "Catherine",
       "Guillaume"
     ],
-    "nb_comptes_rendus": 38,
-    "nb_evaluations_notees": 38
+    "nb_comptes_rendus": 48,
+    "nb_evaluations_notees": 48
   },
   {
     "id": "veronique",
