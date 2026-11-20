@@ -911,6 +911,7 @@ table.cr-table tbody tr { border-top: 1px solid var(--border); }
 .st-frioul-bar > span { display: block; height: 100%; background: var(--fr-c); }
 .st-frioul:focus-visible { outline: 2px solid var(--accent2); outline-offset: 2px; border-radius: 4px; }
 .st-colfilters { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 12px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 12px; background: var(--card); }
+.st-bulk { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 10px; }
 .st-colsep { width: 1px; align-self: stretch; background: var(--border); margin: 0 4px; }
 .st-col-chip { font: inherit; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); background: transparent; color: var(--text); cursor: pointer; }
 .st-col-chip.muted { color: var(--muted); font-style: italic; }
@@ -4095,7 +4096,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   let studentFocusAtelier = null;       // atelier surligné depuis le bandeau « à travailler »
   let studentFiltreFrioul = false;      // n'afficher que les colonnes Frioul
   let studentFiltreGroupes = new Set(); // groupes choisis (vide = tous) ; SANS_GROUPE pour « Sans groupe »
-  let studentChipsOpen = null;          // liste des prénoms dépliée ? (null = dépliée sur ordinateur, repliée sur mobile)
+  let studentChipsOpen = false;         // liste des prénoms dépliée ? (repliée par défaut)
   /** Palanquées de la dernière génération (onglet Palanquées) : [{ moniteur, eleves: [noms] }] */
   function getPalanqueesGenerees() {
     const r = typeof PALANQUEE_STATE !== 'undefined' ? PALANQUEE_STATE.result : null;
@@ -4160,7 +4161,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
   function studentGroupesHeadHtml(cols) {
     if (!getGroupesOrdre().length || !cols.length) return '';
     const blocs = blocsGroupes(cols);
-    return '<div class="st-row st-ghead" aria-hidden="true"><div class="st-name st-ghead-name">Groupes</div>' +
+    return '<div class="st-row st-ghead" aria-hidden="true"><div class="st-name st-ghead-name">Groupes d\'ateliers</div>' +
       '<div class="st-scroll"><div class="st-ghead-track">' +
         blocs.map((b, i) => '<div class="st-ghead-cell' + (b.groupe ? '' : ' none') + '" style="width:' + (b.cols.length * 102) + 'px">' +
           '<span>' + escapeHtml(b.groupe || 'Sans groupe') + '</span></div>' + (i < blocs.length - 1 ? '<div class="st-ghead-spacer"></div>' : '')).join('') +
@@ -4389,7 +4390,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
             toutesColonnes.filter(at => frioulSet.has(at)).length + ')</button>' +
             '<button type="button" class="frioul-info-btn" data-frioul-attendus title="Voir les compétences attendues pour le Frioul">ℹ️ Attendus</button>' +
             '<button type="button" class="frioul-info-btn" data-frioul-pdf title="PDF pour les encadrants de la sortie en mer">📄 PDF sortie</button>' : '') +
-          (groupesDispo.length ? '<span class="st-colsep" aria-hidden="true"></span><span class="st-select-label">Groupes :</span>' +
+          (groupesDispo.length ? '<span class="st-colsep" aria-hidden="true"></span><span class="st-select-label">Groupes d\'ateliers :</span>' +
             groupesDispo.map(g => '<button type="button" class="st-col-chip' + (studentFiltreGroupes.has(g) ? ' on' : '') + '" data-st-groupe="' + escapeHtml(g) + '" aria-pressed="' + studentFiltreGroupes.has(g) + '">' +
               (studentFiltreGroupes.has(g) ? '<span class="st-col-tick" aria-hidden="true">✔</span>' : '') + escapeHtml(g) + '</button>').join('') +
             (aSansGroupe ? '<button type="button" class="st-col-chip muted' + (studentFiltreGroupes.has(SANS_GROUPE) ? ' on' : '') + '" data-st-groupe="' + SANS_GROUPE + '" aria-pressed="' + studentFiltreGroupes.has(SANS_GROUPE) + '">' +
@@ -4419,7 +4420,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     const pals = cible ? [] : getPalanqueesGenerees();
     const selNoms = sel ? Array.from(sel) : eleves.map(e => e.nom);
     const memeEnsemble = (a, b) => a.length === b.length && a.every(x => b.indexOf(x) !== -1);
-    const chipsOpen = studentChipsOpen === null ? window.innerWidth > 720 : studentChipsOpen;
+    const chipsOpen = studentChipsOpen === true;   // replié par défaut : « ✏️ Choisir les élèves »
     const genAt = (typeof PALANQUEE_STATE !== 'undefined' && PALANQUEE_STATE.result && PALANQUEE_STATE.result.generatedAt) || null;
     const selecteurHtml = cible ? '' :
       '<div class="st-select">' +
@@ -4457,6 +4458,11 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
           (isStudentRoute() ? '<button type="button" class="export-btn" id="btnStudentBack">← Retour au rapport</button>' : '') + '</div></div>' +
       '<div class="legend-row legend-fiche">' + notesLegendItemsHtml() + '</div>' +
       selecteurHtml + filtresColonnesHtml + bandeauHtml +
+      (visibles.length > 1 ? '<div class="st-bulk" role="group" aria-label="Déplier tous les élèves affichés">' +
+        '<span class="st-select-label">' + visibles.length + ' élève(s) affiché(s) :</span>' +
+        '<button type="button" class="st-col-chip" data-st-bulk="dates">📋 Tout déplier — dates</button>' +
+        '<button type="button" class="st-col-chip" data-st-bulk="radar">🕸 Tout déplier — radar</button>' +
+        '<button type="button" class="st-col-chip" data-st-bulk="replier">△ Tout replier</button></div>' : '') +
       '<div class="st-wrap">' +
         (visibles.length ? studentGroupesHeadHtml(colonnesAffichees) : '') +
         (visibles.length ? (destroyStudentRadars(), studentRadarColonnes = colonnesAffichees, visibles.map(e => studentBandeHtml(e, colonnesAffichees, noms[e.id])).join(''))
@@ -4494,6 +4500,18 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       const g = b.dataset.stGroupe;
       if (studentFiltreGroupes.has(g)) studentFiltreGroupes.delete(g); else studentFiltreGroupes.add(g);
       studentFocusAtelier = null; renderStudentView();
+    }));
+    // Déplier / replier toutes les bandes affichées d'un coup (vue dates ou radar)
+    $$('[data-st-bulk]', root).forEach(b => b.addEventListener('click', function() {
+      const mode = b.dataset.stBulk;
+      $$('.st-row:not(.st-ghead)', root).forEach(function(row) {
+        const all = row.querySelector('.st-arrow.st-all');
+        if (!all) return;
+        const ouvert = all.getAttribute('aria-expanded') === 'true';
+        if (mode === 'replier') { if (ouvert) all.click(); return; }
+        if (!ouvert) all.click();
+        setStudentRowView(row, mode);
+      });
     }));
     const tg = $('.st-chips-toggle', root);
     if (tg) tg.addEventListener('click', function() { studentChipsOpen = !chipsOpen; renderStudentView(); });
