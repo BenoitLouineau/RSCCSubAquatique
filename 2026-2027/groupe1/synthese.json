@@ -1,5 +1,5 @@
 {
-  "date_generation": "2026-11-20T14:33:28",
+  "date_generation": "2026-11-20T14:38:28",
   "nb_eleves": 12,
   "nb_moniteurs": 10,
   "nb_seances": 38,
@@ -155,21 +155,21 @@
       "compte_dans_moyenne": true
     },
     {
+      "atelier": "Palmage (nage)",
+      "nb_evaluations": 10,
+      "moyenne": 1.9,
+      "note_min": 1.0,
+      "note_max": 3.0,
+      "notable": true,
+      "compte_dans_moyenne": false
+    },
+    {
       "atelier": "Soin au materiel",
       "nb_evaluations": 10,
       "moyenne": 2.8,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
-      "compte_dans_moyenne": false
-    },
-    {
-      "atelier": "Palmage (nage)",
-      "nb_evaluations": 9,
-      "moyenne": 1.78,
-      "note_min": 1.0,
-      "note_max": 3.0,
-      "notable": false,
       "compte_dans_moyenne": false
     },
     {
@@ -207,15 +207,6 @@
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Palmage ( nage)",
-      "nb_evaluations": 1,
-      "moyenne": 3.0,
-      "note_min": 3.0,
-      "note_max": 3.0,
-      "notable": true,
-      "compte_dans_moyenne": false
     }
   ],
   "progression_par_eleve": [
@@ -285,9 +276,7 @@
     "eleves_referentiel_jamais_vus": [],
     "moniteurs_hors_referentiel": [],
     "moniteurs_referentiel_jamais_actifs": [],
-    "ateliers_hors_referentiel": [
-      "Palmage (nage)"
-    ],
+    "ateliers_hors_referentiel": [],
     "comptes_rendus_doublons": [],
     "sans_debrief_moniteurs_hors_referentiel": [],
     "sans_debrief_avec_cr": [
