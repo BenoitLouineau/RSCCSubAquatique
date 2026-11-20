@@ -6957,11 +6957,12 @@
     "moniteurs": [
       "Benoit L",
       "Benoit P",
+      "Carlos",
       "Catherine",
       "Christophe",
       "Nicos"
     ],
-    "nb_competences_travaillees": 17,
+    "nb_competences_travaillees": 19,
     "competences": {
       "Gréage": {
         "nb_evaluations": 5,
@@ -7074,9 +7075,9 @@
         ]
       },
       "DBN": {
-        "nb_evaluations": 4,
+        "nb_evaluations": 5,
         "derniere_note": 3.0,
-        "moyenne_notes": 2.25,
+        "moyenne_notes": 2.4,
         "historique": [
           {
             "date": "2026-10-06",
@@ -7097,13 +7098,18 @@
             "date": "2026-11-03",
             "note": 3.0,
             "moniteur": "Catherine"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Carlos"
           }
         ]
       },
       "VDM partiel": {
-        "nb_evaluations": 4,
-        "derniere_note": 1.0,
-        "moyenne_notes": 1.25,
+        "nb_evaluations": 5,
+        "derniere_note": 3.0,
+        "moyenne_notes": 1.6,
         "historique": [
           {
             "date": "2026-10-13",
@@ -7124,6 +7130,11 @@
             "date": "2026-11-10",
             "note": 1.0,
             "moniteur": "Christophe"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Carlos"
           }
         ]
       },
@@ -7203,14 +7214,19 @@
         ]
       },
       "Saut droit PMT": {
-        "nb_evaluations": 1,
-        "derniere_note": 3.0,
-        "moyenne_notes": 3.0,
+        "nb_evaluations": 2,
+        "derniere_note": 4.0,
+        "moyenne_notes": 3.5,
         "historique": [
           {
             "date": "2026-11-10",
             "note": 3.0,
             "moniteur": "Christophe"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Carlos"
           }
         ]
       },
@@ -7259,6 +7275,30 @@
             "date": "2026-11-17",
             "note": null,
             "moniteur": "Christophe"
+          }
+        ]
+      },
+      "LRE expiration": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Carlos"
+          }
+        ]
+      },
+      "Saut droit": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Carlos"
           }
         ]
       }
@@ -7515,6 +7555,41 @@
         "atelier": "Théorie",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "PMT"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Carlos",
+        "atelier": "DBN",
+        "commentaire": "Belle séance, Patricia est toujours volontaire. Même si elle c'est laisse emporter par le poids du bloc, une utilisation du direct-systeme encore un peu brouillon, elle a besoin de travailler encore la DBN, mais elle a réussi sont Vidage partiel à  la demande. Elle avait réussi à  le vider d'elle même avant. Un très beau saut droit avec le bloc... LRE très bien réussi. Elle a besoin de prendre conscience qu'elle doit vider plus air pour pouvoir  descendre. Mais dans l'ensemble une belle séance.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Carlos",
+        "atelier": "LRE expiration",
+        "commentaire": "Belle séance, Patricia est toujours volontaire. Même si elle c'est laisse emporter par le poids du bloc, une utilisation du direct-systeme encore un peu brouillon, elle a besoin de travailler encore la DBN, mais elle a réussi sont Vidage partiel à  la demande. Elle avait réussi à  le vider d'elle même avant. Un très beau saut droit avec le bloc... LRE très bien réussi. Elle a besoin de prendre conscience qu'elle doit vider plus air pour pouvoir  descendre. Mais dans l'ensemble une belle séance.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Carlos",
+        "atelier": "Saut droit PMT",
+        "commentaire": "Belle séance, Patricia est toujours volontaire. Même si elle c'est laisse emporter par le poids du bloc, une utilisation du direct-systeme encore un peu brouillon, elle a besoin de travailler encore la DBN, mais elle a réussi sont Vidage partiel à  la demande. Elle avait réussi à  le vider d'elle même avant. Un très beau saut droit avec le bloc... LRE très bien réussi. Elle a besoin de prendre conscience qu'elle doit vider plus air pour pouvoir  descendre. Mais dans l'ensemble une belle séance.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Carlos",
+        "atelier": "Saut droit",
+        "commentaire": "Belle séance, Patricia est toujours volontaire. Même si elle c'est laisse emporter par le poids du bloc, une utilisation du direct-systeme encore un peu brouillon, elle a besoin de travailler encore la DBN, mais elle a réussi sont Vidage partiel à  la demande. Elle avait réussi à  le vider d'elle même avant. Un très beau saut droit avec le bloc... LRE très bien réussi. Elle a besoin de prendre conscience qu'elle doit vider plus air pour pouvoir  descendre. Mais dans l'ensemble une belle séance.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Carlos",
+        "atelier": "VDM partiel",
+        "commentaire": "Belle séance, Patricia est toujours volontaire. Même si elle c'est laisse emporter par le poids du bloc, une utilisation du direct-systeme encore un peu brouillon, elle a besoin de travailler encore la DBN, mais elle a réussi sont Vidage partiel à  la demande. Elle avait réussi à  le vider d'elle même avant. Un très beau saut droit avec le bloc... LRE très bien réussi. Elle a besoin de prendre conscience qu'elle doit vider plus air pour pouvoir  descendre. Mais dans l'ensemble une belle séance.",
+        "commentaire_atelier": "Aucun commentaire"
       }
     ]
   }
