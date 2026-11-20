@@ -1,9 +1,9 @@
 {
-  "date_generation": "2026-11-19T12:43:04",
+  "date_generation": "2026-11-20T13:53:47",
   "nb_eleves": 12,
   "nb_moniteurs": 10,
-  "nb_seances": 36,
-  "nb_comptes_rendus": 443,
+  "nb_seances": 38,
+  "nb_comptes_rendus": 474,
   "nb_competences_referencees": 44,
   "periode": {
     "date_min": "2026-09-29",
@@ -12,7 +12,7 @@
   "acquisition_par_atelier": [
     {
       "atelier": "Gréage",
-      "nb_evaluations": 49,
+      "nb_evaluations": 52,
       "moyenne": 3.0,
       "note_min": 1.0,
       "note_max": 4.0,
@@ -21,8 +21,8 @@
     },
     {
       "atelier": "Dégréage",
-      "nb_evaluations": 42,
-      "moyenne": 3.26,
+      "nb_evaluations": 45,
+      "moyenne": 3.24,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -30,9 +30,18 @@
     },
     {
       "atelier": "VDM partiel",
-      "nb_evaluations": 33,
-      "moyenne": 3.0,
+      "nb_evaluations": 35,
+      "moyenne": 2.94,
       "note_min": 1.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Gestion de son matériel",
+      "nb_evaluations": 33,
+      "moyenne": 3.06,
+      "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
@@ -47,19 +56,19 @@
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "Gestion de son matériel",
-      "nb_evaluations": 31,
-      "moyenne": 3.1,
-      "note_min": 2.0,
+      "atelier": "Déplacements immersion",
+      "nb_evaluations": 27,
+      "moyenne": 2.52,
+      "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
-      "compte_dans_moyenne": true
+      "compte_dans_moyenne": false
     },
     {
-      "atelier": "Déplacements immersion",
+      "atelier": "Saut droit PMT",
       "nb_evaluations": 26,
-      "moyenne": 2.5,
-      "note_min": 1.0,
+      "moyenne": 2.92,
+      "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": false
@@ -74,13 +83,13 @@
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "Saut droit PMT",
+      "atelier": "Sortie de l'eau",
       "nb_evaluations": 23,
-      "moyenne": 2.96,
-      "note_min": 2.0,
+      "moyenne": 3.3,
+      "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
-      "compte_dans_moyenne": false
+      "compte_dans_moyenne": true
     },
     {
       "atelier": "VDM",
@@ -92,27 +101,27 @@
       "compte_dans_moyenne": true
     },
     {
-      "atelier": "Sortie de l'eau",
-      "nb_evaluations": 21,
-      "moyenne": 3.29,
-      "note_min": 1.0,
+      "atelier": "Signes",
+      "nb_evaluations": 22,
+      "moyenne": 2.95,
+      "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
     },
     {
       "atelier": "Gestion du gilet",
-      "nb_evaluations": 19,
-      "moyenne": 2.42,
+      "nb_evaluations": 21,
+      "moyenne": 2.43,
       "note_min": 1.0,
       "note_max": 3.0,
       "notable": true,
       "compte_dans_moyenne": true
     },
     {
-      "atelier": "Signes",
-      "nb_evaluations": 19,
-      "moyenne": 3.0,
+      "atelier": "Mise en sécu surface",
+      "nb_evaluations": 20,
+      "moyenne": 2.95,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -120,17 +129,8 @@
     },
     {
       "atelier": "360°",
-      "nb_evaluations": 17,
-      "moyenne": 2.71,
-      "note_min": 2.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Mise en sécu surface",
-      "nb_evaluations": 17,
-      "moyenne": 3.06,
+      "nb_evaluations": 18,
+      "moyenne": 2.72,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -138,8 +138,17 @@
     },
     {
       "atelier": "Vitesse de remontée",
-      "nb_evaluations": 15,
-      "moyenne": 2.47,
+      "nb_evaluations": 16,
+      "moyenne": 2.5,
+      "note_min": 1.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Remonté expi controlée",
+      "nb_evaluations": 11,
+      "moyenne": 2.73,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -155,18 +164,9 @@
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "Remonté expi controlée",
-      "nb_evaluations": 9,
-      "moyenne": 2.78,
-      "note_min": 2.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
       "atelier": "Soin au materiel",
-      "nb_evaluations": 9,
-      "moyenne": 2.78,
+      "nb_evaluations": 10,
+      "moyenne": 2.8,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -183,9 +183,18 @@
     },
     {
       "atelier": "LRE surpression",
-      "nb_evaluations": 4,
-      "moyenne": 3.75,
+      "nb_evaluations": 5,
+      "moyenne": 3.6,
       "note_min": 3.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Phoque",
+      "nb_evaluations": 4,
+      "moyenne": 2.75,
+      "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
@@ -195,15 +204,6 @@
       "nb_evaluations": 3,
       "moyenne": 3.67,
       "note_min": 3.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
-      "atelier": "Phoque",
-      "nb_evaluations": 3,
-      "moyenne": 3.0,
-      "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
@@ -227,13 +227,13 @@
     },
     {
       "eleve": "Camille",
-      "nb_ateliers_evalues": 13,
-      "moyenne_generale": 2.92
+      "nb_ateliers_evalues": 20,
+      "moyenne_generale": 3.05
     },
     {
       "eleve": "Catherine",
-      "nb_ateliers_evalues": 14,
-      "moyenne_generale": 2.54
+      "nb_ateliers_evalues": 16,
+      "moyenne_generale": 2.47
     },
     {
       "eleve": "Guillaume",
@@ -242,8 +242,8 @@
     },
     {
       "eleve": "Hanane",
-      "nb_ateliers_evalues": 13,
-      "moyenne_generale": 2.25
+      "nb_ateliers_evalues": 15,
+      "moyenne_generale": 2.14
     },
     {
       "eleve": "Kevin F",
@@ -296,14 +296,14 @@
   },
   "sans_debrief": {
     "onglet_present": true,
-    "nb_declarations": 13,
-    "nb_sans_cr": 10,
+    "nb_declarations": 14,
+    "nb_sans_cr": 11,
     "nb_incoherences": 3,
     "nb_dp": 2,
     "mentions": {
       "DP": 2
     },
-    "derniere_declaration": "2026-11-18T00:57:53",
+    "derniere_declaration": "2026-11-19T20:12:45",
     "taux_retour_cr": 78,
     "par_moniteur": [
       {
@@ -329,10 +329,10 @@
       },
       {
         "moniteur": "Hervé",
-        "nb": 1,
+        "nb": 2,
         "nb_dp": 0,
         "nb_seances_avec_cr": 1,
-        "taux_retour_cr": 50
+        "taux_retour_cr": 33
       },
       {
         "moniteur": "Nicos",
@@ -345,8 +345,8 @@
         "moniteur": "Virginie",
         "nb": 1,
         "nb_dp": 0,
-        "nb_seances_avec_cr": 1,
-        "taux_retour_cr": 50
+        "nb_seances_avec_cr": 2,
+        "taux_retour_cr": 67
       },
       {
         "moniteur": "Véronique",
@@ -392,9 +392,10 @@
       },
       {
         "date": "2026-11-17",
-        "nb": 1,
+        "nb": 2,
         "moniteurs": [
-          "Benoit L"
+          "Benoit L",
+          "Hervé"
         ]
       }
     ]
