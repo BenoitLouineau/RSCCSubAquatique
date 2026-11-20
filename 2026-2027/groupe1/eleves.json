@@ -2145,10 +2145,11 @@
     ],
     "moniteurs": [
       "Benoit L",
+      "Benoit P",
       "Christophe",
       "Véronique"
     ],
-    "nb_competences_travaillees": 13,
+    "nb_competences_travaillees": 20,
     "competences": {
       "Palmage ( nage)": {
         "nb_evaluations": 1,
@@ -2163,9 +2164,9 @@
         ]
       },
       "Signes": {
-        "nb_evaluations": 2,
-        "derniere_note": 4.0,
-        "moyenne_notes": 4.0,
+        "nb_evaluations": 3,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.67,
         "historique": [
           {
             "date": "2026-10-06",
@@ -2176,11 +2177,16 @@
             "date": "2026-10-13",
             "note": 4.0,
             "moniteur": "Christophe"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Benoit P"
           }
         ]
       },
       "Gréage": {
-        "nb_evaluations": 3,
+        "nb_evaluations": 4,
         "derniere_note": 4.0,
         "moyenne_notes": 4.0,
         "historique": [
@@ -2198,13 +2204,18 @@
             "date": "2026-10-27",
             "note": 4.0,
             "moniteur": "Véronique"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Benoit P"
           }
         ]
       },
       "Dégréage": {
-        "nb_evaluations": 2,
-        "derniere_note": 2.0,
-        "moyenne_notes": 3.0,
+        "nb_evaluations": 3,
+        "derniere_note": 4.0,
+        "moyenne_notes": 3.33,
         "historique": [
           {
             "date": "2026-10-06",
@@ -2215,6 +2226,11 @@
             "date": "2026-10-13",
             "note": 2.0,
             "moniteur": "Christophe"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Benoit P"
           }
         ]
       },
@@ -2253,9 +2269,9 @@
         ]
       },
       "Gestion du gilet": {
-        "nb_evaluations": 2,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.5,
+        "nb_evaluations": 3,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.67,
         "historique": [
           {
             "date": "2026-10-06",
@@ -2266,6 +2282,11 @@
             "date": "2026-10-13",
             "note": 2.0,
             "moniteur": "Christophe"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Benoit P"
           }
         ]
       },
@@ -2294,19 +2315,24 @@
         ]
       },
       "VDM partiel": {
-        "nb_evaluations": 1,
-        "derniere_note": 4.0,
-        "moyenne_notes": 4.0,
+        "nb_evaluations": 2,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.5,
         "historique": [
           {
             "date": "2026-10-13",
             "note": 4.0,
             "moniteur": "Christophe"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Benoit P"
           }
         ]
       },
       "Saut droit PMT": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
         "historique": [
@@ -2314,6 +2340,11 @@
             "date": "2026-10-27",
             "note": 3.0,
             "moniteur": "Véronique"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Benoit P"
           }
         ]
       },
@@ -2338,6 +2369,90 @@
             "date": "2026-11-17",
             "note": null,
             "moniteur": "Christophe"
+          }
+        ]
+      },
+      "Sortie de l'eau": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "Vitesse de remontée": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "Phoque": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": 2.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "LRE surpression": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "360°": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "Mise en sécu surface": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "Remonté expi controlée": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": 4.0,
+            "moniteur": "Benoit P"
           }
         ]
       }
@@ -2482,6 +2597,97 @@
         "atelier": "Théorie",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "PMT"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Benoit P",
+        "atelier": "Gréage",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Benoit P",
+        "atelier": "Sortie de l'eau",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Benoit P",
+        "atelier": "Dégréage",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Benoit P",
+        "atelier": "Vitesse de remontée",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Benoit P",
+        "atelier": "Phoque",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Comme Camille a subit dans de précédentes plongée des difficultés aux oreilles, on a privilégié une descente très lente avec beaucoup de contrôle pour une mise en confiance."
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Benoit P",
+        "atelier": "LRE surpression",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Besoin de prendre son temps"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Benoit P",
+        "atelier": "VDM partiel",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Besoin de prendre son temps"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Benoit P",
+        "atelier": "Saut droit PMT",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Benoit P",
+        "atelier": "360°",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Benoit P",
+        "atelier": "Mise en sécu surface",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Benoit P",
+        "atelier": "Signes",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Benoit P",
+        "atelier": "Gestion du gilet",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Benoit P",
+        "atelier": "Remonté expi controlée",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
       }
     ]
   },
@@ -2500,14 +2706,15 @@
     "moniteurs": [
       "Benoit P",
       "Christophe",
+      "Virginie",
       "Véronique"
     ],
-    "nb_competences_travaillees": 14,
+    "nb_competences_travaillees": 16,
     "competences": {
       "Gestion de son matériel": {
-        "nb_evaluations": 3,
+        "nb_evaluations": 4,
         "derniere_note": 3.0,
-        "moyenne_notes": 2.67,
+        "moyenne_notes": 2.75,
         "historique": [
           {
             "date": "2026-10-06",
@@ -2523,6 +2730,11 @@
             "date": "2026-11-03",
             "note": 3.0,
             "moniteur": "Véronique"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Virginie"
           }
         ]
       },
@@ -2544,9 +2756,9 @@
         ]
       },
       "Gréage": {
-        "nb_evaluations": 4,
-        "derniere_note": 4.0,
-        "moyenne_notes": 2.5,
+        "nb_evaluations": 5,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.6,
         "historique": [
           {
             "date": "2026-10-06",
@@ -2567,13 +2779,18 @@
             "date": "2026-11-10",
             "note": 4.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Virginie"
           }
         ]
       },
       "Gestion du gilet": {
-        "nb_evaluations": 2,
-        "derniere_note": 1.0,
-        "moyenne_notes": 1.5,
+        "nb_evaluations": 3,
+        "derniere_note": 2.0,
+        "moyenne_notes": 1.67,
         "historique": [
           {
             "date": "2026-10-06",
@@ -2584,13 +2801,18 @@
             "date": "2026-11-10",
             "note": 1.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 2.0,
+            "moniteur": "Virginie"
           }
         ]
       },
       "Signes": {
-        "nb_evaluations": 2,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.5,
+        "nb_evaluations": 3,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.67,
         "historique": [
           {
             "date": "2026-10-06",
@@ -2601,13 +2823,18 @@
             "date": "2026-11-10",
             "note": 2.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Virginie"
           }
         ]
       },
       "Dégréage": {
-        "nb_evaluations": 3,
-        "derniere_note": 4.0,
-        "moyenne_notes": 2.67,
+        "nb_evaluations": 4,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.75,
         "historique": [
           {
             "date": "2026-10-06",
@@ -2623,6 +2850,11 @@
             "date": "2026-11-10",
             "note": 4.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Virginie"
           }
         ]
       },
@@ -2666,9 +2898,9 @@
         ]
       },
       "Saut droit PMT": {
-        "nb_evaluations": 2,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.0,
+        "nb_evaluations": 3,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.33,
         "historique": [
           {
             "date": "2026-11-03",
@@ -2679,11 +2911,16 @@
             "date": "2026-11-10",
             "note": 2.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Virginie"
           }
         ]
       },
       "Mise en sécu surface": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 2.0,
         "moyenne_notes": 2.0,
         "historique": [
@@ -2691,6 +2928,11 @@
             "date": "2026-11-10",
             "note": 2.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 2.0,
+            "moniteur": "Virginie"
           }
         ]
       },
@@ -2719,14 +2961,19 @@
         ]
       },
       "Sortie de l'eau": {
-        "nb_evaluations": 1,
-        "derniere_note": 4.0,
-        "moyenne_notes": 4.0,
+        "nb_evaluations": 2,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.5,
         "historique": [
           {
             "date": "2026-11-10",
             "note": 4.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Virginie"
           }
         ]
       },
@@ -2739,6 +2986,30 @@
             "date": "2026-11-17",
             "note": null,
             "moniteur": "Christophe"
+          }
+        ]
+      },
+      "Remonté expi controlée": {
+        "nb_evaluations": 1,
+        "derniere_note": 1.0,
+        "moyenne_notes": 1.0,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": 1.0,
+            "moniteur": "Virginie"
+          }
+        ]
+      },
+      "Soin au materiel": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Virginie"
           }
         ]
       }
@@ -2939,6 +3210,76 @@
         "atelier": "Théorie",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "PMT"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Virginie",
+        "atelier": "Signes",
+        "commentaire": "Nous n'avons pas eu le temps de nous immerger. Gestion du gilet à revoir/consolider + REC expliquée en bord de bassin.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Virginie",
+        "atelier": "Mise en sécu surface",
+        "commentaire": "Nous n'avons pas eu le temps de nous immerger. Gestion du gilet à revoir/consolider + REC expliquée en bord de bassin.",
+        "commentaire_atelier": "Gonflage gilet surface à consolider"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Virginie",
+        "atelier": "Remonté expi controlée",
+        "commentaire": "Nous n'avons pas eu le temps de nous immerger. Gestion du gilet à revoir/consolider + REC expliquée en bord de bassin.",
+        "commentaire_atelier": "Vu en surface bord de piscine uniquement."
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Virginie",
+        "atelier": "Sortie de l'eau",
+        "commentaire": "Nous n'avons pas eu le temps de nous immerger. Gestion du gilet à revoir/consolider + REC expliquée en bord de bassin.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Virginie",
+        "atelier": "Dégréage",
+        "commentaire": "Nous n'avons pas eu le temps de nous immerger. Gestion du gilet à revoir/consolider + REC expliquée en bord de bassin.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Virginie",
+        "atelier": "Gestion de son matériel",
+        "commentaire": "Nous n'avons pas eu le temps de nous immerger. Gestion du gilet à revoir/consolider + REC expliquée en bord de bassin.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Virginie",
+        "atelier": "Saut droit PMT",
+        "commentaire": "Nous n'avons pas eu le temps de nous immerger. Gestion du gilet à revoir/consolider + REC expliquée en bord de bassin.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Virginie",
+        "atelier": "Soin au materiel",
+        "commentaire": "Nous n'avons pas eu le temps de nous immerger. Gestion du gilet à revoir/consolider + REC expliquée en bord de bassin.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Virginie",
+        "atelier": "Gestion du gilet",
+        "commentaire": "Nous n'avons pas eu le temps de nous immerger. Gestion du gilet à revoir/consolider + REC expliquée en bord de bassin.",
+        "commentaire_atelier": "A revoir car confond bouton gonflage/dégonflage ou appuie sur les 2 en même temps. Nous avons fait des exercices en surface gonflage/dégonflage."
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Virginie",
+        "atelier": "Gréage",
+        "commentaire": "Nous n'avons pas eu le temps de nous immerger. Gestion du gilet à revoir/consolider + REC expliquée en bord de bassin.",
+        "commentaire_atelier": "Aucun commentaire"
       }
     ]
   },
@@ -3712,7 +4053,7 @@
       "Christophe",
       "Hervé"
     ],
-    "nb_competences_travaillees": 13,
+    "nb_competences_travaillees": 15,
     "competences": {
       "Palmage ( nage)": {
         "nb_evaluations": 1,
@@ -3727,9 +4068,9 @@
         ]
       },
       "Gréage": {
-        "nb_evaluations": 2,
-        "derniere_note": 3.0,
-        "moyenne_notes": 2.5,
+        "nb_evaluations": 3,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.33,
         "historique": [
           {
             "date": "2026-10-06",
@@ -3740,6 +4081,11 @@
             "date": "2026-10-13",
             "note": 3.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 2.0,
+            "moniteur": "Christophe"
           }
         ]
       },
@@ -3797,7 +4143,7 @@
         ]
       },
       "Gestion de son matériel": {
-        "nb_evaluations": 2,
+        "nb_evaluations": 3,
         "derniere_note": 2.0,
         "moyenne_notes": 2.0,
         "historique": [
@@ -3810,6 +4156,11 @@
             "date": "2026-10-13",
             "note": 2.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 2.0,
+            "moniteur": "Christophe"
           }
         ]
       },
@@ -3826,7 +4177,7 @@
         ]
       },
       "Mise en sécu surface": {
-        "nb_evaluations": 2,
+        "nb_evaluations": 3,
         "derniere_note": 2.0,
         "moyenne_notes": 2.0,
         "historique": [
@@ -3839,13 +4190,18 @@
             "date": "2026-10-13",
             "note": 2.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 2.0,
+            "moniteur": "Christophe"
           }
         ]
       },
       "Dégréage": {
-        "nb_evaluations": 2,
-        "derniere_note": 3.0,
-        "moyenne_notes": 2.5,
+        "nb_evaluations": 3,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.33,
         "historique": [
           {
             "date": "2026-10-06",
@@ -3856,23 +4212,33 @@
             "date": "2026-10-13",
             "note": 3.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 2.0,
+            "moniteur": "Christophe"
           }
         ]
       },
       "Déplacements immersion": {
-        "nb_evaluations": 1,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.0,
+        "nb_evaluations": 2,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.5,
         "historique": [
           {
             "date": "2026-10-06",
             "note": 2.0,
             "moniteur": "Hervé"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 3.0,
+            "moniteur": "Christophe"
           }
         ]
       },
       "VDM partiel": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 1.0,
         "moyenne_notes": 1.0,
         "historique": [
@@ -3880,6 +4246,11 @@
             "date": "2026-10-13",
             "note": 1.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-17",
+            "note": 1.0,
+            "moniteur": "Christophe"
           }
         ]
       },
@@ -3891,6 +4262,30 @@
           {
             "date": "2026-11-17",
             "note": null,
+            "moniteur": "Christophe"
+          }
+        ]
+      },
+      "Signes": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": 2.0,
+            "moniteur": "Christophe"
+          }
+        ]
+      },
+      "Saut droit PMT": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-11-17",
+            "note": 2.0,
             "moniteur": "Christophe"
           }
         ]
@@ -4022,6 +4417,62 @@
         "atelier": "Théorie",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "PMT"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Christophe",
+        "atelier": "Dégréage",
+        "commentaire": "Hannane est arrivée à 9h, en courant et sans avoir eu le temps de se calmer de sa journée. Je lui ai proposé qu on prenne un peu de temps pour se mettre dans le rythme plus cool de la plongée. Elle m a dit qu elle avait déjà son niveau 1 validé en Égypte. On a donc parler de quelques exercices à faire. Vdm partiel , lRE, quelques signes. Mais une fois dans l eau tout semblait très compliqué. J ai donc abandonné les exercices et nous avons passé un peu de temps en surface avec détendeur en bouche mais sans descendre pour observer les autres plongeurs et se calmer. Puis lorsque elle était prête nous sommes descendu au fond et avons fait de la balade. Je lui ai conseillé d arriver plus en avance pour avoir le temps de se préparer et laisser le stress de sa journée derrière elle la prochaine fois. Elle écouté bien, elle est motivée mais il faut considérer qu’elle repart de zéro.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Christophe",
+        "atelier": "Déplacements immersion",
+        "commentaire": "Hannane est arrivée à 9h, en courant et sans avoir eu le temps de se calmer de sa journée. Je lui ai proposé qu on prenne un peu de temps pour se mettre dans le rythme plus cool de la plongée. Elle m a dit qu elle avait déjà son niveau 1 validé en Égypte. On a donc parler de quelques exercices à faire. Vdm partiel , lRE, quelques signes. Mais une fois dans l eau tout semblait très compliqué. J ai donc abandonné les exercices et nous avons passé un peu de temps en surface avec détendeur en bouche mais sans descendre pour observer les autres plongeurs et se calmer. Puis lorsque elle était prête nous sommes descendu au fond et avons fait de la balade. Je lui ai conseillé d arriver plus en avance pour avoir le temps de se préparer et laisser le stress de sa journée derrière elle la prochaine fois. Elle écouté bien, elle est motivée mais il faut considérer qu’elle repart de zéro.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Christophe",
+        "atelier": "Gestion de son matériel",
+        "commentaire": "Hannane est arrivée à 9h, en courant et sans avoir eu le temps de se calmer de sa journée. Je lui ai proposé qu on prenne un peu de temps pour se mettre dans le rythme plus cool de la plongée. Elle m a dit qu elle avait déjà son niveau 1 validé en Égypte. On a donc parler de quelques exercices à faire. Vdm partiel , lRE, quelques signes. Mais une fois dans l eau tout semblait très compliqué. J ai donc abandonné les exercices et nous avons passé un peu de temps en surface avec détendeur en bouche mais sans descendre pour observer les autres plongeurs et se calmer. Puis lorsque elle était prête nous sommes descendu au fond et avons fait de la balade. Je lui ai conseillé d arriver plus en avance pour avoir le temps de se préparer et laisser le stress de sa journée derrière elle la prochaine fois. Elle écouté bien, elle est motivée mais il faut considérer qu’elle repart de zéro.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Christophe",
+        "atelier": "VDM partiel",
+        "commentaire": "Hannane est arrivée à 9h, en courant et sans avoir eu le temps de se calmer de sa journée. Je lui ai proposé qu on prenne un peu de temps pour se mettre dans le rythme plus cool de la plongée. Elle m a dit qu elle avait déjà son niveau 1 validé en Égypte. On a donc parler de quelques exercices à faire. Vdm partiel , lRE, quelques signes. Mais une fois dans l eau tout semblait très compliqué. J ai donc abandonné les exercices et nous avons passé un peu de temps en surface avec détendeur en bouche mais sans descendre pour observer les autres plongeurs et se calmer. Puis lorsque elle était prête nous sommes descendu au fond et avons fait de la balade. Je lui ai conseillé d arriver plus en avance pour avoir le temps de se préparer et laisser le stress de sa journée derrière elle la prochaine fois. Elle écouté bien, elle est motivée mais il faut considérer qu’elle repart de zéro.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Christophe",
+        "atelier": "Gréage",
+        "commentaire": "Hannane est arrivée à 9h, en courant et sans avoir eu le temps de se calmer de sa journée. Je lui ai proposé qu on prenne un peu de temps pour se mettre dans le rythme plus cool de la plongée. Elle m a dit qu elle avait déjà son niveau 1 validé en Égypte. On a donc parler de quelques exercices à faire. Vdm partiel , lRE, quelques signes. Mais une fois dans l eau tout semblait très compliqué. J ai donc abandonné les exercices et nous avons passé un peu de temps en surface avec détendeur en bouche mais sans descendre pour observer les autres plongeurs et se calmer. Puis lorsque elle était prête nous sommes descendu au fond et avons fait de la balade. Je lui ai conseillé d arriver plus en avance pour avoir le temps de se préparer et laisser le stress de sa journée derrière elle la prochaine fois. Elle écouté bien, elle est motivée mais il faut considérer qu’elle repart de zéro.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Christophe",
+        "atelier": "Signes",
+        "commentaire": "Hannane est arrivée à 9h, en courant et sans avoir eu le temps de se calmer de sa journée. Je lui ai proposé qu on prenne un peu de temps pour se mettre dans le rythme plus cool de la plongée. Elle m a dit qu elle avait déjà son niveau 1 validé en Égypte. On a donc parler de quelques exercices à faire. Vdm partiel , lRE, quelques signes. Mais une fois dans l eau tout semblait très compliqué. J ai donc abandonné les exercices et nous avons passé un peu de temps en surface avec détendeur en bouche mais sans descendre pour observer les autres plongeurs et se calmer. Puis lorsque elle était prête nous sommes descendu au fond et avons fait de la balade. Je lui ai conseillé d arriver plus en avance pour avoir le temps de se préparer et laisser le stress de sa journée derrière elle la prochaine fois. Elle écouté bien, elle est motivée mais il faut considérer qu’elle repart de zéro.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Christophe",
+        "atelier": "Saut droit PMT",
+        "commentaire": "Hannane est arrivée à 9h, en courant et sans avoir eu le temps de se calmer de sa journée. Je lui ai proposé qu on prenne un peu de temps pour se mettre dans le rythme plus cool de la plongée. Elle m a dit qu elle avait déjà son niveau 1 validé en Égypte. On a donc parler de quelques exercices à faire. Vdm partiel , lRE, quelques signes. Mais une fois dans l eau tout semblait très compliqué. J ai donc abandonné les exercices et nous avons passé un peu de temps en surface avec détendeur en bouche mais sans descendre pour observer les autres plongeurs et se calmer. Puis lorsque elle était prête nous sommes descendu au fond et avons fait de la balade. Je lui ai conseillé d arriver plus en avance pour avoir le temps de se préparer et laisser le stress de sa journée derrière elle la prochaine fois. Elle écouté bien, elle est motivée mais il faut considérer qu’elle repart de zéro.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-17",
+        "moniteur": "Christophe",
+        "atelier": "Mise en sécu surface",
+        "commentaire": "Hannane est arrivée à 9h, en courant et sans avoir eu le temps de se calmer de sa journée. Je lui ai proposé qu on prenne un peu de temps pour se mettre dans le rythme plus cool de la plongée. Elle m a dit qu elle avait déjà son niveau 1 validé en Égypte. On a donc parler de quelques exercices à faire. Vdm partiel , lRE, quelques signes. Mais une fois dans l eau tout semblait très compliqué. J ai donc abandonné les exercices et nous avons passé un peu de temps en surface avec détendeur en bouche mais sans descendre pour observer les autres plongeurs et se calmer. Puis lorsque elle était prête nous sommes descendu au fond et avons fait de la balade. Je lui ai conseillé d arriver plus en avance pour avoir le temps de se préparer et laisser le stress de sa journée derrière elle la prochaine fois. Elle écouté bien, elle est motivée mais il faut considérer qu’elle repart de zéro.",
+        "commentaire_atelier": "Aucun commentaire"
       }
     ]
   },
