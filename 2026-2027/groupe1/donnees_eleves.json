@@ -4738,5 +4738,55 @@
     "moniteur": "Virginie",
     "presence": "Présent",
     "statut": "Acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "DBN",
+    "competence": "DBN",
+    "date": "2026-11-17",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "LRE expiration",
+    "competence": "LRE expiration",
+    "date": "2026-11-17",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "Saut droit PMT",
+    "competence": "Saut droit PMT",
+    "date": "2026-11-17",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "Saut droit",
+    "competence": "Saut droit",
+    "date": "2026-11-17",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "VDM partiel",
+    "competence": "VDM partiel",
+    "date": "2026-11-17",
+    "moniteur": "Carlos",
+    "presence": "Présent",
+    "statut": "Acquis"
   }
 ]
