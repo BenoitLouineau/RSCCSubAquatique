@@ -1,11 +1,11 @@
 {
-  "date_generation": "2026-11-20T17:26:44",
+  "date_generation": "2026-11-20T21:26:34",
   "nb_eleves": 12,
   "nb_moniteurs": 10,
   "nb_seances": 7,
   "nb_soirees": 7,
-  "nb_encadrements": 38,
-  "nb_comptes_rendus": 474,
+  "nb_encadrements": 39,
+  "nb_comptes_rendus": 479,
   "nb_competences_referencees": 44,
   "nb_competences_frioul": 18,
   "groupes": [
@@ -121,7 +121,7 @@
     },
     {
       "atelier": "VDM partiel",
-      "nb_evaluations": 35,
+      "nb_evaluations": 36,
       "moyenne": 2.94,
       "note_min": 1.0,
       "note_max": 4.0,
@@ -139,8 +139,8 @@
     },
     {
       "atelier": "DBN",
-      "nb_evaluations": 31,
-      "moyenne": 3.52,
+      "nb_evaluations": 32,
+      "moyenne": 3.5,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -157,8 +157,8 @@
     },
     {
       "atelier": "Saut droit PMT",
-      "nb_evaluations": 26,
-      "moyenne": 2.92,
+      "nb_evaluations": 27,
+      "moyenne": 2.96,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -265,8 +265,8 @@
     },
     {
       "atelier": "Saut droit",
-      "nb_evaluations": 7,
-      "moyenne": 3.57,
+      "nb_evaluations": 8,
+      "moyenne": 3.62,
       "note_min": 3.0,
       "note_max": 4.0,
       "notable": true,
@@ -282,19 +282,19 @@
       "compte_dans_moyenne": true
     },
     {
-      "atelier": "Phoque",
+      "atelier": "LRE expiration",
       "nb_evaluations": 4,
-      "moyenne": 2.75,
-      "note_min": 2.0,
+      "moyenne": 3.75,
+      "note_min": 3.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
     },
     {
-      "atelier": "LRE expiration",
-      "nb_evaluations": 3,
-      "moyenne": 3.67,
-      "note_min": 3.0,
+      "atelier": "Phoque",
+      "nb_evaluations": 4,
+      "moyenne": 2.75,
+      "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
@@ -358,8 +358,8 @@
     },
     {
       "eleve": "Patricia",
-      "nb_ateliers_evalues": 17,
-      "moyenne_generale": 2.56
+      "nb_ateliers_evalues": 19,
+      "moyenne_generale": 2.89
     }
   ],
   "anomalies": {
@@ -408,8 +408,8 @@
         "moniteur": "Carlos",
         "nb": 2,
         "nb_dp": 0,
-        "nb_seances_avec_cr": 3,
-        "taux_retour_cr": 60
+        "nb_seances_avec_cr": 4,
+        "taux_retour_cr": 67
       },
       {
         "moniteur": "Christophe",
