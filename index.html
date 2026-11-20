@@ -5122,6 +5122,24 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
     const nb = { pret: 0, presque: 0, loin: 0 };
     eleves.forEach(x => { nb[x.f.niveau]++; });
 
+    // Rappel des notes pour les encadrants qui ne connaissent pas le rapport (moniteurs N2/N3, DP…)
+    const seuil = getSeuilCompetenceAcquise();
+    const NOTES_SENS = [
+      ['n1', '1', 'Non acquis', 'Geste non réalisé, ou réalisé uniquement avec l\'intervention du moniteur.'],
+      ['n2', '2', 'En cours d\'acquisition', 'Réalisé en partie, ou avec des hésitations / une aide ponctuelle.'],
+      ['n3', '3', 'Acquis', 'Réalisé correctement et en autonomie.'],
+      ['n4', '4', 'Maîtrisé', 'Réalisé avec aisance, de façon fiable et reproductible.'],
+    ];
+    const lectureNotes = '<div class="notes-box"><div class="notes-t">📏 Comment lire les notes (évaluations en piscine, de 1 à 4)</div>' +
+      '<div class="notes-grid">' + NOTES_SENS.map(n => '<div class="note-def"><span class="note-n" style="background:' + C[n[0]] + '">' + n[1] + '</span>' +
+        '<div><strong>' + n[2] + '</strong><span>' + n[3] + '</span></div></div>').join('') +
+        '<div class="note-def"><span class="note-n" style="background:#fff;color:#94a3b8;border:1px solid #cbd5e1">—</span><div><strong>Jamais évaluée</strong><span>Pas encore travaillée ou notée en séance.</span></div></div></div>' +
+      '<div class="notes-regle">Une compétence est considérée <strong>acquise</strong> quand sa dernière note est ≥ ' + seuil +
+        (isRobustesseActive() ? ' et qu\'elle a été validée par plusieurs moniteurs différents' : '') +
+        '. Seule la <strong>dernière note</strong> compte : une note plus ancienne meilleure ne suffit pas.</div></div>';
+    const rappelNotes = '<div class="legende">' + NOTES_SENS.map(n => '<span><i style="background:' + C[n[0]] + '"></i>' + n[1] + ' — ' + n[2] + '</span>').join('') +
+      '<span><i style="background:#fff;border:1px solid #cbd5e1"></i>— jamais évaluée</span><span class="muted">Acquise = dernière note ≥ ' + seuil + '.</span></div>';
+
     // 1. Vue d'ensemble
     const thGroupes = groupes.map(g => '<th colspan="' + g.items.length + '" class="tg">' + esc(g.groupe || 'Sans groupe') + '</th>').join('');
     const thComp = groupes.map(g => g.items.map(n => '<th class="tc"><span>' + esc(n) + '</span></th>').join('')).join('');
@@ -5137,9 +5155,7 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
         '<td class="fj"><div class="mini"><span style="width:' + x.f.pct + '%;background:' + Z[x.f.zone] + '"></span></div>' + x.f.acquises.length + '/' + x.f.total + '</td></tr>';
     }).join('');
     const vue = '<section class="paysage"><h3>2. Vue d\'ensemble — ' + eleves.length + ' élève(s) × ' + noms.length + ' compétences attendues</h3>' +
-      '<div class="legende">' + ['n4|4 — Maîtrisé', 'n3|3 — Acquis', 'n2|2 — En cours', 'n1|1 — Non acquis'].map(v => { const p = v.split('|'); return '<span><i style="background:' + C[p[0]] + '"></i>' + p[1] + '</span>'; }).join('') +
-        '<span><i style="background:#fff;border:1px solid #cbd5e1"></i>— jamais évalué</span><span class="muted">Case = dernière note ; une compétence est acquise à partir de ' + getSeuilCompetenceAcquise() +
-        (isRobustesseActive() ? ' validée par plusieurs moniteurs' : '') + '.</span></div>' +
+      rappelNotes.replace('</div>', '<span class="muted">Chaque case = dernière note obtenue.</span></div>') +
       '<table class="matrice"><thead><tr><th class="ne" rowspan="2">Élève</th>' + thGroupes + '<th class="fj" rowspan="2">Objectif<br>Frioul</th></tr><tr>' + thComp + '</tr></thead><tbody>' + lignes + '</tbody></table></section>';
 
     // 2. Fiches par élève
@@ -5229,10 +5245,19 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
       .com { font-style: italic; color: #334155; margin-top: 1px; }
       .acqs { display: flex; flex-wrap: wrap; gap: 3px 12px; font-size: 8.5pt; } .acq b { color: #475569; }
       .f-mon { font-size: 7.5pt; color: #94a3b8; margin-top: 5px; }
-      .att-g { break-inside: avoid; margin-bottom: 6px; } .att-t { font-size: 8pt; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; color: #0e7490; margin: 8px 0 2px; }
-      .att-l { display: grid; grid-template-columns: 1.3fr 1fr 34mm; gap: 8px; align-items: center; padding: 3px 0; border-bottom: 1px solid #f1f5f9; font-size: 9pt; }
+      .att-g { break-inside: avoid; margin-bottom: 4px; } .att-t { font-size: 7.5pt; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; color: #0e7490; margin: 5px 0 1px; }
+      .attendus { columns: 2; column-gap: 8mm; }
+      .att-l { display: grid; grid-template-columns: 1fr 28mm; gap: 6px; align-items: center; padding: 2px 0; border-bottom: 1px solid #f1f5f9; font-size: 8.5pt; }
+      .att-l .att-c { display: none; }
       .att-n { font-weight: 600; } .att-c { color: #64748b; font-size: 8pt; } .att-v { font-size: 8pt; font-weight: 700; display: grid; grid-template-columns: 1fr auto; gap: 6px; align-items: center; }
       .lock { font-size: 7.5pt; color: #94a3b8; margin-top: 6px; }
+      .notes-box { border: 1px solid #cbd5e1; border-radius: 10px; padding: 8px 10px; margin: 8px 0 4px; break-inside: avoid; }
+      .notes-t { font-weight: 800; font-size: 9.5pt; color: #0e7490; margin-bottom: 6px; }
+      .notes-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+      .note-def { display: flex; gap: 6px; align-items: flex-start; font-size: 8pt; line-height: 1.3; }
+      .note-def strong { display: block; font-size: 8.5pt; } .note-def span { color: #475569; }
+      .note-n { flex: 0 0 18px; height: 18px; border-radius: 5px; color: #fff; font-weight: 800; font-size: 9.5pt; display: inline-flex; align-items: center; justify-content: center; }
+      .notes-regle { font-size: 8pt; color: #334155; margin-top: 6px; padding-top: 5px; border-top: 1px dashed #cbd5e1; }
       .sigs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; break-inside: avoid; }
       .sig { border: 1px solid #cbd5e1; border-radius: 8px; padding: 8px 10px; height: 26mm; font-size: 8pt; color: #475569; }
       @media print { .toolbar { display: none; } .page { padding: 0; max-width: none; } }
@@ -5254,12 +5279,13 @@ table.synthese tr.eleve-exam-ok td.sticky-col { background: rgba(34, 197, 94, .1
           '<div class="tile"><div class="v" style="color:#16a34a">' + nb.presque + '</div><div class="l">' + FRIOUL_NIVEAUX.presque.label + ' (≥ ' + getFrioulSeuilPresque() + ' %)</div></div>' +
           '<div class="tile"><div class="v" style="color:#d97706">' + nb.loin + '</div><div class="l">' + FRIOUL_NIVEAUX.loin.label + '</div></div></div>' +
         // Page 1 : attendus ; page 2 (paysage) : vue d'ensemble ; puis une fiche par élève
+        lectureNotes +
         '<h3>1. Ce qui est attendu pour la sortie</h3>' +
         '<p style="font-size:8.5pt;color:#475569;margin:0 0 4px;">L\'élève est prêt quand les ' + noms.length + ' compétences sont acquises (note ≥ ' + getSeuilCompetenceAcquise() +
-          (isRobustesseActive() ? ', validée par plusieurs moniteurs' : '') + '). À droite : élèves de ce document qui l\'ont acquise.</p>' + attendus +
+          (isRobustesseActive() ? ', validée par plusieurs moniteurs' : '') + '). À droite : élèves de ce document qui l\'ont acquise.</p><div class="attendus">' + attendus + '</div>' +
         '<p class="lock">Liste issue de la colonne Frioul de l\'onglet Ateliers (compétences actives).</p>' +
         vue +
-        '<h3>3. Fiches élèves</h3>' + (fiches || '<p class="muted">Aucun élève sélectionné.</p>') +
+        '<h3>3. Fiches élèves</h3>' + rappelNotes + (fiches || '<p class="muted">Aucun élève sélectionné.</p>') +
         '<div class="sigs"><div class="sig">Chef de groupe' + (typeof chefDeGroupeNom !== 'undefined' && chefDeGroupeNom ? ' — ' + esc(chefDeGroupeNom) : '') + '</div><div class="sig">Directeur de plongée de la sortie</div></div>' +
       '</div></body></html>';
   }
