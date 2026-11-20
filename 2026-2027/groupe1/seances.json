@@ -3655,6 +3655,60 @@
     ]
   },
   {
+    "id": "2026-11-17_carlos",
+    "date_seance": "2026-11-17",
+    "moniteur": "Carlos",
+    "nb_eleves": 1,
+    "eleves": [
+      "Patricia"
+    ],
+    "ateliers_traites": [
+      "DBN",
+      "LRE expiration",
+      "Saut droit",
+      "Saut droit PMT",
+      "VDM partiel"
+    ],
+    "nb_comptes_rendus": 5,
+    "comptes_rendus": [
+      {
+        "eleve": "Patricia",
+        "atelier": "DBN",
+        "note": 3.0,
+        "commentaire": "Belle séance, Patricia est toujours volontaire. Même si elle c'est laisse emporter par le poids du bloc, une utilisation du direct-systeme encore un peu brouillon, elle a besoin de travailler encore la DBN, mais elle a réussi sont Vidage partiel à  la demande. Elle avait réussi à  le vider d'elle même avant. Un très beau saut droit avec le bloc... LRE très bien réussi. Elle a besoin de prendre conscience qu'elle doit vider plus air pour pouvoir  descendre. Mais dans l'ensemble une belle séance.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Patricia",
+        "atelier": "LRE expiration",
+        "note": 4.0,
+        "commentaire": "Belle séance, Patricia est toujours volontaire. Même si elle c'est laisse emporter par le poids du bloc, une utilisation du direct-systeme encore un peu brouillon, elle a besoin de travailler encore la DBN, mais elle a réussi sont Vidage partiel à  la demande. Elle avait réussi à  le vider d'elle même avant. Un très beau saut droit avec le bloc... LRE très bien réussi. Elle a besoin de prendre conscience qu'elle doit vider plus air pour pouvoir  descendre. Mais dans l'ensemble une belle séance.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Patricia",
+        "atelier": "Saut droit PMT",
+        "note": 4.0,
+        "commentaire": "Belle séance, Patricia est toujours volontaire. Même si elle c'est laisse emporter par le poids du bloc, une utilisation du direct-systeme encore un peu brouillon, elle a besoin de travailler encore la DBN, mais elle a réussi sont Vidage partiel à  la demande. Elle avait réussi à  le vider d'elle même avant. Un très beau saut droit avec le bloc... LRE très bien réussi. Elle a besoin de prendre conscience qu'elle doit vider plus air pour pouvoir  descendre. Mais dans l'ensemble une belle séance.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Patricia",
+        "atelier": "Saut droit",
+        "note": 4.0,
+        "commentaire": "Belle séance, Patricia est toujours volontaire. Même si elle c'est laisse emporter par le poids du bloc, une utilisation du direct-systeme encore un peu brouillon, elle a besoin de travailler encore la DBN, mais elle a réussi sont Vidage partiel à  la demande. Elle avait réussi à  le vider d'elle même avant. Un très beau saut droit avec le bloc... LRE très bien réussi. Elle a besoin de prendre conscience qu'elle doit vider plus air pour pouvoir  descendre. Mais dans l'ensemble une belle séance.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Patricia",
+        "atelier": "VDM partiel",
+        "note": 3.0,
+        "commentaire": "Belle séance, Patricia est toujours volontaire. Même si elle c'est laisse emporter par le poids du bloc, une utilisation du direct-systeme encore un peu brouillon, elle a besoin de travailler encore la DBN, mais elle a réussi sont Vidage partiel à  la demande. Elle avait réussi à  le vider d'elle même avant. Un très beau saut droit avec le bloc... LRE très bien réussi. Elle a besoin de prendre conscience qu'elle doit vider plus air pour pouvoir  descendre. Mais dans l'ensemble une belle séance.",
+        "commentaire_atelier": "Aucun commentaire"
+      }
+    ]
+  },
+  {
     "id": "2026-11-17_catherine",
     "date_seance": "2026-11-17",
     "moniteur": "Catherine",
