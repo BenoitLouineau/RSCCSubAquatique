@@ -1,10 +1,101 @@
 {
-  "date_generation": "2026-11-20T14:58:28",
+  "date_generation": "2026-11-20T15:01:51",
   "nb_eleves": 12,
   "nb_moniteurs": 10,
-  "nb_seances": 38,
+  "nb_seances": 7,
+  "nb_soirees": 7,
+  "nb_encadrements": 38,
   "nb_comptes_rendus": 474,
   "nb_competences_referencees": 44,
+  "nb_competences_frioul": 18,
+  "groupes": [
+    {
+      "nom": "Prépa materiel",
+      "nb_competences": 2,
+      "competences": [
+        "Gréage",
+        "Gestion de son matériel"
+      ]
+    },
+    {
+      "nom": "Mise à l'eau",
+      "nb_competences": 3,
+      "competences": [
+        "Saut droit",
+        "Bascule Arrière",
+        "**Bascule Avant"
+      ]
+    },
+    {
+      "nom": "Immersion",
+      "nb_competences": 2,
+      "competences": [
+        "Phoque",
+        "Canard"
+      ]
+    },
+    {
+      "nom": "LRE",
+      "nb_competences": 2,
+      "competences": [
+        "LRE surpression",
+        "LRE expiration"
+      ]
+    },
+    {
+      "nom": "Panne d'air",
+      "nb_competences": 4,
+      "competences": [
+        "PA - reçoit octo",
+        "PA - donne octo",
+        "PA - reçoit échange",
+        "PA - donne échange"
+      ]
+    },
+    {
+      "nom": "Essoufflement",
+      "nb_competences": 1,
+      "competences": [
+        "Essoufflement - être pris en charge"
+      ]
+    },
+    {
+      "nom": "Équilibrage",
+      "nb_competences": 4,
+      "competences": [
+        "Poumon Ballast",
+        "Gestion du gilet",
+        "Stabilisation statique",
+        "Stabilisation dynamique"
+      ]
+    },
+    {
+      "nom": "Remontée",
+      "nb_competences": 4,
+      "competences": [
+        "Vitesse de remontée",
+        "Tenue palier",
+        "360°",
+        "Remonté expi controlée"
+      ]
+    },
+    {
+      "nom": "Fin de plongée surface",
+      "nb_competences": 2,
+      "competences": [
+        "Mise en sécu surface",
+        "Sortie de l'eau"
+      ]
+    },
+    {
+      "nom": "Materiel fin de plongée",
+      "nb_competences": 2,
+      "competences": [
+        "Dégréage",
+        "Soin au materiel"
+      ]
+    }
+  ],
   "periode": {
     "date_min": "2026-09-29",
     "date_max": "2026-11-17"
