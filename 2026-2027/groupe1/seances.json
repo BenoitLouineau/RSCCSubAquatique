@@ -3435,6 +3435,124 @@
     ]
   },
   {
+    "id": "2026-11-17_benoit-p",
+    "date_seance": "2026-11-17",
+    "moniteur": "Benoit P",
+    "nb_eleves": 1,
+    "eleves": [
+      "Camille"
+    ],
+    "ateliers_traites": [
+      "360°",
+      "Dégréage",
+      "Gestion du gilet",
+      "Gréage",
+      "LRE surpression",
+      "Mise en sécu surface",
+      "Phoque",
+      "Remonté expi controlée",
+      "Saut droit PMT",
+      "Signes",
+      "Sortie de l'eau",
+      "VDM partiel",
+      "Vitesse de remontée"
+    ],
+    "nb_comptes_rendus": 13,
+    "comptes_rendus": [
+      {
+        "eleve": "Camille",
+        "atelier": "Gréage",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "Sortie de l'eau",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "Dégréage",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "Vitesse de remontée",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "Phoque",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Comme Camille a subit dans de précédentes plongée des difficultés aux oreilles, on a privilégié une descente très lente avec beaucoup de contrôle pour une mise en confiance."
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "LRE surpression",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Besoin de prendre son temps"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "VDM partiel",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Besoin de prendre son temps"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "Saut droit PMT",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "360°",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "Mise en sécu surface",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "Signes",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "Gestion du gilet",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "Remonté expi controlée",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      }
+    ]
+  },
+  {
     "id": "2026-11-17_carine",
     "date_seance": "2026-11-17",
     "moniteur": "Carine",
@@ -3646,9 +3764,17 @@
       "Patricia"
     ],
     "ateliers_traites": [
-      "Théorie"
+      "Dégréage",
+      "Déplacements immersion",
+      "Gestion de son matériel",
+      "Gréage",
+      "Mise en sécu surface",
+      "Saut droit PMT",
+      "Signes",
+      "Théorie",
+      "VDM partiel"
     ],
-    "nb_comptes_rendus": 8,
+    "nb_comptes_rendus": 16,
     "comptes_rendus": [
       {
         "eleve": "Nabiyu",
@@ -3705,6 +3831,62 @@
         "note": null,
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "PMT"
+      },
+      {
+        "eleve": "Hanane",
+        "atelier": "Dégréage",
+        "note": 2.0,
+        "commentaire": "Hannane est arrivée à 9h, en courant et sans avoir eu le temps de se calmer de sa journée. Je lui ai proposé qu on prenne un peu de temps pour se mettre dans le rythme plus cool de la plongée. Elle m a dit qu elle avait déjà son niveau 1 validé en Égypte. On a donc parler de quelques exercices à faire. Vdm partiel , lRE, quelques signes. Mais une fois dans l eau tout semblait très compliqué. J ai donc abandonné les exercices et nous avons passé un peu de temps en surface avec détendeur en bouche mais sans descendre pour observer les autres plongeurs et se calmer. Puis lorsque elle était prête nous sommes descendu au fond et avons fait de la balade. Je lui ai conseillé d arriver plus en avance pour avoir le temps de se préparer et laisser le stress de sa journée derrière elle la prochaine fois. Elle écouté bien, elle est motivée mais il faut considérer qu’elle repart de zéro.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Hanane",
+        "atelier": "Déplacements immersion",
+        "note": 3.0,
+        "commentaire": "Hannane est arrivée à 9h, en courant et sans avoir eu le temps de se calmer de sa journée. Je lui ai proposé qu on prenne un peu de temps pour se mettre dans le rythme plus cool de la plongée. Elle m a dit qu elle avait déjà son niveau 1 validé en Égypte. On a donc parler de quelques exercices à faire. Vdm partiel , lRE, quelques signes. Mais une fois dans l eau tout semblait très compliqué. J ai donc abandonné les exercices et nous avons passé un peu de temps en surface avec détendeur en bouche mais sans descendre pour observer les autres plongeurs et se calmer. Puis lorsque elle était prête nous sommes descendu au fond et avons fait de la balade. Je lui ai conseillé d arriver plus en avance pour avoir le temps de se préparer et laisser le stress de sa journée derrière elle la prochaine fois. Elle écouté bien, elle est motivée mais il faut considérer qu’elle repart de zéro.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Hanane",
+        "atelier": "Gestion de son matériel",
+        "note": 2.0,
+        "commentaire": "Hannane est arrivée à 9h, en courant et sans avoir eu le temps de se calmer de sa journée. Je lui ai proposé qu on prenne un peu de temps pour se mettre dans le rythme plus cool de la plongée. Elle m a dit qu elle avait déjà son niveau 1 validé en Égypte. On a donc parler de quelques exercices à faire. Vdm partiel , lRE, quelques signes. Mais une fois dans l eau tout semblait très compliqué. J ai donc abandonné les exercices et nous avons passé un peu de temps en surface avec détendeur en bouche mais sans descendre pour observer les autres plongeurs et se calmer. Puis lorsque elle était prête nous sommes descendu au fond et avons fait de la balade. Je lui ai conseillé d arriver plus en avance pour avoir le temps de se préparer et laisser le stress de sa journée derrière elle la prochaine fois. Elle écouté bien, elle est motivée mais il faut considérer qu’elle repart de zéro.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Hanane",
+        "atelier": "VDM partiel",
+        "note": 1.0,
+        "commentaire": "Hannane est arrivée à 9h, en courant et sans avoir eu le temps de se calmer de sa journée. Je lui ai proposé qu on prenne un peu de temps pour se mettre dans le rythme plus cool de la plongée. Elle m a dit qu elle avait déjà son niveau 1 validé en Égypte. On a donc parler de quelques exercices à faire. Vdm partiel , lRE, quelques signes. Mais une fois dans l eau tout semblait très compliqué. J ai donc abandonné les exercices et nous avons passé un peu de temps en surface avec détendeur en bouche mais sans descendre pour observer les autres plongeurs et se calmer. Puis lorsque elle était prête nous sommes descendu au fond et avons fait de la balade. Je lui ai conseillé d arriver plus en avance pour avoir le temps de se préparer et laisser le stress de sa journée derrière elle la prochaine fois. Elle écouté bien, elle est motivée mais il faut considérer qu’elle repart de zéro.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Hanane",
+        "atelier": "Gréage",
+        "note": 2.0,
+        "commentaire": "Hannane est arrivée à 9h, en courant et sans avoir eu le temps de se calmer de sa journée. Je lui ai proposé qu on prenne un peu de temps pour se mettre dans le rythme plus cool de la plongée. Elle m a dit qu elle avait déjà son niveau 1 validé en Égypte. On a donc parler de quelques exercices à faire. Vdm partiel , lRE, quelques signes. Mais une fois dans l eau tout semblait très compliqué. J ai donc abandonné les exercices et nous avons passé un peu de temps en surface avec détendeur en bouche mais sans descendre pour observer les autres plongeurs et se calmer. Puis lorsque elle était prête nous sommes descendu au fond et avons fait de la balade. Je lui ai conseillé d arriver plus en avance pour avoir le temps de se préparer et laisser le stress de sa journée derrière elle la prochaine fois. Elle écouté bien, elle est motivée mais il faut considérer qu’elle repart de zéro.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Hanane",
+        "atelier": "Signes",
+        "note": 2.0,
+        "commentaire": "Hannane est arrivée à 9h, en courant et sans avoir eu le temps de se calmer de sa journée. Je lui ai proposé qu on prenne un peu de temps pour se mettre dans le rythme plus cool de la plongée. Elle m a dit qu elle avait déjà son niveau 1 validé en Égypte. On a donc parler de quelques exercices à faire. Vdm partiel , lRE, quelques signes. Mais une fois dans l eau tout semblait très compliqué. J ai donc abandonné les exercices et nous avons passé un peu de temps en surface avec détendeur en bouche mais sans descendre pour observer les autres plongeurs et se calmer. Puis lorsque elle était prête nous sommes descendu au fond et avons fait de la balade. Je lui ai conseillé d arriver plus en avance pour avoir le temps de se préparer et laisser le stress de sa journée derrière elle la prochaine fois. Elle écouté bien, elle est motivée mais il faut considérer qu’elle repart de zéro.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Hanane",
+        "atelier": "Saut droit PMT",
+        "note": 2.0,
+        "commentaire": "Hannane est arrivée à 9h, en courant et sans avoir eu le temps de se calmer de sa journée. Je lui ai proposé qu on prenne un peu de temps pour se mettre dans le rythme plus cool de la plongée. Elle m a dit qu elle avait déjà son niveau 1 validé en Égypte. On a donc parler de quelques exercices à faire. Vdm partiel , lRE, quelques signes. Mais une fois dans l eau tout semblait très compliqué. J ai donc abandonné les exercices et nous avons passé un peu de temps en surface avec détendeur en bouche mais sans descendre pour observer les autres plongeurs et se calmer. Puis lorsque elle était prête nous sommes descendu au fond et avons fait de la balade. Je lui ai conseillé d arriver plus en avance pour avoir le temps de se préparer et laisser le stress de sa journée derrière elle la prochaine fois. Elle écouté bien, elle est motivée mais il faut considérer qu’elle repart de zéro.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Hanane",
+        "atelier": "Mise en sécu surface",
+        "note": 2.0,
+        "commentaire": "Hannane est arrivée à 9h, en courant et sans avoir eu le temps de se calmer de sa journée. Je lui ai proposé qu on prenne un peu de temps pour se mettre dans le rythme plus cool de la plongée. Elle m a dit qu elle avait déjà son niveau 1 validé en Égypte. On a donc parler de quelques exercices à faire. Vdm partiel , lRE, quelques signes. Mais une fois dans l eau tout semblait très compliqué. J ai donc abandonné les exercices et nous avons passé un peu de temps en surface avec détendeur en bouche mais sans descendre pour observer les autres plongeurs et se calmer. Puis lorsque elle était prête nous sommes descendu au fond et avons fait de la balade. Je lui ai conseillé d arriver plus en avance pour avoir le temps de se préparer et laisser le stress de sa journée derrière elle la prochaine fois. Elle écouté bien, elle est motivée mais il faut considérer qu’elle repart de zéro.",
+        "commentaire_atelier": "Aucun commentaire"
       }
     ]
   },
@@ -3830,6 +4012,100 @@
         "atelier": "Mise en sécu surface",
         "note": 3.0,
         "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-17_virginie",
+    "date_seance": "2026-11-17",
+    "moniteur": "Virginie",
+    "nb_eleves": 1,
+    "eleves": [
+      "Catherine"
+    ],
+    "ateliers_traites": [
+      "Dégréage",
+      "Gestion de son matériel",
+      "Gestion du gilet",
+      "Gréage",
+      "Mise en sécu surface",
+      "Remonté expi controlée",
+      "Saut droit PMT",
+      "Signes",
+      "Soin au materiel",
+      "Sortie de l'eau"
+    ],
+    "nb_comptes_rendus": 10,
+    "comptes_rendus": [
+      {
+        "eleve": "Catherine",
+        "atelier": "Signes",
+        "note": 3.0,
+        "commentaire": "Nous n'avons pas eu le temps de nous immerger. Gestion du gilet à revoir/consolider + REC expliquée en bord de bassin.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Mise en sécu surface",
+        "note": 2.0,
+        "commentaire": "Nous n'avons pas eu le temps de nous immerger. Gestion du gilet à revoir/consolider + REC expliquée en bord de bassin.",
+        "commentaire_atelier": "Gonflage gilet surface à consolider"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Remonté expi controlée",
+        "note": 1.0,
+        "commentaire": "Nous n'avons pas eu le temps de nous immerger. Gestion du gilet à revoir/consolider + REC expliquée en bord de bassin.",
+        "commentaire_atelier": "Vu en surface bord de piscine uniquement."
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Sortie de l'eau",
+        "note": 3.0,
+        "commentaire": "Nous n'avons pas eu le temps de nous immerger. Gestion du gilet à revoir/consolider + REC expliquée en bord de bassin.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Dégréage",
+        "note": 3.0,
+        "commentaire": "Nous n'avons pas eu le temps de nous immerger. Gestion du gilet à revoir/consolider + REC expliquée en bord de bassin.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Gestion de son matériel",
+        "note": 3.0,
+        "commentaire": "Nous n'avons pas eu le temps de nous immerger. Gestion du gilet à revoir/consolider + REC expliquée en bord de bassin.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Saut droit PMT",
+        "note": 3.0,
+        "commentaire": "Nous n'avons pas eu le temps de nous immerger. Gestion du gilet à revoir/consolider + REC expliquée en bord de bassin.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Soin au materiel",
+        "note": 3.0,
+        "commentaire": "Nous n'avons pas eu le temps de nous immerger. Gestion du gilet à revoir/consolider + REC expliquée en bord de bassin.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Gestion du gilet",
+        "note": 2.0,
+        "commentaire": "Nous n'avons pas eu le temps de nous immerger. Gestion du gilet à revoir/consolider + REC expliquée en bord de bassin.",
+        "commentaire_atelier": "A revoir car confond bouton gonflage/dégonflage ou appuie sur les 2 en même temps. Nous avons fait des exercices en surface gonflage/dégonflage."
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Gréage",
+        "note": 3.0,
+        "commentaire": "Nous n'avons pas eu le temps de nous immerger. Gestion du gilet à revoir/consolider + REC expliquée en bord de bassin.",
         "commentaire_atelier": "Aucun commentaire"
       }
     ]
