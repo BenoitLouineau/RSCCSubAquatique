@@ -4257,5 +4257,389 @@
         "commentaire_atelier": "Aucun commentaire"
       }
     ]
+  },
+  {
+    "id": "2026-11-24_carine",
+    "date_seance": "2026-11-24",
+    "moniteur": "Carine",
+    "nb_eleves": 1,
+    "eleves": [
+      "Hanane"
+    ],
+    "ateliers_traites": [
+      "DBN",
+      "Dégréage",
+      "Déplacements immersion",
+      "Gestion de son matériel",
+      "Gréage",
+      "LRE surpression",
+      "Poumon Ballast",
+      "Remonté expi controlée",
+      "Saut droit",
+      "VDM partiel"
+    ],
+    "nb_comptes_rendus": 10,
+    "comptes_rendus": [
+      {
+        "eleve": "Hanane",
+        "atelier": "Gréage",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Hanane",
+        "atelier": "Poumon Ballast",
+        "note": 1.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Hanane",
+        "atelier": "Dégréage",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Hanane",
+        "atelier": "Gestion de son matériel",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Hanane",
+        "atelier": "Déplacements immersion",
+        "note": 1.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Hanane",
+        "atelier": "VDM partiel",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Hanane",
+        "atelier": "DBN",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Hanane",
+        "atelier": "LRE surpression",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Hanane",
+        "atelier": "Remonté expi controlée",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Hanane",
+        "atelier": "Saut droit",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-24_carlos",
+    "date_seance": "2026-11-24",
+    "moniteur": "Carlos",
+    "nb_eleves": 1,
+    "eleves": [
+      "Aubrée"
+    ],
+    "ateliers_traites": [
+      "Déplacements immersion",
+      "Gréage",
+      "LRE expiration",
+      "LRE surpression",
+      "Phoque",
+      "Remonté expi controlée",
+      "Saut droit",
+      "Signes",
+      "VDM",
+      "VDM partiel",
+      "Vitesse de remontée"
+    ],
+    "nb_comptes_rendus": 11,
+    "comptes_rendus": [
+      {
+        "eleve": "Aubrée",
+        "atelier": "Saut droit",
+        "note": 3.0,
+        "commentaire": "Belle séance,  Aubree à une aisance aquatique, mais elle est très sensible au niveau des oreilles. Descente en phoque bien faite. Les LRE en expiration et inspiration sont maîtriser. Le Vidage partiel très bon. Mais pour le VDM intégrale, elle le vide après plusieurs reprises. Déplacement reste stable, nous avons vu quelques signes, mais à travailler. La vitesse de remontée reste à travailler, mais c'est pas mal.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "VDM",
+        "note": 3.0,
+        "commentaire": "Belle séance,  Aubree à une aisance aquatique, mais elle est très sensible au niveau des oreilles. Descente en phoque bien faite. Les LRE en expiration et inspiration sont maîtriser. Le Vidage partiel très bon. Mais pour le VDM intégrale, elle le vide après plusieurs reprises. Déplacement reste stable, nous avons vu quelques signes, mais à travailler. La vitesse de remontée reste à travailler, mais c'est pas mal.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Déplacements immersion",
+        "note": 3.0,
+        "commentaire": "Belle séance,  Aubree à une aisance aquatique, mais elle est très sensible au niveau des oreilles. Descente en phoque bien faite. Les LRE en expiration et inspiration sont maîtriser. Le Vidage partiel très bon. Mais pour le VDM intégrale, elle le vide après plusieurs reprises. Déplacement reste stable, nous avons vu quelques signes, mais à travailler. La vitesse de remontée reste à travailler, mais c'est pas mal.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Vitesse de remontée",
+        "note": 3.0,
+        "commentaire": "Belle séance,  Aubree à une aisance aquatique, mais elle est très sensible au niveau des oreilles. Descente en phoque bien faite. Les LRE en expiration et inspiration sont maîtriser. Le Vidage partiel très bon. Mais pour le VDM intégrale, elle le vide après plusieurs reprises. Déplacement reste stable, nous avons vu quelques signes, mais à travailler. La vitesse de remontée reste à travailler, mais c'est pas mal.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Signes",
+        "note": 3.0,
+        "commentaire": "Belle séance,  Aubree à une aisance aquatique, mais elle est très sensible au niveau des oreilles. Descente en phoque bien faite. Les LRE en expiration et inspiration sont maîtriser. Le Vidage partiel très bon. Mais pour le VDM intégrale, elle le vide après plusieurs reprises. Déplacement reste stable, nous avons vu quelques signes, mais à travailler. La vitesse de remontée reste à travailler, mais c'est pas mal.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "VDM partiel",
+        "note": 4.0,
+        "commentaire": "Belle séance,  Aubree à une aisance aquatique, mais elle est très sensible au niveau des oreilles. Descente en phoque bien faite. Les LRE en expiration et inspiration sont maîtriser. Le Vidage partiel très bon. Mais pour le VDM intégrale, elle le vide après plusieurs reprises. Déplacement reste stable, nous avons vu quelques signes, mais à travailler. La vitesse de remontée reste à travailler, mais c'est pas mal.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Remonté expi controlée",
+        "note": 3.0,
+        "commentaire": "Belle séance,  Aubree à une aisance aquatique, mais elle est très sensible au niveau des oreilles. Descente en phoque bien faite. Les LRE en expiration et inspiration sont maîtriser. Le Vidage partiel très bon. Mais pour le VDM intégrale, elle le vide après plusieurs reprises. Déplacement reste stable, nous avons vu quelques signes, mais à travailler. La vitesse de remontée reste à travailler, mais c'est pas mal.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Phoque",
+        "note": 3.0,
+        "commentaire": "Belle séance,  Aubree à une aisance aquatique, mais elle est très sensible au niveau des oreilles. Descente en phoque bien faite. Les LRE en expiration et inspiration sont maîtriser. Le Vidage partiel très bon. Mais pour le VDM intégrale, elle le vide après plusieurs reprises. Déplacement reste stable, nous avons vu quelques signes, mais à travailler. La vitesse de remontée reste à travailler, mais c'est pas mal.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "Gréage",
+        "note": 4.0,
+        "commentaire": "Belle séance,  Aubree à une aisance aquatique, mais elle est très sensible au niveau des oreilles. Descente en phoque bien faite. Les LRE en expiration et inspiration sont maîtriser. Le Vidage partiel très bon. Mais pour le VDM intégrale, elle le vide après plusieurs reprises. Déplacement reste stable, nous avons vu quelques signes, mais à travailler. La vitesse de remontée reste à travailler, mais c'est pas mal.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "LRE surpression",
+        "note": 4.0,
+        "commentaire": "Belle séance,  Aubree à une aisance aquatique, mais elle est très sensible au niveau des oreilles. Descente en phoque bien faite. Les LRE en expiration et inspiration sont maîtriser. Le Vidage partiel très bon. Mais pour le VDM intégrale, elle le vide après plusieurs reprises. Déplacement reste stable, nous avons vu quelques signes, mais à travailler. La vitesse de remontée reste à travailler, mais c'est pas mal.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Aubrée",
+        "atelier": "LRE expiration",
+        "note": 4.0,
+        "commentaire": "Belle séance,  Aubree à une aisance aquatique, mais elle est très sensible au niveau des oreilles. Descente en phoque bien faite. Les LRE en expiration et inspiration sont maîtriser. Le Vidage partiel très bon. Mais pour le VDM intégrale, elle le vide après plusieurs reprises. Déplacement reste stable, nous avons vu quelques signes, mais à travailler. La vitesse de remontée reste à travailler, mais c'est pas mal.",
+        "commentaire_atelier": "Aucun commentaire"
+      }
+    ]
+  },
+  {
+    "id": "2026-11-24_nicos",
+    "date_seance": "2026-11-24",
+    "moniteur": "Nicos",
+    "nb_eleves": 2,
+    "eleves": [
+      "Abderrahmane",
+      "Nabiyu"
+    ],
+    "ateliers_traites": [
+      "360°",
+      "Dégréage",
+      "Déplacements immersion",
+      "Gréage",
+      "LRE expiration",
+      "LRE surpression",
+      "Mise en sécu surface",
+      "Remonté expi controlée",
+      "Saut droit",
+      "VDM",
+      "VDM partiel",
+      "Vitesse de remontée"
+    ],
+    "nb_comptes_rendus": 23,
+    "comptes_rendus": [
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "Saut droit",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Position de la palme pas terrible mais reste bien droit"
+      },
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "LRE surpression",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "Gréage",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "Mise en sécu surface",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "Déplacements immersion",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "Vitesse de remontée",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "LRE expiration",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "360°",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "Remonté expi controlée",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "Dégréage",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Abderrahmane",
+        "atelier": "VDM",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Masque à la main"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "VDM partiel",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Vitesse de remontée",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "VDM",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "En 3 fois mais maitrise de soi"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "LRE surpression",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "LRE expiration",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Gréage",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Remonté expi controlée",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Mise en sécu surface",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Saut droit",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "360°",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Déplacements immersion",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Nabiyu",
+        "atelier": "Dégréage",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      }
+    ]
   }
 ]
