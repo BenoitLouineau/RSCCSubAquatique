@@ -2445,13 +2445,14 @@
     "id": "camille",
     "nom": "Camille",
     "caci": true,
-    "nb_seances": 5,
+    "nb_seances": 6,
     "dates_seances": [
       "2026-09-29",
       "2026-10-06",
       "2026-10-13",
       "2026-10-27",
-      "2026-11-17"
+      "2026-11-17",
+      "2026-11-24"
     ],
     "moniteurs": [
       "Benoit L",
@@ -2459,7 +2460,7 @@
       "Christophe",
       "Véronique"
     ],
-    "nb_competences_travaillees": 20,
+    "nb_competences_travaillees": 23,
     "competences": {
       "Palmage (nage)": {
         "nb_evaluations": 1,
@@ -2474,9 +2475,9 @@
         ]
       },
       "Signes": {
-        "nb_evaluations": 3,
+        "nb_evaluations": 4,
         "derniere_note": 3.0,
-        "moyenne_notes": 3.67,
+        "moyenne_notes": 3.5,
         "historique": [
           {
             "date": "2026-10-06",
@@ -2492,13 +2493,18 @@
             "date": "2026-11-17",
             "note": 3.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 3.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
       "Gréage": {
-        "nb_evaluations": 4,
-        "derniere_note": 4.0,
-        "moyenne_notes": 4.0,
+        "nb_evaluations": 5,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.8,
         "historique": [
           {
             "date": "2026-10-06",
@@ -2519,13 +2525,18 @@
             "date": "2026-11-17",
             "note": 4.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 3.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
       "Dégréage": {
-        "nb_evaluations": 3,
+        "nb_evaluations": 4,
         "derniere_note": 4.0,
-        "moyenne_notes": 3.33,
+        "moyenne_notes": 3.5,
         "historique": [
           {
             "date": "2026-10-06",
@@ -2541,11 +2552,16 @@
             "date": "2026-11-17",
             "note": 4.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 4.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
       "DBN": {
-        "nb_evaluations": 2,
+        "nb_evaluations": 3,
         "derniere_note": 4.0,
         "moyenne_notes": 4.0,
         "historique": [
@@ -2558,6 +2574,11 @@
             "date": "2026-10-13",
             "note": 4.0,
             "moniteur": "Christophe"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 4.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
@@ -2579,9 +2600,9 @@
         ]
       },
       "Gestion du gilet": {
-        "nb_evaluations": 3,
+        "nb_evaluations": 4,
         "derniere_note": 3.0,
-        "moyenne_notes": 2.67,
+        "moyenne_notes": 2.75,
         "historique": [
           {
             "date": "2026-10-06",
@@ -2597,37 +2618,52 @@
             "date": "2026-11-17",
             "note": 3.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 3.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
       "Poumon Ballast": {
-        "nb_evaluations": 1,
-        "derniere_note": 2.0,
-        "moyenne_notes": 2.0,
+        "nb_evaluations": 2,
+        "derniere_note": 3.0,
+        "moyenne_notes": 2.5,
         "historique": [
           {
             "date": "2026-10-13",
             "note": 2.0,
             "moniteur": "Christophe"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 3.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
       "Déplacements immersion": {
-        "nb_evaluations": 1,
-        "derniere_note": 3.0,
-        "moyenne_notes": 3.0,
+        "nb_evaluations": 2,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.5,
         "historique": [
           {
             "date": "2026-10-13",
             "note": 3.0,
             "moniteur": "Christophe"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 2.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
       "VDM partiel": {
-        "nb_evaluations": 2,
-        "derniere_note": 3.0,
-        "moyenne_notes": 3.5,
+        "nb_evaluations": 3,
+        "derniere_note": 4.0,
+        "moyenne_notes": 3.67,
         "historique": [
           {
             "date": "2026-10-13",
@@ -2638,11 +2674,16 @@
             "date": "2026-11-17",
             "note": 3.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 4.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
       "Saut droit PMT": {
-        "nb_evaluations": 2,
+        "nb_evaluations": 3,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
         "historique": [
@@ -2655,18 +2696,28 @@
             "date": "2026-11-17",
             "note": 3.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 3.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
       "VDM": {
-        "nb_evaluations": 1,
-        "derniere_note": 3.0,
-        "moyenne_notes": 3.0,
+        "nb_evaluations": 2,
+        "derniere_note": 4.0,
+        "moyenne_notes": 3.5,
         "historique": [
           {
             "date": "2026-10-27",
             "note": 3.0,
             "moniteur": "Véronique"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 4.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
@@ -2683,7 +2734,7 @@
         ]
       },
       "Sortie de l'eau": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 4.0,
         "moyenne_notes": 4.0,
         "historique": [
@@ -2691,11 +2742,16 @@
             "date": "2026-11-17",
             "note": 4.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 4.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
       "Vitesse de remontée": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
         "historique": [
@@ -2703,6 +2759,11 @@
             "date": "2026-11-17",
             "note": 3.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 3.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
@@ -2731,19 +2792,24 @@
         ]
       },
       "360°": {
-        "nb_evaluations": 1,
-        "derniere_note": 3.0,
-        "moyenne_notes": 3.0,
+        "nb_evaluations": 2,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.5,
         "historique": [
           {
             "date": "2026-11-17",
             "note": 3.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 2.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
       "Mise en sécu surface": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
         "historique": [
@@ -2751,6 +2817,11 @@
             "date": "2026-11-17",
             "note": 3.0,
             "moniteur": "Benoit P"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 3.0,
+            "moniteur": "Benoit L"
           }
         ]
       },
@@ -2763,6 +2834,42 @@
             "date": "2026-11-17",
             "note": 4.0,
             "moniteur": "Benoit P"
+          }
+        ]
+      },
+      "Soin au materiel": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-11-24",
+            "note": 3.0,
+            "moniteur": "Benoit L"
+          }
+        ]
+      },
+      "Saut droit": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-11-24",
+            "note": 3.0,
+            "moniteur": "Benoit L"
+          }
+        ]
+      },
+      "LRE expiration": {
+        "nb_evaluations": 1,
+        "derniere_note": 4.0,
+        "moyenne_notes": 4.0,
+        "historique": [
+          {
+            "date": "2026-11-24",
+            "note": 4.0,
+            "moniteur": "Benoit L"
           }
         ]
       }
@@ -2998,6 +3105,125 @@
         "atelier": "Remonté expi controlée",
         "commentaire": "Aucun commentaire",
         "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Benoit L",
+        "atelier": "Déplacements immersion",
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "En cours d'acquisition, confirmer par la suite car Camille jour trop avec ses mains qui perturbe sa flotabilité"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Benoit L",
+        "atelier": "Vitesse de remontée",
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "Remontée seule sur inflateur selon mes consignes"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Benoit L",
+        "atelier": "Saut droit PMT",
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "Revue du geste au sec et un essai ok"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Benoit L",
+        "atelier": "Gestion du gilet",
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "Les bases arrivent"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Benoit L",
+        "atelier": "Soin au materiel",
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "Camille est méticuleuse avec son matériel"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Benoit L",
+        "atelier": "Gréage",
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "Sais bien monter mais encore de difficulté à nommer les éléments"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Benoit L",
+        "atelier": "Dégréage",
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "RAS"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Benoit L",
+        "atelier": "Signes",
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "revoir au prochain cours si le signe conso a bie été retenu"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Benoit L",
+        "atelier": "360°",
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "A refaire pour gagner en confiance de tourner sur elle même"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Benoit L",
+        "atelier": "Saut droit",
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "Après l'essai PMT, le saut a été bien correctement réalisé"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Benoit L",
+        "atelier": "DBN",
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "matrise le geste"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Benoit L",
+        "atelier": "LRE expiration",
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "1er essai timide mais tout au long de la séance à 5 reprises, le geste a gagné en regieur et confiance, bravo Camille.\nLRE avec laché de 3 puis 5 secondes aussi bien maîtrisé ce soir"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Benoit L",
+        "atelier": "Mise en sécu surface",
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "sais se mettre au bon endroit pour se dégréer en surgace"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Benoit L",
+        "atelier": "VDM partiel",
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "1er essai timide mais tout au long de la séance à 5 reprises, le geste a gagné en regieur et confiance, bravo Camille"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Benoit L",
+        "atelier": "Sortie de l'eau",
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "RAS"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Benoit L",
+        "atelier": "VDM",
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "Camille prend son temps pour gagner en confiance, les 5 phases d'exercicei de ce soir ont permis de réllement la mettre en confiance. Belle s\"éance et contente d'elle au sortir du bassin"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Benoit L",
+        "atelier": "Poumon Ballast",
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "Exercice de pompe avant la phase de déplacement"
       }
     ]
   },
