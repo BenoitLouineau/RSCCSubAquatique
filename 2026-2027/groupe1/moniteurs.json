@@ -56,44 +56,48 @@
   {
     "id": "carine",
     "nom": "Carine",
-    "nb_seances_animees": 3,
+    "nb_seances_animees": 4,
     "dates_seances": [
       "2026-09-29",
       "2026-10-06",
-      "2026-11-17"
+      "2026-11-17",
+      "2026-11-24"
+    ],
+    "nb_eleves_suivis": 7,
+    "eleves_suivis": [
+      "Abderrahmane",
+      "Amir",
+      "Aubrée",
+      "Guillaume",
+      "Hanane",
+      "Mohamed",
+      "Nabiyu"
+    ],
+    "nb_comptes_rendus": 30,
+    "nb_evaluations_notees": 30
+  },
+  {
+    "id": "carlos",
+    "nom": "Carlos",
+    "nb_seances_animees": 5,
+    "dates_seances": [
+      "2026-10-06",
+      "2026-10-13",
+      "2026-10-27",
+      "2026-11-17",
+      "2026-11-24"
     ],
     "nb_eleves_suivis": 6,
     "eleves_suivis": [
       "Abderrahmane",
       "Amir",
       "Aubrée",
-      "Guillaume",
-      "Mohamed",
-      "Nabiyu"
-    ],
-    "nb_comptes_rendus": 20,
-    "nb_evaluations_notees": 20
-  },
-  {
-    "id": "carlos",
-    "nom": "Carlos",
-    "nb_seances_animees": 4,
-    "dates_seances": [
-      "2026-10-06",
-      "2026-10-13",
-      "2026-10-27",
-      "2026-11-17"
-    ],
-    "nb_eleves_suivis": 5,
-    "eleves_suivis": [
-      "Abderrahmane",
-      "Amir",
       "Mohamed",
       "Nabiyu",
       "Patricia"
     ],
-    "nb_comptes_rendus": 32,
-    "nb_evaluations_notees": 32
+    "nb_comptes_rendus": 43,
+    "nb_evaluations_notees": 43
   },
   {
     "id": "catherine",
@@ -155,24 +159,27 @@
   {
     "id": "nicos",
     "nom": "Nicos",
-    "nb_seances_animees": 5,
+    "nb_seances_animees": 6,
     "dates_seances": [
       "2026-10-06",
       "2026-10-13",
       "2026-10-27",
       "2026-11-03",
-      "2026-11-17"
+      "2026-11-17",
+      "2026-11-24"
     ],
-    "nb_eleves_suivis": 5,
+    "nb_eleves_suivis": 7,
     "eleves_suivis": [
+      "Abderrahmane",
       "Amir",
       "Aubrée",
       "Guillaume",
       "Kévin D",
+      "Nabiyu",
       "Patricia"
     ],
-    "nb_comptes_rendus": 58,
-    "nb_evaluations_notees": 58
+    "nb_comptes_rendus": 81,
+    "nb_evaluations_notees": 81
   },
   {
     "id": "virginie",
