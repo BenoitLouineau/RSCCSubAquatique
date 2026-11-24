@@ -4259,6 +4259,156 @@
     ]
   },
   {
+    "id": "2026-11-24_benoit-l",
+    "date_seance": "2026-11-24",
+    "moniteur": "Benoit L",
+    "nb_eleves": 1,
+    "eleves": [
+      "Camille"
+    ],
+    "ateliers_traites": [
+      "360°",
+      "DBN",
+      "Dégréage",
+      "Déplacements immersion",
+      "Gestion du gilet",
+      "Gréage",
+      "LRE expiration",
+      "Mise en sécu surface",
+      "Poumon Ballast",
+      "Saut droit",
+      "Saut droit PMT",
+      "Signes",
+      "Soin au materiel",
+      "Sortie de l'eau",
+      "VDM",
+      "VDM partiel",
+      "Vitesse de remontée"
+    ],
+    "nb_comptes_rendus": 17,
+    "comptes_rendus": [
+      {
+        "eleve": "Camille",
+        "atelier": "Déplacements immersion",
+        "note": 2.0,
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "En cours d'acquisition, confirmer par la suite car Camille jour trop avec ses mains qui perturbe sa flotabilité"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "Vitesse de remontée",
+        "note": 3.0,
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "Remontée seule sur inflateur selon mes consignes"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "Saut droit PMT",
+        "note": 3.0,
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "Revue du geste au sec et un essai ok"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "Gestion du gilet",
+        "note": 3.0,
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "Les bases arrivent"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "Soin au materiel",
+        "note": 3.0,
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "Camille est méticuleuse avec son matériel"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "Gréage",
+        "note": 3.0,
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "Sais bien monter mais encore de difficulté à nommer les éléments"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "Dégréage",
+        "note": 4.0,
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "RAS"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "Signes",
+        "note": 3.0,
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "revoir au prochain cours si le signe conso a bie été retenu"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "360°",
+        "note": 2.0,
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "A refaire pour gagner en confiance de tourner sur elle même"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "Saut droit",
+        "note": 3.0,
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "Après l'essai PMT, le saut a été bien correctement réalisé"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "DBN",
+        "note": 4.0,
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "matrise le geste"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "LRE expiration",
+        "note": 4.0,
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "1er essai timide mais tout au long de la séance à 5 reprises, le geste a gagné en regieur et confiance, bravo Camille.\nLRE avec laché de 3 puis 5 secondes aussi bien maîtrisé ce soir"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "Mise en sécu surface",
+        "note": 3.0,
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "sais se mettre au bon endroit pour se dégréer en surgace"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "VDM partiel",
+        "note": 4.0,
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "1er essai timide mais tout au long de la séance à 5 reprises, le geste a gagné en regieur et confiance, bravo Camille"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "Sortie de l'eau",
+        "note": 4.0,
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "RAS"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "VDM",
+        "note": 4.0,
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "Camille prend son temps pour gagner en confiance, les 5 phases d'exercicei de ce soir ont permis de réllement la mettre en confiance. Belle s\"éance et contente d'elle au sortir du bassin"
+      },
+      {
+        "eleve": "Camille",
+        "atelier": "Poumon Ballast",
+        "note": 3.0,
+        "commentaire": "Camille a su prendre de la confiance ce soir avec un début un peu timide de son 1er VDM puis le geste est devenu plus sûr, bravo Camille !",
+        "commentaire_atelier": "Exercice de pompe avant la phase de déplacement"
+      }
+    ]
+  },
+  {
     "id": "2026-11-24_carine",
     "date_seance": "2026-11-24",
     "moniteur": "Carine",
