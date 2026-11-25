@@ -1,11 +1,11 @@
 {
-  "date_generation": "2026-11-24T23:59:51",
+  "date_generation": "2026-11-25T13:55:46",
   "nb_eleves": 12,
   "nb_moniteurs": 10,
   "nb_seances": 8,
   "nb_soirees": 8,
-  "nb_encadrements": 43,
-  "nb_comptes_rendus": 540,
+  "nb_encadrements": 44,
+  "nb_comptes_rendus": 561,
   "nb_competences_referencees": 44,
   "nb_competences_frioul": 18,
   "groupes": [
@@ -103,8 +103,8 @@
   "acquisition_par_atelier": [
     {
       "atelier": "Gréage",
-      "nb_evaluations": 57,
-      "moyenne": 3.04,
+      "nb_evaluations": 58,
+      "moyenne": 3.05,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -112,8 +112,8 @@
     },
     {
       "atelier": "Dégréage",
-      "nb_evaluations": 49,
-      "moyenne": 3.27,
+      "nb_evaluations": 50,
+      "moyenne": 3.28,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -121,8 +121,8 @@
     },
     {
       "atelier": "VDM partiel",
-      "nb_evaluations": 40,
-      "moyenne": 3.0,
+      "nb_evaluations": 41,
+      "moyenne": 3.02,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -130,8 +130,8 @@
     },
     {
       "atelier": "DBN",
-      "nb_evaluations": 34,
-      "moyenne": 3.5,
+      "nb_evaluations": 35,
+      "moyenne": 3.51,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -139,8 +139,8 @@
     },
     {
       "atelier": "Gestion de son matériel",
-      "nb_evaluations": 34,
-      "moyenne": 3.09,
+      "nb_evaluations": 35,
+      "moyenne": 3.11,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -148,8 +148,8 @@
     },
     {
       "atelier": "Déplacements immersion",
-      "nb_evaluations": 32,
-      "moyenne": 2.5,
+      "nb_evaluations": 33,
+      "moyenne": 2.52,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -157,8 +157,8 @@
     },
     {
       "atelier": "Saut droit PMT",
-      "nb_evaluations": 28,
-      "moyenne": 2.96,
+      "nb_evaluations": 29,
+      "moyenne": 2.97,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -166,8 +166,8 @@
     },
     {
       "atelier": "VDM",
-      "nb_evaluations": 27,
-      "moyenne": 3.33,
+      "nb_evaluations": 28,
+      "moyenne": 3.32,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -175,8 +175,8 @@
     },
     {
       "atelier": "Poumon Ballast",
-      "nb_evaluations": 26,
-      "moyenne": 2.77,
+      "nb_evaluations": 27,
+      "moyenne": 2.78,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -184,7 +184,7 @@
     },
     {
       "atelier": "Signes",
-      "nb_evaluations": 24,
+      "nb_evaluations": 25,
       "moyenne": 2.96,
       "note_min": 2.0,
       "note_max": 4.0,
@@ -193,8 +193,8 @@
     },
     {
       "atelier": "Sortie de l'eau",
-      "nb_evaluations": 24,
-      "moyenne": 3.33,
+      "nb_evaluations": 25,
+      "moyenne": 3.36,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -202,7 +202,7 @@
     },
     {
       "atelier": "Mise en sécu surface",
-      "nb_evaluations": 23,
+      "nb_evaluations": 24,
       "moyenne": 2.96,
       "note_min": 2.0,
       "note_max": 4.0,
@@ -211,8 +211,8 @@
     },
     {
       "atelier": "Gestion du gilet",
-      "nb_evaluations": 22,
-      "moyenne": 2.45,
+      "nb_evaluations": 23,
+      "moyenne": 2.48,
       "note_min": 1.0,
       "note_max": 3.0,
       "notable": true,
@@ -229,8 +229,8 @@
     },
     {
       "atelier": "Vitesse de remontée",
-      "nb_evaluations": 20,
-      "moyenne": 2.6,
+      "nb_evaluations": 21,
+      "moyenne": 2.57,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -238,8 +238,8 @@
     },
     {
       "atelier": "Remonté expi controlée",
-      "nb_evaluations": 15,
-      "moyenne": 2.73,
+      "nb_evaluations": 16,
+      "moyenne": 2.75,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -247,8 +247,8 @@
     },
     {
       "atelier": "Saut droit",
-      "nb_evaluations": 13,
-      "moyenne": 3.38,
+      "nb_evaluations": 14,
+      "moyenne": 3.36,
       "note_min": 3.0,
       "note_max": 4.0,
       "notable": true,
@@ -256,8 +256,8 @@
     },
     {
       "atelier": "Soin au materiel",
-      "nb_evaluations": 11,
-      "moyenne": 2.82,
+      "nb_evaluations": 12,
+      "moyenne": 2.83,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -265,8 +265,8 @@
     },
     {
       "atelier": "Palmage (nage)",
-      "nb_evaluations": 10,
-      "moyenne": 1.9,
+      "nb_evaluations": 11,
+      "moyenne": 2.0,
       "note_min": 1.0,
       "note_max": 3.0,
       "notable": true,
@@ -274,26 +274,26 @@
     },
     {
       "atelier": "LRE surpression",
-      "nb_evaluations": 9,
-      "moyenne": 3.44,
-      "note_min": 3.0,
+      "nb_evaluations": 10,
+      "moyenne": 3.3,
+      "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
     },
     {
       "atelier": "LRE expiration",
-      "nb_evaluations": 8,
-      "moyenne": 3.62,
-      "note_min": 3.0,
+      "nb_evaluations": 9,
+      "moyenne": 3.44,
+      "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
     },
     {
       "atelier": "Phoque",
-      "nb_evaluations": 5,
-      "moyenne": 2.8,
+      "nb_evaluations": 6,
+      "moyenne": 2.67,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -348,8 +348,8 @@
     },
     {
       "eleve": "Mohamed",
-      "nb_ateliers_evalues": 14,
-      "moyenne_generale": 3.29
+      "nb_ateliers_evalues": 22,
+      "moyenne_generale": 3.09
     },
     {
       "eleve": "Nabiyu",
@@ -436,8 +436,8 @@
         "moniteur": "Virginie",
         "nb": 1,
         "nb_dp": 0,
-        "nb_seances_avec_cr": 2,
-        "taux_retour_cr": 67
+        "nb_seances_avec_cr": 3,
+        "taux_retour_cr": 75
       },
       {
         "moniteur": "Véronique",
