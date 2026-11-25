@@ -4791,5 +4791,187 @@
         "commentaire_atelier": "Aucun commentaire"
       }
     ]
+  },
+  {
+    "id": "2026-11-24_virginie",
+    "date_seance": "2026-11-24",
+    "moniteur": "Virginie",
+    "nb_eleves": 1,
+    "eleves": [
+      "Mohamed"
+    ],
+    "ateliers_traites": [
+      "DBN",
+      "Dégréage",
+      "Déplacements immersion",
+      "Gestion de son matériel",
+      "Gestion du gilet",
+      "Gréage",
+      "LRE expiration",
+      "LRE surpression",
+      "Mise en sécu surface",
+      "Palmage (nage)",
+      "Phoque",
+      "Poumon Ballast",
+      "Remonté expi controlée",
+      "Saut droit",
+      "Saut droit PMT",
+      "Signes",
+      "Soin au materiel",
+      "Sortie de l'eau",
+      "VDM",
+      "VDM partiel",
+      "Vitesse de remontée"
+    ],
+    "nb_comptes_rendus": 21,
+    "comptes_rendus": [
+      {
+        "eleve": "Mohamed",
+        "atelier": "VDM",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "LRE surpression",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Fait à l'échelle uniquement a environ 1m de profondeur c'était ok."
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Gestion du gilet",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Gestion de son matériel",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Gréage",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Mise en sécu surface",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "DBN",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Poumon Ballast",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Sortie de l'eau",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Vitesse de remontée",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Avait tendance à être plus bas que moi"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Saut droit PMT",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Signes",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Phoque",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Soin au materiel",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "LRE expiration",
+        "note": 2.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Idem fait à environ 1 m de profondeur c'était ok"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Déplacements immersion",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Saut droit",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Palmage (nage)",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Remonté expi controlée",
+        "note": 3.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "Dégréage",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Mohamed",
+        "atelier": "VDM partiel",
+        "note": 4.0,
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      }
+    ]
   }
 ]
