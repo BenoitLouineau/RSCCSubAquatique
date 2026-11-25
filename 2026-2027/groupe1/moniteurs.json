@@ -185,19 +185,21 @@
   {
     "id": "virginie",
     "nom": "Virginie",
-    "nb_seances_animees": 2,
+    "nb_seances_animees": 3,
     "dates_seances": [
       "2026-11-03",
-      "2026-11-17"
+      "2026-11-17",
+      "2026-11-24"
     ],
-    "nb_eleves_suivis": 3,
+    "nb_eleves_suivis": 4,
     "eleves_suivis": [
       "Amir",
       "Catherine",
-      "Guillaume"
+      "Guillaume",
+      "Mohamed"
     ],
-    "nb_comptes_rendus": 48,
-    "nb_evaluations_notees": 48
+    "nb_comptes_rendus": 69,
+    "nb_evaluations_notees": 69
   },
   {
     "id": "veronique",
