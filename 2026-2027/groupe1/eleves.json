@@ -6535,24 +6535,26 @@
     "id": "mohamed",
     "nom": "Mohamed",
     "caci": true,
-    "nb_seances": 4,
+    "nb_seances": 5,
     "dates_seances": [
       "2026-09-29",
       "2026-10-06",
       "2026-10-13",
-      "2026-11-10"
+      "2026-11-10",
+      "2026-11-24"
     ],
     "moniteurs": [
       "Benoit L",
       "Carine",
-      "Carlos"
+      "Carlos",
+      "Virginie"
     ],
-    "nb_competences_travaillees": 14,
+    "nb_competences_travaillees": 22,
     "competences": {
       "Gréage": {
-        "nb_evaluations": 4,
-        "derniere_note": 3.0,
-        "moyenne_notes": 2.5,
+        "nb_evaluations": 5,
+        "derniere_note": 4.0,
+        "moyenne_notes": 2.8,
         "historique": [
           {
             "date": "2026-09-29",
@@ -6573,13 +6575,18 @@
             "date": "2026-11-10",
             "note": 3.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 4.0,
+            "moniteur": "Virginie"
           }
         ]
       },
       "Gestion de son matériel": {
-        "nb_evaluations": 3,
-        "derniere_note": 3.0,
-        "moyenne_notes": 3.0,
+        "nb_evaluations": 4,
+        "derniere_note": 4.0,
+        "moyenne_notes": 3.25,
         "historique": [
           {
             "date": "2026-10-06",
@@ -6595,11 +6602,16 @@
             "date": "2026-11-10",
             "note": 3.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 4.0,
+            "moniteur": "Virginie"
           }
         ]
       },
       "DBN": {
-        "nb_evaluations": 3,
+        "nb_evaluations": 4,
         "derniere_note": 4.0,
         "moyenne_notes": 4.0,
         "historique": [
@@ -6617,13 +6629,18 @@
             "date": "2026-11-10",
             "note": 4.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 4.0,
+            "moniteur": "Virginie"
           }
         ]
       },
       "Dégréage": {
-        "nb_evaluations": 3,
+        "nb_evaluations": 4,
         "derniere_note": 4.0,
-        "moyenne_notes": 3.67,
+        "moyenne_notes": 3.75,
         "historique": [
           {
             "date": "2026-10-06",
@@ -6639,11 +6656,16 @@
             "date": "2026-11-10",
             "note": 4.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 4.0,
+            "moniteur": "Virginie"
           }
         ]
       },
       "Poumon Ballast": {
-        "nb_evaluations": 2,
+        "nb_evaluations": 3,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
         "historique": [
@@ -6656,11 +6678,16 @@
             "date": "2026-11-10",
             "note": 3.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 3.0,
+            "moniteur": "Virginie"
           }
         ]
       },
       "VDM partiel": {
-        "nb_evaluations": 2,
+        "nb_evaluations": 3,
         "derniere_note": 4.0,
         "moyenne_notes": 4.0,
         "historique": [
@@ -6673,13 +6700,18 @@
             "date": "2026-11-10",
             "note": 4.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 4.0,
+            "moniteur": "Virginie"
           }
         ]
       },
       "VDM": {
-        "nb_evaluations": 2,
-        "derniere_note": 4.0,
-        "moyenne_notes": 4.0,
+        "nb_evaluations": 3,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.67,
         "historique": [
           {
             "date": "2026-10-13",
@@ -6690,13 +6722,18 @@
             "date": "2026-11-10",
             "note": 4.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 3.0,
+            "moniteur": "Virginie"
           }
         ]
       },
       "Déplacements immersion": {
-        "nb_evaluations": 2,
+        "nb_evaluations": 3,
         "derniere_note": 3.0,
-        "moyenne_notes": 2.5,
+        "moyenne_notes": 2.67,
         "historique": [
           {
             "date": "2026-10-13",
@@ -6707,6 +6744,11 @@
             "date": "2026-11-10",
             "note": 3.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 3.0,
+            "moniteur": "Virginie"
           }
         ]
       },
@@ -6723,7 +6765,7 @@
         ]
       },
       "Signes": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
         "historique": [
@@ -6731,23 +6773,33 @@
             "date": "2026-11-10",
             "note": 3.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 3.0,
+            "moniteur": "Virginie"
           }
         ]
       },
       "Sortie de l'eau": {
-        "nb_evaluations": 1,
-        "derniere_note": 3.0,
-        "moyenne_notes": 3.0,
+        "nb_evaluations": 2,
+        "derniere_note": 4.0,
+        "moyenne_notes": 3.5,
         "historique": [
           {
             "date": "2026-11-10",
             "note": 3.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 4.0,
+            "moniteur": "Virginie"
           }
         ]
       },
       "Gestion du gilet": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
         "historique": [
@@ -6755,11 +6807,16 @@
             "date": "2026-11-10",
             "note": 3.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 3.0,
+            "moniteur": "Virginie"
           }
         ]
       },
       "Saut droit": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
         "historique": [
@@ -6767,11 +6824,16 @@
             "date": "2026-11-10",
             "note": 3.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 3.0,
+            "moniteur": "Virginie"
           }
         ]
       },
       "Saut droit PMT": {
-        "nb_evaluations": 1,
+        "nb_evaluations": 2,
         "derniere_note": 3.0,
         "moyenne_notes": 3.0,
         "historique": [
@@ -6779,6 +6841,107 @@
             "date": "2026-11-10",
             "note": 3.0,
             "moniteur": "Benoit L"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 3.0,
+            "moniteur": "Virginie"
+          }
+        ]
+      },
+      "LRE surpression": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-11-24",
+            "note": 2.0,
+            "moniteur": "Virginie"
+          }
+        ]
+      },
+      "Mise en sécu surface": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-11-24",
+            "note": 3.0,
+            "moniteur": "Virginie"
+          }
+        ]
+      },
+      "Vitesse de remontée": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-11-24",
+            "note": 2.0,
+            "moniteur": "Virginie"
+          }
+        ]
+      },
+      "Phoque": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-11-24",
+            "note": 2.0,
+            "moniteur": "Virginie"
+          }
+        ]
+      },
+      "Soin au materiel": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-11-24",
+            "note": 3.0,
+            "moniteur": "Virginie"
+          }
+        ]
+      },
+      "LRE expiration": {
+        "nb_evaluations": 1,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.0,
+        "historique": [
+          {
+            "date": "2026-11-24",
+            "note": 2.0,
+            "moniteur": "Virginie"
+          }
+        ]
+      },
+      "Palmage (nage)": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-11-24",
+            "note": 3.0,
+            "moniteur": "Virginie"
+          }
+        ]
+      },
+      "Remonté expi controlée": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-11-24",
+            "note": 3.0,
+            "moniteur": "Virginie"
           }
         ]
       }
@@ -6972,6 +7135,153 @@
         "atelier": "Saut droit PMT",
         "commentaire": "Reprise suite à 2 séances d'absence et finalement l'ensemble des exo du programme de la séance ont été tous réalisé sans vraiment de stress ni d'appréhension. Elève discret et sérieux, que du +++ pour la suite de sa formation.",
         "commentaire_atelier": "1ère séance et malgré cela, dès le 2ème saut le geste est bien perçus, validé sur le second et 3ème"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Virginie",
+        "atelier": "VDM",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Virginie",
+        "atelier": "LRE surpression",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Fait à l'échelle uniquement a environ 1m de profondeur c'était ok."
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Virginie",
+        "atelier": "Gestion du gilet",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Virginie",
+        "atelier": "Gestion de son matériel",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Virginie",
+        "atelier": "Gréage",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Virginie",
+        "atelier": "Mise en sécu surface",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Virginie",
+        "atelier": "DBN",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Virginie",
+        "atelier": "Poumon Ballast",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Virginie",
+        "atelier": "Sortie de l'eau",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Virginie",
+        "atelier": "Vitesse de remontée",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Avait tendance à être plus bas que moi"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Virginie",
+        "atelier": "Saut droit PMT",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Virginie",
+        "atelier": "Signes",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Virginie",
+        "atelier": "Phoque",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Virginie",
+        "atelier": "Soin au materiel",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Virginie",
+        "atelier": "LRE expiration",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Idem fait à environ 1 m de profondeur c'était ok"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Virginie",
+        "atelier": "Déplacements immersion",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Virginie",
+        "atelier": "Saut droit",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Virginie",
+        "atelier": "Palmage (nage)",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Virginie",
+        "atelier": "Remonté expi controlée",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Virginie",
+        "atelier": "Dégréage",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Virginie",
+        "atelier": "VDM partiel",
+        "commentaire": "Aucun commentaire",
+        "commentaire_atelier": "Aucun commentaire"
       }
     ]
   },
