@@ -4973,5 +4973,83 @@
         "commentaire_atelier": "Aucun commentaire"
       }
     ]
+  },
+  {
+    "id": "2026-11-24_veronique",
+    "date_seance": "2026-11-24",
+    "moniteur": "Véronique",
+    "nb_eleves": 1,
+    "eleves": [
+      "Catherine"
+    ],
+    "ateliers_traites": [
+      "Dégréage",
+      "Gréage",
+      "LRE surpression",
+      "Poumon Ballast",
+      "Saut droit",
+      "Signes",
+      "Sortie de l'eau",
+      "VDM"
+    ],
+    "nb_comptes_rendus": 8,
+    "comptes_rendus": [
+      {
+        "eleve": "Catherine",
+        "atelier": "Sortie de l'eau",
+        "note": 3.0,
+        "commentaire": "Selon moi, il faut vraiment individualiser les difficultés. Trop de charge mentale nuit à sa sérénité.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "LRE surpression",
+        "note": 1.0,
+        "commentaire": "Selon moi, il faut vraiment individualiser les difficultés. Trop de charge mentale nuit à sa sérénité.",
+        "commentaire_atelier": "Compliqué et angoissant malgré l'envie de le faire. Elle a bu la tasse. A refaire au bord du bassin. Ce n'est pas un problème technique !"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Poumon Ballast",
+        "note": 3.0,
+        "commentaire": "Selon moi, il faut vraiment individualiser les difficultés. Trop de charge mentale nuit à sa sérénité.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Gréage",
+        "note": 3.0,
+        "commentaire": "Selon moi, il faut vraiment individualiser les difficultés. Trop de charge mentale nuit à sa sérénité.",
+        "commentaire_atelier": "Encore hésitant avec des oublis."
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Saut droit",
+        "note": 3.0,
+        "commentaire": "Selon moi, il faut vraiment individualiser les difficultés. Trop de charge mentale nuit à sa sérénité.",
+        "commentaire_atelier": "Toujours une petite impulsion après le pas. On a essayé sur l'escalier pour comprendre le rôle de la 2eme jambe. Peut-être à rappeler."
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Signes",
+        "note": 2.0,
+        "commentaire": "Selon moi, il faut vraiment individualiser les difficultés. Trop de charge mentale nuit à sa sérénité.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "Dégréage",
+        "note": 2.0,
+        "commentaire": "Selon moi, il faut vraiment individualiser les difficultés. Trop de charge mentale nuit à sa sérénité.",
+        "commentaire_atelier": "Idem, besoin de réflexion pour ne rien oublier. Pas d'automatismes et pas forcément de logique ( enlever la stab sans enlever le détendeur)"
+      },
+      {
+        "eleve": "Catherine",
+        "atelier": "VDM",
+        "note": 3.0,
+        "commentaire": "Selon moi, il faut vraiment individualiser les difficultés. Trop de charge mentale nuit à sa sérénité.",
+        "commentaire_atelier": "Son masque se remplit beaucoup involontairement. A besoin de réflexion pour réussir à le vider mais ça marche. Elle ne panique pas."
+      }
+    ]
   }
 ]
