@@ -204,13 +204,14 @@
   {
     "id": "veronique",
     "nom": "Véronique",
-    "nb_seances_animees": 5,
+    "nb_seances_animees": 6,
     "dates_seances": [
       "2026-10-13",
       "2026-10-27",
       "2026-11-03",
       "2026-11-10",
-      "2026-11-17"
+      "2026-11-17",
+      "2026-11-24"
     ],
     "nb_eleves_suivis": 6,
     "eleves_suivis": [
@@ -221,7 +222,7 @@
       "Kevin F",
       "Nabiyu"
     ],
-    "nb_comptes_rendus": 38,
-    "nb_evaluations_notees": 38
+    "nb_comptes_rendus": 46,
+    "nb_evaluations_notees": 46
   }
 ]
