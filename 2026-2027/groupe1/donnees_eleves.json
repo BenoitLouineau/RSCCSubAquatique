@@ -5608,5 +5608,85 @@
     "moniteur": "Virginie",
     "presence": "Présent",
     "statut": "Acquis"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Sortie de l'eau",
+    "competence": "Sortie de l'eau",
+    "date": "2026-11-24",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "LRE surpression",
+    "competence": "LRE surpression",
+    "date": "2026-11-24",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Poumon Ballast",
+    "competence": "Poumon Ballast",
+    "date": "2026-11-24",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-11-24",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Saut droit",
+    "competence": "Saut droit",
+    "date": "2026-11-24",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Signes",
+    "competence": "Signes",
+    "date": "2026-11-24",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "Dégréage",
+    "competence": "Dégréage",
+    "date": "2026-11-24",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Catherine",
+    "genre": "",
+    "categorie": "VDM",
+    "competence": "VDM",
+    "date": "2026-11-24",
+    "moniteur": "Véronique",
+    "presence": "Présent",
+    "statut": "Acquis"
   }
 ]
