@@ -3231,13 +3231,14 @@
     "id": "catherine",
     "nom": "Catherine",
     "caci": true,
-    "nb_seances": 5,
+    "nb_seances": 6,
     "dates_seances": [
       "2026-10-06",
       "2026-10-13",
       "2026-11-03",
       "2026-11-10",
-      "2026-11-17"
+      "2026-11-17",
+      "2026-11-24"
     ],
     "moniteurs": [
       "Benoit P",
@@ -3245,7 +3246,7 @@
       "Virginie",
       "Véronique"
     ],
-    "nb_competences_travaillees": 16,
+    "nb_competences_travaillees": 20,
     "competences": {
       "Gestion de son matériel": {
         "nb_evaluations": 4,
@@ -3292,9 +3293,9 @@
         ]
       },
       "Gréage": {
-        "nb_evaluations": 5,
+        "nb_evaluations": 6,
         "derniere_note": 3.0,
-        "moyenne_notes": 2.6,
+        "moyenne_notes": 2.67,
         "historique": [
           {
             "date": "2026-10-06",
@@ -3320,6 +3321,11 @@
             "date": "2026-11-17",
             "note": 3.0,
             "moniteur": "Virginie"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 3.0,
+            "moniteur": "Véronique"
           }
         ]
       },
@@ -3346,9 +3352,9 @@
         ]
       },
       "Signes": {
-        "nb_evaluations": 3,
-        "derniere_note": 3.0,
-        "moyenne_notes": 2.67,
+        "nb_evaluations": 4,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.5,
         "historique": [
           {
             "date": "2026-10-06",
@@ -3364,13 +3370,18 @@
             "date": "2026-11-17",
             "note": 3.0,
             "moniteur": "Virginie"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 2.0,
+            "moniteur": "Véronique"
           }
         ]
       },
       "Dégréage": {
-        "nb_evaluations": 4,
-        "derniere_note": 3.0,
-        "moyenne_notes": 2.75,
+        "nb_evaluations": 5,
+        "derniere_note": 2.0,
+        "moyenne_notes": 2.6,
         "historique": [
           {
             "date": "2026-10-06",
@@ -3391,6 +3402,11 @@
             "date": "2026-11-17",
             "note": 3.0,
             "moniteur": "Virginie"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 2.0,
+            "moniteur": "Véronique"
           }
         ]
       },
@@ -3497,9 +3513,9 @@
         ]
       },
       "Sortie de l'eau": {
-        "nb_evaluations": 2,
+        "nb_evaluations": 3,
         "derniere_note": 3.0,
-        "moyenne_notes": 3.5,
+        "moyenne_notes": 3.33,
         "historique": [
           {
             "date": "2026-11-10",
@@ -3510,6 +3526,11 @@
             "date": "2026-11-17",
             "note": 3.0,
             "moniteur": "Virginie"
+          },
+          {
+            "date": "2026-11-24",
+            "note": 3.0,
+            "moniteur": "Véronique"
           }
         ]
       },
@@ -3546,6 +3567,54 @@
             "date": "2026-11-17",
             "note": 3.0,
             "moniteur": "Virginie"
+          }
+        ]
+      },
+      "LRE surpression": {
+        "nb_evaluations": 1,
+        "derniere_note": 1.0,
+        "moyenne_notes": 1.0,
+        "historique": [
+          {
+            "date": "2026-11-24",
+            "note": 1.0,
+            "moniteur": "Véronique"
+          }
+        ]
+      },
+      "Poumon Ballast": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-11-24",
+            "note": 3.0,
+            "moniteur": "Véronique"
+          }
+        ]
+      },
+      "Saut droit": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-11-24",
+            "note": 3.0,
+            "moniteur": "Véronique"
+          }
+        ]
+      },
+      "VDM": {
+        "nb_evaluations": 1,
+        "derniere_note": 3.0,
+        "moyenne_notes": 3.0,
+        "historique": [
+          {
+            "date": "2026-11-24",
+            "note": 3.0,
+            "moniteur": "Véronique"
           }
         ]
       }
@@ -3816,6 +3885,62 @@
         "atelier": "Gréage",
         "commentaire": "Nous n'avons pas eu le temps de nous immerger. Gestion du gilet à revoir/consolider + REC expliquée en bord de bassin.",
         "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Véronique",
+        "atelier": "Sortie de l'eau",
+        "commentaire": "Selon moi, il faut vraiment individualiser les difficultés. Trop de charge mentale nuit à sa sérénité.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Véronique",
+        "atelier": "LRE surpression",
+        "commentaire": "Selon moi, il faut vraiment individualiser les difficultés. Trop de charge mentale nuit à sa sérénité.",
+        "commentaire_atelier": "Compliqué et angoissant malgré l'envie de le faire. Elle a bu la tasse. A refaire au bord du bassin. Ce n'est pas un problème technique !"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Véronique",
+        "atelier": "Poumon Ballast",
+        "commentaire": "Selon moi, il faut vraiment individualiser les difficultés. Trop de charge mentale nuit à sa sérénité.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Véronique",
+        "atelier": "Gréage",
+        "commentaire": "Selon moi, il faut vraiment individualiser les difficultés. Trop de charge mentale nuit à sa sérénité.",
+        "commentaire_atelier": "Encore hésitant avec des oublis."
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Véronique",
+        "atelier": "Saut droit",
+        "commentaire": "Selon moi, il faut vraiment individualiser les difficultés. Trop de charge mentale nuit à sa sérénité.",
+        "commentaire_atelier": "Toujours une petite impulsion après le pas. On a essayé sur l'escalier pour comprendre le rôle de la 2eme jambe. Peut-être à rappeler."
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Véronique",
+        "atelier": "Signes",
+        "commentaire": "Selon moi, il faut vraiment individualiser les difficultés. Trop de charge mentale nuit à sa sérénité.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Véronique",
+        "atelier": "Dégréage",
+        "commentaire": "Selon moi, il faut vraiment individualiser les difficultés. Trop de charge mentale nuit à sa sérénité.",
+        "commentaire_atelier": "Idem, besoin de réflexion pour ne rien oublier. Pas d'automatismes et pas forcément de logique ( enlever la stab sans enlever le détendeur)"
+      },
+      {
+        "date": "2026-11-24",
+        "moniteur": "Véronique",
+        "atelier": "VDM",
+        "commentaire": "Selon moi, il faut vraiment individualiser les difficultés. Trop de charge mentale nuit à sa sérénité.",
+        "commentaire_atelier": "Son masque se remplit beaucoup involontairement. A besoin de réflexion pour réussir à le vider mais ça marche. Elle ne panique pas."
       }
     ]
   },
