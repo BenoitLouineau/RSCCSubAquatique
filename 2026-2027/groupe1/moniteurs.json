@@ -28,7 +28,7 @@
   {
     "id": "benoit-p",
     "nom": "Benoit P",
-    "nb_seances_animees": 7,
+    "nb_seances_animees": 8,
     "dates_seances": [
       "2026-09-29",
       "2026-10-06",
@@ -36,7 +36,8 @@
       "2026-10-27",
       "2026-11-03",
       "2026-11-10",
-      "2026-11-17"
+      "2026-11-17",
+      "2026-11-24"
     ],
     "nb_eleves_suivis": 10,
     "eleves_suivis": [
@@ -51,8 +52,8 @@
       "Nabiyu",
       "Patricia"
     ],
-    "nb_comptes_rendus": 95,
-    "nb_evaluations_notees": 95
+    "nb_comptes_rendus": 109,
+    "nb_evaluations_notees": 109
   },
   {
     "id": "carine",
