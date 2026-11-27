@@ -5688,5 +5688,145 @@
     "moniteur": "Véronique",
     "presence": "Présent",
     "statut": "Acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "360°",
+    "competence": "360°",
+    "date": "2026-11-24",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "Remonté expi controlée",
+    "competence": "Remonté expi controlée",
+    "date": "2026-11-24",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "Sortie de l'eau",
+    "competence": "Sortie de l'eau",
+    "date": "2026-11-24",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "Saut droit",
+    "competence": "Saut droit",
+    "date": "2026-11-24",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "Gestion de son matériel",
+    "competence": "Gestion de son matériel",
+    "date": "2026-11-24",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "Mise en sécu surface",
+    "competence": "Mise en sécu surface",
+    "date": "2026-11-24",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "Déplacements immersion",
+    "competence": "Déplacements immersion",
+    "date": "2026-11-24",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "En cours d'acquisition"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "Poumon Ballast",
+    "competence": "Poumon Ballast",
+    "date": "2026-11-24",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "LRE surpression",
+    "competence": "LRE surpression",
+    "date": "2026-11-24",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "LRE expiration",
+    "competence": "LRE expiration",
+    "date": "2026-11-24",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "VDM partiel",
+    "competence": "VDM partiel",
+    "date": "2026-11-24",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Non acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "Gréage",
+    "competence": "Gréage",
+    "date": "2026-11-24",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "Vitesse de remontée",
+    "competence": "Vitesse de remontée",
+    "date": "2026-11-24",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
+  },
+  {
+    "eleve": "Patricia",
+    "genre": "",
+    "categorie": "Dégréage",
+    "competence": "Dégréage",
+    "date": "2026-11-24",
+    "moniteur": "Benoit P",
+    "presence": "Présent",
+    "statut": "Acquis"
   }
 ]
