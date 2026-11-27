@@ -4409,6 +4409,132 @@
     ]
   },
   {
+    "id": "2026-11-24_benoit-p",
+    "date_seance": "2026-11-24",
+    "moniteur": "Benoit P",
+    "nb_eleves": 1,
+    "eleves": [
+      "Patricia"
+    ],
+    "ateliers_traites": [
+      "360°",
+      "Dégréage",
+      "Déplacements immersion",
+      "Gestion de son matériel",
+      "Gréage",
+      "LRE expiration",
+      "LRE surpression",
+      "Mise en sécu surface",
+      "Poumon Ballast",
+      "Remonté expi controlée",
+      "Saut droit",
+      "Sortie de l'eau",
+      "VDM partiel",
+      "Vitesse de remontée"
+    ],
+    "nb_comptes_rendus": 14,
+    "comptes_rendus": [
+      {
+        "eleve": "Patricia",
+        "atelier": "360°",
+        "note": 3.0,
+        "commentaire": "Elle avait la banane malgré une tasse sur le vdm.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Patricia",
+        "atelier": "Remonté expi controlée",
+        "note": 3.0,
+        "commentaire": "Elle avait la banane malgré une tasse sur le vdm.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Patricia",
+        "atelier": "Sortie de l'eau",
+        "note": 4.0,
+        "commentaire": "Elle avait la banane malgré une tasse sur le vdm.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Patricia",
+        "atelier": "Saut droit",
+        "note": 3.0,
+        "commentaire": "Elle avait la banane malgré une tasse sur le vdm.",
+        "commentaire_atelier": "Un peu de temps a me faire le ok a la fin, mais je lui avais dit de prendre le temps de vérifier qu'elle etait gonflée et a l'écoute l'aise avant le ok"
+      },
+      {
+        "eleve": "Patricia",
+        "atelier": "Gestion de son matériel",
+        "note": 4.0,
+        "commentaire": "Elle avait la banane malgré une tasse sur le vdm.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Patricia",
+        "atelier": "Mise en sécu surface",
+        "note": 3.0,
+        "commentaire": "Elle avait la banane malgré une tasse sur le vdm.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Patricia",
+        "atelier": "Déplacements immersion",
+        "note": 2.0,
+        "commentaire": "Elle avait la banane malgré une tasse sur le vdm.",
+        "commentaire_atelier": "Elle remonte, insisté sur l'expiration"
+      },
+      {
+        "eleve": "Patricia",
+        "atelier": "Poumon Ballast",
+        "note": 3.0,
+        "commentaire": "Elle avait la banane malgré une tasse sur le vdm.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Patricia",
+        "atelier": "LRE surpression",
+        "note": 3.0,
+        "commentaire": "Elle avait la banane malgré une tasse sur le vdm.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Patricia",
+        "atelier": "LRE expiration",
+        "note": 3.0,
+        "commentaire": "Elle avait la banane malgré une tasse sur le vdm.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Patricia",
+        "atelier": "VDM partiel",
+        "note": 1.0,
+        "commentaire": "Elle avait la banane malgré une tasse sur le vdm.",
+        "commentaire_atelier": "Échec, elle a bu de l'eau par le nez, elle etait partante au debut du cours pour mouillé le masque jusqu'au yeux si on réussissait le 1er mais on a lâcher l'affaire."
+      },
+      {
+        "eleve": "Patricia",
+        "atelier": "Gréage",
+        "note": 4.0,
+        "commentaire": "Elle avait la banane malgré une tasse sur le vdm.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Patricia",
+        "atelier": "Vitesse de remontée",
+        "note": 3.0,
+        "commentaire": "Elle avait la banane malgré une tasse sur le vdm.",
+        "commentaire_atelier": "Aucun commentaire"
+      },
+      {
+        "eleve": "Patricia",
+        "atelier": "Dégréage",
+        "note": 4.0,
+        "commentaire": "Elle avait la banane malgré une tasse sur le vdm.",
+        "commentaire_atelier": "Aucun commentaire"
+      }
+    ]
+  },
+  {
     "id": "2026-11-24_carine",
     "date_seance": "2026-11-24",
     "moniteur": "Carine",
