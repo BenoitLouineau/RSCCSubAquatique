@@ -1,11 +1,11 @@
 {
-  "date_generation": "2026-11-26T18:43:09",
+  "date_generation": "2026-11-27T19:28:10",
   "nb_eleves": 12,
   "nb_moniteurs": 10,
   "nb_seances": 8,
   "nb_soirees": 8,
-  "nb_encadrements": 45,
-  "nb_comptes_rendus": 569,
+  "nb_encadrements": 46,
+  "nb_comptes_rendus": 583,
   "nb_competences_referencees": 44,
   "nb_competences_frioul": 18,
   "groupes": [
@@ -103,8 +103,8 @@
   "acquisition_par_atelier": [
     {
       "atelier": "Gréage",
-      "nb_evaluations": 59,
-      "moyenne": 3.05,
+      "nb_evaluations": 60,
+      "moyenne": 3.07,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -112,8 +112,8 @@
     },
     {
       "atelier": "Dégréage",
-      "nb_evaluations": 51,
-      "moyenne": 3.25,
+      "nb_evaluations": 52,
+      "moyenne": 3.27,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -121,9 +121,18 @@
     },
     {
       "atelier": "VDM partiel",
-      "nb_evaluations": 41,
-      "moyenne": 3.02,
+      "nb_evaluations": 42,
+      "moyenne": 2.98,
       "note_min": 1.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "Gestion de son matériel",
+      "nb_evaluations": 36,
+      "moyenne": 3.14,
+      "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
@@ -138,18 +147,18 @@
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "Gestion de son matériel",
-      "nb_evaluations": 35,
-      "moyenne": 3.11,
-      "note_min": 2.0,
+      "atelier": "Déplacements immersion",
+      "nb_evaluations": 34,
+      "moyenne": 2.5,
+      "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
-      "compte_dans_moyenne": true
+      "compte_dans_moyenne": false
     },
     {
-      "atelier": "Déplacements immersion",
-      "nb_evaluations": 33,
-      "moyenne": 2.52,
+      "atelier": "Poumon Ballast",
+      "nb_evaluations": 29,
+      "moyenne": 2.79,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -174,13 +183,13 @@
       "compte_dans_moyenne": true
     },
     {
-      "atelier": "Poumon Ballast",
-      "nb_evaluations": 28,
-      "moyenne": 2.79,
+      "atelier": "Sortie de l'eau",
+      "nb_evaluations": 27,
+      "moyenne": 3.37,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
-      "compte_dans_moyenne": false
+      "compte_dans_moyenne": true
     },
     {
       "atelier": "Signes",
@@ -192,17 +201,8 @@
       "compte_dans_moyenne": true
     },
     {
-      "atelier": "Sortie de l'eau",
-      "nb_evaluations": 26,
-      "moyenne": 3.35,
-      "note_min": 1.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
       "atelier": "Mise en sécu surface",
-      "nb_evaluations": 24,
+      "nb_evaluations": 25,
       "moyenne": 2.96,
       "note_min": 2.0,
       "note_max": 4.0,
@@ -220,8 +220,8 @@
     },
     {
       "atelier": "360°",
-      "nb_evaluations": 21,
-      "moyenne": 2.71,
+      "nb_evaluations": 22,
+      "moyenne": 2.73,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -229,8 +229,8 @@
     },
     {
       "atelier": "Vitesse de remontée",
-      "nb_evaluations": 21,
-      "moyenne": 2.57,
+      "nb_evaluations": 22,
+      "moyenne": 2.59,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -238,8 +238,8 @@
     },
     {
       "atelier": "Remonté expi controlée",
-      "nb_evaluations": 16,
-      "moyenne": 2.75,
+      "nb_evaluations": 17,
+      "moyenne": 2.76,
       "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
@@ -247,9 +247,18 @@
     },
     {
       "atelier": "Saut droit",
-      "nb_evaluations": 15,
-      "moyenne": 3.33,
+      "nb_evaluations": 16,
+      "moyenne": 3.31,
       "note_min": 3.0,
+      "note_max": 4.0,
+      "notable": true,
+      "compte_dans_moyenne": true
+    },
+    {
+      "atelier": "LRE surpression",
+      "nb_evaluations": 12,
+      "moyenne": 3.08,
+      "note_min": 1.0,
       "note_max": 4.0,
       "notable": true,
       "compte_dans_moyenne": true
@@ -264,15 +273,6 @@
       "compte_dans_moyenne": false
     },
     {
-      "atelier": "LRE surpression",
-      "nb_evaluations": 11,
-      "moyenne": 3.09,
-      "note_min": 1.0,
-      "note_max": 4.0,
-      "notable": true,
-      "compte_dans_moyenne": true
-    },
-    {
       "atelier": "Palmage (nage)",
       "nb_evaluations": 11,
       "moyenne": 2.0,
@@ -283,8 +283,8 @@
     },
     {
       "atelier": "LRE expiration",
-      "nb_evaluations": 9,
-      "moyenne": 3.44,
+      "nb_evaluations": 10,
+      "moyenne": 3.4,
       "note_min": 2.0,
       "note_max": 4.0,
       "notable": true,
@@ -358,8 +358,8 @@
     },
     {
       "eleve": "Patricia",
-      "nb_ateliers_evalues": 19,
-      "moyenne_generale": 2.89
+      "nb_ateliers_evalues": 21,
+      "moyenne_generale": 3.0
     }
   ],
   "anomalies": {
@@ -395,7 +395,7 @@
       "DP": 2
     },
     "derniere_declaration": "2026-11-19T20:12:45",
-    "taux_retour_cr": 80,
+    "taux_retour_cr": 81,
     "par_moniteur": [
       {
         "moniteur": "Benoit L",
